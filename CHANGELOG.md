@@ -1,4 +1,9 @@
 
+### 6.8.2 rev63 (24 February 2026)
+
+* **BREAKING CHANGE:** Add initial support for `std::vector` and deprecate QBase/QDelete methods (#123)
+* **DEPRECATION NOTICE:** All `QBase`/`QDelete` methods have been deprecated with equivalent `Super`/`Delete` variants respectively
+
 ### 6.8.2 rev62 (22 February 2026)
 * **BREAKING CHANGES:**
   * Extend supported containers, fix some callback types, and improve container support (#122)
