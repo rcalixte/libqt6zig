@@ -1359,10 +1359,9 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			// Single char** argument
 			zfs.imports["std"] = struct{}{}
 
+			maybeErr := ifv(p.ParameterName == "argv", "err", "")
 			preamble += "const " + nameprefix + "_chararr = allocator.alloc([*c]" + ifv(p.Const, "const ", "") + "u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
-			if p.ParameterName != "argv" {
-				preamble += "defer allocator.free(" + nameprefix + "_chararr);\n"
-			}
+			preamble += maybeErr + "defer allocator.free(" + nameprefix + "_chararr);\n"
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |str, i| {\n"
 			preamble += "    " + nameprefix + "_chararr[i] = @ptrCast(str.ptr);\n"
 			preamble += "}\n"
@@ -2468,14 +2467,17 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @bitCast(@intFromPtr(callback)));\n}\n")
 
 				maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: ?*anyopaque")
-				qbaseDocComment := maybeNewLine + "/// Base class method implementation\n///\n" + maybeParamsLine
-				baseCallTarget := "qtc." + cmdStructName + "_QBase" + cSafeMethodName + "(" + forwarding + ")"
+				superDocComment := maybeNewLine + "/// Base class method implementation\n///\n" + maybeParamsLine
+				baseCallTarget := "qtc." + cmdStructName + "_Super" + cSafeMethodName + "(" + forwarding + ")"
 				basereturnFunc := zfs.emitCabiToZig("return ", m.ReturnType, baseCallTarget)
 
-				ret.WriteString(inheritedFrom + docCommentUrl + qbaseDocComment + selfParam +
+				ret.WriteString("\n/// ### DEPRECATED: Use `Super" + mSafeMethodName + "` instead\n///" +
+					"\n    pub const " + "QBase" + mSafeMethodName + " = Super" + mSafeMethodName + ";\n")
+
+				ret.WriteString(inheritedFrom + docCommentUrl + superDocComment + selfParam +
 					zfs.emitCommentParametersZig(m.Parameters, false) +
 					maybeAllocatorComment + returnComment + maybeFinalNewLine +
-					"\n    pub fn " + "QBase" + mSafeMethodName + "(" + maybeSelf + maybeComma +
+					"\n    pub fn " + "Super" + mSafeMethodName + "(" + maybeSelf + maybeComma +
 					zfs.emitParametersZig(m.Parameters, false) + allocComma + allocatorParam + ") " + returnTypeDecl + " {")
 
 				if m.FossOnly {
@@ -2591,11 +2593,14 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			headerComment = "/// Wrapper to allow calling base class virtual or protected method\n///" + maybeReturnWarning + "\n/// ## Parameter(s):\n///"
 
 			maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: ?*anyopaque")
-			returnFunc = zfs.emitCabiToZig("return ", m.ReturnType, "qtc."+cmdStructName+"_QBase"+cSafeMethodName+"("+forwarding+")")
+			returnFunc = zfs.emitCabiToZig("return ", m.ReturnType, "qtc."+cmdStructName+"_Super"+cSafeMethodName+"("+forwarding+")")
+
+			ret.WriteString("\n/// ### DEPRECATED: Use `Super" + mSafeMethodName + "` instead\n///\n" +
+				"\n    pub const QBase" + mSafeMethodName + " = Super" + mSafeMethodName + ";\n")
 
 			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n/// ` self: QtC." + zigStructName + " `" +
 				zfs.emitCommentParametersZig(m.Parameters, false) + maybeAllocatorComment + returnComment + "\n///" +
-				"\n    pub fn QBase" + mSafeMethodName + "(" + maybeSelf + commaParams + zfsParams + allocatorParam + ") " + returnTypeDecl + " {\n" +
+				"\n    pub fn Super" + mSafeMethodName + "(" + maybeSelf + commaParams + zfsParams + allocatorParam + ") " + returnTypeDecl + " {\n" +
 				preamble + returnFunc + "\n}\n")
 
 			if len(m.Parameters) > 0 {
@@ -2680,11 +2685,14 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				(strings.Contains(src.Filename, "signon-qt") && zigStructName[0] != 'Q')
 
 			pageUrl := zfs.getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
+			ret.WriteString("/// ### DEPRECATED: Use `Delete` instead\n///\n" +
+				"    pub const QDelete = Delete;\n\n")
+
 			ret.WriteString(ifv(pageUrl != "", pageUrl+"\n///\n", "\n") +
 				"/// Delete this object from C++ memory.\n///\n" +
 				"/// ## Parameter:\n///\n" +
 				"/// ` self: QtC." + zigStructName + " `\n///\n" +
-				"    pub fn QDelete(self: ?*anyopaque) void {\n" +
+				"    pub fn Delete(self: ?*anyopaque) void {\n" +
 				"qtc." + zigStructName + "_Delete(@ptrCast(self));\n}")
 		}
 		if footerNeeded {
