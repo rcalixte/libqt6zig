@@ -535,8 +535,11 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex // This whole class type has been blocked, not only as a parameter/return type
 	}
 
-	if strings.Contains(p.ParameterType, "(*)") || strings.Contains(p.ParameterType, "::*)(") { // Function pointer.
-		return ErrTooComplex // e.g. QAccessible_InstallFactory
+	if strings.Contains(p.ParameterType, "(*)") && !AllowFunctionParameter(p.ParameterType) { // Blocked function pointer parameters
+		return ErrTooComplex // e.g. QAccessible::installFactory, QSettings::registerFormat
+	}
+	if strings.Contains(p.ParameterType, "::*)(") { // Member function pointer
+		return ErrTooComplex // e.g. KConfigCompilerSignallingItem
 	}
 	if strings.Contains(p.ParameterType, "QJSValue") { // callback function pointer
 		return ErrTooComplex // e.g. QWebEngineFrame_RunJavaScript2
@@ -591,9 +594,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	}
 	if strings.HasPrefix(p.ParameterType, "QQmlListProperty<") {
 		return ErrTooComplex // e.g. Qt 6 QWebChannel qmlwebchannel.h, supporting this is required for QML
-	}
-	if strings.HasPrefix(p.ParameterType, "QWebEngineCallback<") {
-		return ErrTooComplex // Function pointer types in QtWebEngine
 	}
 	if strings.HasPrefix(p.ParameterType, "Result<") {
 		return ErrTooComplex // e.g. Qt 6 kpluginfactory.h . Template type
@@ -743,10 +743,8 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QXmlStreamEntityDeclarations",    // e.g. qxmlstream.h. The class definition was blacklisted for ???? reason so don't allow it as a parameter either
 		"QXmlStreamNamespaceDeclarations", // e.g. qxmlstream.h. As above
 		"QXmlStreamNotationDeclarations",  // e.g. qxmlstream.h. As above
-		"LineLayout::ValidLevel",          // ..
 		"void QMetaObject::Connection::",  // qobjectdefs.h operator void* overload
 		"QtMsgType",                       // e.g. qdebug.h TODO Defined in qlogging.h, but omitted because it's predefined in qglobal.h, and our clangexec is too aggressive
-		"QTextStreamFunction",             // e.g. qdebug.h
 		"QFactoryInterface",               // qfactoryinterface.h
 		"QTextEngine",                     // used by qtextlayout.h, also blocked in ImportHeaderForClass above
 		"QGeoMappingManager",              // Qt 6 Location, undocumented and broken
@@ -931,6 +929,28 @@ func AllowInheritedClass(className string) ([]string, bool) {
 	}
 
 	return nil, false
+}
+
+func AllowFunctionParameter(paramType string) bool {
+	// TODO support nested function pointer parameters
+	if !strings.HasSuffix(paramType, ")") {
+		// broken: callback within a callback
+		return false
+	}
+
+	if strings.Contains(paramType, "QString") || strings.Contains(paramType, "SettingsMap") {
+		return false
+	}
+
+	// blocked types
+	if strings.Contains(paramType, "QPluginMetaData") {
+		return false
+	}
+	if strings.HasPrefix(paramType, "GL(") || strings.Contains(paramType, " GL*") || strings.Contains(paramType, "GLsync") {
+		return false
+	}
+
+	return true
 }
 
 // FossCompatCheck checks if the parameter is incompatible between the
