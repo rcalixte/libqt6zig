@@ -479,6 +479,11 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		}
 	}
 
+	if isReturnType && p.IsFunctionPointer {
+		returnTypeDecl, _, _ := p.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
+		return "?*const fn (" + zfs.emitParametersZig(p.FunctionPointer.Parameters, true) + ") callconv(.c) " + returnTypeDecl
+	}
+
 	if p.needsPointer(ret) {
 		ret = "QtC." + ret
 	}
@@ -699,6 +704,10 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 			if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
 				paramType = ifv(p.PointerCount > 1, "*", "") + "?*" + ifv(p.Const, "const ", "") + "anyopaque"
 			}
+			if p.IsFunctionPointer {
+				returnTypeDecl, _, _ := p.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
+				paramType = "*const fn (" + zfs.emitCommentParametersZig(p.FunctionPointer.Parameters, true) + ") callconv(.c) " + returnTypeDecl
+			}
 			if isSlot {
 				if t, _, ok := p.QListOf(); ok && (t.ParameterType != "QString" && t.ParameterType != "QByteArray") {
 					paramType = "qtc.libqt_list (" + paramType + ")"
@@ -822,6 +831,10 @@ func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) s
 			if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
 				paramType = ifv(p.PointerCount > 1, "*", "") + "?*" + ifv(p.Const, "const ", "") + "anyopaque"
 			}
+			if p.IsFunctionPointer {
+				returnTypeDecl, _, _ := p.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
+				paramType = "*const fn (" + zfs.emitParametersZig(p.FunctionPointer.Parameters, true) + ") callconv(.c) " + returnTypeDecl
+			}
 			if isSlot {
 				if t, _, ok := p.QListOf(); ok && (t.ParameterType != "QString" && t.ParameterType != "QByteArray") {
 					paramType = "qtc.libqt_list"
@@ -940,6 +953,9 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 		secType := strings.Split(rt.ParameterType, "::")[2]
 		returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + rt.RenderTypeZig(zfs, true, true) + " of " + secType + " `"
 
+	} else if rt.IsFunctionPointer {
+		returnTypeDecl, _, _ := rt.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
+		returnComment = "\n///\n/// ## Returns:\n///\n/// ` ?*const fn (" + zfs.emitCommentParametersZig(rt.FunctionPointer.Parameters, true) + ") callconv(.c) " + returnTypeDecl + " `"
 	}
 
 	return returnComment
@@ -1393,6 +1409,9 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		} else {
 			rvalue = p.ParameterName
 		}
+
+	} else if p.IsFunctionPointer {
+		rvalue = "@bitCast(@intFromPtr(" + p.ParameterName + "))"
 
 	} else {
 		// Default
@@ -1876,6 +1895,9 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		}
 
 		return shouldReturn + " " + rvalue + ";\n" + afterword
+
+	} else if rt.IsFunctionPointer {
+		return shouldReturn + "@ptrFromInt(@as(usize,@bitCast(" + rvalue + ")));\n" + afterword
 
 	} else if rt.QtClassType() {
 		// Construct our Zig type based on this inner C ABI type
@@ -2685,7 +2707,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				(strings.Contains(src.Filename, "signon-qt") && zigStructName[0] != 'Q')
 
 			pageUrl := zfs.getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
-			ret.WriteString("/// ### DEPRECATED: Use `Delete` instead\n///\n" +
+			ret.WriteString("\n/// ### DEPRECATED: Use `Delete` instead\n///\n" +
 				"    pub const QDelete = Delete;\n\n")
 
 			ret.WriteString(ifv(pageUrl != "", pageUrl+"\n///\n", "\n") +
