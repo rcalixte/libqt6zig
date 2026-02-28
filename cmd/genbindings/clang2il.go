@@ -758,6 +758,20 @@ nextMethod:
 						continue // Skip broken types for now
 					}
 
+					if strings.HasPrefix(ret.ClassName, "QOpenGL") && strings.Contains(ret.ClassName, "Deprecated") && fieldName == "AreTexturesResident" {
+						// Qt 6: deprecated function with a calling convention limitation
+						continue
+					}
+
+					if strings.HasPrefix(ret.ClassName, "QOpenGL") && strings.HasSuffix(ret.ClassName, "Functions") &&
+						(fieldName == "CreateShaderProgramv" || fieldName == "GetAttribLocation" || fieldName == "GetFragDataLocation" ||
+							fieldName == "GetFragDataIndex" || fieldName == "GetProgramResourceIndex" || fieldName == "GetProgramResourceLocation" ||
+							fieldName == "GetProgramResourceLocationIndex" || fieldName == "GetString" || fieldName == "GetStringi" || fieldName == "GetSubroutineIndex" ||
+							fieldName == "GetSubroutineUniformLocation" || fieldName == "GetUniformBlockIndex" || fieldName == "GetUniformLocation") {
+						// Qt 6: current calling convention limitations
+						continue
+					}
+
 					if strings.HasSuffix(qualType, "const") {
 						// Skip setters for const types
 						skipSetter = true
@@ -765,6 +779,11 @@ nextMethod:
 
 					if _, ok := KnownEnums[fieldType.ParameterType]; ok {
 						fieldType.ParameterType = resolveEnumType(fieldType.ParameterType, ret.ClassName, "Qt")
+					}
+
+					if fieldType.IsFunctionPointer {
+						fieldType.ParameterType = qualType
+						fieldType.ParameterName = strings.ToLower(fieldName[:1]) + fieldName[1:]
 					}
 				}
 			}
@@ -1274,7 +1293,9 @@ func parseSingleTypeString(p, className string) CppParameter {
 
 	var isSigned bool
 	tokens := tokenizeSingleParameter(p)
-	insert := CppParameter{}
+	insert := CppParameter{
+		IsFunctionPointer: strings.Contains(p, "(*)"),
+	}
 
 	for _, tok := range tokens {
 
