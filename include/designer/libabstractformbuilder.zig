@@ -631,6 +631,7 @@ pub const qabstractformbuilder = struct {
     pub fn SuperToolBarAreaMetaEnum(self: ?*anyopaque) QtC.QMetaEnum {
         return qtc.QAbstractFormBuilder_SuperToolBarAreaMetaEnum(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

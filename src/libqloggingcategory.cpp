@@ -46,6 +46,11 @@ QLoggingCategory* QLoggingCategory_DefaultCategory() {
     return QLoggingCategory::defaultCategory();
 }
 
+intptr_t QLoggingCategory_InstallFilter(intptr_t param1) {
+    auto param1_func = reinterpret_cast<QLoggingCategory::CategoryFilter>(param1);
+    return reinterpret_cast<intptr_t>(QLoggingCategory::installFilter(param1_func));
+}
+
 void QLoggingCategory_SetFilterRules(const libqt_string rules) {
     QString rules_QString = QString::fromUtf8(rules.data, rules.len);
     QLoggingCategory::setFilterRules(rules_QString);

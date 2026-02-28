@@ -244,6 +244,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
         };
         return qtc.QDesignerDynamicPropertySheetExtension_SuperCanAddDynamicProperty(@ptrCast(self), propertyName_str);
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

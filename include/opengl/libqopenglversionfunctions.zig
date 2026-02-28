@@ -1027,6 +1027,696 @@ pub const qopenglfunctions_4_5_deprecatedbackend = struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-corebackend-functions.html)
+pub const qopenglfunctions_1_0_corebackend__functions = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-corebackend-functions.html#IsEnabled-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_0_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsEnabled(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_0_CoreBackend__Functions_IsEnabled(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-corebackend-functions.html#IsEnabled-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_0_CoreBackend__Functions `
+    ///
+    /// ` isEnabled: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsEnabled(self: ?*anyopaque, isEnabled: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_0_CoreBackend__Functions_SetIsEnabled(@ptrCast(self), @bitCast(@intFromPtr(isEnabled)));
+    }
+
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_0_CoreBackend__Functions `
+    ///
+    pub fn Delete(self: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_1_0_CoreBackend__Functions_Delete(@ptrCast(self));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-1-corebackend-functions.html)
+pub const qopenglfunctions_1_1_corebackend__functions = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-1-corebackend-functions.html#IsTexture-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_1_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsTexture(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_1_CoreBackend__Functions_IsTexture(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-1-corebackend-functions.html#IsTexture-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_1_CoreBackend__Functions `
+    ///
+    /// ` isTexture: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsTexture(self: ?*anyopaque, isTexture: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_1_CoreBackend__Functions_SetIsTexture(@ptrCast(self), @bitCast(@intFromPtr(isTexture)));
+    }
+
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_1_CoreBackend__Functions `
+    ///
+    pub fn Delete(self: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_1_1_CoreBackend__Functions_Delete(@ptrCast(self));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html)
+pub const qopenglfunctions_1_5_corebackend__functions = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#UnmapBuffer-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_5_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn UnmapBuffer(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_UnmapBuffer(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#UnmapBuffer-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_5_CoreBackend__Functions `
+    ///
+    /// ` unmapBuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetUnmapBuffer(self: ?*anyopaque, unmapBuffer: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_SetUnmapBuffer(@ptrCast(self), @bitCast(@intFromPtr(unmapBuffer)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#IsBuffer-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_5_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsBuffer(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_IsBuffer(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#IsBuffer-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_5_CoreBackend__Functions `
+    ///
+    /// ` isBuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsBuffer(self: ?*anyopaque, isBuffer: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_SetIsBuffer(@ptrCast(self), @bitCast(@intFromPtr(isBuffer)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#IsQuery-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_5_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsQuery(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_IsQuery(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#IsQuery-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_5_CoreBackend__Functions `
+    ///
+    /// ` isQuery: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsQuery(self: ?*anyopaque, isQuery: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_SetIsQuery(@ptrCast(self), @bitCast(@intFromPtr(isQuery)));
+    }
+
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_5_CoreBackend__Functions `
+    ///
+    pub fn Delete(self: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_Delete(@ptrCast(self));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html)
+pub const qopenglfunctions_2_0_corebackend__functions = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#IsShader-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_0_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsShader(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_IsShader(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#IsShader-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_0_CoreBackend__Functions `
+    ///
+    /// ` isShader: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsShader(self: ?*anyopaque, isShader: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetIsShader(@ptrCast(self), @bitCast(@intFromPtr(isShader)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#IsProgram-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_0_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsProgram(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_IsProgram(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#IsProgram-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_0_CoreBackend__Functions `
+    ///
+    /// ` isProgram: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsProgram(self: ?*anyopaque, isProgram: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetIsProgram(@ptrCast(self), @bitCast(@intFromPtr(isProgram)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#CreateShader-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_0_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u32 `
+    ///
+    pub fn CreateShader(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u32 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_CreateShader(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#CreateShader-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_0_CoreBackend__Functions `
+    ///
+    /// ` createShader: *const fn (funcparam1: u32) callconv(.c) u32 `
+    ///
+    pub fn SetCreateShader(self: ?*anyopaque, createShader: *const fn (u32) callconv(.c) u32) void {
+        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetCreateShader(@ptrCast(self), @bitCast(@intFromPtr(createShader)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#CreateProgram-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_0_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn () callconv(.c) u32 `
+    ///
+    pub fn CreateProgram(self: ?*anyopaque) ?*const fn () callconv(.c) u32 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_CreateProgram(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#CreateProgram-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_0_CoreBackend__Functions `
+    ///
+    /// ` createProgram: *const fn () callconv(.c) u32 `
+    ///
+    pub fn SetCreateProgram(self: ?*anyopaque, createProgram: *const fn () callconv(.c) u32) void {
+        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetCreateProgram(@ptrCast(self), @bitCast(@intFromPtr(createProgram)));
+    }
+
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_0_CoreBackend__Functions `
+    ///
+    pub fn Delete(self: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_Delete(@ptrCast(self));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html)
+pub const qopenglfunctions_3_0_corebackend__functions = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsVertexArray-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsVertexArray(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_IsVertexArray(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsVertexArray-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0_CoreBackend__Functions `
+    ///
+    /// ` isVertexArray: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsVertexArray(self: ?*anyopaque, isVertexArray: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsVertexArray(@ptrCast(self), @bitCast(@intFromPtr(isVertexArray)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsFramebuffer-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsFramebuffer(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_IsFramebuffer(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsFramebuffer-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0_CoreBackend__Functions `
+    ///
+    /// ` isFramebuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsFramebuffer(self: ?*anyopaque, isFramebuffer: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsFramebuffer(@ptrCast(self), @bitCast(@intFromPtr(isFramebuffer)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsRenderbuffer-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsRenderbuffer(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_IsRenderbuffer(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsRenderbuffer-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0_CoreBackend__Functions `
+    ///
+    /// ` isRenderbuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsRenderbuffer(self: ?*anyopaque, isRenderbuffer: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsRenderbuffer(@ptrCast(self), @bitCast(@intFromPtr(isRenderbuffer)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsEnabledi-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32, funcparam2: u32) callconv(.c) u8 `
+    ///
+    pub fn IsEnabledi(self: ?*anyopaque) ?*const fn (u32, u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_IsEnabledi(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsEnabledi-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0_CoreBackend__Functions `
+    ///
+    /// ` isEnabledi: *const fn (funcparam1: u32, funcparam2: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsEnabledi(self: ?*anyopaque, isEnabledi: *const fn (u32, u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsEnabledi(@ptrCast(self), @bitCast(@intFromPtr(isEnabledi)));
+    }
+
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0_CoreBackend__Functions `
+    ///
+    pub fn Delete(self: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_Delete(@ptrCast(self));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-3-corebackend-functions.html)
+pub const qopenglfunctions_3_3_corebackend__functions = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-3-corebackend-functions.html#IsSampler-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_3_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsSampler(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_3_3_CoreBackend__Functions_IsSampler(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-3-corebackend-functions.html#IsSampler-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_3_CoreBackend__Functions `
+    ///
+    /// ` isSampler: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsSampler(self: ?*anyopaque, isSampler: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_3_3_CoreBackend__Functions_SetIsSampler(@ptrCast(self), @bitCast(@intFromPtr(isSampler)));
+    }
+
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_3_CoreBackend__Functions `
+    ///
+    pub fn Delete(self: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_3_3_CoreBackend__Functions_Delete(@ptrCast(self));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-0-corebackend-functions.html)
+pub const qopenglfunctions_4_0_corebackend__functions = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-0-corebackend-functions.html#IsTransformFeedback-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_0_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsTransformFeedback(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_4_0_CoreBackend__Functions_IsTransformFeedback(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-0-corebackend-functions.html#IsTransformFeedback-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_0_CoreBackend__Functions `
+    ///
+    /// ` isTransformFeedback: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsTransformFeedback(self: ?*anyopaque, isTransformFeedback: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_4_0_CoreBackend__Functions_SetIsTransformFeedback(@ptrCast(self), @bitCast(@intFromPtr(isTransformFeedback)));
+    }
+
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_0_CoreBackend__Functions `
+    ///
+    pub fn Delete(self: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_4_0_CoreBackend__Functions_Delete(@ptrCast(self));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-corebackend-functions.html)
+pub const qopenglfunctions_4_1_corebackend__functions = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-corebackend-functions.html#IsProgramPipeline-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_1_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsProgramPipeline(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_4_1_CoreBackend__Functions_IsProgramPipeline(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-corebackend-functions.html#IsProgramPipeline-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_1_CoreBackend__Functions `
+    ///
+    /// ` isProgramPipeline: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsProgramPipeline(self: ?*anyopaque, isProgramPipeline: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_4_1_CoreBackend__Functions_SetIsProgramPipeline(@ptrCast(self), @bitCast(@intFromPtr(isProgramPipeline)));
+    }
+
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_1_CoreBackend__Functions `
+    ///
+    pub fn Delete(self: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_4_1_CoreBackend__Functions_Delete(@ptrCast(self));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-corebackend-functions.html)
+pub const qopenglfunctions_4_5_corebackend__functions = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-corebackend-functions.html#UnmapNamedBuffer-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_5_CoreBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn UnmapNamedBuffer(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_4_5_CoreBackend__Functions_UnmapNamedBuffer(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-corebackend-functions.html#UnmapNamedBuffer-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_5_CoreBackend__Functions `
+    ///
+    /// ` unmapNamedBuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetUnmapNamedBuffer(self: ?*anyopaque, unmapNamedBuffer: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_4_5_CoreBackend__Functions_SetUnmapNamedBuffer(@ptrCast(self), @bitCast(@intFromPtr(unmapNamedBuffer)));
+    }
+
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_5_CoreBackend__Functions `
+    ///
+    pub fn Delete(self: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_4_5_CoreBackend__Functions_Delete(@ptrCast(self));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html)
+pub const qopenglfunctions_1_0_deprecatedbackend__functions = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#IsList-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn IsList(self: ?*anyopaque) ?*const fn (u32) callconv(.c) u8 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_IsList(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#IsList-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
+    ///
+    /// ` isList: *const fn (funcparam1: u32) callconv(.c) u8 `
+    ///
+    pub fn SetIsList(self: ?*anyopaque, isList: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetIsList(@ptrCast(self), @bitCast(@intFromPtr(isList)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#RenderMode-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: u32) callconv(.c) i32 `
+    ///
+    pub fn RenderMode(self: ?*anyopaque) ?*const fn (u32) callconv(.c) i32 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_RenderMode(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#RenderMode-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
+    ///
+    /// ` renderMode: *const fn (funcparam1: u32) callconv(.c) i32 `
+    ///
+    pub fn SetRenderMode(self: ?*anyopaque, renderMode: *const fn (u32) callconv(.c) i32) void {
+        qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetRenderMode(@ptrCast(self), @bitCast(@intFromPtr(renderMode)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#GenLists-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: i32) callconv(.c) u32 `
+    ///
+    pub fn GenLists(self: ?*anyopaque) ?*const fn (i32) callconv(.c) u32 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_GenLists(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#GenLists-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
+    ///
+    /// ` genLists: *const fn (funcparam1: i32) callconv(.c) u32 `
+    ///
+    pub fn SetGenLists(self: ?*anyopaque, genLists: *const fn (i32) callconv(.c) u32) void {
+        qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetGenLists(@ptrCast(self), @bitCast(@intFromPtr(genLists)));
+    }
+
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
+    ///
+    pub fn Delete(self: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_Delete(@ptrCast(self));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctions.html#public-types)
 pub const enums = struct {
     pub const OpenGLStatus = enum(i32) {

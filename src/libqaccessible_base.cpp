@@ -26,6 +26,16 @@ void QAccessible_MoveAssign(QAccessible* self, QAccessible* other) {
     *self = std::move(*other);
 }
 
+intptr_t QAccessible_InstallUpdateHandler(intptr_t param1) {
+    auto param1_func = reinterpret_cast<QAccessible::UpdateHandler>(param1);
+    return reinterpret_cast<intptr_t>(QAccessible::installUpdateHandler(param1_func));
+}
+
+intptr_t QAccessible_InstallRootObjectHandler(intptr_t param1) {
+    auto param1_func = reinterpret_cast<QAccessible::RootObjectHandler>(param1);
+    return reinterpret_cast<intptr_t>(QAccessible::installRootObjectHandler(param1_func));
+}
+
 void QAccessible_InstallActivationObserver(QAccessible__ActivationObserver* param1) {
     QAccessible::installActivationObserver(param1);
 }

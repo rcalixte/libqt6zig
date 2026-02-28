@@ -71,6 +71,7 @@ pub const ktexteditor__texthintprovider = struct {
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

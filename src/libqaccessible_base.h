@@ -46,6 +46,8 @@ QAccessible* QAccessible_new(const QAccessible* other);
 QAccessible* QAccessible_new2(QAccessible* other);
 void QAccessible_CopyAssign(QAccessible* self, QAccessible* other);
 void QAccessible_MoveAssign(QAccessible* self, QAccessible* other);
+intptr_t QAccessible_InstallUpdateHandler(intptr_t param1);
+intptr_t QAccessible_InstallRootObjectHandler(intptr_t param1);
 void QAccessible_InstallActivationObserver(QAccessible__ActivationObserver* param1);
 void QAccessible_RemoveActivationObserver(QAccessible__ActivationObserver* param1);
 QAccessibleInterface* QAccessible_QueryAccessibleInterface(QObject* param1);

@@ -79,6 +79,7 @@ QStyleHints* QGuiApplication_StyleHints();
 void QGuiApplication_SetDesktopSettingsAware(bool on);
 bool QGuiApplication_DesktopSettingsAware();
 QInputMethod* QGuiApplication_InputMethod();
+intptr_t QGuiApplication_PlatformFunction(const libqt_string function);
 void QGuiApplication_SetQuitOnLastWindowClosed(bool quit);
 bool QGuiApplication_QuitOnLastWindowClosed();
 int QGuiApplication_ApplicationState();

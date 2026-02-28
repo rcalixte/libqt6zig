@@ -2038,6 +2038,7 @@ pub const qaccessibleevent = struct {
     pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleEvent_SuperAccessibleInterface(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -2204,6 +2205,7 @@ pub const qaccessiblestatechangeevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleStateChangeEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -2382,6 +2384,7 @@ pub const qaccessibletextcursorevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTextCursorEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -2602,6 +2605,7 @@ pub const qaccessibletextselectionevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTextSelectionEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -2824,6 +2828,7 @@ pub const qaccessibletextinsertevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTextInsertEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -3046,6 +3051,7 @@ pub const qaccessibletextremoveevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTextRemoveEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -3296,6 +3302,7 @@ pub const qaccessibletextupdateevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTextUpdateEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -3474,6 +3481,7 @@ pub const qaccessiblevaluechangeevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleValueChangeEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -3744,6 +3752,7 @@ pub const qaccessibletablemodelchangeevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTableModelChangeEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -3952,6 +3961,7 @@ pub const qaccessibleannouncementevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleAnnouncementEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

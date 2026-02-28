@@ -4071,6 +4071,7 @@ pub const qopenglfunctions_3_1 = struct {
     pub fn OnOwningContext(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QOpenGLContext) void {
         qtc.QOpenGLFunctions_3_1_OnOwningContext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

@@ -154,18 +154,178 @@ pub const qimage = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` data: *u8 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` format: qimage_enums.Format `
+    ///
+    /// ` cleanupFunction: *const fn (funcparam1: ?*anyopaque) callconv(.c) void `
+    ///
+    pub fn New11(data: *u8, width: i32, height: i32, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void) QtC.QImage {
+        return qtc.QImage_new11(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)));
+    }
+
+    /// New12 constructs a new QImage object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` data: *u8 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` format: qimage_enums.Format `
+    ///
+    /// ` cleanupFunction: *const fn (funcparam1: ?*anyopaque) callconv(.c) void `
+    ///
+    /// ` cleanupInfo: ?*anyopaque `
+    ///
+    pub fn New12(data: *u8, width: i32, height: i32, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void, cleanupInfo: ?*anyopaque) QtC.QImage {
+        return qtc.QImage_new12(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)), @ptrCast(cleanupInfo));
+    }
+
+    /// New13 constructs a new QImage object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` data: *const u8 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` format: qimage_enums.Format `
+    ///
+    /// ` cleanupFunction: *const fn (funcparam1: ?*anyopaque) callconv(.c) void `
+    ///
+    pub fn New13(data: *const u8, width: i32, height: i32, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void) QtC.QImage {
+        return qtc.QImage_new13(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)));
+    }
+
+    /// New14 constructs a new QImage object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` data: *const u8 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` format: qimage_enums.Format `
+    ///
+    /// ` cleanupFunction: *const fn (funcparam1: ?*anyopaque) callconv(.c) void `
+    ///
+    /// ` cleanupInfo: ?*anyopaque `
+    ///
+    pub fn New14(data: *const u8, width: i32, height: i32, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void, cleanupInfo: ?*anyopaque) QtC.QImage {
+        return qtc.QImage_new14(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)), @ptrCast(cleanupInfo));
+    }
+
+    /// New15 constructs a new QImage object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` data: *u8 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` bytesPerLine: i64 `
+    ///
+    /// ` format: qimage_enums.Format `
+    ///
+    /// ` cleanupFunction: *const fn (funcparam1: ?*anyopaque) callconv(.c) void `
+    ///
+    pub fn New15(data: *u8, width: i32, height: i32, bytesPerLine: i64, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void) QtC.QImage {
+        return qtc.QImage_new15(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(bytesPerLine), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)));
+    }
+
+    /// New16 constructs a new QImage object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` data: *u8 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` bytesPerLine: i64 `
+    ///
+    /// ` format: qimage_enums.Format `
+    ///
+    /// ` cleanupFunction: *const fn (funcparam1: ?*anyopaque) callconv(.c) void `
+    ///
+    /// ` cleanupInfo: ?*anyopaque `
+    ///
+    pub fn New16(data: *u8, width: i32, height: i32, bytesPerLine: i64, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void, cleanupInfo: ?*anyopaque) QtC.QImage {
+        return qtc.QImage_new16(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(bytesPerLine), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)), @ptrCast(cleanupInfo));
+    }
+
+    /// New17 constructs a new QImage object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` data: *const u8 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` bytesPerLine: i64 `
+    ///
+    /// ` format: qimage_enums.Format `
+    ///
+    /// ` cleanupFunction: *const fn (funcparam1: ?*anyopaque) callconv(.c) void `
+    ///
+    pub fn New17(data: *const u8, width: i32, height: i32, bytesPerLine: i64, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void) QtC.QImage {
+        return qtc.QImage_new17(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(bytesPerLine), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)));
+    }
+
+    /// New18 constructs a new QImage object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` data: *const u8 `
+    ///
+    /// ` width: i32 `
+    ///
+    /// ` height: i32 `
+    ///
+    /// ` bytesPerLine: i64 `
+    ///
+    /// ` format: qimage_enums.Format `
+    ///
+    /// ` cleanupFunction: *const fn (funcparam1: ?*anyopaque) callconv(.c) void `
+    ///
+    /// ` cleanupInfo: ?*anyopaque `
+    ///
+    pub fn New18(data: *const u8, width: i32, height: i32, bytesPerLine: i64, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void, cleanupInfo: ?*anyopaque) QtC.QImage {
+        return qtc.QImage_new18(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(bytesPerLine), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)), @ptrCast(cleanupInfo));
+    }
+
+    /// New19 constructs a new QImage object.
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` fileName: []const u8 `
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn New11(fileName: []const u8, format: [:0]const u8) QtC.QImage {
+    pub fn New19(fileName: []const u8, format: [:0]const u8) QtC.QImage {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         const format_Cstring = format.ptr;
 
-        return qtc.QImage_new11(fileName_str, format_Cstring);
+        return qtc.QImage_new19(fileName_str, format_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#operator-eq)
@@ -2885,6 +3045,7 @@ pub const qimage = struct {
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QImage_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

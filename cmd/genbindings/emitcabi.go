@@ -104,6 +104,9 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 
 		return returnType + cppComment("tuple of "+strings.TrimSpace(inner1.RenderTypeCabi(false))+" and "+strings.TrimSpace(inner2.RenderTypeCabi(false)))
 
+	} else if p.IsFunctionPointer {
+		return "intptr_t"
+
 	} else if (p.Pointer || p.ByRef) && p.QtClassType() {
 		maybeSecondPointer := ifv(p.ByRef && p.Pointer, "*", "")
 		if p.PointerCount > 1 {
@@ -265,7 +268,7 @@ func emitParametersCabi(m CppMethod, selfType string) string {
 
 	for _, p := range m.Parameters {
 		pType := p.RenderTypeCabi(false)
-		maybeConst := ifv(p.Const && !strings.HasPrefix(pType, "const "), "const ", "")
+		maybeConst := ifv(!p.IsFunctionPointer && p.Const && !strings.HasPrefix(pType, "const "), "const ", "")
 		tmp = append(tmp, maybeConst+pType+" "+p.ParameterName)
 	}
 
@@ -567,6 +570,15 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 
 	} else if p.UniquePtr {
 		return preamble, "std::unique_ptr<" + p.ParameterType + ">(" + p.ParameterName + ")"
+
+	} else if p.IsFunctionPointer {
+		pType := ifv(p.QtCppOriginalType != nil, p.QtCppOriginalType.ParameterType, p.ParameterType)
+		if strings.Contains(pType, "(*)") {
+			pType = ifv(p.Const, "const ", "") + strings.Replace(pType, "(*)", "*(*)", max(p.PointerCount-1, 0))
+		}
+
+		preamble += "auto " + p.ParameterName + "_func = reinterpret_cast<" + pType + ">(" + p.ParameterName + ");\n"
+		return preamble, p.ParameterName + "_func"
 
 	} else if p.ByRef {
 		if p.Pointer {
@@ -954,6 +966,9 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 	} else if p.UniquePtr {
 		shouldReturn += rvalue + ".release();\n"
 		return indent + shouldReturn, cleanupType
+
+	} else if p.IsFunctionPointer {
+		return indent + shouldReturn + "reinterpret_cast<intptr_t>(" + rvalue + ");\n" + afterCall, cleanupType
 
 	} else if p.QtClassType() && p.ByRef {
 

@@ -487,6 +487,7 @@ pub const kbookmarkowner = struct {
     pub fn SuperOpenInNewWindow(self: ?*anyopaque, bm: ?*anyopaque) void {
         qtc.KBookmarkOwner_SuperOpenInNewWindow(@ptrCast(self), @ptrCast(bm));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

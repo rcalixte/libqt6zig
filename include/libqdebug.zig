@@ -424,6 +424,18 @@ pub const qdebug = struct {
         return qtc.QDebug_OperatorShiftLeft25(@ptrCast(self), @ptrCast(t));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDebug `
+    ///
+    /// ` f: *const fn (funcparam1: QtC.QTextStream) callconv(.c) QtC.QTextStream `
+    ///
+    pub fn OperatorShiftLeft28(self: ?*anyopaque, f: *const fn (?*anyopaque) callconv(.c) QtC.QTextStream) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft28(@ptrCast(self), @bitCast(@intFromPtr(f)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#maybeQuote)
     ///
     /// ## Parameter(s):
@@ -526,6 +538,18 @@ pub const qnodebug = struct {
     ///
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QNoDebug_MoveAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#operator-lt-lt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNoDebug `
+    ///
+    /// ` param1: *const fn (funcparam1: QtC.QTextStream) callconv(.c) QtC.QTextStream `
+    ///
+    pub fn OperatorShiftLeft(self: ?*anyopaque, param1: *const fn (?*anyopaque) callconv(.c) QtC.QTextStream) QtC.QNoDebug {
+        return qtc.QNoDebug_OperatorShiftLeft(@ptrCast(self), @bitCast(@intFromPtr(param1)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#space)

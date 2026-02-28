@@ -396,6 +396,7 @@ pub const qdesignercontainerextension = struct {
     pub fn SuperRemove(self: ?*anyopaque, index: i32) void {
         qtc.QDesignerContainerExtension_SuperRemove(@ptrCast(self), @bitCast(index));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

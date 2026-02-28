@@ -288,6 +288,7 @@ pub const ktexteditor__movingrangefeedback = struct {
     pub fn SuperCaretExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__MovingRangeFeedback_SuperCaretExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

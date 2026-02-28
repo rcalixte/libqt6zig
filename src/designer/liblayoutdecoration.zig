@@ -697,6 +697,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     pub fn SuperAdjustIndicator(self: ?*anyopaque, pos: ?*anyopaque, index: i32) void {
         qtc.QDesignerLayoutDecorationExtension_SuperAdjustIndicator(@ptrCast(self), @ptrCast(pos), @bitCast(index));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

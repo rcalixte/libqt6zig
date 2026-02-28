@@ -35,6 +35,8 @@ void QEasingCurve_AddTCBSegment(QEasingCurve* self, const QPointF* nextPoint, do
 libqt_list /* of QPointF* */ QEasingCurve_ToCubicSpline(const QEasingCurve* self);
 int QEasingCurve_Type(const QEasingCurve* self);
 void QEasingCurve_SetType(QEasingCurve* self, int typeVal);
+void QEasingCurve_SetCustomType(QEasingCurve* self, intptr_t func);
+intptr_t QEasingCurve_CustomType(const QEasingCurve* self);
 double QEasingCurve_ValueForProgress(const QEasingCurve* self, double progress);
 void QEasingCurve_Delete(QEasingCurve* self);
 

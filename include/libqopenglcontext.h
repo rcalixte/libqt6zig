@@ -55,6 +55,8 @@ uint32_t QOpenGLContext_DefaultFramebufferObject(const QOpenGLContext* self);
 bool QOpenGLContext_MakeCurrent(QOpenGLContext* self, QSurface* surface);
 void QOpenGLContext_DoneCurrent(QOpenGLContext* self);
 void QOpenGLContext_SwapBuffers(QOpenGLContext* self, QSurface* surface);
+intptr_t QOpenGLContext_GetProcAddress(const QOpenGLContext* self, const libqt_string procName);
+intptr_t QOpenGLContext_GetProcAddress2(const QOpenGLContext* self, const char* procName);
 QSurface* QOpenGLContext_Surface(const QOpenGLContext* self);
 QOpenGLContext* QOpenGLContext_CurrentContext();
 bool QOpenGLContext_AreSharing(QOpenGLContext* first, QOpenGLContext* second);

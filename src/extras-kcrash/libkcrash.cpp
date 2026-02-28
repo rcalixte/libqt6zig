@@ -16,6 +16,24 @@ void KCrash_DefaultCrashHandler(int param1) {
     KCrash::defaultCrashHandler(static_cast<int>(param1));
 }
 
+void KCrash_SetCrashHandler(intptr_t param1) {
+    auto param1_func = reinterpret_cast<KCrash::HandlerType>(param1);
+    KCrash::setCrashHandler(param1_func);
+}
+
+intptr_t KCrash_CrashHandler() {
+    return reinterpret_cast<intptr_t>(KCrash::crashHandler());
+}
+
+void KCrash_SetEmergencySaveFunction(intptr_t param1) {
+    auto param1_func = reinterpret_cast<KCrash::HandlerType>(param1);
+    KCrash::setEmergencySaveFunction(param1_func);
+}
+
+intptr_t KCrash_EmergencySaveFunction() {
+    return reinterpret_cast<intptr_t>(KCrash::emergencySaveFunction());
+}
+
 void KCrash_SetFlags(int param1) {
     KCrash::setFlags(static_cast<KCrash::CrashFlags>(param1));
 }

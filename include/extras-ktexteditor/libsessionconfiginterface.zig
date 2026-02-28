@@ -96,6 +96,7 @@ pub const ktexteditor__sessionconfiginterface = struct {
     pub fn SuperWriteSessionConfig(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KTextEditor__SessionConfigInterface_SuperWriteSessionConfig(@ptrCast(self), @ptrCast(config));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

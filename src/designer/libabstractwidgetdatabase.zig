@@ -1285,6 +1285,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -3266,6 +3267,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

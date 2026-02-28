@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"strconv"
+	"strings"
+)
 
 func applyTypedefs(p CppParameter, className string) CppParameter {
 
@@ -155,6 +158,28 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 
 	if ctd, ok := KnownClassnames[p.ParameterType]; ok {
 		p.ParameterType = resolveStructType(ctd.Class.ClassName, className, namespace)
+	}
+
+	if strings.Contains(p.ParameterType, "(*)") {
+		typeStr := strings.ReplaceAll(p.ParameterType, " *", "* ")
+		typeStr = strings.Replace(typeStr, "(*)", " ", 1)
+		returnType, params, isConst, err := parseTypeString(typeStr, className)
+		if err == nil {
+			returnType = applyTypedefs(returnType, className)
+			for i := range params {
+				params[i] = applyTypedefs(params[i], className)
+				if params[i].ParameterName == "" {
+					params[i].ParameterName = "funcparam" + strconv.Itoa(i+1)
+				}
+			}
+
+			p.IsFunctionPointer = true
+			p.FunctionPointer = &CppMethod{
+				ReturnType: returnType,
+				Parameters: params,
+				IsConst:    isConst,
+			}
+		}
 	}
 
 	return p

@@ -784,6 +784,7 @@ pub const kconfigskeletonitem = struct {
     pub fn SuperReadImmutability(self: ?*anyopaque, group: ?*anyopaque) void {
         qtc.KConfigSkeletonItem_SuperReadImmutability(@ptrCast(self), @ptrCast(group));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -1641,6 +1642,7 @@ pub const kpropertyskeletonitem = struct {
     pub fn OnReadImmutability(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KPropertySkeletonItem_OnReadImmutability(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -5484,6 +5486,7 @@ pub const kcoreconfigskeleton = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -5813,6 +5816,7 @@ pub const kcoreconfigskeleton__itemstring = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemString_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -6145,6 +6149,7 @@ pub const kcoreconfigskeleton__itempassword = struct {
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
         qtc.KCoreConfigSkeleton__ItemPassword_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -6477,6 +6482,7 @@ pub const kcoreconfigskeleton__itempath = struct {
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
         qtc.KCoreConfigSkeleton__ItemPath_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -6757,6 +6763,7 @@ pub const kcoreconfigskeleton__itemurl = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemUrl_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -6993,6 +7000,7 @@ pub const kcoreconfigskeleton__itemproperty = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemProperty_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -7229,6 +7237,7 @@ pub const kcoreconfigskeleton__itembool = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemBool_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -7545,6 +7554,7 @@ pub const kcoreconfigskeleton__itemint = struct {
     pub fn SuperMaxValue(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemInt_SuperMaxValue(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -8564,6 +8574,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
     pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
         qtc.KCoreConfigSkeleton__ItemEnum_OnMaxValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -9823,6 +9834,7 @@ pub const kcoreconfigskeleton__itemrect = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemRect_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -10059,6 +10071,7 @@ pub const kcoreconfigskeleton__itemrectf = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemRectF_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -10295,6 +10308,7 @@ pub const kcoreconfigskeleton__itempoint = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemPoint_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -10531,6 +10545,7 @@ pub const kcoreconfigskeleton__itempointf = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemPointF_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -10767,6 +10782,7 @@ pub const kcoreconfigskeleton__itemsize = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemSize_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -11003,6 +11019,7 @@ pub const kcoreconfigskeleton__itemsizef = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemSizeF_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -11239,6 +11256,7 @@ pub const kcoreconfigskeleton__itemdatetime = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemDateTime_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -11515,6 +11533,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemStringList_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -11859,6 +11878,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
         qtc.KCoreConfigSkeleton__ItemPathList_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -12151,6 +12171,7 @@ pub const kcoreconfigskeleton__itemurllist = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemUrlList_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -12399,6 +12420,7 @@ pub const kcoreconfigskeleton__itemintlist = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KCoreConfigSkeleton__ItemIntList_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

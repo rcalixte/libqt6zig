@@ -773,6 +773,7 @@ pub const qdesignermembersheetextension = struct {
         }
         return _ret;
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

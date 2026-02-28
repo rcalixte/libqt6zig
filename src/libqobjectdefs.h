@@ -182,7 +182,8 @@ void QMetaObject__Connection_Delete(QMetaObject__Connection* self);
 
 QMetaObject__SuperData* QMetaObject__SuperData_new();
 QMetaObject__SuperData* QMetaObject__SuperData_new2(const QMetaObject* mo);
-QMetaObject__SuperData* QMetaObject__SuperData_new3(const QMetaObject__SuperData* param1);
+QMetaObject__SuperData* QMetaObject__SuperData_new3(intptr_t g);
+QMetaObject__SuperData* QMetaObject__SuperData_new4(const QMetaObject__SuperData* param1);
 QMetaObject* QMetaObject__SuperData_Direct(const QMetaObject__SuperData* self);
 void QMetaObject__SuperData_SetDirect(QMetaObject__SuperData* self, const QMetaObject* direct);
 QMetaObject* QMetaObject__SuperData_OperatorMinusGreater(const QMetaObject__SuperData* self);

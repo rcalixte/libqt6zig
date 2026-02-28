@@ -79,6 +79,26 @@ int QLibrary_Metacall(QLibrary* self, int param1, int param2, void** param3) {
     }
 }
 
+intptr_t QLibrary_Resolve(QLibrary* self, const char* symbol) {
+    return reinterpret_cast<intptr_t>(self->resolve(symbol));
+}
+
+intptr_t QLibrary_Resolve2(const libqt_string fileName, const char* symbol) {
+    QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
+    return reinterpret_cast<intptr_t>(QLibrary::resolve(fileName_QString, symbol));
+}
+
+intptr_t QLibrary_Resolve3(const libqt_string fileName, int verNum, const char* symbol) {
+    QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
+    return reinterpret_cast<intptr_t>(QLibrary::resolve(fileName_QString, static_cast<int>(verNum), symbol));
+}
+
+intptr_t QLibrary_Resolve4(const libqt_string fileName, const libqt_string version, const char* symbol) {
+    QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
+    QString version_QString = QString::fromUtf8(version.data, version.len);
+    return reinterpret_cast<intptr_t>(QLibrary::resolve(fileName_QString, version_QString, symbol));
+}
+
 bool QLibrary_Load(QLibrary* self) {
     return self->load();
 }

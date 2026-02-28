@@ -230,6 +230,18 @@ pub const qmessagelogger = struct {
         return qtc.QMessageLogger_Debug2(@ptrCast(self), @ptrCast(cat));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#debug)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageLogger `
+    ///
+    /// ` catFunc: *const fn () callconv(.c) QtC.QLoggingCategory `
+    ///
+    pub fn Debug3(self: ?*anyopaque, catFunc: *const fn () callconv(.c) QtC.QLoggingCategory) QtC.QDebug {
+        return qtc.QMessageLogger_Debug3(@ptrCast(self), @bitCast(@intFromPtr(catFunc)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#info)
     ///
     /// ## Parameter(s):
@@ -250,6 +262,18 @@ pub const qmessagelogger = struct {
     ///
     pub fn Info2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Info2(@ptrCast(self), @ptrCast(cat));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#info)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageLogger `
+    ///
+    /// ` catFunc: *const fn () callconv(.c) QtC.QLoggingCategory `
+    ///
+    pub fn Info3(self: ?*anyopaque, catFunc: *const fn () callconv(.c) QtC.QLoggingCategory) QtC.QDebug {
+        return qtc.QMessageLogger_Info3(@ptrCast(self), @bitCast(@intFromPtr(catFunc)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#warning)
@@ -274,6 +298,18 @@ pub const qmessagelogger = struct {
         return qtc.QMessageLogger_Warning2(@ptrCast(self), @ptrCast(cat));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#warning)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageLogger `
+    ///
+    /// ` catFunc: *const fn () callconv(.c) QtC.QLoggingCategory `
+    ///
+    pub fn Warning3(self: ?*anyopaque, catFunc: *const fn () callconv(.c) QtC.QLoggingCategory) QtC.QDebug {
+        return qtc.QMessageLogger_Warning3(@ptrCast(self), @bitCast(@intFromPtr(catFunc)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#critical)
     ///
     /// ## Parameter(s):
@@ -296,6 +332,18 @@ pub const qmessagelogger = struct {
         return qtc.QMessageLogger_Critical2(@ptrCast(self), @ptrCast(cat));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#critical)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageLogger `
+    ///
+    /// ` catFunc: *const fn () callconv(.c) QtC.QLoggingCategory `
+    ///
+    pub fn Critical3(self: ?*anyopaque, catFunc: *const fn () callconv(.c) QtC.QLoggingCategory) QtC.QDebug {
+        return qtc.QMessageLogger_Critical3(@ptrCast(self), @bitCast(@intFromPtr(catFunc)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#fatal)
     ///
     /// ## Parameter(s):
@@ -316,6 +364,18 @@ pub const qmessagelogger = struct {
     ///
     pub fn Fatal2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
         return qtc.QMessageLogger_Fatal2(@ptrCast(self), @ptrCast(cat));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#fatal)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QMessageLogger `
+    ///
+    /// ` catFunc: *const fn () callconv(.c) QtC.QLoggingCategory `
+    ///
+    pub fn Fatal3(self: ?*anyopaque, catFunc: *const fn () callconv(.c) QtC.QLoggingCategory) QtC.QDebug {
+        return qtc.QMessageLogger_Fatal3(@ptrCast(self), @bitCast(@intFromPtr(catFunc)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#noDebug)

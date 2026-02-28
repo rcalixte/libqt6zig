@@ -908,6 +908,7 @@ pub const qopenglcontextgroup = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -1224,6 +1225,43 @@ pub const qopenglcontext = struct {
     ///
     pub fn SwapBuffers(self: ?*anyopaque, surface: ?*anyopaque) void {
         qtc.QOpenGLContext_SwapBuffers(@ptrCast(self), @ptrCast(surface));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#getProcAddress)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLContext `
+    ///
+    /// ` procName: []u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn () callconv(.c) void `
+    ///
+    pub fn GetProcAddress(self: ?*anyopaque, procName: []u8) ?*const fn () callconv(.c) void {
+        const procName_str = qtc.libqt_string{
+            .len = procName.len,
+            .data = procName.ptr,
+        };
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLContext_GetProcAddress(@ptrCast(self), procName_str))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#getProcAddress)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLContext `
+    ///
+    /// ` procName: [:0]const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn () callconv(.c) void `
+    ///
+    pub fn GetProcAddress2(self: ?*anyopaque, procName: [:0]const u8) ?*const fn () callconv(.c) void {
+        const procName_Cstring = procName.ptr;
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLContext_GetProcAddress2(@ptrCast(self), procName_Cstring))));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#surface)
@@ -2777,6 +2815,7 @@ pub const qopenglcontext = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

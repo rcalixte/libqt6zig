@@ -3717,6 +3717,7 @@ pub const kconfigskeleton = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -3955,6 +3956,7 @@ pub const kconfigskeleton__itemcolor = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KConfigSkeleton__ItemColor_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -4191,6 +4193,7 @@ pub const kconfigskeleton__itemfont = struct {
     pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
         return qtc.KConfigSkeleton__ItemFont_SuperProperty(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

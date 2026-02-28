@@ -2362,10 +2362,20 @@ pub const qmetaobject__superdata = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` g: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn New3(g: *const fn () callconv(.c) QtC.QMetaObject) QtC.QMetaObject__SuperData {
+        return qtc.QMetaObject__SuperData_new3(@bitCast(@intFromPtr(g)));
+    }
+
+    /// New4 constructs a new QMetaObject::SuperData object.
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` param1: QtC.QMetaObject__SuperData `
     ///
-    pub fn New3(param1: ?*anyopaque) QtC.QMetaObject__SuperData {
-        return qtc.QMetaObject__SuperData_new3(@ptrCast(param1));
+    pub fn New4(param1: ?*anyopaque) QtC.QMetaObject__SuperData {
+        return qtc.QMetaObject__SuperData_new4(@ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-superdata.html#direct-var)

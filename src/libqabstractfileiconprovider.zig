@@ -248,6 +248,7 @@ pub const qabstractfileiconprovider = struct {
     pub fn SuperOptions(self: ?*anyopaque) i32 {
         return qtc.QAbstractFileIconProvider_SuperOptions(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

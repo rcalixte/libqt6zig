@@ -272,6 +272,7 @@ pub const qfileiconprovider = struct {
     pub fn OnOptions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QFileIconProvider_OnOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

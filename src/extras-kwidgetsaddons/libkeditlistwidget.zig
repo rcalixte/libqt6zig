@@ -8335,6 +8335,7 @@ pub const keditlistwidget = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -8485,6 +8486,7 @@ pub const keditlistwidget__customeditor = struct {
     pub fn SuperLineEdit(self: ?*anyopaque) QtC.QLineEdit {
         return qtc.KEditListWidget__CustomEditor_SuperLineEdit(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

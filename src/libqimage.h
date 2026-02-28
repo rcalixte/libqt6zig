@@ -43,7 +43,15 @@ QImage* QImage_new7(const unsigned char* data, int width, int height, ptrdiff_t 
 QImage* QImage_new8(const char** xpm);
 QImage* QImage_new9(const libqt_string fileName);
 QImage* QImage_new10(const QImage* param1);
-QImage* QImage_new11(const libqt_string fileName, const char* format);
+QImage* QImage_new11(unsigned char* data, int width, int height, int format, intptr_t cleanupFunction);
+QImage* QImage_new12(unsigned char* data, int width, int height, int format, intptr_t cleanupFunction, void* cleanupInfo);
+QImage* QImage_new13(const unsigned char* data, int width, int height, int format, intptr_t cleanupFunction);
+QImage* QImage_new14(const unsigned char* data, int width, int height, int format, intptr_t cleanupFunction, void* cleanupInfo);
+QImage* QImage_new15(unsigned char* data, int width, int height, ptrdiff_t bytesPerLine, int format, intptr_t cleanupFunction);
+QImage* QImage_new16(unsigned char* data, int width, int height, ptrdiff_t bytesPerLine, int format, intptr_t cleanupFunction, void* cleanupInfo);
+QImage* QImage_new17(const unsigned char* data, int width, int height, ptrdiff_t bytesPerLine, int format, intptr_t cleanupFunction);
+QImage* QImage_new18(const unsigned char* data, int width, int height, ptrdiff_t bytesPerLine, int format, intptr_t cleanupFunction, void* cleanupInfo);
+QImage* QImage_new19(const libqt_string fileName, const char* format);
 void QImage_OperatorAssign(QImage* self, const QImage* param1);
 void QImage_Swap(QImage* self, QImage* other);
 bool QImage_IsNull(const QImage* self);

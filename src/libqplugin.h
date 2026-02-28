@@ -24,6 +24,8 @@ QStaticPlugin* QStaticPlugin_new2(QStaticPlugin* other);
 QStaticPlugin* QStaticPlugin_new3(const QStaticPlugin* param1);
 void QStaticPlugin_CopyAssign(QStaticPlugin* self, QStaticPlugin* other);
 void QStaticPlugin_MoveAssign(QStaticPlugin* self, QStaticPlugin* other);
+intptr_t QStaticPlugin_Instance(const QStaticPlugin* self);
+void QStaticPlugin_SetInstance(QStaticPlugin* self, intptr_t instance);
 QJsonObject* QStaticPlugin_MetaData(const QStaticPlugin* self);
 void QStaticPlugin_Delete(QStaticPlugin* self);
 

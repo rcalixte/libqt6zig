@@ -82,6 +82,14 @@ class VirtualQImage final : public QImage {
     VirtualQImage(const char** xpm) : QImage(xpm) {};
     VirtualQImage(const QString& fileName) : QImage(fileName) {};
     VirtualQImage(const QImage& param1) : QImage(param1) {};
+    VirtualQImage(uchar* data, int width, int height, QImage::Format format, QImageCleanupFunction cleanupFunction) : QImage(data, width, height, format, cleanupFunction) {};
+    VirtualQImage(uchar* data, int width, int height, QImage::Format format, QImageCleanupFunction cleanupFunction, void* cleanupInfo) : QImage(data, width, height, format, cleanupFunction, cleanupInfo) {};
+    VirtualQImage(const uchar* data, int width, int height, QImage::Format format, QImageCleanupFunction cleanupFunction) : QImage(data, width, height, format, cleanupFunction) {};
+    VirtualQImage(const uchar* data, int width, int height, QImage::Format format, QImageCleanupFunction cleanupFunction, void* cleanupInfo) : QImage(data, width, height, format, cleanupFunction, cleanupInfo) {};
+    VirtualQImage(uchar* data, int width, int height, qsizetype bytesPerLine, QImage::Format format, QImageCleanupFunction cleanupFunction) : QImage(data, width, height, bytesPerLine, format, cleanupFunction) {};
+    VirtualQImage(uchar* data, int width, int height, qsizetype bytesPerLine, QImage::Format format, QImageCleanupFunction cleanupFunction, void* cleanupInfo) : QImage(data, width, height, bytesPerLine, format, cleanupFunction, cleanupInfo) {};
+    VirtualQImage(const uchar* data, int width, int height, qsizetype bytesPerLine, QImage::Format format, QImageCleanupFunction cleanupFunction) : QImage(data, width, height, bytesPerLine, format, cleanupFunction) {};
+    VirtualQImage(const uchar* data, int width, int height, qsizetype bytesPerLine, QImage::Format format, QImageCleanupFunction cleanupFunction, void* cleanupInfo) : QImage(data, width, height, bytesPerLine, format, cleanupFunction, cleanupInfo) {};
     VirtualQImage(const QString& fileName, const char* format) : QImage(fileName, format) {};
 
     ~VirtualQImage() {
