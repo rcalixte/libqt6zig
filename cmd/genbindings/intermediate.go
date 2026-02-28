@@ -18,6 +18,9 @@ type CppParameter struct {
 	Optional      bool
 	UniquePtr     bool
 
+	IsFunctionPointer bool
+	FunctionPointer   *CppMethod
+
 	QtCppOriginalType     *CppParameter // If we rewrote QStringList->QList<String>, this field contains the original QStringList. Otherwise, it's blank
 	BecomesConstInVersion *string       // "6,9"
 }
