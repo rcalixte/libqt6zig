@@ -1,3 +1,4 @@
+#include <QByteArray>
 #include <QChildEvent>
 #include <QClipboard>
 #include <QCoreApplication>
@@ -263,6 +264,11 @@ bool QGuiApplication_DesktopSettingsAware() {
 
 QInputMethod* QGuiApplication_InputMethod() {
     return QGuiApplication::inputMethod();
+}
+
+intptr_t QGuiApplication_PlatformFunction(const libqt_string function) {
+    QByteArray function_QByteArray(function.data, function.len);
+    return reinterpret_cast<intptr_t>(QGuiApplication::platformFunction(function_QByteArray));
 }
 
 void QGuiApplication_SetQuitOnLastWindowClosed(bool quit) {

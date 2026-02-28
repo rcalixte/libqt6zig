@@ -22,6 +22,12 @@ void QDBusMetaType_MoveAssign(QDBusMetaType* self, QDBusMetaType* other) {
     *self = std::move(*other);
 }
 
+void QDBusMetaType_RegisterMarshallOperators(QMetaType* typeId, intptr_t param2, intptr_t param3) {
+    auto param2_func = reinterpret_cast<QDBusMetaType::MarshallFunction>(param2);
+    auto param3_func = reinterpret_cast<QDBusMetaType::DemarshallFunction>(param3);
+    QDBusMetaType::registerMarshallOperators(*typeId, param2_func, param3_func);
+}
+
 bool QDBusMetaType_Marshall(QDBusArgument* param1, QMetaType* id, const void* data) {
     return QDBusMetaType::marshall(*param1, *id, data);
 }

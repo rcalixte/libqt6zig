@@ -24,6 +24,7 @@ QDBusMetaType* QDBusMetaType_new(const QDBusMetaType* other);
 QDBusMetaType* QDBusMetaType_new2(QDBusMetaType* other);
 void QDBusMetaType_CopyAssign(QDBusMetaType* self, QDBusMetaType* other);
 void QDBusMetaType_MoveAssign(QDBusMetaType* self, QDBusMetaType* other);
+void QDBusMetaType_RegisterMarshallOperators(QMetaType* typeId, intptr_t param2, intptr_t param3);
 bool QDBusMetaType_Marshall(QDBusArgument* param1, QMetaType* id, const void* data);
 bool QDBusMetaType_Demarshall(const QDBusArgument* param1, QMetaType* id, void* data);
 void QDBusMetaType_RegisterCustomType(QMetaType* typeVal, const libqt_string signature);

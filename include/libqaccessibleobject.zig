@@ -2164,6 +2164,7 @@ pub const qaccessibleapplication = struct {
     pub fn OnInterfaceCast(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
         qtc.QAccessibleApplication_OnInterfaceCast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

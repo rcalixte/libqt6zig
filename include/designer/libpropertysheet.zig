@@ -773,6 +773,7 @@ pub const qdesignerpropertysheetextension = struct {
     pub fn SuperIsEnabled(self: ?*anyopaque, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_SuperIsEnabled(@ptrCast(self), @bitCast(index));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

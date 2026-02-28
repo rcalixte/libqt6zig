@@ -728,6 +728,7 @@ pub const qlayoutitem = struct {
     pub fn SuperOperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QLayoutItem_SuperOperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -1570,6 +1571,7 @@ pub const qspaceritem = struct {
     pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QSpacerItem_OnControlTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -2280,6 +2282,7 @@ pub const qwidgetitem = struct {
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
         qtc.QWidgetItem_OnSpacerItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -3054,6 +3057,7 @@ pub const qwidgetitemv2 = struct {
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
         qtc.QWidgetItemV2_OnSpacerItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

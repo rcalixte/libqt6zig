@@ -1325,6 +1325,7 @@ pub const kio__fileundomanager__uiinterface = struct {
     pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.KIO__FileUndoManager__UiInterface_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

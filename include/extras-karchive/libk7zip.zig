@@ -2143,6 +2143,7 @@ pub const k7zip = struct {
     pub fn OnSetRootDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.K7Zip_OnSetRootDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

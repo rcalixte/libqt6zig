@@ -78,6 +78,15 @@ void QEasingCurve_SetType(QEasingCurve* self, int typeVal) {
     self->setType(static_cast<QEasingCurve::Type>(typeVal));
 }
 
+void QEasingCurve_SetCustomType(QEasingCurve* self, intptr_t func) {
+    auto func_func = reinterpret_cast<QEasingCurve::EasingFunction>(func);
+    self->setCustomType(func_func);
+}
+
+intptr_t QEasingCurve_CustomType(const QEasingCurve* self) {
+    return reinterpret_cast<intptr_t>(self->customType());
+}
+
 double QEasingCurve_ValueForProgress(const QEasingCurve* self, double progress) {
     return static_cast<double>(self->valueForProgress(static_cast<qreal>(progress)));
 }

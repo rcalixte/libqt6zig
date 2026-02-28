@@ -93,6 +93,20 @@ pub const qloggingcategory = struct {
         return qtc.QLoggingCategory_DefaultCategory();
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#installFilter)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: *const fn (funcparam1: QtC.QLoggingCategory) callconv(.c) void `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: QtC.QLoggingCategory) callconv(.c) void `
+    ///
+    pub fn InstallFilter(param1: *const fn (?*anyopaque) callconv(.c) void) ?*const fn (?*anyopaque) callconv(.c) void {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QLoggingCategory_InstallFilter(@bitCast(@intFromPtr(param1))))));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#setFilterRules)
     ///
     /// ## Parameter(s):

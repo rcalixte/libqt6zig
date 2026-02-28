@@ -41,14 +41,19 @@ QMessageLogger* QMessageLogger_new2(const char* file, int line, const char* func
 QMessageLogger* QMessageLogger_new3(const char* file, int line, const char* function, const char* category);
 QDebug* QMessageLogger_Debug(const QMessageLogger* self);
 QDebug* QMessageLogger_Debug2(const QMessageLogger* self, const QLoggingCategory* cat);
+QDebug* QMessageLogger_Debug3(const QMessageLogger* self, intptr_t catFunc);
 QDebug* QMessageLogger_Info(const QMessageLogger* self);
 QDebug* QMessageLogger_Info2(const QMessageLogger* self, const QLoggingCategory* cat);
+QDebug* QMessageLogger_Info3(const QMessageLogger* self, intptr_t catFunc);
 QDebug* QMessageLogger_Warning(const QMessageLogger* self);
 QDebug* QMessageLogger_Warning2(const QMessageLogger* self, const QLoggingCategory* cat);
+QDebug* QMessageLogger_Warning3(const QMessageLogger* self, intptr_t catFunc);
 QDebug* QMessageLogger_Critical(const QMessageLogger* self);
 QDebug* QMessageLogger_Critical2(const QMessageLogger* self, const QLoggingCategory* cat);
+QDebug* QMessageLogger_Critical3(const QMessageLogger* self, intptr_t catFunc);
 QDebug* QMessageLogger_Fatal(const QMessageLogger* self);
 QDebug* QMessageLogger_Fatal2(const QMessageLogger* self, const QLoggingCategory* cat);
+QDebug* QMessageLogger_Fatal3(const QMessageLogger* self, intptr_t catFunc);
 QNoDebug* QMessageLogger_NoDebug(const QMessageLogger* self);
 void QMessageLogger_Delete(QMessageLogger* self);
 

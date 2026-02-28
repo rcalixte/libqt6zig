@@ -109,6 +109,7 @@ pub const qdesignertaskmenuextension = struct {
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

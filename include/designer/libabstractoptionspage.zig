@@ -187,6 +187,7 @@ pub const qdesigneroptionspageinterface = struct {
     pub fn SuperFinish(self: ?*anyopaque) void {
         qtc.QDesignerOptionsPageInterface_SuperFinish(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

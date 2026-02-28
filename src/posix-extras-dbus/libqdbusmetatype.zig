@@ -48,6 +48,20 @@ pub const qdbusmetatype = struct {
         qtc.QDBusMetaType_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#registerMarshallOperators)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` typeId: QtC.QMetaType `
+    ///
+    /// ` param2: *const fn (funcparam1: QtC.QDBusArgument, funcparam2: ?*const anyopaque) callconv(.c) void `
+    ///
+    /// ` param3: *const fn (funcparam1: QtC.QDBusArgument, funcparam2: ?*anyopaque) callconv(.c) void `
+    ///
+    pub fn RegisterMarshallOperators(typeId: QtC.QMetaType, param2: *const fn (?*anyopaque, ?*const anyopaque) callconv(.c) void, param3: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDBusMetaType_RegisterMarshallOperators(@ptrCast(typeId), @bitCast(@intFromPtr(param2)), @bitCast(@intFromPtr(param3)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#marshall)
     ///
     /// ## Parameter(s):

@@ -316,6 +316,7 @@ pub const qdesignersettingsinterface = struct {
         };
         qtc.QDesignerSettingsInterface_SuperRemove(@ptrCast(self), key_str);
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

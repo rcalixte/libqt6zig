@@ -79,12 +79,22 @@ QDebug* QMessageLogger_Debug2(const QMessageLogger* self, const QLoggingCategory
     return new QDebug(self->debug(*cat));
 }
 
+QDebug* QMessageLogger_Debug3(const QMessageLogger* self, intptr_t catFunc) {
+    auto catFunc_func = reinterpret_cast<QMessageLogger::CategoryFunction>(catFunc);
+    return new QDebug(self->debug(catFunc_func));
+}
+
 QDebug* QMessageLogger_Info(const QMessageLogger* self) {
     return new QDebug(self->info());
 }
 
 QDebug* QMessageLogger_Info2(const QMessageLogger* self, const QLoggingCategory* cat) {
     return new QDebug(self->info(*cat));
+}
+
+QDebug* QMessageLogger_Info3(const QMessageLogger* self, intptr_t catFunc) {
+    auto catFunc_func = reinterpret_cast<QMessageLogger::CategoryFunction>(catFunc);
+    return new QDebug(self->info(catFunc_func));
 }
 
 QDebug* QMessageLogger_Warning(const QMessageLogger* self) {
@@ -95,6 +105,11 @@ QDebug* QMessageLogger_Warning2(const QMessageLogger* self, const QLoggingCatego
     return new QDebug(self->warning(*cat));
 }
 
+QDebug* QMessageLogger_Warning3(const QMessageLogger* self, intptr_t catFunc) {
+    auto catFunc_func = reinterpret_cast<QMessageLogger::CategoryFunction>(catFunc);
+    return new QDebug(self->warning(catFunc_func));
+}
+
 QDebug* QMessageLogger_Critical(const QMessageLogger* self) {
     return new QDebug(self->critical());
 }
@@ -103,12 +118,22 @@ QDebug* QMessageLogger_Critical2(const QMessageLogger* self, const QLoggingCateg
     return new QDebug(self->critical(*cat));
 }
 
+QDebug* QMessageLogger_Critical3(const QMessageLogger* self, intptr_t catFunc) {
+    auto catFunc_func = reinterpret_cast<QMessageLogger::CategoryFunction>(catFunc);
+    return new QDebug(self->critical(catFunc_func));
+}
+
 QDebug* QMessageLogger_Fatal(const QMessageLogger* self) {
     return new QDebug(self->fatal());
 }
 
 QDebug* QMessageLogger_Fatal2(const QMessageLogger* self, const QLoggingCategory* cat) {
     return new QDebug(self->fatal(*cat));
+}
+
+QDebug* QMessageLogger_Fatal3(const QMessageLogger* self, intptr_t catFunc) {
+    auto catFunc_func = reinterpret_cast<QMessageLogger::CategoryFunction>(catFunc);
+    return new QDebug(self->fatal(catFunc_func));
 }
 
 QNoDebug* QMessageLogger_NoDebug(const QMessageLogger* self) {

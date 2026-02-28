@@ -23,6 +23,46 @@ pub const kcrash = struct {
         qtc.KCrash_DefaultCrashHandler(@bitCast(param1));
     }
 
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#setCrashHandler)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: *const fn (funcparam1: i32) callconv(.c) void `
+    ///
+    pub fn SetCrashHandler(param1: *const fn (i32) callconv(.c) void) void {
+        qtc.KCrash_SetCrashHandler(@bitCast(@intFromPtr(param1)));
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#crashHandler)
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: i32) callconv(.c) void `
+    ///
+    pub fn CrashHandler() ?*const fn (i32) callconv(.c) void {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.KCrash_CrashHandler())));
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#setEmergencySaveFunction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: *const fn (funcparam1: i32) callconv(.c) void `
+    ///
+    pub fn SetEmergencySaveFunction(param1: *const fn (i32) callconv(.c) void) void {
+        qtc.KCrash_SetEmergencySaveFunction(@bitCast(@intFromPtr(param1)));
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html#emergencySaveFunction)
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: i32) callconv(.c) void `
+    ///
+    pub fn EmergencySaveFunction() ?*const fn (i32) callconv(.c) void {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.KCrash_EmergencySaveFunction())));
+    }
+
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setFlags)
     ///
     /// ## Parameter(s):

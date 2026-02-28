@@ -60,6 +60,7 @@ QDebug* QDebug_OperatorShiftLeft19(QDebug* self, const libqt_string t);
 QDebug* QDebug_OperatorShiftLeft23(QDebug* self, const libqt_string t);
 QDebug* QDebug_OperatorShiftLeft24(QDebug* self, libqt_string t);
 QDebug* QDebug_OperatorShiftLeft25(QDebug* self, const void* t);
+QDebug* QDebug_OperatorShiftLeft28(QDebug* self, intptr_t f);
 QDebug* QDebug_MaybeQuote1(QDebug* self, char c);
 void QDebug_Delete(QDebug* self);
 
@@ -70,6 +71,7 @@ QNoDebug* QNoDebug_new(const QNoDebug* other);
 QNoDebug* QNoDebug_new2(QNoDebug* other);
 void QNoDebug_CopyAssign(QNoDebug* self, QNoDebug* other);
 void QNoDebug_MoveAssign(QNoDebug* self, QNoDebug* other);
+QNoDebug* QNoDebug_OperatorShiftLeft(QNoDebug* self, intptr_t param1);
 QNoDebug* QNoDebug_Space(QNoDebug* self);
 QNoDebug* QNoDebug_Nospace(QNoDebug* self);
 QNoDebug* QNoDebug_MaybeSpace(QNoDebug* self);

@@ -1241,6 +1241,26 @@ pub const qapplication = struct {
 
     /// Inherited from QGuiApplication
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#platformFunction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` function: []u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn () callconv(.c) void `
+    ///
+    pub fn PlatformFunction(function: []u8) ?*const fn () callconv(.c) void {
+        const function_str = qtc.libqt_string{
+            .len = function.len,
+            .data = function.ptr,
+        };
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QGuiApplication_PlatformFunction(function_str))));
+    }
+
+    /// Inherited from QGuiApplication
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#setQuitOnLastWindowClosed)
     ///
     /// ## Parameter(s):
@@ -3894,6 +3914,7 @@ pub const qapplication = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

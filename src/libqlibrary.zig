@@ -278,6 +278,94 @@ pub const qlibrary = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibrary.html#resolve)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLibrary `
+    ///
+    /// ` symbol: [:0]const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn () callconv(.c) void `
+    ///
+    pub fn Resolve(self: ?*anyopaque, symbol: [:0]const u8) ?*const fn () callconv(.c) void {
+        const symbol_Cstring = symbol.ptr;
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QLibrary_Resolve(@ptrCast(self), symbol_Cstring))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibrary.html#resolve)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` symbol: [:0]const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn () callconv(.c) void `
+    ///
+    pub fn Resolve2(fileName: []const u8, symbol: [:0]const u8) ?*const fn () callconv(.c) void {
+        const fileName_str = qtc.libqt_string{
+            .len = fileName.len,
+            .data = fileName.ptr,
+        };
+        const symbol_Cstring = symbol.ptr;
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QLibrary_Resolve2(fileName_str, symbol_Cstring))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibrary.html#resolve)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` verNum: i32 `
+    ///
+    /// ` symbol: [:0]const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn () callconv(.c) void `
+    ///
+    pub fn Resolve3(fileName: []const u8, verNum: i32, symbol: [:0]const u8) ?*const fn () callconv(.c) void {
+        const fileName_str = qtc.libqt_string{
+            .len = fileName.len,
+            .data = fileName.ptr,
+        };
+        const symbol_Cstring = symbol.ptr;
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QLibrary_Resolve3(fileName_str, @bitCast(verNum), symbol_Cstring))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibrary.html#resolve)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` version: []const u8 `
+    ///
+    /// ` symbol: [:0]const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn () callconv(.c) void `
+    ///
+    pub fn Resolve4(fileName: []const u8, version: []const u8, symbol: [:0]const u8) ?*const fn () callconv(.c) void {
+        const fileName_str = qtc.libqt_string{
+            .len = fileName.len,
+            .data = fileName.ptr,
+        };
+        const version_str = qtc.libqt_string{
+            .len = version.len,
+            .data = version.ptr,
+        };
+        const symbol_Cstring = symbol.ptr;
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QLibrary_Resolve4(fileName_str, version_str, symbol_Cstring))));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibrary.html#load)
     ///
     /// ## Parameter(s):
@@ -1801,6 +1889,7 @@ pub const qlibrary = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

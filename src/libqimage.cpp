@@ -64,7 +64,47 @@ QImage* QImage_new10(const QImage* param1) {
     return new VirtualQImage(*param1);
 }
 
-QImage* QImage_new11(const libqt_string fileName, const char* format) {
+QImage* QImage_new11(unsigned char* data, int width, int height, int format, intptr_t cleanupFunction) {
+    auto cleanupFunction_func = reinterpret_cast<QImageCleanupFunction>(cleanupFunction);
+    return new VirtualQImage(static_cast<uchar*>(data), static_cast<int>(width), static_cast<int>(height), static_cast<QImage::Format>(format), cleanupFunction_func);
+}
+
+QImage* QImage_new12(unsigned char* data, int width, int height, int format, intptr_t cleanupFunction, void* cleanupInfo) {
+    auto cleanupFunction_func = reinterpret_cast<QImageCleanupFunction>(cleanupFunction);
+    return new VirtualQImage(static_cast<uchar*>(data), static_cast<int>(width), static_cast<int>(height), static_cast<QImage::Format>(format), cleanupFunction_func, cleanupInfo);
+}
+
+QImage* QImage_new13(const unsigned char* data, int width, int height, int format, intptr_t cleanupFunction) {
+    auto cleanupFunction_func = reinterpret_cast<QImageCleanupFunction>(cleanupFunction);
+    return new VirtualQImage(static_cast<const uchar*>(data), static_cast<int>(width), static_cast<int>(height), static_cast<QImage::Format>(format), cleanupFunction_func);
+}
+
+QImage* QImage_new14(const unsigned char* data, int width, int height, int format, intptr_t cleanupFunction, void* cleanupInfo) {
+    auto cleanupFunction_func = reinterpret_cast<QImageCleanupFunction>(cleanupFunction);
+    return new VirtualQImage(static_cast<const uchar*>(data), static_cast<int>(width), static_cast<int>(height), static_cast<QImage::Format>(format), cleanupFunction_func, cleanupInfo);
+}
+
+QImage* QImage_new15(unsigned char* data, int width, int height, ptrdiff_t bytesPerLine, int format, intptr_t cleanupFunction) {
+    auto cleanupFunction_func = reinterpret_cast<QImageCleanupFunction>(cleanupFunction);
+    return new VirtualQImage(static_cast<uchar*>(data), static_cast<int>(width), static_cast<int>(height), (qsizetype)(bytesPerLine), static_cast<QImage::Format>(format), cleanupFunction_func);
+}
+
+QImage* QImage_new16(unsigned char* data, int width, int height, ptrdiff_t bytesPerLine, int format, intptr_t cleanupFunction, void* cleanupInfo) {
+    auto cleanupFunction_func = reinterpret_cast<QImageCleanupFunction>(cleanupFunction);
+    return new VirtualQImage(static_cast<uchar*>(data), static_cast<int>(width), static_cast<int>(height), (qsizetype)(bytesPerLine), static_cast<QImage::Format>(format), cleanupFunction_func, cleanupInfo);
+}
+
+QImage* QImage_new17(const unsigned char* data, int width, int height, ptrdiff_t bytesPerLine, int format, intptr_t cleanupFunction) {
+    auto cleanupFunction_func = reinterpret_cast<QImageCleanupFunction>(cleanupFunction);
+    return new VirtualQImage(static_cast<const uchar*>(data), static_cast<int>(width), static_cast<int>(height), (qsizetype)(bytesPerLine), static_cast<QImage::Format>(format), cleanupFunction_func);
+}
+
+QImage* QImage_new18(const unsigned char* data, int width, int height, ptrdiff_t bytesPerLine, int format, intptr_t cleanupFunction, void* cleanupInfo) {
+    auto cleanupFunction_func = reinterpret_cast<QImageCleanupFunction>(cleanupFunction);
+    return new VirtualQImage(static_cast<const uchar*>(data), static_cast<int>(width), static_cast<int>(height), (qsizetype)(bytesPerLine), static_cast<QImage::Format>(format), cleanupFunction_func, cleanupInfo);
+}
+
+QImage* QImage_new19(const libqt_string fileName, const char* format) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return new VirtualQImage(fileName_QString, format);
 }

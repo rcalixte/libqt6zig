@@ -212,6 +212,13 @@ QDebug* QDebug_OperatorShiftLeft25(QDebug* self, const void* t) {
     return &_ret;
 }
 
+QDebug* QDebug_OperatorShiftLeft28(QDebug* self, intptr_t f) {
+    auto f_func = reinterpret_cast<QTextStreamFunction>(f);
+    QDebug& _ret = self->operator<<(f_func);
+    // Cast returned reference into pointer
+    return &_ret;
+}
+
 QDebug* QDebug_MaybeQuote1(QDebug* self, char c) {
     QDebug& _ret = self->maybeQuote(static_cast<char>(c));
     // Cast returned reference into pointer
@@ -244,6 +251,13 @@ void QNoDebug_CopyAssign(QNoDebug* self, QNoDebug* other) {
 
 void QNoDebug_MoveAssign(QNoDebug* self, QNoDebug* other) {
     *self = std::move(*other);
+}
+
+QNoDebug* QNoDebug_OperatorShiftLeft(QNoDebug* self, intptr_t param1) {
+    auto param1_func = reinterpret_cast<QTextStreamFunction>(param1);
+    QNoDebug& _ret = self->operator<<(param1_func);
+    // Cast returned reference into pointer
+    return &_ret;
 }
 
 QNoDebug* QNoDebug_Space(QNoDebug* self) {

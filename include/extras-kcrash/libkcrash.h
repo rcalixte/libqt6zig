@@ -21,6 +21,10 @@ typedef struct QVariant QVariant;
 
 void KCrash_Initialize();
 void KCrash_DefaultCrashHandler(int param1);
+void KCrash_SetCrashHandler(intptr_t param1);
+intptr_t KCrash_CrashHandler();
+void KCrash_SetEmergencySaveFunction(intptr_t param1);
+intptr_t KCrash_EmergencySaveFunction();
 void KCrash_SetFlags(int param1);
 void KCrash_SetDrKonqiEnabled(bool param1);
 bool KCrash_IsDrKonqiEnabled();

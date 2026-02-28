@@ -294,6 +294,7 @@ pub const karchiveentry = struct {
     pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.KArchiveEntry_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

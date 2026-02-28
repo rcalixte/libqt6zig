@@ -141,6 +141,15 @@ void QOpenGLContext_SwapBuffers(QOpenGLContext* self, QSurface* surface) {
     self->swapBuffers(surface);
 }
 
+intptr_t QOpenGLContext_GetProcAddress(const QOpenGLContext* self, const libqt_string procName) {
+    QByteArray procName_QByteArray(procName.data, procName.len);
+    return reinterpret_cast<intptr_t>(self->getProcAddress(procName_QByteArray));
+}
+
+intptr_t QOpenGLContext_GetProcAddress2(const QOpenGLContext* self, const char* procName) {
+    return reinterpret_cast<intptr_t>(self->getProcAddress(procName));
+}
+
 QSurface* QOpenGLContext_Surface(const QOpenGLContext* self) {
     return self->surface();
 }

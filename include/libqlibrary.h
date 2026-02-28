@@ -35,6 +35,10 @@ QLibrary* QLibrary_new8(const libqt_string fileName, const libqt_string version,
 QMetaObject* QLibrary_MetaObject(const QLibrary* self);
 void* QLibrary_Metacast(QLibrary* self, const char* param1);
 int QLibrary_Metacall(QLibrary* self, int param1, int param2, void** param3);
+intptr_t QLibrary_Resolve(QLibrary* self, const char* symbol);
+intptr_t QLibrary_Resolve2(const libqt_string fileName, const char* symbol);
+intptr_t QLibrary_Resolve3(const libqt_string fileName, int verNum, const char* symbol);
+intptr_t QLibrary_Resolve4(const libqt_string fileName, const libqt_string version, const char* symbol);
 bool QLibrary_Load(QLibrary* self);
 bool QLibrary_Unload(QLibrary* self);
 bool QLibrary_IsLoaded(const QLibrary* self);

@@ -68,6 +68,7 @@ pub const qabstractnativeeventfilter = struct {
         };
         return qtc.QAbstractNativeEventFilter_SuperNativeEventFilter(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

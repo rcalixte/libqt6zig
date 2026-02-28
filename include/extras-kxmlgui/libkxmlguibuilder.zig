@@ -405,6 +405,7 @@ pub const kxmlguibuilder = struct {
     pub fn SuperFinalizeGUI(self: ?*anyopaque, client: ?*anyopaque) void {
         qtc.KXMLGUIBuilder_SuperFinalizeGUI(@ptrCast(self), @ptrCast(client));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

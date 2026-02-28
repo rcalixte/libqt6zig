@@ -271,6 +271,7 @@ pub const kmacroexpanderbase = struct {
         };
         return qtc.KMacroExpanderBase_SuperExpandEscapedMacro(@ptrCast(self), str_str, @bitCast(pos), retVal_list);
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

@@ -172,6 +172,7 @@ pub const qdesignerformeditorplugininterface = struct {
     pub fn SuperCore(self: ?*anyopaque) QtC.QDesignerFormEditorInterface {
         return qtc.QDesignerFormEditorPluginInterface_SuperCore(@ptrCast(self));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

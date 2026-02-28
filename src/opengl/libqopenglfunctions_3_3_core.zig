@@ -4763,6 +4763,7 @@ pub const qopenglfunctions_3_3_core = struct {
     pub fn OnOwningContext(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QOpenGLContext) void {
         qtc.QOpenGLFunctions_3_3_Core_OnOwningContext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

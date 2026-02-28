@@ -49,6 +49,34 @@ pub const qaccessible = struct {
         qtc.QAccessible_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#installUpdateHandler)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: *const fn (funcparam1: QtC.QAccessibleEvent) callconv(.c) void `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: QtC.QAccessibleEvent) callconv(.c) void `
+    ///
+    pub fn InstallUpdateHandler(param1: *const fn (?*anyopaque) callconv(.c) void) ?*const fn (?*anyopaque) callconv(.c) void {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QAccessible_InstallUpdateHandler(@bitCast(@intFromPtr(param1))))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#installRootObjectHandler)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: *const fn (funcparam1: QtC.QObject) callconv(.c) void `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: QtC.QObject) callconv(.c) void `
+    ///
+    pub fn InstallRootObjectHandler(param1: *const fn (?*anyopaque) callconv(.c) void) ?*const fn (?*anyopaque) callconv(.c) void {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QAccessible_InstallRootObjectHandler(@bitCast(@intFromPtr(param1))))));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#installActivationObserver)
     ///
     /// ## Parameter(s):

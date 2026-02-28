@@ -24,6 +24,15 @@ void QStaticPlugin_MoveAssign(QStaticPlugin* self, QStaticPlugin* other) {
     *self = std::move(*other);
 }
 
+intptr_t QStaticPlugin_Instance(const QStaticPlugin* self) {
+    return reinterpret_cast<intptr_t>(self->instance);
+}
+
+void QStaticPlugin_SetInstance(QStaticPlugin* self, intptr_t instance) {
+    auto instance_func = reinterpret_cast<QObject* (*)()>(instance);
+    self->instance = instance_func;
+}
+
 QJsonObject* QStaticPlugin_MetaData(const QStaticPlugin* self) {
     return new QJsonObject(self->metaData());
 }

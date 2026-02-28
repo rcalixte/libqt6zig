@@ -389,6 +389,7 @@ pub const kurifiltersearchprovider = struct {
         };
         qtc.KUriFilterSearchProvider_SuperSetName(@ptrCast(self), name_str);
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

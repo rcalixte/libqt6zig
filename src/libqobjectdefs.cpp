@@ -587,7 +587,12 @@ QMetaObject__SuperData* QMetaObject__SuperData_new2(const QMetaObject* mo) {
     return new QMetaObject::SuperData(mo);
 }
 
-QMetaObject__SuperData* QMetaObject__SuperData_new3(const QMetaObject__SuperData* param1) {
+QMetaObject__SuperData* QMetaObject__SuperData_new3(intptr_t g) {
+    auto g_func = reinterpret_cast<const QMetaObject* (*)()>(g);
+    return new QMetaObject::SuperData(g_func);
+}
+
+QMetaObject__SuperData* QMetaObject__SuperData_new4(const QMetaObject__SuperData* param1) {
     return new QMetaObject::SuperData(*param1);
 }
 

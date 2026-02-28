@@ -198,6 +198,32 @@ pub const qeasingcurve = struct {
         qtc.QEasingCurve_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#setCustomType)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ` func: *const fn (funcparam1: f64) callconv(.c) f64 `
+    ///
+    pub fn SetCustomType(self: ?*anyopaque, func: *const fn (f64) callconv(.c) f64) void {
+        qtc.QEasingCurve_SetCustomType(@ptrCast(self), @bitCast(@intFromPtr(func)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#customType)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QEasingCurve `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn (funcparam1: f64) callconv(.c) f64 `
+    ///
+    pub fn CustomType(self: ?*anyopaque) ?*const fn (f64) callconv(.c) f64 {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QEasingCurve_CustomType(@ptrCast(self)))));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#valueForProgress)
     ///
     /// ## Parameter(s):

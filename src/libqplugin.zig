@@ -57,6 +57,32 @@ pub const qstaticplugin = struct {
         qtc.QStaticPlugin_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstaticplugin.html#instance-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticPlugin `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*const fn () callconv(.c) QtC.QObject `
+    ///
+    pub fn Instance(self: ?*anyopaque) ?*const fn () callconv(.c) QtC.QObject {
+        return @ptrFromInt(@as(usize, @bitCast(qtc.QStaticPlugin_Instance(@ptrCast(self)))));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstaticplugin.html#instance-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QStaticPlugin `
+    ///
+    /// ` instance: *const fn () callconv(.c) QtC.QObject `
+    ///
+    pub fn SetInstance(self: ?*anyopaque, instance: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QStaticPlugin_SetInstance(@ptrCast(self), @bitCast(@intFromPtr(instance)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstaticplugin.html#metaData)
     ///
     /// ## Parameter(s):

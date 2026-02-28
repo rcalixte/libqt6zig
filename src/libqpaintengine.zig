@@ -1395,6 +1395,7 @@ pub const qpaintengine = struct {
     pub fn SuperCreatePixmapFromImage(self: ?*anyopaque, image: QtC.QImage, flags: i32) QtC.QPixmap {
         return qtc.QPaintEngine_SuperCreatePixmapFromImage(@ptrCast(self), @ptrCast(image), @bitCast(flags));
     }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
