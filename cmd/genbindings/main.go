@@ -285,7 +285,7 @@ func gatherTypes(name string, dirs []string, allowHeader func(string) bool, clan
 			panic("Expected cache to be created for " + inputHeader + ", but got error " + err.Error())
 		}
 
-		var astInner []interface{} = nil
+		var astInner []any = nil
 		err = json.Unmarshal(astJson, &astInner)
 		if err != nil {
 			panic(err)
@@ -387,7 +387,7 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 		}
 
 		// Json decode
-		var astInner []interface{} = nil
+		var astInner []any = nil
 		err = json.Unmarshal(astJson, &astInner)
 		if err != nil {
 			panic(err)
@@ -567,7 +567,7 @@ func generateClangCaches(includeFiles []string, clangBin string, cflags []string
 		panic(err)
 	}
 
-	for i := 0; i < ClangSubprocessCount; i++ {
+	for range ClangSubprocessCount {
 		clangWg.Add(1)
 		go func() {
 			defer clangWg.Done()
