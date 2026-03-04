@@ -34,6 +34,13 @@ func InsertTypedefs() {
 
 	// Qt 6 Accounts
 	KnownTypedefs["AccountId"] = lookupResultTypedef{pp, CppTypedef{"Accounts::AccountId", parseSingleTypeString("Accounts::AccountId", "")}}
+
+	// Qt 6 Poppler
+	KnownTypedefs["Annotation::SubType"] = lookupResultTypedef{pp, CppTypedef{"Poppler::Annotation::SubType", parseSingleTypeString("Poppler::Annotation::SubType", "")}}
+	KnownTypedefs["FormWidgetButton"] = lookupResultTypedef{pp, CppTypedef{"Poppler::FormWidgetButton", parseSingleTypeString("Poppler::FormWidgetButton", "")}}
+	KnownTypedefs["FormWidgetChoice"] = lookupResultTypedef{pp, CppTypedef{"Poppler::FormWidgetChoice", parseSingleTypeString("Poppler::FormWidgetChoice", "")}}
+	KnownTypedefs["FormWidgetSignature"] = lookupResultTypedef{pp, CppTypedef{"Poppler::FormWidgetSignature", parseSingleTypeString("Poppler::FormWidgetSignature", "")}}
+	KnownTypedefs["FormWidgetText"] = lookupResultTypedef{pp, CppTypedef{"Poppler::FormWidgetText", parseSingleTypeString("Poppler::FormWidgetText", "")}}
 }
 
 func Widgets_AllowHeader(fullpath string) bool {
@@ -173,6 +180,7 @@ func ImportHeaderForClass(className string) bool {
 		"KTextEditor",                    // Qt 6 KTextEditor
 		"QKeychain",                      // Qt 6 QKeychain
 		"kImageAnnotator",                // Qt 6 kImageAnnotator
+		"Poppler",                        // Qt 6 Poppler
 		"____last____":
 		return false
 	}
@@ -490,6 +498,11 @@ func AllowCtor(className string) bool {
 		return false
 	}
 
+	// Qt 6 Poppler
+	if className == "Poppler::MediaRendition" {
+		return false
+	}
+
 	// Default allow
 	return true
 }
@@ -801,6 +814,14 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QPlatformOpenGLContext",          // Qt 6 qopenglcontext.h
 		"KateInlineNoteData",              // Qt 6 inlinenote.h
 		"AgAccountWatch",                  // Qt 6 accounts.h, external typedef
+		"DocumentData",                    // Qt 6 poppler-form.h
+		"EmbFile",                         // Qt 6 poppler-qt6.h
+		"FontInfoData",                    // Qt 6 poppler-qt6.h
+		"FormFieldIconData",               // Qt 6 poppler-form.h
+		"LinkDestinationData",             // Qt 6 poppler-link.h
+		"PageTransitionParams",            // Qt 6 poppler-page-transition.h
+		"Ref",                             // Qt 6 poppler-link.h
+		"Sound",                           // Qt 6 poppler-qt6.h
 		"SignOn::AuthService::IdentityFilterCriteria", // Qt 6 authservice.h, this results in an infinite loop for some reason
 		"____last____":
 		return ErrTooComplex
@@ -834,7 +855,8 @@ func AllowStructDef(className string) bool {
 		"KIO::SslUi",
 		"KNSCore::ErrorCode",
 		"KParts::PartLoader",
-		"KSyntaxHighlighting::WildcardMatcher":
+		"KSyntaxHighlighting::WildcardMatcher",
+		"Poppler::Version":
 		return false
 	default:
 		return true
