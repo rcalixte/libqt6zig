@@ -1,4 +1,8 @@
 
+### 6.8.2 rev65 (4 March 2026)
+
+* Add [Poppler](https://poppler.freedesktop.org/api/qt6/) (#126)
+
 ### 6.8.2 rev64 (28 February 2026)
 
 * **BREAKING CHANGE:** Add initial support for function pointer parameter types (#125)
