@@ -1,0 +1,437 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_POPPLERC_LIBPOPPLER_ANNOTATION_H
+#define SRC_RESTRICTED_EXTRAS_POPPLERC_LIBPOPPLER_ANNOTATION_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__Annotation)
+typedef Poppler::Annotation Poppler__Annotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__Annotation__Popup)
+typedef Poppler::Annotation::Popup Poppler__Annotation__Popup;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__Annotation__Style)
+typedef Poppler::Annotation::Style Poppler__Annotation__Style;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__AnnotationAppearance)
+typedef Poppler::AnnotationAppearance Poppler__AnnotationAppearance;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__CaretAnnotation)
+typedef Poppler::CaretAnnotation Poppler__CaretAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__EmbeddedFile)
+typedef Poppler::EmbeddedFile Poppler__EmbeddedFile;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__FileAttachmentAnnotation)
+typedef Poppler::FileAttachmentAnnotation Poppler__FileAttachmentAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__GeomAnnotation)
+typedef Poppler::GeomAnnotation Poppler__GeomAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__HighlightAnnotation)
+typedef Poppler::HighlightAnnotation Poppler__HighlightAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__HighlightAnnotation__Quad)
+typedef Poppler::HighlightAnnotation::Quad Poppler__HighlightAnnotation__Quad;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__InkAnnotation)
+typedef Poppler::InkAnnotation Poppler__InkAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__LineAnnotation)
+typedef Poppler::LineAnnotation Poppler__LineAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__Link)
+typedef Poppler::Link Poppler__Link;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__LinkAnnotation)
+typedef Poppler::LinkAnnotation Poppler__LinkAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__LinkRendition)
+typedef Poppler::LinkRendition Poppler__LinkRendition;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__MovieAnnotation)
+typedef Poppler::MovieAnnotation Poppler__MovieAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__MovieObject)
+typedef Poppler::MovieObject Poppler__MovieObject;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__PDFConverter__NewSignatureData)
+typedef Poppler::PDFConverter::NewSignatureData Poppler__PDFConverter__NewSignatureData;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__RichMediaAnnotation)
+typedef Poppler::RichMediaAnnotation Poppler__RichMediaAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__RichMediaAnnotation__Activation)
+typedef Poppler::RichMediaAnnotation::Activation Poppler__RichMediaAnnotation__Activation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__RichMediaAnnotation__Asset)
+typedef Poppler::RichMediaAnnotation::Asset Poppler__RichMediaAnnotation__Asset;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__RichMediaAnnotation__Configuration)
+typedef Poppler::RichMediaAnnotation::Configuration Poppler__RichMediaAnnotation__Configuration;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__RichMediaAnnotation__Content)
+typedef Poppler::RichMediaAnnotation::Content Poppler__RichMediaAnnotation__Content;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__RichMediaAnnotation__Deactivation)
+typedef Poppler::RichMediaAnnotation::Deactivation Poppler__RichMediaAnnotation__Deactivation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__RichMediaAnnotation__Instance)
+typedef Poppler::RichMediaAnnotation::Instance Poppler__RichMediaAnnotation__Instance;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__RichMediaAnnotation__Params)
+typedef Poppler::RichMediaAnnotation::Params Poppler__RichMediaAnnotation__Params;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__RichMediaAnnotation__Settings)
+typedef Poppler::RichMediaAnnotation::Settings Poppler__RichMediaAnnotation__Settings;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__ScreenAnnotation)
+typedef Poppler::ScreenAnnotation Poppler__ScreenAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__SignatureAnnotation)
+typedef Poppler::SignatureAnnotation Poppler__SignatureAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__SoundAnnotation)
+typedef Poppler::SoundAnnotation Poppler__SoundAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__SoundObject)
+typedef Poppler::SoundObject Poppler__SoundObject;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__StampAnnotation)
+typedef Poppler::StampAnnotation Poppler__StampAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__TextAnnotation)
+typedef Poppler::TextAnnotation Poppler__TextAnnotation;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__WidgetAnnotation)
+typedef Poppler::WidgetAnnotation Poppler__WidgetAnnotation;
+#endif
+#else
+typedef struct Poppler__Annotation Poppler__Annotation;
+typedef struct Poppler__AnnotationAppearance Poppler__AnnotationAppearance;
+typedef struct Poppler__Annotation__Popup Poppler__Annotation__Popup;
+typedef struct Poppler__Annotation__Style Poppler__Annotation__Style;
+typedef struct Poppler__CaretAnnotation Poppler__CaretAnnotation;
+typedef struct Poppler__EmbeddedFile Poppler__EmbeddedFile;
+typedef struct Poppler__FileAttachmentAnnotation Poppler__FileAttachmentAnnotation;
+typedef struct Poppler__GeomAnnotation Poppler__GeomAnnotation;
+typedef struct Poppler__HighlightAnnotation Poppler__HighlightAnnotation;
+typedef struct Poppler__HighlightAnnotation__Quad Poppler__HighlightAnnotation__Quad;
+typedef struct Poppler__InkAnnotation Poppler__InkAnnotation;
+typedef struct Poppler__LineAnnotation Poppler__LineAnnotation;
+typedef struct Poppler__Link Poppler__Link;
+typedef struct Poppler__LinkAnnotation Poppler__LinkAnnotation;
+typedef struct Poppler__LinkRendition Poppler__LinkRendition;
+typedef struct Poppler__MovieAnnotation Poppler__MovieAnnotation;
+typedef struct Poppler__MovieObject Poppler__MovieObject;
+typedef struct Poppler__PDFConverter__NewSignatureData Poppler__PDFConverter__NewSignatureData;
+typedef struct Poppler__RichMediaAnnotation Poppler__RichMediaAnnotation;
+typedef struct Poppler__RichMediaAnnotation__Activation Poppler__RichMediaAnnotation__Activation;
+typedef struct Poppler__RichMediaAnnotation__Asset Poppler__RichMediaAnnotation__Asset;
+typedef struct Poppler__RichMediaAnnotation__Configuration Poppler__RichMediaAnnotation__Configuration;
+typedef struct Poppler__RichMediaAnnotation__Content Poppler__RichMediaAnnotation__Content;
+typedef struct Poppler__RichMediaAnnotation__Deactivation Poppler__RichMediaAnnotation__Deactivation;
+typedef struct Poppler__RichMediaAnnotation__Instance Poppler__RichMediaAnnotation__Instance;
+typedef struct Poppler__RichMediaAnnotation__Params Poppler__RichMediaAnnotation__Params;
+typedef struct Poppler__RichMediaAnnotation__Settings Poppler__RichMediaAnnotation__Settings;
+typedef struct Poppler__ScreenAnnotation Poppler__ScreenAnnotation;
+typedef struct Poppler__SignatureAnnotation Poppler__SignatureAnnotation;
+typedef struct Poppler__SoundAnnotation Poppler__SoundAnnotation;
+typedef struct Poppler__SoundObject Poppler__SoundObject;
+typedef struct Poppler__StampAnnotation Poppler__StampAnnotation;
+typedef struct Poppler__TextAnnotation Poppler__TextAnnotation;
+typedef struct Poppler__WidgetAnnotation Poppler__WidgetAnnotation;
+typedef struct QColor QColor;
+typedef struct QDateTime QDateTime;
+typedef struct QFont QFont;
+typedef struct QImage QImage;
+typedef struct QPointF QPointF;
+typedef struct QRectF QRectF;
+#endif
+
+libqt_string Poppler__Annotation_Author(const Poppler__Annotation* self);
+void Poppler__Annotation_SetAuthor(Poppler__Annotation* self, const libqt_string author);
+libqt_string Poppler__Annotation_Contents(const Poppler__Annotation* self);
+void Poppler__Annotation_SetContents(Poppler__Annotation* self, const libqt_string contents);
+libqt_string Poppler__Annotation_UniqueName(const Poppler__Annotation* self);
+void Poppler__Annotation_SetUniqueName(Poppler__Annotation* self, const libqt_string uniqueName);
+QDateTime* Poppler__Annotation_ModificationDate(const Poppler__Annotation* self);
+void Poppler__Annotation_SetModificationDate(Poppler__Annotation* self, const QDateTime* date);
+QDateTime* Poppler__Annotation_CreationDate(const Poppler__Annotation* self);
+void Poppler__Annotation_SetCreationDate(Poppler__Annotation* self, const QDateTime* date);
+int Poppler__Annotation_Flags(const Poppler__Annotation* self);
+void Poppler__Annotation_SetFlags(Poppler__Annotation* self, int flags);
+QRectF* Poppler__Annotation_Boundary(const Poppler__Annotation* self);
+void Poppler__Annotation_SetBoundary(Poppler__Annotation* self, const QRectF* boundary);
+Poppler__Annotation__Style* Poppler__Annotation_Style(const Poppler__Annotation* self);
+void Poppler__Annotation_SetStyle(Poppler__Annotation* self, const Poppler__Annotation__Style* style);
+Poppler__Annotation__Popup* Poppler__Annotation_Popup(const Poppler__Annotation* self);
+void Poppler__Annotation_SetPopup(Poppler__Annotation* self, const Poppler__Annotation__Popup* popup);
+int Poppler__Annotation_RevisionScope(const Poppler__Annotation* self);
+int Poppler__Annotation_RevisionType(const Poppler__Annotation* self);
+libqt_list /* of Poppler__Annotation* */ Poppler__Annotation_Revisions(const Poppler__Annotation* self);
+int Poppler__Annotation_SubType(const Poppler__Annotation* self);
+Poppler__AnnotationAppearance* Poppler__Annotation_AnnotationAppearance(const Poppler__Annotation* self);
+void Poppler__Annotation_SetAnnotationAppearance(Poppler__Annotation* self, const Poppler__AnnotationAppearance* annotationAppearance);
+void Poppler__Annotation_Delete(Poppler__Annotation* self);
+
+Poppler__TextAnnotation* Poppler__TextAnnotation_new(int typeVal);
+int Poppler__TextAnnotation_SubType(const Poppler__TextAnnotation* self);
+int Poppler__TextAnnotation_TextType(const Poppler__TextAnnotation* self);
+libqt_string Poppler__TextAnnotation_TextIcon(const Poppler__TextAnnotation* self);
+void Poppler__TextAnnotation_SetTextIcon(Poppler__TextAnnotation* self, const libqt_string icon);
+QFont* Poppler__TextAnnotation_TextFont(const Poppler__TextAnnotation* self);
+void Poppler__TextAnnotation_SetTextFont(Poppler__TextAnnotation* self, const QFont* font);
+QColor* Poppler__TextAnnotation_TextColor(const Poppler__TextAnnotation* self);
+void Poppler__TextAnnotation_SetTextColor(Poppler__TextAnnotation* self, const QColor* color);
+int Poppler__TextAnnotation_InplaceAlign(const Poppler__TextAnnotation* self);
+void Poppler__TextAnnotation_SetInplaceAlign(Poppler__TextAnnotation* self, int alignVal);
+QPointF* Poppler__TextAnnotation_CalloutPoint(const Poppler__TextAnnotation* self, int id);
+libqt_list /* of QPointF* */ Poppler__TextAnnotation_CalloutPoints(const Poppler__TextAnnotation* self);
+void Poppler__TextAnnotation_SetCalloutPoints(Poppler__TextAnnotation* self, const libqt_list /* of QPointF* */ points);
+int Poppler__TextAnnotation_InplaceIntent(const Poppler__TextAnnotation* self);
+void Poppler__TextAnnotation_SetInplaceIntent(Poppler__TextAnnotation* self, int intent);
+void Poppler__TextAnnotation_OnSubType(const Poppler__TextAnnotation* self, intptr_t slot);
+int Poppler__TextAnnotation_SuperSubType(const Poppler__TextAnnotation* self);
+void Poppler__TextAnnotation_Delete(Poppler__TextAnnotation* self);
+
+Poppler__LineAnnotation* Poppler__LineAnnotation_new(int typeVal);
+int Poppler__LineAnnotation_SubType(const Poppler__LineAnnotation* self);
+int Poppler__LineAnnotation_LineType(const Poppler__LineAnnotation* self);
+libqt_list /* of QPointF* */ Poppler__LineAnnotation_LinePoints(const Poppler__LineAnnotation* self);
+void Poppler__LineAnnotation_SetLinePoints(Poppler__LineAnnotation* self, const libqt_list /* of QPointF* */ points);
+int Poppler__LineAnnotation_LineStartStyle(const Poppler__LineAnnotation* self);
+void Poppler__LineAnnotation_SetLineStartStyle(Poppler__LineAnnotation* self, int style);
+int Poppler__LineAnnotation_LineEndStyle(const Poppler__LineAnnotation* self);
+void Poppler__LineAnnotation_SetLineEndStyle(Poppler__LineAnnotation* self, int style);
+bool Poppler__LineAnnotation_IsLineClosed(const Poppler__LineAnnotation* self);
+void Poppler__LineAnnotation_SetLineClosed(Poppler__LineAnnotation* self, bool closed);
+QColor* Poppler__LineAnnotation_LineInnerColor(const Poppler__LineAnnotation* self);
+void Poppler__LineAnnotation_SetLineInnerColor(Poppler__LineAnnotation* self, const QColor* color);
+double Poppler__LineAnnotation_LineLeadingForwardPoint(const Poppler__LineAnnotation* self);
+void Poppler__LineAnnotation_SetLineLeadingForwardPoint(Poppler__LineAnnotation* self, double point);
+double Poppler__LineAnnotation_LineLeadingBackPoint(const Poppler__LineAnnotation* self);
+void Poppler__LineAnnotation_SetLineLeadingBackPoint(Poppler__LineAnnotation* self, double point);
+bool Poppler__LineAnnotation_LineShowCaption(const Poppler__LineAnnotation* self);
+void Poppler__LineAnnotation_SetLineShowCaption(Poppler__LineAnnotation* self, bool show);
+int Poppler__LineAnnotation_LineIntent(const Poppler__LineAnnotation* self);
+void Poppler__LineAnnotation_SetLineIntent(Poppler__LineAnnotation* self, int intent);
+void Poppler__LineAnnotation_OnSubType(const Poppler__LineAnnotation* self, intptr_t slot);
+int Poppler__LineAnnotation_SuperSubType(const Poppler__LineAnnotation* self);
+void Poppler__LineAnnotation_Delete(Poppler__LineAnnotation* self);
+
+Poppler__GeomAnnotation* Poppler__GeomAnnotation_new();
+int Poppler__GeomAnnotation_SubType(const Poppler__GeomAnnotation* self);
+int Poppler__GeomAnnotation_GeomType(const Poppler__GeomAnnotation* self);
+void Poppler__GeomAnnotation_SetGeomType(Poppler__GeomAnnotation* self, int typeVal);
+QColor* Poppler__GeomAnnotation_GeomInnerColor(const Poppler__GeomAnnotation* self);
+void Poppler__GeomAnnotation_SetGeomInnerColor(Poppler__GeomAnnotation* self, const QColor* color);
+void Poppler__GeomAnnotation_OnSubType(const Poppler__GeomAnnotation* self, intptr_t slot);
+int Poppler__GeomAnnotation_SuperSubType(const Poppler__GeomAnnotation* self);
+void Poppler__GeomAnnotation_Delete(Poppler__GeomAnnotation* self);
+
+Poppler__HighlightAnnotation* Poppler__HighlightAnnotation_new();
+int Poppler__HighlightAnnotation_SubType(const Poppler__HighlightAnnotation* self);
+int Poppler__HighlightAnnotation_HighlightType(const Poppler__HighlightAnnotation* self);
+void Poppler__HighlightAnnotation_SetHighlightType(Poppler__HighlightAnnotation* self, int typeVal);
+libqt_list /* of Poppler__HighlightAnnotation__Quad* */ Poppler__HighlightAnnotation_HighlightQuads(const Poppler__HighlightAnnotation* self);
+void Poppler__HighlightAnnotation_SetHighlightQuads(Poppler__HighlightAnnotation* self, const libqt_list /* of Poppler__HighlightAnnotation__Quad* */ quads);
+void Poppler__HighlightAnnotation_OnSubType(const Poppler__HighlightAnnotation* self, intptr_t slot);
+int Poppler__HighlightAnnotation_SuperSubType(const Poppler__HighlightAnnotation* self);
+void Poppler__HighlightAnnotation_Delete(Poppler__HighlightAnnotation* self);
+
+Poppler__StampAnnotation* Poppler__StampAnnotation_new();
+int Poppler__StampAnnotation_SubType(const Poppler__StampAnnotation* self);
+libqt_string Poppler__StampAnnotation_StampIconName(const Poppler__StampAnnotation* self);
+void Poppler__StampAnnotation_SetStampIconName(Poppler__StampAnnotation* self, const libqt_string name);
+void Poppler__StampAnnotation_SetStampCustomImage(Poppler__StampAnnotation* self, const QImage* image);
+void Poppler__StampAnnotation_OnSubType(const Poppler__StampAnnotation* self, intptr_t slot);
+int Poppler__StampAnnotation_SuperSubType(const Poppler__StampAnnotation* self);
+void Poppler__StampAnnotation_Delete(Poppler__StampAnnotation* self);
+
+Poppler__SignatureAnnotation* Poppler__SignatureAnnotation_new();
+int Poppler__SignatureAnnotation_SubType(const Poppler__SignatureAnnotation* self);
+void Poppler__SignatureAnnotation_SetText(Poppler__SignatureAnnotation* self, const libqt_string text);
+void Poppler__SignatureAnnotation_SetLeftText(Poppler__SignatureAnnotation* self, const libqt_string text);
+double Poppler__SignatureAnnotation_FontSize(const Poppler__SignatureAnnotation* self);
+void Poppler__SignatureAnnotation_SetFontSize(Poppler__SignatureAnnotation* self, double fontSize);
+double Poppler__SignatureAnnotation_LeftFontSize(const Poppler__SignatureAnnotation* self);
+void Poppler__SignatureAnnotation_SetLeftFontSize(Poppler__SignatureAnnotation* self, double fontSize);
+QColor* Poppler__SignatureAnnotation_FontColor(const Poppler__SignatureAnnotation* self);
+void Poppler__SignatureAnnotation_SetFontColor(Poppler__SignatureAnnotation* self, const QColor* color);
+QColor* Poppler__SignatureAnnotation_BorderColor(const Poppler__SignatureAnnotation* self);
+void Poppler__SignatureAnnotation_SetBorderColor(Poppler__SignatureAnnotation* self, const QColor* color);
+double Poppler__SignatureAnnotation_BorderWidth(const Poppler__SignatureAnnotation* self);
+void Poppler__SignatureAnnotation_SetBorderWidth(Poppler__SignatureAnnotation* self, double width);
+QColor* Poppler__SignatureAnnotation_BackgroundColor(const Poppler__SignatureAnnotation* self);
+void Poppler__SignatureAnnotation_SetBackgroundColor(Poppler__SignatureAnnotation* self, const QColor* color);
+libqt_string Poppler__SignatureAnnotation_ImagePath(const Poppler__SignatureAnnotation* self);
+void Poppler__SignatureAnnotation_SetImagePath(Poppler__SignatureAnnotation* self, const libqt_string imagePath);
+libqt_string Poppler__SignatureAnnotation_FieldPartialName(const Poppler__SignatureAnnotation* self);
+void Poppler__SignatureAnnotation_SetFieldPartialName(Poppler__SignatureAnnotation* self, const libqt_string fieldPartialName);
+int Poppler__SignatureAnnotation_Sign(Poppler__SignatureAnnotation* self, const libqt_string outputFileName, const Poppler__PDFConverter__NewSignatureData* data);
+void Poppler__SignatureAnnotation_OnSubType(const Poppler__SignatureAnnotation* self, intptr_t slot);
+int Poppler__SignatureAnnotation_SuperSubType(const Poppler__SignatureAnnotation* self);
+void Poppler__SignatureAnnotation_Delete(Poppler__SignatureAnnotation* self);
+
+Poppler__InkAnnotation* Poppler__InkAnnotation_new();
+int Poppler__InkAnnotation_SubType(const Poppler__InkAnnotation* self);
+libqt_list /* of libqt_list of QPointF* */ Poppler__InkAnnotation_InkPaths(const Poppler__InkAnnotation* self);
+void Poppler__InkAnnotation_SetInkPaths(Poppler__InkAnnotation* self, const libqt_list /* of libqt_list of QPointF* */ paths);
+void Poppler__InkAnnotation_OnSubType(const Poppler__InkAnnotation* self, intptr_t slot);
+int Poppler__InkAnnotation_SuperSubType(const Poppler__InkAnnotation* self);
+void Poppler__InkAnnotation_Delete(Poppler__InkAnnotation* self);
+
+int Poppler__LinkAnnotation_SubType(const Poppler__LinkAnnotation* self);
+Poppler__Link* Poppler__LinkAnnotation_LinkDestination(const Poppler__LinkAnnotation* self);
+int Poppler__LinkAnnotation_LinkHighlightMode(const Poppler__LinkAnnotation* self);
+void Poppler__LinkAnnotation_SetLinkHighlightMode(Poppler__LinkAnnotation* self, int mode);
+QPointF* Poppler__LinkAnnotation_LinkRegionPoint(const Poppler__LinkAnnotation* self, int id);
+void Poppler__LinkAnnotation_SetLinkRegionPoint(Poppler__LinkAnnotation* self, int id, const QPointF* point);
+void Poppler__LinkAnnotation_Delete(Poppler__LinkAnnotation* self);
+
+Poppler__CaretAnnotation* Poppler__CaretAnnotation_new();
+int Poppler__CaretAnnotation_SubType(const Poppler__CaretAnnotation* self);
+int Poppler__CaretAnnotation_CaretSymbol(const Poppler__CaretAnnotation* self);
+void Poppler__CaretAnnotation_SetCaretSymbol(Poppler__CaretAnnotation* self, int symbol);
+void Poppler__CaretAnnotation_OnSubType(const Poppler__CaretAnnotation* self, intptr_t slot);
+int Poppler__CaretAnnotation_SuperSubType(const Poppler__CaretAnnotation* self);
+void Poppler__CaretAnnotation_Delete(Poppler__CaretAnnotation* self);
+
+int Poppler__FileAttachmentAnnotation_SubType(const Poppler__FileAttachmentAnnotation* self);
+libqt_string Poppler__FileAttachmentAnnotation_FileIconName(const Poppler__FileAttachmentAnnotation* self);
+void Poppler__FileAttachmentAnnotation_SetFileIconName(Poppler__FileAttachmentAnnotation* self, const libqt_string icon);
+Poppler__EmbeddedFile* Poppler__FileAttachmentAnnotation_EmbeddedFile(const Poppler__FileAttachmentAnnotation* self);
+void Poppler__FileAttachmentAnnotation_SetEmbeddedFile(Poppler__FileAttachmentAnnotation* self, Poppler__EmbeddedFile* ef);
+void Poppler__FileAttachmentAnnotation_Delete(Poppler__FileAttachmentAnnotation* self);
+
+int Poppler__SoundAnnotation_SubType(const Poppler__SoundAnnotation* self);
+libqt_string Poppler__SoundAnnotation_SoundIconName(const Poppler__SoundAnnotation* self);
+void Poppler__SoundAnnotation_SetSoundIconName(Poppler__SoundAnnotation* self, const libqt_string icon);
+Poppler__SoundObject* Poppler__SoundAnnotation_Sound(const Poppler__SoundAnnotation* self);
+void Poppler__SoundAnnotation_SetSound(Poppler__SoundAnnotation* self, Poppler__SoundObject* s);
+void Poppler__SoundAnnotation_Delete(Poppler__SoundAnnotation* self);
+
+int Poppler__MovieAnnotation_SubType(const Poppler__MovieAnnotation* self);
+Poppler__MovieObject* Poppler__MovieAnnotation_Movie(const Poppler__MovieAnnotation* self);
+void Poppler__MovieAnnotation_SetMovie(Poppler__MovieAnnotation* self, Poppler__MovieObject* movie);
+libqt_string Poppler__MovieAnnotation_MovieTitle(const Poppler__MovieAnnotation* self);
+void Poppler__MovieAnnotation_SetMovieTitle(Poppler__MovieAnnotation* self, const libqt_string title);
+void Poppler__MovieAnnotation_Delete(Poppler__MovieAnnotation* self);
+
+int Poppler__ScreenAnnotation_SubType(const Poppler__ScreenAnnotation* self);
+Poppler__LinkRendition* Poppler__ScreenAnnotation_Action(const Poppler__ScreenAnnotation* self);
+void Poppler__ScreenAnnotation_SetAction(Poppler__ScreenAnnotation* self, Poppler__LinkRendition* action);
+libqt_string Poppler__ScreenAnnotation_ScreenTitle(const Poppler__ScreenAnnotation* self);
+void Poppler__ScreenAnnotation_SetScreenTitle(Poppler__ScreenAnnotation* self, const libqt_string title);
+Poppler__Link* Poppler__ScreenAnnotation_AdditionalAction(const Poppler__ScreenAnnotation* self, int typeVal);
+void Poppler__ScreenAnnotation_Delete(Poppler__ScreenAnnotation* self);
+
+int Poppler__WidgetAnnotation_SubType(const Poppler__WidgetAnnotation* self);
+Poppler__Link* Poppler__WidgetAnnotation_AdditionalAction(const Poppler__WidgetAnnotation* self, int typeVal);
+void Poppler__WidgetAnnotation_Delete(Poppler__WidgetAnnotation* self);
+
+int Poppler__RichMediaAnnotation_SubType(const Poppler__RichMediaAnnotation* self);
+Poppler__RichMediaAnnotation__Settings* Poppler__RichMediaAnnotation_Settings(const Poppler__RichMediaAnnotation* self);
+Poppler__RichMediaAnnotation__Content* Poppler__RichMediaAnnotation_Content(const Poppler__RichMediaAnnotation* self);
+void Poppler__RichMediaAnnotation_Delete(Poppler__RichMediaAnnotation* self);
+
+Poppler__Annotation__Style* Poppler__Annotation__Style_new();
+Poppler__Annotation__Style* Poppler__Annotation__Style_new2(const Poppler__Annotation__Style* other);
+void Poppler__Annotation__Style_OperatorAssign(Poppler__Annotation__Style* self, const Poppler__Annotation__Style* other);
+QColor* Poppler__Annotation__Style_Color(const Poppler__Annotation__Style* self);
+void Poppler__Annotation__Style_SetColor(Poppler__Annotation__Style* self, const QColor* color);
+double Poppler__Annotation__Style_Opacity(const Poppler__Annotation__Style* self);
+void Poppler__Annotation__Style_SetOpacity(Poppler__Annotation__Style* self, double opacity);
+double Poppler__Annotation__Style_Width(const Poppler__Annotation__Style* self);
+void Poppler__Annotation__Style_SetWidth(Poppler__Annotation__Style* self, double width);
+int Poppler__Annotation__Style_LineStyle(const Poppler__Annotation__Style* self);
+void Poppler__Annotation__Style_SetLineStyle(Poppler__Annotation__Style* self, int style);
+double Poppler__Annotation__Style_XCorners(const Poppler__Annotation__Style* self);
+void Poppler__Annotation__Style_SetXCorners(Poppler__Annotation__Style* self, double radius);
+double Poppler__Annotation__Style_YCorners(const Poppler__Annotation__Style* self);
+void Poppler__Annotation__Style_SetYCorners(Poppler__Annotation__Style* self, double radius);
+libqt_list /* of double */ Poppler__Annotation__Style_DashArray(const Poppler__Annotation__Style* self);
+void Poppler__Annotation__Style_SetDashArray(Poppler__Annotation__Style* self, const libqt_list /* of double */ array);
+int Poppler__Annotation__Style_LineEffect(const Poppler__Annotation__Style* self);
+void Poppler__Annotation__Style_SetLineEffect(Poppler__Annotation__Style* self, int effect);
+double Poppler__Annotation__Style_EffectIntensity(const Poppler__Annotation__Style* self);
+void Poppler__Annotation__Style_SetEffectIntensity(Poppler__Annotation__Style* self, double intens);
+void Poppler__Annotation__Style_Delete(Poppler__Annotation__Style* self);
+
+Poppler__Annotation__Popup* Poppler__Annotation__Popup_new();
+Poppler__Annotation__Popup* Poppler__Annotation__Popup_new2(const Poppler__Annotation__Popup* other);
+void Poppler__Annotation__Popup_OperatorAssign(Poppler__Annotation__Popup* self, const Poppler__Annotation__Popup* other);
+int Poppler__Annotation__Popup_Flags(const Poppler__Annotation__Popup* self);
+void Poppler__Annotation__Popup_SetFlags(Poppler__Annotation__Popup* self, int flags);
+QRectF* Poppler__Annotation__Popup_Geometry(const Poppler__Annotation__Popup* self);
+void Poppler__Annotation__Popup_SetGeometry(Poppler__Annotation__Popup* self, const QRectF* geom);
+libqt_string Poppler__Annotation__Popup_Title(const Poppler__Annotation__Popup* self);
+void Poppler__Annotation__Popup_SetTitle(Poppler__Annotation__Popup* self, const libqt_string title);
+libqt_string Poppler__Annotation__Popup_Summary(const Poppler__Annotation__Popup* self);
+void Poppler__Annotation__Popup_SetSummary(Poppler__Annotation__Popup* self, const libqt_string summary);
+libqt_string Poppler__Annotation__Popup_Text(const Poppler__Annotation__Popup* self);
+void Poppler__Annotation__Popup_SetText(Poppler__Annotation__Popup* self, const libqt_string text);
+void Poppler__Annotation__Popup_Delete(Poppler__Annotation__Popup* self);
+
+bool Poppler__HighlightAnnotation__Quad_CapStart(const Poppler__HighlightAnnotation__Quad* self);
+void Poppler__HighlightAnnotation__Quad_SetCapStart(Poppler__HighlightAnnotation__Quad* self, bool capStart);
+bool Poppler__HighlightAnnotation__Quad_CapEnd(const Poppler__HighlightAnnotation__Quad* self);
+void Poppler__HighlightAnnotation__Quad_SetCapEnd(Poppler__HighlightAnnotation__Quad* self, bool capEnd);
+double Poppler__HighlightAnnotation__Quad_Feather(const Poppler__HighlightAnnotation__Quad* self);
+void Poppler__HighlightAnnotation__Quad_SetFeather(Poppler__HighlightAnnotation__Quad* self, double feather);
+void Poppler__HighlightAnnotation__Quad_Delete(Poppler__HighlightAnnotation__Quad* self);
+
+Poppler__RichMediaAnnotation__Params* Poppler__RichMediaAnnotation__Params_new();
+libqt_string Poppler__RichMediaAnnotation__Params_FlashVars(const Poppler__RichMediaAnnotation__Params* self);
+void Poppler__RichMediaAnnotation__Params_Delete(Poppler__RichMediaAnnotation__Params* self);
+
+Poppler__RichMediaAnnotation__Instance* Poppler__RichMediaAnnotation__Instance_new();
+int Poppler__RichMediaAnnotation__Instance_Type(const Poppler__RichMediaAnnotation__Instance* self);
+Poppler__RichMediaAnnotation__Params* Poppler__RichMediaAnnotation__Instance_Params(const Poppler__RichMediaAnnotation__Instance* self);
+void Poppler__RichMediaAnnotation__Instance_Delete(Poppler__RichMediaAnnotation__Instance* self);
+
+Poppler__RichMediaAnnotation__Configuration* Poppler__RichMediaAnnotation__Configuration_new();
+int Poppler__RichMediaAnnotation__Configuration_Type(const Poppler__RichMediaAnnotation__Configuration* self);
+libqt_string Poppler__RichMediaAnnotation__Configuration_Name(const Poppler__RichMediaAnnotation__Configuration* self);
+libqt_list /* of Poppler__RichMediaAnnotation__Instance* */ Poppler__RichMediaAnnotation__Configuration_Instances(const Poppler__RichMediaAnnotation__Configuration* self);
+void Poppler__RichMediaAnnotation__Configuration_Delete(Poppler__RichMediaAnnotation__Configuration* self);
+
+Poppler__RichMediaAnnotation__Asset* Poppler__RichMediaAnnotation__Asset_new();
+libqt_string Poppler__RichMediaAnnotation__Asset_Name(const Poppler__RichMediaAnnotation__Asset* self);
+Poppler__EmbeddedFile* Poppler__RichMediaAnnotation__Asset_EmbeddedFile(const Poppler__RichMediaAnnotation__Asset* self);
+void Poppler__RichMediaAnnotation__Asset_Delete(Poppler__RichMediaAnnotation__Asset* self);
+
+Poppler__RichMediaAnnotation__Content* Poppler__RichMediaAnnotation__Content_new();
+libqt_list /* of Poppler__RichMediaAnnotation__Configuration* */ Poppler__RichMediaAnnotation__Content_Configurations(const Poppler__RichMediaAnnotation__Content* self);
+libqt_list /* of Poppler__RichMediaAnnotation__Asset* */ Poppler__RichMediaAnnotation__Content_Assets(const Poppler__RichMediaAnnotation__Content* self);
+void Poppler__RichMediaAnnotation__Content_Delete(Poppler__RichMediaAnnotation__Content* self);
+
+Poppler__RichMediaAnnotation__Activation* Poppler__RichMediaAnnotation__Activation_new();
+int Poppler__RichMediaAnnotation__Activation_Condition(const Poppler__RichMediaAnnotation__Activation* self);
+void Poppler__RichMediaAnnotation__Activation_Delete(Poppler__RichMediaAnnotation__Activation* self);
+
+Poppler__RichMediaAnnotation__Deactivation* Poppler__RichMediaAnnotation__Deactivation_new();
+int Poppler__RichMediaAnnotation__Deactivation_Condition(const Poppler__RichMediaAnnotation__Deactivation* self);
+void Poppler__RichMediaAnnotation__Deactivation_Delete(Poppler__RichMediaAnnotation__Deactivation* self);
+
+Poppler__RichMediaAnnotation__Settings* Poppler__RichMediaAnnotation__Settings_new();
+Poppler__RichMediaAnnotation__Activation* Poppler__RichMediaAnnotation__Settings_Activation(const Poppler__RichMediaAnnotation__Settings* self);
+Poppler__RichMediaAnnotation__Deactivation* Poppler__RichMediaAnnotation__Settings_Deactivation(const Poppler__RichMediaAnnotation__Settings* self);
+void Poppler__RichMediaAnnotation__Settings_Delete(Poppler__RichMediaAnnotation__Settings* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
