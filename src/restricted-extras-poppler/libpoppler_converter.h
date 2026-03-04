@@ -1,0 +1,113 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_POPPLERC_LIBPOPPLER_CONVERTER_H
+#define SRC_RESTRICTED_EXTRAS_POPPLERC_LIBPOPPLER_CONVERTER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__BaseConverter)
+typedef Poppler::BaseConverter Poppler__BaseConverter;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__PDFConverter)
+typedef Poppler::PDFConverter Poppler__PDFConverter;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__PDFConverter__NewSignatureData)
+typedef Poppler::PDFConverter::NewSignatureData Poppler__PDFConverter__NewSignatureData;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Poppler__PSConverter)
+typedef Poppler::PSConverter Poppler__PSConverter;
+#endif
+#else
+typedef struct Poppler__BaseConverter Poppler__BaseConverter;
+typedef struct Poppler__PDFConverter Poppler__PDFConverter;
+typedef struct Poppler__PDFConverter__NewSignatureData Poppler__PDFConverter__NewSignatureData;
+typedef struct Poppler__PSConverter Poppler__PSConverter;
+typedef struct QColor QColor;
+typedef struct QIODevice QIODevice;
+typedef struct QRectF QRectF;
+#endif
+
+void Poppler__BaseConverter_SetOutputFileName(Poppler__BaseConverter* self, const libqt_string outputFileName);
+void Poppler__BaseConverter_SetOutputDevice(Poppler__BaseConverter* self, QIODevice* device);
+bool Poppler__BaseConverter_Convert(Poppler__BaseConverter* self);
+int Poppler__BaseConverter_LastError(const Poppler__BaseConverter* self);
+void Poppler__BaseConverter_Delete(Poppler__BaseConverter* self);
+
+void Poppler__PSConverter_SetPageList(Poppler__PSConverter* self, const libqt_list /* of int */ pageList);
+void Poppler__PSConverter_SetTitle(Poppler__PSConverter* self, const libqt_string title);
+void Poppler__PSConverter_SetHDPI(Poppler__PSConverter* self, double hDPI);
+void Poppler__PSConverter_SetVDPI(Poppler__PSConverter* self, double vDPI);
+void Poppler__PSConverter_SetRotate(Poppler__PSConverter* self, int rotate);
+void Poppler__PSConverter_SetPaperWidth(Poppler__PSConverter* self, int paperWidth);
+void Poppler__PSConverter_SetPaperHeight(Poppler__PSConverter* self, int paperHeight);
+void Poppler__PSConverter_SetRightMargin(Poppler__PSConverter* self, int marginRight);
+void Poppler__PSConverter_SetBottomMargin(Poppler__PSConverter* self, int marginBottom);
+void Poppler__PSConverter_SetLeftMargin(Poppler__PSConverter* self, int marginLeft);
+void Poppler__PSConverter_SetTopMargin(Poppler__PSConverter* self, int marginTop);
+void Poppler__PSConverter_SetStrictMargins(Poppler__PSConverter* self, bool strictMargins);
+void Poppler__PSConverter_SetForceOverprintPreview(Poppler__PSConverter* self, bool forceOverprintPreview);
+void Poppler__PSConverter_SetForceRasterize(Poppler__PSConverter* self, bool forceRasterize);
+void Poppler__PSConverter_SetPSOptions(Poppler__PSConverter* self, int options);
+int Poppler__PSConverter_PsOptions(const Poppler__PSConverter* self);
+bool Poppler__PSConverter_Convert(Poppler__PSConverter* self);
+void Poppler__PSConverter_Delete(Poppler__PSConverter* self);
+
+void Poppler__PDFConverter_SetPDFOptions(Poppler__PDFConverter* self, int options);
+int Poppler__PDFConverter_PdfOptions(const Poppler__PDFConverter* self);
+bool Poppler__PDFConverter_Sign(Poppler__PDFConverter* self, const Poppler__PDFConverter__NewSignatureData* data);
+bool Poppler__PDFConverter_Convert(Poppler__PDFConverter* self);
+void Poppler__PDFConverter_Delete(Poppler__PDFConverter* self);
+
+Poppler__PDFConverter__NewSignatureData* Poppler__PDFConverter__NewSignatureData_new();
+libqt_string Poppler__PDFConverter__NewSignatureData_CertNickname(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetCertNickname(Poppler__PDFConverter__NewSignatureData* self, const libqt_string certNickname);
+libqt_string Poppler__PDFConverter__NewSignatureData_Password(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetPassword(Poppler__PDFConverter__NewSignatureData* self, const libqt_string password);
+int Poppler__PDFConverter__NewSignatureData_Page(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetPage(Poppler__PDFConverter__NewSignatureData* self, int page);
+QRectF* Poppler__PDFConverter__NewSignatureData_BoundingRectangle(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetBoundingRectangle(Poppler__PDFConverter__NewSignatureData* self, const QRectF* rect);
+libqt_string Poppler__PDFConverter__NewSignatureData_SignatureText(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetSignatureText(Poppler__PDFConverter__NewSignatureData* self, const libqt_string text);
+libqt_string Poppler__PDFConverter__NewSignatureData_SignatureLeftText(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetSignatureLeftText(Poppler__PDFConverter__NewSignatureData* self, const libqt_string text);
+libqt_string Poppler__PDFConverter__NewSignatureData_Reason(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetReason(Poppler__PDFConverter__NewSignatureData* self, const libqt_string reason);
+libqt_string Poppler__PDFConverter__NewSignatureData_Location(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetLocation(Poppler__PDFConverter__NewSignatureData* self, const libqt_string location);
+double Poppler__PDFConverter__NewSignatureData_FontSize(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetFontSize(Poppler__PDFConverter__NewSignatureData* self, double fontSize);
+double Poppler__PDFConverter__NewSignatureData_LeftFontSize(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetLeftFontSize(Poppler__PDFConverter__NewSignatureData* self, double fontSize);
+QColor* Poppler__PDFConverter__NewSignatureData_FontColor(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetFontColor(Poppler__PDFConverter__NewSignatureData* self, const QColor* color);
+QColor* Poppler__PDFConverter__NewSignatureData_BorderColor(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetBorderColor(Poppler__PDFConverter__NewSignatureData* self, const QColor* color);
+double Poppler__PDFConverter__NewSignatureData_BorderWidth(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetBorderWidth(Poppler__PDFConverter__NewSignatureData* self, double width);
+QColor* Poppler__PDFConverter__NewSignatureData_BackgroundColor(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetBackgroundColor(Poppler__PDFConverter__NewSignatureData* self, const QColor* color);
+libqt_string Poppler__PDFConverter__NewSignatureData_FieldPartialName(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetFieldPartialName(Poppler__PDFConverter__NewSignatureData* self, const libqt_string name);
+libqt_string Poppler__PDFConverter__NewSignatureData_DocumentOwnerPassword(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetDocumentOwnerPassword(Poppler__PDFConverter__NewSignatureData* self, const libqt_string password);
+libqt_string Poppler__PDFConverter__NewSignatureData_DocumentUserPassword(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetDocumentUserPassword(Poppler__PDFConverter__NewSignatureData* self, const libqt_string password);
+libqt_string Poppler__PDFConverter__NewSignatureData_ImagePath(const Poppler__PDFConverter__NewSignatureData* self);
+void Poppler__PDFConverter__NewSignatureData_SetImagePath(Poppler__PDFConverter__NewSignatureData* self, const libqt_string path);
+void Poppler__PDFConverter__NewSignatureData_Delete(Poppler__PDFConverter__NewSignatureData* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

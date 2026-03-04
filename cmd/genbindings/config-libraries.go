@@ -812,6 +812,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Widgets"),
 		},
 
+		// Qt 6 Poppler
+		// Depends on Qt Core, GUI
+		{
+			path: "restricted-extras-poppler",
+			dirs: []string{
+				"/usr/include/poppler/qt6",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("poppler-qt6") + pkgConfigCflags("Qt6Gui"),
+		},
+
 		// Qt 6 QScintilla
 		// Depends on Qt Core, GUI, Widgets, Print Support
 		{
