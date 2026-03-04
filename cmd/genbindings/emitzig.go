@@ -113,6 +113,22 @@ func (zfs *zigFileState) getPageUrl(pageType PageType, pageName, cmdURL, classNa
 		return preUrl + "https://github.com/PackageKit/PackageKit-Qt" + postUrl
 	}
 
+	if strings.HasPrefix(pageName, "poppler") || (pageType == EnumPage && zfs.currentPackageName == "restricted-extras-poppler") {
+		url := strings.Split(zfs.currentClassName, "__")
+		typeName := "class"
+		classUrl := url[0]
+		if len(url) == 2 {
+			classUrl = url[1]
+		} else if len(url) > 2 {
+			classUrl = url[1] + "_1_1" + url[2]
+			if url[2] == "PdfVersion" || url[2] == "Quad" {
+				typeName = "struct"
+			}
+		}
+		prefix := ifv(classUrl == "Poppler", "namespace", typeName+"Poppler_1_1")
+		return preUrl + "https://poppler.freedesktop.org/api/qt6/" + prefix + classUrl + ".html" + postUrl
+	}
+
 	if strings.HasPrefix(pageName, "qkeychain") || (pageType == EnumPage && zfs.currentPackageName == "extras-qtkeychain") {
 		return preUrl + "https://github.com/frankosterfeld/qtkeychain" + postUrl
 	}
@@ -390,7 +406,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret += "u32"
 	case "qint32", "int", "int32_t", "pid_t", "GLint", "GLsizei":
 		ret += "i32"
-	case "qlonglong", "qint64", "long long", "GLint64":
+	case "qlonglong", "qint64", "long long", "time_t", "GLint64":
 		ret += "i64"
 	case "qulonglong", "quint64", "unsigned long long", "dev_t", "GLuint64":
 		ret += "u64"
@@ -1131,8 +1147,6 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			rvalue = nameprefix + "_set"
 
 		} else if e, ok := KnownEnums[t.ParameterType]; ok {
-			zfs.imports["std"] = struct{}{}
-
 			preamble += "const " + nameprefix + "_keys = allocator.alloc(" + e.EnumTypeZig + ", " + nameprefix + `_count) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_keys);\n"
 			preamble += "var i: usize = 0;\n"
@@ -2152,6 +2166,11 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			maybeDedupe = ifv(zigStruct == "kstandardshortcut" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "ktexteditor" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "ktimezone" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
+
+			if zigStruct == "poppler" {
+				maybeDedupe = "_" + strings.Split(zfs.currentHeaderName, "_")[1]
+			}
+
 			zigIncs[zigStruct+maybeDedupe] = "pub const " + zigStruct + maybeDedupe + ` = @import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").` + zigStruct + ";"
 			ret.WriteString(zfs.getPageUrl(QtPage, pageName, "", zigStructName) + "\n" +
 				"pub const " + zigStruct + " = struct {")
