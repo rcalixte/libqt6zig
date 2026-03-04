@@ -1893,6 +1893,13 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		ret.WriteString("#include <" + ref + ">\n")
 	}
 
+	switch srcFilename {
+	case "poppler-annotation.h":
+		ret.WriteString("#include <poppler-link.h>\n")
+	case "poppler-qt6.h":
+		ret.WriteString("#include <poppler-form.h>\n")
+	}
+
 	ret.WriteString("#include <" + srcFilename + ">\n")
 	ret.WriteString(`#include "` + filename + `"` + "\n")
 	ret.WriteString(`#include "` + filename + `xx"` + "\n\n")
