@@ -69,23 +69,6 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
     VirtualQRestAccessManager(QNetworkAccessManager* manager) : QRestAccessManager(manager) {};
     VirtualQRestAccessManager(QNetworkAccessManager* manager, QObject* parent) : QRestAccessManager(manager, parent) {};
 
-    ~VirtualQRestAccessManager() {
-        qrestaccessmanager_metaobject_callback = nullptr;
-        qrestaccessmanager_metacast_callback = nullptr;
-        qrestaccessmanager_metacall_callback = nullptr;
-        qrestaccessmanager_event_callback = nullptr;
-        qrestaccessmanager_eventfilter_callback = nullptr;
-        qrestaccessmanager_timerevent_callback = nullptr;
-        qrestaccessmanager_childevent_callback = nullptr;
-        qrestaccessmanager_customevent_callback = nullptr;
-        qrestaccessmanager_connectnotify_callback = nullptr;
-        qrestaccessmanager_disconnectnotify_callback = nullptr;
-        qrestaccessmanager_sender_callback = nullptr;
-        qrestaccessmanager_sendersignalindex_callback = nullptr;
-        qrestaccessmanager_receivers_callback = nullptr;
-        qrestaccessmanager_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQRestAccessManager_MetaObject_Callback(QRestAccessManager_MetaObject_Callback cb) { qrestaccessmanager_metaobject_callback = cb; }
     inline void setQRestAccessManager_Metacast_Callback(QRestAccessManager_Metacast_Callback cb) { qrestaccessmanager_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_metaobject_isbase) {
             qrestaccessmanager_metaobject_isbase = false;
             return QRestAccessManager::metaObject();
-        } else if (qrestaccessmanager_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qrestaccessmanager_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QRestAccessManager::metaObject();
         }
+        auto metaobject_cb = qrestaccessmanager_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QRestAccessManager::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_metacast_isbase) {
             qrestaccessmanager_metacast_isbase = false;
             return QRestAccessManager::qt_metacast(param1);
-        } else if (qrestaccessmanager_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qrestaccessmanager_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qrestaccessmanager_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRestAccessManager::qt_metacast(param1);
         }
+        return QRestAccessManager::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_metacall_isbase) {
             qrestaccessmanager_metacall_isbase = false;
             return QRestAccessManager::qt_metacall(param1, param2, param3);
-        } else if (qrestaccessmanager_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qrestaccessmanager_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qrestaccessmanager_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRestAccessManager::qt_metacall(param1, param2, param3);
         }
+        return QRestAccessManager::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_event_isbase) {
             qrestaccessmanager_event_isbase = false;
             return QRestAccessManager::event(event);
-        } else if (qrestaccessmanager_event_callback != nullptr) {
+        }
+        auto event_cb = qrestaccessmanager_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qrestaccessmanager_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRestAccessManager::event(event);
         }
+        return QRestAccessManager::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_eventfilter_isbase) {
             qrestaccessmanager_eventfilter_isbase = false;
             return QRestAccessManager::eventFilter(watched, event);
-        } else if (qrestaccessmanager_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qrestaccessmanager_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qrestaccessmanager_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QRestAccessManager::eventFilter(watched, event);
         }
+        return QRestAccessManager::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_timerevent_isbase) {
             qrestaccessmanager_timerevent_isbase = false;
             QRestAccessManager::timerEvent(event);
-        } else if (qrestaccessmanager_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qrestaccessmanager_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qrestaccessmanager_timerevent_callback(this, cbval1);
-        } else {
-            QRestAccessManager::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QRestAccessManager::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_childevent_isbase) {
             qrestaccessmanager_childevent_isbase = false;
             QRestAccessManager::childEvent(event);
-        } else if (qrestaccessmanager_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qrestaccessmanager_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qrestaccessmanager_childevent_callback(this, cbval1);
-        } else {
-            QRestAccessManager::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QRestAccessManager::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_customevent_isbase) {
             qrestaccessmanager_customevent_isbase = false;
             QRestAccessManager::customEvent(event);
-        } else if (qrestaccessmanager_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qrestaccessmanager_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qrestaccessmanager_customevent_callback(this, cbval1);
-        } else {
-            QRestAccessManager::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QRestAccessManager::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_connectnotify_isbase) {
             qrestaccessmanager_connectnotify_isbase = false;
             QRestAccessManager::connectNotify(signal);
-        } else if (qrestaccessmanager_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qrestaccessmanager_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qrestaccessmanager_connectnotify_callback(this, cbval1);
-        } else {
-            QRestAccessManager::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QRestAccessManager::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_disconnectnotify_isbase) {
             qrestaccessmanager_disconnectnotify_isbase = false;
             QRestAccessManager::disconnectNotify(signal);
-        } else if (qrestaccessmanager_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qrestaccessmanager_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qrestaccessmanager_disconnectnotify_callback(this, cbval1);
-        } else {
-            QRestAccessManager::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QRestAccessManager::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_sender_isbase) {
             qrestaccessmanager_sender_isbase = false;
             return QRestAccessManager::sender();
-        } else if (qrestaccessmanager_sender_callback != nullptr) {
-            QObject* callback_ret = qrestaccessmanager_sender_callback();
-            return callback_ret;
-        } else {
-            return QRestAccessManager::sender();
         }
+        auto sender_cb = qrestaccessmanager_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QRestAccessManager::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_sendersignalindex_isbase) {
             qrestaccessmanager_sendersignalindex_isbase = false;
             return QRestAccessManager::senderSignalIndex();
-        } else if (qrestaccessmanager_sendersignalindex_callback != nullptr) {
-            int callback_ret = qrestaccessmanager_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QRestAccessManager::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qrestaccessmanager_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QRestAccessManager::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_receivers_isbase) {
             qrestaccessmanager_receivers_isbase = false;
             return QRestAccessManager::receivers(signal);
-        } else if (qrestaccessmanager_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qrestaccessmanager_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qrestaccessmanager_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRestAccessManager::receivers(signal);
         }
+        return QRestAccessManager::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
         if (qrestaccessmanager_issignalconnected_isbase) {
             qrestaccessmanager_issignalconnected_isbase = false;
             return QRestAccessManager::isSignalConnected(signal);
-        } else if (qrestaccessmanager_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qrestaccessmanager_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qrestaccessmanager_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRestAccessManager::isSignalConnected(signal);
         }
+        return QRestAccessManager::isSignalConnected(signal);
     }
 
     // Friend functions

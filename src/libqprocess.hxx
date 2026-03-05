@@ -129,43 +129,6 @@ class VirtualQProcess final : public QProcess {
     VirtualQProcess() : QProcess() {};
     VirtualQProcess(QObject* parent) : QProcess(parent) {};
 
-    ~VirtualQProcess() {
-        qprocess_metaobject_callback = nullptr;
-        qprocess_metacast_callback = nullptr;
-        qprocess_metacall_callback = nullptr;
-        qprocess_open_callback = nullptr;
-        qprocess_waitforreadyread_callback = nullptr;
-        qprocess_waitforbyteswritten_callback = nullptr;
-        qprocess_bytestowrite_callback = nullptr;
-        qprocess_issequential_callback = nullptr;
-        qprocess_close_callback = nullptr;
-        qprocess_readdata_callback = nullptr;
-        qprocess_writedata_callback = nullptr;
-        qprocess_pos_callback = nullptr;
-        qprocess_size_callback = nullptr;
-        qprocess_seek_callback = nullptr;
-        qprocess_atend_callback = nullptr;
-        qprocess_reset_callback = nullptr;
-        qprocess_bytesavailable_callback = nullptr;
-        qprocess_canreadline_callback = nullptr;
-        qprocess_readlinedata_callback = nullptr;
-        qprocess_skipdata_callback = nullptr;
-        qprocess_event_callback = nullptr;
-        qprocess_eventfilter_callback = nullptr;
-        qprocess_timerevent_callback = nullptr;
-        qprocess_childevent_callback = nullptr;
-        qprocess_customevent_callback = nullptr;
-        qprocess_connectnotify_callback = nullptr;
-        qprocess_disconnectnotify_callback = nullptr;
-        qprocess_setprocessstate_callback = nullptr;
-        qprocess_setopenmode_callback = nullptr;
-        qprocess_seterrorstring_callback = nullptr;
-        qprocess_sender_callback = nullptr;
-        qprocess_sendersignalindex_callback = nullptr;
-        qprocess_receivers_callback = nullptr;
-        qprocess_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQProcess_MetaObject_Callback(QProcess_MetaObject_Callback cb) { qprocess_metaobject_callback = cb; }
     inline void setQProcess_Metacast_Callback(QProcess_Metacast_Callback cb) { qprocess_metacast_callback = cb; }
@@ -243,12 +206,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_metaobject_isbase) {
             qprocess_metaobject_isbase = false;
             return QProcess::metaObject();
-        } else if (qprocess_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qprocess_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QProcess::metaObject();
         }
+        auto metaobject_cb = qprocess_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QProcess::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,14 +220,15 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_metacast_isbase) {
             qprocess_metacast_isbase = false;
             return QProcess::qt_metacast(param1);
-        } else if (qprocess_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qprocess_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qprocess_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProcess::qt_metacast(param1);
         }
+        return QProcess::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -271,16 +236,17 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_metacall_isbase) {
             qprocess_metacall_isbase = false;
             return QProcess::qt_metacall(param1, param2, param3);
-        } else if (qprocess_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qprocess_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qprocess_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProcess::qt_metacall(param1, param2, param3);
         }
+        return QProcess::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,14 +254,15 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_open_isbase) {
             qprocess_open_isbase = false;
             return QProcess::open(mode);
-        } else if (qprocess_open_callback != nullptr) {
+        }
+        auto open_cb = qprocess_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = qprocess_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProcess::open(mode);
         }
+        return QProcess::open(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,14 +270,15 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_waitforreadyread_isbase) {
             qprocess_waitforreadyread_isbase = false;
             return QProcess::waitForReadyRead(msecs);
-        } else if (qprocess_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = qprocess_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qprocess_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProcess::waitForReadyRead(msecs);
         }
+        return QProcess::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,14 +286,15 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_waitforbyteswritten_isbase) {
             qprocess_waitforbyteswritten_isbase = false;
             return QProcess::waitForBytesWritten(msecs);
-        } else if (qprocess_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = qprocess_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qprocess_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProcess::waitForBytesWritten(msecs);
         }
+        return QProcess::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,12 +302,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_bytestowrite_isbase) {
             qprocess_bytestowrite_isbase = false;
             return QProcess::bytesToWrite();
-        } else if (qprocess_bytestowrite_callback != nullptr) {
-            long long callback_ret = qprocess_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QProcess::bytesToWrite();
         }
+        auto bytestowrite_cb = qprocess_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QProcess::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,12 +316,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_issequential_isbase) {
             qprocess_issequential_isbase = false;
             return QProcess::isSequential();
-        } else if (qprocess_issequential_callback != nullptr) {
-            bool callback_ret = qprocess_issequential_callback();
-            return callback_ret;
-        } else {
-            return QProcess::isSequential();
         }
+        auto issequential_cb = qprocess_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return QProcess::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -359,11 +330,14 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_close_isbase) {
             qprocess_close_isbase = false;
             QProcess::close();
-        } else if (qprocess_close_callback != nullptr) {
-            qprocess_close_callback();
-        } else {
-            QProcess::close();
+            return;
         }
+        auto close_cb = qprocess_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        QProcess::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -371,15 +345,16 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_readdata_isbase) {
             qprocess_readdata_isbase = false;
             return QProcess::readData(data, maxlen);
-        } else if (qprocess_readdata_callback != nullptr) {
+        }
+        auto readdata_cb = qprocess_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qprocess_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QProcess::readData(data, maxlen);
         }
+        return QProcess::readData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,15 +362,16 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_writedata_isbase) {
             qprocess_writedata_isbase = false;
             return QProcess::writeData(data, lenVal);
-        } else if (qprocess_writedata_callback != nullptr) {
+        }
+        auto writedata_cb = qprocess_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = qprocess_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QProcess::writeData(data, lenVal);
         }
+        return QProcess::writeData(data, lenVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -403,12 +379,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_pos_isbase) {
             qprocess_pos_isbase = false;
             return QProcess::pos();
-        } else if (qprocess_pos_callback != nullptr) {
-            long long callback_ret = qprocess_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QProcess::pos();
         }
+        auto pos_cb = qprocess_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QProcess::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -416,12 +393,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_size_isbase) {
             qprocess_size_isbase = false;
             return QProcess::size();
-        } else if (qprocess_size_callback != nullptr) {
-            long long callback_ret = qprocess_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QProcess::size();
         }
+        auto size_cb = qprocess_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QProcess::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -429,14 +407,15 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_seek_isbase) {
             qprocess_seek_isbase = false;
             return QProcess::seek(pos);
-        } else if (qprocess_seek_callback != nullptr) {
+        }
+        auto seek_cb = qprocess_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
 
-            bool callback_ret = qprocess_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProcess::seek(pos);
         }
+        return QProcess::seek(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,12 +423,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_atend_isbase) {
             qprocess_atend_isbase = false;
             return QProcess::atEnd();
-        } else if (qprocess_atend_callback != nullptr) {
-            bool callback_ret = qprocess_atend_callback();
-            return callback_ret;
-        } else {
-            return QProcess::atEnd();
         }
+        auto atend_cb = qprocess_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return QProcess::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,12 +437,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_reset_isbase) {
             qprocess_reset_isbase = false;
             return QProcess::reset();
-        } else if (qprocess_reset_callback != nullptr) {
-            bool callback_ret = qprocess_reset_callback();
-            return callback_ret;
-        } else {
-            return QProcess::reset();
         }
+        auto reset_cb = qprocess_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return QProcess::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,12 +451,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_bytesavailable_isbase) {
             qprocess_bytesavailable_isbase = false;
             return QProcess::bytesAvailable();
-        } else if (qprocess_bytesavailable_callback != nullptr) {
-            long long callback_ret = qprocess_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QProcess::bytesAvailable();
         }
+        auto bytesavailable_cb = qprocess_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QProcess::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,12 +465,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_canreadline_isbase) {
             qprocess_canreadline_isbase = false;
             return QProcess::canReadLine();
-        } else if (qprocess_canreadline_callback != nullptr) {
-            bool callback_ret = qprocess_canreadline_callback();
-            return callback_ret;
-        } else {
-            return QProcess::canReadLine();
         }
+        auto canreadline_cb = qprocess_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return QProcess::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,15 +479,16 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_readlinedata_isbase) {
             qprocess_readlinedata_isbase = false;
             return QProcess::readLineData(data, maxlen);
-        } else if (qprocess_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = qprocess_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qprocess_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QProcess::readLineData(data, maxlen);
         }
+        return QProcess::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,14 +496,15 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_skipdata_isbase) {
             qprocess_skipdata_isbase = false;
             return QProcess::skipData(maxSize);
-        } else if (qprocess_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = qprocess_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = qprocess_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QProcess::skipData(maxSize);
         }
+        return QProcess::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,14 +512,15 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_event_isbase) {
             qprocess_event_isbase = false;
             return QProcess::event(event);
-        } else if (qprocess_event_callback != nullptr) {
+        }
+        auto event_cb = qprocess_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qprocess_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProcess::event(event);
         }
+        return QProcess::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -542,15 +528,16 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_eventfilter_isbase) {
             qprocess_eventfilter_isbase = false;
             return QProcess::eventFilter(watched, event);
-        } else if (qprocess_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qprocess_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qprocess_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QProcess::eventFilter(watched, event);
         }
+        return QProcess::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -558,13 +545,16 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_timerevent_isbase) {
             qprocess_timerevent_isbase = false;
             QProcess::timerEvent(event);
-        } else if (qprocess_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qprocess_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qprocess_timerevent_callback(this, cbval1);
-        } else {
-            QProcess::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QProcess::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -572,13 +562,16 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_childevent_isbase) {
             qprocess_childevent_isbase = false;
             QProcess::childEvent(event);
-        } else if (qprocess_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qprocess_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qprocess_childevent_callback(this, cbval1);
-        } else {
-            QProcess::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QProcess::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,13 +579,16 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_customevent_isbase) {
             qprocess_customevent_isbase = false;
             QProcess::customEvent(event);
-        } else if (qprocess_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qprocess_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qprocess_customevent_callback(this, cbval1);
-        } else {
-            QProcess::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QProcess::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -600,15 +596,18 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_connectnotify_isbase) {
             qprocess_connectnotify_isbase = false;
             QProcess::connectNotify(signal);
-        } else if (qprocess_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qprocess_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qprocess_connectnotify_callback(this, cbval1);
-        } else {
-            QProcess::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QProcess::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -616,15 +615,18 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_disconnectnotify_isbase) {
             qprocess_disconnectnotify_isbase = false;
             QProcess::disconnectNotify(signal);
-        } else if (qprocess_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qprocess_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qprocess_disconnectnotify_callback(this, cbval1);
-        } else {
-            QProcess::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QProcess::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -632,13 +634,16 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_setprocessstate_isbase) {
             qprocess_setprocessstate_isbase = false;
             QProcess::setProcessState(state);
-        } else if (qprocess_setprocessstate_callback != nullptr) {
+            return;
+        }
+        auto setprocessstate_cb = qprocess_setprocessstate_callback;
+        if (setprocessstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            qprocess_setprocessstate_callback(this, cbval1);
-        } else {
-            QProcess::setProcessState(state);
+            setprocessstate_cb(this, cbval1);
+            return;
         }
+        QProcess::setProcessState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -646,13 +651,16 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_setopenmode_isbase) {
             qprocess_setopenmode_isbase = false;
             QProcess::setOpenMode(openMode);
-        } else if (qprocess_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = qprocess_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            qprocess_setopenmode_callback(this, cbval1);
-        } else {
-            QProcess::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        QProcess::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -660,7 +668,10 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_seterrorstring_isbase) {
             qprocess_seterrorstring_isbase = false;
             QProcess::setErrorString(errorString);
-        } else if (qprocess_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = qprocess_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -670,11 +681,11 @@ class VirtualQProcess final : public QProcess {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            qprocess_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            QProcess::setErrorString(errorString);
+            return;
         }
+        QProcess::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,12 +693,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_sender_isbase) {
             qprocess_sender_isbase = false;
             return QProcess::sender();
-        } else if (qprocess_sender_callback != nullptr) {
-            QObject* callback_ret = qprocess_sender_callback();
-            return callback_ret;
-        } else {
-            return QProcess::sender();
         }
+        auto sender_cb = qprocess_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QProcess::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,12 +707,13 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_sendersignalindex_isbase) {
             qprocess_sendersignalindex_isbase = false;
             return QProcess::senderSignalIndex();
-        } else if (qprocess_sendersignalindex_callback != nullptr) {
-            int callback_ret = qprocess_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QProcess::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qprocess_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QProcess::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -708,14 +721,15 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_receivers_isbase) {
             qprocess_receivers_isbase = false;
             return QProcess::receivers(signal);
-        } else if (qprocess_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qprocess_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qprocess_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProcess::receivers(signal);
         }
+        return QProcess::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,16 +737,17 @@ class VirtualQProcess final : public QProcess {
         if (qprocess_issignalconnected_isbase) {
             qprocess_issignalconnected_isbase = false;
             return QProcess::isSignalConnected(signal);
-        } else if (qprocess_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qprocess_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qprocess_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProcess::isSignalConnected(signal);
         }
+        return QProcess::isSignalConnected(signal);
     }
 
     // Friend functions

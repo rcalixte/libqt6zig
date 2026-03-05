@@ -234,78 +234,6 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     VirtualQAbstractScrollArea(QWidget* parent) : QAbstractScrollArea(parent) {};
     VirtualQAbstractScrollArea() : QAbstractScrollArea() {};
 
-    ~VirtualQAbstractScrollArea() {
-        qabstractscrollarea_metaobject_callback = nullptr;
-        qabstractscrollarea_metacast_callback = nullptr;
-        qabstractscrollarea_metacall_callback = nullptr;
-        qabstractscrollarea_minimumsizehint_callback = nullptr;
-        qabstractscrollarea_sizehint_callback = nullptr;
-        qabstractscrollarea_setupviewport_callback = nullptr;
-        qabstractscrollarea_eventfilter_callback = nullptr;
-        qabstractscrollarea_event_callback = nullptr;
-        qabstractscrollarea_viewportevent_callback = nullptr;
-        qabstractscrollarea_resizeevent_callback = nullptr;
-        qabstractscrollarea_paintevent_callback = nullptr;
-        qabstractscrollarea_mousepressevent_callback = nullptr;
-        qabstractscrollarea_mousereleaseevent_callback = nullptr;
-        qabstractscrollarea_mousedoubleclickevent_callback = nullptr;
-        qabstractscrollarea_mousemoveevent_callback = nullptr;
-        qabstractscrollarea_wheelevent_callback = nullptr;
-        qabstractscrollarea_contextmenuevent_callback = nullptr;
-        qabstractscrollarea_dragenterevent_callback = nullptr;
-        qabstractscrollarea_dragmoveevent_callback = nullptr;
-        qabstractscrollarea_dragleaveevent_callback = nullptr;
-        qabstractscrollarea_dropevent_callback = nullptr;
-        qabstractscrollarea_keypressevent_callback = nullptr;
-        qabstractscrollarea_scrollcontentsby_callback = nullptr;
-        qabstractscrollarea_viewportsizehint_callback = nullptr;
-        qabstractscrollarea_changeevent_callback = nullptr;
-        qabstractscrollarea_initstyleoption_callback = nullptr;
-        qabstractscrollarea_devtype_callback = nullptr;
-        qabstractscrollarea_setvisible_callback = nullptr;
-        qabstractscrollarea_heightforwidth_callback = nullptr;
-        qabstractscrollarea_hasheightforwidth_callback = nullptr;
-        qabstractscrollarea_paintengine_callback = nullptr;
-        qabstractscrollarea_keyreleaseevent_callback = nullptr;
-        qabstractscrollarea_focusinevent_callback = nullptr;
-        qabstractscrollarea_focusoutevent_callback = nullptr;
-        qabstractscrollarea_enterevent_callback = nullptr;
-        qabstractscrollarea_leaveevent_callback = nullptr;
-        qabstractscrollarea_moveevent_callback = nullptr;
-        qabstractscrollarea_closeevent_callback = nullptr;
-        qabstractscrollarea_tabletevent_callback = nullptr;
-        qabstractscrollarea_actionevent_callback = nullptr;
-        qabstractscrollarea_showevent_callback = nullptr;
-        qabstractscrollarea_hideevent_callback = nullptr;
-        qabstractscrollarea_nativeevent_callback = nullptr;
-        qabstractscrollarea_metric_callback = nullptr;
-        qabstractscrollarea_initpainter_callback = nullptr;
-        qabstractscrollarea_redirected_callback = nullptr;
-        qabstractscrollarea_sharedpainter_callback = nullptr;
-        qabstractscrollarea_inputmethodevent_callback = nullptr;
-        qabstractscrollarea_inputmethodquery_callback = nullptr;
-        qabstractscrollarea_focusnextprevchild_callback = nullptr;
-        qabstractscrollarea_timerevent_callback = nullptr;
-        qabstractscrollarea_childevent_callback = nullptr;
-        qabstractscrollarea_customevent_callback = nullptr;
-        qabstractscrollarea_connectnotify_callback = nullptr;
-        qabstractscrollarea_disconnectnotify_callback = nullptr;
-        qabstractscrollarea_setviewportmargins_callback = nullptr;
-        qabstractscrollarea_setviewportmargins2_callback = nullptr;
-        qabstractscrollarea_viewportmargins_callback = nullptr;
-        qabstractscrollarea_drawframe_callback = nullptr;
-        qabstractscrollarea_updatemicrofocus_callback = nullptr;
-        qabstractscrollarea_create_callback = nullptr;
-        qabstractscrollarea_destroy_callback = nullptr;
-        qabstractscrollarea_focusnextchild_callback = nullptr;
-        qabstractscrollarea_focuspreviouschild_callback = nullptr;
-        qabstractscrollarea_sender_callback = nullptr;
-        qabstractscrollarea_sendersignalindex_callback = nullptr;
-        qabstractscrollarea_receivers_callback = nullptr;
-        qabstractscrollarea_issignalconnected_callback = nullptr;
-        qabstractscrollarea_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractScrollArea_MetaObject_Callback(QAbstractScrollArea_MetaObject_Callback cb) { qabstractscrollarea_metaobject_callback = cb; }
     inline void setQAbstractScrollArea_Metacast_Callback(QAbstractScrollArea_Metacast_Callback cb) { qabstractscrollarea_metacast_callback = cb; }
@@ -453,12 +381,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_metaobject_isbase) {
             qabstractscrollarea_metaobject_isbase = false;
             return QAbstractScrollArea::metaObject();
-        } else if (qabstractscrollarea_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qabstractscrollarea_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAbstractScrollArea::metaObject();
         }
+        auto metaobject_cb = qabstractscrollarea_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAbstractScrollArea::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -466,14 +395,15 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_metacast_isbase) {
             qabstractscrollarea_metacast_isbase = false;
             return QAbstractScrollArea::qt_metacast(param1);
-        } else if (qabstractscrollarea_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qabstractscrollarea_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qabstractscrollarea_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractScrollArea::qt_metacast(param1);
         }
+        return QAbstractScrollArea::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,16 +411,17 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_metacall_isbase) {
             qabstractscrollarea_metacall_isbase = false;
             return QAbstractScrollArea::qt_metacall(param1, param2, param3);
-        } else if (qabstractscrollarea_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qabstractscrollarea_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qabstractscrollarea_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractScrollArea::qt_metacall(param1, param2, param3);
         }
+        return QAbstractScrollArea::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,12 +429,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_minimumsizehint_isbase) {
             qabstractscrollarea_minimumsizehint_isbase = false;
             return QAbstractScrollArea::minimumSizeHint();
-        } else if (qabstractscrollarea_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qabstractscrollarea_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractScrollArea::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qabstractscrollarea_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QAbstractScrollArea::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,12 +443,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_sizehint_isbase) {
             qabstractscrollarea_sizehint_isbase = false;
             return QAbstractScrollArea::sizeHint();
-        } else if (qabstractscrollarea_sizehint_callback != nullptr) {
-            QSize* callback_ret = qabstractscrollarea_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractScrollArea::sizeHint();
         }
+        auto sizehint_cb = qabstractscrollarea_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QAbstractScrollArea::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,13 +457,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_setupviewport_isbase) {
             qabstractscrollarea_setupviewport_isbase = false;
             QAbstractScrollArea::setupViewport(viewport);
-        } else if (qabstractscrollarea_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = qabstractscrollarea_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            qabstractscrollarea_setupviewport_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,15 +474,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_eventfilter_isbase) {
             qabstractscrollarea_eventfilter_isbase = false;
             return QAbstractScrollArea::eventFilter(param1, param2);
-        } else if (qabstractscrollarea_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qabstractscrollarea_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qabstractscrollarea_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractScrollArea::eventFilter(param1, param2);
         }
+        return QAbstractScrollArea::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,14 +491,15 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_event_isbase) {
             qabstractscrollarea_event_isbase = false;
             return QAbstractScrollArea::event(param1);
-        } else if (qabstractscrollarea_event_callback != nullptr) {
+        }
+        auto event_cb = qabstractscrollarea_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qabstractscrollarea_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractScrollArea::event(param1);
         }
+        return QAbstractScrollArea::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,14 +507,15 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_viewportevent_isbase) {
             qabstractscrollarea_viewportevent_isbase = false;
             return QAbstractScrollArea::viewportEvent(param1);
-        } else if (qabstractscrollarea_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = qabstractscrollarea_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qabstractscrollarea_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractScrollArea::viewportEvent(param1);
         }
+        return QAbstractScrollArea::viewportEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,13 +523,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_resizeevent_isbase) {
             qabstractscrollarea_resizeevent_isbase = false;
             QAbstractScrollArea::resizeEvent(param1);
-        } else if (qabstractscrollarea_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qabstractscrollarea_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qabstractscrollarea_resizeevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,13 +540,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_paintevent_isbase) {
             qabstractscrollarea_paintevent_isbase = false;
             QAbstractScrollArea::paintEvent(param1);
-        } else if (qabstractscrollarea_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qabstractscrollarea_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qabstractscrollarea_paintevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,13 +557,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_mousepressevent_isbase) {
             qabstractscrollarea_mousepressevent_isbase = false;
             QAbstractScrollArea::mousePressEvent(param1);
-        } else if (qabstractscrollarea_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qabstractscrollarea_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qabstractscrollarea_mousepressevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,13 +574,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_mousereleaseevent_isbase) {
             qabstractscrollarea_mousereleaseevent_isbase = false;
             QAbstractScrollArea::mouseReleaseEvent(param1);
-        } else if (qabstractscrollarea_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qabstractscrollarea_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qabstractscrollarea_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,13 +591,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_mousedoubleclickevent_isbase) {
             qabstractscrollarea_mousedoubleclickevent_isbase = false;
             QAbstractScrollArea::mouseDoubleClickEvent(param1);
-        } else if (qabstractscrollarea_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qabstractscrollarea_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qabstractscrollarea_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::mouseDoubleClickEvent(param1);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::mouseDoubleClickEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,13 +608,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_mousemoveevent_isbase) {
             qabstractscrollarea_mousemoveevent_isbase = false;
             QAbstractScrollArea::mouseMoveEvent(param1);
-        } else if (qabstractscrollarea_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qabstractscrollarea_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qabstractscrollarea_mousemoveevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,13 +625,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_wheelevent_isbase) {
             qabstractscrollarea_wheelevent_isbase = false;
             QAbstractScrollArea::wheelEvent(param1);
-        } else if (qabstractscrollarea_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qabstractscrollarea_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            qabstractscrollarea_wheelevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,13 +642,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_contextmenuevent_isbase) {
             qabstractscrollarea_contextmenuevent_isbase = false;
             QAbstractScrollArea::contextMenuEvent(param1);
-        } else if (qabstractscrollarea_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qabstractscrollarea_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qabstractscrollarea_contextmenuevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,13 +659,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_dragenterevent_isbase) {
             qabstractscrollarea_dragenterevent_isbase = false;
             QAbstractScrollArea::dragEnterEvent(param1);
-        } else if (qabstractscrollarea_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qabstractscrollarea_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
 
-            qabstractscrollarea_dragenterevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::dragEnterEvent(param1);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::dragEnterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -710,13 +676,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_dragmoveevent_isbase) {
             qabstractscrollarea_dragmoveevent_isbase = false;
             QAbstractScrollArea::dragMoveEvent(param1);
-        } else if (qabstractscrollarea_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qabstractscrollarea_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = param1;
 
-            qabstractscrollarea_dragmoveevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::dragMoveEvent(param1);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::dragMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,13 +693,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_dragleaveevent_isbase) {
             qabstractscrollarea_dragleaveevent_isbase = false;
             QAbstractScrollArea::dragLeaveEvent(param1);
-        } else if (qabstractscrollarea_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qabstractscrollarea_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = param1;
 
-            qabstractscrollarea_dragleaveevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::dragLeaveEvent(param1);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::dragLeaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -738,13 +710,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_dropevent_isbase) {
             qabstractscrollarea_dropevent_isbase = false;
             QAbstractScrollArea::dropEvent(param1);
-        } else if (qabstractscrollarea_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qabstractscrollarea_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
 
-            qabstractscrollarea_dropevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::dropEvent(param1);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::dropEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,13 +727,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_keypressevent_isbase) {
             qabstractscrollarea_keypressevent_isbase = false;
             QAbstractScrollArea::keyPressEvent(param1);
-        } else if (qabstractscrollarea_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qabstractscrollarea_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qabstractscrollarea_keypressevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -766,14 +744,17 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_scrollcontentsby_isbase) {
             qabstractscrollarea_scrollcontentsby_isbase = false;
             QAbstractScrollArea::scrollContentsBy(dx, dy);
-        } else if (qabstractscrollarea_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = qabstractscrollarea_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qabstractscrollarea_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractScrollArea::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractScrollArea::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,12 +762,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_viewportsizehint_isbase) {
             qabstractscrollarea_viewportsizehint_isbase = false;
             return QAbstractScrollArea::viewportSizeHint();
-        } else if (qabstractscrollarea_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = qabstractscrollarea_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractScrollArea::viewportSizeHint();
         }
+        auto viewportsizehint_cb = qabstractscrollarea_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return QAbstractScrollArea::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -794,13 +776,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_changeevent_isbase) {
             qabstractscrollarea_changeevent_isbase = false;
             QAbstractScrollArea::changeEvent(param1);
-        } else if (qabstractscrollarea_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qabstractscrollarea_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qabstractscrollarea_changeevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -808,13 +793,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_initstyleoption_isbase) {
             qabstractscrollarea_initstyleoption_isbase = false;
             QAbstractScrollArea::initStyleOption(option);
-        } else if (qabstractscrollarea_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qabstractscrollarea_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qabstractscrollarea_initstyleoption_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -822,12 +810,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_devtype_isbase) {
             qabstractscrollarea_devtype_isbase = false;
             return QAbstractScrollArea::devType();
-        } else if (qabstractscrollarea_devtype_callback != nullptr) {
-            int callback_ret = qabstractscrollarea_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractScrollArea::devType();
         }
+        auto devtype_cb = qabstractscrollarea_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractScrollArea::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +824,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_setvisible_isbase) {
             qabstractscrollarea_setvisible_isbase = false;
             QAbstractScrollArea::setVisible(visible);
-        } else if (qabstractscrollarea_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qabstractscrollarea_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qabstractscrollarea_setvisible_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,14 +841,15 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_heightforwidth_isbase) {
             qabstractscrollarea_heightforwidth_isbase = false;
             return QAbstractScrollArea::heightForWidth(param1);
-        } else if (qabstractscrollarea_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qabstractscrollarea_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qabstractscrollarea_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractScrollArea::heightForWidth(param1);
         }
+        return QAbstractScrollArea::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -864,12 +857,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_hasheightforwidth_isbase) {
             qabstractscrollarea_hasheightforwidth_isbase = false;
             return QAbstractScrollArea::hasHeightForWidth();
-        } else if (qabstractscrollarea_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qabstractscrollarea_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QAbstractScrollArea::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qabstractscrollarea_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QAbstractScrollArea::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,12 +871,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_paintengine_isbase) {
             qabstractscrollarea_paintengine_isbase = false;
             return QAbstractScrollArea::paintEngine();
-        } else if (qabstractscrollarea_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qabstractscrollarea_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QAbstractScrollArea::paintEngine();
         }
+        auto paintengine_cb = qabstractscrollarea_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QAbstractScrollArea::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -890,13 +885,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_keyreleaseevent_isbase) {
             qabstractscrollarea_keyreleaseevent_isbase = false;
             QAbstractScrollArea::keyReleaseEvent(event);
-        } else if (qabstractscrollarea_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qabstractscrollarea_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qabstractscrollarea_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -904,13 +902,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_focusinevent_isbase) {
             qabstractscrollarea_focusinevent_isbase = false;
             QAbstractScrollArea::focusInEvent(event);
-        } else if (qabstractscrollarea_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qabstractscrollarea_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qabstractscrollarea_focusinevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -918,13 +919,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_focusoutevent_isbase) {
             qabstractscrollarea_focusoutevent_isbase = false;
             QAbstractScrollArea::focusOutEvent(event);
-        } else if (qabstractscrollarea_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qabstractscrollarea_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qabstractscrollarea_focusoutevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -932,13 +936,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_enterevent_isbase) {
             qabstractscrollarea_enterevent_isbase = false;
             QAbstractScrollArea::enterEvent(event);
-        } else if (qabstractscrollarea_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qabstractscrollarea_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qabstractscrollarea_enterevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -946,13 +953,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_leaveevent_isbase) {
             qabstractscrollarea_leaveevent_isbase = false;
             QAbstractScrollArea::leaveEvent(event);
-        } else if (qabstractscrollarea_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qabstractscrollarea_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractscrollarea_leaveevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -960,13 +970,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_moveevent_isbase) {
             qabstractscrollarea_moveevent_isbase = false;
             QAbstractScrollArea::moveEvent(event);
-        } else if (qabstractscrollarea_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qabstractscrollarea_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qabstractscrollarea_moveevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -974,13 +987,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_closeevent_isbase) {
             qabstractscrollarea_closeevent_isbase = false;
             QAbstractScrollArea::closeEvent(event);
-        } else if (qabstractscrollarea_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qabstractscrollarea_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qabstractscrollarea_closeevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -988,13 +1004,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_tabletevent_isbase) {
             qabstractscrollarea_tabletevent_isbase = false;
             QAbstractScrollArea::tabletEvent(event);
-        } else if (qabstractscrollarea_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qabstractscrollarea_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qabstractscrollarea_tabletevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1002,13 +1021,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_actionevent_isbase) {
             qabstractscrollarea_actionevent_isbase = false;
             QAbstractScrollArea::actionEvent(event);
-        } else if (qabstractscrollarea_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qabstractscrollarea_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qabstractscrollarea_actionevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1016,13 +1038,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_showevent_isbase) {
             qabstractscrollarea_showevent_isbase = false;
             QAbstractScrollArea::showEvent(event);
-        } else if (qabstractscrollarea_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qabstractscrollarea_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qabstractscrollarea_showevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1030,13 +1055,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_hideevent_isbase) {
             qabstractscrollarea_hideevent_isbase = false;
             QAbstractScrollArea::hideEvent(event);
-        } else if (qabstractscrollarea_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qabstractscrollarea_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qabstractscrollarea_hideevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,7 +1072,9 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_nativeevent_isbase) {
             qabstractscrollarea_nativeevent_isbase = false;
             return QAbstractScrollArea::nativeEvent(eventType, message, result);
-        } else if (qabstractscrollarea_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qabstractscrollarea_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1055,12 +1085,11 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qabstractscrollarea_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QAbstractScrollArea::nativeEvent(eventType, message, result);
         }
+        return QAbstractScrollArea::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,14 +1097,15 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_metric_isbase) {
             qabstractscrollarea_metric_isbase = false;
             return QAbstractScrollArea::metric(param1);
-        } else if (qabstractscrollarea_metric_callback != nullptr) {
+        }
+        auto metric_cb = qabstractscrollarea_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qabstractscrollarea_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractScrollArea::metric(param1);
         }
+        return QAbstractScrollArea::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1083,13 +1113,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_initpainter_isbase) {
             qabstractscrollarea_initpainter_isbase = false;
             QAbstractScrollArea::initPainter(painter);
-        } else if (qabstractscrollarea_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qabstractscrollarea_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qabstractscrollarea_initpainter_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1097,14 +1130,15 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_redirected_isbase) {
             qabstractscrollarea_redirected_isbase = false;
             return QAbstractScrollArea::redirected(offset);
-        } else if (qabstractscrollarea_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qabstractscrollarea_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qabstractscrollarea_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractScrollArea::redirected(offset);
         }
+        return QAbstractScrollArea::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,12 +1146,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_sharedpainter_isbase) {
             qabstractscrollarea_sharedpainter_isbase = false;
             return QAbstractScrollArea::sharedPainter();
-        } else if (qabstractscrollarea_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qabstractscrollarea_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QAbstractScrollArea::sharedPainter();
         }
+        auto sharedpainter_cb = qabstractscrollarea_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QAbstractScrollArea::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1125,13 +1160,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_inputmethodevent_isbase) {
             qabstractscrollarea_inputmethodevent_isbase = false;
             QAbstractScrollArea::inputMethodEvent(param1);
-        } else if (qabstractscrollarea_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qabstractscrollarea_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qabstractscrollarea_inputmethodevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1139,14 +1177,15 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_inputmethodquery_isbase) {
             qabstractscrollarea_inputmethodquery_isbase = false;
             return QAbstractScrollArea::inputMethodQuery(param1);
-        } else if (qabstractscrollarea_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qabstractscrollarea_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qabstractscrollarea_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractScrollArea::inputMethodQuery(param1);
         }
+        return QAbstractScrollArea::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,14 +1193,15 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_focusnextprevchild_isbase) {
             qabstractscrollarea_focusnextprevchild_isbase = false;
             return QAbstractScrollArea::focusNextPrevChild(next);
-        } else if (qabstractscrollarea_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qabstractscrollarea_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qabstractscrollarea_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractScrollArea::focusNextPrevChild(next);
         }
+        return QAbstractScrollArea::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,13 +1209,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_timerevent_isbase) {
             qabstractscrollarea_timerevent_isbase = false;
             QAbstractScrollArea::timerEvent(event);
-        } else if (qabstractscrollarea_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qabstractscrollarea_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qabstractscrollarea_timerevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,13 +1226,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_childevent_isbase) {
             qabstractscrollarea_childevent_isbase = false;
             QAbstractScrollArea::childEvent(event);
-        } else if (qabstractscrollarea_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qabstractscrollarea_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qabstractscrollarea_childevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1197,13 +1243,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_customevent_isbase) {
             qabstractscrollarea_customevent_isbase = false;
             QAbstractScrollArea::customEvent(event);
-        } else if (qabstractscrollarea_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qabstractscrollarea_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractscrollarea_customevent_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1211,15 +1260,18 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_connectnotify_isbase) {
             qabstractscrollarea_connectnotify_isbase = false;
             QAbstractScrollArea::connectNotify(signal);
-        } else if (qabstractscrollarea_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qabstractscrollarea_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractscrollarea_connectnotify_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1227,15 +1279,18 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_disconnectnotify_isbase) {
             qabstractscrollarea_disconnectnotify_isbase = false;
             QAbstractScrollArea::disconnectNotify(signal);
-        } else if (qabstractscrollarea_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qabstractscrollarea_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractscrollarea_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,16 +1298,19 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_setviewportmargins_isbase) {
             qabstractscrollarea_setviewportmargins_isbase = false;
             QAbstractScrollArea::setViewportMargins(left, top, right, bottom);
-        } else if (qabstractscrollarea_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = qabstractscrollarea_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            qabstractscrollarea_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QAbstractScrollArea::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QAbstractScrollArea::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1260,15 +1318,18 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_setviewportmargins2_isbase) {
             qabstractscrollarea_setviewportmargins2_isbase = false;
             QAbstractScrollArea::setViewportMargins(margins);
-        } else if (qabstractscrollarea_setviewportmargins2_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins2_cb = qabstractscrollarea_setviewportmargins2_callback;
+        if (setviewportmargins2_cb) {
             const QMargins& margins_ret = margins;
             // Cast returned reference into pointer
             QMargins* cbval1 = const_cast<QMargins*>(&margins_ret);
 
-            qabstractscrollarea_setviewportmargins2_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::setViewportMargins(margins);
+            setviewportmargins2_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::setViewportMargins(margins);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1276,12 +1337,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_viewportmargins_isbase) {
             qabstractscrollarea_viewportmargins_isbase = false;
             return QAbstractScrollArea::viewportMargins();
-        } else if (qabstractscrollarea_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = qabstractscrollarea_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractScrollArea::viewportMargins();
         }
+        auto viewportmargins_cb = qabstractscrollarea_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return QAbstractScrollArea::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1289,13 +1351,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_drawframe_isbase) {
             qabstractscrollarea_drawframe_isbase = false;
             QAbstractScrollArea::drawFrame(param1);
-        } else if (qabstractscrollarea_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qabstractscrollarea_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qabstractscrollarea_drawframe_callback(this, cbval1);
-        } else {
-            QAbstractScrollArea::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QAbstractScrollArea::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1303,11 +1368,14 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_updatemicrofocus_isbase) {
             qabstractscrollarea_updatemicrofocus_isbase = false;
             QAbstractScrollArea::updateMicroFocus();
-        } else if (qabstractscrollarea_updatemicrofocus_callback != nullptr) {
-            qabstractscrollarea_updatemicrofocus_callback();
-        } else {
-            QAbstractScrollArea::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qabstractscrollarea_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QAbstractScrollArea::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1315,11 +1383,14 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_create_isbase) {
             qabstractscrollarea_create_isbase = false;
             QAbstractScrollArea::create();
-        } else if (qabstractscrollarea_create_callback != nullptr) {
-            qabstractscrollarea_create_callback();
-        } else {
-            QAbstractScrollArea::create();
+            return;
         }
+        auto create_cb = qabstractscrollarea_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QAbstractScrollArea::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1327,11 +1398,14 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_destroy_isbase) {
             qabstractscrollarea_destroy_isbase = false;
             QAbstractScrollArea::destroy();
-        } else if (qabstractscrollarea_destroy_callback != nullptr) {
-            qabstractscrollarea_destroy_callback();
-        } else {
-            QAbstractScrollArea::destroy();
+            return;
         }
+        auto destroy_cb = qabstractscrollarea_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QAbstractScrollArea::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1339,12 +1413,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_focusnextchild_isbase) {
             qabstractscrollarea_focusnextchild_isbase = false;
             return QAbstractScrollArea::focusNextChild();
-        } else if (qabstractscrollarea_focusnextchild_callback != nullptr) {
-            bool callback_ret = qabstractscrollarea_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QAbstractScrollArea::focusNextChild();
         }
+        auto focusnextchild_cb = qabstractscrollarea_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QAbstractScrollArea::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1352,12 +1427,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_focuspreviouschild_isbase) {
             qabstractscrollarea_focuspreviouschild_isbase = false;
             return QAbstractScrollArea::focusPreviousChild();
-        } else if (qabstractscrollarea_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qabstractscrollarea_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QAbstractScrollArea::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qabstractscrollarea_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QAbstractScrollArea::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1365,12 +1441,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_sender_isbase) {
             qabstractscrollarea_sender_isbase = false;
             return QAbstractScrollArea::sender();
-        } else if (qabstractscrollarea_sender_callback != nullptr) {
-            QObject* callback_ret = qabstractscrollarea_sender_callback();
-            return callback_ret;
-        } else {
-            return QAbstractScrollArea::sender();
         }
+        auto sender_cb = qabstractscrollarea_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAbstractScrollArea::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1378,12 +1455,13 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_sendersignalindex_isbase) {
             qabstractscrollarea_sendersignalindex_isbase = false;
             return QAbstractScrollArea::senderSignalIndex();
-        } else if (qabstractscrollarea_sendersignalindex_callback != nullptr) {
-            int callback_ret = qabstractscrollarea_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractScrollArea::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qabstractscrollarea_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractScrollArea::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1391,14 +1469,15 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_receivers_isbase) {
             qabstractscrollarea_receivers_isbase = false;
             return QAbstractScrollArea::receivers(signal);
-        } else if (qabstractscrollarea_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qabstractscrollarea_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qabstractscrollarea_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractScrollArea::receivers(signal);
         }
+        return QAbstractScrollArea::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1406,16 +1485,17 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_issignalconnected_isbase) {
             qabstractscrollarea_issignalconnected_isbase = false;
             return QAbstractScrollArea::isSignalConnected(signal);
-        } else if (qabstractscrollarea_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qabstractscrollarea_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qabstractscrollarea_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractScrollArea::isSignalConnected(signal);
         }
+        return QAbstractScrollArea::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1423,15 +1503,16 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         if (qabstractscrollarea_getdecodedmetricf_isbase) {
             qabstractscrollarea_getdecodedmetricf_isbase = false;
             return QAbstractScrollArea::getDecodedMetricF(metricA, metricB);
-        } else if (qabstractscrollarea_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qabstractscrollarea_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qabstractscrollarea_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QAbstractScrollArea::getDecodedMetricF(metricA, metricB);
         }
+        return QAbstractScrollArea::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

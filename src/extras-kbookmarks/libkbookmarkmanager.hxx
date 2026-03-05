@@ -69,23 +69,6 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
     VirtualKBookmarkManager(const QString& bookmarksFile) : KBookmarkManager(bookmarksFile) {};
     VirtualKBookmarkManager(const QString& bookmarksFile, QObject* parent) : KBookmarkManager(bookmarksFile, parent) {};
 
-    ~VirtualKBookmarkManager() {
-        kbookmarkmanager_metaobject_callback = nullptr;
-        kbookmarkmanager_metacast_callback = nullptr;
-        kbookmarkmanager_metacall_callback = nullptr;
-        kbookmarkmanager_event_callback = nullptr;
-        kbookmarkmanager_eventfilter_callback = nullptr;
-        kbookmarkmanager_timerevent_callback = nullptr;
-        kbookmarkmanager_childevent_callback = nullptr;
-        kbookmarkmanager_customevent_callback = nullptr;
-        kbookmarkmanager_connectnotify_callback = nullptr;
-        kbookmarkmanager_disconnectnotify_callback = nullptr;
-        kbookmarkmanager_sender_callback = nullptr;
-        kbookmarkmanager_sendersignalindex_callback = nullptr;
-        kbookmarkmanager_receivers_callback = nullptr;
-        kbookmarkmanager_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKBookmarkManager_MetaObject_Callback(KBookmarkManager_MetaObject_Callback cb) { kbookmarkmanager_metaobject_callback = cb; }
     inline void setKBookmarkManager_Metacast_Callback(KBookmarkManager_Metacast_Callback cb) { kbookmarkmanager_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_metaobject_isbase) {
             kbookmarkmanager_metaobject_isbase = false;
             return KBookmarkManager::metaObject();
-        } else if (kbookmarkmanager_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kbookmarkmanager_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkManager::metaObject();
         }
+        auto metaobject_cb = kbookmarkmanager_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KBookmarkManager::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_metacast_isbase) {
             kbookmarkmanager_metacast_isbase = false;
             return KBookmarkManager::qt_metacast(param1);
-        } else if (kbookmarkmanager_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kbookmarkmanager_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kbookmarkmanager_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkManager::qt_metacast(param1);
         }
+        return KBookmarkManager::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_metacall_isbase) {
             kbookmarkmanager_metacall_isbase = false;
             return KBookmarkManager::qt_metacall(param1, param2, param3);
-        } else if (kbookmarkmanager_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kbookmarkmanager_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kbookmarkmanager_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkManager::qt_metacall(param1, param2, param3);
         }
+        return KBookmarkManager::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_event_isbase) {
             kbookmarkmanager_event_isbase = false;
             return KBookmarkManager::event(event);
-        } else if (kbookmarkmanager_event_callback != nullptr) {
+        }
+        auto event_cb = kbookmarkmanager_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kbookmarkmanager_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkManager::event(event);
         }
+        return KBookmarkManager::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_eventfilter_isbase) {
             kbookmarkmanager_eventfilter_isbase = false;
             return KBookmarkManager::eventFilter(watched, event);
-        } else if (kbookmarkmanager_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kbookmarkmanager_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kbookmarkmanager_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KBookmarkManager::eventFilter(watched, event);
         }
+        return KBookmarkManager::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_timerevent_isbase) {
             kbookmarkmanager_timerevent_isbase = false;
             KBookmarkManager::timerEvent(event);
-        } else if (kbookmarkmanager_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kbookmarkmanager_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kbookmarkmanager_timerevent_callback(this, cbval1);
-        } else {
-            KBookmarkManager::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkManager::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_childevent_isbase) {
             kbookmarkmanager_childevent_isbase = false;
             KBookmarkManager::childEvent(event);
-        } else if (kbookmarkmanager_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kbookmarkmanager_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kbookmarkmanager_childevent_callback(this, cbval1);
-        } else {
-            KBookmarkManager::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkManager::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_customevent_isbase) {
             kbookmarkmanager_customevent_isbase = false;
             KBookmarkManager::customEvent(event);
-        } else if (kbookmarkmanager_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kbookmarkmanager_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kbookmarkmanager_customevent_callback(this, cbval1);
-        } else {
-            KBookmarkManager::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkManager::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_connectnotify_isbase) {
             kbookmarkmanager_connectnotify_isbase = false;
             KBookmarkManager::connectNotify(signal);
-        } else if (kbookmarkmanager_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kbookmarkmanager_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kbookmarkmanager_connectnotify_callback(this, cbval1);
-        } else {
-            KBookmarkManager::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KBookmarkManager::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_disconnectnotify_isbase) {
             kbookmarkmanager_disconnectnotify_isbase = false;
             KBookmarkManager::disconnectNotify(signal);
-        } else if (kbookmarkmanager_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kbookmarkmanager_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kbookmarkmanager_disconnectnotify_callback(this, cbval1);
-        } else {
-            KBookmarkManager::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KBookmarkManager::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_sender_isbase) {
             kbookmarkmanager_sender_isbase = false;
             return KBookmarkManager::sender();
-        } else if (kbookmarkmanager_sender_callback != nullptr) {
-            QObject* callback_ret = kbookmarkmanager_sender_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkManager::sender();
         }
+        auto sender_cb = kbookmarkmanager_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KBookmarkManager::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_sendersignalindex_isbase) {
             kbookmarkmanager_sendersignalindex_isbase = false;
             return KBookmarkManager::senderSignalIndex();
-        } else if (kbookmarkmanager_sendersignalindex_callback != nullptr) {
-            int callback_ret = kbookmarkmanager_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkManager::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kbookmarkmanager_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBookmarkManager::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_receivers_isbase) {
             kbookmarkmanager_receivers_isbase = false;
             return KBookmarkManager::receivers(signal);
-        } else if (kbookmarkmanager_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kbookmarkmanager_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kbookmarkmanager_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkManager::receivers(signal);
         }
+        return KBookmarkManager::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
         if (kbookmarkmanager_issignalconnected_isbase) {
             kbookmarkmanager_issignalconnected_isbase = false;
             return KBookmarkManager::isSignalConnected(signal);
-        } else if (kbookmarkmanager_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kbookmarkmanager_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kbookmarkmanager_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkManager::isSignalConnected(signal);
         }
+        return KBookmarkManager::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -244,81 +244,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
     VirtualKAssistantDialog() : KAssistantDialog() {};
     VirtualKAssistantDialog(QWidget* parent, Qt::WindowFlags flags) : KAssistantDialog(parent, flags) {};
 
-    ~VirtualKAssistantDialog() {
-        kassistantdialog_metaobject_callback = nullptr;
-        kassistantdialog_metacast_callback = nullptr;
-        kassistantdialog_metacall_callback = nullptr;
-        kassistantdialog_back_callback = nullptr;
-        kassistantdialog_next_callback = nullptr;
-        kassistantdialog_showevent_callback = nullptr;
-        kassistantdialog_setvisible_callback = nullptr;
-        kassistantdialog_sizehint_callback = nullptr;
-        kassistantdialog_minimumsizehint_callback = nullptr;
-        kassistantdialog_open_callback = nullptr;
-        kassistantdialog_exec_callback = nullptr;
-        kassistantdialog_done_callback = nullptr;
-        kassistantdialog_accept_callback = nullptr;
-        kassistantdialog_reject_callback = nullptr;
-        kassistantdialog_keypressevent_callback = nullptr;
-        kassistantdialog_closeevent_callback = nullptr;
-        kassistantdialog_resizeevent_callback = nullptr;
-        kassistantdialog_contextmenuevent_callback = nullptr;
-        kassistantdialog_eventfilter_callback = nullptr;
-        kassistantdialog_devtype_callback = nullptr;
-        kassistantdialog_heightforwidth_callback = nullptr;
-        kassistantdialog_hasheightforwidth_callback = nullptr;
-        kassistantdialog_paintengine_callback = nullptr;
-        kassistantdialog_event_callback = nullptr;
-        kassistantdialog_mousepressevent_callback = nullptr;
-        kassistantdialog_mousereleaseevent_callback = nullptr;
-        kassistantdialog_mousedoubleclickevent_callback = nullptr;
-        kassistantdialog_mousemoveevent_callback = nullptr;
-        kassistantdialog_wheelevent_callback = nullptr;
-        kassistantdialog_keyreleaseevent_callback = nullptr;
-        kassistantdialog_focusinevent_callback = nullptr;
-        kassistantdialog_focusoutevent_callback = nullptr;
-        kassistantdialog_enterevent_callback = nullptr;
-        kassistantdialog_leaveevent_callback = nullptr;
-        kassistantdialog_paintevent_callback = nullptr;
-        kassistantdialog_moveevent_callback = nullptr;
-        kassistantdialog_tabletevent_callback = nullptr;
-        kassistantdialog_actionevent_callback = nullptr;
-        kassistantdialog_dragenterevent_callback = nullptr;
-        kassistantdialog_dragmoveevent_callback = nullptr;
-        kassistantdialog_dragleaveevent_callback = nullptr;
-        kassistantdialog_dropevent_callback = nullptr;
-        kassistantdialog_hideevent_callback = nullptr;
-        kassistantdialog_nativeevent_callback = nullptr;
-        kassistantdialog_changeevent_callback = nullptr;
-        kassistantdialog_metric_callback = nullptr;
-        kassistantdialog_initpainter_callback = nullptr;
-        kassistantdialog_redirected_callback = nullptr;
-        kassistantdialog_sharedpainter_callback = nullptr;
-        kassistantdialog_inputmethodevent_callback = nullptr;
-        kassistantdialog_inputmethodquery_callback = nullptr;
-        kassistantdialog_focusnextprevchild_callback = nullptr;
-        kassistantdialog_timerevent_callback = nullptr;
-        kassistantdialog_childevent_callback = nullptr;
-        kassistantdialog_customevent_callback = nullptr;
-        kassistantdialog_connectnotify_callback = nullptr;
-        kassistantdialog_disconnectnotify_callback = nullptr;
-        kassistantdialog_pagewidget_callback = nullptr;
-        kassistantdialog_setpagewidget_callback = nullptr;
-        kassistantdialog_buttonbox_callback = nullptr;
-        kassistantdialog_setbuttonbox_callback = nullptr;
-        kassistantdialog_adjustposition_callback = nullptr;
-        kassistantdialog_updatemicrofocus_callback = nullptr;
-        kassistantdialog_create_callback = nullptr;
-        kassistantdialog_destroy_callback = nullptr;
-        kassistantdialog_focusnextchild_callback = nullptr;
-        kassistantdialog_focuspreviouschild_callback = nullptr;
-        kassistantdialog_sender_callback = nullptr;
-        kassistantdialog_sendersignalindex_callback = nullptr;
-        kassistantdialog_receivers_callback = nullptr;
-        kassistantdialog_issignalconnected_callback = nullptr;
-        kassistantdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKAssistantDialog_MetaObject_Callback(KAssistantDialog_MetaObject_Callback cb) { kassistantdialog_metaobject_callback = cb; }
     inline void setKAssistantDialog_Metacast_Callback(KAssistantDialog_Metacast_Callback cb) { kassistantdialog_metacast_callback = cb; }
@@ -472,12 +397,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_metaobject_isbase) {
             kassistantdialog_metaobject_isbase = false;
             return KAssistantDialog::metaObject();
-        } else if (kassistantdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kassistantdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KAssistantDialog::metaObject();
         }
+        auto metaobject_cb = kassistantdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KAssistantDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -485,14 +411,15 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_metacast_isbase) {
             kassistantdialog_metacast_isbase = false;
             return KAssistantDialog::qt_metacast(param1);
-        } else if (kassistantdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kassistantdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kassistantdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAssistantDialog::qt_metacast(param1);
         }
+        return KAssistantDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -500,16 +427,17 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_metacall_isbase) {
             kassistantdialog_metacall_isbase = false;
             return KAssistantDialog::qt_metacall(param1, param2, param3);
-        } else if (kassistantdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kassistantdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kassistantdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAssistantDialog::qt_metacall(param1, param2, param3);
         }
+        return KAssistantDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -517,11 +445,14 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_back_isbase) {
             kassistantdialog_back_isbase = false;
             KAssistantDialog::back();
-        } else if (kassistantdialog_back_callback != nullptr) {
-            kassistantdialog_back_callback();
-        } else {
-            KAssistantDialog::back();
+            return;
         }
+        auto back_cb = kassistantdialog_back_callback;
+        if (back_cb) {
+            back_cb();
+            return;
+        }
+        KAssistantDialog::back();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,11 +460,14 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_next_isbase) {
             kassistantdialog_next_isbase = false;
             KAssistantDialog::next();
-        } else if (kassistantdialog_next_callback != nullptr) {
-            kassistantdialog_next_callback();
-        } else {
-            KAssistantDialog::next();
+            return;
         }
+        auto next_cb = kassistantdialog_next_callback;
+        if (next_cb) {
+            next_cb();
+            return;
+        }
+        KAssistantDialog::next();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,13 +475,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_showevent_isbase) {
             kassistantdialog_showevent_isbase = false;
             KAssistantDialog::showEvent(event);
-        } else if (kassistantdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kassistantdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kassistantdialog_showevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,13 +492,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_setvisible_isbase) {
             kassistantdialog_setvisible_isbase = false;
             KAssistantDialog::setVisible(visible);
-        } else if (kassistantdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kassistantdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kassistantdialog_setvisible_callback(this, cbval1);
-        } else {
-            KAssistantDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,12 +509,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_sizehint_isbase) {
             kassistantdialog_sizehint_isbase = false;
             return KAssistantDialog::sizeHint();
-        } else if (kassistantdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kassistantdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAssistantDialog::sizeHint();
         }
+        auto sizehint_cb = kassistantdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KAssistantDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,12 +523,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_minimumsizehint_isbase) {
             kassistantdialog_minimumsizehint_isbase = false;
             return KAssistantDialog::minimumSizeHint();
-        } else if (kassistantdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kassistantdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAssistantDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kassistantdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KAssistantDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -595,11 +537,14 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_open_isbase) {
             kassistantdialog_open_isbase = false;
             KAssistantDialog::open();
-        } else if (kassistantdialog_open_callback != nullptr) {
-            kassistantdialog_open_callback();
-        } else {
-            KAssistantDialog::open();
+            return;
         }
+        auto open_cb = kassistantdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KAssistantDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,12 +552,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_exec_isbase) {
             kassistantdialog_exec_isbase = false;
             return KAssistantDialog::exec();
-        } else if (kassistantdialog_exec_callback != nullptr) {
-            int callback_ret = kassistantdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAssistantDialog::exec();
         }
+        auto exec_cb = kassistantdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAssistantDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -620,13 +566,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_done_isbase) {
             kassistantdialog_done_isbase = false;
             KAssistantDialog::done(param1);
-        } else if (kassistantdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kassistantdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kassistantdialog_done_callback(this, cbval1);
-        } else {
-            KAssistantDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,11 +583,14 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_accept_isbase) {
             kassistantdialog_accept_isbase = false;
             KAssistantDialog::accept();
-        } else if (kassistantdialog_accept_callback != nullptr) {
-            kassistantdialog_accept_callback();
-        } else {
-            KAssistantDialog::accept();
+            return;
         }
+        auto accept_cb = kassistantdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KAssistantDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -646,11 +598,14 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_reject_isbase) {
             kassistantdialog_reject_isbase = false;
             KAssistantDialog::reject();
-        } else if (kassistantdialog_reject_callback != nullptr) {
-            kassistantdialog_reject_callback();
-        } else {
-            KAssistantDialog::reject();
+            return;
         }
+        auto reject_cb = kassistantdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KAssistantDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -658,13 +613,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_keypressevent_isbase) {
             kassistantdialog_keypressevent_isbase = false;
             KAssistantDialog::keyPressEvent(param1);
-        } else if (kassistantdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kassistantdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kassistantdialog_keypressevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -672,13 +630,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_closeevent_isbase) {
             kassistantdialog_closeevent_isbase = false;
             KAssistantDialog::closeEvent(param1);
-        } else if (kassistantdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kassistantdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kassistantdialog_closeevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -686,13 +647,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_resizeevent_isbase) {
             kassistantdialog_resizeevent_isbase = false;
             KAssistantDialog::resizeEvent(param1);
-        } else if (kassistantdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kassistantdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kassistantdialog_resizeevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -700,13 +664,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_contextmenuevent_isbase) {
             kassistantdialog_contextmenuevent_isbase = false;
             KAssistantDialog::contextMenuEvent(param1);
-        } else if (kassistantdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kassistantdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kassistantdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,15 +681,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_eventfilter_isbase) {
             kassistantdialog_eventfilter_isbase = false;
             return KAssistantDialog::eventFilter(param1, param2);
-        } else if (kassistantdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kassistantdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kassistantdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KAssistantDialog::eventFilter(param1, param2);
         }
+        return KAssistantDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -730,12 +698,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_devtype_isbase) {
             kassistantdialog_devtype_isbase = false;
             return KAssistantDialog::devType();
-        } else if (kassistantdialog_devtype_callback != nullptr) {
-            int callback_ret = kassistantdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAssistantDialog::devType();
         }
+        auto devtype_cb = kassistantdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAssistantDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -743,14 +712,15 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_heightforwidth_isbase) {
             kassistantdialog_heightforwidth_isbase = false;
             return KAssistantDialog::heightForWidth(param1);
-        } else if (kassistantdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kassistantdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kassistantdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAssistantDialog::heightForWidth(param1);
         }
+        return KAssistantDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,12 +728,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_hasheightforwidth_isbase) {
             kassistantdialog_hasheightforwidth_isbase = false;
             return KAssistantDialog::hasHeightForWidth();
-        } else if (kassistantdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kassistantdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KAssistantDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kassistantdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KAssistantDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -771,12 +742,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_paintengine_isbase) {
             kassistantdialog_paintengine_isbase = false;
             return KAssistantDialog::paintEngine();
-        } else if (kassistantdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kassistantdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KAssistantDialog::paintEngine();
         }
+        auto paintengine_cb = kassistantdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KAssistantDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,14 +756,15 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_event_isbase) {
             kassistantdialog_event_isbase = false;
             return KAssistantDialog::event(event);
-        } else if (kassistantdialog_event_callback != nullptr) {
+        }
+        auto event_cb = kassistantdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kassistantdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAssistantDialog::event(event);
         }
+        return KAssistantDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,13 +772,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_mousepressevent_isbase) {
             kassistantdialog_mousepressevent_isbase = false;
             KAssistantDialog::mousePressEvent(event);
-        } else if (kassistantdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kassistantdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kassistantdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -813,13 +789,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_mousereleaseevent_isbase) {
             kassistantdialog_mousereleaseevent_isbase = false;
             KAssistantDialog::mouseReleaseEvent(event);
-        } else if (kassistantdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kassistantdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kassistantdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -827,13 +806,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_mousedoubleclickevent_isbase) {
             kassistantdialog_mousedoubleclickevent_isbase = false;
             KAssistantDialog::mouseDoubleClickEvent(event);
-        } else if (kassistantdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kassistantdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kassistantdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -841,13 +823,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_mousemoveevent_isbase) {
             kassistantdialog_mousemoveevent_isbase = false;
             KAssistantDialog::mouseMoveEvent(event);
-        } else if (kassistantdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kassistantdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kassistantdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -855,13 +840,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_wheelevent_isbase) {
             kassistantdialog_wheelevent_isbase = false;
             KAssistantDialog::wheelEvent(event);
-        } else if (kassistantdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kassistantdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kassistantdialog_wheelevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -869,13 +857,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_keyreleaseevent_isbase) {
             kassistantdialog_keyreleaseevent_isbase = false;
             KAssistantDialog::keyReleaseEvent(event);
-        } else if (kassistantdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kassistantdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kassistantdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -883,13 +874,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_focusinevent_isbase) {
             kassistantdialog_focusinevent_isbase = false;
             KAssistantDialog::focusInEvent(event);
-        } else if (kassistantdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kassistantdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kassistantdialog_focusinevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -897,13 +891,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_focusoutevent_isbase) {
             kassistantdialog_focusoutevent_isbase = false;
             KAssistantDialog::focusOutEvent(event);
-        } else if (kassistantdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kassistantdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kassistantdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -911,13 +908,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_enterevent_isbase) {
             kassistantdialog_enterevent_isbase = false;
             KAssistantDialog::enterEvent(event);
-        } else if (kassistantdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kassistantdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kassistantdialog_enterevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -925,13 +925,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_leaveevent_isbase) {
             kassistantdialog_leaveevent_isbase = false;
             KAssistantDialog::leaveEvent(event);
-        } else if (kassistantdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kassistantdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kassistantdialog_leaveevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -939,13 +942,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_paintevent_isbase) {
             kassistantdialog_paintevent_isbase = false;
             KAssistantDialog::paintEvent(event);
-        } else if (kassistantdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kassistantdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kassistantdialog_paintevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,13 +959,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_moveevent_isbase) {
             kassistantdialog_moveevent_isbase = false;
             KAssistantDialog::moveEvent(event);
-        } else if (kassistantdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kassistantdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kassistantdialog_moveevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,13 +976,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_tabletevent_isbase) {
             kassistantdialog_tabletevent_isbase = false;
             KAssistantDialog::tabletEvent(event);
-        } else if (kassistantdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kassistantdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kassistantdialog_tabletevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -981,13 +993,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_actionevent_isbase) {
             kassistantdialog_actionevent_isbase = false;
             KAssistantDialog::actionEvent(event);
-        } else if (kassistantdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kassistantdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kassistantdialog_actionevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -995,13 +1010,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_dragenterevent_isbase) {
             kassistantdialog_dragenterevent_isbase = false;
             KAssistantDialog::dragEnterEvent(event);
-        } else if (kassistantdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kassistantdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kassistantdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,13 +1027,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_dragmoveevent_isbase) {
             kassistantdialog_dragmoveevent_isbase = false;
             KAssistantDialog::dragMoveEvent(event);
-        } else if (kassistantdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kassistantdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kassistantdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1023,13 +1044,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_dragleaveevent_isbase) {
             kassistantdialog_dragleaveevent_isbase = false;
             KAssistantDialog::dragLeaveEvent(event);
-        } else if (kassistantdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kassistantdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kassistantdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,13 +1061,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_dropevent_isbase) {
             kassistantdialog_dropevent_isbase = false;
             KAssistantDialog::dropEvent(event);
-        } else if (kassistantdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kassistantdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kassistantdialog_dropevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1051,13 +1078,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_hideevent_isbase) {
             kassistantdialog_hideevent_isbase = false;
             KAssistantDialog::hideEvent(event);
-        } else if (kassistantdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kassistantdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kassistantdialog_hideevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,7 +1095,9 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_nativeevent_isbase) {
             kassistantdialog_nativeevent_isbase = false;
             return KAssistantDialog::nativeEvent(eventType, message, result);
-        } else if (kassistantdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kassistantdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1076,12 +1108,11 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kassistantdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KAssistantDialog::nativeEvent(eventType, message, result);
         }
+        return KAssistantDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1089,13 +1120,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_changeevent_isbase) {
             kassistantdialog_changeevent_isbase = false;
             KAssistantDialog::changeEvent(param1);
-        } else if (kassistantdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kassistantdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kassistantdialog_changeevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,14 +1137,15 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_metric_isbase) {
             kassistantdialog_metric_isbase = false;
             return KAssistantDialog::metric(param1);
-        } else if (kassistantdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kassistantdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kassistantdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAssistantDialog::metric(param1);
         }
+        return KAssistantDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,13 +1153,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_initpainter_isbase) {
             kassistantdialog_initpainter_isbase = false;
             KAssistantDialog::initPainter(painter);
-        } else if (kassistantdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kassistantdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kassistantdialog_initpainter_callback(this, cbval1);
-        } else {
-            KAssistantDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1132,14 +1170,15 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_redirected_isbase) {
             kassistantdialog_redirected_isbase = false;
             return KAssistantDialog::redirected(offset);
-        } else if (kassistantdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kassistantdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kassistantdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAssistantDialog::redirected(offset);
         }
+        return KAssistantDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1147,12 +1186,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_sharedpainter_isbase) {
             kassistantdialog_sharedpainter_isbase = false;
             return KAssistantDialog::sharedPainter();
-        } else if (kassistantdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kassistantdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KAssistantDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kassistantdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KAssistantDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1160,13 +1200,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_inputmethodevent_isbase) {
             kassistantdialog_inputmethodevent_isbase = false;
             KAssistantDialog::inputMethodEvent(param1);
-        } else if (kassistantdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kassistantdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kassistantdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1174,14 +1217,15 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_inputmethodquery_isbase) {
             kassistantdialog_inputmethodquery_isbase = false;
             return KAssistantDialog::inputMethodQuery(param1);
-        } else if (kassistantdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kassistantdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kassistantdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KAssistantDialog::inputMethodQuery(param1);
         }
+        return KAssistantDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1189,14 +1233,15 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_focusnextprevchild_isbase) {
             kassistantdialog_focusnextprevchild_isbase = false;
             return KAssistantDialog::focusNextPrevChild(next);
-        } else if (kassistantdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kassistantdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kassistantdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAssistantDialog::focusNextPrevChild(next);
         }
+        return KAssistantDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1204,13 +1249,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_timerevent_isbase) {
             kassistantdialog_timerevent_isbase = false;
             KAssistantDialog::timerEvent(event);
-        } else if (kassistantdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kassistantdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kassistantdialog_timerevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1218,13 +1266,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_childevent_isbase) {
             kassistantdialog_childevent_isbase = false;
             KAssistantDialog::childEvent(event);
-        } else if (kassistantdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kassistantdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kassistantdialog_childevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1232,13 +1283,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_customevent_isbase) {
             kassistantdialog_customevent_isbase = false;
             KAssistantDialog::customEvent(event);
-        } else if (kassistantdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kassistantdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kassistantdialog_customevent_callback(this, cbval1);
-        } else {
-            KAssistantDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,15 +1300,18 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_connectnotify_isbase) {
             kassistantdialog_connectnotify_isbase = false;
             KAssistantDialog::connectNotify(signal);
-        } else if (kassistantdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kassistantdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kassistantdialog_connectnotify_callback(this, cbval1);
-        } else {
-            KAssistantDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1262,15 +1319,18 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_disconnectnotify_isbase) {
             kassistantdialog_disconnectnotify_isbase = false;
             KAssistantDialog::disconnectNotify(signal);
-        } else if (kassistantdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kassistantdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kassistantdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KAssistantDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,12 +1338,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_pagewidget_isbase) {
             kassistantdialog_pagewidget_isbase = false;
             return KAssistantDialog::pageWidget();
-        } else if (kassistantdialog_pagewidget_callback != nullptr) {
-            KPageWidget* callback_ret = kassistantdialog_pagewidget_callback();
-            return callback_ret;
-        } else {
-            return KAssistantDialog::pageWidget();
         }
+        auto pagewidget_cb = kassistantdialog_pagewidget_callback;
+        if (pagewidget_cb) {
+            KPageWidget* callback_ret = pagewidget_cb();
+            return callback_ret;
+        }
+        return KAssistantDialog::pageWidget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1291,13 +1352,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_setpagewidget_isbase) {
             kassistantdialog_setpagewidget_isbase = false;
             KAssistantDialog::setPageWidget(widget);
-        } else if (kassistantdialog_setpagewidget_callback != nullptr) {
+            return;
+        }
+        auto setpagewidget_cb = kassistantdialog_setpagewidget_callback;
+        if (setpagewidget_cb) {
             KPageWidget* cbval1 = widget;
 
-            kassistantdialog_setpagewidget_callback(this, cbval1);
-        } else {
-            KAssistantDialog::setPageWidget(widget);
+            setpagewidget_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::setPageWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1305,12 +1369,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_buttonbox_isbase) {
             kassistantdialog_buttonbox_isbase = false;
             return KAssistantDialog::buttonBox();
-        } else if (kassistantdialog_buttonbox_callback != nullptr) {
-            QDialogButtonBox* callback_ret = kassistantdialog_buttonbox_callback();
-            return callback_ret;
-        } else {
-            return KAssistantDialog::buttonBox();
         }
+        auto buttonbox_cb = kassistantdialog_buttonbox_callback;
+        if (buttonbox_cb) {
+            QDialogButtonBox* callback_ret = buttonbox_cb();
+            return callback_ret;
+        }
+        return KAssistantDialog::buttonBox();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1318,13 +1383,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_setbuttonbox_isbase) {
             kassistantdialog_setbuttonbox_isbase = false;
             KAssistantDialog::setButtonBox(box);
-        } else if (kassistantdialog_setbuttonbox_callback != nullptr) {
+            return;
+        }
+        auto setbuttonbox_cb = kassistantdialog_setbuttonbox_callback;
+        if (setbuttonbox_cb) {
             QDialogButtonBox* cbval1 = box;
 
-            kassistantdialog_setbuttonbox_callback(this, cbval1);
-        } else {
-            KAssistantDialog::setButtonBox(box);
+            setbuttonbox_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::setButtonBox(box);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1332,13 +1400,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_adjustposition_isbase) {
             kassistantdialog_adjustposition_isbase = false;
             KAssistantDialog::adjustPosition(param1);
-        } else if (kassistantdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kassistantdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kassistantdialog_adjustposition_callback(this, cbval1);
-        } else {
-            KAssistantDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KAssistantDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1346,11 +1417,14 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_updatemicrofocus_isbase) {
             kassistantdialog_updatemicrofocus_isbase = false;
             KAssistantDialog::updateMicroFocus();
-        } else if (kassistantdialog_updatemicrofocus_callback != nullptr) {
-            kassistantdialog_updatemicrofocus_callback();
-        } else {
-            KAssistantDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kassistantdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KAssistantDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1358,11 +1432,14 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_create_isbase) {
             kassistantdialog_create_isbase = false;
             KAssistantDialog::create();
-        } else if (kassistantdialog_create_callback != nullptr) {
-            kassistantdialog_create_callback();
-        } else {
-            KAssistantDialog::create();
+            return;
         }
+        auto create_cb = kassistantdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KAssistantDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1370,11 +1447,14 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_destroy_isbase) {
             kassistantdialog_destroy_isbase = false;
             KAssistantDialog::destroy();
-        } else if (kassistantdialog_destroy_callback != nullptr) {
-            kassistantdialog_destroy_callback();
-        } else {
-            KAssistantDialog::destroy();
+            return;
         }
+        auto destroy_cb = kassistantdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KAssistantDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1382,12 +1462,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_focusnextchild_isbase) {
             kassistantdialog_focusnextchild_isbase = false;
             return KAssistantDialog::focusNextChild();
-        } else if (kassistantdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kassistantdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KAssistantDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kassistantdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KAssistantDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1395,12 +1476,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_focuspreviouschild_isbase) {
             kassistantdialog_focuspreviouschild_isbase = false;
             return KAssistantDialog::focusPreviousChild();
-        } else if (kassistantdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kassistantdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KAssistantDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kassistantdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KAssistantDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1408,12 +1490,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_sender_isbase) {
             kassistantdialog_sender_isbase = false;
             return KAssistantDialog::sender();
-        } else if (kassistantdialog_sender_callback != nullptr) {
-            QObject* callback_ret = kassistantdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KAssistantDialog::sender();
         }
+        auto sender_cb = kassistantdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KAssistantDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1421,12 +1504,13 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_sendersignalindex_isbase) {
             kassistantdialog_sendersignalindex_isbase = false;
             return KAssistantDialog::senderSignalIndex();
-        } else if (kassistantdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kassistantdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAssistantDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kassistantdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAssistantDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1434,14 +1518,15 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_receivers_isbase) {
             kassistantdialog_receivers_isbase = false;
             return KAssistantDialog::receivers(signal);
-        } else if (kassistantdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kassistantdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kassistantdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAssistantDialog::receivers(signal);
         }
+        return KAssistantDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1449,16 +1534,17 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_issignalconnected_isbase) {
             kassistantdialog_issignalconnected_isbase = false;
             return KAssistantDialog::isSignalConnected(signal);
-        } else if (kassistantdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kassistantdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kassistantdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAssistantDialog::isSignalConnected(signal);
         }
+        return KAssistantDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1466,15 +1552,16 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (kassistantdialog_getdecodedmetricf_isbase) {
             kassistantdialog_getdecodedmetricf_isbase = false;
             return KAssistantDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kassistantdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kassistantdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kassistantdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KAssistantDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KAssistantDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -72,24 +72,6 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
     VirtualQCandlestickSeries() : QCandlestickSeries() {};
     VirtualQCandlestickSeries(QObject* parent) : QCandlestickSeries(parent) {};
 
-    ~VirtualQCandlestickSeries() {
-        qcandlestickseries_metaobject_callback = nullptr;
-        qcandlestickseries_metacast_callback = nullptr;
-        qcandlestickseries_metacall_callback = nullptr;
-        qcandlestickseries_type_callback = nullptr;
-        qcandlestickseries_event_callback = nullptr;
-        qcandlestickseries_eventfilter_callback = nullptr;
-        qcandlestickseries_timerevent_callback = nullptr;
-        qcandlestickseries_childevent_callback = nullptr;
-        qcandlestickseries_customevent_callback = nullptr;
-        qcandlestickseries_connectnotify_callback = nullptr;
-        qcandlestickseries_disconnectnotify_callback = nullptr;
-        qcandlestickseries_sender_callback = nullptr;
-        qcandlestickseries_sendersignalindex_callback = nullptr;
-        qcandlestickseries_receivers_callback = nullptr;
-        qcandlestickseries_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQCandlestickSeries_MetaObject_Callback(QCandlestickSeries_MetaObject_Callback cb) { qcandlestickseries_metaobject_callback = cb; }
     inline void setQCandlestickSeries_Metacast_Callback(QCandlestickSeries_Metacast_Callback cb) { qcandlestickseries_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_metaobject_isbase) {
             qcandlestickseries_metaobject_isbase = false;
             return QCandlestickSeries::metaObject();
-        } else if (qcandlestickseries_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qcandlestickseries_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QCandlestickSeries::metaObject();
         }
+        auto metaobject_cb = qcandlestickseries_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QCandlestickSeries::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_metacast_isbase) {
             qcandlestickseries_metacast_isbase = false;
             return QCandlestickSeries::qt_metacast(param1);
-        } else if (qcandlestickseries_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qcandlestickseries_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qcandlestickseries_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCandlestickSeries::qt_metacast(param1);
         }
+        return QCandlestickSeries::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_metacall_isbase) {
             qcandlestickseries_metacall_isbase = false;
             return QCandlestickSeries::qt_metacall(param1, param2, param3);
-        } else if (qcandlestickseries_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qcandlestickseries_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qcandlestickseries_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QCandlestickSeries::qt_metacall(param1, param2, param3);
         }
+        return QCandlestickSeries::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,12 +159,13 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_type_isbase) {
             qcandlestickseries_type_isbase = false;
             return QCandlestickSeries::type();
-        } else if (qcandlestickseries_type_callback != nullptr) {
-            int callback_ret = qcandlestickseries_type_callback();
-            return static_cast<QAbstractSeries::SeriesType>(callback_ret);
-        } else {
-            return QCandlestickSeries::type();
         }
+        auto type_cb = qcandlestickseries_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QAbstractSeries::SeriesType>(callback_ret);
+        }
+        return QCandlestickSeries::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +173,15 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_event_isbase) {
             qcandlestickseries_event_isbase = false;
             return QCandlestickSeries::event(event);
-        } else if (qcandlestickseries_event_callback != nullptr) {
+        }
+        auto event_cb = qcandlestickseries_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qcandlestickseries_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCandlestickSeries::event(event);
         }
+        return QCandlestickSeries::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,15 +189,16 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_eventfilter_isbase) {
             qcandlestickseries_eventfilter_isbase = false;
             return QCandlestickSeries::eventFilter(watched, event);
-        } else if (qcandlestickseries_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qcandlestickseries_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qcandlestickseries_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QCandlestickSeries::eventFilter(watched, event);
         }
+        return QCandlestickSeries::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,13 +206,16 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_timerevent_isbase) {
             qcandlestickseries_timerevent_isbase = false;
             QCandlestickSeries::timerEvent(event);
-        } else if (qcandlestickseries_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qcandlestickseries_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qcandlestickseries_timerevent_callback(this, cbval1);
-        } else {
-            QCandlestickSeries::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QCandlestickSeries::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +223,16 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_childevent_isbase) {
             qcandlestickseries_childevent_isbase = false;
             QCandlestickSeries::childEvent(event);
-        } else if (qcandlestickseries_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qcandlestickseries_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qcandlestickseries_childevent_callback(this, cbval1);
-        } else {
-            QCandlestickSeries::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QCandlestickSeries::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,13 +240,16 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_customevent_isbase) {
             qcandlestickseries_customevent_isbase = false;
             QCandlestickSeries::customEvent(event);
-        } else if (qcandlestickseries_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qcandlestickseries_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qcandlestickseries_customevent_callback(this, cbval1);
-        } else {
-            QCandlestickSeries::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QCandlestickSeries::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,15 +257,18 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_connectnotify_isbase) {
             qcandlestickseries_connectnotify_isbase = false;
             QCandlestickSeries::connectNotify(signal);
-        } else if (qcandlestickseries_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qcandlestickseries_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcandlestickseries_connectnotify_callback(this, cbval1);
-        } else {
-            QCandlestickSeries::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QCandlestickSeries::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,15 +276,18 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_disconnectnotify_isbase) {
             qcandlestickseries_disconnectnotify_isbase = false;
             QCandlestickSeries::disconnectNotify(signal);
-        } else if (qcandlestickseries_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qcandlestickseries_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcandlestickseries_disconnectnotify_callback(this, cbval1);
-        } else {
-            QCandlestickSeries::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QCandlestickSeries::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +295,13 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_sender_isbase) {
             qcandlestickseries_sender_isbase = false;
             return QCandlestickSeries::sender();
-        } else if (qcandlestickseries_sender_callback != nullptr) {
-            QObject* callback_ret = qcandlestickseries_sender_callback();
-            return callback_ret;
-        } else {
-            return QCandlestickSeries::sender();
         }
+        auto sender_cb = qcandlestickseries_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QCandlestickSeries::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,12 +309,13 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_sendersignalindex_isbase) {
             qcandlestickseries_sendersignalindex_isbase = false;
             return QCandlestickSeries::senderSignalIndex();
-        } else if (qcandlestickseries_sendersignalindex_callback != nullptr) {
-            int callback_ret = qcandlestickseries_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QCandlestickSeries::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qcandlestickseries_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QCandlestickSeries::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,14 +323,15 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_receivers_isbase) {
             qcandlestickseries_receivers_isbase = false;
             return QCandlestickSeries::receivers(signal);
-        } else if (qcandlestickseries_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qcandlestickseries_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qcandlestickseries_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QCandlestickSeries::receivers(signal);
         }
+        return QCandlestickSeries::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,16 +339,17 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
         if (qcandlestickseries_issignalconnected_isbase) {
             qcandlestickseries_issignalconnected_isbase = false;
             return QCandlestickSeries::isSignalConnected(signal);
-        } else if (qcandlestickseries_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qcandlestickseries_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qcandlestickseries_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCandlestickSeries::isSignalConnected(signal);
         }
+        return QCandlestickSeries::isSignalConnected(signal);
     }
 
     // Friend functions

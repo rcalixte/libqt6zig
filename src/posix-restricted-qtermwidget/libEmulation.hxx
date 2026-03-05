@@ -108,36 +108,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
   public:
     VirtualKonsoleEmulation() : Konsole::Emulation() {};
 
-    ~VirtualKonsoleEmulation() {
-        konsole__emulation_metaobject_callback = nullptr;
-        konsole__emulation_metacast_callback = nullptr;
-        konsole__emulation_metacall_callback = nullptr;
-        konsole__emulation_erasechar_callback = nullptr;
-        konsole__emulation_clearentirescreen_callback = nullptr;
-        konsole__emulation_reset_callback = nullptr;
-        konsole__emulation_setimagesize_callback = nullptr;
-        konsole__emulation_sendtext_callback = nullptr;
-        konsole__emulation_sendkeyevent_callback = nullptr;
-        konsole__emulation_sendmouseevent_callback = nullptr;
-        konsole__emulation_sendstring_callback = nullptr;
-        konsole__emulation_setmode_callback = nullptr;
-        konsole__emulation_resetmode_callback = nullptr;
-        konsole__emulation_event_callback = nullptr;
-        konsole__emulation_eventfilter_callback = nullptr;
-        konsole__emulation_timerevent_callback = nullptr;
-        konsole__emulation_childevent_callback = nullptr;
-        konsole__emulation_customevent_callback = nullptr;
-        konsole__emulation_connectnotify_callback = nullptr;
-        konsole__emulation_disconnectnotify_callback = nullptr;
-        konsole__emulation_setscreen_callback = nullptr;
-        konsole__emulation_setcodec_callback = nullptr;
-        konsole__emulation_bufferedupdate_callback = nullptr;
-        konsole__emulation_sender_callback = nullptr;
-        konsole__emulation_sendersignalindex_callback = nullptr;
-        konsole__emulation_receivers_callback = nullptr;
-        konsole__emulation_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKonsole__Emulation_MetaObject_Callback(Konsole__Emulation_MetaObject_Callback cb) { konsole__emulation_metaobject_callback = cb; }
     inline void setKonsole__Emulation_Metacast_Callback(Konsole__Emulation_Metacast_Callback cb) { konsole__emulation_metacast_callback = cb; }
@@ -201,12 +171,13 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_metaobject_isbase) {
             konsole__emulation_metaobject_isbase = false;
             return Konsole__Emulation::metaObject();
-        } else if (konsole__emulation_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = konsole__emulation_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Konsole__Emulation::metaObject();
         }
+        auto metaobject_cb = konsole__emulation_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Konsole__Emulation::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -214,14 +185,15 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_metacast_isbase) {
             konsole__emulation_metacast_isbase = false;
             return Konsole__Emulation::qt_metacast(param1);
-        } else if (konsole__emulation_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = konsole__emulation_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = konsole__emulation_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__Emulation::qt_metacast(param1);
         }
+        return Konsole__Emulation::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,16 +201,17 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_metacall_isbase) {
             konsole__emulation_metacall_isbase = false;
             return Konsole__Emulation::qt_metacall(param1, param2, param3);
-        } else if (konsole__emulation_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = konsole__emulation_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = konsole__emulation_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__Emulation::qt_metacall(param1, param2, param3);
         }
+        return Konsole__Emulation::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,25 +219,28 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_erasechar_isbase) {
             konsole__emulation_erasechar_isbase = false;
             return Konsole__Emulation::eraseChar();
-        } else if (konsole__emulation_erasechar_callback != nullptr) {
-            char callback_ret = konsole__emulation_erasechar_callback();
-            return static_cast<char>(callback_ret);
-        } else {
-            return Konsole__Emulation::eraseChar();
         }
+        auto erasechar_cb = konsole__emulation_erasechar_callback;
+        if (erasechar_cb) {
+            char callback_ret = erasechar_cb();
+            return static_cast<char>(callback_ret);
+        }
+        return Konsole__Emulation::eraseChar();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void clearEntireScreen() override {
-        if (konsole__emulation_clearentirescreen_callback != nullptr) {
-            konsole__emulation_clearentirescreen_callback();
+        auto clearentirescreen_cb = konsole__emulation_clearentirescreen_callback;
+        if (clearentirescreen_cb) {
+            clearentirescreen_cb();
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void reset() override {
-        if (konsole__emulation_reset_callback != nullptr) {
-            konsole__emulation_reset_callback();
+        auto reset_cb = konsole__emulation_reset_callback;
+        if (reset_cb) {
+            reset_cb();
         }
     }
 
@@ -273,19 +249,23 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_setimagesize_isbase) {
             konsole__emulation_setimagesize_isbase = false;
             Konsole__Emulation::setImageSize(lines, columns);
-        } else if (konsole__emulation_setimagesize_callback != nullptr) {
+            return;
+        }
+        auto setimagesize_cb = konsole__emulation_setimagesize_callback;
+        if (setimagesize_cb) {
             int cbval1 = lines;
             int cbval2 = columns;
 
-            konsole__emulation_setimagesize_callback(this, cbval1, cbval2);
-        } else {
-            Konsole__Emulation::setImageSize(lines, columns);
+            setimagesize_cb(this, cbval1, cbval2);
+            return;
         }
+        Konsole__Emulation::setImageSize(lines, columns);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void sendText(const QString& text) override {
-        if (konsole__emulation_sendtext_callback != nullptr) {
+        auto sendtext_cb = konsole__emulation_sendtext_callback;
+        if (sendtext_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -295,7 +275,7 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            konsole__emulation_sendtext_callback(this, cbval1);
+            sendtext_cb(this, cbval1);
             libqt_free(text_str);
         }
     }
@@ -305,14 +285,17 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_sendkeyevent_isbase) {
             konsole__emulation_sendkeyevent_isbase = false;
             Konsole__Emulation::sendKeyEvent(param1, fromPaste);
-        } else if (konsole__emulation_sendkeyevent_callback != nullptr) {
+            return;
+        }
+        auto sendkeyevent_cb = konsole__emulation_sendkeyevent_callback;
+        if (sendkeyevent_cb) {
             QKeyEvent* cbval1 = param1;
             bool cbval2 = fromPaste;
 
-            konsole__emulation_sendkeyevent_callback(this, cbval1, cbval2);
-        } else {
-            Konsole__Emulation::sendKeyEvent(param1, fromPaste);
+            sendkeyevent_cb(this, cbval1, cbval2);
+            return;
         }
+        Konsole__Emulation::sendKeyEvent(param1, fromPaste);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,43 +303,49 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_sendmouseevent_isbase) {
             konsole__emulation_sendmouseevent_isbase = false;
             Konsole__Emulation::sendMouseEvent(buttons, column, line, eventType);
-        } else if (konsole__emulation_sendmouseevent_callback != nullptr) {
+            return;
+        }
+        auto sendmouseevent_cb = konsole__emulation_sendmouseevent_callback;
+        if (sendmouseevent_cb) {
             int cbval1 = buttons;
             int cbval2 = column;
             int cbval3 = line;
             int cbval4 = eventType;
 
-            konsole__emulation_sendmouseevent_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            Konsole__Emulation::sendMouseEvent(buttons, column, line, eventType);
+            sendmouseevent_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        Konsole__Emulation::sendMouseEvent(buttons, column, line, eventType);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void sendString(const char* stringVal, int length) override {
-        if (konsole__emulation_sendstring_callback != nullptr) {
+        auto sendstring_cb = konsole__emulation_sendstring_callback;
+        if (sendstring_cb) {
             const char* cbval1 = (const char*)stringVal;
             int cbval2 = length;
 
-            konsole__emulation_sendstring_callback(this, cbval1, cbval2);
+            sendstring_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setMode(int mode) override {
-        if (konsole__emulation_setmode_callback != nullptr) {
+        auto setmode_cb = konsole__emulation_setmode_callback;
+        if (setmode_cb) {
             int cbval1 = mode;
 
-            konsole__emulation_setmode_callback(this, cbval1);
+            setmode_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void resetMode(int mode) override {
-        if (konsole__emulation_resetmode_callback != nullptr) {
+        auto resetmode_cb = konsole__emulation_resetmode_callback;
+        if (resetmode_cb) {
             int cbval1 = mode;
 
-            konsole__emulation_resetmode_callback(this, cbval1);
+            resetmode_cb(this, cbval1);
         }
     }
 
@@ -365,14 +354,15 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_event_isbase) {
             konsole__emulation_event_isbase = false;
             return Konsole__Emulation::event(event);
-        } else if (konsole__emulation_event_callback != nullptr) {
+        }
+        auto event_cb = konsole__emulation_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = konsole__emulation_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__Emulation::event(event);
         }
+        return Konsole__Emulation::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,15 +370,16 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_eventfilter_isbase) {
             konsole__emulation_eventfilter_isbase = false;
             return Konsole__Emulation::eventFilter(watched, event);
-        } else if (konsole__emulation_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = konsole__emulation_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = konsole__emulation_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Konsole__Emulation::eventFilter(watched, event);
         }
+        return Konsole__Emulation::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -396,13 +387,16 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_timerevent_isbase) {
             konsole__emulation_timerevent_isbase = false;
             Konsole__Emulation::timerEvent(event);
-        } else if (konsole__emulation_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = konsole__emulation_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            konsole__emulation_timerevent_callback(this, cbval1);
-        } else {
-            Konsole__Emulation::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Konsole__Emulation::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -410,13 +404,16 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_childevent_isbase) {
             konsole__emulation_childevent_isbase = false;
             Konsole__Emulation::childEvent(event);
-        } else if (konsole__emulation_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = konsole__emulation_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            konsole__emulation_childevent_callback(this, cbval1);
-        } else {
-            Konsole__Emulation::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Konsole__Emulation::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,13 +421,16 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_customevent_isbase) {
             konsole__emulation_customevent_isbase = false;
             Konsole__Emulation::customEvent(event);
-        } else if (konsole__emulation_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = konsole__emulation_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            konsole__emulation_customevent_callback(this, cbval1);
-        } else {
-            Konsole__Emulation::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Konsole__Emulation::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -438,15 +438,18 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_connectnotify_isbase) {
             konsole__emulation_connectnotify_isbase = false;
             Konsole__Emulation::connectNotify(signal);
-        } else if (konsole__emulation_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = konsole__emulation_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            konsole__emulation_connectnotify_callback(this, cbval1);
-        } else {
-            Konsole__Emulation::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Konsole__Emulation::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,15 +457,18 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_disconnectnotify_isbase) {
             konsole__emulation_disconnectnotify_isbase = false;
             Konsole__Emulation::disconnectNotify(signal);
-        } else if (konsole__emulation_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = konsole__emulation_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            konsole__emulation_disconnectnotify_callback(this, cbval1);
-        } else {
-            Konsole__Emulation::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Konsole__Emulation::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,13 +476,16 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_setscreen_isbase) {
             konsole__emulation_setscreen_isbase = false;
             Konsole__Emulation::setScreen(index);
-        } else if (konsole__emulation_setscreen_callback != nullptr) {
+            return;
+        }
+        auto setscreen_cb = konsole__emulation_setscreen_callback;
+        if (setscreen_cb) {
             int cbval1 = index;
 
-            konsole__emulation_setscreen_callback(this, cbval1);
-        } else {
-            Konsole__Emulation::setScreen(index);
+            setscreen_cb(this, cbval1);
+            return;
         }
+        Konsole__Emulation::setScreen(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,13 +493,16 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_setcodec_isbase) {
             konsole__emulation_setcodec_isbase = false;
             Konsole__Emulation::setCodec(codec);
-        } else if (konsole__emulation_setcodec_callback != nullptr) {
+            return;
+        }
+        auto setcodec_cb = konsole__emulation_setcodec_callback;
+        if (setcodec_cb) {
             int cbval1 = static_cast<int>(codec);
 
-            konsole__emulation_setcodec_callback(this, cbval1);
-        } else {
-            Konsole__Emulation::setCodec(codec);
+            setcodec_cb(this, cbval1);
+            return;
         }
+        Konsole__Emulation::setCodec(codec);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,11 +510,14 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_bufferedupdate_isbase) {
             konsole__emulation_bufferedupdate_isbase = false;
             Konsole__Emulation::bufferedUpdate();
-        } else if (konsole__emulation_bufferedupdate_callback != nullptr) {
-            konsole__emulation_bufferedupdate_callback();
-        } else {
-            Konsole__Emulation::bufferedUpdate();
+            return;
         }
+        auto bufferedupdate_cb = konsole__emulation_bufferedupdate_callback;
+        if (bufferedupdate_cb) {
+            bufferedupdate_cb();
+            return;
+        }
+        Konsole__Emulation::bufferedUpdate();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,12 +525,13 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_sender_isbase) {
             konsole__emulation_sender_isbase = false;
             return Konsole__Emulation::sender();
-        } else if (konsole__emulation_sender_callback != nullptr) {
-            QObject* callback_ret = konsole__emulation_sender_callback();
-            return callback_ret;
-        } else {
-            return Konsole__Emulation::sender();
         }
+        auto sender_cb = konsole__emulation_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Konsole__Emulation::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,12 +539,13 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_sendersignalindex_isbase) {
             konsole__emulation_sendersignalindex_isbase = false;
             return Konsole__Emulation::senderSignalIndex();
-        } else if (konsole__emulation_sendersignalindex_callback != nullptr) {
-            int callback_ret = konsole__emulation_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__Emulation::senderSignalIndex();
         }
+        auto sendersignalindex_cb = konsole__emulation_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Konsole__Emulation::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -536,14 +553,15 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_receivers_isbase) {
             konsole__emulation_receivers_isbase = false;
             return Konsole__Emulation::receivers(signal);
-        } else if (konsole__emulation_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = konsole__emulation_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = konsole__emulation_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__Emulation::receivers(signal);
         }
+        return Konsole__Emulation::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,16 +569,17 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (konsole__emulation_issignalconnected_isbase) {
             konsole__emulation_issignalconnected_isbase = false;
             return Konsole__Emulation::isSignalConnected(signal);
-        } else if (konsole__emulation_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = konsole__emulation_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = konsole__emulation_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__Emulation::isSignalConnected(signal);
         }
+        return Konsole__Emulation::isSignalConnected(signal);
     }
 
     // Friend functions

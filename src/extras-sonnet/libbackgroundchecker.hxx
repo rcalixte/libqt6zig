@@ -89,29 +89,6 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
     VirtualSonnetBackgroundChecker(QObject* parent) : Sonnet::BackgroundChecker(parent) {};
     VirtualSonnetBackgroundChecker(const Sonnet::Speller& speller, QObject* parent) : Sonnet::BackgroundChecker(speller, parent) {};
 
-    ~VirtualSonnetBackgroundChecker() {
-        sonnet__backgroundchecker_metaobject_callback = nullptr;
-        sonnet__backgroundchecker_metacast_callback = nullptr;
-        sonnet__backgroundchecker_metacall_callback = nullptr;
-        sonnet__backgroundchecker_start_callback = nullptr;
-        sonnet__backgroundchecker_stop_callback = nullptr;
-        sonnet__backgroundchecker_continuechecking_callback = nullptr;
-        sonnet__backgroundchecker_fetchmoretext_callback = nullptr;
-        sonnet__backgroundchecker_finishedcurrentfeed_callback = nullptr;
-        sonnet__backgroundchecker_event_callback = nullptr;
-        sonnet__backgroundchecker_eventfilter_callback = nullptr;
-        sonnet__backgroundchecker_timerevent_callback = nullptr;
-        sonnet__backgroundchecker_childevent_callback = nullptr;
-        sonnet__backgroundchecker_customevent_callback = nullptr;
-        sonnet__backgroundchecker_connectnotify_callback = nullptr;
-        sonnet__backgroundchecker_disconnectnotify_callback = nullptr;
-        sonnet__backgroundchecker_slotenginedone_callback = nullptr;
-        sonnet__backgroundchecker_sender_callback = nullptr;
-        sonnet__backgroundchecker_sendersignalindex_callback = nullptr;
-        sonnet__backgroundchecker_receivers_callback = nullptr;
-        sonnet__backgroundchecker_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setSonnet__BackgroundChecker_MetaObject_Callback(Sonnet__BackgroundChecker_MetaObject_Callback cb) { sonnet__backgroundchecker_metaobject_callback = cb; }
     inline void setSonnet__BackgroundChecker_Metacast_Callback(Sonnet__BackgroundChecker_Metacast_Callback cb) { sonnet__backgroundchecker_metacast_callback = cb; }
@@ -161,12 +138,13 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_metaobject_isbase) {
             sonnet__backgroundchecker_metaobject_isbase = false;
             return Sonnet__BackgroundChecker::metaObject();
-        } else if (sonnet__backgroundchecker_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = sonnet__backgroundchecker_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__BackgroundChecker::metaObject();
         }
+        auto metaobject_cb = sonnet__backgroundchecker_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Sonnet__BackgroundChecker::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,14 +152,15 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_metacast_isbase) {
             sonnet__backgroundchecker_metacast_isbase = false;
             return Sonnet__BackgroundChecker::qt_metacast(param1);
-        } else if (sonnet__backgroundchecker_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = sonnet__backgroundchecker_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = sonnet__backgroundchecker_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__BackgroundChecker::qt_metacast(param1);
         }
+        return Sonnet__BackgroundChecker::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -189,16 +168,17 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_metacall_isbase) {
             sonnet__backgroundchecker_metacall_isbase = false;
             return Sonnet__BackgroundChecker::qt_metacall(param1, param2, param3);
-        } else if (sonnet__backgroundchecker_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = sonnet__backgroundchecker_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = sonnet__backgroundchecker_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__BackgroundChecker::qt_metacall(param1, param2, param3);
         }
+        return Sonnet__BackgroundChecker::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -206,11 +186,14 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_start_isbase) {
             sonnet__backgroundchecker_start_isbase = false;
             Sonnet__BackgroundChecker::start();
-        } else if (sonnet__backgroundchecker_start_callback != nullptr) {
-            sonnet__backgroundchecker_start_callback();
-        } else {
-            Sonnet__BackgroundChecker::start();
+            return;
         }
+        auto start_cb = sonnet__backgroundchecker_start_callback;
+        if (start_cb) {
+            start_cb();
+            return;
+        }
+        Sonnet__BackgroundChecker::start();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,11 +201,14 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_stop_isbase) {
             sonnet__backgroundchecker_stop_isbase = false;
             Sonnet__BackgroundChecker::stop();
-        } else if (sonnet__backgroundchecker_stop_callback != nullptr) {
-            sonnet__backgroundchecker_stop_callback();
-        } else {
-            Sonnet__BackgroundChecker::stop();
+            return;
         }
+        auto stop_cb = sonnet__backgroundchecker_stop_callback;
+        if (stop_cb) {
+            stop_cb();
+            return;
+        }
+        Sonnet__BackgroundChecker::stop();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -230,11 +216,14 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_continuechecking_isbase) {
             sonnet__backgroundchecker_continuechecking_isbase = false;
             Sonnet__BackgroundChecker::continueChecking();
-        } else if (sonnet__backgroundchecker_continuechecking_callback != nullptr) {
-            sonnet__backgroundchecker_continuechecking_callback();
-        } else {
-            Sonnet__BackgroundChecker::continueChecking();
+            return;
         }
+        auto continuechecking_cb = sonnet__backgroundchecker_continuechecking_callback;
+        if (continuechecking_cb) {
+            continuechecking_cb();
+            return;
+        }
+        Sonnet__BackgroundChecker::continueChecking();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,13 +231,14 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_fetchmoretext_isbase) {
             sonnet__backgroundchecker_fetchmoretext_isbase = false;
             return Sonnet__BackgroundChecker::fetchMoreText();
-        } else if (sonnet__backgroundchecker_fetchmoretext_callback != nullptr) {
-            const char* callback_ret = sonnet__backgroundchecker_fetchmoretext_callback();
+        }
+        auto fetchmoretext_cb = sonnet__backgroundchecker_fetchmoretext_callback;
+        if (fetchmoretext_cb) {
+            const char* callback_ret = fetchmoretext_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return Sonnet__BackgroundChecker::fetchMoreText();
         }
+        return Sonnet__BackgroundChecker::fetchMoreText();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,11 +246,14 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_finishedcurrentfeed_isbase) {
             sonnet__backgroundchecker_finishedcurrentfeed_isbase = false;
             Sonnet__BackgroundChecker::finishedCurrentFeed();
-        } else if (sonnet__backgroundchecker_finishedcurrentfeed_callback != nullptr) {
-            sonnet__backgroundchecker_finishedcurrentfeed_callback();
-        } else {
-            Sonnet__BackgroundChecker::finishedCurrentFeed();
+            return;
         }
+        auto finishedcurrentfeed_cb = sonnet__backgroundchecker_finishedcurrentfeed_callback;
+        if (finishedcurrentfeed_cb) {
+            finishedcurrentfeed_cb();
+            return;
+        }
+        Sonnet__BackgroundChecker::finishedCurrentFeed();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -268,14 +261,15 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_event_isbase) {
             sonnet__backgroundchecker_event_isbase = false;
             return Sonnet__BackgroundChecker::event(event);
-        } else if (sonnet__backgroundchecker_event_callback != nullptr) {
+        }
+        auto event_cb = sonnet__backgroundchecker_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = sonnet__backgroundchecker_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__BackgroundChecker::event(event);
         }
+        return Sonnet__BackgroundChecker::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -283,15 +277,16 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_eventfilter_isbase) {
             sonnet__backgroundchecker_eventfilter_isbase = false;
             return Sonnet__BackgroundChecker::eventFilter(watched, event);
-        } else if (sonnet__backgroundchecker_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = sonnet__backgroundchecker_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = sonnet__backgroundchecker_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Sonnet__BackgroundChecker::eventFilter(watched, event);
         }
+        return Sonnet__BackgroundChecker::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,13 +294,16 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_timerevent_isbase) {
             sonnet__backgroundchecker_timerevent_isbase = false;
             Sonnet__BackgroundChecker::timerEvent(event);
-        } else if (sonnet__backgroundchecker_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = sonnet__backgroundchecker_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            sonnet__backgroundchecker_timerevent_callback(this, cbval1);
-        } else {
-            Sonnet__BackgroundChecker::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__BackgroundChecker::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,13 +311,16 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_childevent_isbase) {
             sonnet__backgroundchecker_childevent_isbase = false;
             Sonnet__BackgroundChecker::childEvent(event);
-        } else if (sonnet__backgroundchecker_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = sonnet__backgroundchecker_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            sonnet__backgroundchecker_childevent_callback(this, cbval1);
-        } else {
-            Sonnet__BackgroundChecker::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__BackgroundChecker::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -327,13 +328,16 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_customevent_isbase) {
             sonnet__backgroundchecker_customevent_isbase = false;
             Sonnet__BackgroundChecker::customEvent(event);
-        } else if (sonnet__backgroundchecker_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = sonnet__backgroundchecker_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            sonnet__backgroundchecker_customevent_callback(this, cbval1);
-        } else {
-            Sonnet__BackgroundChecker::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__BackgroundChecker::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -341,15 +345,18 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_connectnotify_isbase) {
             sonnet__backgroundchecker_connectnotify_isbase = false;
             Sonnet__BackgroundChecker::connectNotify(signal);
-        } else if (sonnet__backgroundchecker_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = sonnet__backgroundchecker_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            sonnet__backgroundchecker_connectnotify_callback(this, cbval1);
-        } else {
-            Sonnet__BackgroundChecker::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Sonnet__BackgroundChecker::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,15 +364,18 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_disconnectnotify_isbase) {
             sonnet__backgroundchecker_disconnectnotify_isbase = false;
             Sonnet__BackgroundChecker::disconnectNotify(signal);
-        } else if (sonnet__backgroundchecker_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = sonnet__backgroundchecker_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            sonnet__backgroundchecker_disconnectnotify_callback(this, cbval1);
-        } else {
-            Sonnet__BackgroundChecker::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Sonnet__BackgroundChecker::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,11 +383,14 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_slotenginedone_isbase) {
             sonnet__backgroundchecker_slotenginedone_isbase = false;
             Sonnet__BackgroundChecker::slotEngineDone();
-        } else if (sonnet__backgroundchecker_slotenginedone_callback != nullptr) {
-            sonnet__backgroundchecker_slotenginedone_callback();
-        } else {
-            Sonnet__BackgroundChecker::slotEngineDone();
+            return;
         }
+        auto slotenginedone_cb = sonnet__backgroundchecker_slotenginedone_callback;
+        if (slotenginedone_cb) {
+            slotenginedone_cb();
+            return;
+        }
+        Sonnet__BackgroundChecker::slotEngineDone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -385,12 +398,13 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_sender_isbase) {
             sonnet__backgroundchecker_sender_isbase = false;
             return Sonnet__BackgroundChecker::sender();
-        } else if (sonnet__backgroundchecker_sender_callback != nullptr) {
-            QObject* callback_ret = sonnet__backgroundchecker_sender_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__BackgroundChecker::sender();
         }
+        auto sender_cb = sonnet__backgroundchecker_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Sonnet__BackgroundChecker::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -398,12 +412,13 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_sendersignalindex_isbase) {
             sonnet__backgroundchecker_sendersignalindex_isbase = false;
             return Sonnet__BackgroundChecker::senderSignalIndex();
-        } else if (sonnet__backgroundchecker_sendersignalindex_callback != nullptr) {
-            int callback_ret = sonnet__backgroundchecker_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__BackgroundChecker::senderSignalIndex();
         }
+        auto sendersignalindex_cb = sonnet__backgroundchecker_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Sonnet__BackgroundChecker::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -411,14 +426,15 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_receivers_isbase) {
             sonnet__backgroundchecker_receivers_isbase = false;
             return Sonnet__BackgroundChecker::receivers(signal);
-        } else if (sonnet__backgroundchecker_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = sonnet__backgroundchecker_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = sonnet__backgroundchecker_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__BackgroundChecker::receivers(signal);
         }
+        return Sonnet__BackgroundChecker::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,16 +442,17 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
         if (sonnet__backgroundchecker_issignalconnected_isbase) {
             sonnet__backgroundchecker_issignalconnected_isbase = false;
             return Sonnet__BackgroundChecker::isSignalConnected(signal);
-        } else if (sonnet__backgroundchecker_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = sonnet__backgroundchecker_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = sonnet__backgroundchecker_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__BackgroundChecker::isSignalConnected(signal);
         }
+        return Sonnet__BackgroundChecker::isSignalConnected(signal);
     }
 
     // Friend functions

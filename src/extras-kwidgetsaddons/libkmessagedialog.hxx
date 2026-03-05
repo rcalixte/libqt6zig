@@ -226,75 +226,6 @@ class VirtualKMessageDialog final : public KMessageDialog {
     VirtualKMessageDialog(KMessageDialog::Type typeVal, const QString& text, WId parent_id) : KMessageDialog(typeVal, text, parent_id) {};
     VirtualKMessageDialog(KMessageDialog::Type typeVal, const QString& text, QWidget* parent) : KMessageDialog(typeVal, text, parent) {};
 
-    ~VirtualKMessageDialog() {
-        kmessagedialog_metaobject_callback = nullptr;
-        kmessagedialog_metacast_callback = nullptr;
-        kmessagedialog_metacall_callback = nullptr;
-        kmessagedialog_showevent_callback = nullptr;
-        kmessagedialog_setvisible_callback = nullptr;
-        kmessagedialog_sizehint_callback = nullptr;
-        kmessagedialog_minimumsizehint_callback = nullptr;
-        kmessagedialog_open_callback = nullptr;
-        kmessagedialog_exec_callback = nullptr;
-        kmessagedialog_done_callback = nullptr;
-        kmessagedialog_accept_callback = nullptr;
-        kmessagedialog_reject_callback = nullptr;
-        kmessagedialog_keypressevent_callback = nullptr;
-        kmessagedialog_closeevent_callback = nullptr;
-        kmessagedialog_resizeevent_callback = nullptr;
-        kmessagedialog_contextmenuevent_callback = nullptr;
-        kmessagedialog_eventfilter_callback = nullptr;
-        kmessagedialog_devtype_callback = nullptr;
-        kmessagedialog_heightforwidth_callback = nullptr;
-        kmessagedialog_hasheightforwidth_callback = nullptr;
-        kmessagedialog_paintengine_callback = nullptr;
-        kmessagedialog_event_callback = nullptr;
-        kmessagedialog_mousepressevent_callback = nullptr;
-        kmessagedialog_mousereleaseevent_callback = nullptr;
-        kmessagedialog_mousedoubleclickevent_callback = nullptr;
-        kmessagedialog_mousemoveevent_callback = nullptr;
-        kmessagedialog_wheelevent_callback = nullptr;
-        kmessagedialog_keyreleaseevent_callback = nullptr;
-        kmessagedialog_focusinevent_callback = nullptr;
-        kmessagedialog_focusoutevent_callback = nullptr;
-        kmessagedialog_enterevent_callback = nullptr;
-        kmessagedialog_leaveevent_callback = nullptr;
-        kmessagedialog_paintevent_callback = nullptr;
-        kmessagedialog_moveevent_callback = nullptr;
-        kmessagedialog_tabletevent_callback = nullptr;
-        kmessagedialog_actionevent_callback = nullptr;
-        kmessagedialog_dragenterevent_callback = nullptr;
-        kmessagedialog_dragmoveevent_callback = nullptr;
-        kmessagedialog_dragleaveevent_callback = nullptr;
-        kmessagedialog_dropevent_callback = nullptr;
-        kmessagedialog_hideevent_callback = nullptr;
-        kmessagedialog_nativeevent_callback = nullptr;
-        kmessagedialog_changeevent_callback = nullptr;
-        kmessagedialog_metric_callback = nullptr;
-        kmessagedialog_initpainter_callback = nullptr;
-        kmessagedialog_redirected_callback = nullptr;
-        kmessagedialog_sharedpainter_callback = nullptr;
-        kmessagedialog_inputmethodevent_callback = nullptr;
-        kmessagedialog_inputmethodquery_callback = nullptr;
-        kmessagedialog_focusnextprevchild_callback = nullptr;
-        kmessagedialog_timerevent_callback = nullptr;
-        kmessagedialog_childevent_callback = nullptr;
-        kmessagedialog_customevent_callback = nullptr;
-        kmessagedialog_connectnotify_callback = nullptr;
-        kmessagedialog_disconnectnotify_callback = nullptr;
-        kmessagedialog_adjustposition_callback = nullptr;
-        kmessagedialog_updatemicrofocus_callback = nullptr;
-        kmessagedialog_create_callback = nullptr;
-        kmessagedialog_destroy_callback = nullptr;
-        kmessagedialog_focusnextchild_callback = nullptr;
-        kmessagedialog_focuspreviouschild_callback = nullptr;
-        kmessagedialog_sender_callback = nullptr;
-        kmessagedialog_sendersignalindex_callback = nullptr;
-        kmessagedialog_receivers_callback = nullptr;
-        kmessagedialog_issignalconnected_callback = nullptr;
-        kmessagedialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKMessageDialog_MetaObject_Callback(KMessageDialog_MetaObject_Callback cb) { kmessagedialog_metaobject_callback = cb; }
     inline void setKMessageDialog_Metacast_Callback(KMessageDialog_Metacast_Callback cb) { kmessagedialog_metacast_callback = cb; }
@@ -436,12 +367,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_metaobject_isbase) {
             kmessagedialog_metaobject_isbase = false;
             return KMessageDialog::metaObject();
-        } else if (kmessagedialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kmessagedialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KMessageDialog::metaObject();
         }
+        auto metaobject_cb = kmessagedialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KMessageDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -449,14 +381,15 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_metacast_isbase) {
             kmessagedialog_metacast_isbase = false;
             return KMessageDialog::qt_metacast(param1);
-        } else if (kmessagedialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kmessagedialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kmessagedialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMessageDialog::qt_metacast(param1);
         }
+        return KMessageDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,16 +397,17 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_metacall_isbase) {
             kmessagedialog_metacall_isbase = false;
             return KMessageDialog::qt_metacall(param1, param2, param3);
-        } else if (kmessagedialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kmessagedialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kmessagedialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMessageDialog::qt_metacall(param1, param2, param3);
         }
+        return KMessageDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,13 +415,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_showevent_isbase) {
             kmessagedialog_showevent_isbase = false;
             KMessageDialog::showEvent(event);
-        } else if (kmessagedialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kmessagedialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kmessagedialog_showevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,13 +432,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_setvisible_isbase) {
             kmessagedialog_setvisible_isbase = false;
             KMessageDialog::setVisible(visible);
-        } else if (kmessagedialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kmessagedialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kmessagedialog_setvisible_callback(this, cbval1);
-        } else {
-            KMessageDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,12 +449,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_sizehint_isbase) {
             kmessagedialog_sizehint_isbase = false;
             return KMessageDialog::sizeHint();
-        } else if (kmessagedialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kmessagedialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KMessageDialog::sizeHint();
         }
+        auto sizehint_cb = kmessagedialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KMessageDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,12 +463,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_minimumsizehint_isbase) {
             kmessagedialog_minimumsizehint_isbase = false;
             return KMessageDialog::minimumSizeHint();
-        } else if (kmessagedialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kmessagedialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KMessageDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kmessagedialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KMessageDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -535,11 +477,14 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_open_isbase) {
             kmessagedialog_open_isbase = false;
             KMessageDialog::open();
-        } else if (kmessagedialog_open_callback != nullptr) {
-            kmessagedialog_open_callback();
-        } else {
-            KMessageDialog::open();
+            return;
         }
+        auto open_cb = kmessagedialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KMessageDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,12 +492,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_exec_isbase) {
             kmessagedialog_exec_isbase = false;
             return KMessageDialog::exec();
-        } else if (kmessagedialog_exec_callback != nullptr) {
-            int callback_ret = kmessagedialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KMessageDialog::exec();
         }
+        auto exec_cb = kmessagedialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KMessageDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,13 +506,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_done_isbase) {
             kmessagedialog_done_isbase = false;
             KMessageDialog::done(param1);
-        } else if (kmessagedialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kmessagedialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kmessagedialog_done_callback(this, cbval1);
-        } else {
-            KMessageDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -574,11 +523,14 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_accept_isbase) {
             kmessagedialog_accept_isbase = false;
             KMessageDialog::accept();
-        } else if (kmessagedialog_accept_callback != nullptr) {
-            kmessagedialog_accept_callback();
-        } else {
-            KMessageDialog::accept();
+            return;
         }
+        auto accept_cb = kmessagedialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KMessageDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,11 +538,14 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_reject_isbase) {
             kmessagedialog_reject_isbase = false;
             KMessageDialog::reject();
-        } else if (kmessagedialog_reject_callback != nullptr) {
-            kmessagedialog_reject_callback();
-        } else {
-            KMessageDialog::reject();
+            return;
         }
+        auto reject_cb = kmessagedialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KMessageDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,13 +553,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_keypressevent_isbase) {
             kmessagedialog_keypressevent_isbase = false;
             KMessageDialog::keyPressEvent(param1);
-        } else if (kmessagedialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kmessagedialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kmessagedialog_keypressevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,13 +570,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_closeevent_isbase) {
             kmessagedialog_closeevent_isbase = false;
             KMessageDialog::closeEvent(param1);
-        } else if (kmessagedialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kmessagedialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kmessagedialog_closeevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,13 +587,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_resizeevent_isbase) {
             kmessagedialog_resizeevent_isbase = false;
             KMessageDialog::resizeEvent(param1);
-        } else if (kmessagedialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kmessagedialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kmessagedialog_resizeevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,13 +604,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_contextmenuevent_isbase) {
             kmessagedialog_contextmenuevent_isbase = false;
             KMessageDialog::contextMenuEvent(param1);
-        } else if (kmessagedialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kmessagedialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kmessagedialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,15 +621,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_eventfilter_isbase) {
             kmessagedialog_eventfilter_isbase = false;
             return KMessageDialog::eventFilter(param1, param2);
-        } else if (kmessagedialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kmessagedialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kmessagedialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KMessageDialog::eventFilter(param1, param2);
         }
+        return KMessageDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -670,12 +638,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_devtype_isbase) {
             kmessagedialog_devtype_isbase = false;
             return KMessageDialog::devType();
-        } else if (kmessagedialog_devtype_callback != nullptr) {
-            int callback_ret = kmessagedialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KMessageDialog::devType();
         }
+        auto devtype_cb = kmessagedialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KMessageDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,14 +652,15 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_heightforwidth_isbase) {
             kmessagedialog_heightforwidth_isbase = false;
             return KMessageDialog::heightForWidth(param1);
-        } else if (kmessagedialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kmessagedialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kmessagedialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMessageDialog::heightForWidth(param1);
         }
+        return KMessageDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,12 +668,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_hasheightforwidth_isbase) {
             kmessagedialog_hasheightforwidth_isbase = false;
             return KMessageDialog::hasHeightForWidth();
-        } else if (kmessagedialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kmessagedialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KMessageDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kmessagedialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KMessageDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,12 +682,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_paintengine_isbase) {
             kmessagedialog_paintengine_isbase = false;
             return KMessageDialog::paintEngine();
-        } else if (kmessagedialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kmessagedialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KMessageDialog::paintEngine();
         }
+        auto paintengine_cb = kmessagedialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KMessageDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,14 +696,15 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_event_isbase) {
             kmessagedialog_event_isbase = false;
             return KMessageDialog::event(event);
-        } else if (kmessagedialog_event_callback != nullptr) {
+        }
+        auto event_cb = kmessagedialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kmessagedialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMessageDialog::event(event);
         }
+        return KMessageDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,13 +712,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_mousepressevent_isbase) {
             kmessagedialog_mousepressevent_isbase = false;
             KMessageDialog::mousePressEvent(event);
-        } else if (kmessagedialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kmessagedialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmessagedialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -753,13 +729,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_mousereleaseevent_isbase) {
             kmessagedialog_mousereleaseevent_isbase = false;
             KMessageDialog::mouseReleaseEvent(event);
-        } else if (kmessagedialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kmessagedialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmessagedialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -767,13 +746,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_mousedoubleclickevent_isbase) {
             kmessagedialog_mousedoubleclickevent_isbase = false;
             KMessageDialog::mouseDoubleClickEvent(event);
-        } else if (kmessagedialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kmessagedialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmessagedialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,13 +763,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_mousemoveevent_isbase) {
             kmessagedialog_mousemoveevent_isbase = false;
             KMessageDialog::mouseMoveEvent(event);
-        } else if (kmessagedialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kmessagedialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmessagedialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,13 +780,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_wheelevent_isbase) {
             kmessagedialog_wheelevent_isbase = false;
             KMessageDialog::wheelEvent(event);
-        } else if (kmessagedialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kmessagedialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kmessagedialog_wheelevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,13 +797,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_keyreleaseevent_isbase) {
             kmessagedialog_keyreleaseevent_isbase = false;
             KMessageDialog::keyReleaseEvent(event);
-        } else if (kmessagedialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kmessagedialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kmessagedialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,13 +814,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_focusinevent_isbase) {
             kmessagedialog_focusinevent_isbase = false;
             KMessageDialog::focusInEvent(event);
-        } else if (kmessagedialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kmessagedialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kmessagedialog_focusinevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -837,13 +831,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_focusoutevent_isbase) {
             kmessagedialog_focusoutevent_isbase = false;
             KMessageDialog::focusOutEvent(event);
-        } else if (kmessagedialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kmessagedialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kmessagedialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -851,13 +848,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_enterevent_isbase) {
             kmessagedialog_enterevent_isbase = false;
             KMessageDialog::enterEvent(event);
-        } else if (kmessagedialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kmessagedialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kmessagedialog_enterevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -865,13 +865,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_leaveevent_isbase) {
             kmessagedialog_leaveevent_isbase = false;
             KMessageDialog::leaveEvent(event);
-        } else if (kmessagedialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kmessagedialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kmessagedialog_leaveevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -879,13 +882,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_paintevent_isbase) {
             kmessagedialog_paintevent_isbase = false;
             KMessageDialog::paintEvent(event);
-        } else if (kmessagedialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kmessagedialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kmessagedialog_paintevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -893,13 +899,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_moveevent_isbase) {
             kmessagedialog_moveevent_isbase = false;
             KMessageDialog::moveEvent(event);
-        } else if (kmessagedialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kmessagedialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kmessagedialog_moveevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -907,13 +916,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_tabletevent_isbase) {
             kmessagedialog_tabletevent_isbase = false;
             KMessageDialog::tabletEvent(event);
-        } else if (kmessagedialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kmessagedialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kmessagedialog_tabletevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -921,13 +933,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_actionevent_isbase) {
             kmessagedialog_actionevent_isbase = false;
             KMessageDialog::actionEvent(event);
-        } else if (kmessagedialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kmessagedialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kmessagedialog_actionevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -935,13 +950,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_dragenterevent_isbase) {
             kmessagedialog_dragenterevent_isbase = false;
             KMessageDialog::dragEnterEvent(event);
-        } else if (kmessagedialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kmessagedialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kmessagedialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -949,13 +967,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_dragmoveevent_isbase) {
             kmessagedialog_dragmoveevent_isbase = false;
             KMessageDialog::dragMoveEvent(event);
-        } else if (kmessagedialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kmessagedialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kmessagedialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -963,13 +984,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_dragleaveevent_isbase) {
             kmessagedialog_dragleaveevent_isbase = false;
             KMessageDialog::dragLeaveEvent(event);
-        } else if (kmessagedialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kmessagedialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kmessagedialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -977,13 +1001,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_dropevent_isbase) {
             kmessagedialog_dropevent_isbase = false;
             KMessageDialog::dropEvent(event);
-        } else if (kmessagedialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kmessagedialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kmessagedialog_dropevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,13 +1018,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_hideevent_isbase) {
             kmessagedialog_hideevent_isbase = false;
             KMessageDialog::hideEvent(event);
-        } else if (kmessagedialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kmessagedialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kmessagedialog_hideevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1005,7 +1035,9 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_nativeevent_isbase) {
             kmessagedialog_nativeevent_isbase = false;
             return KMessageDialog::nativeEvent(eventType, message, result);
-        } else if (kmessagedialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kmessagedialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1016,12 +1048,11 @@ class VirtualKMessageDialog final : public KMessageDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kmessagedialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KMessageDialog::nativeEvent(eventType, message, result);
         }
+        return KMessageDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,13 +1060,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_changeevent_isbase) {
             kmessagedialog_changeevent_isbase = false;
             KMessageDialog::changeEvent(param1);
-        } else if (kmessagedialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kmessagedialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kmessagedialog_changeevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,14 +1077,15 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_metric_isbase) {
             kmessagedialog_metric_isbase = false;
             return KMessageDialog::metric(param1);
-        } else if (kmessagedialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kmessagedialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kmessagedialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMessageDialog::metric(param1);
         }
+        return KMessageDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1093,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_initpainter_isbase) {
             kmessagedialog_initpainter_isbase = false;
             KMessageDialog::initPainter(painter);
-        } else if (kmessagedialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kmessagedialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kmessagedialog_initpainter_callback(this, cbval1);
-        } else {
-            KMessageDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,14 +1110,15 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_redirected_isbase) {
             kmessagedialog_redirected_isbase = false;
             return KMessageDialog::redirected(offset);
-        } else if (kmessagedialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kmessagedialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kmessagedialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMessageDialog::redirected(offset);
         }
+        return KMessageDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1087,12 +1126,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_sharedpainter_isbase) {
             kmessagedialog_sharedpainter_isbase = false;
             return KMessageDialog::sharedPainter();
-        } else if (kmessagedialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kmessagedialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KMessageDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kmessagedialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KMessageDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1100,13 +1140,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_inputmethodevent_isbase) {
             kmessagedialog_inputmethodevent_isbase = false;
             KMessageDialog::inputMethodEvent(param1);
-        } else if (kmessagedialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kmessagedialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kmessagedialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1114,14 +1157,15 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_inputmethodquery_isbase) {
             kmessagedialog_inputmethodquery_isbase = false;
             return KMessageDialog::inputMethodQuery(param1);
-        } else if (kmessagedialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kmessagedialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kmessagedialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KMessageDialog::inputMethodQuery(param1);
         }
+        return KMessageDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1129,14 +1173,15 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_focusnextprevchild_isbase) {
             kmessagedialog_focusnextprevchild_isbase = false;
             return KMessageDialog::focusNextPrevChild(next);
-        } else if (kmessagedialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kmessagedialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kmessagedialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMessageDialog::focusNextPrevChild(next);
         }
+        return KMessageDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1144,13 +1189,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_timerevent_isbase) {
             kmessagedialog_timerevent_isbase = false;
             KMessageDialog::timerEvent(event);
-        } else if (kmessagedialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kmessagedialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kmessagedialog_timerevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1158,13 +1206,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_childevent_isbase) {
             kmessagedialog_childevent_isbase = false;
             KMessageDialog::childEvent(event);
-        } else if (kmessagedialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kmessagedialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kmessagedialog_childevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,13 +1223,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_customevent_isbase) {
             kmessagedialog_customevent_isbase = false;
             KMessageDialog::customEvent(event);
-        } else if (kmessagedialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kmessagedialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kmessagedialog_customevent_callback(this, cbval1);
-        } else {
-            KMessageDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1186,15 +1240,18 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_connectnotify_isbase) {
             kmessagedialog_connectnotify_isbase = false;
             KMessageDialog::connectNotify(signal);
-        } else if (kmessagedialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kmessagedialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kmessagedialog_connectnotify_callback(this, cbval1);
-        } else {
-            KMessageDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1202,15 +1259,18 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_disconnectnotify_isbase) {
             kmessagedialog_disconnectnotify_isbase = false;
             KMessageDialog::disconnectNotify(signal);
-        } else if (kmessagedialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kmessagedialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kmessagedialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KMessageDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1218,13 +1278,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_adjustposition_isbase) {
             kmessagedialog_adjustposition_isbase = false;
             KMessageDialog::adjustPosition(param1);
-        } else if (kmessagedialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kmessagedialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kmessagedialog_adjustposition_callback(this, cbval1);
-        } else {
-            KMessageDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KMessageDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1232,11 +1295,14 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_updatemicrofocus_isbase) {
             kmessagedialog_updatemicrofocus_isbase = false;
             KMessageDialog::updateMicroFocus();
-        } else if (kmessagedialog_updatemicrofocus_callback != nullptr) {
-            kmessagedialog_updatemicrofocus_callback();
-        } else {
-            KMessageDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kmessagedialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KMessageDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1244,11 +1310,14 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_create_isbase) {
             kmessagedialog_create_isbase = false;
             KMessageDialog::create();
-        } else if (kmessagedialog_create_callback != nullptr) {
-            kmessagedialog_create_callback();
-        } else {
-            KMessageDialog::create();
+            return;
         }
+        auto create_cb = kmessagedialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KMessageDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,11 +1325,14 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_destroy_isbase) {
             kmessagedialog_destroy_isbase = false;
             KMessageDialog::destroy();
-        } else if (kmessagedialog_destroy_callback != nullptr) {
-            kmessagedialog_destroy_callback();
-        } else {
-            KMessageDialog::destroy();
+            return;
         }
+        auto destroy_cb = kmessagedialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KMessageDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1268,12 +1340,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_focusnextchild_isbase) {
             kmessagedialog_focusnextchild_isbase = false;
             return KMessageDialog::focusNextChild();
-        } else if (kmessagedialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kmessagedialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KMessageDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kmessagedialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KMessageDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1281,12 +1354,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_focuspreviouschild_isbase) {
             kmessagedialog_focuspreviouschild_isbase = false;
             return KMessageDialog::focusPreviousChild();
-        } else if (kmessagedialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kmessagedialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KMessageDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kmessagedialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KMessageDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,12 +1368,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_sender_isbase) {
             kmessagedialog_sender_isbase = false;
             return KMessageDialog::sender();
-        } else if (kmessagedialog_sender_callback != nullptr) {
-            QObject* callback_ret = kmessagedialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KMessageDialog::sender();
         }
+        auto sender_cb = kmessagedialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KMessageDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1307,12 +1382,13 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_sendersignalindex_isbase) {
             kmessagedialog_sendersignalindex_isbase = false;
             return KMessageDialog::senderSignalIndex();
-        } else if (kmessagedialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kmessagedialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KMessageDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kmessagedialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KMessageDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1320,14 +1396,15 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_receivers_isbase) {
             kmessagedialog_receivers_isbase = false;
             return KMessageDialog::receivers(signal);
-        } else if (kmessagedialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kmessagedialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kmessagedialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMessageDialog::receivers(signal);
         }
+        return KMessageDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1335,16 +1412,17 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_issignalconnected_isbase) {
             kmessagedialog_issignalconnected_isbase = false;
             return KMessageDialog::isSignalConnected(signal);
-        } else if (kmessagedialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kmessagedialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kmessagedialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMessageDialog::isSignalConnected(signal);
         }
+        return KMessageDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1352,15 +1430,16 @@ class VirtualKMessageDialog final : public KMessageDialog {
         if (kmessagedialog_getdecodedmetricf_isbase) {
             kmessagedialog_getdecodedmetricf_isbase = false;
             return KMessageDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kmessagedialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kmessagedialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kmessagedialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KMessageDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KMessageDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -131,44 +131,6 @@ class VirtualKShellCompletion final : public KShellCompletion {
   public:
     VirtualKShellCompletion() : KShellCompletion() {};
 
-    ~VirtualKShellCompletion() {
-        kshellcompletion_metaobject_callback = nullptr;
-        kshellcompletion_metacast_callback = nullptr;
-        kshellcompletion_metacall_callback = nullptr;
-        kshellcompletion_makecompletion_callback = nullptr;
-        kshellcompletion_postprocessmatches_callback = nullptr;
-        kshellcompletion_postprocessmatches2_callback = nullptr;
-        kshellcompletion_setdir_callback = nullptr;
-        kshellcompletion_dir_callback = nullptr;
-        kshellcompletion_isrunning_callback = nullptr;
-        kshellcompletion_stop_callback = nullptr;
-        kshellcompletion_mode_callback = nullptr;
-        kshellcompletion_setmode_callback = nullptr;
-        kshellcompletion_replaceenv_callback = nullptr;
-        kshellcompletion_setreplaceenv_callback = nullptr;
-        kshellcompletion_replacehome_callback = nullptr;
-        kshellcompletion_setreplacehome_callback = nullptr;
-        kshellcompletion_lastmatch_callback = nullptr;
-        kshellcompletion_setcompletionmode_callback = nullptr;
-        kshellcompletion_setorder_callback = nullptr;
-        kshellcompletion_setignorecase_callback = nullptr;
-        kshellcompletion_setsoundsenabled_callback = nullptr;
-        kshellcompletion_setitems_callback = nullptr;
-        kshellcompletion_clear_callback = nullptr;
-        kshellcompletion_event_callback = nullptr;
-        kshellcompletion_eventfilter_callback = nullptr;
-        kshellcompletion_timerevent_callback = nullptr;
-        kshellcompletion_childevent_callback = nullptr;
-        kshellcompletion_customevent_callback = nullptr;
-        kshellcompletion_connectnotify_callback = nullptr;
-        kshellcompletion_disconnectnotify_callback = nullptr;
-        kshellcompletion_setshouldautosuggest_callback = nullptr;
-        kshellcompletion_sender_callback = nullptr;
-        kshellcompletion_sendersignalindex_callback = nullptr;
-        kshellcompletion_receivers_callback = nullptr;
-        kshellcompletion_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKShellCompletion_MetaObject_Callback(KShellCompletion_MetaObject_Callback cb) { kshellcompletion_metaobject_callback = cb; }
     inline void setKShellCompletion_Metacast_Callback(KShellCompletion_Metacast_Callback cb) { kshellcompletion_metacast_callback = cb; }
@@ -248,12 +210,13 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_metaobject_isbase) {
             kshellcompletion_metaobject_isbase = false;
             return KShellCompletion::metaObject();
-        } else if (kshellcompletion_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kshellcompletion_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KShellCompletion::metaObject();
         }
+        auto metaobject_cb = kshellcompletion_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KShellCompletion::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,14 +224,15 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_metacast_isbase) {
             kshellcompletion_metacast_isbase = false;
             return KShellCompletion::qt_metacast(param1);
-        } else if (kshellcompletion_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kshellcompletion_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kshellcompletion_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShellCompletion::qt_metacast(param1);
         }
+        return KShellCompletion::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,16 +240,17 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_metacall_isbase) {
             kshellcompletion_metacall_isbase = false;
             return KShellCompletion::qt_metacall(param1, param2, param3);
-        } else if (kshellcompletion_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kshellcompletion_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kshellcompletion_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KShellCompletion::qt_metacall(param1, param2, param3);
         }
+        return KShellCompletion::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -293,7 +258,9 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_makecompletion_isbase) {
             kshellcompletion_makecompletion_isbase = false;
             return KShellCompletion::makeCompletion(text);
-        } else if (kshellcompletion_makecompletion_callback != nullptr) {
+        }
+        auto makecompletion_cb = kshellcompletion_makecompletion_callback;
+        if (makecompletion_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -303,13 +270,12 @@ class VirtualKShellCompletion final : public KShellCompletion {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            const char* callback_ret = kshellcompletion_makecompletion_callback(this, cbval1);
+            const char* callback_ret = makecompletion_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(text_str);
             return callback_ret_QString;
-        } else {
-            return KShellCompletion::makeCompletion(text);
         }
+        return KShellCompletion::makeCompletion(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,7 +283,10 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_postprocessmatches_isbase) {
             kshellcompletion_postprocessmatches_isbase = false;
             KShellCompletion::postProcessMatches(matches);
-        } else if (kshellcompletion_postprocessmatches_callback != nullptr) {
+            return;
+        }
+        auto postprocessmatches_cb = kshellcompletion_postprocessmatches_callback;
+        if (postprocessmatches_cb) {
             QList<QString>* matches_ret = matches;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** matches_arr = static_cast<const char**>(malloc(sizeof(const char*) * (matches_ret->size() + 1)));
@@ -333,11 +302,11 @@ class VirtualKShellCompletion final : public KShellCompletion {
             matches_arr[matches_ret->size()] = nullptr;
             const char** cbval1 = matches_arr;
 
-            kshellcompletion_postprocessmatches_callback(this, cbval1);
+            postprocessmatches_cb(this, cbval1);
             libqt_free(matches_arr);
-        } else {
-            KShellCompletion::postProcessMatches(matches);
+            return;
         }
+        KShellCompletion::postProcessMatches(matches);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -345,13 +314,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_postprocessmatches2_isbase) {
             kshellcompletion_postprocessmatches2_isbase = false;
             KShellCompletion::postProcessMatches(matches);
-        } else if (kshellcompletion_postprocessmatches2_callback != nullptr) {
+            return;
+        }
+        auto postprocessmatches2_cb = kshellcompletion_postprocessmatches2_callback;
+        if (postprocessmatches2_cb) {
             KCompletionMatches* cbval1 = matches;
 
-            kshellcompletion_postprocessmatches2_callback(this, cbval1);
-        } else {
-            KShellCompletion::postProcessMatches(matches);
+            postprocessmatches2_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::postProcessMatches(matches);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -359,15 +331,18 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_setdir_isbase) {
             kshellcompletion_setdir_isbase = false;
             KShellCompletion::setDir(dir);
-        } else if (kshellcompletion_setdir_callback != nullptr) {
+            return;
+        }
+        auto setdir_cb = kshellcompletion_setdir_callback;
+        if (setdir_cb) {
             const QUrl& dir_ret = dir;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&dir_ret);
 
-            kshellcompletion_setdir_callback(this, cbval1);
-        } else {
-            KShellCompletion::setDir(dir);
+            setdir_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::setDir(dir);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -375,12 +350,13 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_dir_isbase) {
             kshellcompletion_dir_isbase = false;
             return KShellCompletion::dir();
-        } else if (kshellcompletion_dir_callback != nullptr) {
-            QUrl* callback_ret = kshellcompletion_dir_callback();
-            return *callback_ret;
-        } else {
-            return KShellCompletion::dir();
         }
+        auto dir_cb = kshellcompletion_dir_callback;
+        if (dir_cb) {
+            QUrl* callback_ret = dir_cb();
+            return *callback_ret;
+        }
+        return KShellCompletion::dir();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -388,12 +364,13 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_isrunning_isbase) {
             kshellcompletion_isrunning_isbase = false;
             return KShellCompletion::isRunning();
-        } else if (kshellcompletion_isrunning_callback != nullptr) {
-            bool callback_ret = kshellcompletion_isrunning_callback();
-            return callback_ret;
-        } else {
-            return KShellCompletion::isRunning();
         }
+        auto isrunning_cb = kshellcompletion_isrunning_callback;
+        if (isrunning_cb) {
+            bool callback_ret = isrunning_cb();
+            return callback_ret;
+        }
+        return KShellCompletion::isRunning();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -401,11 +378,14 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_stop_isbase) {
             kshellcompletion_stop_isbase = false;
             KShellCompletion::stop();
-        } else if (kshellcompletion_stop_callback != nullptr) {
-            kshellcompletion_stop_callback();
-        } else {
-            KShellCompletion::stop();
+            return;
         }
+        auto stop_cb = kshellcompletion_stop_callback;
+        if (stop_cb) {
+            stop_cb();
+            return;
+        }
+        KShellCompletion::stop();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -413,12 +393,13 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_mode_isbase) {
             kshellcompletion_mode_isbase = false;
             return KShellCompletion::mode();
-        } else if (kshellcompletion_mode_callback != nullptr) {
-            int callback_ret = kshellcompletion_mode_callback();
-            return static_cast<KUrlCompletion::Mode>(callback_ret);
-        } else {
-            return KShellCompletion::mode();
         }
+        auto mode_cb = kshellcompletion_mode_callback;
+        if (mode_cb) {
+            int callback_ret = mode_cb();
+            return static_cast<KUrlCompletion::Mode>(callback_ret);
+        }
+        return KShellCompletion::mode();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,13 +407,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_setmode_isbase) {
             kshellcompletion_setmode_isbase = false;
             KShellCompletion::setMode(mode);
-        } else if (kshellcompletion_setmode_callback != nullptr) {
+            return;
+        }
+        auto setmode_cb = kshellcompletion_setmode_callback;
+        if (setmode_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            kshellcompletion_setmode_callback(this, cbval1);
-        } else {
-            KShellCompletion::setMode(mode);
+            setmode_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::setMode(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -440,12 +424,13 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_replaceenv_isbase) {
             kshellcompletion_replaceenv_isbase = false;
             return KShellCompletion::replaceEnv();
-        } else if (kshellcompletion_replaceenv_callback != nullptr) {
-            bool callback_ret = kshellcompletion_replaceenv_callback();
-            return callback_ret;
-        } else {
-            return KShellCompletion::replaceEnv();
         }
+        auto replaceenv_cb = kshellcompletion_replaceenv_callback;
+        if (replaceenv_cb) {
+            bool callback_ret = replaceenv_cb();
+            return callback_ret;
+        }
+        return KShellCompletion::replaceEnv();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -453,13 +438,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_setreplaceenv_isbase) {
             kshellcompletion_setreplaceenv_isbase = false;
             KShellCompletion::setReplaceEnv(replace);
-        } else if (kshellcompletion_setreplaceenv_callback != nullptr) {
+            return;
+        }
+        auto setreplaceenv_cb = kshellcompletion_setreplaceenv_callback;
+        if (setreplaceenv_cb) {
             bool cbval1 = replace;
 
-            kshellcompletion_setreplaceenv_callback(this, cbval1);
-        } else {
-            KShellCompletion::setReplaceEnv(replace);
+            setreplaceenv_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::setReplaceEnv(replace);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,12 +455,13 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_replacehome_isbase) {
             kshellcompletion_replacehome_isbase = false;
             return KShellCompletion::replaceHome();
-        } else if (kshellcompletion_replacehome_callback != nullptr) {
-            bool callback_ret = kshellcompletion_replacehome_callback();
-            return callback_ret;
-        } else {
-            return KShellCompletion::replaceHome();
         }
+        auto replacehome_cb = kshellcompletion_replacehome_callback;
+        if (replacehome_cb) {
+            bool callback_ret = replacehome_cb();
+            return callback_ret;
+        }
+        return KShellCompletion::replaceHome();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,13 +469,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_setreplacehome_isbase) {
             kshellcompletion_setreplacehome_isbase = false;
             KShellCompletion::setReplaceHome(replace);
-        } else if (kshellcompletion_setreplacehome_callback != nullptr) {
+            return;
+        }
+        auto setreplacehome_cb = kshellcompletion_setreplacehome_callback;
+        if (setreplacehome_cb) {
             bool cbval1 = replace;
 
-            kshellcompletion_setreplacehome_callback(this, cbval1);
-        } else {
-            KShellCompletion::setReplaceHome(replace);
+            setreplacehome_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::setReplaceHome(replace);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,13 +486,14 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_lastmatch_isbase) {
             kshellcompletion_lastmatch_isbase = false;
             return KShellCompletion::lastMatch();
-        } else if (kshellcompletion_lastmatch_callback != nullptr) {
-            const char* callback_ret = kshellcompletion_lastmatch_callback();
+        }
+        auto lastmatch_cb = kshellcompletion_lastmatch_callback;
+        if (lastmatch_cb) {
+            const char* callback_ret = lastmatch_cb();
             QString* callback_ret_QString = new QString(QString::fromUtf8(callback_ret));
             return *callback_ret_QString;
-        } else {
-            return KShellCompletion::lastMatch();
         }
+        return KShellCompletion::lastMatch();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -508,13 +501,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_setcompletionmode_isbase) {
             kshellcompletion_setcompletionmode_isbase = false;
             KShellCompletion::setCompletionMode(mode);
-        } else if (kshellcompletion_setcompletionmode_callback != nullptr) {
+            return;
+        }
+        auto setcompletionmode_cb = kshellcompletion_setcompletionmode_callback;
+        if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            kshellcompletion_setcompletionmode_callback(this, cbval1);
-        } else {
-            KShellCompletion::setCompletionMode(mode);
+            setcompletionmode_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::setCompletionMode(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,13 +518,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_setorder_isbase) {
             kshellcompletion_setorder_isbase = false;
             KShellCompletion::setOrder(order);
-        } else if (kshellcompletion_setorder_callback != nullptr) {
+            return;
+        }
+        auto setorder_cb = kshellcompletion_setorder_callback;
+        if (setorder_cb) {
             int cbval1 = static_cast<int>(order);
 
-            kshellcompletion_setorder_callback(this, cbval1);
-        } else {
-            KShellCompletion::setOrder(order);
+            setorder_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::setOrder(order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -536,13 +535,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_setignorecase_isbase) {
             kshellcompletion_setignorecase_isbase = false;
             KShellCompletion::setIgnoreCase(ignoreCase);
-        } else if (kshellcompletion_setignorecase_callback != nullptr) {
+            return;
+        }
+        auto setignorecase_cb = kshellcompletion_setignorecase_callback;
+        if (setignorecase_cb) {
             bool cbval1 = ignoreCase;
 
-            kshellcompletion_setignorecase_callback(this, cbval1);
-        } else {
-            KShellCompletion::setIgnoreCase(ignoreCase);
+            setignorecase_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::setIgnoreCase(ignoreCase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,13 +552,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_setsoundsenabled_isbase) {
             kshellcompletion_setsoundsenabled_isbase = false;
             KShellCompletion::setSoundsEnabled(enable);
-        } else if (kshellcompletion_setsoundsenabled_callback != nullptr) {
+            return;
+        }
+        auto setsoundsenabled_cb = kshellcompletion_setsoundsenabled_callback;
+        if (setsoundsenabled_cb) {
             bool cbval1 = enable;
 
-            kshellcompletion_setsoundsenabled_callback(this, cbval1);
-        } else {
-            KShellCompletion::setSoundsEnabled(enable);
+            setsoundsenabled_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::setSoundsEnabled(enable);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,7 +569,10 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_setitems_isbase) {
             kshellcompletion_setitems_isbase = false;
             KShellCompletion::setItems(itemList);
-        } else if (kshellcompletion_setitems_callback != nullptr) {
+            return;
+        }
+        auto setitems_cb = kshellcompletion_setitems_callback;
+        if (setitems_cb) {
             const QList<QString>& itemList_ret = itemList;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** itemList_arr = static_cast<const char**>(malloc(sizeof(const char*) * (itemList_ret.size() + 1)));
@@ -580,11 +588,11 @@ class VirtualKShellCompletion final : public KShellCompletion {
             itemList_arr[itemList_ret.size()] = nullptr;
             const char** cbval1 = itemList_arr;
 
-            kshellcompletion_setitems_callback(this, cbval1);
+            setitems_cb(this, cbval1);
             libqt_free(itemList_arr);
-        } else {
-            KShellCompletion::setItems(itemList);
+            return;
         }
+        KShellCompletion::setItems(itemList);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,11 +600,14 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_clear_isbase) {
             kshellcompletion_clear_isbase = false;
             KShellCompletion::clear();
-        } else if (kshellcompletion_clear_callback != nullptr) {
-            kshellcompletion_clear_callback();
-        } else {
-            KShellCompletion::clear();
+            return;
         }
+        auto clear_cb = kshellcompletion_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        KShellCompletion::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -604,14 +615,15 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_event_isbase) {
             kshellcompletion_event_isbase = false;
             return KShellCompletion::event(event);
-        } else if (kshellcompletion_event_callback != nullptr) {
+        }
+        auto event_cb = kshellcompletion_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kshellcompletion_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShellCompletion::event(event);
         }
+        return KShellCompletion::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,15 +631,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_eventfilter_isbase) {
             kshellcompletion_eventfilter_isbase = false;
             return KShellCompletion::eventFilter(watched, event);
-        } else if (kshellcompletion_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kshellcompletion_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kshellcompletion_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KShellCompletion::eventFilter(watched, event);
         }
+        return KShellCompletion::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,13 +648,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_timerevent_isbase) {
             kshellcompletion_timerevent_isbase = false;
             KShellCompletion::timerEvent(event);
-        } else if (kshellcompletion_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kshellcompletion_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kshellcompletion_timerevent_callback(this, cbval1);
-        } else {
-            KShellCompletion::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +665,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_childevent_isbase) {
             kshellcompletion_childevent_isbase = false;
             KShellCompletion::childEvent(event);
-        } else if (kshellcompletion_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kshellcompletion_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kshellcompletion_childevent_callback(this, cbval1);
-        } else {
-            KShellCompletion::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +682,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_customevent_isbase) {
             kshellcompletion_customevent_isbase = false;
             KShellCompletion::customEvent(event);
-        } else if (kshellcompletion_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kshellcompletion_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kshellcompletion_customevent_callback(this, cbval1);
-        } else {
-            KShellCompletion::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,15 +699,18 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_connectnotify_isbase) {
             kshellcompletion_connectnotify_isbase = false;
             KShellCompletion::connectNotify(signal);
-        } else if (kshellcompletion_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kshellcompletion_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kshellcompletion_connectnotify_callback(this, cbval1);
-        } else {
-            KShellCompletion::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,15 +718,18 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_disconnectnotify_isbase) {
             kshellcompletion_disconnectnotify_isbase = false;
             KShellCompletion::disconnectNotify(signal);
-        } else if (kshellcompletion_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kshellcompletion_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kshellcompletion_disconnectnotify_callback(this, cbval1);
-        } else {
-            KShellCompletion::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +737,16 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_setshouldautosuggest_isbase) {
             kshellcompletion_setshouldautosuggest_isbase = false;
             KShellCompletion::setShouldAutoSuggest(shouldAutosuggest);
-        } else if (kshellcompletion_setshouldautosuggest_callback != nullptr) {
+            return;
+        }
+        auto setshouldautosuggest_cb = kshellcompletion_setshouldautosuggest_callback;
+        if (setshouldautosuggest_cb) {
             bool cbval1 = shouldAutosuggest;
 
-            kshellcompletion_setshouldautosuggest_callback(this, cbval1);
-        } else {
-            KShellCompletion::setShouldAutoSuggest(shouldAutosuggest);
+            setshouldautosuggest_cb(this, cbval1);
+            return;
         }
+        KShellCompletion::setShouldAutoSuggest(shouldAutosuggest);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,12 +754,13 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_sender_isbase) {
             kshellcompletion_sender_isbase = false;
             return KShellCompletion::sender();
-        } else if (kshellcompletion_sender_callback != nullptr) {
-            QObject* callback_ret = kshellcompletion_sender_callback();
-            return callback_ret;
-        } else {
-            return KShellCompletion::sender();
         }
+        auto sender_cb = kshellcompletion_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KShellCompletion::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -736,12 +768,13 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_sendersignalindex_isbase) {
             kshellcompletion_sendersignalindex_isbase = false;
             return KShellCompletion::senderSignalIndex();
-        } else if (kshellcompletion_sendersignalindex_callback != nullptr) {
-            int callback_ret = kshellcompletion_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KShellCompletion::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kshellcompletion_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KShellCompletion::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,14 +782,15 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_receivers_isbase) {
             kshellcompletion_receivers_isbase = false;
             return KShellCompletion::receivers(signal);
-        } else if (kshellcompletion_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kshellcompletion_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kshellcompletion_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KShellCompletion::receivers(signal);
         }
+        return KShellCompletion::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -764,16 +798,17 @@ class VirtualKShellCompletion final : public KShellCompletion {
         if (kshellcompletion_issignalconnected_isbase) {
             kshellcompletion_issignalconnected_isbase = false;
             return KShellCompletion::isSignalConnected(signal);
-        } else if (kshellcompletion_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kshellcompletion_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kshellcompletion_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShellCompletion::isSignalConnected(signal);
         }
+        return KShellCompletion::isSignalConnected(signal);
     }
 
     // Friend functions

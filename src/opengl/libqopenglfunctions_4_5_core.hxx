@@ -38,13 +38,6 @@ class VirtualQOpenGLFunctions_4_5_Core final : public QOpenGLFunctions_4_5_Core 
   public:
     VirtualQOpenGLFunctions_4_5_Core() : QOpenGLFunctions_4_5_Core() {};
 
-    ~VirtualQOpenGLFunctions_4_5_Core() {
-        qopenglfunctions_4_5_core_initializeopenglfunctions_callback = nullptr;
-        qopenglfunctions_4_5_core_isinitialized_callback = nullptr;
-        qopenglfunctions_4_5_core_setowningcontext_callback = nullptr;
-        qopenglfunctions_4_5_core_owningcontext_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQOpenGLFunctions_4_5_Core_InitializeOpenGLFunctions_Callback(QOpenGLFunctions_4_5_Core_InitializeOpenGLFunctions_Callback cb) { qopenglfunctions_4_5_core_initializeopenglfunctions_callback = cb; }
     inline void setQOpenGLFunctions_4_5_Core_IsInitialized_Callback(QOpenGLFunctions_4_5_Core_IsInitialized_Callback cb) { qopenglfunctions_4_5_core_isinitialized_callback = cb; }
@@ -62,12 +55,13 @@ class VirtualQOpenGLFunctions_4_5_Core final : public QOpenGLFunctions_4_5_Core 
         if (qopenglfunctions_4_5_core_initializeopenglfunctions_isbase) {
             qopenglfunctions_4_5_core_initializeopenglfunctions_isbase = false;
             return QOpenGLFunctions_4_5_Core::initializeOpenGLFunctions();
-        } else if (qopenglfunctions_4_5_core_initializeopenglfunctions_callback != nullptr) {
-            bool callback_ret = qopenglfunctions_4_5_core_initializeopenglfunctions_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLFunctions_4_5_Core::initializeOpenGLFunctions();
         }
+        auto initializeopenglfunctions_cb = qopenglfunctions_4_5_core_initializeopenglfunctions_callback;
+        if (initializeopenglfunctions_cb) {
+            bool callback_ret = initializeopenglfunctions_cb();
+            return callback_ret;
+        }
+        return QOpenGLFunctions_4_5_Core::initializeOpenGLFunctions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -75,12 +69,13 @@ class VirtualQOpenGLFunctions_4_5_Core final : public QOpenGLFunctions_4_5_Core 
         if (qopenglfunctions_4_5_core_isinitialized_isbase) {
             qopenglfunctions_4_5_core_isinitialized_isbase = false;
             return QOpenGLFunctions_4_5_Core::isInitialized();
-        } else if (qopenglfunctions_4_5_core_isinitialized_callback != nullptr) {
-            bool callback_ret = qopenglfunctions_4_5_core_isinitialized_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLFunctions_4_5_Core::isInitialized();
         }
+        auto isinitialized_cb = qopenglfunctions_4_5_core_isinitialized_callback;
+        if (isinitialized_cb) {
+            bool callback_ret = isinitialized_cb();
+            return callback_ret;
+        }
+        return QOpenGLFunctions_4_5_Core::isInitialized();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -88,13 +83,16 @@ class VirtualQOpenGLFunctions_4_5_Core final : public QOpenGLFunctions_4_5_Core 
         if (qopenglfunctions_4_5_core_setowningcontext_isbase) {
             qopenglfunctions_4_5_core_setowningcontext_isbase = false;
             QOpenGLFunctions_4_5_Core::setOwningContext(context);
-        } else if (qopenglfunctions_4_5_core_setowningcontext_callback != nullptr) {
+            return;
+        }
+        auto setowningcontext_cb = qopenglfunctions_4_5_core_setowningcontext_callback;
+        if (setowningcontext_cb) {
             QOpenGLContext* cbval1 = (QOpenGLContext*)context;
 
-            qopenglfunctions_4_5_core_setowningcontext_callback(this, cbval1);
-        } else {
-            QOpenGLFunctions_4_5_Core::setOwningContext(context);
+            setowningcontext_cb(this, cbval1);
+            return;
         }
+        QOpenGLFunctions_4_5_Core::setOwningContext(context);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -102,12 +100,13 @@ class VirtualQOpenGLFunctions_4_5_Core final : public QOpenGLFunctions_4_5_Core 
         if (qopenglfunctions_4_5_core_owningcontext_isbase) {
             qopenglfunctions_4_5_core_owningcontext_isbase = false;
             return QOpenGLFunctions_4_5_Core::owningContext();
-        } else if (qopenglfunctions_4_5_core_owningcontext_callback != nullptr) {
-            QOpenGLContext* callback_ret = qopenglfunctions_4_5_core_owningcontext_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLFunctions_4_5_Core::owningContext();
         }
+        auto owningcontext_cb = qopenglfunctions_4_5_core_owningcontext_callback;
+        if (owningcontext_cb) {
+            QOpenGLContext* callback_ret = owningcontext_cb();
+            return callback_ret;
+        }
+        return QOpenGLFunctions_4_5_Core::owningContext();
     }
 
     // Friend functions

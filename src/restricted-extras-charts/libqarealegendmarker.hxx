@@ -75,25 +75,6 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
     VirtualQAreaLegendMarker(QAreaSeries* series, QLegend* legend) : QAreaLegendMarker(series, legend) {};
     VirtualQAreaLegendMarker(QAreaSeries* series, QLegend* legend, QObject* parent) : QAreaLegendMarker(series, legend, parent) {};
 
-    ~VirtualQAreaLegendMarker() {
-        qarealegendmarker_metaobject_callback = nullptr;
-        qarealegendmarker_metacast_callback = nullptr;
-        qarealegendmarker_metacall_callback = nullptr;
-        qarealegendmarker_type_callback = nullptr;
-        qarealegendmarker_series_callback = nullptr;
-        qarealegendmarker_event_callback = nullptr;
-        qarealegendmarker_eventfilter_callback = nullptr;
-        qarealegendmarker_timerevent_callback = nullptr;
-        qarealegendmarker_childevent_callback = nullptr;
-        qarealegendmarker_customevent_callback = nullptr;
-        qarealegendmarker_connectnotify_callback = nullptr;
-        qarealegendmarker_disconnectnotify_callback = nullptr;
-        qarealegendmarker_sender_callback = nullptr;
-        qarealegendmarker_sendersignalindex_callback = nullptr;
-        qarealegendmarker_receivers_callback = nullptr;
-        qarealegendmarker_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAreaLegendMarker_MetaObject_Callback(QAreaLegendMarker_MetaObject_Callback cb) { qarealegendmarker_metaobject_callback = cb; }
     inline void setQAreaLegendMarker_Metacast_Callback(QAreaLegendMarker_Metacast_Callback cb) { qarealegendmarker_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_metaobject_isbase) {
             qarealegendmarker_metaobject_isbase = false;
             return QAreaLegendMarker::metaObject();
-        } else if (qarealegendmarker_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qarealegendmarker_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAreaLegendMarker::metaObject();
         }
+        auto metaobject_cb = qarealegendmarker_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAreaLegendMarker::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_metacast_isbase) {
             qarealegendmarker_metacast_isbase = false;
             return QAreaLegendMarker::qt_metacast(param1);
-        } else if (qarealegendmarker_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qarealegendmarker_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qarealegendmarker_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAreaLegendMarker::qt_metacast(param1);
         }
+        return QAreaLegendMarker::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,16 +146,17 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_metacall_isbase) {
             qarealegendmarker_metacall_isbase = false;
             return QAreaLegendMarker::qt_metacall(param1, param2, param3);
-        } else if (qarealegendmarker_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qarealegendmarker_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qarealegendmarker_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAreaLegendMarker::qt_metacall(param1, param2, param3);
         }
+        return QAreaLegendMarker::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,12 +164,13 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_type_isbase) {
             qarealegendmarker_type_isbase = false;
             return QAreaLegendMarker::type();
-        } else if (qarealegendmarker_type_callback != nullptr) {
-            int callback_ret = qarealegendmarker_type_callback();
-            return static_cast<QLegendMarker::LegendMarkerType>(callback_ret);
-        } else {
-            return QAreaLegendMarker::type();
         }
+        auto type_cb = qarealegendmarker_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QLegendMarker::LegendMarkerType>(callback_ret);
+        }
+        return QAreaLegendMarker::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -193,12 +178,13 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_series_isbase) {
             qarealegendmarker_series_isbase = false;
             return QAreaLegendMarker::series();
-        } else if (qarealegendmarker_series_callback != nullptr) {
-            QAreaSeries* callback_ret = qarealegendmarker_series_callback();
-            return callback_ret;
-        } else {
-            return QAreaLegendMarker::series();
         }
+        auto series_cb = qarealegendmarker_series_callback;
+        if (series_cb) {
+            QAreaSeries* callback_ret = series_cb();
+            return callback_ret;
+        }
+        return QAreaLegendMarker::series();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -206,14 +192,15 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_event_isbase) {
             qarealegendmarker_event_isbase = false;
             return QAreaLegendMarker::event(event);
-        } else if (qarealegendmarker_event_callback != nullptr) {
+        }
+        auto event_cb = qarealegendmarker_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qarealegendmarker_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAreaLegendMarker::event(event);
         }
+        return QAreaLegendMarker::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -221,15 +208,16 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_eventfilter_isbase) {
             qarealegendmarker_eventfilter_isbase = false;
             return QAreaLegendMarker::eventFilter(watched, event);
-        } else if (qarealegendmarker_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qarealegendmarker_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qarealegendmarker_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAreaLegendMarker::eventFilter(watched, event);
         }
+        return QAreaLegendMarker::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -237,13 +225,16 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_timerevent_isbase) {
             qarealegendmarker_timerevent_isbase = false;
             QAreaLegendMarker::timerEvent(event);
-        } else if (qarealegendmarker_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qarealegendmarker_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qarealegendmarker_timerevent_callback(this, cbval1);
-        } else {
-            QAreaLegendMarker::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAreaLegendMarker::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -251,13 +242,16 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_childevent_isbase) {
             qarealegendmarker_childevent_isbase = false;
             QAreaLegendMarker::childEvent(event);
-        } else if (qarealegendmarker_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qarealegendmarker_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qarealegendmarker_childevent_callback(this, cbval1);
-        } else {
-            QAreaLegendMarker::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAreaLegendMarker::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,13 +259,16 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_customevent_isbase) {
             qarealegendmarker_customevent_isbase = false;
             QAreaLegendMarker::customEvent(event);
-        } else if (qarealegendmarker_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qarealegendmarker_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qarealegendmarker_customevent_callback(this, cbval1);
-        } else {
-            QAreaLegendMarker::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAreaLegendMarker::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,15 +276,18 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_connectnotify_isbase) {
             qarealegendmarker_connectnotify_isbase = false;
             QAreaLegendMarker::connectNotify(signal);
-        } else if (qarealegendmarker_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qarealegendmarker_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qarealegendmarker_connectnotify_callback(this, cbval1);
-        } else {
-            QAreaLegendMarker::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAreaLegendMarker::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,15 +295,18 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_disconnectnotify_isbase) {
             qarealegendmarker_disconnectnotify_isbase = false;
             QAreaLegendMarker::disconnectNotify(signal);
-        } else if (qarealegendmarker_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qarealegendmarker_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qarealegendmarker_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAreaLegendMarker::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAreaLegendMarker::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -311,12 +314,13 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_sender_isbase) {
             qarealegendmarker_sender_isbase = false;
             return QAreaLegendMarker::sender();
-        } else if (qarealegendmarker_sender_callback != nullptr) {
-            QObject* callback_ret = qarealegendmarker_sender_callback();
-            return callback_ret;
-        } else {
-            return QAreaLegendMarker::sender();
         }
+        auto sender_cb = qarealegendmarker_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAreaLegendMarker::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -324,12 +328,13 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_sendersignalindex_isbase) {
             qarealegendmarker_sendersignalindex_isbase = false;
             return QAreaLegendMarker::senderSignalIndex();
-        } else if (qarealegendmarker_sendersignalindex_callback != nullptr) {
-            int callback_ret = qarealegendmarker_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAreaLegendMarker::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qarealegendmarker_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAreaLegendMarker::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,14 +342,15 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_receivers_isbase) {
             qarealegendmarker_receivers_isbase = false;
             return QAreaLegendMarker::receivers(signal);
-        } else if (qarealegendmarker_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qarealegendmarker_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qarealegendmarker_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAreaLegendMarker::receivers(signal);
         }
+        return QAreaLegendMarker::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,16 +358,17 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
         if (qarealegendmarker_issignalconnected_isbase) {
             qarealegendmarker_issignalconnected_isbase = false;
             return QAreaLegendMarker::isSignalConnected(signal);
-        } else if (qarealegendmarker_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qarealegendmarker_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qarealegendmarker_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAreaLegendMarker::isSignalConnected(signal);
         }
+        return QAreaLegendMarker::isSignalConnected(signal);
     }
 
     // Friend functions

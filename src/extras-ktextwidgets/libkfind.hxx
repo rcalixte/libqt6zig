@@ -90,30 +90,6 @@ class VirtualKFind final : public KFind {
     VirtualKFind(const QString& pattern, long options, QWidget* parent) : KFind(pattern, options, parent) {};
     VirtualKFind(const QString& pattern, long options, QWidget* parent, QWidget* findDialog) : KFind(pattern, options, parent, findDialog) {};
 
-    ~VirtualKFind() {
-        kfind_metaobject_callback = nullptr;
-        kfind_metacast_callback = nullptr;
-        kfind_metacall_callback = nullptr;
-        kfind_setoptions_callback = nullptr;
-        kfind_resetcounts_callback = nullptr;
-        kfind_validatematch_callback = nullptr;
-        kfind_shouldrestart_callback = nullptr;
-        kfind_displayfinaldialog_callback = nullptr;
-        kfind_event_callback = nullptr;
-        kfind_eventfilter_callback = nullptr;
-        kfind_timerevent_callback = nullptr;
-        kfind_childevent_callback = nullptr;
-        kfind_customevent_callback = nullptr;
-        kfind_connectnotify_callback = nullptr;
-        kfind_disconnectnotify_callback = nullptr;
-        kfind_parentwidget_callback = nullptr;
-        kfind_dialogsparent_callback = nullptr;
-        kfind_sender_callback = nullptr;
-        kfind_sendersignalindex_callback = nullptr;
-        kfind_receivers_callback = nullptr;
-        kfind_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFind_MetaObject_Callback(KFind_MetaObject_Callback cb) { kfind_metaobject_callback = cb; }
     inline void setKFind_Metacast_Callback(KFind_Metacast_Callback cb) { kfind_metacast_callback = cb; }
@@ -165,12 +141,13 @@ class VirtualKFind final : public KFind {
         if (kfind_metaobject_isbase) {
             kfind_metaobject_isbase = false;
             return KFind::metaObject();
-        } else if (kfind_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfind_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFind::metaObject();
         }
+        auto metaobject_cb = kfind_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFind::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -178,14 +155,15 @@ class VirtualKFind final : public KFind {
         if (kfind_metacast_isbase) {
             kfind_metacast_isbase = false;
             return KFind::qt_metacast(param1);
-        } else if (kfind_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfind_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfind_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFind::qt_metacast(param1);
         }
+        return KFind::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -193,16 +171,17 @@ class VirtualKFind final : public KFind {
         if (kfind_metacall_isbase) {
             kfind_metacall_isbase = false;
             return KFind::qt_metacall(param1, param2, param3);
-        } else if (kfind_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfind_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfind_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFind::qt_metacall(param1, param2, param3);
         }
+        return KFind::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -210,13 +189,16 @@ class VirtualKFind final : public KFind {
         if (kfind_setoptions_isbase) {
             kfind_setoptions_isbase = false;
             KFind::setOptions(options);
-        } else if (kfind_setoptions_callback != nullptr) {
+            return;
+        }
+        auto setoptions_cb = kfind_setoptions_callback;
+        if (setoptions_cb) {
             long cbval1 = options;
 
-            kfind_setoptions_callback(this, cbval1);
-        } else {
-            KFind::setOptions(options);
+            setoptions_cb(this, cbval1);
+            return;
         }
+        KFind::setOptions(options);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -224,11 +206,14 @@ class VirtualKFind final : public KFind {
         if (kfind_resetcounts_isbase) {
             kfind_resetcounts_isbase = false;
             KFind::resetCounts();
-        } else if (kfind_resetcounts_callback != nullptr) {
-            kfind_resetcounts_callback();
-        } else {
-            KFind::resetCounts();
+            return;
         }
+        auto resetcounts_cb = kfind_resetcounts_callback;
+        if (resetcounts_cb) {
+            resetcounts_cb();
+            return;
+        }
+        KFind::resetCounts();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -236,7 +221,9 @@ class VirtualKFind final : public KFind {
         if (kfind_validatematch_isbase) {
             kfind_validatematch_isbase = false;
             return KFind::validateMatch(text, index, matchedlength);
-        } else if (kfind_validatematch_callback != nullptr) {
+        }
+        auto validatematch_cb = kfind_validatematch_callback;
+        if (validatematch_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -248,12 +235,11 @@ class VirtualKFind final : public KFind {
             int cbval2 = index;
             int cbval3 = matchedlength;
 
-            bool callback_ret = kfind_validatematch_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = validatematch_cb(this, cbval1, cbval2, cbval3);
             libqt_free(text_str);
             return callback_ret;
-        } else {
-            return KFind::validateMatch(text, index, matchedlength);
         }
+        return KFind::validateMatch(text, index, matchedlength);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,15 +247,16 @@ class VirtualKFind final : public KFind {
         if (kfind_shouldrestart_isbase) {
             kfind_shouldrestart_isbase = false;
             return KFind::shouldRestart(forceAsking, showNumMatches);
-        } else if (kfind_shouldrestart_callback != nullptr) {
+        }
+        auto shouldrestart_cb = kfind_shouldrestart_callback;
+        if (shouldrestart_cb) {
             bool cbval1 = forceAsking;
             bool cbval2 = showNumMatches;
 
-            bool callback_ret = kfind_shouldrestart_callback(this, cbval1, cbval2);
+            bool callback_ret = shouldrestart_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFind::shouldRestart(forceAsking, showNumMatches);
         }
+        return KFind::shouldRestart(forceAsking, showNumMatches);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,11 +264,14 @@ class VirtualKFind final : public KFind {
         if (kfind_displayfinaldialog_isbase) {
             kfind_displayfinaldialog_isbase = false;
             KFind::displayFinalDialog();
-        } else if (kfind_displayfinaldialog_callback != nullptr) {
-            kfind_displayfinaldialog_callback();
-        } else {
-            KFind::displayFinalDialog();
+            return;
         }
+        auto displayfinaldialog_cb = kfind_displayfinaldialog_callback;
+        if (displayfinaldialog_cb) {
+            displayfinaldialog_cb();
+            return;
+        }
+        KFind::displayFinalDialog();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -289,14 +279,15 @@ class VirtualKFind final : public KFind {
         if (kfind_event_isbase) {
             kfind_event_isbase = false;
             return KFind::event(event);
-        } else if (kfind_event_callback != nullptr) {
+        }
+        auto event_cb = kfind_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfind_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFind::event(event);
         }
+        return KFind::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -304,15 +295,16 @@ class VirtualKFind final : public KFind {
         if (kfind_eventfilter_isbase) {
             kfind_eventfilter_isbase = false;
             return KFind::eventFilter(watched, event);
-        } else if (kfind_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfind_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kfind_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFind::eventFilter(watched, event);
         }
+        return KFind::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,13 +312,16 @@ class VirtualKFind final : public KFind {
         if (kfind_timerevent_isbase) {
             kfind_timerevent_isbase = false;
             KFind::timerEvent(event);
-        } else if (kfind_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfind_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfind_timerevent_callback(this, cbval1);
-        } else {
-            KFind::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFind::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -334,13 +329,16 @@ class VirtualKFind final : public KFind {
         if (kfind_childevent_isbase) {
             kfind_childevent_isbase = false;
             KFind::childEvent(event);
-        } else if (kfind_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfind_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfind_childevent_callback(this, cbval1);
-        } else {
-            KFind::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFind::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -348,13 +346,16 @@ class VirtualKFind final : public KFind {
         if (kfind_customevent_isbase) {
             kfind_customevent_isbase = false;
             KFind::customEvent(event);
-        } else if (kfind_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfind_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfind_customevent_callback(this, cbval1);
-        } else {
-            KFind::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFind::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -362,15 +363,18 @@ class VirtualKFind final : public KFind {
         if (kfind_connectnotify_isbase) {
             kfind_connectnotify_isbase = false;
             KFind::connectNotify(signal);
-        } else if (kfind_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfind_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfind_connectnotify_callback(this, cbval1);
-        } else {
-            KFind::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFind::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -378,15 +382,18 @@ class VirtualKFind final : public KFind {
         if (kfind_disconnectnotify_isbase) {
             kfind_disconnectnotify_isbase = false;
             KFind::disconnectNotify(signal);
-        } else if (kfind_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfind_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfind_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFind::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFind::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,12 +401,13 @@ class VirtualKFind final : public KFind {
         if (kfind_parentwidget_isbase) {
             kfind_parentwidget_isbase = false;
             return KFind::parentWidget();
-        } else if (kfind_parentwidget_callback != nullptr) {
-            QWidget* callback_ret = kfind_parentwidget_callback();
-            return callback_ret;
-        } else {
-            return KFind::parentWidget();
         }
+        auto parentwidget_cb = kfind_parentwidget_callback;
+        if (parentwidget_cb) {
+            QWidget* callback_ret = parentwidget_cb();
+            return callback_ret;
+        }
+        return KFind::parentWidget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -407,12 +415,13 @@ class VirtualKFind final : public KFind {
         if (kfind_dialogsparent_isbase) {
             kfind_dialogsparent_isbase = false;
             return KFind::dialogsParent();
-        } else if (kfind_dialogsparent_callback != nullptr) {
-            QWidget* callback_ret = kfind_dialogsparent_callback();
-            return callback_ret;
-        } else {
-            return KFind::dialogsParent();
         }
+        auto dialogsparent_cb = kfind_dialogsparent_callback;
+        if (dialogsparent_cb) {
+            QWidget* callback_ret = dialogsparent_cb();
+            return callback_ret;
+        }
+        return KFind::dialogsParent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -420,12 +429,13 @@ class VirtualKFind final : public KFind {
         if (kfind_sender_isbase) {
             kfind_sender_isbase = false;
             return KFind::sender();
-        } else if (kfind_sender_callback != nullptr) {
-            QObject* callback_ret = kfind_sender_callback();
-            return callback_ret;
-        } else {
-            return KFind::sender();
         }
+        auto sender_cb = kfind_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFind::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -433,12 +443,13 @@ class VirtualKFind final : public KFind {
         if (kfind_sendersignalindex_isbase) {
             kfind_sendersignalindex_isbase = false;
             return KFind::senderSignalIndex();
-        } else if (kfind_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfind_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFind::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfind_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFind::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -446,14 +457,15 @@ class VirtualKFind final : public KFind {
         if (kfind_receivers_isbase) {
             kfind_receivers_isbase = false;
             return KFind::receivers(signal);
-        } else if (kfind_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfind_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfind_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFind::receivers(signal);
         }
+        return KFind::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -461,16 +473,17 @@ class VirtualKFind final : public KFind {
         if (kfind_issignalconnected_isbase) {
             kfind_issignalconnected_isbase = false;
             return KFind::isSignalConnected(signal);
-        } else if (kfind_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfind_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfind_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFind::isSignalConnected(signal);
         }
+        return KFind::isSignalConnected(signal);
     }
 
     // Friend functions

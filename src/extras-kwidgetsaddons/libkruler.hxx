@@ -223,72 +223,6 @@ class VirtualKRuler final : public KRuler {
     VirtualKRuler(Qt::Orientation orient, int widgetWidth, QWidget* parent) : KRuler(orient, widgetWidth, parent) {};
     VirtualKRuler(Qt::Orientation orient, int widgetWidth, QWidget* parent, Qt::WindowFlags f) : KRuler(orient, widgetWidth, parent, f) {};
 
-    ~VirtualKRuler() {
-        kruler_metaobject_callback = nullptr;
-        kruler_metacast_callback = nullptr;
-        kruler_metacall_callback = nullptr;
-        kruler_paintevent_callback = nullptr;
-        kruler_event_callback = nullptr;
-        kruler_sliderchange_callback = nullptr;
-        kruler_keypressevent_callback = nullptr;
-        kruler_timerevent_callback = nullptr;
-        kruler_wheelevent_callback = nullptr;
-        kruler_changeevent_callback = nullptr;
-        kruler_devtype_callback = nullptr;
-        kruler_setvisible_callback = nullptr;
-        kruler_sizehint_callback = nullptr;
-        kruler_minimumsizehint_callback = nullptr;
-        kruler_heightforwidth_callback = nullptr;
-        kruler_hasheightforwidth_callback = nullptr;
-        kruler_paintengine_callback = nullptr;
-        kruler_mousepressevent_callback = nullptr;
-        kruler_mousereleaseevent_callback = nullptr;
-        kruler_mousedoubleclickevent_callback = nullptr;
-        kruler_mousemoveevent_callback = nullptr;
-        kruler_keyreleaseevent_callback = nullptr;
-        kruler_focusinevent_callback = nullptr;
-        kruler_focusoutevent_callback = nullptr;
-        kruler_enterevent_callback = nullptr;
-        kruler_leaveevent_callback = nullptr;
-        kruler_moveevent_callback = nullptr;
-        kruler_resizeevent_callback = nullptr;
-        kruler_closeevent_callback = nullptr;
-        kruler_contextmenuevent_callback = nullptr;
-        kruler_tabletevent_callback = nullptr;
-        kruler_actionevent_callback = nullptr;
-        kruler_dragenterevent_callback = nullptr;
-        kruler_dragmoveevent_callback = nullptr;
-        kruler_dragleaveevent_callback = nullptr;
-        kruler_dropevent_callback = nullptr;
-        kruler_showevent_callback = nullptr;
-        kruler_hideevent_callback = nullptr;
-        kruler_nativeevent_callback = nullptr;
-        kruler_metric_callback = nullptr;
-        kruler_initpainter_callback = nullptr;
-        kruler_redirected_callback = nullptr;
-        kruler_sharedpainter_callback = nullptr;
-        kruler_inputmethodevent_callback = nullptr;
-        kruler_inputmethodquery_callback = nullptr;
-        kruler_focusnextprevchild_callback = nullptr;
-        kruler_eventfilter_callback = nullptr;
-        kruler_childevent_callback = nullptr;
-        kruler_customevent_callback = nullptr;
-        kruler_connectnotify_callback = nullptr;
-        kruler_disconnectnotify_callback = nullptr;
-        kruler_setrepeataction_callback = nullptr;
-        kruler_repeataction_callback = nullptr;
-        kruler_updatemicrofocus_callback = nullptr;
-        kruler_create_callback = nullptr;
-        kruler_destroy_callback = nullptr;
-        kruler_focusnextchild_callback = nullptr;
-        kruler_focuspreviouschild_callback = nullptr;
-        kruler_sender_callback = nullptr;
-        kruler_sendersignalindex_callback = nullptr;
-        kruler_receivers_callback = nullptr;
-        kruler_issignalconnected_callback = nullptr;
-        kruler_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKRuler_MetaObject_Callback(KRuler_MetaObject_Callback cb) { kruler_metaobject_callback = cb; }
     inline void setKRuler_Metacast_Callback(KRuler_Metacast_Callback cb) { kruler_metacast_callback = cb; }
@@ -424,12 +358,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_metaobject_isbase) {
             kruler_metaobject_isbase = false;
             return KRuler::metaObject();
-        } else if (kruler_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kruler_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KRuler::metaObject();
         }
+        auto metaobject_cb = kruler_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KRuler::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -437,14 +372,15 @@ class VirtualKRuler final : public KRuler {
         if (kruler_metacast_isbase) {
             kruler_metacast_isbase = false;
             return KRuler::qt_metacast(param1);
-        } else if (kruler_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kruler_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kruler_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRuler::qt_metacast(param1);
         }
+        return KRuler::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -452,16 +388,17 @@ class VirtualKRuler final : public KRuler {
         if (kruler_metacall_isbase) {
             kruler_metacall_isbase = false;
             return KRuler::qt_metacall(param1, param2, param3);
-        } else if (kruler_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kruler_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kruler_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRuler::qt_metacall(param1, param2, param3);
         }
+        return KRuler::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,13 +406,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_paintevent_isbase) {
             kruler_paintevent_isbase = false;
             KRuler::paintEvent(param1);
-        } else if (kruler_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kruler_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kruler_paintevent_callback(this, cbval1);
-        } else {
-            KRuler::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KRuler::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,14 +423,15 @@ class VirtualKRuler final : public KRuler {
         if (kruler_event_isbase) {
             kruler_event_isbase = false;
             return KRuler::event(e);
-        } else if (kruler_event_callback != nullptr) {
+        }
+        auto event_cb = kruler_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kruler_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRuler::event(e);
         }
+        return KRuler::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,13 +439,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_sliderchange_isbase) {
             kruler_sliderchange_isbase = false;
             KRuler::sliderChange(change);
-        } else if (kruler_sliderchange_callback != nullptr) {
+            return;
+        }
+        auto sliderchange_cb = kruler_sliderchange_callback;
+        if (sliderchange_cb) {
             int cbval1 = static_cast<int>(change);
 
-            kruler_sliderchange_callback(this, cbval1);
-        } else {
-            KRuler::sliderChange(change);
+            sliderchange_cb(this, cbval1);
+            return;
         }
+        KRuler::sliderChange(change);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,13 +456,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_keypressevent_isbase) {
             kruler_keypressevent_isbase = false;
             KRuler::keyPressEvent(ev);
-        } else if (kruler_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kruler_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
 
-            kruler_keypressevent_callback(this, cbval1);
-        } else {
-            KRuler::keyPressEvent(ev);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KRuler::keyPressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,13 +473,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_timerevent_isbase) {
             kruler_timerevent_isbase = false;
             KRuler::timerEvent(param1);
-        } else if (kruler_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kruler_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            kruler_timerevent_callback(this, cbval1);
-        } else {
-            KRuler::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KRuler::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,13 +490,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_wheelevent_isbase) {
             kruler_wheelevent_isbase = false;
             KRuler::wheelEvent(e);
-        } else if (kruler_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kruler_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            kruler_wheelevent_callback(this, cbval1);
-        } else {
-            KRuler::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KRuler::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,13 +507,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_changeevent_isbase) {
             kruler_changeevent_isbase = false;
             KRuler::changeEvent(e);
-        } else if (kruler_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kruler_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            kruler_changeevent_callback(this, cbval1);
-        } else {
-            KRuler::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KRuler::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,12 +524,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_devtype_isbase) {
             kruler_devtype_isbase = false;
             return KRuler::devType();
-        } else if (kruler_devtype_callback != nullptr) {
-            int callback_ret = kruler_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KRuler::devType();
         }
+        auto devtype_cb = kruler_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KRuler::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,13 +538,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_setvisible_isbase) {
             kruler_setvisible_isbase = false;
             KRuler::setVisible(visible);
-        } else if (kruler_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kruler_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kruler_setvisible_callback(this, cbval1);
-        } else {
-            KRuler::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KRuler::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -595,12 +555,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_sizehint_isbase) {
             kruler_sizehint_isbase = false;
             return KRuler::sizeHint();
-        } else if (kruler_sizehint_callback != nullptr) {
-            QSize* callback_ret = kruler_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KRuler::sizeHint();
         }
+        auto sizehint_cb = kruler_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KRuler::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -608,12 +569,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_minimumsizehint_isbase) {
             kruler_minimumsizehint_isbase = false;
             return KRuler::minimumSizeHint();
-        } else if (kruler_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kruler_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KRuler::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kruler_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KRuler::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,14 +583,15 @@ class VirtualKRuler final : public KRuler {
         if (kruler_heightforwidth_isbase) {
             kruler_heightforwidth_isbase = false;
             return KRuler::heightForWidth(param1);
-        } else if (kruler_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kruler_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kruler_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRuler::heightForWidth(param1);
         }
+        return KRuler::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,12 +599,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_hasheightforwidth_isbase) {
             kruler_hasheightforwidth_isbase = false;
             return KRuler::hasHeightForWidth();
-        } else if (kruler_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kruler_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KRuler::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kruler_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KRuler::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,12 +613,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_paintengine_isbase) {
             kruler_paintengine_isbase = false;
             return KRuler::paintEngine();
-        } else if (kruler_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kruler_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KRuler::paintEngine();
         }
+        auto paintengine_cb = kruler_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KRuler::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,13 +627,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_mousepressevent_isbase) {
             kruler_mousepressevent_isbase = false;
             KRuler::mousePressEvent(event);
-        } else if (kruler_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kruler_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kruler_mousepressevent_callback(this, cbval1);
-        } else {
-            KRuler::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KRuler::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,13 +644,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_mousereleaseevent_isbase) {
             kruler_mousereleaseevent_isbase = false;
             KRuler::mouseReleaseEvent(event);
-        } else if (kruler_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kruler_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kruler_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KRuler::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KRuler::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,13 +661,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_mousedoubleclickevent_isbase) {
             kruler_mousedoubleclickevent_isbase = false;
             KRuler::mouseDoubleClickEvent(event);
-        } else if (kruler_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kruler_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kruler_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KRuler::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KRuler::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -704,13 +678,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_mousemoveevent_isbase) {
             kruler_mousemoveevent_isbase = false;
             KRuler::mouseMoveEvent(event);
-        } else if (kruler_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kruler_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kruler_mousemoveevent_callback(this, cbval1);
-        } else {
-            KRuler::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KRuler::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -718,13 +695,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_keyreleaseevent_isbase) {
             kruler_keyreleaseevent_isbase = false;
             KRuler::keyReleaseEvent(event);
-        } else if (kruler_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kruler_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kruler_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KRuler::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KRuler::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -732,13 +712,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_focusinevent_isbase) {
             kruler_focusinevent_isbase = false;
             KRuler::focusInEvent(event);
-        } else if (kruler_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kruler_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kruler_focusinevent_callback(this, cbval1);
-        } else {
-            KRuler::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KRuler::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -746,13 +729,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_focusoutevent_isbase) {
             kruler_focusoutevent_isbase = false;
             KRuler::focusOutEvent(event);
-        } else if (kruler_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kruler_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kruler_focusoutevent_callback(this, cbval1);
-        } else {
-            KRuler::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KRuler::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -760,13 +746,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_enterevent_isbase) {
             kruler_enterevent_isbase = false;
             KRuler::enterEvent(event);
-        } else if (kruler_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kruler_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kruler_enterevent_callback(this, cbval1);
-        } else {
-            KRuler::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KRuler::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -774,13 +763,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_leaveevent_isbase) {
             kruler_leaveevent_isbase = false;
             KRuler::leaveEvent(event);
-        } else if (kruler_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kruler_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kruler_leaveevent_callback(this, cbval1);
-        } else {
-            KRuler::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KRuler::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,13 +780,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_moveevent_isbase) {
             kruler_moveevent_isbase = false;
             KRuler::moveEvent(event);
-        } else if (kruler_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kruler_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kruler_moveevent_callback(this, cbval1);
-        } else {
-            KRuler::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KRuler::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,13 +797,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_resizeevent_isbase) {
             kruler_resizeevent_isbase = false;
             KRuler::resizeEvent(event);
-        } else if (kruler_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kruler_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kruler_resizeevent_callback(this, cbval1);
-        } else {
-            KRuler::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KRuler::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -816,13 +814,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_closeevent_isbase) {
             kruler_closeevent_isbase = false;
             KRuler::closeEvent(event);
-        } else if (kruler_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kruler_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kruler_closeevent_callback(this, cbval1);
-        } else {
-            KRuler::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KRuler::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,13 +831,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_contextmenuevent_isbase) {
             kruler_contextmenuevent_isbase = false;
             KRuler::contextMenuEvent(event);
-        } else if (kruler_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kruler_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kruler_contextmenuevent_callback(this, cbval1);
-        } else {
-            KRuler::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KRuler::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -844,13 +848,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_tabletevent_isbase) {
             kruler_tabletevent_isbase = false;
             KRuler::tabletEvent(event);
-        } else if (kruler_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kruler_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kruler_tabletevent_callback(this, cbval1);
-        } else {
-            KRuler::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KRuler::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -858,13 +865,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_actionevent_isbase) {
             kruler_actionevent_isbase = false;
             KRuler::actionEvent(event);
-        } else if (kruler_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kruler_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kruler_actionevent_callback(this, cbval1);
-        } else {
-            KRuler::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KRuler::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -872,13 +882,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_dragenterevent_isbase) {
             kruler_dragenterevent_isbase = false;
             KRuler::dragEnterEvent(event);
-        } else if (kruler_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kruler_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kruler_dragenterevent_callback(this, cbval1);
-        } else {
-            KRuler::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KRuler::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -886,13 +899,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_dragmoveevent_isbase) {
             kruler_dragmoveevent_isbase = false;
             KRuler::dragMoveEvent(event);
-        } else if (kruler_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kruler_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kruler_dragmoveevent_callback(this, cbval1);
-        } else {
-            KRuler::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KRuler::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -900,13 +916,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_dragleaveevent_isbase) {
             kruler_dragleaveevent_isbase = false;
             KRuler::dragLeaveEvent(event);
-        } else if (kruler_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kruler_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kruler_dragleaveevent_callback(this, cbval1);
-        } else {
-            KRuler::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KRuler::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -914,13 +933,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_dropevent_isbase) {
             kruler_dropevent_isbase = false;
             KRuler::dropEvent(event);
-        } else if (kruler_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kruler_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kruler_dropevent_callback(this, cbval1);
-        } else {
-            KRuler::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KRuler::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -928,13 +950,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_showevent_isbase) {
             kruler_showevent_isbase = false;
             KRuler::showEvent(event);
-        } else if (kruler_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kruler_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kruler_showevent_callback(this, cbval1);
-        } else {
-            KRuler::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KRuler::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,13 +967,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_hideevent_isbase) {
             kruler_hideevent_isbase = false;
             KRuler::hideEvent(event);
-        } else if (kruler_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kruler_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kruler_hideevent_callback(this, cbval1);
-        } else {
-            KRuler::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KRuler::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,7 +984,9 @@ class VirtualKRuler final : public KRuler {
         if (kruler_nativeevent_isbase) {
             kruler_nativeevent_isbase = false;
             return KRuler::nativeEvent(eventType, message, result);
-        } else if (kruler_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kruler_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -967,12 +997,11 @@ class VirtualKRuler final : public KRuler {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kruler_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KRuler::nativeEvent(eventType, message, result);
         }
+        return KRuler::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -980,14 +1009,15 @@ class VirtualKRuler final : public KRuler {
         if (kruler_metric_isbase) {
             kruler_metric_isbase = false;
             return KRuler::metric(param1);
-        } else if (kruler_metric_callback != nullptr) {
+        }
+        auto metric_cb = kruler_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kruler_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRuler::metric(param1);
         }
+        return KRuler::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -995,13 +1025,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_initpainter_isbase) {
             kruler_initpainter_isbase = false;
             KRuler::initPainter(painter);
-        } else if (kruler_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kruler_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kruler_initpainter_callback(this, cbval1);
-        } else {
-            KRuler::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KRuler::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,14 +1042,15 @@ class VirtualKRuler final : public KRuler {
         if (kruler_redirected_isbase) {
             kruler_redirected_isbase = false;
             return KRuler::redirected(offset);
-        } else if (kruler_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kruler_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kruler_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRuler::redirected(offset);
         }
+        return KRuler::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,12 +1058,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_sharedpainter_isbase) {
             kruler_sharedpainter_isbase = false;
             return KRuler::sharedPainter();
-        } else if (kruler_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kruler_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KRuler::sharedPainter();
         }
+        auto sharedpainter_cb = kruler_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KRuler::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,13 +1072,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_inputmethodevent_isbase) {
             kruler_inputmethodevent_isbase = false;
             KRuler::inputMethodEvent(param1);
-        } else if (kruler_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kruler_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kruler_inputmethodevent_callback(this, cbval1);
-        } else {
-            KRuler::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KRuler::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1051,14 +1089,15 @@ class VirtualKRuler final : public KRuler {
         if (kruler_inputmethodquery_isbase) {
             kruler_inputmethodquery_isbase = false;
             return KRuler::inputMethodQuery(param1);
-        } else if (kruler_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kruler_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kruler_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KRuler::inputMethodQuery(param1);
         }
+        return KRuler::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1066,14 +1105,15 @@ class VirtualKRuler final : public KRuler {
         if (kruler_focusnextprevchild_isbase) {
             kruler_focusnextprevchild_isbase = false;
             return KRuler::focusNextPrevChild(next);
-        } else if (kruler_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kruler_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kruler_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRuler::focusNextPrevChild(next);
         }
+        return KRuler::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1081,15 +1121,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_eventfilter_isbase) {
             kruler_eventfilter_isbase = false;
             return KRuler::eventFilter(watched, event);
-        } else if (kruler_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kruler_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kruler_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KRuler::eventFilter(watched, event);
         }
+        return KRuler::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1097,13 +1138,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_childevent_isbase) {
             kruler_childevent_isbase = false;
             KRuler::childEvent(event);
-        } else if (kruler_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kruler_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kruler_childevent_callback(this, cbval1);
-        } else {
-            KRuler::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KRuler::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1111,13 +1155,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_customevent_isbase) {
             kruler_customevent_isbase = false;
             KRuler::customEvent(event);
-        } else if (kruler_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kruler_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kruler_customevent_callback(this, cbval1);
-        } else {
-            KRuler::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KRuler::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1125,15 +1172,18 @@ class VirtualKRuler final : public KRuler {
         if (kruler_connectnotify_isbase) {
             kruler_connectnotify_isbase = false;
             KRuler::connectNotify(signal);
-        } else if (kruler_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kruler_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kruler_connectnotify_callback(this, cbval1);
-        } else {
-            KRuler::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KRuler::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1141,15 +1191,18 @@ class VirtualKRuler final : public KRuler {
         if (kruler_disconnectnotify_isbase) {
             kruler_disconnectnotify_isbase = false;
             KRuler::disconnectNotify(signal);
-        } else if (kruler_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kruler_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kruler_disconnectnotify_callback(this, cbval1);
-        } else {
-            KRuler::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KRuler::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1157,13 +1210,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_setrepeataction_isbase) {
             kruler_setrepeataction_isbase = false;
             KRuler::setRepeatAction(action);
-        } else if (kruler_setrepeataction_callback != nullptr) {
+            return;
+        }
+        auto setrepeataction_cb = kruler_setrepeataction_callback;
+        if (setrepeataction_cb) {
             int cbval1 = static_cast<int>(action);
 
-            kruler_setrepeataction_callback(this, cbval1);
-        } else {
-            KRuler::setRepeatAction(action);
+            setrepeataction_cb(this, cbval1);
+            return;
         }
+        KRuler::setRepeatAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1171,12 +1227,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_repeataction_isbase) {
             kruler_repeataction_isbase = false;
             return KRuler::repeatAction();
-        } else if (kruler_repeataction_callback != nullptr) {
-            int callback_ret = kruler_repeataction_callback();
-            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
-        } else {
-            return KRuler::repeatAction();
         }
+        auto repeataction_cb = kruler_repeataction_callback;
+        if (repeataction_cb) {
+            int callback_ret = repeataction_cb();
+            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
+        }
+        return KRuler::repeatAction();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,11 +1241,14 @@ class VirtualKRuler final : public KRuler {
         if (kruler_updatemicrofocus_isbase) {
             kruler_updatemicrofocus_isbase = false;
             KRuler::updateMicroFocus();
-        } else if (kruler_updatemicrofocus_callback != nullptr) {
-            kruler_updatemicrofocus_callback();
-        } else {
-            KRuler::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kruler_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KRuler::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1196,11 +1256,14 @@ class VirtualKRuler final : public KRuler {
         if (kruler_create_isbase) {
             kruler_create_isbase = false;
             KRuler::create();
-        } else if (kruler_create_callback != nullptr) {
-            kruler_create_callback();
-        } else {
-            KRuler::create();
+            return;
         }
+        auto create_cb = kruler_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KRuler::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1208,11 +1271,14 @@ class VirtualKRuler final : public KRuler {
         if (kruler_destroy_isbase) {
             kruler_destroy_isbase = false;
             KRuler::destroy();
-        } else if (kruler_destroy_callback != nullptr) {
-            kruler_destroy_callback();
-        } else {
-            KRuler::destroy();
+            return;
         }
+        auto destroy_cb = kruler_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KRuler::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1220,12 +1286,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_focusnextchild_isbase) {
             kruler_focusnextchild_isbase = false;
             return KRuler::focusNextChild();
-        } else if (kruler_focusnextchild_callback != nullptr) {
-            bool callback_ret = kruler_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KRuler::focusNextChild();
         }
+        auto focusnextchild_cb = kruler_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KRuler::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,12 +1300,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_focuspreviouschild_isbase) {
             kruler_focuspreviouschild_isbase = false;
             return KRuler::focusPreviousChild();
-        } else if (kruler_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kruler_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KRuler::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kruler_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KRuler::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,12 +1314,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_sender_isbase) {
             kruler_sender_isbase = false;
             return KRuler::sender();
-        } else if (kruler_sender_callback != nullptr) {
-            QObject* callback_ret = kruler_sender_callback();
-            return callback_ret;
-        } else {
-            return KRuler::sender();
         }
+        auto sender_cb = kruler_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KRuler::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,12 +1328,13 @@ class VirtualKRuler final : public KRuler {
         if (kruler_sendersignalindex_isbase) {
             kruler_sendersignalindex_isbase = false;
             return KRuler::senderSignalIndex();
-        } else if (kruler_sendersignalindex_callback != nullptr) {
-            int callback_ret = kruler_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KRuler::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kruler_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KRuler::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1272,14 +1342,15 @@ class VirtualKRuler final : public KRuler {
         if (kruler_receivers_isbase) {
             kruler_receivers_isbase = false;
             return KRuler::receivers(signal);
-        } else if (kruler_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kruler_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kruler_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRuler::receivers(signal);
         }
+        return KRuler::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1287,16 +1358,17 @@ class VirtualKRuler final : public KRuler {
         if (kruler_issignalconnected_isbase) {
             kruler_issignalconnected_isbase = false;
             return KRuler::isSignalConnected(signal);
-        } else if (kruler_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kruler_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kruler_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRuler::isSignalConnected(signal);
         }
+        return KRuler::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1304,15 +1376,16 @@ class VirtualKRuler final : public KRuler {
         if (kruler_getdecodedmetricf_isbase) {
             kruler_getdecodedmetricf_isbase = false;
             return KRuler::getDecodedMetricF(metricA, metricB);
-        } else if (kruler_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kruler_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kruler_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KRuler::getDecodedMetricF(metricA, metricB);
         }
+        return KRuler::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

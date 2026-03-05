@@ -36,12 +36,6 @@ class VirtualQInputEvent final : public QInputEvent {
     VirtualQInputEvent(QEvent::Type typeVal, const QInputDevice* m_dev) : QInputEvent(typeVal, m_dev) {};
     VirtualQInputEvent(QEvent::Type typeVal, const QInputDevice* m_dev, Qt::KeyboardModifiers modifiers) : QInputEvent(typeVal, m_dev, modifiers) {};
 
-    ~VirtualQInputEvent() {
-        qinputevent_clone_callback = nullptr;
-        qinputevent_settimestamp_callback = nullptr;
-        qinputevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQInputEvent_Clone_Callback(QInputEvent_Clone_Callback cb) { qinputevent_clone_callback = cb; }
     inline void setQInputEvent_SetTimestamp_Callback(QInputEvent_SetTimestamp_Callback cb) { qinputevent_settimestamp_callback = cb; }
@@ -57,12 +51,13 @@ class VirtualQInputEvent final : public QInputEvent {
         if (qinputevent_clone_isbase) {
             qinputevent_clone_isbase = false;
             return QInputEvent::clone();
-        } else if (qinputevent_clone_callback != nullptr) {
-            QInputEvent* callback_ret = qinputevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QInputEvent::clone();
         }
+        auto clone_cb = qinputevent_clone_callback;
+        if (clone_cb) {
+            QInputEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QInputEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -70,13 +65,16 @@ class VirtualQInputEvent final : public QInputEvent {
         if (qinputevent_settimestamp_isbase) {
             qinputevent_settimestamp_isbase = false;
             QInputEvent::setTimestamp(timestamp);
-        } else if (qinputevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qinputevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qinputevent_settimestamp_callback(this, cbval1);
-        } else {
-            QInputEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QInputEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -84,13 +82,16 @@ class VirtualQInputEvent final : public QInputEvent {
         if (qinputevent_setaccepted_isbase) {
             qinputevent_setaccepted_isbase = false;
             QInputEvent::setAccepted(accepted);
-        } else if (qinputevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qinputevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qinputevent_setaccepted_callback(this, cbval1);
-        } else {
-            QInputEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QInputEvent::setAccepted(accepted);
     }
 };
 
@@ -131,15 +132,6 @@ class VirtualQPointerEvent final : public QPointerEvent {
     VirtualQPointerEvent(QEvent::Type typeVal, const QPointingDevice* dev, Qt::KeyboardModifiers modifiers) : QPointerEvent(typeVal, dev, modifiers) {};
     VirtualQPointerEvent(QEvent::Type typeVal, const QPointingDevice* dev, Qt::KeyboardModifiers modifiers, const QList<QEventPoint>& points) : QPointerEvent(typeVal, dev, modifiers, points) {};
 
-    ~VirtualQPointerEvent() {
-        qpointerevent_clone_callback = nullptr;
-        qpointerevent_settimestamp_callback = nullptr;
-        qpointerevent_isbeginevent_callback = nullptr;
-        qpointerevent_isupdateevent_callback = nullptr;
-        qpointerevent_isendevent_callback = nullptr;
-        qpointerevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPointerEvent_Clone_Callback(QPointerEvent_Clone_Callback cb) { qpointerevent_clone_callback = cb; }
     inline void setQPointerEvent_SetTimestamp_Callback(QPointerEvent_SetTimestamp_Callback cb) { qpointerevent_settimestamp_callback = cb; }
@@ -161,12 +153,13 @@ class VirtualQPointerEvent final : public QPointerEvent {
         if (qpointerevent_clone_isbase) {
             qpointerevent_clone_isbase = false;
             return QPointerEvent::clone();
-        } else if (qpointerevent_clone_callback != nullptr) {
-            QPointerEvent* callback_ret = qpointerevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QPointerEvent::clone();
         }
+        auto clone_cb = qpointerevent_clone_callback;
+        if (clone_cb) {
+            QPointerEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QPointerEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,13 +167,16 @@ class VirtualQPointerEvent final : public QPointerEvent {
         if (qpointerevent_settimestamp_isbase) {
             qpointerevent_settimestamp_isbase = false;
             QPointerEvent::setTimestamp(timestamp);
-        } else if (qpointerevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qpointerevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qpointerevent_settimestamp_callback(this, cbval1);
-        } else {
-            QPointerEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QPointerEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -188,12 +184,13 @@ class VirtualQPointerEvent final : public QPointerEvent {
         if (qpointerevent_isbeginevent_isbase) {
             qpointerevent_isbeginevent_isbase = false;
             return QPointerEvent::isBeginEvent();
-        } else if (qpointerevent_isbeginevent_callback != nullptr) {
-            bool callback_ret = qpointerevent_isbeginevent_callback();
-            return callback_ret;
-        } else {
-            return QPointerEvent::isBeginEvent();
         }
+        auto isbeginevent_cb = qpointerevent_isbeginevent_callback;
+        if (isbeginevent_cb) {
+            bool callback_ret = isbeginevent_cb();
+            return callback_ret;
+        }
+        return QPointerEvent::isBeginEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,12 +198,13 @@ class VirtualQPointerEvent final : public QPointerEvent {
         if (qpointerevent_isupdateevent_isbase) {
             qpointerevent_isupdateevent_isbase = false;
             return QPointerEvent::isUpdateEvent();
-        } else if (qpointerevent_isupdateevent_callback != nullptr) {
-            bool callback_ret = qpointerevent_isupdateevent_callback();
-            return callback_ret;
-        } else {
-            return QPointerEvent::isUpdateEvent();
         }
+        auto isupdateevent_cb = qpointerevent_isupdateevent_callback;
+        if (isupdateevent_cb) {
+            bool callback_ret = isupdateevent_cb();
+            return callback_ret;
+        }
+        return QPointerEvent::isUpdateEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -214,12 +212,13 @@ class VirtualQPointerEvent final : public QPointerEvent {
         if (qpointerevent_isendevent_isbase) {
             qpointerevent_isendevent_isbase = false;
             return QPointerEvent::isEndEvent();
-        } else if (qpointerevent_isendevent_callback != nullptr) {
-            bool callback_ret = qpointerevent_isendevent_callback();
-            return callback_ret;
-        } else {
-            return QPointerEvent::isEndEvent();
         }
+        auto isendevent_cb = qpointerevent_isendevent_callback;
+        if (isendevent_cb) {
+            bool callback_ret = isendevent_cb();
+            return callback_ret;
+        }
+        return QPointerEvent::isEndEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +226,16 @@ class VirtualQPointerEvent final : public QPointerEvent {
         if (qpointerevent_setaccepted_isbase) {
             qpointerevent_setaccepted_isbase = false;
             QPointerEvent::setAccepted(accepted);
-        } else if (qpointerevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qpointerevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qpointerevent_setaccepted_callback(this, cbval1);
-        } else {
-            QPointerEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QPointerEvent::setAccepted(accepted);
     }
 };
 
@@ -273,15 +275,6 @@ class VirtualQEnterEvent final : public QEnterEvent {
     VirtualQEnterEvent(const QPointF& localPos, const QPointF& scenePos, const QPointF& globalPos) : QEnterEvent(localPos, scenePos, globalPos) {};
     VirtualQEnterEvent(const QPointF& localPos, const QPointF& scenePos, const QPointF& globalPos, const QPointingDevice* device) : QEnterEvent(localPos, scenePos, globalPos, device) {};
 
-    ~VirtualQEnterEvent() {
-        qenterevent_clone_callback = nullptr;
-        qenterevent_isbeginevent_callback = nullptr;
-        qenterevent_isupdateevent_callback = nullptr;
-        qenterevent_isendevent_callback = nullptr;
-        qenterevent_settimestamp_callback = nullptr;
-        qenterevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQEnterEvent_Clone_Callback(QEnterEvent_Clone_Callback cb) { qenterevent_clone_callback = cb; }
     inline void setQEnterEvent_IsBeginEvent_Callback(QEnterEvent_IsBeginEvent_Callback cb) { qenterevent_isbeginevent_callback = cb; }
@@ -303,12 +296,13 @@ class VirtualQEnterEvent final : public QEnterEvent {
         if (qenterevent_clone_isbase) {
             qenterevent_clone_isbase = false;
             return QEnterEvent::clone();
-        } else if (qenterevent_clone_callback != nullptr) {
-            QEnterEvent* callback_ret = qenterevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QEnterEvent::clone();
         }
+        auto clone_cb = qenterevent_clone_callback;
+        if (clone_cb) {
+            QEnterEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QEnterEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,12 +310,13 @@ class VirtualQEnterEvent final : public QEnterEvent {
         if (qenterevent_isbeginevent_isbase) {
             qenterevent_isbeginevent_isbase = false;
             return QEnterEvent::isBeginEvent();
-        } else if (qenterevent_isbeginevent_callback != nullptr) {
-            bool callback_ret = qenterevent_isbeginevent_callback();
-            return callback_ret;
-        } else {
-            return QEnterEvent::isBeginEvent();
         }
+        auto isbeginevent_cb = qenterevent_isbeginevent_callback;
+        if (isbeginevent_cb) {
+            bool callback_ret = isbeginevent_cb();
+            return callback_ret;
+        }
+        return QEnterEvent::isBeginEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,12 +324,13 @@ class VirtualQEnterEvent final : public QEnterEvent {
         if (qenterevent_isupdateevent_isbase) {
             qenterevent_isupdateevent_isbase = false;
             return QEnterEvent::isUpdateEvent();
-        } else if (qenterevent_isupdateevent_callback != nullptr) {
-            bool callback_ret = qenterevent_isupdateevent_callback();
-            return callback_ret;
-        } else {
-            return QEnterEvent::isUpdateEvent();
         }
+        auto isupdateevent_cb = qenterevent_isupdateevent_callback;
+        if (isupdateevent_cb) {
+            bool callback_ret = isupdateevent_cb();
+            return callback_ret;
+        }
+        return QEnterEvent::isUpdateEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -342,12 +338,13 @@ class VirtualQEnterEvent final : public QEnterEvent {
         if (qenterevent_isendevent_isbase) {
             qenterevent_isendevent_isbase = false;
             return QEnterEvent::isEndEvent();
-        } else if (qenterevent_isendevent_callback != nullptr) {
-            bool callback_ret = qenterevent_isendevent_callback();
-            return callback_ret;
-        } else {
-            return QEnterEvent::isEndEvent();
         }
+        auto isendevent_cb = qenterevent_isendevent_callback;
+        if (isendevent_cb) {
+            bool callback_ret = isendevent_cb();
+            return callback_ret;
+        }
+        return QEnterEvent::isEndEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -355,13 +352,16 @@ class VirtualQEnterEvent final : public QEnterEvent {
         if (qenterevent_settimestamp_isbase) {
             qenterevent_settimestamp_isbase = false;
             QEnterEvent::setTimestamp(timestamp);
-        } else if (qenterevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qenterevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qenterevent_settimestamp_callback(this, cbval1);
-        } else {
-            QEnterEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QEnterEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -369,13 +369,16 @@ class VirtualQEnterEvent final : public QEnterEvent {
         if (qenterevent_setaccepted_isbase) {
             qenterevent_setaccepted_isbase = false;
             QEnterEvent::setAccepted(accepted);
-        } else if (qenterevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qenterevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qenterevent_setaccepted_callback(this, cbval1);
-        } else {
-            QEnterEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QEnterEvent::setAccepted(accepted);
     }
 };
 
@@ -421,15 +424,6 @@ class VirtualQMouseEvent final : public QMouseEvent {
     VirtualQMouseEvent(QEvent::Type typeVal, const QPointF& localPos, const QPointF& scenePos, const QPointF& globalPos, Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, const QPointingDevice* device) : QMouseEvent(typeVal, localPos, scenePos, globalPos, button, buttons, modifiers, device) {};
     VirtualQMouseEvent(QEvent::Type typeVal, const QPointF& localPos, const QPointF& scenePos, const QPointF& globalPos, Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, Qt::MouseEventSource source, const QPointingDevice* device) : QMouseEvent(typeVal, localPos, scenePos, globalPos, button, buttons, modifiers, source, device) {};
 
-    ~VirtualQMouseEvent() {
-        qmouseevent_clone_callback = nullptr;
-        qmouseevent_isbeginevent_callback = nullptr;
-        qmouseevent_isupdateevent_callback = nullptr;
-        qmouseevent_isendevent_callback = nullptr;
-        qmouseevent_settimestamp_callback = nullptr;
-        qmouseevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMouseEvent_Clone_Callback(QMouseEvent_Clone_Callback cb) { qmouseevent_clone_callback = cb; }
     inline void setQMouseEvent_IsBeginEvent_Callback(QMouseEvent_IsBeginEvent_Callback cb) { qmouseevent_isbeginevent_callback = cb; }
@@ -451,12 +445,13 @@ class VirtualQMouseEvent final : public QMouseEvent {
         if (qmouseevent_clone_isbase) {
             qmouseevent_clone_isbase = false;
             return QMouseEvent::clone();
-        } else if (qmouseevent_clone_callback != nullptr) {
-            QMouseEvent* callback_ret = qmouseevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QMouseEvent::clone();
         }
+        auto clone_cb = qmouseevent_clone_callback;
+        if (clone_cb) {
+            QMouseEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QMouseEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,12 +459,13 @@ class VirtualQMouseEvent final : public QMouseEvent {
         if (qmouseevent_isbeginevent_isbase) {
             qmouseevent_isbeginevent_isbase = false;
             return QMouseEvent::isBeginEvent();
-        } else if (qmouseevent_isbeginevent_callback != nullptr) {
-            bool callback_ret = qmouseevent_isbeginevent_callback();
-            return callback_ret;
-        } else {
-            return QMouseEvent::isBeginEvent();
         }
+        auto isbeginevent_cb = qmouseevent_isbeginevent_callback;
+        if (isbeginevent_cb) {
+            bool callback_ret = isbeginevent_cb();
+            return callback_ret;
+        }
+        return QMouseEvent::isBeginEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -477,12 +473,13 @@ class VirtualQMouseEvent final : public QMouseEvent {
         if (qmouseevent_isupdateevent_isbase) {
             qmouseevent_isupdateevent_isbase = false;
             return QMouseEvent::isUpdateEvent();
-        } else if (qmouseevent_isupdateevent_callback != nullptr) {
-            bool callback_ret = qmouseevent_isupdateevent_callback();
-            return callback_ret;
-        } else {
-            return QMouseEvent::isUpdateEvent();
         }
+        auto isupdateevent_cb = qmouseevent_isupdateevent_callback;
+        if (isupdateevent_cb) {
+            bool callback_ret = isupdateevent_cb();
+            return callback_ret;
+        }
+        return QMouseEvent::isUpdateEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -490,12 +487,13 @@ class VirtualQMouseEvent final : public QMouseEvent {
         if (qmouseevent_isendevent_isbase) {
             qmouseevent_isendevent_isbase = false;
             return QMouseEvent::isEndEvent();
-        } else if (qmouseevent_isendevent_callback != nullptr) {
-            bool callback_ret = qmouseevent_isendevent_callback();
-            return callback_ret;
-        } else {
-            return QMouseEvent::isEndEvent();
         }
+        auto isendevent_cb = qmouseevent_isendevent_callback;
+        if (isendevent_cb) {
+            bool callback_ret = isendevent_cb();
+            return callback_ret;
+        }
+        return QMouseEvent::isEndEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -503,13 +501,16 @@ class VirtualQMouseEvent final : public QMouseEvent {
         if (qmouseevent_settimestamp_isbase) {
             qmouseevent_settimestamp_isbase = false;
             QMouseEvent::setTimestamp(timestamp);
-        } else if (qmouseevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qmouseevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qmouseevent_settimestamp_callback(this, cbval1);
-        } else {
-            QMouseEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QMouseEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -517,13 +518,16 @@ class VirtualQMouseEvent final : public QMouseEvent {
         if (qmouseevent_setaccepted_isbase) {
             qmouseevent_setaccepted_isbase = false;
             QMouseEvent::setAccepted(accepted);
-        } else if (qmouseevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qmouseevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qmouseevent_setaccepted_callback(this, cbval1);
-        } else {
-            QMouseEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QMouseEvent::setAccepted(accepted);
     }
 };
 
@@ -567,15 +571,6 @@ class VirtualQHoverEvent final : public QHoverEvent {
     VirtualQHoverEvent(QEvent::Type typeVal, const QPointF& pos, const QPointF& oldPos, Qt::KeyboardModifiers modifiers) : QHoverEvent(typeVal, pos, oldPos, modifiers) {};
     VirtualQHoverEvent(QEvent::Type typeVal, const QPointF& pos, const QPointF& oldPos, Qt::KeyboardModifiers modifiers, const QPointingDevice* device) : QHoverEvent(typeVal, pos, oldPos, modifiers, device) {};
 
-    ~VirtualQHoverEvent() {
-        qhoverevent_clone_callback = nullptr;
-        qhoverevent_isupdateevent_callback = nullptr;
-        qhoverevent_isbeginevent_callback = nullptr;
-        qhoverevent_isendevent_callback = nullptr;
-        qhoverevent_settimestamp_callback = nullptr;
-        qhoverevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQHoverEvent_Clone_Callback(QHoverEvent_Clone_Callback cb) { qhoverevent_clone_callback = cb; }
     inline void setQHoverEvent_IsUpdateEvent_Callback(QHoverEvent_IsUpdateEvent_Callback cb) { qhoverevent_isupdateevent_callback = cb; }
@@ -597,12 +592,13 @@ class VirtualQHoverEvent final : public QHoverEvent {
         if (qhoverevent_clone_isbase) {
             qhoverevent_clone_isbase = false;
             return QHoverEvent::clone();
-        } else if (qhoverevent_clone_callback != nullptr) {
-            QHoverEvent* callback_ret = qhoverevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QHoverEvent::clone();
         }
+        auto clone_cb = qhoverevent_clone_callback;
+        if (clone_cb) {
+            QHoverEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QHoverEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -610,12 +606,13 @@ class VirtualQHoverEvent final : public QHoverEvent {
         if (qhoverevent_isupdateevent_isbase) {
             qhoverevent_isupdateevent_isbase = false;
             return QHoverEvent::isUpdateEvent();
-        } else if (qhoverevent_isupdateevent_callback != nullptr) {
-            bool callback_ret = qhoverevent_isupdateevent_callback();
-            return callback_ret;
-        } else {
-            return QHoverEvent::isUpdateEvent();
         }
+        auto isupdateevent_cb = qhoverevent_isupdateevent_callback;
+        if (isupdateevent_cb) {
+            bool callback_ret = isupdateevent_cb();
+            return callback_ret;
+        }
+        return QHoverEvent::isUpdateEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -623,12 +620,13 @@ class VirtualQHoverEvent final : public QHoverEvent {
         if (qhoverevent_isbeginevent_isbase) {
             qhoverevent_isbeginevent_isbase = false;
             return QHoverEvent::isBeginEvent();
-        } else if (qhoverevent_isbeginevent_callback != nullptr) {
-            bool callback_ret = qhoverevent_isbeginevent_callback();
-            return callback_ret;
-        } else {
-            return QHoverEvent::isBeginEvent();
         }
+        auto isbeginevent_cb = qhoverevent_isbeginevent_callback;
+        if (isbeginevent_cb) {
+            bool callback_ret = isbeginevent_cb();
+            return callback_ret;
+        }
+        return QHoverEvent::isBeginEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,12 +634,13 @@ class VirtualQHoverEvent final : public QHoverEvent {
         if (qhoverevent_isendevent_isbase) {
             qhoverevent_isendevent_isbase = false;
             return QHoverEvent::isEndEvent();
-        } else if (qhoverevent_isendevent_callback != nullptr) {
-            bool callback_ret = qhoverevent_isendevent_callback();
-            return callback_ret;
-        } else {
-            return QHoverEvent::isEndEvent();
         }
+        auto isendevent_cb = qhoverevent_isendevent_callback;
+        if (isendevent_cb) {
+            bool callback_ret = isendevent_cb();
+            return callback_ret;
+        }
+        return QHoverEvent::isEndEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +648,16 @@ class VirtualQHoverEvent final : public QHoverEvent {
         if (qhoverevent_settimestamp_isbase) {
             qhoverevent_settimestamp_isbase = false;
             QHoverEvent::setTimestamp(timestamp);
-        } else if (qhoverevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qhoverevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qhoverevent_settimestamp_callback(this, cbval1);
-        } else {
-            QHoverEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QHoverEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +665,16 @@ class VirtualQHoverEvent final : public QHoverEvent {
         if (qhoverevent_setaccepted_isbase) {
             qhoverevent_setaccepted_isbase = false;
             QHoverEvent::setAccepted(accepted);
-        } else if (qhoverevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qhoverevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qhoverevent_setaccepted_callback(this, cbval1);
-        } else {
-            QHoverEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QHoverEvent::setAccepted(accepted);
     }
 };
 
@@ -710,15 +715,6 @@ class VirtualQWheelEvent final : public QWheelEvent {
     VirtualQWheelEvent(const QPointF& pos, const QPointF& globalPos, QPoint pixelDelta, QPoint angleDelta, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, Qt::ScrollPhase phase, bool inverted, Qt::MouseEventSource source) : QWheelEvent(pos, globalPos, pixelDelta, angleDelta, buttons, modifiers, phase, inverted, source) {};
     VirtualQWheelEvent(const QPointF& pos, const QPointF& globalPos, QPoint pixelDelta, QPoint angleDelta, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, Qt::ScrollPhase phase, bool inverted, Qt::MouseEventSource source, const QPointingDevice* device) : QWheelEvent(pos, globalPos, pixelDelta, angleDelta, buttons, modifiers, phase, inverted, source, device) {};
 
-    ~VirtualQWheelEvent() {
-        qwheelevent_clone_callback = nullptr;
-        qwheelevent_isbeginevent_callback = nullptr;
-        qwheelevent_isupdateevent_callback = nullptr;
-        qwheelevent_isendevent_callback = nullptr;
-        qwheelevent_settimestamp_callback = nullptr;
-        qwheelevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQWheelEvent_Clone_Callback(QWheelEvent_Clone_Callback cb) { qwheelevent_clone_callback = cb; }
     inline void setQWheelEvent_IsBeginEvent_Callback(QWheelEvent_IsBeginEvent_Callback cb) { qwheelevent_isbeginevent_callback = cb; }
@@ -740,12 +736,13 @@ class VirtualQWheelEvent final : public QWheelEvent {
         if (qwheelevent_clone_isbase) {
             qwheelevent_clone_isbase = false;
             return QWheelEvent::clone();
-        } else if (qwheelevent_clone_callback != nullptr) {
-            QWheelEvent* callback_ret = qwheelevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QWheelEvent::clone();
         }
+        auto clone_cb = qwheelevent_clone_callback;
+        if (clone_cb) {
+            QWheelEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QWheelEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -753,12 +750,13 @@ class VirtualQWheelEvent final : public QWheelEvent {
         if (qwheelevent_isbeginevent_isbase) {
             qwheelevent_isbeginevent_isbase = false;
             return QWheelEvent::isBeginEvent();
-        } else if (qwheelevent_isbeginevent_callback != nullptr) {
-            bool callback_ret = qwheelevent_isbeginevent_callback();
-            return callback_ret;
-        } else {
-            return QWheelEvent::isBeginEvent();
         }
+        auto isbeginevent_cb = qwheelevent_isbeginevent_callback;
+        if (isbeginevent_cb) {
+            bool callback_ret = isbeginevent_cb();
+            return callback_ret;
+        }
+        return QWheelEvent::isBeginEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -766,12 +764,13 @@ class VirtualQWheelEvent final : public QWheelEvent {
         if (qwheelevent_isupdateevent_isbase) {
             qwheelevent_isupdateevent_isbase = false;
             return QWheelEvent::isUpdateEvent();
-        } else if (qwheelevent_isupdateevent_callback != nullptr) {
-            bool callback_ret = qwheelevent_isupdateevent_callback();
-            return callback_ret;
-        } else {
-            return QWheelEvent::isUpdateEvent();
         }
+        auto isupdateevent_cb = qwheelevent_isupdateevent_callback;
+        if (isupdateevent_cb) {
+            bool callback_ret = isupdateevent_cb();
+            return callback_ret;
+        }
+        return QWheelEvent::isUpdateEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,12 +778,13 @@ class VirtualQWheelEvent final : public QWheelEvent {
         if (qwheelevent_isendevent_isbase) {
             qwheelevent_isendevent_isbase = false;
             return QWheelEvent::isEndEvent();
-        } else if (qwheelevent_isendevent_callback != nullptr) {
-            bool callback_ret = qwheelevent_isendevent_callback();
-            return callback_ret;
-        } else {
-            return QWheelEvent::isEndEvent();
         }
+        auto isendevent_cb = qwheelevent_isendevent_callback;
+        if (isendevent_cb) {
+            bool callback_ret = isendevent_cb();
+            return callback_ret;
+        }
+        return QWheelEvent::isEndEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -792,13 +792,16 @@ class VirtualQWheelEvent final : public QWheelEvent {
         if (qwheelevent_settimestamp_isbase) {
             qwheelevent_settimestamp_isbase = false;
             QWheelEvent::setTimestamp(timestamp);
-        } else if (qwheelevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qwheelevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qwheelevent_settimestamp_callback(this, cbval1);
-        } else {
-            QWheelEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QWheelEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -806,13 +809,16 @@ class VirtualQWheelEvent final : public QWheelEvent {
         if (qwheelevent_setaccepted_isbase) {
             qwheelevent_setaccepted_isbase = false;
             QWheelEvent::setAccepted(accepted);
-        } else if (qwheelevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qwheelevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qwheelevent_setaccepted_callback(this, cbval1);
-        } else {
-            QWheelEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QWheelEvent::setAccepted(accepted);
     }
 };
 
@@ -851,15 +857,6 @@ class VirtualQTabletEvent final : public QTabletEvent {
   public:
     VirtualQTabletEvent(QEvent::Type t, const QPointingDevice* device, const QPointF& pos, const QPointF& globalPos, qreal pressure, float xTilt, float yTilt, float tangentialPressure, qreal rotation, float z, Qt::KeyboardModifiers keyState, Qt::MouseButton button, Qt::MouseButtons buttons) : QTabletEvent(t, device, pos, globalPos, pressure, xTilt, yTilt, tangentialPressure, rotation, z, keyState, button, buttons) {};
 
-    ~VirtualQTabletEvent() {
-        qtabletevent_clone_callback = nullptr;
-        qtabletevent_isbeginevent_callback = nullptr;
-        qtabletevent_isupdateevent_callback = nullptr;
-        qtabletevent_isendevent_callback = nullptr;
-        qtabletevent_settimestamp_callback = nullptr;
-        qtabletevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTabletEvent_Clone_Callback(QTabletEvent_Clone_Callback cb) { qtabletevent_clone_callback = cb; }
     inline void setQTabletEvent_IsBeginEvent_Callback(QTabletEvent_IsBeginEvent_Callback cb) { qtabletevent_isbeginevent_callback = cb; }
@@ -881,12 +878,13 @@ class VirtualQTabletEvent final : public QTabletEvent {
         if (qtabletevent_clone_isbase) {
             qtabletevent_clone_isbase = false;
             return QTabletEvent::clone();
-        } else if (qtabletevent_clone_callback != nullptr) {
-            QTabletEvent* callback_ret = qtabletevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QTabletEvent::clone();
         }
+        auto clone_cb = qtabletevent_clone_callback;
+        if (clone_cb) {
+            QTabletEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QTabletEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -894,12 +892,13 @@ class VirtualQTabletEvent final : public QTabletEvent {
         if (qtabletevent_isbeginevent_isbase) {
             qtabletevent_isbeginevent_isbase = false;
             return QTabletEvent::isBeginEvent();
-        } else if (qtabletevent_isbeginevent_callback != nullptr) {
-            bool callback_ret = qtabletevent_isbeginevent_callback();
-            return callback_ret;
-        } else {
-            return QTabletEvent::isBeginEvent();
         }
+        auto isbeginevent_cb = qtabletevent_isbeginevent_callback;
+        if (isbeginevent_cb) {
+            bool callback_ret = isbeginevent_cb();
+            return callback_ret;
+        }
+        return QTabletEvent::isBeginEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -907,12 +906,13 @@ class VirtualQTabletEvent final : public QTabletEvent {
         if (qtabletevent_isupdateevent_isbase) {
             qtabletevent_isupdateevent_isbase = false;
             return QTabletEvent::isUpdateEvent();
-        } else if (qtabletevent_isupdateevent_callback != nullptr) {
-            bool callback_ret = qtabletevent_isupdateevent_callback();
-            return callback_ret;
-        } else {
-            return QTabletEvent::isUpdateEvent();
         }
+        auto isupdateevent_cb = qtabletevent_isupdateevent_callback;
+        if (isupdateevent_cb) {
+            bool callback_ret = isupdateevent_cb();
+            return callback_ret;
+        }
+        return QTabletEvent::isUpdateEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -920,12 +920,13 @@ class VirtualQTabletEvent final : public QTabletEvent {
         if (qtabletevent_isendevent_isbase) {
             qtabletevent_isendevent_isbase = false;
             return QTabletEvent::isEndEvent();
-        } else if (qtabletevent_isendevent_callback != nullptr) {
-            bool callback_ret = qtabletevent_isendevent_callback();
-            return callback_ret;
-        } else {
-            return QTabletEvent::isEndEvent();
         }
+        auto isendevent_cb = qtabletevent_isendevent_callback;
+        if (isendevent_cb) {
+            bool callback_ret = isendevent_cb();
+            return callback_ret;
+        }
+        return QTabletEvent::isEndEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +934,16 @@ class VirtualQTabletEvent final : public QTabletEvent {
         if (qtabletevent_settimestamp_isbase) {
             qtabletevent_settimestamp_isbase = false;
             QTabletEvent::setTimestamp(timestamp);
-        } else if (qtabletevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qtabletevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qtabletevent_settimestamp_callback(this, cbval1);
-        } else {
-            QTabletEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QTabletEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +951,16 @@ class VirtualQTabletEvent final : public QTabletEvent {
         if (qtabletevent_setaccepted_isbase) {
             qtabletevent_setaccepted_isbase = false;
             QTabletEvent::setAccepted(accepted);
-        } else if (qtabletevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qtabletevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qtabletevent_setaccepted_callback(this, cbval1);
-        } else {
-            QTabletEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QTabletEvent::setAccepted(accepted);
     }
 };
 
@@ -994,15 +1001,6 @@ class VirtualQNativeGestureEvent final : public QNativeGestureEvent {
     VirtualQNativeGestureEvent(Qt::NativeGestureType typeVal, const QPointingDevice* dev, int fingerCount, const QPointF& localPos, const QPointF& scenePos, const QPointF& globalPos, qreal value, const QPointF& delta) : QNativeGestureEvent(typeVal, dev, fingerCount, localPos, scenePos, globalPos, value, delta) {};
     VirtualQNativeGestureEvent(Qt::NativeGestureType typeVal, const QPointingDevice* dev, int fingerCount, const QPointF& localPos, const QPointF& scenePos, const QPointF& globalPos, qreal value, const QPointF& delta, quint64 sequenceId) : QNativeGestureEvent(typeVal, dev, fingerCount, localPos, scenePos, globalPos, value, delta, sequenceId) {};
 
-    ~VirtualQNativeGestureEvent() {
-        qnativegestureevent_clone_callback = nullptr;
-        qnativegestureevent_isbeginevent_callback = nullptr;
-        qnativegestureevent_isupdateevent_callback = nullptr;
-        qnativegestureevent_isendevent_callback = nullptr;
-        qnativegestureevent_settimestamp_callback = nullptr;
-        qnativegestureevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQNativeGestureEvent_Clone_Callback(QNativeGestureEvent_Clone_Callback cb) { qnativegestureevent_clone_callback = cb; }
     inline void setQNativeGestureEvent_IsBeginEvent_Callback(QNativeGestureEvent_IsBeginEvent_Callback cb) { qnativegestureevent_isbeginevent_callback = cb; }
@@ -1024,12 +1022,13 @@ class VirtualQNativeGestureEvent final : public QNativeGestureEvent {
         if (qnativegestureevent_clone_isbase) {
             qnativegestureevent_clone_isbase = false;
             return QNativeGestureEvent::clone();
-        } else if (qnativegestureevent_clone_callback != nullptr) {
-            QNativeGestureEvent* callback_ret = qnativegestureevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QNativeGestureEvent::clone();
         }
+        auto clone_cb = qnativegestureevent_clone_callback;
+        if (clone_cb) {
+            QNativeGestureEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QNativeGestureEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,12 +1036,13 @@ class VirtualQNativeGestureEvent final : public QNativeGestureEvent {
         if (qnativegestureevent_isbeginevent_isbase) {
             qnativegestureevent_isbeginevent_isbase = false;
             return QNativeGestureEvent::isBeginEvent();
-        } else if (qnativegestureevent_isbeginevent_callback != nullptr) {
-            bool callback_ret = qnativegestureevent_isbeginevent_callback();
-            return callback_ret;
-        } else {
-            return QNativeGestureEvent::isBeginEvent();
         }
+        auto isbeginevent_cb = qnativegestureevent_isbeginevent_callback;
+        if (isbeginevent_cb) {
+            bool callback_ret = isbeginevent_cb();
+            return callback_ret;
+        }
+        return QNativeGestureEvent::isBeginEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,12 +1050,13 @@ class VirtualQNativeGestureEvent final : public QNativeGestureEvent {
         if (qnativegestureevent_isupdateevent_isbase) {
             qnativegestureevent_isupdateevent_isbase = false;
             return QNativeGestureEvent::isUpdateEvent();
-        } else if (qnativegestureevent_isupdateevent_callback != nullptr) {
-            bool callback_ret = qnativegestureevent_isupdateevent_callback();
-            return callback_ret;
-        } else {
-            return QNativeGestureEvent::isUpdateEvent();
         }
+        auto isupdateevent_cb = qnativegestureevent_isupdateevent_callback;
+        if (isupdateevent_cb) {
+            bool callback_ret = isupdateevent_cb();
+            return callback_ret;
+        }
+        return QNativeGestureEvent::isUpdateEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,12 +1064,13 @@ class VirtualQNativeGestureEvent final : public QNativeGestureEvent {
         if (qnativegestureevent_isendevent_isbase) {
             qnativegestureevent_isendevent_isbase = false;
             return QNativeGestureEvent::isEndEvent();
-        } else if (qnativegestureevent_isendevent_callback != nullptr) {
-            bool callback_ret = qnativegestureevent_isendevent_callback();
-            return callback_ret;
-        } else {
-            return QNativeGestureEvent::isEndEvent();
         }
+        auto isendevent_cb = qnativegestureevent_isendevent_callback;
+        if (isendevent_cb) {
+            bool callback_ret = isendevent_cb();
+            return callback_ret;
+        }
+        return QNativeGestureEvent::isEndEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1076,13 +1078,16 @@ class VirtualQNativeGestureEvent final : public QNativeGestureEvent {
         if (qnativegestureevent_settimestamp_isbase) {
             qnativegestureevent_settimestamp_isbase = false;
             QNativeGestureEvent::setTimestamp(timestamp);
-        } else if (qnativegestureevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qnativegestureevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qnativegestureevent_settimestamp_callback(this, cbval1);
-        } else {
-            QNativeGestureEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QNativeGestureEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1090,13 +1095,16 @@ class VirtualQNativeGestureEvent final : public QNativeGestureEvent {
         if (qnativegestureevent_setaccepted_isbase) {
             qnativegestureevent_setaccepted_isbase = false;
             QNativeGestureEvent::setAccepted(accepted);
-        } else if (qnativegestureevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qnativegestureevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qnativegestureevent_setaccepted_callback(this, cbval1);
-        } else {
-            QNativeGestureEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QNativeGestureEvent::setAccepted(accepted);
     }
 };
 
@@ -1134,12 +1142,6 @@ class VirtualQKeyEvent final : public QKeyEvent {
     VirtualQKeyEvent(QEvent::Type typeVal, int key, Qt::KeyboardModifiers modifiers, quint32 nativeScanCode, quint32 nativeVirtualKey, quint32 nativeModifiers, const QString& text, bool autorep, quint16 count) : QKeyEvent(typeVal, key, modifiers, nativeScanCode, nativeVirtualKey, nativeModifiers, text, autorep, count) {};
     VirtualQKeyEvent(QEvent::Type typeVal, int key, Qt::KeyboardModifiers modifiers, quint32 nativeScanCode, quint32 nativeVirtualKey, quint32 nativeModifiers, const QString& text, bool autorep, quint16 count, const QInputDevice* device) : QKeyEvent(typeVal, key, modifiers, nativeScanCode, nativeVirtualKey, nativeModifiers, text, autorep, count, device) {};
 
-    ~VirtualQKeyEvent() {
-        qkeyevent_clone_callback = nullptr;
-        qkeyevent_settimestamp_callback = nullptr;
-        qkeyevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQKeyEvent_Clone_Callback(QKeyEvent_Clone_Callback cb) { qkeyevent_clone_callback = cb; }
     inline void setQKeyEvent_SetTimestamp_Callback(QKeyEvent_SetTimestamp_Callback cb) { qkeyevent_settimestamp_callback = cb; }
@@ -1155,12 +1157,13 @@ class VirtualQKeyEvent final : public QKeyEvent {
         if (qkeyevent_clone_isbase) {
             qkeyevent_clone_isbase = false;
             return QKeyEvent::clone();
-        } else if (qkeyevent_clone_callback != nullptr) {
-            QKeyEvent* callback_ret = qkeyevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QKeyEvent::clone();
         }
+        auto clone_cb = qkeyevent_clone_callback;
+        if (clone_cb) {
+            QKeyEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QKeyEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1168,13 +1171,16 @@ class VirtualQKeyEvent final : public QKeyEvent {
         if (qkeyevent_settimestamp_isbase) {
             qkeyevent_settimestamp_isbase = false;
             QKeyEvent::setTimestamp(timestamp);
-        } else if (qkeyevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qkeyevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qkeyevent_settimestamp_callback(this, cbval1);
-        } else {
-            QKeyEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QKeyEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1182,13 +1188,16 @@ class VirtualQKeyEvent final : public QKeyEvent {
         if (qkeyevent_setaccepted_isbase) {
             qkeyevent_setaccepted_isbase = false;
             QKeyEvent::setAccepted(accepted);
-        } else if (qkeyevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qkeyevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qkeyevent_setaccepted_callback(this, cbval1);
-        } else {
-            QKeyEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QKeyEvent::setAccepted(accepted);
     }
 };
 
@@ -1216,11 +1225,6 @@ class VirtualQFocusEvent final : public QFocusEvent {
     VirtualQFocusEvent(QEvent::Type typeVal) : QFocusEvent(typeVal) {};
     VirtualQFocusEvent(QEvent::Type typeVal, Qt::FocusReason reason) : QFocusEvent(typeVal, reason) {};
 
-    ~VirtualQFocusEvent() {
-        qfocusevent_clone_callback = nullptr;
-        qfocusevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQFocusEvent_Clone_Callback(QFocusEvent_Clone_Callback cb) { qfocusevent_clone_callback = cb; }
     inline void setQFocusEvent_SetAccepted_Callback(QFocusEvent_SetAccepted_Callback cb) { qfocusevent_setaccepted_callback = cb; }
@@ -1234,12 +1238,13 @@ class VirtualQFocusEvent final : public QFocusEvent {
         if (qfocusevent_clone_isbase) {
             qfocusevent_clone_isbase = false;
             return QFocusEvent::clone();
-        } else if (qfocusevent_clone_callback != nullptr) {
-            QFocusEvent* callback_ret = qfocusevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QFocusEvent::clone();
         }
+        auto clone_cb = qfocusevent_clone_callback;
+        if (clone_cb) {
+            QFocusEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QFocusEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,13 +1252,16 @@ class VirtualQFocusEvent final : public QFocusEvent {
         if (qfocusevent_setaccepted_isbase) {
             qfocusevent_setaccepted_isbase = false;
             QFocusEvent::setAccepted(accepted);
-        } else if (qfocusevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qfocusevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qfocusevent_setaccepted_callback(this, cbval1);
-        } else {
-            QFocusEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QFocusEvent::setAccepted(accepted);
     }
 };
 
@@ -1281,11 +1289,6 @@ class VirtualQPaintEvent final : public QPaintEvent {
     VirtualQPaintEvent(const QRegion& paintRegion) : QPaintEvent(paintRegion) {};
     VirtualQPaintEvent(const QRect& paintRect) : QPaintEvent(paintRect) {};
 
-    ~VirtualQPaintEvent() {
-        qpaintevent_clone_callback = nullptr;
-        qpaintevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPaintEvent_Clone_Callback(QPaintEvent_Clone_Callback cb) { qpaintevent_clone_callback = cb; }
     inline void setQPaintEvent_SetAccepted_Callback(QPaintEvent_SetAccepted_Callback cb) { qpaintevent_setaccepted_callback = cb; }
@@ -1299,12 +1302,13 @@ class VirtualQPaintEvent final : public QPaintEvent {
         if (qpaintevent_clone_isbase) {
             qpaintevent_clone_isbase = false;
             return QPaintEvent::clone();
-        } else if (qpaintevent_clone_callback != nullptr) {
-            QPaintEvent* callback_ret = qpaintevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QPaintEvent::clone();
         }
+        auto clone_cb = qpaintevent_clone_callback;
+        if (clone_cb) {
+            QPaintEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QPaintEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1312,13 +1316,16 @@ class VirtualQPaintEvent final : public QPaintEvent {
         if (qpaintevent_setaccepted_isbase) {
             qpaintevent_setaccepted_isbase = false;
             QPaintEvent::setAccepted(accepted);
-        } else if (qpaintevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qpaintevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qpaintevent_setaccepted_callback(this, cbval1);
-        } else {
-            QPaintEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QPaintEvent::setAccepted(accepted);
     }
 };
 
@@ -1345,11 +1352,6 @@ class VirtualQMoveEvent final : public QMoveEvent {
   public:
     VirtualQMoveEvent(const QPoint& pos, const QPoint& oldPos) : QMoveEvent(pos, oldPos) {};
 
-    ~VirtualQMoveEvent() {
-        qmoveevent_clone_callback = nullptr;
-        qmoveevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMoveEvent_Clone_Callback(QMoveEvent_Clone_Callback cb) { qmoveevent_clone_callback = cb; }
     inline void setQMoveEvent_SetAccepted_Callback(QMoveEvent_SetAccepted_Callback cb) { qmoveevent_setaccepted_callback = cb; }
@@ -1363,12 +1365,13 @@ class VirtualQMoveEvent final : public QMoveEvent {
         if (qmoveevent_clone_isbase) {
             qmoveevent_clone_isbase = false;
             return QMoveEvent::clone();
-        } else if (qmoveevent_clone_callback != nullptr) {
-            QMoveEvent* callback_ret = qmoveevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QMoveEvent::clone();
         }
+        auto clone_cb = qmoveevent_clone_callback;
+        if (clone_cb) {
+            QMoveEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QMoveEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1376,13 +1379,16 @@ class VirtualQMoveEvent final : public QMoveEvent {
         if (qmoveevent_setaccepted_isbase) {
             qmoveevent_setaccepted_isbase = false;
             QMoveEvent::setAccepted(accepted);
-        } else if (qmoveevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qmoveevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qmoveevent_setaccepted_callback(this, cbval1);
-        } else {
-            QMoveEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QMoveEvent::setAccepted(accepted);
     }
 };
 
@@ -1409,11 +1415,6 @@ class VirtualQExposeEvent final : public QExposeEvent {
   public:
     VirtualQExposeEvent(const QRegion& m_region) : QExposeEvent(m_region) {};
 
-    ~VirtualQExposeEvent() {
-        qexposeevent_clone_callback = nullptr;
-        qexposeevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQExposeEvent_Clone_Callback(QExposeEvent_Clone_Callback cb) { qexposeevent_clone_callback = cb; }
     inline void setQExposeEvent_SetAccepted_Callback(QExposeEvent_SetAccepted_Callback cb) { qexposeevent_setaccepted_callback = cb; }
@@ -1427,12 +1428,13 @@ class VirtualQExposeEvent final : public QExposeEvent {
         if (qexposeevent_clone_isbase) {
             qexposeevent_clone_isbase = false;
             return QExposeEvent::clone();
-        } else if (qexposeevent_clone_callback != nullptr) {
-            QExposeEvent* callback_ret = qexposeevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QExposeEvent::clone();
         }
+        auto clone_cb = qexposeevent_clone_callback;
+        if (clone_cb) {
+            QExposeEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QExposeEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1440,13 +1442,16 @@ class VirtualQExposeEvent final : public QExposeEvent {
         if (qexposeevent_setaccepted_isbase) {
             qexposeevent_setaccepted_isbase = false;
             QExposeEvent::setAccepted(accepted);
-        } else if (qexposeevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qexposeevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qexposeevent_setaccepted_callback(this, cbval1);
-        } else {
-            QExposeEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QExposeEvent::setAccepted(accepted);
     }
 };
 
@@ -1473,11 +1478,6 @@ class VirtualQPlatformSurfaceEvent final : public QPlatformSurfaceEvent {
   public:
     VirtualQPlatformSurfaceEvent(QPlatformSurfaceEvent::SurfaceEventType surfaceEventType) : QPlatformSurfaceEvent(surfaceEventType) {};
 
-    ~VirtualQPlatformSurfaceEvent() {
-        qplatformsurfaceevent_clone_callback = nullptr;
-        qplatformsurfaceevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPlatformSurfaceEvent_Clone_Callback(QPlatformSurfaceEvent_Clone_Callback cb) { qplatformsurfaceevent_clone_callback = cb; }
     inline void setQPlatformSurfaceEvent_SetAccepted_Callback(QPlatformSurfaceEvent_SetAccepted_Callback cb) { qplatformsurfaceevent_setaccepted_callback = cb; }
@@ -1491,12 +1491,13 @@ class VirtualQPlatformSurfaceEvent final : public QPlatformSurfaceEvent {
         if (qplatformsurfaceevent_clone_isbase) {
             qplatformsurfaceevent_clone_isbase = false;
             return QPlatformSurfaceEvent::clone();
-        } else if (qplatformsurfaceevent_clone_callback != nullptr) {
-            QPlatformSurfaceEvent* callback_ret = qplatformsurfaceevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QPlatformSurfaceEvent::clone();
         }
+        auto clone_cb = qplatformsurfaceevent_clone_callback;
+        if (clone_cb) {
+            QPlatformSurfaceEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QPlatformSurfaceEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1504,13 +1505,16 @@ class VirtualQPlatformSurfaceEvent final : public QPlatformSurfaceEvent {
         if (qplatformsurfaceevent_setaccepted_isbase) {
             qplatformsurfaceevent_setaccepted_isbase = false;
             QPlatformSurfaceEvent::setAccepted(accepted);
-        } else if (qplatformsurfaceevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qplatformsurfaceevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qplatformsurfaceevent_setaccepted_callback(this, cbval1);
-        } else {
-            QPlatformSurfaceEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QPlatformSurfaceEvent::setAccepted(accepted);
     }
 };
 
@@ -1537,11 +1541,6 @@ class VirtualQResizeEvent final : public QResizeEvent {
   public:
     VirtualQResizeEvent(const QSize& size, const QSize& oldSize) : QResizeEvent(size, oldSize) {};
 
-    ~VirtualQResizeEvent() {
-        qresizeevent_clone_callback = nullptr;
-        qresizeevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQResizeEvent_Clone_Callback(QResizeEvent_Clone_Callback cb) { qresizeevent_clone_callback = cb; }
     inline void setQResizeEvent_SetAccepted_Callback(QResizeEvent_SetAccepted_Callback cb) { qresizeevent_setaccepted_callback = cb; }
@@ -1555,12 +1554,13 @@ class VirtualQResizeEvent final : public QResizeEvent {
         if (qresizeevent_clone_isbase) {
             qresizeevent_clone_isbase = false;
             return QResizeEvent::clone();
-        } else if (qresizeevent_clone_callback != nullptr) {
-            QResizeEvent* callback_ret = qresizeevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QResizeEvent::clone();
         }
+        auto clone_cb = qresizeevent_clone_callback;
+        if (clone_cb) {
+            QResizeEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QResizeEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1568,13 +1568,16 @@ class VirtualQResizeEvent final : public QResizeEvent {
         if (qresizeevent_setaccepted_isbase) {
             qresizeevent_setaccepted_isbase = false;
             QResizeEvent::setAccepted(accepted);
-        } else if (qresizeevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qresizeevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qresizeevent_setaccepted_callback(this, cbval1);
-        } else {
-            QResizeEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QResizeEvent::setAccepted(accepted);
     }
 };
 
@@ -1601,11 +1604,6 @@ class VirtualQCloseEvent final : public QCloseEvent {
   public:
     VirtualQCloseEvent() : QCloseEvent() {};
 
-    ~VirtualQCloseEvent() {
-        qcloseevent_clone_callback = nullptr;
-        qcloseevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQCloseEvent_Clone_Callback(QCloseEvent_Clone_Callback cb) { qcloseevent_clone_callback = cb; }
     inline void setQCloseEvent_SetAccepted_Callback(QCloseEvent_SetAccepted_Callback cb) { qcloseevent_setaccepted_callback = cb; }
@@ -1619,12 +1617,13 @@ class VirtualQCloseEvent final : public QCloseEvent {
         if (qcloseevent_clone_isbase) {
             qcloseevent_clone_isbase = false;
             return QCloseEvent::clone();
-        } else if (qcloseevent_clone_callback != nullptr) {
-            QCloseEvent* callback_ret = qcloseevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QCloseEvent::clone();
         }
+        auto clone_cb = qcloseevent_clone_callback;
+        if (clone_cb) {
+            QCloseEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QCloseEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1632,13 +1631,16 @@ class VirtualQCloseEvent final : public QCloseEvent {
         if (qcloseevent_setaccepted_isbase) {
             qcloseevent_setaccepted_isbase = false;
             QCloseEvent::setAccepted(accepted);
-        } else if (qcloseevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qcloseevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qcloseevent_setaccepted_callback(this, cbval1);
-        } else {
-            QCloseEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QCloseEvent::setAccepted(accepted);
     }
 };
 
@@ -1665,11 +1667,6 @@ class VirtualQIconDragEvent final : public QIconDragEvent {
   public:
     VirtualQIconDragEvent() : QIconDragEvent() {};
 
-    ~VirtualQIconDragEvent() {
-        qicondragevent_clone_callback = nullptr;
-        qicondragevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQIconDragEvent_Clone_Callback(QIconDragEvent_Clone_Callback cb) { qicondragevent_clone_callback = cb; }
     inline void setQIconDragEvent_SetAccepted_Callback(QIconDragEvent_SetAccepted_Callback cb) { qicondragevent_setaccepted_callback = cb; }
@@ -1683,12 +1680,13 @@ class VirtualQIconDragEvent final : public QIconDragEvent {
         if (qicondragevent_clone_isbase) {
             qicondragevent_clone_isbase = false;
             return QIconDragEvent::clone();
-        } else if (qicondragevent_clone_callback != nullptr) {
-            QIconDragEvent* callback_ret = qicondragevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QIconDragEvent::clone();
         }
+        auto clone_cb = qicondragevent_clone_callback;
+        if (clone_cb) {
+            QIconDragEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QIconDragEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1696,13 +1694,16 @@ class VirtualQIconDragEvent final : public QIconDragEvent {
         if (qicondragevent_setaccepted_isbase) {
             qicondragevent_setaccepted_isbase = false;
             QIconDragEvent::setAccepted(accepted);
-        } else if (qicondragevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qicondragevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qicondragevent_setaccepted_callback(this, cbval1);
-        } else {
-            QIconDragEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QIconDragEvent::setAccepted(accepted);
     }
 };
 
@@ -1729,11 +1730,6 @@ class VirtualQShowEvent final : public QShowEvent {
   public:
     VirtualQShowEvent() : QShowEvent() {};
 
-    ~VirtualQShowEvent() {
-        qshowevent_clone_callback = nullptr;
-        qshowevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQShowEvent_Clone_Callback(QShowEvent_Clone_Callback cb) { qshowevent_clone_callback = cb; }
     inline void setQShowEvent_SetAccepted_Callback(QShowEvent_SetAccepted_Callback cb) { qshowevent_setaccepted_callback = cb; }
@@ -1747,12 +1743,13 @@ class VirtualQShowEvent final : public QShowEvent {
         if (qshowevent_clone_isbase) {
             qshowevent_clone_isbase = false;
             return QShowEvent::clone();
-        } else if (qshowevent_clone_callback != nullptr) {
-            QShowEvent* callback_ret = qshowevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QShowEvent::clone();
         }
+        auto clone_cb = qshowevent_clone_callback;
+        if (clone_cb) {
+            QShowEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QShowEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1760,13 +1757,16 @@ class VirtualQShowEvent final : public QShowEvent {
         if (qshowevent_setaccepted_isbase) {
             qshowevent_setaccepted_isbase = false;
             QShowEvent::setAccepted(accepted);
-        } else if (qshowevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qshowevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qshowevent_setaccepted_callback(this, cbval1);
-        } else {
-            QShowEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QShowEvent::setAccepted(accepted);
     }
 };
 
@@ -1793,11 +1793,6 @@ class VirtualQHideEvent final : public QHideEvent {
   public:
     VirtualQHideEvent() : QHideEvent() {};
 
-    ~VirtualQHideEvent() {
-        qhideevent_clone_callback = nullptr;
-        qhideevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQHideEvent_Clone_Callback(QHideEvent_Clone_Callback cb) { qhideevent_clone_callback = cb; }
     inline void setQHideEvent_SetAccepted_Callback(QHideEvent_SetAccepted_Callback cb) { qhideevent_setaccepted_callback = cb; }
@@ -1811,12 +1806,13 @@ class VirtualQHideEvent final : public QHideEvent {
         if (qhideevent_clone_isbase) {
             qhideevent_clone_isbase = false;
             return QHideEvent::clone();
-        } else if (qhideevent_clone_callback != nullptr) {
-            QHideEvent* callback_ret = qhideevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QHideEvent::clone();
         }
+        auto clone_cb = qhideevent_clone_callback;
+        if (clone_cb) {
+            QHideEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QHideEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1824,13 +1820,16 @@ class VirtualQHideEvent final : public QHideEvent {
         if (qhideevent_setaccepted_isbase) {
             qhideevent_setaccepted_isbase = false;
             QHideEvent::setAccepted(accepted);
-        } else if (qhideevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qhideevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qhideevent_setaccepted_callback(this, cbval1);
-        } else {
-            QHideEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QHideEvent::setAccepted(accepted);
     }
 };
 
@@ -1862,12 +1861,6 @@ class VirtualQContextMenuEvent final : public QContextMenuEvent {
     VirtualQContextMenuEvent(QContextMenuEvent::Reason reason, const QPoint& pos) : QContextMenuEvent(reason, pos) {};
     VirtualQContextMenuEvent(QContextMenuEvent::Reason reason, const QPoint& pos, const QPoint& globalPos, Qt::KeyboardModifiers modifiers) : QContextMenuEvent(reason, pos, globalPos, modifiers) {};
 
-    ~VirtualQContextMenuEvent() {
-        qcontextmenuevent_clone_callback = nullptr;
-        qcontextmenuevent_settimestamp_callback = nullptr;
-        qcontextmenuevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQContextMenuEvent_Clone_Callback(QContextMenuEvent_Clone_Callback cb) { qcontextmenuevent_clone_callback = cb; }
     inline void setQContextMenuEvent_SetTimestamp_Callback(QContextMenuEvent_SetTimestamp_Callback cb) { qcontextmenuevent_settimestamp_callback = cb; }
@@ -1883,12 +1876,13 @@ class VirtualQContextMenuEvent final : public QContextMenuEvent {
         if (qcontextmenuevent_clone_isbase) {
             qcontextmenuevent_clone_isbase = false;
             return QContextMenuEvent::clone();
-        } else if (qcontextmenuevent_clone_callback != nullptr) {
-            QContextMenuEvent* callback_ret = qcontextmenuevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QContextMenuEvent::clone();
         }
+        auto clone_cb = qcontextmenuevent_clone_callback;
+        if (clone_cb) {
+            QContextMenuEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QContextMenuEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1896,13 +1890,16 @@ class VirtualQContextMenuEvent final : public QContextMenuEvent {
         if (qcontextmenuevent_settimestamp_isbase) {
             qcontextmenuevent_settimestamp_isbase = false;
             QContextMenuEvent::setTimestamp(timestamp);
-        } else if (qcontextmenuevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qcontextmenuevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qcontextmenuevent_settimestamp_callback(this, cbval1);
-        } else {
-            QContextMenuEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QContextMenuEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1910,13 +1907,16 @@ class VirtualQContextMenuEvent final : public QContextMenuEvent {
         if (qcontextmenuevent_setaccepted_isbase) {
             qcontextmenuevent_setaccepted_isbase = false;
             QContextMenuEvent::setAccepted(accepted);
-        } else if (qcontextmenuevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qcontextmenuevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qcontextmenuevent_setaccepted_callback(this, cbval1);
-        } else {
-            QContextMenuEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QContextMenuEvent::setAccepted(accepted);
     }
 };
 
@@ -1944,11 +1944,6 @@ class VirtualQInputMethodEvent final : public QInputMethodEvent {
     VirtualQInputMethodEvent() : QInputMethodEvent() {};
     VirtualQInputMethodEvent(const QString& preeditText, const QList<QInputMethodEvent::Attribute>& attributes) : QInputMethodEvent(preeditText, attributes) {};
 
-    ~VirtualQInputMethodEvent() {
-        qinputmethodevent_clone_callback = nullptr;
-        qinputmethodevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQInputMethodEvent_Clone_Callback(QInputMethodEvent_Clone_Callback cb) { qinputmethodevent_clone_callback = cb; }
     inline void setQInputMethodEvent_SetAccepted_Callback(QInputMethodEvent_SetAccepted_Callback cb) { qinputmethodevent_setaccepted_callback = cb; }
@@ -1962,12 +1957,13 @@ class VirtualQInputMethodEvent final : public QInputMethodEvent {
         if (qinputmethodevent_clone_isbase) {
             qinputmethodevent_clone_isbase = false;
             return QInputMethodEvent::clone();
-        } else if (qinputmethodevent_clone_callback != nullptr) {
-            QInputMethodEvent* callback_ret = qinputmethodevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QInputMethodEvent::clone();
         }
+        auto clone_cb = qinputmethodevent_clone_callback;
+        if (clone_cb) {
+            QInputMethodEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QInputMethodEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1975,13 +1971,16 @@ class VirtualQInputMethodEvent final : public QInputMethodEvent {
         if (qinputmethodevent_setaccepted_isbase) {
             qinputmethodevent_setaccepted_isbase = false;
             QInputMethodEvent::setAccepted(accepted);
-        } else if (qinputmethodevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qinputmethodevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qinputmethodevent_setaccepted_callback(this, cbval1);
-        } else {
-            QInputMethodEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QInputMethodEvent::setAccepted(accepted);
     }
 };
 
@@ -2008,11 +2007,6 @@ class VirtualQInputMethodQueryEvent final : public QInputMethodQueryEvent {
   public:
     VirtualQInputMethodQueryEvent(Qt::InputMethodQueries queries) : QInputMethodQueryEvent(queries) {};
 
-    ~VirtualQInputMethodQueryEvent() {
-        qinputmethodqueryevent_clone_callback = nullptr;
-        qinputmethodqueryevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQInputMethodQueryEvent_Clone_Callback(QInputMethodQueryEvent_Clone_Callback cb) { qinputmethodqueryevent_clone_callback = cb; }
     inline void setQInputMethodQueryEvent_SetAccepted_Callback(QInputMethodQueryEvent_SetAccepted_Callback cb) { qinputmethodqueryevent_setaccepted_callback = cb; }
@@ -2026,12 +2020,13 @@ class VirtualQInputMethodQueryEvent final : public QInputMethodQueryEvent {
         if (qinputmethodqueryevent_clone_isbase) {
             qinputmethodqueryevent_clone_isbase = false;
             return QInputMethodQueryEvent::clone();
-        } else if (qinputmethodqueryevent_clone_callback != nullptr) {
-            QInputMethodQueryEvent* callback_ret = qinputmethodqueryevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QInputMethodQueryEvent::clone();
         }
+        auto clone_cb = qinputmethodqueryevent_clone_callback;
+        if (clone_cb) {
+            QInputMethodQueryEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QInputMethodQueryEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2039,13 +2034,16 @@ class VirtualQInputMethodQueryEvent final : public QInputMethodQueryEvent {
         if (qinputmethodqueryevent_setaccepted_isbase) {
             qinputmethodqueryevent_setaccepted_isbase = false;
             QInputMethodQueryEvent::setAccepted(accepted);
-        } else if (qinputmethodqueryevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qinputmethodqueryevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qinputmethodqueryevent_setaccepted_callback(this, cbval1);
-        } else {
-            QInputMethodQueryEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QInputMethodQueryEvent::setAccepted(accepted);
     }
 };
 
@@ -2073,11 +2071,6 @@ class VirtualQDropEvent final : public QDropEvent {
     VirtualQDropEvent(const QPointF& pos, Qt::DropActions actions, const QMimeData* data, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers) : QDropEvent(pos, actions, data, buttons, modifiers) {};
     VirtualQDropEvent(const QPointF& pos, Qt::DropActions actions, const QMimeData* data, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, QEvent::Type typeVal) : QDropEvent(pos, actions, data, buttons, modifiers, typeVal) {};
 
-    ~VirtualQDropEvent() {
-        qdropevent_clone_callback = nullptr;
-        qdropevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDropEvent_Clone_Callback(QDropEvent_Clone_Callback cb) { qdropevent_clone_callback = cb; }
     inline void setQDropEvent_SetAccepted_Callback(QDropEvent_SetAccepted_Callback cb) { qdropevent_setaccepted_callback = cb; }
@@ -2091,12 +2084,13 @@ class VirtualQDropEvent final : public QDropEvent {
         if (qdropevent_clone_isbase) {
             qdropevent_clone_isbase = false;
             return QDropEvent::clone();
-        } else if (qdropevent_clone_callback != nullptr) {
-            QDropEvent* callback_ret = qdropevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QDropEvent::clone();
         }
+        auto clone_cb = qdropevent_clone_callback;
+        if (clone_cb) {
+            QDropEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QDropEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2104,13 +2098,16 @@ class VirtualQDropEvent final : public QDropEvent {
         if (qdropevent_setaccepted_isbase) {
             qdropevent_setaccepted_isbase = false;
             QDropEvent::setAccepted(accepted);
-        } else if (qdropevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qdropevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qdropevent_setaccepted_callback(this, cbval1);
-        } else {
-            QDropEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QDropEvent::setAccepted(accepted);
     }
 };
 
@@ -2138,11 +2135,6 @@ class VirtualQDragMoveEvent final : public QDragMoveEvent {
     VirtualQDragMoveEvent(const QPoint& pos, Qt::DropActions actions, const QMimeData* data, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers) : QDragMoveEvent(pos, actions, data, buttons, modifiers) {};
     VirtualQDragMoveEvent(const QPoint& pos, Qt::DropActions actions, const QMimeData* data, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, QEvent::Type typeVal) : QDragMoveEvent(pos, actions, data, buttons, modifiers, typeVal) {};
 
-    ~VirtualQDragMoveEvent() {
-        qdragmoveevent_clone_callback = nullptr;
-        qdragmoveevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDragMoveEvent_Clone_Callback(QDragMoveEvent_Clone_Callback cb) { qdragmoveevent_clone_callback = cb; }
     inline void setQDragMoveEvent_SetAccepted_Callback(QDragMoveEvent_SetAccepted_Callback cb) { qdragmoveevent_setaccepted_callback = cb; }
@@ -2156,12 +2148,13 @@ class VirtualQDragMoveEvent final : public QDragMoveEvent {
         if (qdragmoveevent_clone_isbase) {
             qdragmoveevent_clone_isbase = false;
             return QDragMoveEvent::clone();
-        } else if (qdragmoveevent_clone_callback != nullptr) {
-            QDragMoveEvent* callback_ret = qdragmoveevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QDragMoveEvent::clone();
         }
+        auto clone_cb = qdragmoveevent_clone_callback;
+        if (clone_cb) {
+            QDragMoveEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QDragMoveEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2169,13 +2162,16 @@ class VirtualQDragMoveEvent final : public QDragMoveEvent {
         if (qdragmoveevent_setaccepted_isbase) {
             qdragmoveevent_setaccepted_isbase = false;
             QDragMoveEvent::setAccepted(accepted);
-        } else if (qdragmoveevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qdragmoveevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qdragmoveevent_setaccepted_callback(this, cbval1);
-        } else {
-            QDragMoveEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QDragMoveEvent::setAccepted(accepted);
     }
 };
 
@@ -2202,11 +2198,6 @@ class VirtualQDragEnterEvent final : public QDragEnterEvent {
   public:
     VirtualQDragEnterEvent(const QPoint& pos, Qt::DropActions actions, const QMimeData* data, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers) : QDragEnterEvent(pos, actions, data, buttons, modifiers) {};
 
-    ~VirtualQDragEnterEvent() {
-        qdragenterevent_clone_callback = nullptr;
-        qdragenterevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDragEnterEvent_Clone_Callback(QDragEnterEvent_Clone_Callback cb) { qdragenterevent_clone_callback = cb; }
     inline void setQDragEnterEvent_SetAccepted_Callback(QDragEnterEvent_SetAccepted_Callback cb) { qdragenterevent_setaccepted_callback = cb; }
@@ -2220,12 +2211,13 @@ class VirtualQDragEnterEvent final : public QDragEnterEvent {
         if (qdragenterevent_clone_isbase) {
             qdragenterevent_clone_isbase = false;
             return QDragEnterEvent::clone();
-        } else if (qdragenterevent_clone_callback != nullptr) {
-            QDragEnterEvent* callback_ret = qdragenterevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QDragEnterEvent::clone();
         }
+        auto clone_cb = qdragenterevent_clone_callback;
+        if (clone_cb) {
+            QDragEnterEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QDragEnterEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2233,13 +2225,16 @@ class VirtualQDragEnterEvent final : public QDragEnterEvent {
         if (qdragenterevent_setaccepted_isbase) {
             qdragenterevent_setaccepted_isbase = false;
             QDragEnterEvent::setAccepted(accepted);
-        } else if (qdragenterevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qdragenterevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qdragenterevent_setaccepted_callback(this, cbval1);
-        } else {
-            QDragEnterEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QDragEnterEvent::setAccepted(accepted);
     }
 };
 
@@ -2266,11 +2261,6 @@ class VirtualQDragLeaveEvent final : public QDragLeaveEvent {
   public:
     VirtualQDragLeaveEvent() : QDragLeaveEvent() {};
 
-    ~VirtualQDragLeaveEvent() {
-        qdragleaveevent_clone_callback = nullptr;
-        qdragleaveevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDragLeaveEvent_Clone_Callback(QDragLeaveEvent_Clone_Callback cb) { qdragleaveevent_clone_callback = cb; }
     inline void setQDragLeaveEvent_SetAccepted_Callback(QDragLeaveEvent_SetAccepted_Callback cb) { qdragleaveevent_setaccepted_callback = cb; }
@@ -2284,12 +2274,13 @@ class VirtualQDragLeaveEvent final : public QDragLeaveEvent {
         if (qdragleaveevent_clone_isbase) {
             qdragleaveevent_clone_isbase = false;
             return QDragLeaveEvent::clone();
-        } else if (qdragleaveevent_clone_callback != nullptr) {
-            QDragLeaveEvent* callback_ret = qdragleaveevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QDragLeaveEvent::clone();
         }
+        auto clone_cb = qdragleaveevent_clone_callback;
+        if (clone_cb) {
+            QDragLeaveEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QDragLeaveEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2297,13 +2288,16 @@ class VirtualQDragLeaveEvent final : public QDragLeaveEvent {
         if (qdragleaveevent_setaccepted_isbase) {
             qdragleaveevent_setaccepted_isbase = false;
             QDragLeaveEvent::setAccepted(accepted);
-        } else if (qdragleaveevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qdragleaveevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qdragleaveevent_setaccepted_callback(this, cbval1);
-        } else {
-            QDragLeaveEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QDragLeaveEvent::setAccepted(accepted);
     }
 };
 
@@ -2330,11 +2324,6 @@ class VirtualQHelpEvent final : public QHelpEvent {
   public:
     VirtualQHelpEvent(QEvent::Type typeVal, const QPoint& pos, const QPoint& globalPos) : QHelpEvent(typeVal, pos, globalPos) {};
 
-    ~VirtualQHelpEvent() {
-        qhelpevent_clone_callback = nullptr;
-        qhelpevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQHelpEvent_Clone_Callback(QHelpEvent_Clone_Callback cb) { qhelpevent_clone_callback = cb; }
     inline void setQHelpEvent_SetAccepted_Callback(QHelpEvent_SetAccepted_Callback cb) { qhelpevent_setaccepted_callback = cb; }
@@ -2348,12 +2337,13 @@ class VirtualQHelpEvent final : public QHelpEvent {
         if (qhelpevent_clone_isbase) {
             qhelpevent_clone_isbase = false;
             return QHelpEvent::clone();
-        } else if (qhelpevent_clone_callback != nullptr) {
-            QHelpEvent* callback_ret = qhelpevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QHelpEvent::clone();
         }
+        auto clone_cb = qhelpevent_clone_callback;
+        if (clone_cb) {
+            QHelpEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QHelpEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2361,13 +2351,16 @@ class VirtualQHelpEvent final : public QHelpEvent {
         if (qhelpevent_setaccepted_isbase) {
             qhelpevent_setaccepted_isbase = false;
             QHelpEvent::setAccepted(accepted);
-        } else if (qhelpevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qhelpevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qhelpevent_setaccepted_callback(this, cbval1);
-        } else {
-            QHelpEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QHelpEvent::setAccepted(accepted);
     }
 };
 
@@ -2394,11 +2387,6 @@ class VirtualQStatusTipEvent final : public QStatusTipEvent {
   public:
     VirtualQStatusTipEvent(const QString& tip) : QStatusTipEvent(tip) {};
 
-    ~VirtualQStatusTipEvent() {
-        qstatustipevent_clone_callback = nullptr;
-        qstatustipevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQStatusTipEvent_Clone_Callback(QStatusTipEvent_Clone_Callback cb) { qstatustipevent_clone_callback = cb; }
     inline void setQStatusTipEvent_SetAccepted_Callback(QStatusTipEvent_SetAccepted_Callback cb) { qstatustipevent_setaccepted_callback = cb; }
@@ -2412,12 +2400,13 @@ class VirtualQStatusTipEvent final : public QStatusTipEvent {
         if (qstatustipevent_clone_isbase) {
             qstatustipevent_clone_isbase = false;
             return QStatusTipEvent::clone();
-        } else if (qstatustipevent_clone_callback != nullptr) {
-            QStatusTipEvent* callback_ret = qstatustipevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QStatusTipEvent::clone();
         }
+        auto clone_cb = qstatustipevent_clone_callback;
+        if (clone_cb) {
+            QStatusTipEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QStatusTipEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2425,13 +2414,16 @@ class VirtualQStatusTipEvent final : public QStatusTipEvent {
         if (qstatustipevent_setaccepted_isbase) {
             qstatustipevent_setaccepted_isbase = false;
             QStatusTipEvent::setAccepted(accepted);
-        } else if (qstatustipevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qstatustipevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qstatustipevent_setaccepted_callback(this, cbval1);
-        } else {
-            QStatusTipEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QStatusTipEvent::setAccepted(accepted);
     }
 };
 
@@ -2458,11 +2450,6 @@ class VirtualQWhatsThisClickedEvent final : public QWhatsThisClickedEvent {
   public:
     VirtualQWhatsThisClickedEvent(const QString& href) : QWhatsThisClickedEvent(href) {};
 
-    ~VirtualQWhatsThisClickedEvent() {
-        qwhatsthisclickedevent_clone_callback = nullptr;
-        qwhatsthisclickedevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQWhatsThisClickedEvent_Clone_Callback(QWhatsThisClickedEvent_Clone_Callback cb) { qwhatsthisclickedevent_clone_callback = cb; }
     inline void setQWhatsThisClickedEvent_SetAccepted_Callback(QWhatsThisClickedEvent_SetAccepted_Callback cb) { qwhatsthisclickedevent_setaccepted_callback = cb; }
@@ -2476,12 +2463,13 @@ class VirtualQWhatsThisClickedEvent final : public QWhatsThisClickedEvent {
         if (qwhatsthisclickedevent_clone_isbase) {
             qwhatsthisclickedevent_clone_isbase = false;
             return QWhatsThisClickedEvent::clone();
-        } else if (qwhatsthisclickedevent_clone_callback != nullptr) {
-            QWhatsThisClickedEvent* callback_ret = qwhatsthisclickedevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QWhatsThisClickedEvent::clone();
         }
+        auto clone_cb = qwhatsthisclickedevent_clone_callback;
+        if (clone_cb) {
+            QWhatsThisClickedEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QWhatsThisClickedEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2489,13 +2477,16 @@ class VirtualQWhatsThisClickedEvent final : public QWhatsThisClickedEvent {
         if (qwhatsthisclickedevent_setaccepted_isbase) {
             qwhatsthisclickedevent_setaccepted_isbase = false;
             QWhatsThisClickedEvent::setAccepted(accepted);
-        } else if (qwhatsthisclickedevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qwhatsthisclickedevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qwhatsthisclickedevent_setaccepted_callback(this, cbval1);
-        } else {
-            QWhatsThisClickedEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QWhatsThisClickedEvent::setAccepted(accepted);
     }
 };
 
@@ -2523,11 +2514,6 @@ class VirtualQActionEvent final : public QActionEvent {
     VirtualQActionEvent(int typeVal, QAction* action) : QActionEvent(typeVal, action) {};
     VirtualQActionEvent(int typeVal, QAction* action, QAction* before) : QActionEvent(typeVal, action, before) {};
 
-    ~VirtualQActionEvent() {
-        qactionevent_clone_callback = nullptr;
-        qactionevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQActionEvent_Clone_Callback(QActionEvent_Clone_Callback cb) { qactionevent_clone_callback = cb; }
     inline void setQActionEvent_SetAccepted_Callback(QActionEvent_SetAccepted_Callback cb) { qactionevent_setaccepted_callback = cb; }
@@ -2541,12 +2527,13 @@ class VirtualQActionEvent final : public QActionEvent {
         if (qactionevent_clone_isbase) {
             qactionevent_clone_isbase = false;
             return QActionEvent::clone();
-        } else if (qactionevent_clone_callback != nullptr) {
-            QActionEvent* callback_ret = qactionevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QActionEvent::clone();
         }
+        auto clone_cb = qactionevent_clone_callback;
+        if (clone_cb) {
+            QActionEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QActionEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2554,13 +2541,16 @@ class VirtualQActionEvent final : public QActionEvent {
         if (qactionevent_setaccepted_isbase) {
             qactionevent_setaccepted_isbase = false;
             QActionEvent::setAccepted(accepted);
-        } else if (qactionevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qactionevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qactionevent_setaccepted_callback(this, cbval1);
-        } else {
-            QActionEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QActionEvent::setAccepted(accepted);
     }
 };
 
@@ -2588,11 +2578,6 @@ class VirtualQFileOpenEvent final : public QFileOpenEvent {
     VirtualQFileOpenEvent(const QString& file) : QFileOpenEvent(file) {};
     VirtualQFileOpenEvent(const QUrl& url) : QFileOpenEvent(url) {};
 
-    ~VirtualQFileOpenEvent() {
-        qfileopenevent_clone_callback = nullptr;
-        qfileopenevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQFileOpenEvent_Clone_Callback(QFileOpenEvent_Clone_Callback cb) { qfileopenevent_clone_callback = cb; }
     inline void setQFileOpenEvent_SetAccepted_Callback(QFileOpenEvent_SetAccepted_Callback cb) { qfileopenevent_setaccepted_callback = cb; }
@@ -2606,12 +2591,13 @@ class VirtualQFileOpenEvent final : public QFileOpenEvent {
         if (qfileopenevent_clone_isbase) {
             qfileopenevent_clone_isbase = false;
             return QFileOpenEvent::clone();
-        } else if (qfileopenevent_clone_callback != nullptr) {
-            QFileOpenEvent* callback_ret = qfileopenevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QFileOpenEvent::clone();
         }
+        auto clone_cb = qfileopenevent_clone_callback;
+        if (clone_cb) {
+            QFileOpenEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QFileOpenEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2619,13 +2605,16 @@ class VirtualQFileOpenEvent final : public QFileOpenEvent {
         if (qfileopenevent_setaccepted_isbase) {
             qfileopenevent_setaccepted_isbase = false;
             QFileOpenEvent::setAccepted(accepted);
-        } else if (qfileopenevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qfileopenevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qfileopenevent_setaccepted_callback(this, cbval1);
-        } else {
-            QFileOpenEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QFileOpenEvent::setAccepted(accepted);
     }
 };
 
@@ -2652,11 +2641,6 @@ class VirtualQToolBarChangeEvent final : public QToolBarChangeEvent {
   public:
     VirtualQToolBarChangeEvent(bool t) : QToolBarChangeEvent(t) {};
 
-    ~VirtualQToolBarChangeEvent() {
-        qtoolbarchangeevent_clone_callback = nullptr;
-        qtoolbarchangeevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQToolBarChangeEvent_Clone_Callback(QToolBarChangeEvent_Clone_Callback cb) { qtoolbarchangeevent_clone_callback = cb; }
     inline void setQToolBarChangeEvent_SetAccepted_Callback(QToolBarChangeEvent_SetAccepted_Callback cb) { qtoolbarchangeevent_setaccepted_callback = cb; }
@@ -2670,12 +2654,13 @@ class VirtualQToolBarChangeEvent final : public QToolBarChangeEvent {
         if (qtoolbarchangeevent_clone_isbase) {
             qtoolbarchangeevent_clone_isbase = false;
             return QToolBarChangeEvent::clone();
-        } else if (qtoolbarchangeevent_clone_callback != nullptr) {
-            QToolBarChangeEvent* callback_ret = qtoolbarchangeevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QToolBarChangeEvent::clone();
         }
+        auto clone_cb = qtoolbarchangeevent_clone_callback;
+        if (clone_cb) {
+            QToolBarChangeEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QToolBarChangeEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2683,13 +2668,16 @@ class VirtualQToolBarChangeEvent final : public QToolBarChangeEvent {
         if (qtoolbarchangeevent_setaccepted_isbase) {
             qtoolbarchangeevent_setaccepted_isbase = false;
             QToolBarChangeEvent::setAccepted(accepted);
-        } else if (qtoolbarchangeevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qtoolbarchangeevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qtoolbarchangeevent_setaccepted_callback(this, cbval1);
-        } else {
-            QToolBarChangeEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QToolBarChangeEvent::setAccepted(accepted);
     }
 };
 
@@ -2720,11 +2708,6 @@ class VirtualQShortcutEvent final : public QShortcutEvent {
     VirtualQShortcutEvent(const QKeySequence& key, const QShortcut* shortcut) : QShortcutEvent(key, shortcut) {};
     VirtualQShortcutEvent(const QKeySequence& key, const QShortcut* shortcut, bool ambiguous) : QShortcutEvent(key, shortcut, ambiguous) {};
 
-    ~VirtualQShortcutEvent() {
-        qshortcutevent_clone_callback = nullptr;
-        qshortcutevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQShortcutEvent_Clone_Callback(QShortcutEvent_Clone_Callback cb) { qshortcutevent_clone_callback = cb; }
     inline void setQShortcutEvent_SetAccepted_Callback(QShortcutEvent_SetAccepted_Callback cb) { qshortcutevent_setaccepted_callback = cb; }
@@ -2738,12 +2721,13 @@ class VirtualQShortcutEvent final : public QShortcutEvent {
         if (qshortcutevent_clone_isbase) {
             qshortcutevent_clone_isbase = false;
             return QShortcutEvent::clone();
-        } else if (qshortcutevent_clone_callback != nullptr) {
-            QShortcutEvent* callback_ret = qshortcutevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QShortcutEvent::clone();
         }
+        auto clone_cb = qshortcutevent_clone_callback;
+        if (clone_cb) {
+            QShortcutEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QShortcutEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2751,13 +2735,16 @@ class VirtualQShortcutEvent final : public QShortcutEvent {
         if (qshortcutevent_setaccepted_isbase) {
             qshortcutevent_setaccepted_isbase = false;
             QShortcutEvent::setAccepted(accepted);
-        } else if (qshortcutevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qshortcutevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qshortcutevent_setaccepted_callback(this, cbval1);
-        } else {
-            QShortcutEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QShortcutEvent::setAccepted(accepted);
     }
 };
 
@@ -2785,11 +2772,6 @@ class VirtualQWindowStateChangeEvent final : public QWindowStateChangeEvent {
     VirtualQWindowStateChangeEvent(Qt::WindowStates oldState) : QWindowStateChangeEvent(oldState) {};
     VirtualQWindowStateChangeEvent(Qt::WindowStates oldState, bool isOverride) : QWindowStateChangeEvent(oldState, isOverride) {};
 
-    ~VirtualQWindowStateChangeEvent() {
-        qwindowstatechangeevent_clone_callback = nullptr;
-        qwindowstatechangeevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQWindowStateChangeEvent_Clone_Callback(QWindowStateChangeEvent_Clone_Callback cb) { qwindowstatechangeevent_clone_callback = cb; }
     inline void setQWindowStateChangeEvent_SetAccepted_Callback(QWindowStateChangeEvent_SetAccepted_Callback cb) { qwindowstatechangeevent_setaccepted_callback = cb; }
@@ -2803,12 +2785,13 @@ class VirtualQWindowStateChangeEvent final : public QWindowStateChangeEvent {
         if (qwindowstatechangeevent_clone_isbase) {
             qwindowstatechangeevent_clone_isbase = false;
             return QWindowStateChangeEvent::clone();
-        } else if (qwindowstatechangeevent_clone_callback != nullptr) {
-            QWindowStateChangeEvent* callback_ret = qwindowstatechangeevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QWindowStateChangeEvent::clone();
         }
+        auto clone_cb = qwindowstatechangeevent_clone_callback;
+        if (clone_cb) {
+            QWindowStateChangeEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QWindowStateChangeEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2816,13 +2799,16 @@ class VirtualQWindowStateChangeEvent final : public QWindowStateChangeEvent {
         if (qwindowstatechangeevent_setaccepted_isbase) {
             qwindowstatechangeevent_setaccepted_isbase = false;
             QWindowStateChangeEvent::setAccepted(accepted);
-        } else if (qwindowstatechangeevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qwindowstatechangeevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qwindowstatechangeevent_setaccepted_callback(this, cbval1);
-        } else {
-            QWindowStateChangeEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QWindowStateChangeEvent::setAccepted(accepted);
     }
 };
 
@@ -2866,15 +2852,6 @@ class VirtualQTouchEvent final : public QTouchEvent {
     VirtualQTouchEvent(QEvent::Type eventType, const QPointingDevice* device, Qt::KeyboardModifiers modifiers, const QList<QEventPoint>& touchPoints) : QTouchEvent(eventType, device, modifiers, touchPoints) {};
     VirtualQTouchEvent(QEvent::Type eventType, const QPointingDevice* device, Qt::KeyboardModifiers modifiers, QEventPoint::States touchPointStates, const QList<QEventPoint>& touchPoints) : QTouchEvent(eventType, device, modifiers, touchPointStates, touchPoints) {};
 
-    ~VirtualQTouchEvent() {
-        qtouchevent_clone_callback = nullptr;
-        qtouchevent_isbeginevent_callback = nullptr;
-        qtouchevent_isupdateevent_callback = nullptr;
-        qtouchevent_isendevent_callback = nullptr;
-        qtouchevent_settimestamp_callback = nullptr;
-        qtouchevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTouchEvent_Clone_Callback(QTouchEvent_Clone_Callback cb) { qtouchevent_clone_callback = cb; }
     inline void setQTouchEvent_IsBeginEvent_Callback(QTouchEvent_IsBeginEvent_Callback cb) { qtouchevent_isbeginevent_callback = cb; }
@@ -2896,12 +2873,13 @@ class VirtualQTouchEvent final : public QTouchEvent {
         if (qtouchevent_clone_isbase) {
             qtouchevent_clone_isbase = false;
             return QTouchEvent::clone();
-        } else if (qtouchevent_clone_callback != nullptr) {
-            QTouchEvent* callback_ret = qtouchevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QTouchEvent::clone();
         }
+        auto clone_cb = qtouchevent_clone_callback;
+        if (clone_cb) {
+            QTouchEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QTouchEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2909,12 +2887,13 @@ class VirtualQTouchEvent final : public QTouchEvent {
         if (qtouchevent_isbeginevent_isbase) {
             qtouchevent_isbeginevent_isbase = false;
             return QTouchEvent::isBeginEvent();
-        } else if (qtouchevent_isbeginevent_callback != nullptr) {
-            bool callback_ret = qtouchevent_isbeginevent_callback();
-            return callback_ret;
-        } else {
-            return QTouchEvent::isBeginEvent();
         }
+        auto isbeginevent_cb = qtouchevent_isbeginevent_callback;
+        if (isbeginevent_cb) {
+            bool callback_ret = isbeginevent_cb();
+            return callback_ret;
+        }
+        return QTouchEvent::isBeginEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2922,12 +2901,13 @@ class VirtualQTouchEvent final : public QTouchEvent {
         if (qtouchevent_isupdateevent_isbase) {
             qtouchevent_isupdateevent_isbase = false;
             return QTouchEvent::isUpdateEvent();
-        } else if (qtouchevent_isupdateevent_callback != nullptr) {
-            bool callback_ret = qtouchevent_isupdateevent_callback();
-            return callback_ret;
-        } else {
-            return QTouchEvent::isUpdateEvent();
         }
+        auto isupdateevent_cb = qtouchevent_isupdateevent_callback;
+        if (isupdateevent_cb) {
+            bool callback_ret = isupdateevent_cb();
+            return callback_ret;
+        }
+        return QTouchEvent::isUpdateEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2935,12 +2915,13 @@ class VirtualQTouchEvent final : public QTouchEvent {
         if (qtouchevent_isendevent_isbase) {
             qtouchevent_isendevent_isbase = false;
             return QTouchEvent::isEndEvent();
-        } else if (qtouchevent_isendevent_callback != nullptr) {
-            bool callback_ret = qtouchevent_isendevent_callback();
-            return callback_ret;
-        } else {
-            return QTouchEvent::isEndEvent();
         }
+        auto isendevent_cb = qtouchevent_isendevent_callback;
+        if (isendevent_cb) {
+            bool callback_ret = isendevent_cb();
+            return callback_ret;
+        }
+        return QTouchEvent::isEndEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2948,13 +2929,16 @@ class VirtualQTouchEvent final : public QTouchEvent {
         if (qtouchevent_settimestamp_isbase) {
             qtouchevent_settimestamp_isbase = false;
             QTouchEvent::setTimestamp(timestamp);
-        } else if (qtouchevent_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qtouchevent_settimestamp_callback;
+        if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
 
-            qtouchevent_settimestamp_callback(this, cbval1);
-        } else {
-            QTouchEvent::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QTouchEvent::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2962,13 +2946,16 @@ class VirtualQTouchEvent final : public QTouchEvent {
         if (qtouchevent_setaccepted_isbase) {
             qtouchevent_setaccepted_isbase = false;
             QTouchEvent::setAccepted(accepted);
-        } else if (qtouchevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qtouchevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qtouchevent_setaccepted_callback(this, cbval1);
-        } else {
-            QTouchEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QTouchEvent::setAccepted(accepted);
     }
 };
 
@@ -2995,11 +2982,6 @@ class VirtualQScrollPrepareEvent final : public QScrollPrepareEvent {
   public:
     VirtualQScrollPrepareEvent(const QPointF& startPos) : QScrollPrepareEvent(startPos) {};
 
-    ~VirtualQScrollPrepareEvent() {
-        qscrollprepareevent_clone_callback = nullptr;
-        qscrollprepareevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQScrollPrepareEvent_Clone_Callback(QScrollPrepareEvent_Clone_Callback cb) { qscrollprepareevent_clone_callback = cb; }
     inline void setQScrollPrepareEvent_SetAccepted_Callback(QScrollPrepareEvent_SetAccepted_Callback cb) { qscrollprepareevent_setaccepted_callback = cb; }
@@ -3013,12 +2995,13 @@ class VirtualQScrollPrepareEvent final : public QScrollPrepareEvent {
         if (qscrollprepareevent_clone_isbase) {
             qscrollprepareevent_clone_isbase = false;
             return QScrollPrepareEvent::clone();
-        } else if (qscrollprepareevent_clone_callback != nullptr) {
-            QScrollPrepareEvent* callback_ret = qscrollprepareevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QScrollPrepareEvent::clone();
         }
+        auto clone_cb = qscrollprepareevent_clone_callback;
+        if (clone_cb) {
+            QScrollPrepareEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QScrollPrepareEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3026,13 +3009,16 @@ class VirtualQScrollPrepareEvent final : public QScrollPrepareEvent {
         if (qscrollprepareevent_setaccepted_isbase) {
             qscrollprepareevent_setaccepted_isbase = false;
             QScrollPrepareEvent::setAccepted(accepted);
-        } else if (qscrollprepareevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qscrollprepareevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qscrollprepareevent_setaccepted_callback(this, cbval1);
-        } else {
-            QScrollPrepareEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QScrollPrepareEvent::setAccepted(accepted);
     }
 };
 
@@ -3059,11 +3045,6 @@ class VirtualQScrollEvent final : public QScrollEvent {
   public:
     VirtualQScrollEvent(const QPointF& contentPos, const QPointF& overshoot, QScrollEvent::ScrollState scrollState) : QScrollEvent(contentPos, overshoot, scrollState) {};
 
-    ~VirtualQScrollEvent() {
-        qscrollevent_clone_callback = nullptr;
-        qscrollevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQScrollEvent_Clone_Callback(QScrollEvent_Clone_Callback cb) { qscrollevent_clone_callback = cb; }
     inline void setQScrollEvent_SetAccepted_Callback(QScrollEvent_SetAccepted_Callback cb) { qscrollevent_setaccepted_callback = cb; }
@@ -3077,12 +3058,13 @@ class VirtualQScrollEvent final : public QScrollEvent {
         if (qscrollevent_clone_isbase) {
             qscrollevent_clone_isbase = false;
             return QScrollEvent::clone();
-        } else if (qscrollevent_clone_callback != nullptr) {
-            QScrollEvent* callback_ret = qscrollevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QScrollEvent::clone();
         }
+        auto clone_cb = qscrollevent_clone_callback;
+        if (clone_cb) {
+            QScrollEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QScrollEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3090,13 +3072,16 @@ class VirtualQScrollEvent final : public QScrollEvent {
         if (qscrollevent_setaccepted_isbase) {
             qscrollevent_setaccepted_isbase = false;
             QScrollEvent::setAccepted(accepted);
-        } else if (qscrollevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qscrollevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qscrollevent_setaccepted_callback(this, cbval1);
-        } else {
-            QScrollEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QScrollEvent::setAccepted(accepted);
     }
 };
 
@@ -3123,11 +3108,6 @@ class VirtualQScreenOrientationChangeEvent final : public QScreenOrientationChan
   public:
     VirtualQScreenOrientationChangeEvent(QScreen* screen, Qt::ScreenOrientation orientation) : QScreenOrientationChangeEvent(screen, orientation) {};
 
-    ~VirtualQScreenOrientationChangeEvent() {
-        qscreenorientationchangeevent_clone_callback = nullptr;
-        qscreenorientationchangeevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQScreenOrientationChangeEvent_Clone_Callback(QScreenOrientationChangeEvent_Clone_Callback cb) { qscreenorientationchangeevent_clone_callback = cb; }
     inline void setQScreenOrientationChangeEvent_SetAccepted_Callback(QScreenOrientationChangeEvent_SetAccepted_Callback cb) { qscreenorientationchangeevent_setaccepted_callback = cb; }
@@ -3141,12 +3121,13 @@ class VirtualQScreenOrientationChangeEvent final : public QScreenOrientationChan
         if (qscreenorientationchangeevent_clone_isbase) {
             qscreenorientationchangeevent_clone_isbase = false;
             return QScreenOrientationChangeEvent::clone();
-        } else if (qscreenorientationchangeevent_clone_callback != nullptr) {
-            QScreenOrientationChangeEvent* callback_ret = qscreenorientationchangeevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QScreenOrientationChangeEvent::clone();
         }
+        auto clone_cb = qscreenorientationchangeevent_clone_callback;
+        if (clone_cb) {
+            QScreenOrientationChangeEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QScreenOrientationChangeEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3154,13 +3135,16 @@ class VirtualQScreenOrientationChangeEvent final : public QScreenOrientationChan
         if (qscreenorientationchangeevent_setaccepted_isbase) {
             qscreenorientationchangeevent_setaccepted_isbase = false;
             QScreenOrientationChangeEvent::setAccepted(accepted);
-        } else if (qscreenorientationchangeevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qscreenorientationchangeevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qscreenorientationchangeevent_setaccepted_callback(this, cbval1);
-        } else {
-            QScreenOrientationChangeEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QScreenOrientationChangeEvent::setAccepted(accepted);
     }
 };
 
@@ -3187,11 +3171,6 @@ class VirtualQApplicationStateChangeEvent final : public QApplicationStateChange
   public:
     VirtualQApplicationStateChangeEvent(Qt::ApplicationState state) : QApplicationStateChangeEvent(state) {};
 
-    ~VirtualQApplicationStateChangeEvent() {
-        qapplicationstatechangeevent_clone_callback = nullptr;
-        qapplicationstatechangeevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQApplicationStateChangeEvent_Clone_Callback(QApplicationStateChangeEvent_Clone_Callback cb) { qapplicationstatechangeevent_clone_callback = cb; }
     inline void setQApplicationStateChangeEvent_SetAccepted_Callback(QApplicationStateChangeEvent_SetAccepted_Callback cb) { qapplicationstatechangeevent_setaccepted_callback = cb; }
@@ -3205,12 +3184,13 @@ class VirtualQApplicationStateChangeEvent final : public QApplicationStateChange
         if (qapplicationstatechangeevent_clone_isbase) {
             qapplicationstatechangeevent_clone_isbase = false;
             return QApplicationStateChangeEvent::clone();
-        } else if (qapplicationstatechangeevent_clone_callback != nullptr) {
-            QApplicationStateChangeEvent* callback_ret = qapplicationstatechangeevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QApplicationStateChangeEvent::clone();
         }
+        auto clone_cb = qapplicationstatechangeevent_clone_callback;
+        if (clone_cb) {
+            QApplicationStateChangeEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QApplicationStateChangeEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3218,13 +3198,16 @@ class VirtualQApplicationStateChangeEvent final : public QApplicationStateChange
         if (qapplicationstatechangeevent_setaccepted_isbase) {
             qapplicationstatechangeevent_setaccepted_isbase = false;
             QApplicationStateChangeEvent::setAccepted(accepted);
-        } else if (qapplicationstatechangeevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qapplicationstatechangeevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qapplicationstatechangeevent_setaccepted_callback(this, cbval1);
-        } else {
-            QApplicationStateChangeEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QApplicationStateChangeEvent::setAccepted(accepted);
     }
 };
 
@@ -3251,11 +3234,6 @@ class VirtualQChildWindowEvent final : public QChildWindowEvent {
   public:
     VirtualQChildWindowEvent(QEvent::Type typeVal, QWindow* childWindow) : QChildWindowEvent(typeVal, childWindow) {};
 
-    ~VirtualQChildWindowEvent() {
-        qchildwindowevent_clone_callback = nullptr;
-        qchildwindowevent_setaccepted_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQChildWindowEvent_Clone_Callback(QChildWindowEvent_Clone_Callback cb) { qchildwindowevent_clone_callback = cb; }
     inline void setQChildWindowEvent_SetAccepted_Callback(QChildWindowEvent_SetAccepted_Callback cb) { qchildwindowevent_setaccepted_callback = cb; }
@@ -3269,12 +3247,13 @@ class VirtualQChildWindowEvent final : public QChildWindowEvent {
         if (qchildwindowevent_clone_isbase) {
             qchildwindowevent_clone_isbase = false;
             return QChildWindowEvent::clone();
-        } else if (qchildwindowevent_clone_callback != nullptr) {
-            QChildWindowEvent* callback_ret = qchildwindowevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QChildWindowEvent::clone();
         }
+        auto clone_cb = qchildwindowevent_clone_callback;
+        if (clone_cb) {
+            QChildWindowEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QChildWindowEvent::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3282,13 +3261,16 @@ class VirtualQChildWindowEvent final : public QChildWindowEvent {
         if (qchildwindowevent_setaccepted_isbase) {
             qchildwindowevent_setaccepted_isbase = false;
             QChildWindowEvent::setAccepted(accepted);
-        } else if (qchildwindowevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qchildwindowevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qchildwindowevent_setaccepted_callback(this, cbval1);
-        } else {
-            QChildWindowEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QChildWindowEvent::setAccepted(accepted);
     }
 };
 

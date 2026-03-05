@@ -180,60 +180,6 @@ class VirtualQSctpSocket final : public QSctpSocket {
     VirtualQSctpSocket() : QSctpSocket() {};
     VirtualQSctpSocket(QObject* parent) : QSctpSocket(parent) {};
 
-    ~VirtualQSctpSocket() {
-        qsctpsocket_metaobject_callback = nullptr;
-        qsctpsocket_metacast_callback = nullptr;
-        qsctpsocket_metacall_callback = nullptr;
-        qsctpsocket_close_callback = nullptr;
-        qsctpsocket_disconnectfromhost_callback = nullptr;
-        qsctpsocket_readdata_callback = nullptr;
-        qsctpsocket_readlinedata_callback = nullptr;
-        qsctpsocket_resume_callback = nullptr;
-        qsctpsocket_bind_callback = nullptr;
-        qsctpsocket_connecttohost_callback = nullptr;
-        qsctpsocket_bytesavailable_callback = nullptr;
-        qsctpsocket_bytestowrite_callback = nullptr;
-        qsctpsocket_setreadbuffersize_callback = nullptr;
-        qsctpsocket_socketdescriptor_callback = nullptr;
-        qsctpsocket_setsocketdescriptor_callback = nullptr;
-        qsctpsocket_setsocketoption_callback = nullptr;
-        qsctpsocket_socketoption_callback = nullptr;
-        qsctpsocket_issequential_callback = nullptr;
-        qsctpsocket_waitforconnected_callback = nullptr;
-        qsctpsocket_waitforreadyread_callback = nullptr;
-        qsctpsocket_waitforbyteswritten_callback = nullptr;
-        qsctpsocket_waitfordisconnected_callback = nullptr;
-        qsctpsocket_skipdata_callback = nullptr;
-        qsctpsocket_writedata_callback = nullptr;
-        qsctpsocket_open_callback = nullptr;
-        qsctpsocket_pos_callback = nullptr;
-        qsctpsocket_size_callback = nullptr;
-        qsctpsocket_seek_callback = nullptr;
-        qsctpsocket_atend_callback = nullptr;
-        qsctpsocket_reset_callback = nullptr;
-        qsctpsocket_canreadline_callback = nullptr;
-        qsctpsocket_event_callback = nullptr;
-        qsctpsocket_eventfilter_callback = nullptr;
-        qsctpsocket_timerevent_callback = nullptr;
-        qsctpsocket_childevent_callback = nullptr;
-        qsctpsocket_customevent_callback = nullptr;
-        qsctpsocket_connectnotify_callback = nullptr;
-        qsctpsocket_disconnectnotify_callback = nullptr;
-        qsctpsocket_setsocketstate_callback = nullptr;
-        qsctpsocket_setsocketerror_callback = nullptr;
-        qsctpsocket_setlocalport_callback = nullptr;
-        qsctpsocket_setlocaladdress_callback = nullptr;
-        qsctpsocket_setpeerport_callback = nullptr;
-        qsctpsocket_setpeeraddress_callback = nullptr;
-        qsctpsocket_setpeername_callback = nullptr;
-        qsctpsocket_setopenmode_callback = nullptr;
-        qsctpsocket_seterrorstring_callback = nullptr;
-        qsctpsocket_sender_callback = nullptr;
-        qsctpsocket_sendersignalindex_callback = nullptr;
-        qsctpsocket_receivers_callback = nullptr;
-        qsctpsocket_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSctpSocket_MetaObject_Callback(QSctpSocket_MetaObject_Callback cb) { qsctpsocket_metaobject_callback = cb; }
     inline void setQSctpSocket_Metacast_Callback(QSctpSocket_Metacast_Callback cb) { qsctpsocket_metacast_callback = cb; }
@@ -345,12 +291,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_metaobject_isbase) {
             qsctpsocket_metaobject_isbase = false;
             return QSctpSocket::metaObject();
-        } else if (qsctpsocket_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsctpsocket_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSctpSocket::metaObject();
         }
+        auto metaobject_cb = qsctpsocket_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSctpSocket::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,14 +305,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_metacast_isbase) {
             qsctpsocket_metacast_isbase = false;
             return QSctpSocket::qt_metacast(param1);
-        } else if (qsctpsocket_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsctpsocket_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsctpsocket_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSctpSocket::qt_metacast(param1);
         }
+        return QSctpSocket::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,16 +321,17 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_metacall_isbase) {
             qsctpsocket_metacall_isbase = false;
             return QSctpSocket::qt_metacall(param1, param2, param3);
-        } else if (qsctpsocket_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsctpsocket_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsctpsocket_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSctpSocket::qt_metacall(param1, param2, param3);
         }
+        return QSctpSocket::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,11 +339,14 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_close_isbase) {
             qsctpsocket_close_isbase = false;
             QSctpSocket::close();
-        } else if (qsctpsocket_close_callback != nullptr) {
-            qsctpsocket_close_callback();
-        } else {
-            QSctpSocket::close();
+            return;
         }
+        auto close_cb = qsctpsocket_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        QSctpSocket::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -402,11 +354,14 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_disconnectfromhost_isbase) {
             qsctpsocket_disconnectfromhost_isbase = false;
             QSctpSocket::disconnectFromHost();
-        } else if (qsctpsocket_disconnectfromhost_callback != nullptr) {
-            qsctpsocket_disconnectfromhost_callback();
-        } else {
-            QSctpSocket::disconnectFromHost();
+            return;
         }
+        auto disconnectfromhost_cb = qsctpsocket_disconnectfromhost_callback;
+        if (disconnectfromhost_cb) {
+            disconnectfromhost_cb();
+            return;
+        }
+        QSctpSocket::disconnectFromHost();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,15 +369,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_readdata_isbase) {
             qsctpsocket_readdata_isbase = false;
             return QSctpSocket::readData(data, maxlen);
-        } else if (qsctpsocket_readdata_callback != nullptr) {
+        }
+        auto readdata_cb = qsctpsocket_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qsctpsocket_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSctpSocket::readData(data, maxlen);
         }
+        return QSctpSocket::readData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -430,15 +386,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_readlinedata_isbase) {
             qsctpsocket_readlinedata_isbase = false;
             return QSctpSocket::readLineData(data, maxlen);
-        } else if (qsctpsocket_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = qsctpsocket_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qsctpsocket_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSctpSocket::readLineData(data, maxlen);
         }
+        return QSctpSocket::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -446,11 +403,14 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_resume_isbase) {
             qsctpsocket_resume_isbase = false;
             QSctpSocket::resume();
-        } else if (qsctpsocket_resume_callback != nullptr) {
-            qsctpsocket_resume_callback();
-        } else {
-            QSctpSocket::resume();
+            return;
         }
+        auto resume_cb = qsctpsocket_resume_callback;
+        if (resume_cb) {
+            resume_cb();
+            return;
+        }
+        QSctpSocket::resume();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,18 +418,19 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_bind_isbase) {
             qsctpsocket_bind_isbase = false;
             return QSctpSocket::bind(address, port, mode);
-        } else if (qsctpsocket_bind_callback != nullptr) {
+        }
+        auto bind_cb = qsctpsocket_bind_callback;
+        if (bind_cb) {
             const QHostAddress& address_ret = address;
             // Cast returned reference into pointer
             QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
             uint16_t cbval2 = static_cast<uint16_t>(port);
             int cbval3 = static_cast<int>(mode);
 
-            bool callback_ret = qsctpsocket_bind_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = bind_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSctpSocket::bind(address, port, mode);
         }
+        return QSctpSocket::bind(address, port, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -477,7 +438,10 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_connecttohost_isbase) {
             qsctpsocket_connecttohost_isbase = false;
             QSctpSocket::connectToHost(hostName, port, mode, protocol);
-        } else if (qsctpsocket_connecttohost_callback != nullptr) {
+            return;
+        }
+        auto connecttohost_cb = qsctpsocket_connecttohost_callback;
+        if (connecttohost_cb) {
             const QString hostName_ret = hostName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray hostName_b = hostName_ret.toUtf8();
@@ -490,11 +454,11 @@ class VirtualQSctpSocket final : public QSctpSocket {
             int cbval3 = static_cast<int>(mode);
             int cbval4 = static_cast<int>(protocol);
 
-            qsctpsocket_connecttohost_callback(this, cbval1, cbval2, cbval3, cbval4);
+            connecttohost_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(hostName_str);
-        } else {
-            QSctpSocket::connectToHost(hostName, port, mode, protocol);
+            return;
         }
+        QSctpSocket::connectToHost(hostName, port, mode, protocol);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,12 +466,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_bytesavailable_isbase) {
             qsctpsocket_bytesavailable_isbase = false;
             return QSctpSocket::bytesAvailable();
-        } else if (qsctpsocket_bytesavailable_callback != nullptr) {
-            long long callback_ret = qsctpsocket_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSctpSocket::bytesAvailable();
         }
+        auto bytesavailable_cb = qsctpsocket_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSctpSocket::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,12 +480,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_bytestowrite_isbase) {
             qsctpsocket_bytestowrite_isbase = false;
             return QSctpSocket::bytesToWrite();
-        } else if (qsctpsocket_bytestowrite_callback != nullptr) {
-            long long callback_ret = qsctpsocket_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSctpSocket::bytesToWrite();
         }
+        auto bytestowrite_cb = qsctpsocket_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSctpSocket::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,13 +494,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setreadbuffersize_isbase) {
             qsctpsocket_setreadbuffersize_isbase = false;
             QSctpSocket::setReadBufferSize(size);
-        } else if (qsctpsocket_setreadbuffersize_callback != nullptr) {
+            return;
+        }
+        auto setreadbuffersize_cb = qsctpsocket_setreadbuffersize_callback;
+        if (setreadbuffersize_cb) {
             long long cbval1 = static_cast<long long>(size);
 
-            qsctpsocket_setreadbuffersize_callback(this, cbval1);
-        } else {
-            QSctpSocket::setReadBufferSize(size);
+            setreadbuffersize_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::setReadBufferSize(size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -542,12 +511,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_socketdescriptor_isbase) {
             qsctpsocket_socketdescriptor_isbase = false;
             return QSctpSocket::socketDescriptor();
-        } else if (qsctpsocket_socketdescriptor_callback != nullptr) {
-            intptr_t callback_ret = qsctpsocket_socketdescriptor_callback();
-            return (qintptr)(callback_ret);
-        } else {
-            return QSctpSocket::socketDescriptor();
         }
+        auto socketdescriptor_cb = qsctpsocket_socketdescriptor_callback;
+        if (socketdescriptor_cb) {
+            intptr_t callback_ret = socketdescriptor_cb();
+            return (qintptr)(callback_ret);
+        }
+        return QSctpSocket::socketDescriptor();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,17 +525,18 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setsocketdescriptor_isbase) {
             qsctpsocket_setsocketdescriptor_isbase = false;
             return QSctpSocket::setSocketDescriptor(socketDescriptor, state, openMode);
-        } else if (qsctpsocket_setsocketdescriptor_callback != nullptr) {
+        }
+        auto setsocketdescriptor_cb = qsctpsocket_setsocketdescriptor_callback;
+        if (setsocketdescriptor_cb) {
             qintptr socketDescriptor_ret = socketDescriptor;
             intptr_t cbval1 = (intptr_t)(socketDescriptor_ret);
             int cbval2 = static_cast<int>(state);
             int cbval3 = static_cast<int>(openMode);
 
-            bool callback_ret = qsctpsocket_setsocketdescriptor_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setsocketdescriptor_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSctpSocket::setSocketDescriptor(socketDescriptor, state, openMode);
         }
+        return QSctpSocket::setSocketDescriptor(socketDescriptor, state, openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,16 +544,19 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setsocketoption_isbase) {
             qsctpsocket_setsocketoption_isbase = false;
             QSctpSocket::setSocketOption(option, value);
-        } else if (qsctpsocket_setsocketoption_callback != nullptr) {
+            return;
+        }
+        auto setsocketoption_cb = qsctpsocket_setsocketoption_callback;
+        if (setsocketoption_cb) {
             int cbval1 = static_cast<int>(option);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            qsctpsocket_setsocketoption_callback(this, cbval1, cbval2);
-        } else {
-            QSctpSocket::setSocketOption(option, value);
+            setsocketoption_cb(this, cbval1, cbval2);
+            return;
         }
+        QSctpSocket::setSocketOption(option, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -590,14 +564,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_socketoption_isbase) {
             qsctpsocket_socketoption_isbase = false;
             return QSctpSocket::socketOption(option);
-        } else if (qsctpsocket_socketoption_callback != nullptr) {
+        }
+        auto socketoption_cb = qsctpsocket_socketoption_callback;
+        if (socketoption_cb) {
             int cbval1 = static_cast<int>(option);
 
-            QVariant* callback_ret = qsctpsocket_socketoption_callback(this, cbval1);
+            QVariant* callback_ret = socketoption_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSctpSocket::socketOption(option);
         }
+        return QSctpSocket::socketOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -605,12 +580,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_issequential_isbase) {
             qsctpsocket_issequential_isbase = false;
             return QSctpSocket::isSequential();
-        } else if (qsctpsocket_issequential_callback != nullptr) {
-            bool callback_ret = qsctpsocket_issequential_callback();
-            return callback_ret;
-        } else {
-            return QSctpSocket::isSequential();
         }
+        auto issequential_cb = qsctpsocket_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return QSctpSocket::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -618,14 +594,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_waitforconnected_isbase) {
             qsctpsocket_waitforconnected_isbase = false;
             return QSctpSocket::waitForConnected(msecs);
-        } else if (qsctpsocket_waitforconnected_callback != nullptr) {
+        }
+        auto waitforconnected_cb = qsctpsocket_waitforconnected_callback;
+        if (waitforconnected_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qsctpsocket_waitforconnected_callback(this, cbval1);
+            bool callback_ret = waitforconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSctpSocket::waitForConnected(msecs);
         }
+        return QSctpSocket::waitForConnected(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,14 +610,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_waitforreadyread_isbase) {
             qsctpsocket_waitforreadyread_isbase = false;
             return QSctpSocket::waitForReadyRead(msecs);
-        } else if (qsctpsocket_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = qsctpsocket_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qsctpsocket_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSctpSocket::waitForReadyRead(msecs);
         }
+        return QSctpSocket::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -648,14 +626,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_waitforbyteswritten_isbase) {
             qsctpsocket_waitforbyteswritten_isbase = false;
             return QSctpSocket::waitForBytesWritten(msecs);
-        } else if (qsctpsocket_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = qsctpsocket_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qsctpsocket_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSctpSocket::waitForBytesWritten(msecs);
         }
+        return QSctpSocket::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,14 +642,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_waitfordisconnected_isbase) {
             qsctpsocket_waitfordisconnected_isbase = false;
             return QSctpSocket::waitForDisconnected(msecs);
-        } else if (qsctpsocket_waitfordisconnected_callback != nullptr) {
+        }
+        auto waitfordisconnected_cb = qsctpsocket_waitfordisconnected_callback;
+        if (waitfordisconnected_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qsctpsocket_waitfordisconnected_callback(this, cbval1);
+            bool callback_ret = waitfordisconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSctpSocket::waitForDisconnected(msecs);
         }
+        return QSctpSocket::waitForDisconnected(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -678,14 +658,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_skipdata_isbase) {
             qsctpsocket_skipdata_isbase = false;
             return QSctpSocket::skipData(maxSize);
-        } else if (qsctpsocket_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = qsctpsocket_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = qsctpsocket_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSctpSocket::skipData(maxSize);
         }
+        return QSctpSocket::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,15 +674,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_writedata_isbase) {
             qsctpsocket_writedata_isbase = false;
             return QSctpSocket::writeData(data, lenVal);
-        } else if (qsctpsocket_writedata_callback != nullptr) {
+        }
+        auto writedata_cb = qsctpsocket_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = qsctpsocket_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSctpSocket::writeData(data, lenVal);
         }
+        return QSctpSocket::writeData(data, lenVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,14 +691,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_open_isbase) {
             qsctpsocket_open_isbase = false;
             return QSctpSocket::open(mode);
-        } else if (qsctpsocket_open_callback != nullptr) {
+        }
+        auto open_cb = qsctpsocket_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = qsctpsocket_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSctpSocket::open(mode);
         }
+        return QSctpSocket::open(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,12 +707,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_pos_isbase) {
             qsctpsocket_pos_isbase = false;
             return QSctpSocket::pos();
-        } else if (qsctpsocket_pos_callback != nullptr) {
-            long long callback_ret = qsctpsocket_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSctpSocket::pos();
         }
+        auto pos_cb = qsctpsocket_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSctpSocket::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,12 +721,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_size_isbase) {
             qsctpsocket_size_isbase = false;
             return QSctpSocket::size();
-        } else if (qsctpsocket_size_callback != nullptr) {
-            long long callback_ret = qsctpsocket_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSctpSocket::size();
         }
+        auto size_cb = qsctpsocket_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSctpSocket::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -750,14 +735,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_seek_isbase) {
             qsctpsocket_seek_isbase = false;
             return QSctpSocket::seek(pos);
-        } else if (qsctpsocket_seek_callback != nullptr) {
+        }
+        auto seek_cb = qsctpsocket_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
 
-            bool callback_ret = qsctpsocket_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSctpSocket::seek(pos);
         }
+        return QSctpSocket::seek(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,12 +751,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_atend_isbase) {
             qsctpsocket_atend_isbase = false;
             return QSctpSocket::atEnd();
-        } else if (qsctpsocket_atend_callback != nullptr) {
-            bool callback_ret = qsctpsocket_atend_callback();
-            return callback_ret;
-        } else {
-            return QSctpSocket::atEnd();
         }
+        auto atend_cb = qsctpsocket_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return QSctpSocket::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -778,12 +765,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_reset_isbase) {
             qsctpsocket_reset_isbase = false;
             return QSctpSocket::reset();
-        } else if (qsctpsocket_reset_callback != nullptr) {
-            bool callback_ret = qsctpsocket_reset_callback();
-            return callback_ret;
-        } else {
-            return QSctpSocket::reset();
         }
+        auto reset_cb = qsctpsocket_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return QSctpSocket::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,12 +779,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_canreadline_isbase) {
             qsctpsocket_canreadline_isbase = false;
             return QSctpSocket::canReadLine();
-        } else if (qsctpsocket_canreadline_callback != nullptr) {
-            bool callback_ret = qsctpsocket_canreadline_callback();
-            return callback_ret;
-        } else {
-            return QSctpSocket::canReadLine();
         }
+        auto canreadline_cb = qsctpsocket_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return QSctpSocket::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,14 +793,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_event_isbase) {
             qsctpsocket_event_isbase = false;
             return QSctpSocket::event(event);
-        } else if (qsctpsocket_event_callback != nullptr) {
+        }
+        auto event_cb = qsctpsocket_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsctpsocket_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSctpSocket::event(event);
         }
+        return QSctpSocket::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,15 +809,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_eventfilter_isbase) {
             qsctpsocket_eventfilter_isbase = false;
             return QSctpSocket::eventFilter(watched, event);
-        } else if (qsctpsocket_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsctpsocket_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsctpsocket_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSctpSocket::eventFilter(watched, event);
         }
+        return QSctpSocket::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +826,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_timerevent_isbase) {
             qsctpsocket_timerevent_isbase = false;
             QSctpSocket::timerEvent(event);
-        } else if (qsctpsocket_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsctpsocket_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsctpsocket_timerevent_callback(this, cbval1);
-        } else {
-            QSctpSocket::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +843,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_childevent_isbase) {
             qsctpsocket_childevent_isbase = false;
             QSctpSocket::childEvent(event);
-        } else if (qsctpsocket_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsctpsocket_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsctpsocket_childevent_callback(this, cbval1);
-        } else {
-            QSctpSocket::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +860,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_customevent_isbase) {
             qsctpsocket_customevent_isbase = false;
             QSctpSocket::customEvent(event);
-        } else if (qsctpsocket_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsctpsocket_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsctpsocket_customevent_callback(this, cbval1);
-        } else {
-            QSctpSocket::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,15 +877,18 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_connectnotify_isbase) {
             qsctpsocket_connectnotify_isbase = false;
             QSctpSocket::connectNotify(signal);
-        } else if (qsctpsocket_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsctpsocket_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsctpsocket_connectnotify_callback(this, cbval1);
-        } else {
-            QSctpSocket::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -893,15 +896,18 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_disconnectnotify_isbase) {
             qsctpsocket_disconnectnotify_isbase = false;
             QSctpSocket::disconnectNotify(signal);
-        } else if (qsctpsocket_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsctpsocket_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsctpsocket_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSctpSocket::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -909,13 +915,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setsocketstate_isbase) {
             qsctpsocket_setsocketstate_isbase = false;
             QSctpSocket::setSocketState(state);
-        } else if (qsctpsocket_setsocketstate_callback != nullptr) {
+            return;
+        }
+        auto setsocketstate_cb = qsctpsocket_setsocketstate_callback;
+        if (setsocketstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            qsctpsocket_setsocketstate_callback(this, cbval1);
-        } else {
-            QSctpSocket::setSocketState(state);
+            setsocketstate_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::setSocketState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -923,13 +932,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setsocketerror_isbase) {
             qsctpsocket_setsocketerror_isbase = false;
             QSctpSocket::setSocketError(socketError);
-        } else if (qsctpsocket_setsocketerror_callback != nullptr) {
+            return;
+        }
+        auto setsocketerror_cb = qsctpsocket_setsocketerror_callback;
+        if (setsocketerror_cb) {
             int cbval1 = static_cast<int>(socketError);
 
-            qsctpsocket_setsocketerror_callback(this, cbval1);
-        } else {
-            QSctpSocket::setSocketError(socketError);
+            setsocketerror_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::setSocketError(socketError);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -937,13 +949,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setlocalport_isbase) {
             qsctpsocket_setlocalport_isbase = false;
             QSctpSocket::setLocalPort(port);
-        } else if (qsctpsocket_setlocalport_callback != nullptr) {
+            return;
+        }
+        auto setlocalport_cb = qsctpsocket_setlocalport_callback;
+        if (setlocalport_cb) {
             uint16_t cbval1 = static_cast<uint16_t>(port);
 
-            qsctpsocket_setlocalport_callback(this, cbval1);
-        } else {
-            QSctpSocket::setLocalPort(port);
+            setlocalport_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::setLocalPort(port);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -951,15 +966,18 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setlocaladdress_isbase) {
             qsctpsocket_setlocaladdress_isbase = false;
             QSctpSocket::setLocalAddress(address);
-        } else if (qsctpsocket_setlocaladdress_callback != nullptr) {
+            return;
+        }
+        auto setlocaladdress_cb = qsctpsocket_setlocaladdress_callback;
+        if (setlocaladdress_cb) {
             const QHostAddress& address_ret = address;
             // Cast returned reference into pointer
             QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
 
-            qsctpsocket_setlocaladdress_callback(this, cbval1);
-        } else {
-            QSctpSocket::setLocalAddress(address);
+            setlocaladdress_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::setLocalAddress(address);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,13 +985,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setpeerport_isbase) {
             qsctpsocket_setpeerport_isbase = false;
             QSctpSocket::setPeerPort(port);
-        } else if (qsctpsocket_setpeerport_callback != nullptr) {
+            return;
+        }
+        auto setpeerport_cb = qsctpsocket_setpeerport_callback;
+        if (setpeerport_cb) {
             uint16_t cbval1 = static_cast<uint16_t>(port);
 
-            qsctpsocket_setpeerport_callback(this, cbval1);
-        } else {
-            QSctpSocket::setPeerPort(port);
+            setpeerport_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::setPeerPort(port);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -981,15 +1002,18 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setpeeraddress_isbase) {
             qsctpsocket_setpeeraddress_isbase = false;
             QSctpSocket::setPeerAddress(address);
-        } else if (qsctpsocket_setpeeraddress_callback != nullptr) {
+            return;
+        }
+        auto setpeeraddress_cb = qsctpsocket_setpeeraddress_callback;
+        if (setpeeraddress_cb) {
             const QHostAddress& address_ret = address;
             // Cast returned reference into pointer
             QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
 
-            qsctpsocket_setpeeraddress_callback(this, cbval1);
-        } else {
-            QSctpSocket::setPeerAddress(address);
+            setpeeraddress_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::setPeerAddress(address);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,7 +1021,10 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setpeername_isbase) {
             qsctpsocket_setpeername_isbase = false;
             QSctpSocket::setPeerName(name);
-        } else if (qsctpsocket_setpeername_callback != nullptr) {
+            return;
+        }
+        auto setpeername_cb = qsctpsocket_setpeername_callback;
+        if (setpeername_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -1007,11 +1034,11 @@ class VirtualQSctpSocket final : public QSctpSocket {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            qsctpsocket_setpeername_callback(this, cbval1);
+            setpeername_cb(this, cbval1);
             libqt_free(name_str);
-        } else {
-            QSctpSocket::setPeerName(name);
+            return;
         }
+        QSctpSocket::setPeerName(name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1019,13 +1046,16 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_setopenmode_isbase) {
             qsctpsocket_setopenmode_isbase = false;
             QSctpSocket::setOpenMode(openMode);
-        } else if (qsctpsocket_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = qsctpsocket_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            qsctpsocket_setopenmode_callback(this, cbval1);
-        } else {
-            QSctpSocket::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        QSctpSocket::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1033,7 +1063,10 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_seterrorstring_isbase) {
             qsctpsocket_seterrorstring_isbase = false;
             QSctpSocket::setErrorString(errorString);
-        } else if (qsctpsocket_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = qsctpsocket_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -1043,11 +1076,11 @@ class VirtualQSctpSocket final : public QSctpSocket {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            qsctpsocket_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            QSctpSocket::setErrorString(errorString);
+            return;
         }
+        QSctpSocket::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,12 +1088,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_sender_isbase) {
             qsctpsocket_sender_isbase = false;
             return QSctpSocket::sender();
-        } else if (qsctpsocket_sender_callback != nullptr) {
-            QObject* callback_ret = qsctpsocket_sender_callback();
-            return callback_ret;
-        } else {
-            return QSctpSocket::sender();
         }
+        auto sender_cb = qsctpsocket_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSctpSocket::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,12 +1102,13 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_sendersignalindex_isbase) {
             qsctpsocket_sendersignalindex_isbase = false;
             return QSctpSocket::senderSignalIndex();
-        } else if (qsctpsocket_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsctpsocket_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSctpSocket::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsctpsocket_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSctpSocket::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1081,14 +1116,15 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_receivers_isbase) {
             qsctpsocket_receivers_isbase = false;
             return QSctpSocket::receivers(signal);
-        } else if (qsctpsocket_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsctpsocket_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsctpsocket_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSctpSocket::receivers(signal);
         }
+        return QSctpSocket::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1096,16 +1132,17 @@ class VirtualQSctpSocket final : public QSctpSocket {
         if (qsctpsocket_issignalconnected_isbase) {
             qsctpsocket_issignalconnected_isbase = false;
             return QSctpSocket::isSignalConnected(signal);
-        } else if (qsctpsocket_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsctpsocket_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsctpsocket_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSctpSocket::isSignalConnected(signal);
         }
+        return QSctpSocket::isSignalConnected(signal);
     }
 
     // Friend functions

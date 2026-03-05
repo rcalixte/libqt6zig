@@ -71,23 +71,6 @@ class VirtualQSoundEffect final : public QSoundEffect {
     VirtualQSoundEffect(QObject* parent) : QSoundEffect(parent) {};
     VirtualQSoundEffect(const QAudioDevice& audioDevice, QObject* parent) : QSoundEffect(audioDevice, parent) {};
 
-    ~VirtualQSoundEffect() {
-        qsoundeffect_metaobject_callback = nullptr;
-        qsoundeffect_metacast_callback = nullptr;
-        qsoundeffect_metacall_callback = nullptr;
-        qsoundeffect_event_callback = nullptr;
-        qsoundeffect_eventfilter_callback = nullptr;
-        qsoundeffect_timerevent_callback = nullptr;
-        qsoundeffect_childevent_callback = nullptr;
-        qsoundeffect_customevent_callback = nullptr;
-        qsoundeffect_connectnotify_callback = nullptr;
-        qsoundeffect_disconnectnotify_callback = nullptr;
-        qsoundeffect_sender_callback = nullptr;
-        qsoundeffect_sendersignalindex_callback = nullptr;
-        qsoundeffect_receivers_callback = nullptr;
-        qsoundeffect_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSoundEffect_MetaObject_Callback(QSoundEffect_MetaObject_Callback cb) { qsoundeffect_metaobject_callback = cb; }
     inline void setQSoundEffect_Metacast_Callback(QSoundEffect_Metacast_Callback cb) { qsoundeffect_metacast_callback = cb; }
@@ -125,12 +108,13 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_metaobject_isbase) {
             qsoundeffect_metaobject_isbase = false;
             return QSoundEffect::metaObject();
-        } else if (qsoundeffect_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsoundeffect_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSoundEffect::metaObject();
         }
+        auto metaobject_cb = qsoundeffect_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSoundEffect::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,14 +122,15 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_metacast_isbase) {
             qsoundeffect_metacast_isbase = false;
             return QSoundEffect::qt_metacast(param1);
-        } else if (qsoundeffect_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsoundeffect_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsoundeffect_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSoundEffect::qt_metacast(param1);
         }
+        return QSoundEffect::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,16 +138,17 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_metacall_isbase) {
             qsoundeffect_metacall_isbase = false;
             return QSoundEffect::qt_metacall(param1, param2, param3);
-        } else if (qsoundeffect_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsoundeffect_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsoundeffect_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSoundEffect::qt_metacall(param1, param2, param3);
         }
+        return QSoundEffect::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,14 +156,15 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_event_isbase) {
             qsoundeffect_event_isbase = false;
             return QSoundEffect::event(event);
-        } else if (qsoundeffect_event_callback != nullptr) {
+        }
+        auto event_cb = qsoundeffect_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsoundeffect_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSoundEffect::event(event);
         }
+        return QSoundEffect::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,15 +172,16 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_eventfilter_isbase) {
             qsoundeffect_eventfilter_isbase = false;
             return QSoundEffect::eventFilter(watched, event);
-        } else if (qsoundeffect_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsoundeffect_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsoundeffect_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSoundEffect::eventFilter(watched, event);
         }
+        return QSoundEffect::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,13 +189,16 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_timerevent_isbase) {
             qsoundeffect_timerevent_isbase = false;
             QSoundEffect::timerEvent(event);
-        } else if (qsoundeffect_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsoundeffect_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsoundeffect_timerevent_callback(this, cbval1);
-        } else {
-            QSoundEffect::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSoundEffect::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,13 +206,16 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_childevent_isbase) {
             qsoundeffect_childevent_isbase = false;
             QSoundEffect::childEvent(event);
-        } else if (qsoundeffect_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsoundeffect_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsoundeffect_childevent_callback(this, cbval1);
-        } else {
-            QSoundEffect::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSoundEffect::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,13 +223,16 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_customevent_isbase) {
             qsoundeffect_customevent_isbase = false;
             QSoundEffect::customEvent(event);
-        } else if (qsoundeffect_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsoundeffect_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsoundeffect_customevent_callback(this, cbval1);
-        } else {
-            QSoundEffect::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSoundEffect::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +240,18 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_connectnotify_isbase) {
             qsoundeffect_connectnotify_isbase = false;
             QSoundEffect::connectNotify(signal);
-        } else if (qsoundeffect_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsoundeffect_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsoundeffect_connectnotify_callback(this, cbval1);
-        } else {
-            QSoundEffect::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSoundEffect::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,15 +259,18 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_disconnectnotify_isbase) {
             qsoundeffect_disconnectnotify_isbase = false;
             QSoundEffect::disconnectNotify(signal);
-        } else if (qsoundeffect_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsoundeffect_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsoundeffect_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSoundEffect::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSoundEffect::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,12 +278,13 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_sender_isbase) {
             qsoundeffect_sender_isbase = false;
             return QSoundEffect::sender();
-        } else if (qsoundeffect_sender_callback != nullptr) {
-            QObject* callback_ret = qsoundeffect_sender_callback();
-            return callback_ret;
-        } else {
-            return QSoundEffect::sender();
         }
+        auto sender_cb = qsoundeffect_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSoundEffect::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,12 +292,13 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_sendersignalindex_isbase) {
             qsoundeffect_sendersignalindex_isbase = false;
             return QSoundEffect::senderSignalIndex();
-        } else if (qsoundeffect_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsoundeffect_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSoundEffect::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsoundeffect_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSoundEffect::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,14 +306,15 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_receivers_isbase) {
             qsoundeffect_receivers_isbase = false;
             return QSoundEffect::receivers(signal);
-        } else if (qsoundeffect_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsoundeffect_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsoundeffect_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSoundEffect::receivers(signal);
         }
+        return QSoundEffect::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,16 +322,17 @@ class VirtualQSoundEffect final : public QSoundEffect {
         if (qsoundeffect_issignalconnected_isbase) {
             qsoundeffect_issignalconnected_isbase = false;
             return QSoundEffect::isSignalConnected(signal);
-        } else if (qsoundeffect_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsoundeffect_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsoundeffect_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSoundEffect::isSignalConnected(signal);
         }
+        return QSoundEffect::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -71,24 +71,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
   public:
     VirtualQDesignerLayoutDecorationExtension() : QDesignerLayoutDecorationExtension() {};
 
-    ~VirtualQDesignerLayoutDecorationExtension() {
-        qdesignerlayoutdecorationextension_widgets_callback = nullptr;
-        qdesignerlayoutdecorationextension_iteminfo_callback = nullptr;
-        qdesignerlayoutdecorationextension_indexof_callback = nullptr;
-        qdesignerlayoutdecorationextension_indexof2_callback = nullptr;
-        qdesignerlayoutdecorationextension_currentinsertmode_callback = nullptr;
-        qdesignerlayoutdecorationextension_currentindex_callback = nullptr;
-        qdesignerlayoutdecorationextension_currentcell_callback = nullptr;
-        qdesignerlayoutdecorationextension_insertwidget_callback = nullptr;
-        qdesignerlayoutdecorationextension_removewidget_callback = nullptr;
-        qdesignerlayoutdecorationextension_insertrow_callback = nullptr;
-        qdesignerlayoutdecorationextension_insertcolumn_callback = nullptr;
-        qdesignerlayoutdecorationextension_simplify_callback = nullptr;
-        qdesignerlayoutdecorationextension_finditemat_callback = nullptr;
-        qdesignerlayoutdecorationextension_finditemat2_callback = nullptr;
-        qdesignerlayoutdecorationextension_adjustindicator_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerLayoutDecorationExtension_Widgets_Callback(QDesignerLayoutDecorationExtension_Widgets_Callback cb) { qdesignerlayoutdecorationextension_widgets_callback = cb; }
     inline void setQDesignerLayoutDecorationExtension_ItemInfo_Callback(QDesignerLayoutDecorationExtension_ItemInfo_Callback cb) { qdesignerlayoutdecorationextension_iteminfo_callback = cb; }
@@ -125,10 +107,11 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QWidget*> widgets(QLayout* layout) const override {
-        if (qdesignerlayoutdecorationextension_widgets_callback != nullptr) {
+        auto widgets_cb = qdesignerlayoutdecorationextension_widgets_callback;
+        if (widgets_cb) {
             QLayout* cbval1 = layout;
 
-            libqt_list /* of QWidget* */ callback_ret = qdesignerlayoutdecorationextension_widgets_callback(this, cbval1);
+            libqt_list /* of QWidget* */ callback_ret = widgets_cb(this, cbval1);
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
@@ -137,83 +120,83 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRect itemInfo(int index) const override {
-        if (qdesignerlayoutdecorationextension_iteminfo_callback != nullptr) {
+        auto iteminfo_cb = qdesignerlayoutdecorationextension_iteminfo_callback;
+        if (iteminfo_cb) {
             int cbval1 = index;
 
-            QRect* callback_ret = qdesignerlayoutdecorationextension_iteminfo_callback(this, cbval1);
+            QRect* callback_ret = iteminfo_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int indexOf(QWidget* widget) const override {
-        if (qdesignerlayoutdecorationextension_indexof_callback != nullptr) {
+        auto indexof_cb = qdesignerlayoutdecorationextension_indexof_callback;
+        if (indexof_cb) {
             QWidget* cbval1 = widget;
 
-            int callback_ret = qdesignerlayoutdecorationextension_indexof_callback(this, cbval1);
+            int callback_ret = indexof_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int indexOf(QLayoutItem* item) const override {
-        if (qdesignerlayoutdecorationextension_indexof2_callback != nullptr) {
+        auto indexof2_cb = qdesignerlayoutdecorationextension_indexof2_callback;
+        if (indexof2_cb) {
             QLayoutItem* cbval1 = item;
 
-            int callback_ret = qdesignerlayoutdecorationextension_indexof2_callback(this, cbval1);
+            int callback_ret = indexof2_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QDesignerLayoutDecorationExtension::InsertMode currentInsertMode() const override {
-        if (qdesignerlayoutdecorationextension_currentinsertmode_callback != nullptr) {
-            int callback_ret = qdesignerlayoutdecorationextension_currentinsertmode_callback();
+        auto currentinsertmode_cb = qdesignerlayoutdecorationextension_currentinsertmode_callback;
+        if (currentinsertmode_cb) {
+            int callback_ret = currentinsertmode_cb();
             return static_cast<QDesignerLayoutDecorationExtension::InsertMode>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int currentIndex() const override {
-        if (qdesignerlayoutdecorationextension_currentindex_callback != nullptr) {
-            int callback_ret = qdesignerlayoutdecorationextension_currentindex_callback();
+        auto currentindex_cb = qdesignerlayoutdecorationextension_currentindex_callback;
+        if (currentindex_cb) {
+            int callback_ret = currentindex_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QPair<int, int> currentCell() const override {
-        if (qdesignerlayoutdecorationextension_currentcell_callback != nullptr) {
-            pair_int_int /* tuple of int and int */ callback_ret = qdesignerlayoutdecorationextension_currentcell_callback();
+        auto currentcell_cb = qdesignerlayoutdecorationextension_currentcell_callback;
+        if (currentcell_cb) {
+            pair_int_int /* tuple of int and int */ callback_ret = currentcell_cb();
             QPair<int, int> callback_ret_QPair;
             callback_ret_QPair.first = callback_ret.first;
             callback_ret_QPair.second = callback_ret.second;
             return callback_ret_QPair;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void insertWidget(QWidget* widget, const QPair<int, int>& cell) override {
-        if (qdesignerlayoutdecorationextension_insertwidget_callback != nullptr) {
+        auto insertwidget_cb = qdesignerlayoutdecorationextension_insertwidget_callback;
+        if (insertwidget_cb) {
             QWidget* cbval1 = widget;
             const QPair<int, int>& cell_ret = cell;
             // Convert QPair<> from C++ memory to manually-managed C memory
@@ -222,80 +205,85 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
             cell_out.second = cell_ret.second;
             pair_int_int /* tuple of int and int */ cbval2 = cell_out;
 
-            qdesignerlayoutdecorationextension_insertwidget_callback(this, cbval1, cbval2);
+            insertwidget_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void removeWidget(QWidget* widget) override {
-        if (qdesignerlayoutdecorationextension_removewidget_callback != nullptr) {
+        auto removewidget_cb = qdesignerlayoutdecorationextension_removewidget_callback;
+        if (removewidget_cb) {
             QWidget* cbval1 = widget;
 
-            qdesignerlayoutdecorationextension_removewidget_callback(this, cbval1);
+            removewidget_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void insertRow(int row) override {
-        if (qdesignerlayoutdecorationextension_insertrow_callback != nullptr) {
+        auto insertrow_cb = qdesignerlayoutdecorationextension_insertrow_callback;
+        if (insertrow_cb) {
             int cbval1 = row;
 
-            qdesignerlayoutdecorationextension_insertrow_callback(this, cbval1);
+            insertrow_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void insertColumn(int column) override {
-        if (qdesignerlayoutdecorationextension_insertcolumn_callback != nullptr) {
+        auto insertcolumn_cb = qdesignerlayoutdecorationextension_insertcolumn_callback;
+        if (insertcolumn_cb) {
             int cbval1 = column;
 
-            qdesignerlayoutdecorationextension_insertcolumn_callback(this, cbval1);
+            insertcolumn_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void simplify() override {
-        if (qdesignerlayoutdecorationextension_simplify_callback != nullptr) {
-            qdesignerlayoutdecorationextension_simplify_callback();
+        auto simplify_cb = qdesignerlayoutdecorationextension_simplify_callback;
+        if (simplify_cb) {
+            simplify_cb();
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int findItemAt(const QPoint& pos) const override {
-        if (qdesignerlayoutdecorationextension_finditemat_callback != nullptr) {
+        auto finditemat_cb = qdesignerlayoutdecorationextension_finditemat_callback;
+        if (finditemat_cb) {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
 
-            int callback_ret = qdesignerlayoutdecorationextension_finditemat_callback(this, cbval1);
+            int callback_ret = finditemat_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int findItemAt(int row, int column) const override {
-        if (qdesignerlayoutdecorationextension_finditemat2_callback != nullptr) {
+        auto finditemat2_cb = qdesignerlayoutdecorationextension_finditemat2_callback;
+        if (finditemat2_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            int callback_ret = qdesignerlayoutdecorationextension_finditemat2_callback(this, cbval1, cbval2);
+            int callback_ret = finditemat2_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void adjustIndicator(const QPoint& pos, int index) override {
-        if (qdesignerlayoutdecorationextension_adjustindicator_callback != nullptr) {
+        auto adjustindicator_cb = qdesignerlayoutdecorationextension_adjustindicator_callback;
+        if (adjustindicator_cb) {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
             int cbval2 = index;
 
-            qdesignerlayoutdecorationextension_adjustindicator_callback(this, cbval1, cbval2);
+            adjustindicator_cb(this, cbval1, cbval2);
         }
     }
 };

@@ -204,68 +204,6 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
     VirtualKKeySequenceWidget(QWidget* parent) : KKeySequenceWidget(parent) {};
     VirtualKKeySequenceWidget() : KKeySequenceWidget() {};
 
-    ~VirtualKKeySequenceWidget() {
-        kkeysequencewidget_metaobject_callback = nullptr;
-        kkeysequencewidget_metacast_callback = nullptr;
-        kkeysequencewidget_metacall_callback = nullptr;
-        kkeysequencewidget_devtype_callback = nullptr;
-        kkeysequencewidget_setvisible_callback = nullptr;
-        kkeysequencewidget_sizehint_callback = nullptr;
-        kkeysequencewidget_minimumsizehint_callback = nullptr;
-        kkeysequencewidget_heightforwidth_callback = nullptr;
-        kkeysequencewidget_hasheightforwidth_callback = nullptr;
-        kkeysequencewidget_paintengine_callback = nullptr;
-        kkeysequencewidget_mousepressevent_callback = nullptr;
-        kkeysequencewidget_mousereleaseevent_callback = nullptr;
-        kkeysequencewidget_mousedoubleclickevent_callback = nullptr;
-        kkeysequencewidget_mousemoveevent_callback = nullptr;
-        kkeysequencewidget_wheelevent_callback = nullptr;
-        kkeysequencewidget_keypressevent_callback = nullptr;
-        kkeysequencewidget_keyreleaseevent_callback = nullptr;
-        kkeysequencewidget_focusinevent_callback = nullptr;
-        kkeysequencewidget_focusoutevent_callback = nullptr;
-        kkeysequencewidget_enterevent_callback = nullptr;
-        kkeysequencewidget_leaveevent_callback = nullptr;
-        kkeysequencewidget_paintevent_callback = nullptr;
-        kkeysequencewidget_moveevent_callback = nullptr;
-        kkeysequencewidget_resizeevent_callback = nullptr;
-        kkeysequencewidget_closeevent_callback = nullptr;
-        kkeysequencewidget_contextmenuevent_callback = nullptr;
-        kkeysequencewidget_tabletevent_callback = nullptr;
-        kkeysequencewidget_actionevent_callback = nullptr;
-        kkeysequencewidget_dragenterevent_callback = nullptr;
-        kkeysequencewidget_dragmoveevent_callback = nullptr;
-        kkeysequencewidget_dragleaveevent_callback = nullptr;
-        kkeysequencewidget_dropevent_callback = nullptr;
-        kkeysequencewidget_showevent_callback = nullptr;
-        kkeysequencewidget_hideevent_callback = nullptr;
-        kkeysequencewidget_nativeevent_callback = nullptr;
-        kkeysequencewidget_changeevent_callback = nullptr;
-        kkeysequencewidget_metric_callback = nullptr;
-        kkeysequencewidget_initpainter_callback = nullptr;
-        kkeysequencewidget_redirected_callback = nullptr;
-        kkeysequencewidget_sharedpainter_callback = nullptr;
-        kkeysequencewidget_inputmethodevent_callback = nullptr;
-        kkeysequencewidget_inputmethodquery_callback = nullptr;
-        kkeysequencewidget_focusnextprevchild_callback = nullptr;
-        kkeysequencewidget_eventfilter_callback = nullptr;
-        kkeysequencewidget_timerevent_callback = nullptr;
-        kkeysequencewidget_childevent_callback = nullptr;
-        kkeysequencewidget_customevent_callback = nullptr;
-        kkeysequencewidget_connectnotify_callback = nullptr;
-        kkeysequencewidget_disconnectnotify_callback = nullptr;
-        kkeysequencewidget_updatemicrofocus_callback = nullptr;
-        kkeysequencewidget_create_callback = nullptr;
-        kkeysequencewidget_destroy_callback = nullptr;
-        kkeysequencewidget_focusnextchild_callback = nullptr;
-        kkeysequencewidget_focuspreviouschild_callback = nullptr;
-        kkeysequencewidget_sender_callback = nullptr;
-        kkeysequencewidget_sendersignalindex_callback = nullptr;
-        kkeysequencewidget_receivers_callback = nullptr;
-        kkeysequencewidget_issignalconnected_callback = nullptr;
-        kkeysequencewidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKKeySequenceWidget_MetaObject_Callback(KKeySequenceWidget_MetaObject_Callback cb) { kkeysequencewidget_metaobject_callback = cb; }
     inline void setKKeySequenceWidget_Metacast_Callback(KKeySequenceWidget_Metacast_Callback cb) { kkeysequencewidget_metacast_callback = cb; }
@@ -393,12 +331,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_metaobject_isbase) {
             kkeysequencewidget_metaobject_isbase = false;
             return KKeySequenceWidget::metaObject();
-        } else if (kkeysequencewidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kkeysequencewidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KKeySequenceWidget::metaObject();
         }
+        auto metaobject_cb = kkeysequencewidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KKeySequenceWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -406,14 +345,15 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_metacast_isbase) {
             kkeysequencewidget_metacast_isbase = false;
             return KKeySequenceWidget::qt_metacast(param1);
-        } else if (kkeysequencewidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kkeysequencewidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kkeysequencewidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KKeySequenceWidget::qt_metacast(param1);
         }
+        return KKeySequenceWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -421,16 +361,17 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_metacall_isbase) {
             kkeysequencewidget_metacall_isbase = false;
             return KKeySequenceWidget::qt_metacall(param1, param2, param3);
-        } else if (kkeysequencewidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kkeysequencewidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kkeysequencewidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KKeySequenceWidget::qt_metacall(param1, param2, param3);
         }
+        return KKeySequenceWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -438,12 +379,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_devtype_isbase) {
             kkeysequencewidget_devtype_isbase = false;
             return KKeySequenceWidget::devType();
-        } else if (kkeysequencewidget_devtype_callback != nullptr) {
-            int callback_ret = kkeysequencewidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KKeySequenceWidget::devType();
         }
+        auto devtype_cb = kkeysequencewidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KKeySequenceWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,13 +393,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_setvisible_isbase) {
             kkeysequencewidget_setvisible_isbase = false;
             KKeySequenceWidget::setVisible(visible);
-        } else if (kkeysequencewidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kkeysequencewidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kkeysequencewidget_setvisible_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,12 +410,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_sizehint_isbase) {
             kkeysequencewidget_sizehint_isbase = false;
             return KKeySequenceWidget::sizeHint();
-        } else if (kkeysequencewidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = kkeysequencewidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KKeySequenceWidget::sizeHint();
         }
+        auto sizehint_cb = kkeysequencewidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KKeySequenceWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -478,12 +424,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_minimumsizehint_isbase) {
             kkeysequencewidget_minimumsizehint_isbase = false;
             return KKeySequenceWidget::minimumSizeHint();
-        } else if (kkeysequencewidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kkeysequencewidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KKeySequenceWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kkeysequencewidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KKeySequenceWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -491,14 +438,15 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_heightforwidth_isbase) {
             kkeysequencewidget_heightforwidth_isbase = false;
             return KKeySequenceWidget::heightForWidth(param1);
-        } else if (kkeysequencewidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kkeysequencewidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kkeysequencewidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KKeySequenceWidget::heightForWidth(param1);
         }
+        return KKeySequenceWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -506,12 +454,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_hasheightforwidth_isbase) {
             kkeysequencewidget_hasheightforwidth_isbase = false;
             return KKeySequenceWidget::hasHeightForWidth();
-        } else if (kkeysequencewidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kkeysequencewidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KKeySequenceWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kkeysequencewidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KKeySequenceWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -519,12 +468,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_paintengine_isbase) {
             kkeysequencewidget_paintengine_isbase = false;
             return KKeySequenceWidget::paintEngine();
-        } else if (kkeysequencewidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kkeysequencewidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KKeySequenceWidget::paintEngine();
         }
+        auto paintengine_cb = kkeysequencewidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KKeySequenceWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -532,13 +482,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_mousepressevent_isbase) {
             kkeysequencewidget_mousepressevent_isbase = false;
             KKeySequenceWidget::mousePressEvent(event);
-        } else if (kkeysequencewidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kkeysequencewidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kkeysequencewidget_mousepressevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,13 +499,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_mousereleaseevent_isbase) {
             kkeysequencewidget_mousereleaseevent_isbase = false;
             KKeySequenceWidget::mouseReleaseEvent(event);
-        } else if (kkeysequencewidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kkeysequencewidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kkeysequencewidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,13 +516,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_mousedoubleclickevent_isbase) {
             kkeysequencewidget_mousedoubleclickevent_isbase = false;
             KKeySequenceWidget::mouseDoubleClickEvent(event);
-        } else if (kkeysequencewidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kkeysequencewidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kkeysequencewidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -574,13 +533,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_mousemoveevent_isbase) {
             kkeysequencewidget_mousemoveevent_isbase = false;
             KKeySequenceWidget::mouseMoveEvent(event);
-        } else if (kkeysequencewidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kkeysequencewidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kkeysequencewidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -588,13 +550,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_wheelevent_isbase) {
             kkeysequencewidget_wheelevent_isbase = false;
             KKeySequenceWidget::wheelEvent(event);
-        } else if (kkeysequencewidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kkeysequencewidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kkeysequencewidget_wheelevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,13 +567,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_keypressevent_isbase) {
             kkeysequencewidget_keypressevent_isbase = false;
             KKeySequenceWidget::keyPressEvent(event);
-        } else if (kkeysequencewidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kkeysequencewidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kkeysequencewidget_keypressevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -616,13 +584,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_keyreleaseevent_isbase) {
             kkeysequencewidget_keyreleaseevent_isbase = false;
             KKeySequenceWidget::keyReleaseEvent(event);
-        } else if (kkeysequencewidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kkeysequencewidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kkeysequencewidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -630,13 +601,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_focusinevent_isbase) {
             kkeysequencewidget_focusinevent_isbase = false;
             KKeySequenceWidget::focusInEvent(event);
-        } else if (kkeysequencewidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kkeysequencewidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kkeysequencewidget_focusinevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -644,13 +618,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_focusoutevent_isbase) {
             kkeysequencewidget_focusoutevent_isbase = false;
             KKeySequenceWidget::focusOutEvent(event);
-        } else if (kkeysequencewidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kkeysequencewidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kkeysequencewidget_focusoutevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -658,13 +635,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_enterevent_isbase) {
             kkeysequencewidget_enterevent_isbase = false;
             KKeySequenceWidget::enterEvent(event);
-        } else if (kkeysequencewidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kkeysequencewidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kkeysequencewidget_enterevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -672,13 +652,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_leaveevent_isbase) {
             kkeysequencewidget_leaveevent_isbase = false;
             KKeySequenceWidget::leaveEvent(event);
-        } else if (kkeysequencewidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kkeysequencewidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kkeysequencewidget_leaveevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -686,13 +669,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_paintevent_isbase) {
             kkeysequencewidget_paintevent_isbase = false;
             KKeySequenceWidget::paintEvent(event);
-        } else if (kkeysequencewidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kkeysequencewidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kkeysequencewidget_paintevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -700,13 +686,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_moveevent_isbase) {
             kkeysequencewidget_moveevent_isbase = false;
             KKeySequenceWidget::moveEvent(event);
-        } else if (kkeysequencewidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kkeysequencewidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kkeysequencewidget_moveevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,13 +703,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_resizeevent_isbase) {
             kkeysequencewidget_resizeevent_isbase = false;
             KKeySequenceWidget::resizeEvent(event);
-        } else if (kkeysequencewidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kkeysequencewidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kkeysequencewidget_resizeevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -728,13 +720,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_closeevent_isbase) {
             kkeysequencewidget_closeevent_isbase = false;
             KKeySequenceWidget::closeEvent(event);
-        } else if (kkeysequencewidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kkeysequencewidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kkeysequencewidget_closeevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -742,13 +737,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_contextmenuevent_isbase) {
             kkeysequencewidget_contextmenuevent_isbase = false;
             KKeySequenceWidget::contextMenuEvent(event);
-        } else if (kkeysequencewidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kkeysequencewidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kkeysequencewidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,13 +754,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_tabletevent_isbase) {
             kkeysequencewidget_tabletevent_isbase = false;
             KKeySequenceWidget::tabletEvent(event);
-        } else if (kkeysequencewidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kkeysequencewidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kkeysequencewidget_tabletevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,13 +771,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_actionevent_isbase) {
             kkeysequencewidget_actionevent_isbase = false;
             KKeySequenceWidget::actionEvent(event);
-        } else if (kkeysequencewidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kkeysequencewidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kkeysequencewidget_actionevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,13 +788,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_dragenterevent_isbase) {
             kkeysequencewidget_dragenterevent_isbase = false;
             KKeySequenceWidget::dragEnterEvent(event);
-        } else if (kkeysequencewidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kkeysequencewidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kkeysequencewidget_dragenterevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -798,13 +805,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_dragmoveevent_isbase) {
             kkeysequencewidget_dragmoveevent_isbase = false;
             KKeySequenceWidget::dragMoveEvent(event);
-        } else if (kkeysequencewidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kkeysequencewidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kkeysequencewidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -812,13 +822,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_dragleaveevent_isbase) {
             kkeysequencewidget_dragleaveevent_isbase = false;
             KKeySequenceWidget::dragLeaveEvent(event);
-        } else if (kkeysequencewidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kkeysequencewidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kkeysequencewidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -826,13 +839,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_dropevent_isbase) {
             kkeysequencewidget_dropevent_isbase = false;
             KKeySequenceWidget::dropEvent(event);
-        } else if (kkeysequencewidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kkeysequencewidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kkeysequencewidget_dropevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -840,13 +856,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_showevent_isbase) {
             kkeysequencewidget_showevent_isbase = false;
             KKeySequenceWidget::showEvent(event);
-        } else if (kkeysequencewidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kkeysequencewidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kkeysequencewidget_showevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,13 +873,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_hideevent_isbase) {
             kkeysequencewidget_hideevent_isbase = false;
             KKeySequenceWidget::hideEvent(event);
-        } else if (kkeysequencewidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kkeysequencewidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kkeysequencewidget_hideevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,7 +890,9 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_nativeevent_isbase) {
             kkeysequencewidget_nativeevent_isbase = false;
             return KKeySequenceWidget::nativeEvent(eventType, message, result);
-        } else if (kkeysequencewidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kkeysequencewidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -879,12 +903,11 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kkeysequencewidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KKeySequenceWidget::nativeEvent(eventType, message, result);
         }
+        return KKeySequenceWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -892,13 +915,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_changeevent_isbase) {
             kkeysequencewidget_changeevent_isbase = false;
             KKeySequenceWidget::changeEvent(param1);
-        } else if (kkeysequencewidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kkeysequencewidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kkeysequencewidget_changeevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -906,14 +932,15 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_metric_isbase) {
             kkeysequencewidget_metric_isbase = false;
             return KKeySequenceWidget::metric(param1);
-        } else if (kkeysequencewidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = kkeysequencewidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kkeysequencewidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KKeySequenceWidget::metric(param1);
         }
+        return KKeySequenceWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -921,13 +948,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_initpainter_isbase) {
             kkeysequencewidget_initpainter_isbase = false;
             KKeySequenceWidget::initPainter(painter);
-        } else if (kkeysequencewidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kkeysequencewidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kkeysequencewidget_initpainter_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -935,14 +965,15 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_redirected_isbase) {
             kkeysequencewidget_redirected_isbase = false;
             return KKeySequenceWidget::redirected(offset);
-        } else if (kkeysequencewidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kkeysequencewidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kkeysequencewidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KKeySequenceWidget::redirected(offset);
         }
+        return KKeySequenceWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -950,12 +981,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_sharedpainter_isbase) {
             kkeysequencewidget_sharedpainter_isbase = false;
             return KKeySequenceWidget::sharedPainter();
-        } else if (kkeysequencewidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kkeysequencewidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KKeySequenceWidget::sharedPainter();
         }
+        auto sharedpainter_cb = kkeysequencewidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KKeySequenceWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -963,13 +995,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_inputmethodevent_isbase) {
             kkeysequencewidget_inputmethodevent_isbase = false;
             KKeySequenceWidget::inputMethodEvent(param1);
-        } else if (kkeysequencewidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kkeysequencewidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kkeysequencewidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -977,14 +1012,15 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_inputmethodquery_isbase) {
             kkeysequencewidget_inputmethodquery_isbase = false;
             return KKeySequenceWidget::inputMethodQuery(param1);
-        } else if (kkeysequencewidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kkeysequencewidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kkeysequencewidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KKeySequenceWidget::inputMethodQuery(param1);
         }
+        return KKeySequenceWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,14 +1028,15 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_focusnextprevchild_isbase) {
             kkeysequencewidget_focusnextprevchild_isbase = false;
             return KKeySequenceWidget::focusNextPrevChild(next);
-        } else if (kkeysequencewidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kkeysequencewidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kkeysequencewidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KKeySequenceWidget::focusNextPrevChild(next);
         }
+        return KKeySequenceWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1007,15 +1044,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_eventfilter_isbase) {
             kkeysequencewidget_eventfilter_isbase = false;
             return KKeySequenceWidget::eventFilter(watched, event);
-        } else if (kkeysequencewidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kkeysequencewidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kkeysequencewidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KKeySequenceWidget::eventFilter(watched, event);
         }
+        return KKeySequenceWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1023,13 +1061,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_timerevent_isbase) {
             kkeysequencewidget_timerevent_isbase = false;
             KKeySequenceWidget::timerEvent(event);
-        } else if (kkeysequencewidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kkeysequencewidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kkeysequencewidget_timerevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,13 +1078,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_childevent_isbase) {
             kkeysequencewidget_childevent_isbase = false;
             KKeySequenceWidget::childEvent(event);
-        } else if (kkeysequencewidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kkeysequencewidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kkeysequencewidget_childevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1051,13 +1095,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_customevent_isbase) {
             kkeysequencewidget_customevent_isbase = false;
             KKeySequenceWidget::customEvent(event);
-        } else if (kkeysequencewidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kkeysequencewidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kkeysequencewidget_customevent_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,15 +1112,18 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_connectnotify_isbase) {
             kkeysequencewidget_connectnotify_isbase = false;
             KKeySequenceWidget::connectNotify(signal);
-        } else if (kkeysequencewidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kkeysequencewidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kkeysequencewidget_connectnotify_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1081,15 +1131,18 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_disconnectnotify_isbase) {
             kkeysequencewidget_disconnectnotify_isbase = false;
             KKeySequenceWidget::disconnectNotify(signal);
-        } else if (kkeysequencewidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kkeysequencewidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kkeysequencewidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            KKeySequenceWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KKeySequenceWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1097,11 +1150,14 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_updatemicrofocus_isbase) {
             kkeysequencewidget_updatemicrofocus_isbase = false;
             KKeySequenceWidget::updateMicroFocus();
-        } else if (kkeysequencewidget_updatemicrofocus_callback != nullptr) {
-            kkeysequencewidget_updatemicrofocus_callback();
-        } else {
-            KKeySequenceWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kkeysequencewidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KKeySequenceWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1109,11 +1165,14 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_create_isbase) {
             kkeysequencewidget_create_isbase = false;
             KKeySequenceWidget::create();
-        } else if (kkeysequencewidget_create_callback != nullptr) {
-            kkeysequencewidget_create_callback();
-        } else {
-            KKeySequenceWidget::create();
+            return;
         }
+        auto create_cb = kkeysequencewidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KKeySequenceWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1121,11 +1180,14 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_destroy_isbase) {
             kkeysequencewidget_destroy_isbase = false;
             KKeySequenceWidget::destroy();
-        } else if (kkeysequencewidget_destroy_callback != nullptr) {
-            kkeysequencewidget_destroy_callback();
-        } else {
-            KKeySequenceWidget::destroy();
+            return;
         }
+        auto destroy_cb = kkeysequencewidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KKeySequenceWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1133,12 +1195,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_focusnextchild_isbase) {
             kkeysequencewidget_focusnextchild_isbase = false;
             return KKeySequenceWidget::focusNextChild();
-        } else if (kkeysequencewidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = kkeysequencewidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KKeySequenceWidget::focusNextChild();
         }
+        auto focusnextchild_cb = kkeysequencewidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KKeySequenceWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1146,12 +1209,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_focuspreviouschild_isbase) {
             kkeysequencewidget_focuspreviouschild_isbase = false;
             return KKeySequenceWidget::focusPreviousChild();
-        } else if (kkeysequencewidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kkeysequencewidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KKeySequenceWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kkeysequencewidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KKeySequenceWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,12 +1223,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_sender_isbase) {
             kkeysequencewidget_sender_isbase = false;
             return KKeySequenceWidget::sender();
-        } else if (kkeysequencewidget_sender_callback != nullptr) {
-            QObject* callback_ret = kkeysequencewidget_sender_callback();
-            return callback_ret;
-        } else {
-            return KKeySequenceWidget::sender();
         }
+        auto sender_cb = kkeysequencewidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KKeySequenceWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,12 +1237,13 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_sendersignalindex_isbase) {
             kkeysequencewidget_sendersignalindex_isbase = false;
             return KKeySequenceWidget::senderSignalIndex();
-        } else if (kkeysequencewidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = kkeysequencewidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KKeySequenceWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kkeysequencewidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KKeySequenceWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1185,14 +1251,15 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_receivers_isbase) {
             kkeysequencewidget_receivers_isbase = false;
             return KKeySequenceWidget::receivers(signal);
-        } else if (kkeysequencewidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kkeysequencewidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kkeysequencewidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KKeySequenceWidget::receivers(signal);
         }
+        return KKeySequenceWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1200,16 +1267,17 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_issignalconnected_isbase) {
             kkeysequencewidget_issignalconnected_isbase = false;
             return KKeySequenceWidget::isSignalConnected(signal);
-        } else if (kkeysequencewidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kkeysequencewidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kkeysequencewidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KKeySequenceWidget::isSignalConnected(signal);
         }
+        return KKeySequenceWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1217,15 +1285,16 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
         if (kkeysequencewidget_getdecodedmetricf_isbase) {
             kkeysequencewidget_getdecodedmetricf_isbase = false;
             return KKeySequenceWidget::getDecodedMetricF(metricA, metricB);
-        } else if (kkeysequencewidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kkeysequencewidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kkeysequencewidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KKeySequenceWidget::getDecodedMetricF(metricA, metricB);
         }
+        return KKeySequenceWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

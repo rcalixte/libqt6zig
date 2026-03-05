@@ -44,15 +44,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
   public:
     VirtualKXMLGUIBuilder(QWidget* widget) : KXMLGUIBuilder(widget) {};
 
-    ~VirtualKXMLGUIBuilder() {
-        kxmlguibuilder_containertags_callback = nullptr;
-        kxmlguibuilder_createcontainer_callback = nullptr;
-        kxmlguibuilder_removecontainer_callback = nullptr;
-        kxmlguibuilder_customtags_callback = nullptr;
-        kxmlguibuilder_createcustomelement_callback = nullptr;
-        kxmlguibuilder_finalizegui_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKXMLGUIBuilder_ContainerTags_Callback(KXMLGUIBuilder_ContainerTags_Callback cb) { kxmlguibuilder_containertags_callback = cb; }
     inline void setKXMLGUIBuilder_CreateContainer_Callback(KXMLGUIBuilder_CreateContainer_Callback cb) { kxmlguibuilder_createcontainer_callback = cb; }
@@ -74,8 +65,10 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
         if (kxmlguibuilder_containertags_isbase) {
             kxmlguibuilder_containertags_isbase = false;
             return KXMLGUIBuilder::containerTags();
-        } else if (kxmlguibuilder_containertags_callback != nullptr) {
-            const char** callback_ret = kxmlguibuilder_containertags_callback();
+        }
+        auto containertags_cb = kxmlguibuilder_containertags_callback;
+        if (containertags_cb) {
+            const char** callback_ret = containertags_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -86,9 +79,8 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KXMLGUIBuilder::containerTags();
         }
+        return KXMLGUIBuilder::containerTags();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -96,7 +88,9 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
         if (kxmlguibuilder_createcontainer_isbase) {
             kxmlguibuilder_createcontainer_isbase = false;
             return KXMLGUIBuilder::createContainer(parent, index, element, containerAction);
-        } else if (kxmlguibuilder_createcontainer_callback != nullptr) {
+        }
+        auto createcontainer_cb = kxmlguibuilder_createcontainer_callback;
+        if (createcontainer_cb) {
             QWidget* cbval1 = parent;
             int cbval2 = index;
             const QDomElement& element_ret = element;
@@ -106,11 +100,10 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
             // Cast returned reference into pointer
             QAction** cbval4 = &containerAction_ret;
 
-            QWidget* callback_ret = kxmlguibuilder_createcontainer_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QWidget* callback_ret = createcontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KXMLGUIBuilder::createContainer(parent, index, element, containerAction);
         }
+        return KXMLGUIBuilder::createContainer(parent, index, element, containerAction);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -118,7 +111,10 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
         if (kxmlguibuilder_removecontainer_isbase) {
             kxmlguibuilder_removecontainer_isbase = false;
             KXMLGUIBuilder::removeContainer(container, parent, element, containerAction);
-        } else if (kxmlguibuilder_removecontainer_callback != nullptr) {
+            return;
+        }
+        auto removecontainer_cb = kxmlguibuilder_removecontainer_callback;
+        if (removecontainer_cb) {
             QWidget* cbval1 = container;
             QWidget* cbval2 = parent;
             QDomElement& element_ret = element;
@@ -126,10 +122,10 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
             QDomElement* cbval3 = &element_ret;
             QAction* cbval4 = containerAction;
 
-            kxmlguibuilder_removecontainer_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KXMLGUIBuilder::removeContainer(container, parent, element, containerAction);
+            removecontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KXMLGUIBuilder::removeContainer(container, parent, element, containerAction);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -137,8 +133,10 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
         if (kxmlguibuilder_customtags_isbase) {
             kxmlguibuilder_customtags_isbase = false;
             return KXMLGUIBuilder::customTags();
-        } else if (kxmlguibuilder_customtags_callback != nullptr) {
-            const char** callback_ret = kxmlguibuilder_customtags_callback();
+        }
+        auto customtags_cb = kxmlguibuilder_customtags_callback;
+        if (customtags_cb) {
+            const char** callback_ret = customtags_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -149,9 +147,8 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KXMLGUIBuilder::customTags();
         }
+        return KXMLGUIBuilder::customTags();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -159,18 +156,19 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
         if (kxmlguibuilder_createcustomelement_isbase) {
             kxmlguibuilder_createcustomelement_isbase = false;
             return KXMLGUIBuilder::createCustomElement(parent, index, element);
-        } else if (kxmlguibuilder_createcustomelement_callback != nullptr) {
+        }
+        auto createcustomelement_cb = kxmlguibuilder_createcustomelement_callback;
+        if (createcustomelement_cb) {
             QWidget* cbval1 = parent;
             int cbval2 = index;
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval3 = const_cast<QDomElement*>(&element_ret);
 
-            QAction* callback_ret = kxmlguibuilder_createcustomelement_callback(this, cbval1, cbval2, cbval3);
+            QAction* callback_ret = createcustomelement_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KXMLGUIBuilder::createCustomElement(parent, index, element);
         }
+        return KXMLGUIBuilder::createCustomElement(parent, index, element);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -178,13 +176,16 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
         if (kxmlguibuilder_finalizegui_isbase) {
             kxmlguibuilder_finalizegui_isbase = false;
             KXMLGUIBuilder::finalizeGUI(client);
-        } else if (kxmlguibuilder_finalizegui_callback != nullptr) {
+            return;
+        }
+        auto finalizegui_cb = kxmlguibuilder_finalizegui_callback;
+        if (finalizegui_cb) {
             KXMLGUIClient* cbval1 = client;
 
-            kxmlguibuilder_finalizegui_callback(this, cbval1);
-        } else {
-            KXMLGUIBuilder::finalizeGUI(client);
+            finalizegui_cb(this, cbval1);
+            return;
         }
+        KXMLGUIBuilder::finalizeGUI(client);
     }
 };
 

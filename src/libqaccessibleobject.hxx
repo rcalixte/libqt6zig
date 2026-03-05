@@ -83,30 +83,6 @@ class VirtualQAccessibleObject : public QAccessibleObject {
   public:
     VirtualQAccessibleObject(QObject* object) : QAccessibleObject(object) {};
 
-  protected:
-    ~VirtualQAccessibleObject() {
-        qaccessibleobject_isvalid_callback = nullptr;
-        qaccessibleobject_object_callback = nullptr;
-        qaccessibleobject_rect_callback = nullptr;
-        qaccessibleobject_settext_callback = nullptr;
-        qaccessibleobject_childat_callback = nullptr;
-        qaccessibleobject_window_callback = nullptr;
-        qaccessibleobject_relations_callback = nullptr;
-        qaccessibleobject_focuschild_callback = nullptr;
-        qaccessibleobject_parent_callback = nullptr;
-        qaccessibleobject_child_callback = nullptr;
-        qaccessibleobject_childcount_callback = nullptr;
-        qaccessibleobject_indexofchild_callback = nullptr;
-        qaccessibleobject_text_callback = nullptr;
-        qaccessibleobject_role_callback = nullptr;
-        qaccessibleobject_state_callback = nullptr;
-        qaccessibleobject_foregroundcolor_callback = nullptr;
-        qaccessibleobject_backgroundcolor_callback = nullptr;
-        qaccessibleobject_virtualhook_callback = nullptr;
-        qaccessibleobject_interfacecast_callback = nullptr;
-    }
-
-  public:
     // Callback setters
     inline void setQAccessibleObject_IsValid_Callback(QAccessibleObject_IsValid_Callback cb) { qaccessibleobject_isvalid_callback = cb; }
     inline void setQAccessibleObject_Object_Callback(QAccessibleObject_Object_Callback cb) { qaccessibleobject_object_callback = cb; }
@@ -154,12 +130,13 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_isvalid_isbase) {
             qaccessibleobject_isvalid_isbase = false;
             return QAccessibleObject::isValid();
-        } else if (qaccessibleobject_isvalid_callback != nullptr) {
-            bool callback_ret = qaccessibleobject_isvalid_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleObject::isValid();
         }
+        auto isvalid_cb = qaccessibleobject_isvalid_callback;
+        if (isvalid_cb) {
+            bool callback_ret = isvalid_cb();
+            return callback_ret;
+        }
+        return QAccessibleObject::isValid();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -167,12 +144,13 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_object_isbase) {
             qaccessibleobject_object_isbase = false;
             return QAccessibleObject::object();
-        } else if (qaccessibleobject_object_callback != nullptr) {
-            QObject* callback_ret = qaccessibleobject_object_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleObject::object();
         }
+        auto object_cb = qaccessibleobject_object_callback;
+        if (object_cb) {
+            QObject* callback_ret = object_cb();
+            return callback_ret;
+        }
+        return QAccessibleObject::object();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,12 +158,13 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_rect_isbase) {
             qaccessibleobject_rect_isbase = false;
             return QAccessibleObject::rect();
-        } else if (qaccessibleobject_rect_callback != nullptr) {
-            QRect* callback_ret = qaccessibleobject_rect_callback();
-            return *callback_ret;
-        } else {
-            return QAccessibleObject::rect();
         }
+        auto rect_cb = qaccessibleobject_rect_callback;
+        if (rect_cb) {
+            QRect* callback_ret = rect_cb();
+            return *callback_ret;
+        }
+        return QAccessibleObject::rect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -193,7 +172,10 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_settext_isbase) {
             qaccessibleobject_settext_isbase = false;
             QAccessibleObject::setText(t, text);
-        } else if (qaccessibleobject_settext_callback != nullptr) {
+            return;
+        }
+        auto settext_cb = qaccessibleobject_settext_callback;
+        if (settext_cb) {
             int cbval1 = static_cast<int>(t);
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -204,11 +186,11 @@ class VirtualQAccessibleObject : public QAccessibleObject {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval2 = text_str;
 
-            qaccessibleobject_settext_callback(this, cbval1, cbval2);
+            settext_cb(this, cbval1, cbval2);
             libqt_free(text_str);
-        } else {
-            QAccessibleObject::setText(t, text);
+            return;
         }
+        QAccessibleObject::setText(t, text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -216,15 +198,16 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_childat_isbase) {
             qaccessibleobject_childat_isbase = false;
             return QAccessibleObject::childAt(x, y);
-        } else if (qaccessibleobject_childat_callback != nullptr) {
+        }
+        auto childat_cb = qaccessibleobject_childat_callback;
+        if (childat_cb) {
             int cbval1 = x;
             int cbval2 = y;
 
-            QAccessibleInterface* callback_ret = qaccessibleobject_childat_callback(this, cbval1, cbval2);
+            QAccessibleInterface* callback_ret = childat_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAccessibleObject::childAt(x, y);
         }
+        return QAccessibleObject::childAt(x, y);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,12 +215,13 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_window_isbase) {
             qaccessibleobject_window_isbase = false;
             return QAccessibleObject::window();
-        } else if (qaccessibleobject_window_callback != nullptr) {
-            QWindow* callback_ret = qaccessibleobject_window_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleObject::window();
         }
+        auto window_cb = qaccessibleobject_window_callback;
+        if (window_cb) {
+            QWindow* callback_ret = window_cb();
+            return callback_ret;
+        }
+        return QAccessibleObject::window();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -245,10 +229,12 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_relations_isbase) {
             qaccessibleobject_relations_isbase = false;
             return QAccessibleObject::relations(match);
-        } else if (qaccessibleobject_relations_callback != nullptr) {
+        }
+        auto relations_cb = qaccessibleobject_relations_callback;
+        if (relations_cb) {
             int cbval1 = static_cast<int>(match);
 
-            libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ callback_ret = qaccessibleobject_relations_callback(this, cbval1);
+            libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ callback_ret = relations_cb(this, cbval1);
             QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */* callback_ret_arr = static_cast<pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */*>(callback_ret.data);
@@ -260,9 +246,8 @@ class VirtualQAccessibleObject : public QAccessibleObject {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QAccessibleObject::relations(match);
         }
+        return QAccessibleObject::relations(match);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,89 +255,90 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_focuschild_isbase) {
             qaccessibleobject_focuschild_isbase = false;
             return QAccessibleObject::focusChild();
-        } else if (qaccessibleobject_focuschild_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibleobject_focuschild_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleObject::focusChild();
         }
+        auto focuschild_cb = qaccessibleobject_focuschild_callback;
+        if (focuschild_cb) {
+            QAccessibleInterface* callback_ret = focuschild_cb();
+            return callback_ret;
+        }
+        return QAccessibleObject::focusChild();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* parent() const override {
-        if (qaccessibleobject_parent_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibleobject_parent_callback();
+        auto parent_cb = qaccessibleobject_parent_callback;
+        if (parent_cb) {
+            QAccessibleInterface* callback_ret = parent_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleInterface* child(int index) const override {
-        if (qaccessibleobject_child_callback != nullptr) {
+        auto child_cb = qaccessibleobject_child_callback;
+        if (child_cb) {
             int cbval1 = index;
 
-            QAccessibleInterface* callback_ret = qaccessibleobject_child_callback(this, cbval1);
+            QAccessibleInterface* callback_ret = child_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int childCount() const override {
-        if (qaccessibleobject_childcount_callback != nullptr) {
-            int callback_ret = qaccessibleobject_childcount_callback();
+        auto childcount_cb = qaccessibleobject_childcount_callback;
+        if (childcount_cb) {
+            int callback_ret = childcount_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int indexOfChild(const QAccessibleInterface* param1) const override {
-        if (qaccessibleobject_indexofchild_callback != nullptr) {
+        auto indexofchild_cb = qaccessibleobject_indexofchild_callback;
+        if (indexofchild_cb) {
             QAccessibleInterface* cbval1 = (QAccessibleInterface*)param1;
 
-            int callback_ret = qaccessibleobject_indexofchild_callback(this, cbval1);
+            int callback_ret = indexofchild_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString text(QAccessible::Text t) const override {
-        if (qaccessibleobject_text_callback != nullptr) {
+        auto text_cb = qaccessibleobject_text_callback;
+        if (text_cb) {
             int cbval1 = static_cast<int>(t);
 
-            const char* callback_ret = qaccessibleobject_text_callback(this, cbval1);
+            const char* callback_ret = text_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessible::Role role() const override {
-        if (qaccessibleobject_role_callback != nullptr) {
-            int callback_ret = qaccessibleobject_role_callback();
+        auto role_cb = qaccessibleobject_role_callback;
+        if (role_cb) {
+            int callback_ret = role_cb();
             return static_cast<QAccessible::Role>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessible::State state() const override {
-        if (qaccessibleobject_state_callback != nullptr) {
-            QAccessible__State* callback_ret = qaccessibleobject_state_callback();
+        auto state_cb = qaccessibleobject_state_callback;
+        if (state_cb) {
+            QAccessible__State* callback_ret = state_cb();
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,12 +346,13 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_foregroundcolor_isbase) {
             qaccessibleobject_foregroundcolor_isbase = false;
             return QAccessibleObject::foregroundColor();
-        } else if (qaccessibleobject_foregroundcolor_callback != nullptr) {
-            QColor* callback_ret = qaccessibleobject_foregroundcolor_callback();
-            return *callback_ret;
-        } else {
-            return QAccessibleObject::foregroundColor();
         }
+        auto foregroundcolor_cb = qaccessibleobject_foregroundcolor_callback;
+        if (foregroundcolor_cb) {
+            QColor* callback_ret = foregroundcolor_cb();
+            return *callback_ret;
+        }
+        return QAccessibleObject::foregroundColor();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,12 +360,13 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_backgroundcolor_isbase) {
             qaccessibleobject_backgroundcolor_isbase = false;
             return QAccessibleObject::backgroundColor();
-        } else if (qaccessibleobject_backgroundcolor_callback != nullptr) {
-            QColor* callback_ret = qaccessibleobject_backgroundcolor_callback();
-            return *callback_ret;
-        } else {
-            return QAccessibleObject::backgroundColor();
         }
+        auto backgroundcolor_cb = qaccessibleobject_backgroundcolor_callback;
+        if (backgroundcolor_cb) {
+            QColor* callback_ret = backgroundcolor_cb();
+            return *callback_ret;
+        }
+        return QAccessibleObject::backgroundColor();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -386,14 +374,17 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_virtualhook_isbase) {
             qaccessibleobject_virtualhook_isbase = false;
             QAccessibleObject::virtual_hook(id, data);
-        } else if (qaccessibleobject_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = qaccessibleobject_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            qaccessibleobject_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            QAccessibleObject::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        QAccessibleObject::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -401,14 +392,15 @@ class VirtualQAccessibleObject : public QAccessibleObject {
         if (qaccessibleobject_interfacecast_isbase) {
             qaccessibleobject_interfacecast_isbase = false;
             return QAccessibleObject::interface_cast(param1);
-        } else if (qaccessibleobject_interfacecast_callback != nullptr) {
+        }
+        auto interfacecast_cb = qaccessibleobject_interfacecast_callback;
+        if (interfacecast_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            void* callback_ret = qaccessibleobject_interfacecast_callback(this, cbval1);
+            void* callback_ret = interfacecast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAccessibleObject::interface_cast(param1);
         }
+        return QAccessibleObject::interface_cast(param1);
     }
 };
 
@@ -486,28 +478,6 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
   public:
     VirtualQAccessibleApplication() : QAccessibleApplication() {};
 
-    ~VirtualQAccessibleApplication() {
-        qaccessibleapplication_window_callback = nullptr;
-        qaccessibleapplication_childcount_callback = nullptr;
-        qaccessibleapplication_indexofchild_callback = nullptr;
-        qaccessibleapplication_focuschild_callback = nullptr;
-        qaccessibleapplication_parent_callback = nullptr;
-        qaccessibleapplication_child_callback = nullptr;
-        qaccessibleapplication_text_callback = nullptr;
-        qaccessibleapplication_role_callback = nullptr;
-        qaccessibleapplication_state_callback = nullptr;
-        qaccessibleapplication_isvalid_callback = nullptr;
-        qaccessibleapplication_object_callback = nullptr;
-        qaccessibleapplication_rect_callback = nullptr;
-        qaccessibleapplication_settext_callback = nullptr;
-        qaccessibleapplication_childat_callback = nullptr;
-        qaccessibleapplication_relations_callback = nullptr;
-        qaccessibleapplication_foregroundcolor_callback = nullptr;
-        qaccessibleapplication_backgroundcolor_callback = nullptr;
-        qaccessibleapplication_virtualhook_callback = nullptr;
-        qaccessibleapplication_interfacecast_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleApplication_Window_Callback(QAccessibleApplication_Window_Callback cb) { qaccessibleapplication_window_callback = cb; }
     inline void setQAccessibleApplication_ChildCount_Callback(QAccessibleApplication_ChildCount_Callback cb) { qaccessibleapplication_childcount_callback = cb; }
@@ -555,12 +525,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_window_isbase) {
             qaccessibleapplication_window_isbase = false;
             return QAccessibleApplication::window();
-        } else if (qaccessibleapplication_window_callback != nullptr) {
-            QWindow* callback_ret = qaccessibleapplication_window_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleApplication::window();
         }
+        auto window_cb = qaccessibleapplication_window_callback;
+        if (window_cb) {
+            QWindow* callback_ret = window_cb();
+            return callback_ret;
+        }
+        return QAccessibleApplication::window();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,12 +539,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_childcount_isbase) {
             qaccessibleapplication_childcount_isbase = false;
             return QAccessibleApplication::childCount();
-        } else if (qaccessibleapplication_childcount_callback != nullptr) {
-            int callback_ret = qaccessibleapplication_childcount_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAccessibleApplication::childCount();
         }
+        auto childcount_cb = qaccessibleapplication_childcount_callback;
+        if (childcount_cb) {
+            int callback_ret = childcount_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAccessibleApplication::childCount();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,14 +553,15 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_indexofchild_isbase) {
             qaccessibleapplication_indexofchild_isbase = false;
             return QAccessibleApplication::indexOfChild(param1);
-        } else if (qaccessibleapplication_indexofchild_callback != nullptr) {
+        }
+        auto indexofchild_cb = qaccessibleapplication_indexofchild_callback;
+        if (indexofchild_cb) {
             QAccessibleInterface* cbval1 = (QAccessibleInterface*)param1;
 
-            int callback_ret = qaccessibleapplication_indexofchild_callback(this, cbval1);
+            int callback_ret = indexofchild_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAccessibleApplication::indexOfChild(param1);
         }
+        return QAccessibleApplication::indexOfChild(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -596,12 +569,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_focuschild_isbase) {
             qaccessibleapplication_focuschild_isbase = false;
             return QAccessibleApplication::focusChild();
-        } else if (qaccessibleapplication_focuschild_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibleapplication_focuschild_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleApplication::focusChild();
         }
+        auto focuschild_cb = qaccessibleapplication_focuschild_callback;
+        if (focuschild_cb) {
+            QAccessibleInterface* callback_ret = focuschild_cb();
+            return callback_ret;
+        }
+        return QAccessibleApplication::focusChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,12 +583,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_parent_isbase) {
             qaccessibleapplication_parent_isbase = false;
             return QAccessibleApplication::parent();
-        } else if (qaccessibleapplication_parent_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibleapplication_parent_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleApplication::parent();
         }
+        auto parent_cb = qaccessibleapplication_parent_callback;
+        if (parent_cb) {
+            QAccessibleInterface* callback_ret = parent_cb();
+            return callback_ret;
+        }
+        return QAccessibleApplication::parent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,14 +597,15 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_child_isbase) {
             qaccessibleapplication_child_isbase = false;
             return QAccessibleApplication::child(index);
-        } else if (qaccessibleapplication_child_callback != nullptr) {
+        }
+        auto child_cb = qaccessibleapplication_child_callback;
+        if (child_cb) {
             int cbval1 = index;
 
-            QAccessibleInterface* callback_ret = qaccessibleapplication_child_callback(this, cbval1);
+            QAccessibleInterface* callback_ret = child_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAccessibleApplication::child(index);
         }
+        return QAccessibleApplication::child(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,15 +613,16 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_text_isbase) {
             qaccessibleapplication_text_isbase = false;
             return QAccessibleApplication::text(t);
-        } else if (qaccessibleapplication_text_callback != nullptr) {
+        }
+        auto text_cb = qaccessibleapplication_text_callback;
+        if (text_cb) {
             int cbval1 = static_cast<int>(t);
 
-            const char* callback_ret = qaccessibleapplication_text_callback(this, cbval1);
+            const char* callback_ret = text_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QAccessibleApplication::text(t);
         }
+        return QAccessibleApplication::text(t);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,12 +630,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_role_isbase) {
             qaccessibleapplication_role_isbase = false;
             return QAccessibleApplication::role();
-        } else if (qaccessibleapplication_role_callback != nullptr) {
-            int callback_ret = qaccessibleapplication_role_callback();
-            return static_cast<QAccessible::Role>(callback_ret);
-        } else {
-            return QAccessibleApplication::role();
         }
+        auto role_cb = qaccessibleapplication_role_callback;
+        if (role_cb) {
+            int callback_ret = role_cb();
+            return static_cast<QAccessible::Role>(callback_ret);
+        }
+        return QAccessibleApplication::role();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -666,12 +644,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_state_isbase) {
             qaccessibleapplication_state_isbase = false;
             return QAccessibleApplication::state();
-        } else if (qaccessibleapplication_state_callback != nullptr) {
-            QAccessible__State* callback_ret = qaccessibleapplication_state_callback();
-            return *callback_ret;
-        } else {
-            return QAccessibleApplication::state();
         }
+        auto state_cb = qaccessibleapplication_state_callback;
+        if (state_cb) {
+            QAccessible__State* callback_ret = state_cb();
+            return *callback_ret;
+        }
+        return QAccessibleApplication::state();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -679,12 +658,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_isvalid_isbase) {
             qaccessibleapplication_isvalid_isbase = false;
             return QAccessibleApplication::isValid();
-        } else if (qaccessibleapplication_isvalid_callback != nullptr) {
-            bool callback_ret = qaccessibleapplication_isvalid_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleApplication::isValid();
         }
+        auto isvalid_cb = qaccessibleapplication_isvalid_callback;
+        if (isvalid_cb) {
+            bool callback_ret = isvalid_cb();
+            return callback_ret;
+        }
+        return QAccessibleApplication::isValid();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -692,12 +672,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_object_isbase) {
             qaccessibleapplication_object_isbase = false;
             return QAccessibleApplication::object();
-        } else if (qaccessibleapplication_object_callback != nullptr) {
-            QObject* callback_ret = qaccessibleapplication_object_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleApplication::object();
         }
+        auto object_cb = qaccessibleapplication_object_callback;
+        if (object_cb) {
+            QObject* callback_ret = object_cb();
+            return callback_ret;
+        }
+        return QAccessibleApplication::object();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,12 +686,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_rect_isbase) {
             qaccessibleapplication_rect_isbase = false;
             return QAccessibleApplication::rect();
-        } else if (qaccessibleapplication_rect_callback != nullptr) {
-            QRect* callback_ret = qaccessibleapplication_rect_callback();
-            return *callback_ret;
-        } else {
-            return QAccessibleApplication::rect();
         }
+        auto rect_cb = qaccessibleapplication_rect_callback;
+        if (rect_cb) {
+            QRect* callback_ret = rect_cb();
+            return *callback_ret;
+        }
+        return QAccessibleApplication::rect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -718,7 +700,10 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_settext_isbase) {
             qaccessibleapplication_settext_isbase = false;
             QAccessibleApplication::setText(t, text);
-        } else if (qaccessibleapplication_settext_callback != nullptr) {
+            return;
+        }
+        auto settext_cb = qaccessibleapplication_settext_callback;
+        if (settext_cb) {
             int cbval1 = static_cast<int>(t);
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -729,11 +714,11 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval2 = text_str;
 
-            qaccessibleapplication_settext_callback(this, cbval1, cbval2);
+            settext_cb(this, cbval1, cbval2);
             libqt_free(text_str);
-        } else {
-            QAccessibleApplication::setText(t, text);
+            return;
         }
+        QAccessibleApplication::setText(t, text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -741,15 +726,16 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_childat_isbase) {
             qaccessibleapplication_childat_isbase = false;
             return QAccessibleApplication::childAt(x, y);
-        } else if (qaccessibleapplication_childat_callback != nullptr) {
+        }
+        auto childat_cb = qaccessibleapplication_childat_callback;
+        if (childat_cb) {
             int cbval1 = x;
             int cbval2 = y;
 
-            QAccessibleInterface* callback_ret = qaccessibleapplication_childat_callback(this, cbval1, cbval2);
+            QAccessibleInterface* callback_ret = childat_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAccessibleApplication::childAt(x, y);
         }
+        return QAccessibleApplication::childAt(x, y);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -757,10 +743,12 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_relations_isbase) {
             qaccessibleapplication_relations_isbase = false;
             return QAccessibleApplication::relations(match);
-        } else if (qaccessibleapplication_relations_callback != nullptr) {
+        }
+        auto relations_cb = qaccessibleapplication_relations_callback;
+        if (relations_cb) {
             int cbval1 = static_cast<int>(match);
 
-            libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ callback_ret = qaccessibleapplication_relations_callback(this, cbval1);
+            libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ callback_ret = relations_cb(this, cbval1);
             QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */* callback_ret_arr = static_cast<pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */*>(callback_ret.data);
@@ -772,9 +760,8 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QAccessibleApplication::relations(match);
         }
+        return QAccessibleApplication::relations(match);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,12 +769,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_foregroundcolor_isbase) {
             qaccessibleapplication_foregroundcolor_isbase = false;
             return QAccessibleApplication::foregroundColor();
-        } else if (qaccessibleapplication_foregroundcolor_callback != nullptr) {
-            QColor* callback_ret = qaccessibleapplication_foregroundcolor_callback();
-            return *callback_ret;
-        } else {
-            return QAccessibleApplication::foregroundColor();
         }
+        auto foregroundcolor_cb = qaccessibleapplication_foregroundcolor_callback;
+        if (foregroundcolor_cb) {
+            QColor* callback_ret = foregroundcolor_cb();
+            return *callback_ret;
+        }
+        return QAccessibleApplication::foregroundColor();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,12 +783,13 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_backgroundcolor_isbase) {
             qaccessibleapplication_backgroundcolor_isbase = false;
             return QAccessibleApplication::backgroundColor();
-        } else if (qaccessibleapplication_backgroundcolor_callback != nullptr) {
-            QColor* callback_ret = qaccessibleapplication_backgroundcolor_callback();
-            return *callback_ret;
-        } else {
-            return QAccessibleApplication::backgroundColor();
         }
+        auto backgroundcolor_cb = qaccessibleapplication_backgroundcolor_callback;
+        if (backgroundcolor_cb) {
+            QColor* callback_ret = backgroundcolor_cb();
+            return *callback_ret;
+        }
+        return QAccessibleApplication::backgroundColor();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -808,14 +797,17 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_virtualhook_isbase) {
             qaccessibleapplication_virtualhook_isbase = false;
             QAccessibleApplication::virtual_hook(id, data);
-        } else if (qaccessibleapplication_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = qaccessibleapplication_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            qaccessibleapplication_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            QAccessibleApplication::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        QAccessibleApplication::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,14 +815,15 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         if (qaccessibleapplication_interfacecast_isbase) {
             qaccessibleapplication_interfacecast_isbase = false;
             return QAccessibleApplication::interface_cast(param1);
-        } else if (qaccessibleapplication_interfacecast_callback != nullptr) {
+        }
+        auto interfacecast_cb = qaccessibleapplication_interfacecast_callback;
+        if (interfacecast_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            void* callback_ret = qaccessibleapplication_interfacecast_callback(this, cbval1);
+            void* callback_ret = interfacecast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAccessibleApplication::interface_cast(param1);
         }
+        return QAccessibleApplication::interface_cast(param1);
     }
 };
 

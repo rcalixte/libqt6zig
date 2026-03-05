@@ -207,69 +207,6 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
     VirtualKCollapsibleGroupBox(QWidget* parent) : KCollapsibleGroupBox(parent) {};
     VirtualKCollapsibleGroupBox() : KCollapsibleGroupBox() {};
 
-    ~VirtualKCollapsibleGroupBox() {
-        kcollapsiblegroupbox_metaobject_callback = nullptr;
-        kcollapsiblegroupbox_metacast_callback = nullptr;
-        kcollapsiblegroupbox_metacall_callback = nullptr;
-        kcollapsiblegroupbox_sizehint_callback = nullptr;
-        kcollapsiblegroupbox_minimumsizehint_callback = nullptr;
-        kcollapsiblegroupbox_paintevent_callback = nullptr;
-        kcollapsiblegroupbox_event_callback = nullptr;
-        kcollapsiblegroupbox_mousepressevent_callback = nullptr;
-        kcollapsiblegroupbox_mousemoveevent_callback = nullptr;
-        kcollapsiblegroupbox_leaveevent_callback = nullptr;
-        kcollapsiblegroupbox_keypressevent_callback = nullptr;
-        kcollapsiblegroupbox_resizeevent_callback = nullptr;
-        kcollapsiblegroupbox_devtype_callback = nullptr;
-        kcollapsiblegroupbox_setvisible_callback = nullptr;
-        kcollapsiblegroupbox_heightforwidth_callback = nullptr;
-        kcollapsiblegroupbox_hasheightforwidth_callback = nullptr;
-        kcollapsiblegroupbox_paintengine_callback = nullptr;
-        kcollapsiblegroupbox_mousereleaseevent_callback = nullptr;
-        kcollapsiblegroupbox_mousedoubleclickevent_callback = nullptr;
-        kcollapsiblegroupbox_wheelevent_callback = nullptr;
-        kcollapsiblegroupbox_keyreleaseevent_callback = nullptr;
-        kcollapsiblegroupbox_focusinevent_callback = nullptr;
-        kcollapsiblegroupbox_focusoutevent_callback = nullptr;
-        kcollapsiblegroupbox_enterevent_callback = nullptr;
-        kcollapsiblegroupbox_moveevent_callback = nullptr;
-        kcollapsiblegroupbox_closeevent_callback = nullptr;
-        kcollapsiblegroupbox_contextmenuevent_callback = nullptr;
-        kcollapsiblegroupbox_tabletevent_callback = nullptr;
-        kcollapsiblegroupbox_actionevent_callback = nullptr;
-        kcollapsiblegroupbox_dragenterevent_callback = nullptr;
-        kcollapsiblegroupbox_dragmoveevent_callback = nullptr;
-        kcollapsiblegroupbox_dragleaveevent_callback = nullptr;
-        kcollapsiblegroupbox_dropevent_callback = nullptr;
-        kcollapsiblegroupbox_showevent_callback = nullptr;
-        kcollapsiblegroupbox_hideevent_callback = nullptr;
-        kcollapsiblegroupbox_nativeevent_callback = nullptr;
-        kcollapsiblegroupbox_changeevent_callback = nullptr;
-        kcollapsiblegroupbox_metric_callback = nullptr;
-        kcollapsiblegroupbox_initpainter_callback = nullptr;
-        kcollapsiblegroupbox_redirected_callback = nullptr;
-        kcollapsiblegroupbox_sharedpainter_callback = nullptr;
-        kcollapsiblegroupbox_inputmethodevent_callback = nullptr;
-        kcollapsiblegroupbox_inputmethodquery_callback = nullptr;
-        kcollapsiblegroupbox_focusnextprevchild_callback = nullptr;
-        kcollapsiblegroupbox_eventfilter_callback = nullptr;
-        kcollapsiblegroupbox_timerevent_callback = nullptr;
-        kcollapsiblegroupbox_childevent_callback = nullptr;
-        kcollapsiblegroupbox_customevent_callback = nullptr;
-        kcollapsiblegroupbox_connectnotify_callback = nullptr;
-        kcollapsiblegroupbox_disconnectnotify_callback = nullptr;
-        kcollapsiblegroupbox_updatemicrofocus_callback = nullptr;
-        kcollapsiblegroupbox_create_callback = nullptr;
-        kcollapsiblegroupbox_destroy_callback = nullptr;
-        kcollapsiblegroupbox_focusnextchild_callback = nullptr;
-        kcollapsiblegroupbox_focuspreviouschild_callback = nullptr;
-        kcollapsiblegroupbox_sender_callback = nullptr;
-        kcollapsiblegroupbox_sendersignalindex_callback = nullptr;
-        kcollapsiblegroupbox_receivers_callback = nullptr;
-        kcollapsiblegroupbox_issignalconnected_callback = nullptr;
-        kcollapsiblegroupbox_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCollapsibleGroupBox_MetaObject_Callback(KCollapsibleGroupBox_MetaObject_Callback cb) { kcollapsiblegroupbox_metaobject_callback = cb; }
     inline void setKCollapsibleGroupBox_Metacast_Callback(KCollapsibleGroupBox_Metacast_Callback cb) { kcollapsiblegroupbox_metacast_callback = cb; }
@@ -399,12 +336,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_metaobject_isbase) {
             kcollapsiblegroupbox_metaobject_isbase = false;
             return KCollapsibleGroupBox::metaObject();
-        } else if (kcollapsiblegroupbox_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcollapsiblegroupbox_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::metaObject();
         }
+        auto metaobject_cb = kcollapsiblegroupbox_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCollapsibleGroupBox::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,14 +350,15 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_metacast_isbase) {
             kcollapsiblegroupbox_metacast_isbase = false;
             return KCollapsibleGroupBox::qt_metacast(param1);
-        } else if (kcollapsiblegroupbox_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcollapsiblegroupbox_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcollapsiblegroupbox_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::qt_metacast(param1);
         }
+        return KCollapsibleGroupBox::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,16 +366,17 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_metacall_isbase) {
             kcollapsiblegroupbox_metacall_isbase = false;
             return KCollapsibleGroupBox::qt_metacall(param1, param2, param3);
-        } else if (kcollapsiblegroupbox_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcollapsiblegroupbox_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcollapsiblegroupbox_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCollapsibleGroupBox::qt_metacall(param1, param2, param3);
         }
+        return KCollapsibleGroupBox::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,12 +384,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_sizehint_isbase) {
             kcollapsiblegroupbox_sizehint_isbase = false;
             return KCollapsibleGroupBox::sizeHint();
-        } else if (kcollapsiblegroupbox_sizehint_callback != nullptr) {
-            QSize* callback_ret = kcollapsiblegroupbox_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCollapsibleGroupBox::sizeHint();
         }
+        auto sizehint_cb = kcollapsiblegroupbox_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KCollapsibleGroupBox::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,12 +398,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_minimumsizehint_isbase) {
             kcollapsiblegroupbox_minimumsizehint_isbase = false;
             return KCollapsibleGroupBox::minimumSizeHint();
-        } else if (kcollapsiblegroupbox_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kcollapsiblegroupbox_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCollapsibleGroupBox::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kcollapsiblegroupbox_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KCollapsibleGroupBox::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,13 +412,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_paintevent_isbase) {
             kcollapsiblegroupbox_paintevent_isbase = false;
             KCollapsibleGroupBox::paintEvent(param1);
-        } else if (kcollapsiblegroupbox_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kcollapsiblegroupbox_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kcollapsiblegroupbox_paintevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,14 +429,15 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_event_isbase) {
             kcollapsiblegroupbox_event_isbase = false;
             return KCollapsibleGroupBox::event(param1);
-        } else if (kcollapsiblegroupbox_event_callback != nullptr) {
+        }
+        auto event_cb = kcollapsiblegroupbox_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = kcollapsiblegroupbox_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::event(param1);
         }
+        return KCollapsibleGroupBox::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,13 +445,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_mousepressevent_isbase) {
             kcollapsiblegroupbox_mousepressevent_isbase = false;
             KCollapsibleGroupBox::mousePressEvent(param1);
-        } else if (kcollapsiblegroupbox_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kcollapsiblegroupbox_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kcollapsiblegroupbox_mousepressevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,13 +462,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_mousemoveevent_isbase) {
             kcollapsiblegroupbox_mousemoveevent_isbase = false;
             KCollapsibleGroupBox::mouseMoveEvent(param1);
-        } else if (kcollapsiblegroupbox_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kcollapsiblegroupbox_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kcollapsiblegroupbox_mousemoveevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,13 +479,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_leaveevent_isbase) {
             kcollapsiblegroupbox_leaveevent_isbase = false;
             KCollapsibleGroupBox::leaveEvent(param1);
-        } else if (kcollapsiblegroupbox_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kcollapsiblegroupbox_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = param1;
 
-            kcollapsiblegroupbox_leaveevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::leaveEvent(param1);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::leaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,13 +496,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_keypressevent_isbase) {
             kcollapsiblegroupbox_keypressevent_isbase = false;
             KCollapsibleGroupBox::keyPressEvent(param1);
-        } else if (kcollapsiblegroupbox_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kcollapsiblegroupbox_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kcollapsiblegroupbox_keypressevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,13 +513,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_resizeevent_isbase) {
             kcollapsiblegroupbox_resizeevent_isbase = false;
             KCollapsibleGroupBox::resizeEvent(param1);
-        } else if (kcollapsiblegroupbox_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kcollapsiblegroupbox_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kcollapsiblegroupbox_resizeevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,12 +530,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_devtype_isbase) {
             kcollapsiblegroupbox_devtype_isbase = false;
             return KCollapsibleGroupBox::devType();
-        } else if (kcollapsiblegroupbox_devtype_callback != nullptr) {
-            int callback_ret = kcollapsiblegroupbox_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCollapsibleGroupBox::devType();
         }
+        auto devtype_cb = kcollapsiblegroupbox_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCollapsibleGroupBox::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,13 +544,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_setvisible_isbase) {
             kcollapsiblegroupbox_setvisible_isbase = false;
             KCollapsibleGroupBox::setVisible(visible);
-        } else if (kcollapsiblegroupbox_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kcollapsiblegroupbox_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kcollapsiblegroupbox_setvisible_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -596,14 +561,15 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_heightforwidth_isbase) {
             kcollapsiblegroupbox_heightforwidth_isbase = false;
             return KCollapsibleGroupBox::heightForWidth(param1);
-        } else if (kcollapsiblegroupbox_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kcollapsiblegroupbox_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kcollapsiblegroupbox_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCollapsibleGroupBox::heightForWidth(param1);
         }
+        return KCollapsibleGroupBox::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,12 +577,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_hasheightforwidth_isbase) {
             kcollapsiblegroupbox_hasheightforwidth_isbase = false;
             return KCollapsibleGroupBox::hasHeightForWidth();
-        } else if (kcollapsiblegroupbox_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kcollapsiblegroupbox_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kcollapsiblegroupbox_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KCollapsibleGroupBox::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,12 +591,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_paintengine_isbase) {
             kcollapsiblegroupbox_paintengine_isbase = false;
             return KCollapsibleGroupBox::paintEngine();
-        } else if (kcollapsiblegroupbox_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kcollapsiblegroupbox_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::paintEngine();
         }
+        auto paintengine_cb = kcollapsiblegroupbox_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KCollapsibleGroupBox::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,13 +605,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_mousereleaseevent_isbase) {
             kcollapsiblegroupbox_mousereleaseevent_isbase = false;
             KCollapsibleGroupBox::mouseReleaseEvent(event);
-        } else if (kcollapsiblegroupbox_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kcollapsiblegroupbox_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,13 +622,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_mousedoubleclickevent_isbase) {
             kcollapsiblegroupbox_mousedoubleclickevent_isbase = false;
             KCollapsibleGroupBox::mouseDoubleClickEvent(event);
-        } else if (kcollapsiblegroupbox_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kcollapsiblegroupbox_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,13 +639,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_wheelevent_isbase) {
             kcollapsiblegroupbox_wheelevent_isbase = false;
             KCollapsibleGroupBox::wheelEvent(event);
-        } else if (kcollapsiblegroupbox_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kcollapsiblegroupbox_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_wheelevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -679,13 +656,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_keyreleaseevent_isbase) {
             kcollapsiblegroupbox_keyreleaseevent_isbase = false;
             KCollapsibleGroupBox::keyReleaseEvent(event);
-        } else if (kcollapsiblegroupbox_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kcollapsiblegroupbox_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,13 +673,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_focusinevent_isbase) {
             kcollapsiblegroupbox_focusinevent_isbase = false;
             KCollapsibleGroupBox::focusInEvent(event);
-        } else if (kcollapsiblegroupbox_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kcollapsiblegroupbox_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_focusinevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -707,13 +690,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_focusoutevent_isbase) {
             kcollapsiblegroupbox_focusoutevent_isbase = false;
             KCollapsibleGroupBox::focusOutEvent(event);
-        } else if (kcollapsiblegroupbox_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kcollapsiblegroupbox_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_focusoutevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,13 +707,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_enterevent_isbase) {
             kcollapsiblegroupbox_enterevent_isbase = false;
             KCollapsibleGroupBox::enterEvent(event);
-        } else if (kcollapsiblegroupbox_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kcollapsiblegroupbox_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_enterevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,13 +724,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_moveevent_isbase) {
             kcollapsiblegroupbox_moveevent_isbase = false;
             KCollapsibleGroupBox::moveEvent(event);
-        } else if (kcollapsiblegroupbox_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kcollapsiblegroupbox_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_moveevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,13 +741,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_closeevent_isbase) {
             kcollapsiblegroupbox_closeevent_isbase = false;
             KCollapsibleGroupBox::closeEvent(event);
-        } else if (kcollapsiblegroupbox_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kcollapsiblegroupbox_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_closeevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,13 +758,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_contextmenuevent_isbase) {
             kcollapsiblegroupbox_contextmenuevent_isbase = false;
             KCollapsibleGroupBox::contextMenuEvent(event);
-        } else if (kcollapsiblegroupbox_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kcollapsiblegroupbox_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_contextmenuevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -777,13 +775,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_tabletevent_isbase) {
             kcollapsiblegroupbox_tabletevent_isbase = false;
             KCollapsibleGroupBox::tabletEvent(event);
-        } else if (kcollapsiblegroupbox_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kcollapsiblegroupbox_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_tabletevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,13 +792,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_actionevent_isbase) {
             kcollapsiblegroupbox_actionevent_isbase = false;
             KCollapsibleGroupBox::actionEvent(event);
-        } else if (kcollapsiblegroupbox_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kcollapsiblegroupbox_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_actionevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -805,13 +809,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_dragenterevent_isbase) {
             kcollapsiblegroupbox_dragenterevent_isbase = false;
             KCollapsibleGroupBox::dragEnterEvent(event);
-        } else if (kcollapsiblegroupbox_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kcollapsiblegroupbox_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_dragenterevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,13 +826,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_dragmoveevent_isbase) {
             kcollapsiblegroupbox_dragmoveevent_isbase = false;
             KCollapsibleGroupBox::dragMoveEvent(event);
-        } else if (kcollapsiblegroupbox_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kcollapsiblegroupbox_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_dragmoveevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -833,13 +843,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_dragleaveevent_isbase) {
             kcollapsiblegroupbox_dragleaveevent_isbase = false;
             KCollapsibleGroupBox::dragLeaveEvent(event);
-        } else if (kcollapsiblegroupbox_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kcollapsiblegroupbox_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_dragleaveevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -847,13 +860,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_dropevent_isbase) {
             kcollapsiblegroupbox_dropevent_isbase = false;
             KCollapsibleGroupBox::dropEvent(event);
-        } else if (kcollapsiblegroupbox_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kcollapsiblegroupbox_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_dropevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,13 +877,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_showevent_isbase) {
             kcollapsiblegroupbox_showevent_isbase = false;
             KCollapsibleGroupBox::showEvent(event);
-        } else if (kcollapsiblegroupbox_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kcollapsiblegroupbox_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_showevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -875,13 +894,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_hideevent_isbase) {
             kcollapsiblegroupbox_hideevent_isbase = false;
             KCollapsibleGroupBox::hideEvent(event);
-        } else if (kcollapsiblegroupbox_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kcollapsiblegroupbox_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_hideevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -889,7 +911,9 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_nativeevent_isbase) {
             kcollapsiblegroupbox_nativeevent_isbase = false;
             return KCollapsibleGroupBox::nativeEvent(eventType, message, result);
-        } else if (kcollapsiblegroupbox_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kcollapsiblegroupbox_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -900,12 +924,11 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kcollapsiblegroupbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::nativeEvent(eventType, message, result);
         }
+        return KCollapsibleGroupBox::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +936,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_changeevent_isbase) {
             kcollapsiblegroupbox_changeevent_isbase = false;
             KCollapsibleGroupBox::changeEvent(param1);
-        } else if (kcollapsiblegroupbox_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kcollapsiblegroupbox_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kcollapsiblegroupbox_changeevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,14 +953,15 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_metric_isbase) {
             kcollapsiblegroupbox_metric_isbase = false;
             return KCollapsibleGroupBox::metric(param1);
-        } else if (kcollapsiblegroupbox_metric_callback != nullptr) {
+        }
+        auto metric_cb = kcollapsiblegroupbox_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kcollapsiblegroupbox_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCollapsibleGroupBox::metric(param1);
         }
+        return KCollapsibleGroupBox::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,13 +969,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_initpainter_isbase) {
             kcollapsiblegroupbox_initpainter_isbase = false;
             KCollapsibleGroupBox::initPainter(painter);
-        } else if (kcollapsiblegroupbox_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kcollapsiblegroupbox_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kcollapsiblegroupbox_initpainter_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,14 +986,15 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_redirected_isbase) {
             kcollapsiblegroupbox_redirected_isbase = false;
             return KCollapsibleGroupBox::redirected(offset);
-        } else if (kcollapsiblegroupbox_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kcollapsiblegroupbox_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kcollapsiblegroupbox_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::redirected(offset);
         }
+        return KCollapsibleGroupBox::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -971,12 +1002,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_sharedpainter_isbase) {
             kcollapsiblegroupbox_sharedpainter_isbase = false;
             return KCollapsibleGroupBox::sharedPainter();
-        } else if (kcollapsiblegroupbox_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kcollapsiblegroupbox_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::sharedPainter();
         }
+        auto sharedpainter_cb = kcollapsiblegroupbox_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KCollapsibleGroupBox::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,13 +1016,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_inputmethodevent_isbase) {
             kcollapsiblegroupbox_inputmethodevent_isbase = false;
             KCollapsibleGroupBox::inputMethodEvent(param1);
-        } else if (kcollapsiblegroupbox_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kcollapsiblegroupbox_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kcollapsiblegroupbox_inputmethodevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -998,14 +1033,15 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_inputmethodquery_isbase) {
             kcollapsiblegroupbox_inputmethodquery_isbase = false;
             return KCollapsibleGroupBox::inputMethodQuery(param1);
-        } else if (kcollapsiblegroupbox_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kcollapsiblegroupbox_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kcollapsiblegroupbox_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCollapsibleGroupBox::inputMethodQuery(param1);
         }
+        return KCollapsibleGroupBox::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1013,14 +1049,15 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_focusnextprevchild_isbase) {
             kcollapsiblegroupbox_focusnextprevchild_isbase = false;
             return KCollapsibleGroupBox::focusNextPrevChild(next);
-        } else if (kcollapsiblegroupbox_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kcollapsiblegroupbox_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kcollapsiblegroupbox_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::focusNextPrevChild(next);
         }
+        return KCollapsibleGroupBox::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,15 +1065,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_eventfilter_isbase) {
             kcollapsiblegroupbox_eventfilter_isbase = false;
             return KCollapsibleGroupBox::eventFilter(watched, event);
-        } else if (kcollapsiblegroupbox_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcollapsiblegroupbox_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcollapsiblegroupbox_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::eventFilter(watched, event);
         }
+        return KCollapsibleGroupBox::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,13 +1082,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_timerevent_isbase) {
             kcollapsiblegroupbox_timerevent_isbase = false;
             KCollapsibleGroupBox::timerEvent(event);
-        } else if (kcollapsiblegroupbox_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcollapsiblegroupbox_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_timerevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1099,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_childevent_isbase) {
             kcollapsiblegroupbox_childevent_isbase = false;
             KCollapsibleGroupBox::childEvent(event);
-        } else if (kcollapsiblegroupbox_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcollapsiblegroupbox_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_childevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,13 +1116,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_customevent_isbase) {
             kcollapsiblegroupbox_customevent_isbase = false;
             KCollapsibleGroupBox::customEvent(event);
-        } else if (kcollapsiblegroupbox_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcollapsiblegroupbox_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcollapsiblegroupbox_customevent_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,15 +1133,18 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_connectnotify_isbase) {
             kcollapsiblegroupbox_connectnotify_isbase = false;
             KCollapsibleGroupBox::connectNotify(signal);
-        } else if (kcollapsiblegroupbox_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcollapsiblegroupbox_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcollapsiblegroupbox_connectnotify_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,15 +1152,18 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_disconnectnotify_isbase) {
             kcollapsiblegroupbox_disconnectnotify_isbase = false;
             KCollapsibleGroupBox::disconnectNotify(signal);
-        } else if (kcollapsiblegroupbox_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcollapsiblegroupbox_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcollapsiblegroupbox_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCollapsibleGroupBox::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCollapsibleGroupBox::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,11 +1171,14 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_updatemicrofocus_isbase) {
             kcollapsiblegroupbox_updatemicrofocus_isbase = false;
             KCollapsibleGroupBox::updateMicroFocus();
-        } else if (kcollapsiblegroupbox_updatemicrofocus_callback != nullptr) {
-            kcollapsiblegroupbox_updatemicrofocus_callback();
-        } else {
-            KCollapsibleGroupBox::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kcollapsiblegroupbox_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KCollapsibleGroupBox::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,11 +1186,14 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_create_isbase) {
             kcollapsiblegroupbox_create_isbase = false;
             KCollapsibleGroupBox::create();
-        } else if (kcollapsiblegroupbox_create_callback != nullptr) {
-            kcollapsiblegroupbox_create_callback();
-        } else {
-            KCollapsibleGroupBox::create();
+            return;
         }
+        auto create_cb = kcollapsiblegroupbox_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KCollapsibleGroupBox::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1201,14 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_destroy_isbase) {
             kcollapsiblegroupbox_destroy_isbase = false;
             KCollapsibleGroupBox::destroy();
-        } else if (kcollapsiblegroupbox_destroy_callback != nullptr) {
-            kcollapsiblegroupbox_destroy_callback();
-        } else {
-            KCollapsibleGroupBox::destroy();
+            return;
         }
+        auto destroy_cb = kcollapsiblegroupbox_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KCollapsibleGroupBox::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,12 +1216,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_focusnextchild_isbase) {
             kcollapsiblegroupbox_focusnextchild_isbase = false;
             return KCollapsibleGroupBox::focusNextChild();
-        } else if (kcollapsiblegroupbox_focusnextchild_callback != nullptr) {
-            bool callback_ret = kcollapsiblegroupbox_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::focusNextChild();
         }
+        auto focusnextchild_cb = kcollapsiblegroupbox_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KCollapsibleGroupBox::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,12 +1230,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_focuspreviouschild_isbase) {
             kcollapsiblegroupbox_focuspreviouschild_isbase = false;
             return KCollapsibleGroupBox::focusPreviousChild();
-        } else if (kcollapsiblegroupbox_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kcollapsiblegroupbox_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kcollapsiblegroupbox_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KCollapsibleGroupBox::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,12 +1244,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_sender_isbase) {
             kcollapsiblegroupbox_sender_isbase = false;
             return KCollapsibleGroupBox::sender();
-        } else if (kcollapsiblegroupbox_sender_callback != nullptr) {
-            QObject* callback_ret = kcollapsiblegroupbox_sender_callback();
-            return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::sender();
         }
+        auto sender_cb = kcollapsiblegroupbox_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCollapsibleGroupBox::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,12 +1258,13 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_sendersignalindex_isbase) {
             kcollapsiblegroupbox_sendersignalindex_isbase = false;
             return KCollapsibleGroupBox::senderSignalIndex();
-        } else if (kcollapsiblegroupbox_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcollapsiblegroupbox_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCollapsibleGroupBox::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcollapsiblegroupbox_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCollapsibleGroupBox::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,14 +1272,15 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_receivers_isbase) {
             kcollapsiblegroupbox_receivers_isbase = false;
             return KCollapsibleGroupBox::receivers(signal);
-        } else if (kcollapsiblegroupbox_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcollapsiblegroupbox_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcollapsiblegroupbox_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCollapsibleGroupBox::receivers(signal);
         }
+        return KCollapsibleGroupBox::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,16 +1288,17 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_issignalconnected_isbase) {
             kcollapsiblegroupbox_issignalconnected_isbase = false;
             return KCollapsibleGroupBox::isSignalConnected(signal);
-        } else if (kcollapsiblegroupbox_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcollapsiblegroupbox_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcollapsiblegroupbox_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCollapsibleGroupBox::isSignalConnected(signal);
         }
+        return KCollapsibleGroupBox::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,15 +1306,16 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
         if (kcollapsiblegroupbox_getdecodedmetricf_isbase) {
             kcollapsiblegroupbox_getdecodedmetricf_isbase = false;
             return KCollapsibleGroupBox::getDecodedMetricF(metricA, metricB);
-        } else if (kcollapsiblegroupbox_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kcollapsiblegroupbox_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kcollapsiblegroupbox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KCollapsibleGroupBox::getDecodedMetricF(metricA, metricB);
         }
+        return KCollapsibleGroupBox::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

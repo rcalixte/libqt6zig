@@ -79,26 +79,6 @@ class VirtualKActionMenu final : public KActionMenu {
     VirtualKActionMenu(const QString& text, QObject* parent) : KActionMenu(text, parent) {};
     VirtualKActionMenu(const QIcon& icon, const QString& text, QObject* parent) : KActionMenu(icon, text, parent) {};
 
-    ~VirtualKActionMenu() {
-        kactionmenu_metaobject_callback = nullptr;
-        kactionmenu_metacast_callback = nullptr;
-        kactionmenu_metacall_callback = nullptr;
-        kactionmenu_createwidget_callback = nullptr;
-        kactionmenu_event_callback = nullptr;
-        kactionmenu_eventfilter_callback = nullptr;
-        kactionmenu_deletewidget_callback = nullptr;
-        kactionmenu_timerevent_callback = nullptr;
-        kactionmenu_childevent_callback = nullptr;
-        kactionmenu_customevent_callback = nullptr;
-        kactionmenu_connectnotify_callback = nullptr;
-        kactionmenu_disconnectnotify_callback = nullptr;
-        kactionmenu_createdwidgets_callback = nullptr;
-        kactionmenu_sender_callback = nullptr;
-        kactionmenu_sendersignalindex_callback = nullptr;
-        kactionmenu_receivers_callback = nullptr;
-        kactionmenu_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKActionMenu_MetaObject_Callback(KActionMenu_MetaObject_Callback cb) { kactionmenu_metaobject_callback = cb; }
     inline void setKActionMenu_Metacast_Callback(KActionMenu_Metacast_Callback cb) { kactionmenu_metacast_callback = cb; }
@@ -142,12 +122,13 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_metaobject_isbase) {
             kactionmenu_metaobject_isbase = false;
             return KActionMenu::metaObject();
-        } else if (kactionmenu_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kactionmenu_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KActionMenu::metaObject();
         }
+        auto metaobject_cb = kactionmenu_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KActionMenu::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -155,14 +136,15 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_metacast_isbase) {
             kactionmenu_metacast_isbase = false;
             return KActionMenu::qt_metacast(param1);
-        } else if (kactionmenu_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kactionmenu_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kactionmenu_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionMenu::qt_metacast(param1);
         }
+        return KActionMenu::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,16 +152,17 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_metacall_isbase) {
             kactionmenu_metacall_isbase = false;
             return KActionMenu::qt_metacall(param1, param2, param3);
-        } else if (kactionmenu_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kactionmenu_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kactionmenu_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KActionMenu::qt_metacall(param1, param2, param3);
         }
+        return KActionMenu::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +170,15 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_createwidget_isbase) {
             kactionmenu_createwidget_isbase = false;
             return KActionMenu::createWidget(parent);
-        } else if (kactionmenu_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = kactionmenu_createwidget_callback;
+        if (createwidget_cb) {
             QWidget* cbval1 = parent;
 
-            QWidget* callback_ret = kactionmenu_createwidget_callback(this, cbval1);
+            QWidget* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionMenu::createWidget(parent);
         }
+        return KActionMenu::createWidget(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,14 +186,15 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_event_isbase) {
             kactionmenu_event_isbase = false;
             return KActionMenu::event(param1);
-        } else if (kactionmenu_event_callback != nullptr) {
+        }
+        auto event_cb = kactionmenu_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = kactionmenu_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionMenu::event(param1);
         }
+        return KActionMenu::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,15 +202,16 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_eventfilter_isbase) {
             kactionmenu_eventfilter_isbase = false;
             return KActionMenu::eventFilter(param1, param2);
-        } else if (kactionmenu_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kactionmenu_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kactionmenu_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KActionMenu::eventFilter(param1, param2);
         }
+        return KActionMenu::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +219,16 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_deletewidget_isbase) {
             kactionmenu_deletewidget_isbase = false;
             KActionMenu::deleteWidget(widget);
-        } else if (kactionmenu_deletewidget_callback != nullptr) {
+            return;
+        }
+        auto deletewidget_cb = kactionmenu_deletewidget_callback;
+        if (deletewidget_cb) {
             QWidget* cbval1 = widget;
 
-            kactionmenu_deletewidget_callback(this, cbval1);
-        } else {
-            KActionMenu::deleteWidget(widget);
+            deletewidget_cb(this, cbval1);
+            return;
         }
+        KActionMenu::deleteWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,13 +236,16 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_timerevent_isbase) {
             kactionmenu_timerevent_isbase = false;
             KActionMenu::timerEvent(event);
-        } else if (kactionmenu_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kactionmenu_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kactionmenu_timerevent_callback(this, cbval1);
-        } else {
-            KActionMenu::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KActionMenu::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,13 +253,16 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_childevent_isbase) {
             kactionmenu_childevent_isbase = false;
             KActionMenu::childEvent(event);
-        } else if (kactionmenu_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kactionmenu_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kactionmenu_childevent_callback(this, cbval1);
-        } else {
-            KActionMenu::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KActionMenu::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,13 +270,16 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_customevent_isbase) {
             kactionmenu_customevent_isbase = false;
             KActionMenu::customEvent(event);
-        } else if (kactionmenu_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kactionmenu_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kactionmenu_customevent_callback(this, cbval1);
-        } else {
-            KActionMenu::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KActionMenu::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -289,15 +287,18 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_connectnotify_isbase) {
             kactionmenu_connectnotify_isbase = false;
             KActionMenu::connectNotify(signal);
-        } else if (kactionmenu_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kactionmenu_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kactionmenu_connectnotify_callback(this, cbval1);
-        } else {
-            KActionMenu::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KActionMenu::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,15 +306,18 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_disconnectnotify_isbase) {
             kactionmenu_disconnectnotify_isbase = false;
             KActionMenu::disconnectNotify(signal);
-        } else if (kactionmenu_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kactionmenu_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kactionmenu_disconnectnotify_callback(this, cbval1);
-        } else {
-            KActionMenu::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KActionMenu::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,8 +325,10 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_createdwidgets_isbase) {
             kactionmenu_createdwidgets_isbase = false;
             return KActionMenu::createdWidgets();
-        } else if (kactionmenu_createdwidgets_callback != nullptr) {
-            libqt_list /* of QWidget* */ callback_ret = kactionmenu_createdwidgets_callback();
+        }
+        auto createdwidgets_cb = kactionmenu_createdwidgets_callback;
+        if (createdwidgets_cb) {
+            libqt_list /* of QWidget* */ callback_ret = createdwidgets_cb();
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
@@ -331,9 +337,8 @@ class VirtualKActionMenu final : public KActionMenu {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KActionMenu::createdWidgets();
         }
+        return KActionMenu::createdWidgets();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -341,12 +346,13 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_sender_isbase) {
             kactionmenu_sender_isbase = false;
             return KActionMenu::sender();
-        } else if (kactionmenu_sender_callback != nullptr) {
-            QObject* callback_ret = kactionmenu_sender_callback();
-            return callback_ret;
-        } else {
-            return KActionMenu::sender();
         }
+        auto sender_cb = kactionmenu_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KActionMenu::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -354,12 +360,13 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_sendersignalindex_isbase) {
             kactionmenu_sendersignalindex_isbase = false;
             return KActionMenu::senderSignalIndex();
-        } else if (kactionmenu_sendersignalindex_callback != nullptr) {
-            int callback_ret = kactionmenu_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KActionMenu::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kactionmenu_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KActionMenu::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -367,14 +374,15 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_receivers_isbase) {
             kactionmenu_receivers_isbase = false;
             return KActionMenu::receivers(signal);
-        } else if (kactionmenu_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kactionmenu_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kactionmenu_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KActionMenu::receivers(signal);
         }
+        return KActionMenu::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -382,16 +390,17 @@ class VirtualKActionMenu final : public KActionMenu {
         if (kactionmenu_issignalconnected_isbase) {
             kactionmenu_issignalconnected_isbase = false;
             return KActionMenu::isSignalConnected(signal);
-        } else if (kactionmenu_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kactionmenu_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kactionmenu_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionMenu::isSignalConnected(signal);
         }
+        return KActionMenu::isSignalConnected(signal);
     }
 
     // Friend functions

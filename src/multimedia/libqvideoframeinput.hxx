@@ -71,23 +71,6 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
     VirtualQVideoFrameInput(QObject* parent) : QVideoFrameInput(parent) {};
     VirtualQVideoFrameInput(const QVideoFrameFormat& format, QObject* parent) : QVideoFrameInput(format, parent) {};
 
-    ~VirtualQVideoFrameInput() {
-        qvideoframeinput_metaobject_callback = nullptr;
-        qvideoframeinput_metacast_callback = nullptr;
-        qvideoframeinput_metacall_callback = nullptr;
-        qvideoframeinput_event_callback = nullptr;
-        qvideoframeinput_eventfilter_callback = nullptr;
-        qvideoframeinput_timerevent_callback = nullptr;
-        qvideoframeinput_childevent_callback = nullptr;
-        qvideoframeinput_customevent_callback = nullptr;
-        qvideoframeinput_connectnotify_callback = nullptr;
-        qvideoframeinput_disconnectnotify_callback = nullptr;
-        qvideoframeinput_sender_callback = nullptr;
-        qvideoframeinput_sendersignalindex_callback = nullptr;
-        qvideoframeinput_receivers_callback = nullptr;
-        qvideoframeinput_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQVideoFrameInput_MetaObject_Callback(QVideoFrameInput_MetaObject_Callback cb) { qvideoframeinput_metaobject_callback = cb; }
     inline void setQVideoFrameInput_Metacast_Callback(QVideoFrameInput_Metacast_Callback cb) { qvideoframeinput_metacast_callback = cb; }
@@ -125,12 +108,13 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_metaobject_isbase) {
             qvideoframeinput_metaobject_isbase = false;
             return QVideoFrameInput::metaObject();
-        } else if (qvideoframeinput_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qvideoframeinput_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QVideoFrameInput::metaObject();
         }
+        auto metaobject_cb = qvideoframeinput_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QVideoFrameInput::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,14 +122,15 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_metacast_isbase) {
             qvideoframeinput_metacast_isbase = false;
             return QVideoFrameInput::qt_metacast(param1);
-        } else if (qvideoframeinput_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qvideoframeinput_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qvideoframeinput_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVideoFrameInput::qt_metacast(param1);
         }
+        return QVideoFrameInput::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,16 +138,17 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_metacall_isbase) {
             qvideoframeinput_metacall_isbase = false;
             return QVideoFrameInput::qt_metacall(param1, param2, param3);
-        } else if (qvideoframeinput_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qvideoframeinput_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qvideoframeinput_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QVideoFrameInput::qt_metacall(param1, param2, param3);
         }
+        return QVideoFrameInput::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,14 +156,15 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_event_isbase) {
             qvideoframeinput_event_isbase = false;
             return QVideoFrameInput::event(event);
-        } else if (qvideoframeinput_event_callback != nullptr) {
+        }
+        auto event_cb = qvideoframeinput_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qvideoframeinput_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVideoFrameInput::event(event);
         }
+        return QVideoFrameInput::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,15 +172,16 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_eventfilter_isbase) {
             qvideoframeinput_eventfilter_isbase = false;
             return QVideoFrameInput::eventFilter(watched, event);
-        } else if (qvideoframeinput_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qvideoframeinput_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qvideoframeinput_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QVideoFrameInput::eventFilter(watched, event);
         }
+        return QVideoFrameInput::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,13 +189,16 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_timerevent_isbase) {
             qvideoframeinput_timerevent_isbase = false;
             QVideoFrameInput::timerEvent(event);
-        } else if (qvideoframeinput_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qvideoframeinput_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qvideoframeinput_timerevent_callback(this, cbval1);
-        } else {
-            QVideoFrameInput::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QVideoFrameInput::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,13 +206,16 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_childevent_isbase) {
             qvideoframeinput_childevent_isbase = false;
             QVideoFrameInput::childEvent(event);
-        } else if (qvideoframeinput_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qvideoframeinput_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qvideoframeinput_childevent_callback(this, cbval1);
-        } else {
-            QVideoFrameInput::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QVideoFrameInput::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,13 +223,16 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_customevent_isbase) {
             qvideoframeinput_customevent_isbase = false;
             QVideoFrameInput::customEvent(event);
-        } else if (qvideoframeinput_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qvideoframeinput_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qvideoframeinput_customevent_callback(this, cbval1);
-        } else {
-            QVideoFrameInput::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QVideoFrameInput::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +240,18 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_connectnotify_isbase) {
             qvideoframeinput_connectnotify_isbase = false;
             QVideoFrameInput::connectNotify(signal);
-        } else if (qvideoframeinput_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qvideoframeinput_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvideoframeinput_connectnotify_callback(this, cbval1);
-        } else {
-            QVideoFrameInput::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QVideoFrameInput::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,15 +259,18 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_disconnectnotify_isbase) {
             qvideoframeinput_disconnectnotify_isbase = false;
             QVideoFrameInput::disconnectNotify(signal);
-        } else if (qvideoframeinput_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qvideoframeinput_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvideoframeinput_disconnectnotify_callback(this, cbval1);
-        } else {
-            QVideoFrameInput::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QVideoFrameInput::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,12 +278,13 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_sender_isbase) {
             qvideoframeinput_sender_isbase = false;
             return QVideoFrameInput::sender();
-        } else if (qvideoframeinput_sender_callback != nullptr) {
-            QObject* callback_ret = qvideoframeinput_sender_callback();
-            return callback_ret;
-        } else {
-            return QVideoFrameInput::sender();
         }
+        auto sender_cb = qvideoframeinput_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QVideoFrameInput::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,12 +292,13 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_sendersignalindex_isbase) {
             qvideoframeinput_sendersignalindex_isbase = false;
             return QVideoFrameInput::senderSignalIndex();
-        } else if (qvideoframeinput_sendersignalindex_callback != nullptr) {
-            int callback_ret = qvideoframeinput_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVideoFrameInput::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qvideoframeinput_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVideoFrameInput::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,14 +306,15 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_receivers_isbase) {
             qvideoframeinput_receivers_isbase = false;
             return QVideoFrameInput::receivers(signal);
-        } else if (qvideoframeinput_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qvideoframeinput_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qvideoframeinput_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QVideoFrameInput::receivers(signal);
         }
+        return QVideoFrameInput::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,16 +322,17 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
         if (qvideoframeinput_issignalconnected_isbase) {
             qvideoframeinput_issignalconnected_isbase = false;
             return QVideoFrameInput::isSignalConnected(signal);
-        } else if (qvideoframeinput_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qvideoframeinput_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qvideoframeinput_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVideoFrameInput::isSignalConnected(signal);
         }
+        return QVideoFrameInput::isSignalConnected(signal);
     }
 
     // Friend functions

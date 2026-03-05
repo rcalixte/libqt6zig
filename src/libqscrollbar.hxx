@@ -222,73 +222,6 @@ class VirtualQScrollBar final : public QScrollBar {
     VirtualQScrollBar(Qt::Orientation param1) : QScrollBar(param1) {};
     VirtualQScrollBar(Qt::Orientation param1, QWidget* parent) : QScrollBar(param1, parent) {};
 
-    ~VirtualQScrollBar() {
-        qscrollbar_metaobject_callback = nullptr;
-        qscrollbar_metacast_callback = nullptr;
-        qscrollbar_metacall_callback = nullptr;
-        qscrollbar_sizehint_callback = nullptr;
-        qscrollbar_event_callback = nullptr;
-        qscrollbar_wheelevent_callback = nullptr;
-        qscrollbar_paintevent_callback = nullptr;
-        qscrollbar_mousepressevent_callback = nullptr;
-        qscrollbar_mousereleaseevent_callback = nullptr;
-        qscrollbar_mousemoveevent_callback = nullptr;
-        qscrollbar_hideevent_callback = nullptr;
-        qscrollbar_sliderchange_callback = nullptr;
-        qscrollbar_contextmenuevent_callback = nullptr;
-        qscrollbar_initstyleoption_callback = nullptr;
-        qscrollbar_keypressevent_callback = nullptr;
-        qscrollbar_timerevent_callback = nullptr;
-        qscrollbar_changeevent_callback = nullptr;
-        qscrollbar_devtype_callback = nullptr;
-        qscrollbar_setvisible_callback = nullptr;
-        qscrollbar_minimumsizehint_callback = nullptr;
-        qscrollbar_heightforwidth_callback = nullptr;
-        qscrollbar_hasheightforwidth_callback = nullptr;
-        qscrollbar_paintengine_callback = nullptr;
-        qscrollbar_mousedoubleclickevent_callback = nullptr;
-        qscrollbar_keyreleaseevent_callback = nullptr;
-        qscrollbar_focusinevent_callback = nullptr;
-        qscrollbar_focusoutevent_callback = nullptr;
-        qscrollbar_enterevent_callback = nullptr;
-        qscrollbar_leaveevent_callback = nullptr;
-        qscrollbar_moveevent_callback = nullptr;
-        qscrollbar_resizeevent_callback = nullptr;
-        qscrollbar_closeevent_callback = nullptr;
-        qscrollbar_tabletevent_callback = nullptr;
-        qscrollbar_actionevent_callback = nullptr;
-        qscrollbar_dragenterevent_callback = nullptr;
-        qscrollbar_dragmoveevent_callback = nullptr;
-        qscrollbar_dragleaveevent_callback = nullptr;
-        qscrollbar_dropevent_callback = nullptr;
-        qscrollbar_showevent_callback = nullptr;
-        qscrollbar_nativeevent_callback = nullptr;
-        qscrollbar_metric_callback = nullptr;
-        qscrollbar_initpainter_callback = nullptr;
-        qscrollbar_redirected_callback = nullptr;
-        qscrollbar_sharedpainter_callback = nullptr;
-        qscrollbar_inputmethodevent_callback = nullptr;
-        qscrollbar_inputmethodquery_callback = nullptr;
-        qscrollbar_focusnextprevchild_callback = nullptr;
-        qscrollbar_eventfilter_callback = nullptr;
-        qscrollbar_childevent_callback = nullptr;
-        qscrollbar_customevent_callback = nullptr;
-        qscrollbar_connectnotify_callback = nullptr;
-        qscrollbar_disconnectnotify_callback = nullptr;
-        qscrollbar_setrepeataction_callback = nullptr;
-        qscrollbar_repeataction_callback = nullptr;
-        qscrollbar_updatemicrofocus_callback = nullptr;
-        qscrollbar_create_callback = nullptr;
-        qscrollbar_destroy_callback = nullptr;
-        qscrollbar_focusnextchild_callback = nullptr;
-        qscrollbar_focuspreviouschild_callback = nullptr;
-        qscrollbar_sender_callback = nullptr;
-        qscrollbar_sendersignalindex_callback = nullptr;
-        qscrollbar_receivers_callback = nullptr;
-        qscrollbar_issignalconnected_callback = nullptr;
-        qscrollbar_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQScrollBar_MetaObject_Callback(QScrollBar_MetaObject_Callback cb) { qscrollbar_metaobject_callback = cb; }
     inline void setQScrollBar_Metacast_Callback(QScrollBar_Metacast_Callback cb) { qscrollbar_metacast_callback = cb; }
@@ -426,12 +359,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_metaobject_isbase) {
             qscrollbar_metaobject_isbase = false;
             return QScrollBar::metaObject();
-        } else if (qscrollbar_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qscrollbar_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QScrollBar::metaObject();
         }
+        auto metaobject_cb = qscrollbar_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QScrollBar::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,14 +373,15 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_metacast_isbase) {
             qscrollbar_metacast_isbase = false;
             return QScrollBar::qt_metacast(param1);
-        } else if (qscrollbar_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qscrollbar_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qscrollbar_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QScrollBar::qt_metacast(param1);
         }
+        return QScrollBar::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,16 +389,17 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_metacall_isbase) {
             qscrollbar_metacall_isbase = false;
             return QScrollBar::qt_metacall(param1, param2, param3);
-        } else if (qscrollbar_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qscrollbar_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qscrollbar_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QScrollBar::qt_metacall(param1, param2, param3);
         }
+        return QScrollBar::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,12 +407,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_sizehint_isbase) {
             qscrollbar_sizehint_isbase = false;
             return QScrollBar::sizeHint();
-        } else if (qscrollbar_sizehint_callback != nullptr) {
-            QSize* callback_ret = qscrollbar_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QScrollBar::sizeHint();
         }
+        auto sizehint_cb = qscrollbar_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QScrollBar::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,14 +421,15 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_event_isbase) {
             qscrollbar_event_isbase = false;
             return QScrollBar::event(event);
-        } else if (qscrollbar_event_callback != nullptr) {
+        }
+        auto event_cb = qscrollbar_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qscrollbar_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QScrollBar::event(event);
         }
+        return QScrollBar::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,13 +437,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_wheelevent_isbase) {
             qscrollbar_wheelevent_isbase = false;
             QScrollBar::wheelEvent(param1);
-        } else if (qscrollbar_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qscrollbar_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            qscrollbar_wheelevent_callback(this, cbval1);
-        } else {
-            QScrollBar::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,13 +454,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_paintevent_isbase) {
             qscrollbar_paintevent_isbase = false;
             QScrollBar::paintEvent(param1);
-        } else if (qscrollbar_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qscrollbar_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qscrollbar_paintevent_callback(this, cbval1);
-        } else {
-            QScrollBar::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,13 +471,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_mousepressevent_isbase) {
             qscrollbar_mousepressevent_isbase = false;
             QScrollBar::mousePressEvent(param1);
-        } else if (qscrollbar_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qscrollbar_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qscrollbar_mousepressevent_callback(this, cbval1);
-        } else {
-            QScrollBar::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,13 +488,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_mousereleaseevent_isbase) {
             qscrollbar_mousereleaseevent_isbase = false;
             QScrollBar::mouseReleaseEvent(param1);
-        } else if (qscrollbar_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qscrollbar_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qscrollbar_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QScrollBar::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,13 +505,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_mousemoveevent_isbase) {
             qscrollbar_mousemoveevent_isbase = false;
             QScrollBar::mouseMoveEvent(param1);
-        } else if (qscrollbar_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qscrollbar_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qscrollbar_mousemoveevent_callback(this, cbval1);
-        } else {
-            QScrollBar::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,13 +522,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_hideevent_isbase) {
             qscrollbar_hideevent_isbase = false;
             QScrollBar::hideEvent(param1);
-        } else if (qscrollbar_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qscrollbar_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
 
-            qscrollbar_hideevent_callback(this, cbval1);
-        } else {
-            QScrollBar::hideEvent(param1);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::hideEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -583,13 +539,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_sliderchange_isbase) {
             qscrollbar_sliderchange_isbase = false;
             QScrollBar::sliderChange(change);
-        } else if (qscrollbar_sliderchange_callback != nullptr) {
+            return;
+        }
+        auto sliderchange_cb = qscrollbar_sliderchange_callback;
+        if (sliderchange_cb) {
             int cbval1 = static_cast<int>(change);
 
-            qscrollbar_sliderchange_callback(this, cbval1);
-        } else {
-            QScrollBar::sliderChange(change);
+            sliderchange_cb(this, cbval1);
+            return;
         }
+        QScrollBar::sliderChange(change);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,13 +556,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_contextmenuevent_isbase) {
             qscrollbar_contextmenuevent_isbase = false;
             QScrollBar::contextMenuEvent(param1);
-        } else if (qscrollbar_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qscrollbar_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qscrollbar_contextmenuevent_callback(this, cbval1);
-        } else {
-            QScrollBar::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +573,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_initstyleoption_isbase) {
             qscrollbar_initstyleoption_isbase = false;
             QScrollBar::initStyleOption(option);
-        } else if (qscrollbar_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qscrollbar_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionSlider* cbval1 = option;
 
-            qscrollbar_initstyleoption_callback(this, cbval1);
-        } else {
-            QScrollBar::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QScrollBar::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,13 +590,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_keypressevent_isbase) {
             qscrollbar_keypressevent_isbase = false;
             QScrollBar::keyPressEvent(ev);
-        } else if (qscrollbar_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qscrollbar_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
 
-            qscrollbar_keypressevent_callback(this, cbval1);
-        } else {
-            QScrollBar::keyPressEvent(ev);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::keyPressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,13 +607,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_timerevent_isbase) {
             qscrollbar_timerevent_isbase = false;
             QScrollBar::timerEvent(param1);
-        } else if (qscrollbar_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qscrollbar_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            qscrollbar_timerevent_callback(this, cbval1);
-        } else {
-            QScrollBar::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +624,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_changeevent_isbase) {
             qscrollbar_changeevent_isbase = false;
             QScrollBar::changeEvent(e);
-        } else if (qscrollbar_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qscrollbar_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            qscrollbar_changeevent_callback(this, cbval1);
-        } else {
-            QScrollBar::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,12 +641,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_devtype_isbase) {
             qscrollbar_devtype_isbase = false;
             return QScrollBar::devType();
-        } else if (qscrollbar_devtype_callback != nullptr) {
-            int callback_ret = qscrollbar_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QScrollBar::devType();
         }
+        auto devtype_cb = qscrollbar_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QScrollBar::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,13 +655,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_setvisible_isbase) {
             qscrollbar_setvisible_isbase = false;
             QScrollBar::setVisible(visible);
-        } else if (qscrollbar_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qscrollbar_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qscrollbar_setvisible_callback(this, cbval1);
-        } else {
-            QScrollBar::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QScrollBar::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -694,12 +672,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_minimumsizehint_isbase) {
             qscrollbar_minimumsizehint_isbase = false;
             return QScrollBar::minimumSizeHint();
-        } else if (qscrollbar_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qscrollbar_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QScrollBar::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qscrollbar_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QScrollBar::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -707,14 +686,15 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_heightforwidth_isbase) {
             qscrollbar_heightforwidth_isbase = false;
             return QScrollBar::heightForWidth(param1);
-        } else if (qscrollbar_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qscrollbar_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qscrollbar_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QScrollBar::heightForWidth(param1);
         }
+        return QScrollBar::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -722,12 +702,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_hasheightforwidth_isbase) {
             qscrollbar_hasheightforwidth_isbase = false;
             return QScrollBar::hasHeightForWidth();
-        } else if (qscrollbar_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qscrollbar_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QScrollBar::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qscrollbar_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QScrollBar::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,12 +716,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_paintengine_isbase) {
             qscrollbar_paintengine_isbase = false;
             return QScrollBar::paintEngine();
-        } else if (qscrollbar_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qscrollbar_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QScrollBar::paintEngine();
         }
+        auto paintengine_cb = qscrollbar_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QScrollBar::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -748,13 +730,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_mousedoubleclickevent_isbase) {
             qscrollbar_mousedoubleclickevent_isbase = false;
             QScrollBar::mouseDoubleClickEvent(event);
-        } else if (qscrollbar_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qscrollbar_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qscrollbar_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QScrollBar::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -762,13 +747,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_keyreleaseevent_isbase) {
             qscrollbar_keyreleaseevent_isbase = false;
             QScrollBar::keyReleaseEvent(event);
-        } else if (qscrollbar_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qscrollbar_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qscrollbar_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QScrollBar::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,13 +764,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_focusinevent_isbase) {
             qscrollbar_focusinevent_isbase = false;
             QScrollBar::focusInEvent(event);
-        } else if (qscrollbar_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qscrollbar_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qscrollbar_focusinevent_callback(this, cbval1);
-        } else {
-            QScrollBar::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -790,13 +781,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_focusoutevent_isbase) {
             qscrollbar_focusoutevent_isbase = false;
             QScrollBar::focusOutEvent(event);
-        } else if (qscrollbar_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qscrollbar_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qscrollbar_focusoutevent_callback(this, cbval1);
-        } else {
-            QScrollBar::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,13 +798,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_enterevent_isbase) {
             qscrollbar_enterevent_isbase = false;
             QScrollBar::enterEvent(event);
-        } else if (qscrollbar_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qscrollbar_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qscrollbar_enterevent_callback(this, cbval1);
-        } else {
-            QScrollBar::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -818,13 +815,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_leaveevent_isbase) {
             qscrollbar_leaveevent_isbase = false;
             QScrollBar::leaveEvent(event);
-        } else if (qscrollbar_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qscrollbar_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qscrollbar_leaveevent_callback(this, cbval1);
-        } else {
-            QScrollBar::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -832,13 +832,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_moveevent_isbase) {
             qscrollbar_moveevent_isbase = false;
             QScrollBar::moveEvent(event);
-        } else if (qscrollbar_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qscrollbar_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qscrollbar_moveevent_callback(this, cbval1);
-        } else {
-            QScrollBar::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -846,13 +849,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_resizeevent_isbase) {
             qscrollbar_resizeevent_isbase = false;
             QScrollBar::resizeEvent(event);
-        } else if (qscrollbar_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qscrollbar_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qscrollbar_resizeevent_callback(this, cbval1);
-        } else {
-            QScrollBar::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -860,13 +866,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_closeevent_isbase) {
             qscrollbar_closeevent_isbase = false;
             QScrollBar::closeEvent(event);
-        } else if (qscrollbar_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qscrollbar_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qscrollbar_closeevent_callback(this, cbval1);
-        } else {
-            QScrollBar::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -874,13 +883,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_tabletevent_isbase) {
             qscrollbar_tabletevent_isbase = false;
             QScrollBar::tabletEvent(event);
-        } else if (qscrollbar_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qscrollbar_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qscrollbar_tabletevent_callback(this, cbval1);
-        } else {
-            QScrollBar::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -888,13 +900,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_actionevent_isbase) {
             qscrollbar_actionevent_isbase = false;
             QScrollBar::actionEvent(event);
-        } else if (qscrollbar_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qscrollbar_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qscrollbar_actionevent_callback(this, cbval1);
-        } else {
-            QScrollBar::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -902,13 +917,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_dragenterevent_isbase) {
             qscrollbar_dragenterevent_isbase = false;
             QScrollBar::dragEnterEvent(event);
-        } else if (qscrollbar_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qscrollbar_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qscrollbar_dragenterevent_callback(this, cbval1);
-        } else {
-            QScrollBar::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -916,13 +934,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_dragmoveevent_isbase) {
             qscrollbar_dragmoveevent_isbase = false;
             QScrollBar::dragMoveEvent(event);
-        } else if (qscrollbar_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qscrollbar_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qscrollbar_dragmoveevent_callback(this, cbval1);
-        } else {
-            QScrollBar::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,13 +951,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_dragleaveevent_isbase) {
             qscrollbar_dragleaveevent_isbase = false;
             QScrollBar::dragLeaveEvent(event);
-        } else if (qscrollbar_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qscrollbar_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qscrollbar_dragleaveevent_callback(this, cbval1);
-        } else {
-            QScrollBar::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,13 +968,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_dropevent_isbase) {
             qscrollbar_dropevent_isbase = false;
             QScrollBar::dropEvent(event);
-        } else if (qscrollbar_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qscrollbar_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qscrollbar_dropevent_callback(this, cbval1);
-        } else {
-            QScrollBar::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +985,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_showevent_isbase) {
             qscrollbar_showevent_isbase = false;
             QScrollBar::showEvent(event);
-        } else if (qscrollbar_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qscrollbar_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qscrollbar_showevent_callback(this, cbval1);
-        } else {
-            QScrollBar::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,7 +1002,9 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_nativeevent_isbase) {
             qscrollbar_nativeevent_isbase = false;
             return QScrollBar::nativeEvent(eventType, message, result);
-        } else if (qscrollbar_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qscrollbar_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -983,12 +1015,11 @@ class VirtualQScrollBar final : public QScrollBar {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qscrollbar_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QScrollBar::nativeEvent(eventType, message, result);
         }
+        return QScrollBar::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,14 +1027,15 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_metric_isbase) {
             qscrollbar_metric_isbase = false;
             return QScrollBar::metric(param1);
-        } else if (qscrollbar_metric_callback != nullptr) {
+        }
+        auto metric_cb = qscrollbar_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qscrollbar_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QScrollBar::metric(param1);
         }
+        return QScrollBar::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1011,13 +1043,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_initpainter_isbase) {
             qscrollbar_initpainter_isbase = false;
             QScrollBar::initPainter(painter);
-        } else if (qscrollbar_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qscrollbar_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qscrollbar_initpainter_callback(this, cbval1);
-        } else {
-            QScrollBar::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QScrollBar::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1025,14 +1060,15 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_redirected_isbase) {
             qscrollbar_redirected_isbase = false;
             return QScrollBar::redirected(offset);
-        } else if (qscrollbar_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qscrollbar_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qscrollbar_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QScrollBar::redirected(offset);
         }
+        return QScrollBar::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1040,12 +1076,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_sharedpainter_isbase) {
             qscrollbar_sharedpainter_isbase = false;
             return QScrollBar::sharedPainter();
-        } else if (qscrollbar_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qscrollbar_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QScrollBar::sharedPainter();
         }
+        auto sharedpainter_cb = qscrollbar_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QScrollBar::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1053,13 +1090,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_inputmethodevent_isbase) {
             qscrollbar_inputmethodevent_isbase = false;
             QScrollBar::inputMethodEvent(param1);
-        } else if (qscrollbar_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qscrollbar_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qscrollbar_inputmethodevent_callback(this, cbval1);
-        } else {
-            QScrollBar::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1067,14 +1107,15 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_inputmethodquery_isbase) {
             qscrollbar_inputmethodquery_isbase = false;
             return QScrollBar::inputMethodQuery(param1);
-        } else if (qscrollbar_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qscrollbar_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qscrollbar_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QScrollBar::inputMethodQuery(param1);
         }
+        return QScrollBar::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1082,14 +1123,15 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_focusnextprevchild_isbase) {
             qscrollbar_focusnextprevchild_isbase = false;
             return QScrollBar::focusNextPrevChild(next);
-        } else if (qscrollbar_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qscrollbar_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qscrollbar_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QScrollBar::focusNextPrevChild(next);
         }
+        return QScrollBar::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1097,15 +1139,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_eventfilter_isbase) {
             qscrollbar_eventfilter_isbase = false;
             return QScrollBar::eventFilter(watched, event);
-        } else if (qscrollbar_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qscrollbar_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qscrollbar_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QScrollBar::eventFilter(watched, event);
         }
+        return QScrollBar::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1113,13 +1156,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_childevent_isbase) {
             qscrollbar_childevent_isbase = false;
             QScrollBar::childEvent(event);
-        } else if (qscrollbar_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qscrollbar_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qscrollbar_childevent_callback(this, cbval1);
-        } else {
-            QScrollBar::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1127,13 +1173,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_customevent_isbase) {
             qscrollbar_customevent_isbase = false;
             QScrollBar::customEvent(event);
-        } else if (qscrollbar_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qscrollbar_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qscrollbar_customevent_callback(this, cbval1);
-        } else {
-            QScrollBar::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QScrollBar::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1141,15 +1190,18 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_connectnotify_isbase) {
             qscrollbar_connectnotify_isbase = false;
             QScrollBar::connectNotify(signal);
-        } else if (qscrollbar_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qscrollbar_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qscrollbar_connectnotify_callback(this, cbval1);
-        } else {
-            QScrollBar::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QScrollBar::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1157,15 +1209,18 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_disconnectnotify_isbase) {
             qscrollbar_disconnectnotify_isbase = false;
             QScrollBar::disconnectNotify(signal);
-        } else if (qscrollbar_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qscrollbar_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qscrollbar_disconnectnotify_callback(this, cbval1);
-        } else {
-            QScrollBar::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QScrollBar::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1173,13 +1228,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_setrepeataction_isbase) {
             qscrollbar_setrepeataction_isbase = false;
             QScrollBar::setRepeatAction(action);
-        } else if (qscrollbar_setrepeataction_callback != nullptr) {
+            return;
+        }
+        auto setrepeataction_cb = qscrollbar_setrepeataction_callback;
+        if (setrepeataction_cb) {
             int cbval1 = static_cast<int>(action);
 
-            qscrollbar_setrepeataction_callback(this, cbval1);
-        } else {
-            QScrollBar::setRepeatAction(action);
+            setrepeataction_cb(this, cbval1);
+            return;
         }
+        QScrollBar::setRepeatAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,12 +1245,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_repeataction_isbase) {
             qscrollbar_repeataction_isbase = false;
             return QScrollBar::repeatAction();
-        } else if (qscrollbar_repeataction_callback != nullptr) {
-            int callback_ret = qscrollbar_repeataction_callback();
-            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
-        } else {
-            return QScrollBar::repeatAction();
         }
+        auto repeataction_cb = qscrollbar_repeataction_callback;
+        if (repeataction_cb) {
+            int callback_ret = repeataction_cb();
+            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
+        }
+        return QScrollBar::repeatAction();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1200,11 +1259,14 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_updatemicrofocus_isbase) {
             qscrollbar_updatemicrofocus_isbase = false;
             QScrollBar::updateMicroFocus();
-        } else if (qscrollbar_updatemicrofocus_callback != nullptr) {
-            qscrollbar_updatemicrofocus_callback();
-        } else {
-            QScrollBar::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qscrollbar_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QScrollBar::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1212,11 +1274,14 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_create_isbase) {
             qscrollbar_create_isbase = false;
             QScrollBar::create();
-        } else if (qscrollbar_create_callback != nullptr) {
-            qscrollbar_create_callback();
-        } else {
-            QScrollBar::create();
+            return;
         }
+        auto create_cb = qscrollbar_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QScrollBar::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1224,11 +1289,14 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_destroy_isbase) {
             qscrollbar_destroy_isbase = false;
             QScrollBar::destroy();
-        } else if (qscrollbar_destroy_callback != nullptr) {
-            qscrollbar_destroy_callback();
-        } else {
-            QScrollBar::destroy();
+            return;
         }
+        auto destroy_cb = qscrollbar_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QScrollBar::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1236,12 +1304,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_focusnextchild_isbase) {
             qscrollbar_focusnextchild_isbase = false;
             return QScrollBar::focusNextChild();
-        } else if (qscrollbar_focusnextchild_callback != nullptr) {
-            bool callback_ret = qscrollbar_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QScrollBar::focusNextChild();
         }
+        auto focusnextchild_cb = qscrollbar_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QScrollBar::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1249,12 +1318,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_focuspreviouschild_isbase) {
             qscrollbar_focuspreviouschild_isbase = false;
             return QScrollBar::focusPreviousChild();
-        } else if (qscrollbar_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qscrollbar_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QScrollBar::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qscrollbar_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QScrollBar::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1262,12 +1332,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_sender_isbase) {
             qscrollbar_sender_isbase = false;
             return QScrollBar::sender();
-        } else if (qscrollbar_sender_callback != nullptr) {
-            QObject* callback_ret = qscrollbar_sender_callback();
-            return callback_ret;
-        } else {
-            return QScrollBar::sender();
         }
+        auto sender_cb = qscrollbar_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QScrollBar::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1275,12 +1346,13 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_sendersignalindex_isbase) {
             qscrollbar_sendersignalindex_isbase = false;
             return QScrollBar::senderSignalIndex();
-        } else if (qscrollbar_sendersignalindex_callback != nullptr) {
-            int callback_ret = qscrollbar_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QScrollBar::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qscrollbar_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QScrollBar::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1288,14 +1360,15 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_receivers_isbase) {
             qscrollbar_receivers_isbase = false;
             return QScrollBar::receivers(signal);
-        } else if (qscrollbar_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qscrollbar_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qscrollbar_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QScrollBar::receivers(signal);
         }
+        return QScrollBar::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1303,16 +1376,17 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_issignalconnected_isbase) {
             qscrollbar_issignalconnected_isbase = false;
             return QScrollBar::isSignalConnected(signal);
-        } else if (qscrollbar_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qscrollbar_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qscrollbar_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QScrollBar::isSignalConnected(signal);
         }
+        return QScrollBar::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1320,15 +1394,16 @@ class VirtualQScrollBar final : public QScrollBar {
         if (qscrollbar_getdecodedmetricf_isbase) {
             qscrollbar_getdecodedmetricf_isbase = false;
             return QScrollBar::getDecodedMetricF(metricA, metricB);
-        } else if (qscrollbar_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qscrollbar_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qscrollbar_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QScrollBar::getDecodedMetricF(metricA, metricB);
         }
+        return QScrollBar::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

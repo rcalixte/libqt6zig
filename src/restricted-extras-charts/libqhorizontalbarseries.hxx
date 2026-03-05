@@ -72,24 +72,6 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
     VirtualQHorizontalBarSeries() : QHorizontalBarSeries() {};
     VirtualQHorizontalBarSeries(QObject* parent) : QHorizontalBarSeries(parent) {};
 
-    ~VirtualQHorizontalBarSeries() {
-        qhorizontalbarseries_metaobject_callback = nullptr;
-        qhorizontalbarseries_metacast_callback = nullptr;
-        qhorizontalbarseries_metacall_callback = nullptr;
-        qhorizontalbarseries_type_callback = nullptr;
-        qhorizontalbarseries_event_callback = nullptr;
-        qhorizontalbarseries_eventfilter_callback = nullptr;
-        qhorizontalbarseries_timerevent_callback = nullptr;
-        qhorizontalbarseries_childevent_callback = nullptr;
-        qhorizontalbarseries_customevent_callback = nullptr;
-        qhorizontalbarseries_connectnotify_callback = nullptr;
-        qhorizontalbarseries_disconnectnotify_callback = nullptr;
-        qhorizontalbarseries_sender_callback = nullptr;
-        qhorizontalbarseries_sendersignalindex_callback = nullptr;
-        qhorizontalbarseries_receivers_callback = nullptr;
-        qhorizontalbarseries_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQHorizontalBarSeries_MetaObject_Callback(QHorizontalBarSeries_MetaObject_Callback cb) { qhorizontalbarseries_metaobject_callback = cb; }
     inline void setQHorizontalBarSeries_Metacast_Callback(QHorizontalBarSeries_Metacast_Callback cb) { qhorizontalbarseries_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_metaobject_isbase) {
             qhorizontalbarseries_metaobject_isbase = false;
             return QHorizontalBarSeries::metaObject();
-        } else if (qhorizontalbarseries_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qhorizontalbarseries_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QHorizontalBarSeries::metaObject();
         }
+        auto metaobject_cb = qhorizontalbarseries_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QHorizontalBarSeries::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_metacast_isbase) {
             qhorizontalbarseries_metacast_isbase = false;
             return QHorizontalBarSeries::qt_metacast(param1);
-        } else if (qhorizontalbarseries_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qhorizontalbarseries_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qhorizontalbarseries_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QHorizontalBarSeries::qt_metacast(param1);
         }
+        return QHorizontalBarSeries::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_metacall_isbase) {
             qhorizontalbarseries_metacall_isbase = false;
             return QHorizontalBarSeries::qt_metacall(param1, param2, param3);
-        } else if (qhorizontalbarseries_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qhorizontalbarseries_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qhorizontalbarseries_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QHorizontalBarSeries::qt_metacall(param1, param2, param3);
         }
+        return QHorizontalBarSeries::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,12 +159,13 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_type_isbase) {
             qhorizontalbarseries_type_isbase = false;
             return QHorizontalBarSeries::type();
-        } else if (qhorizontalbarseries_type_callback != nullptr) {
-            int callback_ret = qhorizontalbarseries_type_callback();
-            return static_cast<QAbstractSeries::SeriesType>(callback_ret);
-        } else {
-            return QHorizontalBarSeries::type();
         }
+        auto type_cb = qhorizontalbarseries_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QAbstractSeries::SeriesType>(callback_ret);
+        }
+        return QHorizontalBarSeries::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +173,15 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_event_isbase) {
             qhorizontalbarseries_event_isbase = false;
             return QHorizontalBarSeries::event(event);
-        } else if (qhorizontalbarseries_event_callback != nullptr) {
+        }
+        auto event_cb = qhorizontalbarseries_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qhorizontalbarseries_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QHorizontalBarSeries::event(event);
         }
+        return QHorizontalBarSeries::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,15 +189,16 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_eventfilter_isbase) {
             qhorizontalbarseries_eventfilter_isbase = false;
             return QHorizontalBarSeries::eventFilter(watched, event);
-        } else if (qhorizontalbarseries_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qhorizontalbarseries_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qhorizontalbarseries_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QHorizontalBarSeries::eventFilter(watched, event);
         }
+        return QHorizontalBarSeries::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,13 +206,16 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_timerevent_isbase) {
             qhorizontalbarseries_timerevent_isbase = false;
             QHorizontalBarSeries::timerEvent(event);
-        } else if (qhorizontalbarseries_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qhorizontalbarseries_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qhorizontalbarseries_timerevent_callback(this, cbval1);
-        } else {
-            QHorizontalBarSeries::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QHorizontalBarSeries::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +223,16 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_childevent_isbase) {
             qhorizontalbarseries_childevent_isbase = false;
             QHorizontalBarSeries::childEvent(event);
-        } else if (qhorizontalbarseries_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qhorizontalbarseries_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qhorizontalbarseries_childevent_callback(this, cbval1);
-        } else {
-            QHorizontalBarSeries::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QHorizontalBarSeries::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,13 +240,16 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_customevent_isbase) {
             qhorizontalbarseries_customevent_isbase = false;
             QHorizontalBarSeries::customEvent(event);
-        } else if (qhorizontalbarseries_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qhorizontalbarseries_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qhorizontalbarseries_customevent_callback(this, cbval1);
-        } else {
-            QHorizontalBarSeries::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QHorizontalBarSeries::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,15 +257,18 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_connectnotify_isbase) {
             qhorizontalbarseries_connectnotify_isbase = false;
             QHorizontalBarSeries::connectNotify(signal);
-        } else if (qhorizontalbarseries_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qhorizontalbarseries_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qhorizontalbarseries_connectnotify_callback(this, cbval1);
-        } else {
-            QHorizontalBarSeries::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QHorizontalBarSeries::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,15 +276,18 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_disconnectnotify_isbase) {
             qhorizontalbarseries_disconnectnotify_isbase = false;
             QHorizontalBarSeries::disconnectNotify(signal);
-        } else if (qhorizontalbarseries_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qhorizontalbarseries_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qhorizontalbarseries_disconnectnotify_callback(this, cbval1);
-        } else {
-            QHorizontalBarSeries::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QHorizontalBarSeries::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +295,13 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_sender_isbase) {
             qhorizontalbarseries_sender_isbase = false;
             return QHorizontalBarSeries::sender();
-        } else if (qhorizontalbarseries_sender_callback != nullptr) {
-            QObject* callback_ret = qhorizontalbarseries_sender_callback();
-            return callback_ret;
-        } else {
-            return QHorizontalBarSeries::sender();
         }
+        auto sender_cb = qhorizontalbarseries_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QHorizontalBarSeries::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,12 +309,13 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_sendersignalindex_isbase) {
             qhorizontalbarseries_sendersignalindex_isbase = false;
             return QHorizontalBarSeries::senderSignalIndex();
-        } else if (qhorizontalbarseries_sendersignalindex_callback != nullptr) {
-            int callback_ret = qhorizontalbarseries_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHorizontalBarSeries::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qhorizontalbarseries_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHorizontalBarSeries::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,14 +323,15 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_receivers_isbase) {
             qhorizontalbarseries_receivers_isbase = false;
             return QHorizontalBarSeries::receivers(signal);
-        } else if (qhorizontalbarseries_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qhorizontalbarseries_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qhorizontalbarseries_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QHorizontalBarSeries::receivers(signal);
         }
+        return QHorizontalBarSeries::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,16 +339,17 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
         if (qhorizontalbarseries_issignalconnected_isbase) {
             qhorizontalbarseries_issignalconnected_isbase = false;
             return QHorizontalBarSeries::isSignalConnected(signal);
-        } else if (qhorizontalbarseries_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qhorizontalbarseries_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qhorizontalbarseries_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QHorizontalBarSeries::isSignalConnected(signal);
         }
+        return QHorizontalBarSeries::isSignalConnected(signal);
     }
 
     // Friend functions

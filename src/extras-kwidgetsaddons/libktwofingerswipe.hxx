@@ -69,23 +69,6 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
     VirtualKTwoFingerSwipe() : KTwoFingerSwipe() {};
     VirtualKTwoFingerSwipe(QObject* parent) : KTwoFingerSwipe(parent) {};
 
-    ~VirtualKTwoFingerSwipe() {
-        ktwofingerswipe_metaobject_callback = nullptr;
-        ktwofingerswipe_metacast_callback = nullptr;
-        ktwofingerswipe_metacall_callback = nullptr;
-        ktwofingerswipe_event_callback = nullptr;
-        ktwofingerswipe_eventfilter_callback = nullptr;
-        ktwofingerswipe_timerevent_callback = nullptr;
-        ktwofingerswipe_childevent_callback = nullptr;
-        ktwofingerswipe_customevent_callback = nullptr;
-        ktwofingerswipe_connectnotify_callback = nullptr;
-        ktwofingerswipe_disconnectnotify_callback = nullptr;
-        ktwofingerswipe_sender_callback = nullptr;
-        ktwofingerswipe_sendersignalindex_callback = nullptr;
-        ktwofingerswipe_receivers_callback = nullptr;
-        ktwofingerswipe_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKTwoFingerSwipe_MetaObject_Callback(KTwoFingerSwipe_MetaObject_Callback cb) { ktwofingerswipe_metaobject_callback = cb; }
     inline void setKTwoFingerSwipe_Metacast_Callback(KTwoFingerSwipe_Metacast_Callback cb) { ktwofingerswipe_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_metaobject_isbase) {
             ktwofingerswipe_metaobject_isbase = false;
             return KTwoFingerSwipe::metaObject();
-        } else if (ktwofingerswipe_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktwofingerswipe_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KTwoFingerSwipe::metaObject();
         }
+        auto metaobject_cb = ktwofingerswipe_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KTwoFingerSwipe::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_metacast_isbase) {
             ktwofingerswipe_metacast_isbase = false;
             return KTwoFingerSwipe::qt_metacast(param1);
-        } else if (ktwofingerswipe_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktwofingerswipe_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktwofingerswipe_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTwoFingerSwipe::qt_metacast(param1);
         }
+        return KTwoFingerSwipe::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_metacall_isbase) {
             ktwofingerswipe_metacall_isbase = false;
             return KTwoFingerSwipe::qt_metacall(param1, param2, param3);
-        } else if (ktwofingerswipe_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktwofingerswipe_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktwofingerswipe_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTwoFingerSwipe::qt_metacall(param1, param2, param3);
         }
+        return KTwoFingerSwipe::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_event_isbase) {
             ktwofingerswipe_event_isbase = false;
             return KTwoFingerSwipe::event(event);
-        } else if (ktwofingerswipe_event_callback != nullptr) {
+        }
+        auto event_cb = ktwofingerswipe_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ktwofingerswipe_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTwoFingerSwipe::event(event);
         }
+        return KTwoFingerSwipe::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_eventfilter_isbase) {
             ktwofingerswipe_eventfilter_isbase = false;
             return KTwoFingerSwipe::eventFilter(watched, event);
-        } else if (ktwofingerswipe_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktwofingerswipe_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ktwofingerswipe_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KTwoFingerSwipe::eventFilter(watched, event);
         }
+        return KTwoFingerSwipe::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_timerevent_isbase) {
             ktwofingerswipe_timerevent_isbase = false;
             KTwoFingerSwipe::timerEvent(event);
-        } else if (ktwofingerswipe_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktwofingerswipe_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktwofingerswipe_timerevent_callback(this, cbval1);
-        } else {
-            KTwoFingerSwipe::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KTwoFingerSwipe::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_childevent_isbase) {
             ktwofingerswipe_childevent_isbase = false;
             KTwoFingerSwipe::childEvent(event);
-        } else if (ktwofingerswipe_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktwofingerswipe_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktwofingerswipe_childevent_callback(this, cbval1);
-        } else {
-            KTwoFingerSwipe::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KTwoFingerSwipe::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_customevent_isbase) {
             ktwofingerswipe_customevent_isbase = false;
             KTwoFingerSwipe::customEvent(event);
-        } else if (ktwofingerswipe_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktwofingerswipe_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktwofingerswipe_customevent_callback(this, cbval1);
-        } else {
-            KTwoFingerSwipe::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KTwoFingerSwipe::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_connectnotify_isbase) {
             ktwofingerswipe_connectnotify_isbase = false;
             KTwoFingerSwipe::connectNotify(signal);
-        } else if (ktwofingerswipe_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktwofingerswipe_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktwofingerswipe_connectnotify_callback(this, cbval1);
-        } else {
-            KTwoFingerSwipe::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KTwoFingerSwipe::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_disconnectnotify_isbase) {
             ktwofingerswipe_disconnectnotify_isbase = false;
             KTwoFingerSwipe::disconnectNotify(signal);
-        } else if (ktwofingerswipe_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktwofingerswipe_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktwofingerswipe_disconnectnotify_callback(this, cbval1);
-        } else {
-            KTwoFingerSwipe::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KTwoFingerSwipe::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_sender_isbase) {
             ktwofingerswipe_sender_isbase = false;
             return KTwoFingerSwipe::sender();
-        } else if (ktwofingerswipe_sender_callback != nullptr) {
-            QObject* callback_ret = ktwofingerswipe_sender_callback();
-            return callback_ret;
-        } else {
-            return KTwoFingerSwipe::sender();
         }
+        auto sender_cb = ktwofingerswipe_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KTwoFingerSwipe::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_sendersignalindex_isbase) {
             ktwofingerswipe_sendersignalindex_isbase = false;
             return KTwoFingerSwipe::senderSignalIndex();
-        } else if (ktwofingerswipe_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktwofingerswipe_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KTwoFingerSwipe::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktwofingerswipe_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KTwoFingerSwipe::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_receivers_isbase) {
             ktwofingerswipe_receivers_isbase = false;
             return KTwoFingerSwipe::receivers(signal);
-        } else if (ktwofingerswipe_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktwofingerswipe_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktwofingerswipe_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTwoFingerSwipe::receivers(signal);
         }
+        return KTwoFingerSwipe::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
         if (ktwofingerswipe_issignalconnected_isbase) {
             ktwofingerswipe_issignalconnected_isbase = false;
             return KTwoFingerSwipe::isSignalConnected(signal);
-        } else if (ktwofingerswipe_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktwofingerswipe_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktwofingerswipe_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTwoFingerSwipe::isSignalConnected(signal);
         }
+        return KTwoFingerSwipe::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -373,12 +380,6 @@ class VirtualKTwoFingerSwipeRecognizer final : public KTwoFingerSwipeRecognizer 
   public:
     VirtualKTwoFingerSwipeRecognizer() : KTwoFingerSwipeRecognizer() {};
 
-    ~VirtualKTwoFingerSwipeRecognizer() {
-        ktwofingerswiperecognizer_create_callback = nullptr;
-        ktwofingerswiperecognizer_recognize_callback = nullptr;
-        ktwofingerswiperecognizer_reset_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKTwoFingerSwipeRecognizer_Create_Callback(KTwoFingerSwipeRecognizer_Create_Callback cb) { ktwofingerswiperecognizer_create_callback = cb; }
     inline void setKTwoFingerSwipeRecognizer_Recognize_Callback(KTwoFingerSwipeRecognizer_Recognize_Callback cb) { ktwofingerswiperecognizer_recognize_callback = cb; }
@@ -394,14 +395,15 @@ class VirtualKTwoFingerSwipeRecognizer final : public KTwoFingerSwipeRecognizer 
         if (ktwofingerswiperecognizer_create_isbase) {
             ktwofingerswiperecognizer_create_isbase = false;
             return KTwoFingerSwipeRecognizer::create(target);
-        } else if (ktwofingerswiperecognizer_create_callback != nullptr) {
+        }
+        auto create_cb = ktwofingerswiperecognizer_create_callback;
+        if (create_cb) {
             QObject* cbval1 = target;
 
-            QGesture* callback_ret = ktwofingerswiperecognizer_create_callback(this, cbval1);
+            QGesture* callback_ret = create_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTwoFingerSwipeRecognizer::create(target);
         }
+        return KTwoFingerSwipeRecognizer::create(target);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -409,16 +411,17 @@ class VirtualKTwoFingerSwipeRecognizer final : public KTwoFingerSwipeRecognizer 
         if (ktwofingerswiperecognizer_recognize_isbase) {
             ktwofingerswiperecognizer_recognize_isbase = false;
             return KTwoFingerSwipeRecognizer::recognize(gesture, watched, event);
-        } else if (ktwofingerswiperecognizer_recognize_callback != nullptr) {
+        }
+        auto recognize_cb = ktwofingerswiperecognizer_recognize_callback;
+        if (recognize_cb) {
             QGesture* cbval1 = gesture;
             QObject* cbval2 = watched;
             QEvent* cbval3 = event;
 
-            int callback_ret = ktwofingerswiperecognizer_recognize_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = recognize_cb(this, cbval1, cbval2, cbval3);
             return static_cast<QGestureRecognizer::Result>(callback_ret);
-        } else {
-            return KTwoFingerSwipeRecognizer::recognize(gesture, watched, event);
         }
+        return KTwoFingerSwipeRecognizer::recognize(gesture, watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,13 +429,16 @@ class VirtualKTwoFingerSwipeRecognizer final : public KTwoFingerSwipeRecognizer 
         if (ktwofingerswiperecognizer_reset_isbase) {
             ktwofingerswiperecognizer_reset_isbase = false;
             KTwoFingerSwipeRecognizer::reset(state);
-        } else if (ktwofingerswiperecognizer_reset_callback != nullptr) {
+            return;
+        }
+        auto reset_cb = ktwofingerswiperecognizer_reset_callback;
+        if (reset_cb) {
             QGesture* cbval1 = state;
 
-            ktwofingerswiperecognizer_reset_callback(this, cbval1);
-        } else {
-            KTwoFingerSwipeRecognizer::reset(state);
+            reset_cb(this, cbval1);
+            return;
         }
+        KTwoFingerSwipeRecognizer::reset(state);
     }
 };
 

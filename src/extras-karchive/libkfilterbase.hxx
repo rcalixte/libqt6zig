@@ -71,24 +71,6 @@ class VirtualKFilterBase : public KFilterBase {
   public:
     VirtualKFilterBase() : KFilterBase() {};
 
-    ~VirtualKFilterBase() {
-        kfilterbase_init_callback = nullptr;
-        kfilterbase_mode_callback = nullptr;
-        kfilterbase_terminate_callback = nullptr;
-        kfilterbase_reset_callback = nullptr;
-        kfilterbase_readheader_callback = nullptr;
-        kfilterbase_writeheader_callback = nullptr;
-        kfilterbase_setoutbuffer_callback = nullptr;
-        kfilterbase_setinbuffer_callback = nullptr;
-        kfilterbase_inbufferempty_callback = nullptr;
-        kfilterbase_inbufferavailable_callback = nullptr;
-        kfilterbase_outbufferfull_callback = nullptr;
-        kfilterbase_outbufferavailable_callback = nullptr;
-        kfilterbase_uncompress_callback = nullptr;
-        kfilterbase_compress_callback = nullptr;
-        kfilterbase_virtualhook_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFilterBase_Init_Callback(KFilterBase_Init_Callback cb) { kfilterbase_init_callback = cb; }
     inline void setKFilterBase_Mode_Callback(KFilterBase_Mode_Callback cb) { kfilterbase_mode_callback = cb; }
@@ -125,24 +107,24 @@ class VirtualKFilterBase : public KFilterBase {
 
     // Virtual method for C ABI access and custom callback
     virtual bool init(int mode) override {
-        if (kfilterbase_init_callback != nullptr) {
+        auto init_cb = kfilterbase_init_callback;
+        if (init_cb) {
             int cbval1 = mode;
 
-            bool callback_ret = kfilterbase_init_callback(this, cbval1);
+            bool callback_ret = init_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int mode() const override {
-        if (kfilterbase_mode_callback != nullptr) {
-            int callback_ret = kfilterbase_mode_callback();
+        auto mode_cb = kfilterbase_mode_callback;
+        if (mode_cb) {
+            int callback_ret = mode_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -150,12 +132,13 @@ class VirtualKFilterBase : public KFilterBase {
         if (kfilterbase_terminate_isbase) {
             kfilterbase_terminate_isbase = false;
             return KFilterBase::terminate();
-        } else if (kfilterbase_terminate_callback != nullptr) {
-            bool callback_ret = kfilterbase_terminate_callback();
-            return callback_ret;
-        } else {
-            return KFilterBase::terminate();
         }
+        auto terminate_cb = kfilterbase_terminate_callback;
+        if (terminate_cb) {
+            bool callback_ret = terminate_cb();
+            return callback_ret;
+        }
+        return KFilterBase::terminate();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,26 +146,30 @@ class VirtualKFilterBase : public KFilterBase {
         if (kfilterbase_reset_isbase) {
             kfilterbase_reset_isbase = false;
             KFilterBase::reset();
-        } else if (kfilterbase_reset_callback != nullptr) {
-            kfilterbase_reset_callback();
-        } else {
-            KFilterBase::reset();
+            return;
         }
+        auto reset_cb = kfilterbase_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        KFilterBase::reset();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool readHeader() override {
-        if (kfilterbase_readheader_callback != nullptr) {
-            bool callback_ret = kfilterbase_readheader_callback();
+        auto readheader_cb = kfilterbase_readheader_callback;
+        if (readheader_cb) {
+            bool callback_ret = readheader_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool writeHeader(const QByteArray& filename) override {
-        if (kfilterbase_writeheader_callback != nullptr) {
+        auto writeheader_cb = kfilterbase_writeheader_callback;
+        if (writeheader_cb) {
             const QByteArray filename_qb = filename;
             libqt_string filename_str;
             filename_str.len = filename_qb.length();
@@ -190,31 +177,32 @@ class VirtualKFilterBase : public KFilterBase {
             memcpy((void*)filename_str.data, filename_qb.data(), filename_str.len);
             libqt_string cbval1 = filename_str;
 
-            bool callback_ret = kfilterbase_writeheader_callback(this, cbval1);
+            bool callback_ret = writeheader_cb(this, cbval1);
             libqt_free(filename_str.data);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setOutBuffer(char* data, uint maxlen) override {
-        if (kfilterbase_setoutbuffer_callback != nullptr) {
+        auto setoutbuffer_cb = kfilterbase_setoutbuffer_callback;
+        if (setoutbuffer_cb) {
             char* cbval1 = data;
             unsigned int cbval2 = static_cast<unsigned int>(maxlen);
 
-            kfilterbase_setoutbuffer_callback(this, cbval1, cbval2);
+            setoutbuffer_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setInBuffer(const char* data, uint size) override {
-        if (kfilterbase_setinbuffer_callback != nullptr) {
+        auto setinbuffer_cb = kfilterbase_setinbuffer_callback;
+        if (setinbuffer_cb) {
             const char* cbval1 = (const char*)data;
             unsigned int cbval2 = static_cast<unsigned int>(size);
 
-            kfilterbase_setinbuffer_callback(this, cbval1, cbval2);
+            setinbuffer_cb(this, cbval1, cbval2);
         }
     }
 
@@ -223,22 +211,23 @@ class VirtualKFilterBase : public KFilterBase {
         if (kfilterbase_inbufferempty_isbase) {
             kfilterbase_inbufferempty_isbase = false;
             return KFilterBase::inBufferEmpty();
-        } else if (kfilterbase_inbufferempty_callback != nullptr) {
-            bool callback_ret = kfilterbase_inbufferempty_callback();
-            return callback_ret;
-        } else {
-            return KFilterBase::inBufferEmpty();
         }
+        auto inbufferempty_cb = kfilterbase_inbufferempty_callback;
+        if (inbufferempty_cb) {
+            bool callback_ret = inbufferempty_cb();
+            return callback_ret;
+        }
+        return KFilterBase::inBufferEmpty();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int inBufferAvailable() const override {
-        if (kfilterbase_inbufferavailable_callback != nullptr) {
-            int callback_ret = kfilterbase_inbufferavailable_callback();
+        auto inbufferavailable_cb = kfilterbase_inbufferavailable_callback;
+        if (inbufferavailable_cb) {
+            int callback_ret = inbufferavailable_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,44 +235,45 @@ class VirtualKFilterBase : public KFilterBase {
         if (kfilterbase_outbufferfull_isbase) {
             kfilterbase_outbufferfull_isbase = false;
             return KFilterBase::outBufferFull();
-        } else if (kfilterbase_outbufferfull_callback != nullptr) {
-            bool callback_ret = kfilterbase_outbufferfull_callback();
-            return callback_ret;
-        } else {
-            return KFilterBase::outBufferFull();
         }
+        auto outbufferfull_cb = kfilterbase_outbufferfull_callback;
+        if (outbufferfull_cb) {
+            bool callback_ret = outbufferfull_cb();
+            return callback_ret;
+        }
+        return KFilterBase::outBufferFull();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int outBufferAvailable() const override {
-        if (kfilterbase_outbufferavailable_callback != nullptr) {
-            int callback_ret = kfilterbase_outbufferavailable_callback();
+        auto outbufferavailable_cb = kfilterbase_outbufferavailable_callback;
+        if (outbufferavailable_cb) {
+            int callback_ret = outbufferavailable_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual KFilterBase::Result uncompress() override {
-        if (kfilterbase_uncompress_callback != nullptr) {
-            int callback_ret = kfilterbase_uncompress_callback();
+        auto uncompress_cb = kfilterbase_uncompress_callback;
+        if (uncompress_cb) {
+            int callback_ret = uncompress_cb();
             return static_cast<KFilterBase::Result>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual KFilterBase::Result compress(bool finish) override {
-        if (kfilterbase_compress_callback != nullptr) {
+        auto compress_cb = kfilterbase_compress_callback;
+        if (compress_cb) {
             bool cbval1 = finish;
 
-            int callback_ret = kfilterbase_compress_callback(this, cbval1);
+            int callback_ret = compress_cb(this, cbval1);
             return static_cast<KFilterBase::Result>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -291,14 +281,17 @@ class VirtualKFilterBase : public KFilterBase {
         if (kfilterbase_virtualhook_isbase) {
             kfilterbase_virtualhook_isbase = false;
             KFilterBase::virtual_hook(id, data);
-        } else if (kfilterbase_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kfilterbase_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kfilterbase_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KFilterBase::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilterBase::virtual_hook(id, data);
     }
 
     // Friend functions

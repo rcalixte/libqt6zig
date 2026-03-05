@@ -207,69 +207,6 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
     VirtualKSslCertificateBox(QWidget* parent) : KSslCertificateBox(parent) {};
     VirtualKSslCertificateBox() : KSslCertificateBox() {};
 
-    ~VirtualKSslCertificateBox() {
-        ksslcertificatebox_metaobject_callback = nullptr;
-        ksslcertificatebox_metacast_callback = nullptr;
-        ksslcertificatebox_metacall_callback = nullptr;
-        ksslcertificatebox_devtype_callback = nullptr;
-        ksslcertificatebox_setvisible_callback = nullptr;
-        ksslcertificatebox_sizehint_callback = nullptr;
-        ksslcertificatebox_minimumsizehint_callback = nullptr;
-        ksslcertificatebox_heightforwidth_callback = nullptr;
-        ksslcertificatebox_hasheightforwidth_callback = nullptr;
-        ksslcertificatebox_paintengine_callback = nullptr;
-        ksslcertificatebox_event_callback = nullptr;
-        ksslcertificatebox_mousepressevent_callback = nullptr;
-        ksslcertificatebox_mousereleaseevent_callback = nullptr;
-        ksslcertificatebox_mousedoubleclickevent_callback = nullptr;
-        ksslcertificatebox_mousemoveevent_callback = nullptr;
-        ksslcertificatebox_wheelevent_callback = nullptr;
-        ksslcertificatebox_keypressevent_callback = nullptr;
-        ksslcertificatebox_keyreleaseevent_callback = nullptr;
-        ksslcertificatebox_focusinevent_callback = nullptr;
-        ksslcertificatebox_focusoutevent_callback = nullptr;
-        ksslcertificatebox_enterevent_callback = nullptr;
-        ksslcertificatebox_leaveevent_callback = nullptr;
-        ksslcertificatebox_paintevent_callback = nullptr;
-        ksslcertificatebox_moveevent_callback = nullptr;
-        ksslcertificatebox_resizeevent_callback = nullptr;
-        ksslcertificatebox_closeevent_callback = nullptr;
-        ksslcertificatebox_contextmenuevent_callback = nullptr;
-        ksslcertificatebox_tabletevent_callback = nullptr;
-        ksslcertificatebox_actionevent_callback = nullptr;
-        ksslcertificatebox_dragenterevent_callback = nullptr;
-        ksslcertificatebox_dragmoveevent_callback = nullptr;
-        ksslcertificatebox_dragleaveevent_callback = nullptr;
-        ksslcertificatebox_dropevent_callback = nullptr;
-        ksslcertificatebox_showevent_callback = nullptr;
-        ksslcertificatebox_hideevent_callback = nullptr;
-        ksslcertificatebox_nativeevent_callback = nullptr;
-        ksslcertificatebox_changeevent_callback = nullptr;
-        ksslcertificatebox_metric_callback = nullptr;
-        ksslcertificatebox_initpainter_callback = nullptr;
-        ksslcertificatebox_redirected_callback = nullptr;
-        ksslcertificatebox_sharedpainter_callback = nullptr;
-        ksslcertificatebox_inputmethodevent_callback = nullptr;
-        ksslcertificatebox_inputmethodquery_callback = nullptr;
-        ksslcertificatebox_focusnextprevchild_callback = nullptr;
-        ksslcertificatebox_eventfilter_callback = nullptr;
-        ksslcertificatebox_timerevent_callback = nullptr;
-        ksslcertificatebox_childevent_callback = nullptr;
-        ksslcertificatebox_customevent_callback = nullptr;
-        ksslcertificatebox_connectnotify_callback = nullptr;
-        ksslcertificatebox_disconnectnotify_callback = nullptr;
-        ksslcertificatebox_updatemicrofocus_callback = nullptr;
-        ksslcertificatebox_create_callback = nullptr;
-        ksslcertificatebox_destroy_callback = nullptr;
-        ksslcertificatebox_focusnextchild_callback = nullptr;
-        ksslcertificatebox_focuspreviouschild_callback = nullptr;
-        ksslcertificatebox_sender_callback = nullptr;
-        ksslcertificatebox_sendersignalindex_callback = nullptr;
-        ksslcertificatebox_receivers_callback = nullptr;
-        ksslcertificatebox_issignalconnected_callback = nullptr;
-        ksslcertificatebox_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSslCertificateBox_MetaObject_Callback(KSslCertificateBox_MetaObject_Callback cb) { ksslcertificatebox_metaobject_callback = cb; }
     inline void setKSslCertificateBox_Metacast_Callback(KSslCertificateBox_Metacast_Callback cb) { ksslcertificatebox_metacast_callback = cb; }
@@ -399,12 +336,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_metaobject_isbase) {
             ksslcertificatebox_metaobject_isbase = false;
             return KSslCertificateBox::metaObject();
-        } else if (ksslcertificatebox_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ksslcertificatebox_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSslCertificateBox::metaObject();
         }
+        auto metaobject_cb = ksslcertificatebox_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSslCertificateBox::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,14 +350,15 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_metacast_isbase) {
             ksslcertificatebox_metacast_isbase = false;
             return KSslCertificateBox::qt_metacast(param1);
-        } else if (ksslcertificatebox_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ksslcertificatebox_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ksslcertificatebox_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSslCertificateBox::qt_metacast(param1);
         }
+        return KSslCertificateBox::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,16 +366,17 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_metacall_isbase) {
             ksslcertificatebox_metacall_isbase = false;
             return KSslCertificateBox::qt_metacall(param1, param2, param3);
-        } else if (ksslcertificatebox_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ksslcertificatebox_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ksslcertificatebox_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSslCertificateBox::qt_metacall(param1, param2, param3);
         }
+        return KSslCertificateBox::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,12 +384,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_devtype_isbase) {
             ksslcertificatebox_devtype_isbase = false;
             return KSslCertificateBox::devType();
-        } else if (ksslcertificatebox_devtype_callback != nullptr) {
-            int callback_ret = ksslcertificatebox_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSslCertificateBox::devType();
         }
+        auto devtype_cb = ksslcertificatebox_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSslCertificateBox::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,13 +398,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_setvisible_isbase) {
             ksslcertificatebox_setvisible_isbase = false;
             KSslCertificateBox::setVisible(visible);
-        } else if (ksslcertificatebox_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = ksslcertificatebox_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            ksslcertificatebox_setvisible_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,12 +415,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_sizehint_isbase) {
             ksslcertificatebox_sizehint_isbase = false;
             return KSslCertificateBox::sizeHint();
-        } else if (ksslcertificatebox_sizehint_callback != nullptr) {
-            QSize* callback_ret = ksslcertificatebox_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KSslCertificateBox::sizeHint();
         }
+        auto sizehint_cb = ksslcertificatebox_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KSslCertificateBox::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,12 +429,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_minimumsizehint_isbase) {
             ksslcertificatebox_minimumsizehint_isbase = false;
             return KSslCertificateBox::minimumSizeHint();
-        } else if (ksslcertificatebox_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = ksslcertificatebox_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KSslCertificateBox::minimumSizeHint();
         }
+        auto minimumsizehint_cb = ksslcertificatebox_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KSslCertificateBox::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,14 +443,15 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_heightforwidth_isbase) {
             ksslcertificatebox_heightforwidth_isbase = false;
             return KSslCertificateBox::heightForWidth(param1);
-        } else if (ksslcertificatebox_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = ksslcertificatebox_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = ksslcertificatebox_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSslCertificateBox::heightForWidth(param1);
         }
+        return KSslCertificateBox::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,12 +459,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_hasheightforwidth_isbase) {
             ksslcertificatebox_hasheightforwidth_isbase = false;
             return KSslCertificateBox::hasHeightForWidth();
-        } else if (ksslcertificatebox_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = ksslcertificatebox_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KSslCertificateBox::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = ksslcertificatebox_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KSslCertificateBox::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,12 +473,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_paintengine_isbase) {
             ksslcertificatebox_paintengine_isbase = false;
             return KSslCertificateBox::paintEngine();
-        } else if (ksslcertificatebox_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = ksslcertificatebox_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KSslCertificateBox::paintEngine();
         }
+        auto paintengine_cb = ksslcertificatebox_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KSslCertificateBox::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,14 +487,15 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_event_isbase) {
             ksslcertificatebox_event_isbase = false;
             return KSslCertificateBox::event(event);
-        } else if (ksslcertificatebox_event_callback != nullptr) {
+        }
+        auto event_cb = ksslcertificatebox_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ksslcertificatebox_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSslCertificateBox::event(event);
         }
+        return KSslCertificateBox::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,13 +503,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_mousepressevent_isbase) {
             ksslcertificatebox_mousepressevent_isbase = false;
             KSslCertificateBox::mousePressEvent(event);
-        } else if (ksslcertificatebox_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = ksslcertificatebox_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ksslcertificatebox_mousepressevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,13 +520,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_mousereleaseevent_isbase) {
             ksslcertificatebox_mousereleaseevent_isbase = false;
             KSslCertificateBox::mouseReleaseEvent(event);
-        } else if (ksslcertificatebox_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = ksslcertificatebox_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ksslcertificatebox_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,13 +537,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_mousedoubleclickevent_isbase) {
             ksslcertificatebox_mousedoubleclickevent_isbase = false;
             KSslCertificateBox::mouseDoubleClickEvent(event);
-        } else if (ksslcertificatebox_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = ksslcertificatebox_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ksslcertificatebox_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -595,13 +554,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_mousemoveevent_isbase) {
             ksslcertificatebox_mousemoveevent_isbase = false;
             KSslCertificateBox::mouseMoveEvent(event);
-        } else if (ksslcertificatebox_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = ksslcertificatebox_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ksslcertificatebox_mousemoveevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,13 +571,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_wheelevent_isbase) {
             ksslcertificatebox_wheelevent_isbase = false;
             KSslCertificateBox::wheelEvent(event);
-        } else if (ksslcertificatebox_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = ksslcertificatebox_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            ksslcertificatebox_wheelevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -623,13 +588,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_keypressevent_isbase) {
             ksslcertificatebox_keypressevent_isbase = false;
             KSslCertificateBox::keyPressEvent(event);
-        } else if (ksslcertificatebox_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = ksslcertificatebox_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            ksslcertificatebox_keypressevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,13 +605,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_keyreleaseevent_isbase) {
             ksslcertificatebox_keyreleaseevent_isbase = false;
             KSslCertificateBox::keyReleaseEvent(event);
-        } else if (ksslcertificatebox_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = ksslcertificatebox_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            ksslcertificatebox_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,13 +622,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_focusinevent_isbase) {
             ksslcertificatebox_focusinevent_isbase = false;
             KSslCertificateBox::focusInEvent(event);
-        } else if (ksslcertificatebox_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = ksslcertificatebox_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            ksslcertificatebox_focusinevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,13 +639,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_focusoutevent_isbase) {
             ksslcertificatebox_focusoutevent_isbase = false;
             KSslCertificateBox::focusOutEvent(event);
-        } else if (ksslcertificatebox_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = ksslcertificatebox_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            ksslcertificatebox_focusoutevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -679,13 +656,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_enterevent_isbase) {
             ksslcertificatebox_enterevent_isbase = false;
             KSslCertificateBox::enterEvent(event);
-        } else if (ksslcertificatebox_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = ksslcertificatebox_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            ksslcertificatebox_enterevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,13 +673,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_leaveevent_isbase) {
             ksslcertificatebox_leaveevent_isbase = false;
             KSslCertificateBox::leaveEvent(event);
-        } else if (ksslcertificatebox_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = ksslcertificatebox_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            ksslcertificatebox_leaveevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -707,13 +690,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_paintevent_isbase) {
             ksslcertificatebox_paintevent_isbase = false;
             KSslCertificateBox::paintEvent(event);
-        } else if (ksslcertificatebox_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = ksslcertificatebox_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            ksslcertificatebox_paintevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,13 +707,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_moveevent_isbase) {
             ksslcertificatebox_moveevent_isbase = false;
             KSslCertificateBox::moveEvent(event);
-        } else if (ksslcertificatebox_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = ksslcertificatebox_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            ksslcertificatebox_moveevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,13 +724,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_resizeevent_isbase) {
             ksslcertificatebox_resizeevent_isbase = false;
             KSslCertificateBox::resizeEvent(event);
-        } else if (ksslcertificatebox_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = ksslcertificatebox_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            ksslcertificatebox_resizeevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,13 +741,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_closeevent_isbase) {
             ksslcertificatebox_closeevent_isbase = false;
             KSslCertificateBox::closeEvent(event);
-        } else if (ksslcertificatebox_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = ksslcertificatebox_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            ksslcertificatebox_closeevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,13 +758,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_contextmenuevent_isbase) {
             ksslcertificatebox_contextmenuevent_isbase = false;
             KSslCertificateBox::contextMenuEvent(event);
-        } else if (ksslcertificatebox_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = ksslcertificatebox_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            ksslcertificatebox_contextmenuevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -777,13 +775,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_tabletevent_isbase) {
             ksslcertificatebox_tabletevent_isbase = false;
             KSslCertificateBox::tabletEvent(event);
-        } else if (ksslcertificatebox_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = ksslcertificatebox_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            ksslcertificatebox_tabletevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,13 +792,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_actionevent_isbase) {
             ksslcertificatebox_actionevent_isbase = false;
             KSslCertificateBox::actionEvent(event);
-        } else if (ksslcertificatebox_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = ksslcertificatebox_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            ksslcertificatebox_actionevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -805,13 +809,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_dragenterevent_isbase) {
             ksslcertificatebox_dragenterevent_isbase = false;
             KSslCertificateBox::dragEnterEvent(event);
-        } else if (ksslcertificatebox_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = ksslcertificatebox_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            ksslcertificatebox_dragenterevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,13 +826,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_dragmoveevent_isbase) {
             ksslcertificatebox_dragmoveevent_isbase = false;
             KSslCertificateBox::dragMoveEvent(event);
-        } else if (ksslcertificatebox_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = ksslcertificatebox_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            ksslcertificatebox_dragmoveevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -833,13 +843,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_dragleaveevent_isbase) {
             ksslcertificatebox_dragleaveevent_isbase = false;
             KSslCertificateBox::dragLeaveEvent(event);
-        } else if (ksslcertificatebox_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = ksslcertificatebox_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            ksslcertificatebox_dragleaveevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -847,13 +860,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_dropevent_isbase) {
             ksslcertificatebox_dropevent_isbase = false;
             KSslCertificateBox::dropEvent(event);
-        } else if (ksslcertificatebox_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = ksslcertificatebox_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            ksslcertificatebox_dropevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,13 +877,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_showevent_isbase) {
             ksslcertificatebox_showevent_isbase = false;
             KSslCertificateBox::showEvent(event);
-        } else if (ksslcertificatebox_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = ksslcertificatebox_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            ksslcertificatebox_showevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -875,13 +894,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_hideevent_isbase) {
             ksslcertificatebox_hideevent_isbase = false;
             KSslCertificateBox::hideEvent(event);
-        } else if (ksslcertificatebox_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = ksslcertificatebox_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            ksslcertificatebox_hideevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -889,7 +911,9 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_nativeevent_isbase) {
             ksslcertificatebox_nativeevent_isbase = false;
             return KSslCertificateBox::nativeEvent(eventType, message, result);
-        } else if (ksslcertificatebox_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = ksslcertificatebox_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -900,12 +924,11 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = ksslcertificatebox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KSslCertificateBox::nativeEvent(eventType, message, result);
         }
+        return KSslCertificateBox::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +936,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_changeevent_isbase) {
             ksslcertificatebox_changeevent_isbase = false;
             KSslCertificateBox::changeEvent(param1);
-        } else if (ksslcertificatebox_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = ksslcertificatebox_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            ksslcertificatebox_changeevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,14 +953,15 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_metric_isbase) {
             ksslcertificatebox_metric_isbase = false;
             return KSslCertificateBox::metric(param1);
-        } else if (ksslcertificatebox_metric_callback != nullptr) {
+        }
+        auto metric_cb = ksslcertificatebox_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = ksslcertificatebox_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSslCertificateBox::metric(param1);
         }
+        return KSslCertificateBox::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,13 +969,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_initpainter_isbase) {
             ksslcertificatebox_initpainter_isbase = false;
             KSslCertificateBox::initPainter(painter);
-        } else if (ksslcertificatebox_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = ksslcertificatebox_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            ksslcertificatebox_initpainter_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,14 +986,15 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_redirected_isbase) {
             ksslcertificatebox_redirected_isbase = false;
             return KSslCertificateBox::redirected(offset);
-        } else if (ksslcertificatebox_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = ksslcertificatebox_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = ksslcertificatebox_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSslCertificateBox::redirected(offset);
         }
+        return KSslCertificateBox::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -971,12 +1002,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_sharedpainter_isbase) {
             ksslcertificatebox_sharedpainter_isbase = false;
             return KSslCertificateBox::sharedPainter();
-        } else if (ksslcertificatebox_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = ksslcertificatebox_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KSslCertificateBox::sharedPainter();
         }
+        auto sharedpainter_cb = ksslcertificatebox_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KSslCertificateBox::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,13 +1016,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_inputmethodevent_isbase) {
             ksslcertificatebox_inputmethodevent_isbase = false;
             KSslCertificateBox::inputMethodEvent(param1);
-        } else if (ksslcertificatebox_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = ksslcertificatebox_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            ksslcertificatebox_inputmethodevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -998,14 +1033,15 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_inputmethodquery_isbase) {
             ksslcertificatebox_inputmethodquery_isbase = false;
             return KSslCertificateBox::inputMethodQuery(param1);
-        } else if (ksslcertificatebox_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = ksslcertificatebox_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = ksslcertificatebox_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KSslCertificateBox::inputMethodQuery(param1);
         }
+        return KSslCertificateBox::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1013,14 +1049,15 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_focusnextprevchild_isbase) {
             ksslcertificatebox_focusnextprevchild_isbase = false;
             return KSslCertificateBox::focusNextPrevChild(next);
-        } else if (ksslcertificatebox_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = ksslcertificatebox_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = ksslcertificatebox_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSslCertificateBox::focusNextPrevChild(next);
         }
+        return KSslCertificateBox::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,15 +1065,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_eventfilter_isbase) {
             ksslcertificatebox_eventfilter_isbase = false;
             return KSslCertificateBox::eventFilter(watched, event);
-        } else if (ksslcertificatebox_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ksslcertificatebox_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ksslcertificatebox_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KSslCertificateBox::eventFilter(watched, event);
         }
+        return KSslCertificateBox::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,13 +1082,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_timerevent_isbase) {
             ksslcertificatebox_timerevent_isbase = false;
             KSslCertificateBox::timerEvent(event);
-        } else if (ksslcertificatebox_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ksslcertificatebox_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ksslcertificatebox_timerevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1099,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_childevent_isbase) {
             ksslcertificatebox_childevent_isbase = false;
             KSslCertificateBox::childEvent(event);
-        } else if (ksslcertificatebox_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ksslcertificatebox_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ksslcertificatebox_childevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,13 +1116,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_customevent_isbase) {
             ksslcertificatebox_customevent_isbase = false;
             KSslCertificateBox::customEvent(event);
-        } else if (ksslcertificatebox_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ksslcertificatebox_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ksslcertificatebox_customevent_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,15 +1133,18 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_connectnotify_isbase) {
             ksslcertificatebox_connectnotify_isbase = false;
             KSslCertificateBox::connectNotify(signal);
-        } else if (ksslcertificatebox_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ksslcertificatebox_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksslcertificatebox_connectnotify_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,15 +1152,18 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_disconnectnotify_isbase) {
             ksslcertificatebox_disconnectnotify_isbase = false;
             KSslCertificateBox::disconnectNotify(signal);
-        } else if (ksslcertificatebox_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ksslcertificatebox_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksslcertificatebox_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSslCertificateBox::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSslCertificateBox::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,11 +1171,14 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_updatemicrofocus_isbase) {
             ksslcertificatebox_updatemicrofocus_isbase = false;
             KSslCertificateBox::updateMicroFocus();
-        } else if (ksslcertificatebox_updatemicrofocus_callback != nullptr) {
-            ksslcertificatebox_updatemicrofocus_callback();
-        } else {
-            KSslCertificateBox::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = ksslcertificatebox_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KSslCertificateBox::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,11 +1186,14 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_create_isbase) {
             ksslcertificatebox_create_isbase = false;
             KSslCertificateBox::create();
-        } else if (ksslcertificatebox_create_callback != nullptr) {
-            ksslcertificatebox_create_callback();
-        } else {
-            KSslCertificateBox::create();
+            return;
         }
+        auto create_cb = ksslcertificatebox_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KSslCertificateBox::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1201,14 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_destroy_isbase) {
             ksslcertificatebox_destroy_isbase = false;
             KSslCertificateBox::destroy();
-        } else if (ksslcertificatebox_destroy_callback != nullptr) {
-            ksslcertificatebox_destroy_callback();
-        } else {
-            KSslCertificateBox::destroy();
+            return;
         }
+        auto destroy_cb = ksslcertificatebox_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KSslCertificateBox::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,12 +1216,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_focusnextchild_isbase) {
             ksslcertificatebox_focusnextchild_isbase = false;
             return KSslCertificateBox::focusNextChild();
-        } else if (ksslcertificatebox_focusnextchild_callback != nullptr) {
-            bool callback_ret = ksslcertificatebox_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KSslCertificateBox::focusNextChild();
         }
+        auto focusnextchild_cb = ksslcertificatebox_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KSslCertificateBox::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,12 +1230,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_focuspreviouschild_isbase) {
             ksslcertificatebox_focuspreviouschild_isbase = false;
             return KSslCertificateBox::focusPreviousChild();
-        } else if (ksslcertificatebox_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = ksslcertificatebox_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KSslCertificateBox::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = ksslcertificatebox_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KSslCertificateBox::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,12 +1244,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_sender_isbase) {
             ksslcertificatebox_sender_isbase = false;
             return KSslCertificateBox::sender();
-        } else if (ksslcertificatebox_sender_callback != nullptr) {
-            QObject* callback_ret = ksslcertificatebox_sender_callback();
-            return callback_ret;
-        } else {
-            return KSslCertificateBox::sender();
         }
+        auto sender_cb = ksslcertificatebox_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSslCertificateBox::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,12 +1258,13 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_sendersignalindex_isbase) {
             ksslcertificatebox_sendersignalindex_isbase = false;
             return KSslCertificateBox::senderSignalIndex();
-        } else if (ksslcertificatebox_sendersignalindex_callback != nullptr) {
-            int callback_ret = ksslcertificatebox_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSslCertificateBox::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ksslcertificatebox_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSslCertificateBox::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,14 +1272,15 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_receivers_isbase) {
             ksslcertificatebox_receivers_isbase = false;
             return KSslCertificateBox::receivers(signal);
-        } else if (ksslcertificatebox_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ksslcertificatebox_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ksslcertificatebox_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSslCertificateBox::receivers(signal);
         }
+        return KSslCertificateBox::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,16 +1288,17 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_issignalconnected_isbase) {
             ksslcertificatebox_issignalconnected_isbase = false;
             return KSslCertificateBox::isSignalConnected(signal);
-        } else if (ksslcertificatebox_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ksslcertificatebox_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ksslcertificatebox_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSslCertificateBox::isSignalConnected(signal);
         }
+        return KSslCertificateBox::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,15 +1306,16 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
         if (ksslcertificatebox_getdecodedmetricf_isbase) {
             ksslcertificatebox_getdecodedmetricf_isbase = false;
             return KSslCertificateBox::getDecodedMetricF(metricA, metricB);
-        } else if (ksslcertificatebox_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = ksslcertificatebox_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = ksslcertificatebox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KSslCertificateBox::getDecodedMetricF(metricA, metricB);
         }
+        return KSslCertificateBox::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

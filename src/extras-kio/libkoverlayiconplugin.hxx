@@ -72,24 +72,6 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
     VirtualKOverlayIconPlugin() : KOverlayIconPlugin() {};
     VirtualKOverlayIconPlugin(QObject* parent) : KOverlayIconPlugin(parent) {};
 
-    ~VirtualKOverlayIconPlugin() {
-        koverlayiconplugin_metaobject_callback = nullptr;
-        koverlayiconplugin_metacast_callback = nullptr;
-        koverlayiconplugin_metacall_callback = nullptr;
-        koverlayiconplugin_getoverlays_callback = nullptr;
-        koverlayiconplugin_event_callback = nullptr;
-        koverlayiconplugin_eventfilter_callback = nullptr;
-        koverlayiconplugin_timerevent_callback = nullptr;
-        koverlayiconplugin_childevent_callback = nullptr;
-        koverlayiconplugin_customevent_callback = nullptr;
-        koverlayiconplugin_connectnotify_callback = nullptr;
-        koverlayiconplugin_disconnectnotify_callback = nullptr;
-        koverlayiconplugin_sender_callback = nullptr;
-        koverlayiconplugin_sendersignalindex_callback = nullptr;
-        koverlayiconplugin_receivers_callback = nullptr;
-        koverlayiconplugin_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKOverlayIconPlugin_MetaObject_Callback(KOverlayIconPlugin_MetaObject_Callback cb) { koverlayiconplugin_metaobject_callback = cb; }
     inline void setKOverlayIconPlugin_Metacast_Callback(KOverlayIconPlugin_Metacast_Callback cb) { koverlayiconplugin_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_metaobject_isbase) {
             koverlayiconplugin_metaobject_isbase = false;
             return KOverlayIconPlugin::metaObject();
-        } else if (koverlayiconplugin_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = koverlayiconplugin_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KOverlayIconPlugin::metaObject();
         }
+        auto metaobject_cb = koverlayiconplugin_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KOverlayIconPlugin::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_metacast_isbase) {
             koverlayiconplugin_metacast_isbase = false;
             return KOverlayIconPlugin::qt_metacast(param1);
-        } else if (koverlayiconplugin_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = koverlayiconplugin_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = koverlayiconplugin_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KOverlayIconPlugin::qt_metacast(param1);
         }
+        return KOverlayIconPlugin::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,26 +141,28 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_metacall_isbase) {
             koverlayiconplugin_metacall_isbase = false;
             return KOverlayIconPlugin::qt_metacall(param1, param2, param3);
-        } else if (koverlayiconplugin_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = koverlayiconplugin_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = koverlayiconplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KOverlayIconPlugin::qt_metacall(param1, param2, param3);
         }
+        return KOverlayIconPlugin::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QString> getOverlays(const QUrl& item) override {
-        if (koverlayiconplugin_getoverlays_callback != nullptr) {
+        auto getoverlays_cb = koverlayiconplugin_getoverlays_callback;
+        if (getoverlays_cb) {
             const QUrl& item_ret = item;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&item_ret);
 
-            const char** callback_ret = koverlayiconplugin_getoverlays_callback(this, cbval1);
+            const char** callback_ret = getoverlays_cb(this, cbval1);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -187,9 +173,8 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -197,14 +182,15 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_event_isbase) {
             koverlayiconplugin_event_isbase = false;
             return KOverlayIconPlugin::event(event);
-        } else if (koverlayiconplugin_event_callback != nullptr) {
+        }
+        auto event_cb = koverlayiconplugin_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = koverlayiconplugin_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KOverlayIconPlugin::event(event);
         }
+        return KOverlayIconPlugin::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,15 +198,16 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_eventfilter_isbase) {
             koverlayiconplugin_eventfilter_isbase = false;
             return KOverlayIconPlugin::eventFilter(watched, event);
-        } else if (koverlayiconplugin_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = koverlayiconplugin_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = koverlayiconplugin_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KOverlayIconPlugin::eventFilter(watched, event);
         }
+        return KOverlayIconPlugin::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,13 +215,16 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_timerevent_isbase) {
             koverlayiconplugin_timerevent_isbase = false;
             KOverlayIconPlugin::timerEvent(event);
-        } else if (koverlayiconplugin_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = koverlayiconplugin_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            koverlayiconplugin_timerevent_callback(this, cbval1);
-        } else {
-            KOverlayIconPlugin::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KOverlayIconPlugin::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,13 +232,16 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_childevent_isbase) {
             koverlayiconplugin_childevent_isbase = false;
             KOverlayIconPlugin::childEvent(event);
-        } else if (koverlayiconplugin_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = koverlayiconplugin_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            koverlayiconplugin_childevent_callback(this, cbval1);
-        } else {
-            KOverlayIconPlugin::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KOverlayIconPlugin::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,13 +249,16 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_customevent_isbase) {
             koverlayiconplugin_customevent_isbase = false;
             KOverlayIconPlugin::customEvent(event);
-        } else if (koverlayiconplugin_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = koverlayiconplugin_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            koverlayiconplugin_customevent_callback(this, cbval1);
-        } else {
-            KOverlayIconPlugin::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KOverlayIconPlugin::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,15 +266,18 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_connectnotify_isbase) {
             koverlayiconplugin_connectnotify_isbase = false;
             KOverlayIconPlugin::connectNotify(signal);
-        } else if (koverlayiconplugin_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = koverlayiconplugin_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            koverlayiconplugin_connectnotify_callback(this, cbval1);
-        } else {
-            KOverlayIconPlugin::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KOverlayIconPlugin::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,15 +285,18 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_disconnectnotify_isbase) {
             koverlayiconplugin_disconnectnotify_isbase = false;
             KOverlayIconPlugin::disconnectNotify(signal);
-        } else if (koverlayiconplugin_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = koverlayiconplugin_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            koverlayiconplugin_disconnectnotify_callback(this, cbval1);
-        } else {
-            KOverlayIconPlugin::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KOverlayIconPlugin::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,12 +304,13 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_sender_isbase) {
             koverlayiconplugin_sender_isbase = false;
             return KOverlayIconPlugin::sender();
-        } else if (koverlayiconplugin_sender_callback != nullptr) {
-            QObject* callback_ret = koverlayiconplugin_sender_callback();
-            return callback_ret;
-        } else {
-            return KOverlayIconPlugin::sender();
         }
+        auto sender_cb = koverlayiconplugin_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KOverlayIconPlugin::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,12 +318,13 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_sendersignalindex_isbase) {
             koverlayiconplugin_sendersignalindex_isbase = false;
             return KOverlayIconPlugin::senderSignalIndex();
-        } else if (koverlayiconplugin_sendersignalindex_callback != nullptr) {
-            int callback_ret = koverlayiconplugin_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KOverlayIconPlugin::senderSignalIndex();
         }
+        auto sendersignalindex_cb = koverlayiconplugin_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KOverlayIconPlugin::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -328,14 +332,15 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_receivers_isbase) {
             koverlayiconplugin_receivers_isbase = false;
             return KOverlayIconPlugin::receivers(signal);
-        } else if (koverlayiconplugin_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = koverlayiconplugin_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = koverlayiconplugin_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KOverlayIconPlugin::receivers(signal);
         }
+        return KOverlayIconPlugin::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,16 +348,17 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
         if (koverlayiconplugin_issignalconnected_isbase) {
             koverlayiconplugin_issignalconnected_isbase = false;
             return KOverlayIconPlugin::isSignalConnected(signal);
-        } else if (koverlayiconplugin_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = koverlayiconplugin_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = koverlayiconplugin_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KOverlayIconPlugin::isSignalConnected(signal);
         }
+        return KOverlayIconPlugin::isSignalConnected(signal);
     }
 
     // Friend functions

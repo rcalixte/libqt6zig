@@ -53,18 +53,6 @@ class VirtualQDesignerContainerExtension : public QDesignerContainerExtension {
   public:
     VirtualQDesignerContainerExtension() : QDesignerContainerExtension() {};
 
-    ~VirtualQDesignerContainerExtension() {
-        qdesignercontainerextension_count_callback = nullptr;
-        qdesignercontainerextension_widget_callback = nullptr;
-        qdesignercontainerextension_currentindex_callback = nullptr;
-        qdesignercontainerextension_setcurrentindex_callback = nullptr;
-        qdesignercontainerextension_canaddwidget_callback = nullptr;
-        qdesignercontainerextension_addwidget_callback = nullptr;
-        qdesignercontainerextension_insertwidget_callback = nullptr;
-        qdesignercontainerextension_canremove_callback = nullptr;
-        qdesignercontainerextension_remove_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerContainerExtension_Count_Callback(QDesignerContainerExtension_Count_Callback cb) { qdesignercontainerextension_count_callback = cb; }
     inline void setQDesignerContainerExtension_Widget_Callback(QDesignerContainerExtension_Widget_Callback cb) { qdesignercontainerextension_widget_callback = cb; }
@@ -89,92 +77,96 @@ class VirtualQDesignerContainerExtension : public QDesignerContainerExtension {
 
     // Virtual method for C ABI access and custom callback
     virtual int count() const override {
-        if (qdesignercontainerextension_count_callback != nullptr) {
-            int callback_ret = qdesignercontainerextension_count_callback();
+        auto count_cb = qdesignercontainerextension_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* widget(int index) const override {
-        if (qdesignercontainerextension_widget_callback != nullptr) {
+        auto widget_cb = qdesignercontainerextension_widget_callback;
+        if (widget_cb) {
             int cbval1 = index;
 
-            QWidget* callback_ret = qdesignercontainerextension_widget_callback(this, cbval1);
+            QWidget* callback_ret = widget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int currentIndex() const override {
-        if (qdesignercontainerextension_currentindex_callback != nullptr) {
-            int callback_ret = qdesignercontainerextension_currentindex_callback();
+        auto currentindex_cb = qdesignercontainerextension_currentindex_callback;
+        if (currentindex_cb) {
+            int callback_ret = currentindex_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setCurrentIndex(int index) override {
-        if (qdesignercontainerextension_setcurrentindex_callback != nullptr) {
+        auto setcurrentindex_cb = qdesignercontainerextension_setcurrentindex_callback;
+        if (setcurrentindex_cb) {
             int cbval1 = index;
 
-            qdesignercontainerextension_setcurrentindex_callback(this, cbval1);
+            setcurrentindex_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool canAddWidget() const override {
-        if (qdesignercontainerextension_canaddwidget_callback != nullptr) {
-            bool callback_ret = qdesignercontainerextension_canaddwidget_callback();
+        auto canaddwidget_cb = qdesignercontainerextension_canaddwidget_callback;
+        if (canaddwidget_cb) {
+            bool callback_ret = canaddwidget_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void addWidget(QWidget* widget) override {
-        if (qdesignercontainerextension_addwidget_callback != nullptr) {
+        auto addwidget_cb = qdesignercontainerextension_addwidget_callback;
+        if (addwidget_cb) {
             QWidget* cbval1 = widget;
 
-            qdesignercontainerextension_addwidget_callback(this, cbval1);
+            addwidget_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void insertWidget(int index, QWidget* widget) override {
-        if (qdesignercontainerextension_insertwidget_callback != nullptr) {
+        auto insertwidget_cb = qdesignercontainerextension_insertwidget_callback;
+        if (insertwidget_cb) {
             int cbval1 = index;
             QWidget* cbval2 = widget;
 
-            qdesignercontainerextension_insertwidget_callback(this, cbval1, cbval2);
+            insertwidget_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool canRemove(int index) const override {
-        if (qdesignercontainerextension_canremove_callback != nullptr) {
+        auto canremove_cb = qdesignercontainerextension_canremove_callback;
+        if (canremove_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignercontainerextension_canremove_callback(this, cbval1);
+            bool callback_ret = canremove_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void remove(int index) override {
-        if (qdesignercontainerextension_remove_callback != nullptr) {
+        auto remove_cb = qdesignercontainerextension_remove_callback;
+        if (remove_cb) {
             int cbval1 = index;
 
-            qdesignercontainerextension_remove_callback(this, cbval1);
+            remove_cb(this, cbval1);
         }
     }
 };

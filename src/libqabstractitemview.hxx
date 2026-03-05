@@ -384,127 +384,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     VirtualQAbstractItemView(QWidget* parent) : QAbstractItemView(parent) {};
     VirtualQAbstractItemView() : QAbstractItemView() {};
 
-    ~VirtualQAbstractItemView() {
-        qabstractitemview_metaobject_callback = nullptr;
-        qabstractitemview_metacast_callback = nullptr;
-        qabstractitemview_metacall_callback = nullptr;
-        qabstractitemview_setmodel_callback = nullptr;
-        qabstractitemview_setselectionmodel_callback = nullptr;
-        qabstractitemview_keyboardsearch_callback = nullptr;
-        qabstractitemview_visualrect_callback = nullptr;
-        qabstractitemview_scrollto_callback = nullptr;
-        qabstractitemview_indexat_callback = nullptr;
-        qabstractitemview_sizehintforrow_callback = nullptr;
-        qabstractitemview_sizehintforcolumn_callback = nullptr;
-        qabstractitemview_itemdelegateforindex_callback = nullptr;
-        qabstractitemview_inputmethodquery_callback = nullptr;
-        qabstractitemview_reset_callback = nullptr;
-        qabstractitemview_setrootindex_callback = nullptr;
-        qabstractitemview_doitemslayout_callback = nullptr;
-        qabstractitemview_selectall_callback = nullptr;
-        qabstractitemview_datachanged_callback = nullptr;
-        qabstractitemview_rowsinserted_callback = nullptr;
-        qabstractitemview_rowsabouttoberemoved_callback = nullptr;
-        qabstractitemview_selectionchanged_callback = nullptr;
-        qabstractitemview_currentchanged_callback = nullptr;
-        qabstractitemview_updateeditordata_callback = nullptr;
-        qabstractitemview_updateeditorgeometries_callback = nullptr;
-        qabstractitemview_updategeometries_callback = nullptr;
-        qabstractitemview_verticalscrollbaraction_callback = nullptr;
-        qabstractitemview_horizontalscrollbaraction_callback = nullptr;
-        qabstractitemview_verticalscrollbarvaluechanged_callback = nullptr;
-        qabstractitemview_horizontalscrollbarvaluechanged_callback = nullptr;
-        qabstractitemview_closeeditor_callback = nullptr;
-        qabstractitemview_commitdata_callback = nullptr;
-        qabstractitemview_editordestroyed_callback = nullptr;
-        qabstractitemview_movecursor_callback = nullptr;
-        qabstractitemview_horizontaloffset_callback = nullptr;
-        qabstractitemview_verticaloffset_callback = nullptr;
-        qabstractitemview_isindexhidden_callback = nullptr;
-        qabstractitemview_setselection_callback = nullptr;
-        qabstractitemview_visualregionforselection_callback = nullptr;
-        qabstractitemview_selectedindexes_callback = nullptr;
-        qabstractitemview_edit2_callback = nullptr;
-        qabstractitemview_selectioncommand_callback = nullptr;
-        qabstractitemview_startdrag_callback = nullptr;
-        qabstractitemview_initviewitemoption_callback = nullptr;
-        qabstractitemview_focusnextprevchild_callback = nullptr;
-        qabstractitemview_event_callback = nullptr;
-        qabstractitemview_viewportevent_callback = nullptr;
-        qabstractitemview_mousepressevent_callback = nullptr;
-        qabstractitemview_mousemoveevent_callback = nullptr;
-        qabstractitemview_mousereleaseevent_callback = nullptr;
-        qabstractitemview_mousedoubleclickevent_callback = nullptr;
-        qabstractitemview_dragenterevent_callback = nullptr;
-        qabstractitemview_dragmoveevent_callback = nullptr;
-        qabstractitemview_dragleaveevent_callback = nullptr;
-        qabstractitemview_dropevent_callback = nullptr;
-        qabstractitemview_focusinevent_callback = nullptr;
-        qabstractitemview_focusoutevent_callback = nullptr;
-        qabstractitemview_keypressevent_callback = nullptr;
-        qabstractitemview_resizeevent_callback = nullptr;
-        qabstractitemview_timerevent_callback = nullptr;
-        qabstractitemview_inputmethodevent_callback = nullptr;
-        qabstractitemview_eventfilter_callback = nullptr;
-        qabstractitemview_viewportsizehint_callback = nullptr;
-        qabstractitemview_minimumsizehint_callback = nullptr;
-        qabstractitemview_sizehint_callback = nullptr;
-        qabstractitemview_setupviewport_callback = nullptr;
-        qabstractitemview_paintevent_callback = nullptr;
-        qabstractitemview_wheelevent_callback = nullptr;
-        qabstractitemview_contextmenuevent_callback = nullptr;
-        qabstractitemview_scrollcontentsby_callback = nullptr;
-        qabstractitemview_changeevent_callback = nullptr;
-        qabstractitemview_initstyleoption_callback = nullptr;
-        qabstractitemview_devtype_callback = nullptr;
-        qabstractitemview_setvisible_callback = nullptr;
-        qabstractitemview_heightforwidth_callback = nullptr;
-        qabstractitemview_hasheightforwidth_callback = nullptr;
-        qabstractitemview_paintengine_callback = nullptr;
-        qabstractitemview_keyreleaseevent_callback = nullptr;
-        qabstractitemview_enterevent_callback = nullptr;
-        qabstractitemview_leaveevent_callback = nullptr;
-        qabstractitemview_moveevent_callback = nullptr;
-        qabstractitemview_closeevent_callback = nullptr;
-        qabstractitemview_tabletevent_callback = nullptr;
-        qabstractitemview_actionevent_callback = nullptr;
-        qabstractitemview_showevent_callback = nullptr;
-        qabstractitemview_hideevent_callback = nullptr;
-        qabstractitemview_nativeevent_callback = nullptr;
-        qabstractitemview_metric_callback = nullptr;
-        qabstractitemview_initpainter_callback = nullptr;
-        qabstractitemview_redirected_callback = nullptr;
-        qabstractitemview_sharedpainter_callback = nullptr;
-        qabstractitemview_childevent_callback = nullptr;
-        qabstractitemview_customevent_callback = nullptr;
-        qabstractitemview_connectnotify_callback = nullptr;
-        qabstractitemview_disconnectnotify_callback = nullptr;
-        qabstractitemview_state_callback = nullptr;
-        qabstractitemview_setstate_callback = nullptr;
-        qabstractitemview_scheduledelayeditemslayout_callback = nullptr;
-        qabstractitemview_executedelayeditemslayout_callback = nullptr;
-        qabstractitemview_setdirtyregion_callback = nullptr;
-        qabstractitemview_scrolldirtyregion_callback = nullptr;
-        qabstractitemview_dirtyregionoffset_callback = nullptr;
-        qabstractitemview_startautoscroll_callback = nullptr;
-        qabstractitemview_stopautoscroll_callback = nullptr;
-        qabstractitemview_doautoscroll_callback = nullptr;
-        qabstractitemview_dropindicatorposition_callback = nullptr;
-        qabstractitemview_setviewportmargins_callback = nullptr;
-        qabstractitemview_viewportmargins_callback = nullptr;
-        qabstractitemview_drawframe_callback = nullptr;
-        qabstractitemview_updatemicrofocus_callback = nullptr;
-        qabstractitemview_create_callback = nullptr;
-        qabstractitemview_destroy_callback = nullptr;
-        qabstractitemview_focusnextchild_callback = nullptr;
-        qabstractitemview_focuspreviouschild_callback = nullptr;
-        qabstractitemview_sender_callback = nullptr;
-        qabstractitemview_sendersignalindex_callback = nullptr;
-        qabstractitemview_receivers_callback = nullptr;
-        qabstractitemview_issignalconnected_callback = nullptr;
-        qabstractitemview_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractItemView_MetaObject_Callback(QAbstractItemView_MetaObject_Callback cb) { qabstractitemview_metaobject_callback = cb; }
     inline void setQAbstractItemView_Metacast_Callback(QAbstractItemView_Metacast_Callback cb) { qabstractitemview_metacast_callback = cb; }
@@ -750,12 +629,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_metaobject_isbase) {
             qabstractitemview_metaobject_isbase = false;
             return QAbstractItemView::metaObject();
-        } else if (qabstractitemview_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qabstractitemview_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAbstractItemView::metaObject();
         }
+        auto metaobject_cb = qabstractitemview_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAbstractItemView::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,14 +643,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_metacast_isbase) {
             qabstractitemview_metacast_isbase = false;
             return QAbstractItemView::qt_metacast(param1);
-        } else if (qabstractitemview_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qabstractitemview_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qabstractitemview_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemView::qt_metacast(param1);
         }
+        return QAbstractItemView::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -778,16 +659,17 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_metacall_isbase) {
             qabstractitemview_metacall_isbase = false;
             return QAbstractItemView::qt_metacall(param1, param2, param3);
-        } else if (qabstractitemview_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qabstractitemview_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qabstractitemview_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemView::qt_metacall(param1, param2, param3);
         }
+        return QAbstractItemView::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,13 +677,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_setmodel_isbase) {
             qabstractitemview_setmodel_isbase = false;
             QAbstractItemView::setModel(model);
-        } else if (qabstractitemview_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = qabstractitemview_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            qabstractitemview_setmodel_callback(this, cbval1);
-        } else {
-            QAbstractItemView::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,13 +694,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_setselectionmodel_isbase) {
             qabstractitemview_setselectionmodel_isbase = false;
             QAbstractItemView::setSelectionModel(selectionModel);
-        } else if (qabstractitemview_setselectionmodel_callback != nullptr) {
+            return;
+        }
+        auto setselectionmodel_cb = qabstractitemview_setselectionmodel_callback;
+        if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
 
-            qabstractitemview_setselectionmodel_callback(this, cbval1);
-        } else {
-            QAbstractItemView::setSelectionModel(selectionModel);
+            setselectionmodel_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::setSelectionModel(selectionModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,7 +711,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_keyboardsearch_isbase) {
             qabstractitemview_keyboardsearch_isbase = false;
             QAbstractItemView::keyboardSearch(search);
-        } else if (qabstractitemview_keyboardsearch_callback != nullptr) {
+            return;
+        }
+        auto keyboardsearch_cb = qabstractitemview_keyboardsearch_callback;
+        if (keyboardsearch_cb) {
             const QString search_ret = search;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
@@ -833,51 +724,52 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
 
-            qabstractitemview_keyboardsearch_callback(this, cbval1);
+            keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
-        } else {
-            QAbstractItemView::keyboardSearch(search);
+            return;
         }
+        QAbstractItemView::keyboardSearch(search);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRect visualRect(const QModelIndex& index) const override {
-        if (qabstractitemview_visualrect_callback != nullptr) {
+        auto visualrect_cb = qabstractitemview_visualrect_callback;
+        if (visualrect_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = qabstractitemview_visualrect_callback(this, cbval1);
+            QRect* callback_ret = visualrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void scrollTo(const QModelIndex& index, QAbstractItemView::ScrollHint hint) override {
-        if (qabstractitemview_scrollto_callback != nullptr) {
+        auto scrollto_cb = qabstractitemview_scrollto_callback;
+        if (scrollto_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
 
-            qabstractitemview_scrollto_callback(this, cbval1, cbval2);
+            scrollto_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex indexAt(const QPoint& point) const override {
-        if (qabstractitemview_indexat_callback != nullptr) {
+        auto indexat_cb = qabstractitemview_indexat_callback;
+        if (indexat_cb) {
             const QPoint& point_ret = point;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&point_ret);
 
-            QModelIndex* callback_ret = qabstractitemview_indexat_callback(this, cbval1);
+            QModelIndex* callback_ret = indexat_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,14 +777,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_sizehintforrow_isbase) {
             qabstractitemview_sizehintforrow_isbase = false;
             return QAbstractItemView::sizeHintForRow(row);
-        } else if (qabstractitemview_sizehintforrow_callback != nullptr) {
+        }
+        auto sizehintforrow_cb = qabstractitemview_sizehintforrow_callback;
+        if (sizehintforrow_cb) {
             int cbval1 = row;
 
-            int callback_ret = qabstractitemview_sizehintforrow_callback(this, cbval1);
+            int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemView::sizeHintForRow(row);
         }
+        return QAbstractItemView::sizeHintForRow(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -900,14 +793,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_sizehintforcolumn_isbase) {
             qabstractitemview_sizehintforcolumn_isbase = false;
             return QAbstractItemView::sizeHintForColumn(column);
-        } else if (qabstractitemview_sizehintforcolumn_callback != nullptr) {
+        }
+        auto sizehintforcolumn_cb = qabstractitemview_sizehintforcolumn_callback;
+        if (sizehintforcolumn_cb) {
             int cbval1 = column;
 
-            int callback_ret = qabstractitemview_sizehintforcolumn_callback(this, cbval1);
+            int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemView::sizeHintForColumn(column);
         }
+        return QAbstractItemView::sizeHintForColumn(column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -915,16 +809,17 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_itemdelegateforindex_isbase) {
             qabstractitemview_itemdelegateforindex_isbase = false;
             return QAbstractItemView::itemDelegateForIndex(index);
-        } else if (qabstractitemview_itemdelegateforindex_callback != nullptr) {
+        }
+        auto itemdelegateforindex_cb = qabstractitemview_itemdelegateforindex_callback;
+        if (itemdelegateforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QAbstractItemDelegate* callback_ret = qabstractitemview_itemdelegateforindex_callback(this, cbval1);
+            QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemView::itemDelegateForIndex(index);
         }
+        return QAbstractItemView::itemDelegateForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -932,14 +827,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_inputmethodquery_isbase) {
             qabstractitemview_inputmethodquery_isbase = false;
             return QAbstractItemView::inputMethodQuery(query);
-        } else if (qabstractitemview_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qabstractitemview_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qabstractitemview_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractItemView::inputMethodQuery(query);
         }
+        return QAbstractItemView::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,11 +843,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_reset_isbase) {
             qabstractitemview_reset_isbase = false;
             QAbstractItemView::reset();
-        } else if (qabstractitemview_reset_callback != nullptr) {
-            qabstractitemview_reset_callback();
-        } else {
-            QAbstractItemView::reset();
+            return;
         }
+        auto reset_cb = qabstractitemview_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        QAbstractItemView::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -959,15 +858,18 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_setrootindex_isbase) {
             qabstractitemview_setrootindex_isbase = false;
             QAbstractItemView::setRootIndex(index);
-        } else if (qabstractitemview_setrootindex_callback != nullptr) {
+            return;
+        }
+        auto setrootindex_cb = qabstractitemview_setrootindex_callback;
+        if (setrootindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            qabstractitemview_setrootindex_callback(this, cbval1);
-        } else {
-            QAbstractItemView::setRootIndex(index);
+            setrootindex_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::setRootIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -975,11 +877,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_doitemslayout_isbase) {
             qabstractitemview_doitemslayout_isbase = false;
             QAbstractItemView::doItemsLayout();
-        } else if (qabstractitemview_doitemslayout_callback != nullptr) {
-            qabstractitemview_doitemslayout_callback();
-        } else {
-            QAbstractItemView::doItemsLayout();
+            return;
         }
+        auto doitemslayout_cb = qabstractitemview_doitemslayout_callback;
+        if (doitemslayout_cb) {
+            doitemslayout_cb();
+            return;
+        }
+        QAbstractItemView::doItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -987,11 +892,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_selectall_isbase) {
             qabstractitemview_selectall_isbase = false;
             QAbstractItemView::selectAll();
-        } else if (qabstractitemview_selectall_callback != nullptr) {
-            qabstractitemview_selectall_callback();
-        } else {
-            QAbstractItemView::selectAll();
+            return;
         }
+        auto selectall_cb = qabstractitemview_selectall_callback;
+        if (selectall_cb) {
+            selectall_cb();
+            return;
+        }
+        QAbstractItemView::selectAll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -999,7 +907,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_datachanged_isbase) {
             qabstractitemview_datachanged_isbase = false;
             QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
-        } else if (qabstractitemview_datachanged_callback != nullptr) {
+            return;
+        }
+        auto datachanged_cb = qabstractitemview_datachanged_callback;
+        if (datachanged_cb) {
             const QModelIndex& topLeft_ret = topLeft;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
@@ -1017,11 +928,11 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
-            qabstractitemview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
-        } else {
-            QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
+            return;
         }
+        QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,17 +940,20 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_rowsinserted_isbase) {
             qabstractitemview_rowsinserted_isbase = false;
             QAbstractItemView::rowsInserted(parent, start, end);
-        } else if (qabstractitemview_rowsinserted_callback != nullptr) {
+            return;
+        }
+        auto rowsinserted_cb = qabstractitemview_rowsinserted_callback;
+        if (rowsinserted_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            qabstractitemview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractItemView::rowsInserted(parent, start, end);
+            rowsinserted_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractItemView::rowsInserted(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1047,17 +961,20 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_rowsabouttoberemoved_isbase) {
             qabstractitemview_rowsabouttoberemoved_isbase = false;
             QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
-        } else if (qabstractitemview_rowsabouttoberemoved_callback != nullptr) {
+            return;
+        }
+        auto rowsabouttoberemoved_cb = qabstractitemview_rowsabouttoberemoved_callback;
+        if (rowsabouttoberemoved_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            qabstractitemview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
+            rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,7 +982,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_selectionchanged_isbase) {
             qabstractitemview_selectionchanged_isbase = false;
             QAbstractItemView::selectionChanged(selected, deselected);
-        } else if (qabstractitemview_selectionchanged_callback != nullptr) {
+            return;
+        }
+        auto selectionchanged_cb = qabstractitemview_selectionchanged_callback;
+        if (selectionchanged_cb) {
             const QItemSelection& selected_ret = selected;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
@@ -1073,10 +993,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
 
-            qabstractitemview_selectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractItemView::selectionChanged(selected, deselected);
+            selectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractItemView::selectionChanged(selected, deselected);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1084,7 +1004,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_currentchanged_isbase) {
             qabstractitemview_currentchanged_isbase = false;
             QAbstractItemView::currentChanged(current, previous);
-        } else if (qabstractitemview_currentchanged_callback != nullptr) {
+            return;
+        }
+        auto currentchanged_cb = qabstractitemview_currentchanged_callback;
+        if (currentchanged_cb) {
             const QModelIndex& current_ret = current;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
@@ -1092,10 +1015,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
 
-            qabstractitemview_currentchanged_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractItemView::currentChanged(current, previous);
+            currentchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractItemView::currentChanged(current, previous);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,11 +1026,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_updateeditordata_isbase) {
             qabstractitemview_updateeditordata_isbase = false;
             QAbstractItemView::updateEditorData();
-        } else if (qabstractitemview_updateeditordata_callback != nullptr) {
-            qabstractitemview_updateeditordata_callback();
-        } else {
-            QAbstractItemView::updateEditorData();
+            return;
         }
+        auto updateeditordata_cb = qabstractitemview_updateeditordata_callback;
+        if (updateeditordata_cb) {
+            updateeditordata_cb();
+            return;
+        }
+        QAbstractItemView::updateEditorData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,11 +1041,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_updateeditorgeometries_isbase) {
             qabstractitemview_updateeditorgeometries_isbase = false;
             QAbstractItemView::updateEditorGeometries();
-        } else if (qabstractitemview_updateeditorgeometries_callback != nullptr) {
-            qabstractitemview_updateeditorgeometries_callback();
-        } else {
-            QAbstractItemView::updateEditorGeometries();
+            return;
         }
+        auto updateeditorgeometries_cb = qabstractitemview_updateeditorgeometries_callback;
+        if (updateeditorgeometries_cb) {
+            updateeditorgeometries_cb();
+            return;
+        }
+        QAbstractItemView::updateEditorGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1127,11 +1056,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_updategeometries_isbase) {
             qabstractitemview_updategeometries_isbase = false;
             QAbstractItemView::updateGeometries();
-        } else if (qabstractitemview_updategeometries_callback != nullptr) {
-            qabstractitemview_updategeometries_callback();
-        } else {
-            QAbstractItemView::updateGeometries();
+            return;
         }
+        auto updategeometries_cb = qabstractitemview_updategeometries_callback;
+        if (updategeometries_cb) {
+            updategeometries_cb();
+            return;
+        }
+        QAbstractItemView::updateGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1139,13 +1071,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_verticalscrollbaraction_isbase) {
             qabstractitemview_verticalscrollbaraction_isbase = false;
             QAbstractItemView::verticalScrollbarAction(action);
-        } else if (qabstractitemview_verticalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbaraction_cb = qabstractitemview_verticalscrollbaraction_callback;
+        if (verticalscrollbaraction_cb) {
             int cbval1 = action;
 
-            qabstractitemview_verticalscrollbaraction_callback(this, cbval1);
-        } else {
-            QAbstractItemView::verticalScrollbarAction(action);
+            verticalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::verticalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,13 +1088,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_horizontalscrollbaraction_isbase) {
             qabstractitemview_horizontalscrollbaraction_isbase = false;
             QAbstractItemView::horizontalScrollbarAction(action);
-        } else if (qabstractitemview_horizontalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbaraction_cb = qabstractitemview_horizontalscrollbaraction_callback;
+        if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
 
-            qabstractitemview_horizontalscrollbaraction_callback(this, cbval1);
-        } else {
-            QAbstractItemView::horizontalScrollbarAction(action);
+            horizontalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::horizontalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,13 +1105,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_verticalscrollbarvaluechanged_isbase) {
             qabstractitemview_verticalscrollbarvaluechanged_isbase = false;
             QAbstractItemView::verticalScrollbarValueChanged(value);
-        } else if (qabstractitemview_verticalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbarvaluechanged_cb = qabstractitemview_verticalscrollbarvaluechanged_callback;
+        if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            qabstractitemview_verticalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            QAbstractItemView::verticalScrollbarValueChanged(value);
+            verticalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::verticalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,13 +1122,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_horizontalscrollbarvaluechanged_isbase) {
             qabstractitemview_horizontalscrollbarvaluechanged_isbase = false;
             QAbstractItemView::horizontalScrollbarValueChanged(value);
-        } else if (qabstractitemview_horizontalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbarvaluechanged_cb = qabstractitemview_horizontalscrollbarvaluechanged_callback;
+        if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            qabstractitemview_horizontalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            QAbstractItemView::horizontalScrollbarValueChanged(value);
+            horizontalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::horizontalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,14 +1139,17 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_closeeditor_isbase) {
             qabstractitemview_closeeditor_isbase = false;
             QAbstractItemView::closeEditor(editor, hint);
-        } else if (qabstractitemview_closeeditor_callback != nullptr) {
+            return;
+        }
+        auto closeeditor_cb = qabstractitemview_closeeditor_callback;
+        if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
 
-            qabstractitemview_closeeditor_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractItemView::closeEditor(editor, hint);
+            closeeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractItemView::closeEditor(editor, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,13 +1157,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_commitdata_isbase) {
             qabstractitemview_commitdata_isbase = false;
             QAbstractItemView::commitData(editor);
-        } else if (qabstractitemview_commitdata_callback != nullptr) {
+            return;
+        }
+        auto commitdata_cb = qabstractitemview_commitdata_callback;
+        if (commitdata_cb) {
             QWidget* cbval1 = editor;
 
-            qabstractitemview_commitdata_callback(this, cbval1);
-        } else {
-            QAbstractItemView::commitData(editor);
+            commitdata_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::commitData(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1224,86 +1174,90 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_editordestroyed_isbase) {
             qabstractitemview_editordestroyed_isbase = false;
             QAbstractItemView::editorDestroyed(editor);
-        } else if (qabstractitemview_editordestroyed_callback != nullptr) {
+            return;
+        }
+        auto editordestroyed_cb = qabstractitemview_editordestroyed_callback;
+        if (editordestroyed_cb) {
             QObject* cbval1 = editor;
 
-            qabstractitemview_editordestroyed_callback(this, cbval1);
-        } else {
-            QAbstractItemView::editorDestroyed(editor);
+            editordestroyed_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::editorDestroyed(editor);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override {
-        if (qabstractitemview_movecursor_callback != nullptr) {
+        auto movecursor_cb = qabstractitemview_movecursor_callback;
+        if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
 
-            QModelIndex* callback_ret = qabstractitemview_movecursor_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int horizontalOffset() const override {
-        if (qabstractitemview_horizontaloffset_callback != nullptr) {
-            int callback_ret = qabstractitemview_horizontaloffset_callback();
+        auto horizontaloffset_cb = qabstractitemview_horizontaloffset_callback;
+        if (horizontaloffset_cb) {
+            int callback_ret = horizontaloffset_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int verticalOffset() const override {
-        if (qabstractitemview_verticaloffset_callback != nullptr) {
-            int callback_ret = qabstractitemview_verticaloffset_callback();
+        auto verticaloffset_cb = qabstractitemview_verticaloffset_callback;
+        if (verticaloffset_cb) {
+            int callback_ret = verticaloffset_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isIndexHidden(const QModelIndex& index) const override {
-        if (qabstractitemview_isindexhidden_callback != nullptr) {
+        auto isindexhidden_cb = qabstractitemview_isindexhidden_callback;
+        if (isindexhidden_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qabstractitemview_isindexhidden_callback(this, cbval1);
+            bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setSelection(const QRect& rect, QItemSelectionModel::SelectionFlags command) override {
-        if (qabstractitemview_setselection_callback != nullptr) {
+        auto setselection_cb = qabstractitemview_setselection_callback;
+        if (setselection_cb) {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
 
-            qabstractitemview_setselection_callback(this, cbval1, cbval2);
+            setselection_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRegion visualRegionForSelection(const QItemSelection& selection) const override {
-        if (qabstractitemview_visualregionforselection_callback != nullptr) {
+        auto visualregionforselection_cb = qabstractitemview_visualregionforselection_callback;
+        if (visualregionforselection_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QRegion* callback_ret = qabstractitemview_visualregionforselection_callback(this, cbval1);
+            QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1311,8 +1265,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_selectedindexes_isbase) {
             qabstractitemview_selectedindexes_isbase = false;
             return QAbstractItemView::selectedIndexes();
-        } else if (qabstractitemview_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qabstractitemview_selectedindexes_callback();
+        }
+        auto selectedindexes_cb = qabstractitemview_selectedindexes_callback;
+        if (selectedindexes_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = selectedindexes_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1321,9 +1277,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QAbstractItemView::selectedIndexes();
         }
+        return QAbstractItemView::selectedIndexes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1331,18 +1286,19 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_edit2_isbase) {
             qabstractitemview_edit2_isbase = false;
             return QAbstractItemView::edit(index, trigger, event);
-        } else if (qabstractitemview_edit2_callback != nullptr) {
+        }
+        auto edit2_cb = qabstractitemview_edit2_callback;
+        if (edit2_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
 
-            bool callback_ret = qabstractitemview_edit2_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractItemView::edit(index, trigger, event);
         }
+        return QAbstractItemView::edit(index, trigger, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1350,17 +1306,18 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_selectioncommand_isbase) {
             qabstractitemview_selectioncommand_isbase = false;
             return QAbstractItemView::selectionCommand(index, event);
-        } else if (qabstractitemview_selectioncommand_callback != nullptr) {
+        }
+        auto selectioncommand_cb = qabstractitemview_selectioncommand_callback;
+        if (selectioncommand_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
 
-            int callback_ret = qabstractitemview_selectioncommand_callback(this, cbval1, cbval2);
+            int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
-        } else {
-            return QAbstractItemView::selectionCommand(index, event);
         }
+        return QAbstractItemView::selectionCommand(index, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1368,13 +1325,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_startdrag_isbase) {
             qabstractitemview_startdrag_isbase = false;
             QAbstractItemView::startDrag(supportedActions);
-        } else if (qabstractitemview_startdrag_callback != nullptr) {
+            return;
+        }
+        auto startdrag_cb = qabstractitemview_startdrag_callback;
+        if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
 
-            qabstractitemview_startdrag_callback(this, cbval1);
-        } else {
-            QAbstractItemView::startDrag(supportedActions);
+            startdrag_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::startDrag(supportedActions);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1382,13 +1342,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_initviewitemoption_isbase) {
             qabstractitemview_initviewitemoption_isbase = false;
             QAbstractItemView::initViewItemOption(option);
-        } else if (qabstractitemview_initviewitemoption_callback != nullptr) {
+            return;
+        }
+        auto initviewitemoption_cb = qabstractitemview_initviewitemoption_callback;
+        if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
 
-            qabstractitemview_initviewitemoption_callback(this, cbval1);
-        } else {
-            QAbstractItemView::initViewItemOption(option);
+            initviewitemoption_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::initViewItemOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1396,14 +1359,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_focusnextprevchild_isbase) {
             qabstractitemview_focusnextprevchild_isbase = false;
             return QAbstractItemView::focusNextPrevChild(next);
-        } else if (qabstractitemview_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qabstractitemview_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qabstractitemview_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemView::focusNextPrevChild(next);
         }
+        return QAbstractItemView::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1411,14 +1375,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_event_isbase) {
             qabstractitemview_event_isbase = false;
             return QAbstractItemView::event(event);
-        } else if (qabstractitemview_event_callback != nullptr) {
+        }
+        auto event_cb = qabstractitemview_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qabstractitemview_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemView::event(event);
         }
+        return QAbstractItemView::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1426,14 +1391,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_viewportevent_isbase) {
             qabstractitemview_viewportevent_isbase = false;
             return QAbstractItemView::viewportEvent(event);
-        } else if (qabstractitemview_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = qabstractitemview_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qabstractitemview_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemView::viewportEvent(event);
         }
+        return QAbstractItemView::viewportEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1441,13 +1407,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_mousepressevent_isbase) {
             qabstractitemview_mousepressevent_isbase = false;
             QAbstractItemView::mousePressEvent(event);
-        } else if (qabstractitemview_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qabstractitemview_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractitemview_mousepressevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1455,13 +1424,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_mousemoveevent_isbase) {
             qabstractitemview_mousemoveevent_isbase = false;
             QAbstractItemView::mouseMoveEvent(event);
-        } else if (qabstractitemview_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qabstractitemview_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractitemview_mousemoveevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1469,13 +1441,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_mousereleaseevent_isbase) {
             qabstractitemview_mousereleaseevent_isbase = false;
             QAbstractItemView::mouseReleaseEvent(event);
-        } else if (qabstractitemview_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qabstractitemview_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractitemview_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1483,13 +1458,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_mousedoubleclickevent_isbase) {
             qabstractitemview_mousedoubleclickevent_isbase = false;
             QAbstractItemView::mouseDoubleClickEvent(event);
-        } else if (qabstractitemview_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qabstractitemview_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractitemview_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1497,13 +1475,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_dragenterevent_isbase) {
             qabstractitemview_dragenterevent_isbase = false;
             QAbstractItemView::dragEnterEvent(event);
-        } else if (qabstractitemview_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qabstractitemview_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qabstractitemview_dragenterevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1511,13 +1492,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_dragmoveevent_isbase) {
             qabstractitemview_dragmoveevent_isbase = false;
             QAbstractItemView::dragMoveEvent(event);
-        } else if (qabstractitemview_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qabstractitemview_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qabstractitemview_dragmoveevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1525,13 +1509,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_dragleaveevent_isbase) {
             qabstractitemview_dragleaveevent_isbase = false;
             QAbstractItemView::dragLeaveEvent(event);
-        } else if (qabstractitemview_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qabstractitemview_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qabstractitemview_dragleaveevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1539,13 +1526,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_dropevent_isbase) {
             qabstractitemview_dropevent_isbase = false;
             QAbstractItemView::dropEvent(event);
-        } else if (qabstractitemview_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qabstractitemview_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qabstractitemview_dropevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1553,13 +1543,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_focusinevent_isbase) {
             qabstractitemview_focusinevent_isbase = false;
             QAbstractItemView::focusInEvent(event);
-        } else if (qabstractitemview_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qabstractitemview_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qabstractitemview_focusinevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1567,13 +1560,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_focusoutevent_isbase) {
             qabstractitemview_focusoutevent_isbase = false;
             QAbstractItemView::focusOutEvent(event);
-        } else if (qabstractitemview_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qabstractitemview_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qabstractitemview_focusoutevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1581,13 +1577,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_keypressevent_isbase) {
             qabstractitemview_keypressevent_isbase = false;
             QAbstractItemView::keyPressEvent(event);
-        } else if (qabstractitemview_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qabstractitemview_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qabstractitemview_keypressevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1595,13 +1594,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_resizeevent_isbase) {
             qabstractitemview_resizeevent_isbase = false;
             QAbstractItemView::resizeEvent(event);
-        } else if (qabstractitemview_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qabstractitemview_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qabstractitemview_resizeevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1609,13 +1611,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_timerevent_isbase) {
             qabstractitemview_timerevent_isbase = false;
             QAbstractItemView::timerEvent(event);
-        } else if (qabstractitemview_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qabstractitemview_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qabstractitemview_timerevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1623,13 +1628,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_inputmethodevent_isbase) {
             qabstractitemview_inputmethodevent_isbase = false;
             QAbstractItemView::inputMethodEvent(event);
-        } else if (qabstractitemview_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qabstractitemview_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qabstractitemview_inputmethodevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1637,15 +1645,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_eventfilter_isbase) {
             qabstractitemview_eventfilter_isbase = false;
             return QAbstractItemView::eventFilter(object, event);
-        } else if (qabstractitemview_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qabstractitemview_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qabstractitemview_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractItemView::eventFilter(object, event);
         }
+        return QAbstractItemView::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1653,12 +1662,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_viewportsizehint_isbase) {
             qabstractitemview_viewportsizehint_isbase = false;
             return QAbstractItemView::viewportSizeHint();
-        } else if (qabstractitemview_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = qabstractitemview_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractItemView::viewportSizeHint();
         }
+        auto viewportsizehint_cb = qabstractitemview_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return QAbstractItemView::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1666,12 +1676,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_minimumsizehint_isbase) {
             qabstractitemview_minimumsizehint_isbase = false;
             return QAbstractItemView::minimumSizeHint();
-        } else if (qabstractitemview_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qabstractitemview_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractItemView::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qabstractitemview_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QAbstractItemView::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1679,12 +1690,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_sizehint_isbase) {
             qabstractitemview_sizehint_isbase = false;
             return QAbstractItemView::sizeHint();
-        } else if (qabstractitemview_sizehint_callback != nullptr) {
-            QSize* callback_ret = qabstractitemview_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractItemView::sizeHint();
         }
+        auto sizehint_cb = qabstractitemview_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QAbstractItemView::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1692,13 +1704,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_setupviewport_isbase) {
             qabstractitemview_setupviewport_isbase = false;
             QAbstractItemView::setupViewport(viewport);
-        } else if (qabstractitemview_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = qabstractitemview_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            qabstractitemview_setupviewport_callback(this, cbval1);
-        } else {
-            QAbstractItemView::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1706,13 +1721,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_paintevent_isbase) {
             qabstractitemview_paintevent_isbase = false;
             QAbstractItemView::paintEvent(param1);
-        } else if (qabstractitemview_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qabstractitemview_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qabstractitemview_paintevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1720,13 +1738,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_wheelevent_isbase) {
             qabstractitemview_wheelevent_isbase = false;
             QAbstractItemView::wheelEvent(param1);
-        } else if (qabstractitemview_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qabstractitemview_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            qabstractitemview_wheelevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1734,13 +1755,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_contextmenuevent_isbase) {
             qabstractitemview_contextmenuevent_isbase = false;
             QAbstractItemView::contextMenuEvent(param1);
-        } else if (qabstractitemview_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qabstractitemview_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qabstractitemview_contextmenuevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1748,14 +1772,17 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_scrollcontentsby_isbase) {
             qabstractitemview_scrollcontentsby_isbase = false;
             QAbstractItemView::scrollContentsBy(dx, dy);
-        } else if (qabstractitemview_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = qabstractitemview_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qabstractitemview_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractItemView::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractItemView::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1763,13 +1790,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_changeevent_isbase) {
             qabstractitemview_changeevent_isbase = false;
             QAbstractItemView::changeEvent(param1);
-        } else if (qabstractitemview_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qabstractitemview_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qabstractitemview_changeevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1777,13 +1807,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_initstyleoption_isbase) {
             qabstractitemview_initstyleoption_isbase = false;
             QAbstractItemView::initStyleOption(option);
-        } else if (qabstractitemview_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qabstractitemview_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qabstractitemview_initstyleoption_callback(this, cbval1);
-        } else {
-            QAbstractItemView::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1791,12 +1824,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_devtype_isbase) {
             qabstractitemview_devtype_isbase = false;
             return QAbstractItemView::devType();
-        } else if (qabstractitemview_devtype_callback != nullptr) {
-            int callback_ret = qabstractitemview_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemView::devType();
         }
+        auto devtype_cb = qabstractitemview_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractItemView::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1804,13 +1838,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_setvisible_isbase) {
             qabstractitemview_setvisible_isbase = false;
             QAbstractItemView::setVisible(visible);
-        } else if (qabstractitemview_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qabstractitemview_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qabstractitemview_setvisible_callback(this, cbval1);
-        } else {
-            QAbstractItemView::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1818,14 +1855,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_heightforwidth_isbase) {
             qabstractitemview_heightforwidth_isbase = false;
             return QAbstractItemView::heightForWidth(param1);
-        } else if (qabstractitemview_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qabstractitemview_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qabstractitemview_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemView::heightForWidth(param1);
         }
+        return QAbstractItemView::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1833,12 +1871,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_hasheightforwidth_isbase) {
             qabstractitemview_hasheightforwidth_isbase = false;
             return QAbstractItemView::hasHeightForWidth();
-        } else if (qabstractitemview_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qabstractitemview_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QAbstractItemView::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qabstractitemview_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QAbstractItemView::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1846,12 +1885,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_paintengine_isbase) {
             qabstractitemview_paintengine_isbase = false;
             return QAbstractItemView::paintEngine();
-        } else if (qabstractitemview_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qabstractitemview_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QAbstractItemView::paintEngine();
         }
+        auto paintengine_cb = qabstractitemview_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QAbstractItemView::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1859,13 +1899,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_keyreleaseevent_isbase) {
             qabstractitemview_keyreleaseevent_isbase = false;
             QAbstractItemView::keyReleaseEvent(event);
-        } else if (qabstractitemview_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qabstractitemview_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qabstractitemview_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1873,13 +1916,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_enterevent_isbase) {
             qabstractitemview_enterevent_isbase = false;
             QAbstractItemView::enterEvent(event);
-        } else if (qabstractitemview_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qabstractitemview_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qabstractitemview_enterevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1887,13 +1933,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_leaveevent_isbase) {
             qabstractitemview_leaveevent_isbase = false;
             QAbstractItemView::leaveEvent(event);
-        } else if (qabstractitemview_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qabstractitemview_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractitemview_leaveevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1901,13 +1950,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_moveevent_isbase) {
             qabstractitemview_moveevent_isbase = false;
             QAbstractItemView::moveEvent(event);
-        } else if (qabstractitemview_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qabstractitemview_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qabstractitemview_moveevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1915,13 +1967,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_closeevent_isbase) {
             qabstractitemview_closeevent_isbase = false;
             QAbstractItemView::closeEvent(event);
-        } else if (qabstractitemview_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qabstractitemview_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qabstractitemview_closeevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1929,13 +1984,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_tabletevent_isbase) {
             qabstractitemview_tabletevent_isbase = false;
             QAbstractItemView::tabletEvent(event);
-        } else if (qabstractitemview_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qabstractitemview_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qabstractitemview_tabletevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1943,13 +2001,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_actionevent_isbase) {
             qabstractitemview_actionevent_isbase = false;
             QAbstractItemView::actionEvent(event);
-        } else if (qabstractitemview_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qabstractitemview_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qabstractitemview_actionevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1957,13 +2018,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_showevent_isbase) {
             qabstractitemview_showevent_isbase = false;
             QAbstractItemView::showEvent(event);
-        } else if (qabstractitemview_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qabstractitemview_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qabstractitemview_showevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1971,13 +2035,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_hideevent_isbase) {
             qabstractitemview_hideevent_isbase = false;
             QAbstractItemView::hideEvent(event);
-        } else if (qabstractitemview_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qabstractitemview_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qabstractitemview_hideevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1985,7 +2052,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_nativeevent_isbase) {
             qabstractitemview_nativeevent_isbase = false;
             return QAbstractItemView::nativeEvent(eventType, message, result);
-        } else if (qabstractitemview_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qabstractitemview_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1996,12 +2065,11 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qabstractitemview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QAbstractItemView::nativeEvent(eventType, message, result);
         }
+        return QAbstractItemView::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2009,14 +2077,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_metric_isbase) {
             qabstractitemview_metric_isbase = false;
             return QAbstractItemView::metric(param1);
-        } else if (qabstractitemview_metric_callback != nullptr) {
+        }
+        auto metric_cb = qabstractitemview_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qabstractitemview_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemView::metric(param1);
         }
+        return QAbstractItemView::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2024,13 +2093,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_initpainter_isbase) {
             qabstractitemview_initpainter_isbase = false;
             QAbstractItemView::initPainter(painter);
-        } else if (qabstractitemview_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qabstractitemview_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qabstractitemview_initpainter_callback(this, cbval1);
-        } else {
-            QAbstractItemView::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2038,14 +2110,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_redirected_isbase) {
             qabstractitemview_redirected_isbase = false;
             return QAbstractItemView::redirected(offset);
-        } else if (qabstractitemview_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qabstractitemview_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qabstractitemview_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemView::redirected(offset);
         }
+        return QAbstractItemView::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2053,12 +2126,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_sharedpainter_isbase) {
             qabstractitemview_sharedpainter_isbase = false;
             return QAbstractItemView::sharedPainter();
-        } else if (qabstractitemview_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qabstractitemview_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QAbstractItemView::sharedPainter();
         }
+        auto sharedpainter_cb = qabstractitemview_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QAbstractItemView::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2066,13 +2140,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_childevent_isbase) {
             qabstractitemview_childevent_isbase = false;
             QAbstractItemView::childEvent(event);
-        } else if (qabstractitemview_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qabstractitemview_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qabstractitemview_childevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2080,13 +2157,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_customevent_isbase) {
             qabstractitemview_customevent_isbase = false;
             QAbstractItemView::customEvent(event);
-        } else if (qabstractitemview_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qabstractitemview_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractitemview_customevent_callback(this, cbval1);
-        } else {
-            QAbstractItemView::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2094,15 +2174,18 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_connectnotify_isbase) {
             qabstractitemview_connectnotify_isbase = false;
             QAbstractItemView::connectNotify(signal);
-        } else if (qabstractitemview_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qabstractitemview_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractitemview_connectnotify_callback(this, cbval1);
-        } else {
-            QAbstractItemView::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2110,15 +2193,18 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_disconnectnotify_isbase) {
             qabstractitemview_disconnectnotify_isbase = false;
             QAbstractItemView::disconnectNotify(signal);
-        } else if (qabstractitemview_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qabstractitemview_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractitemview_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAbstractItemView::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2126,12 +2212,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_state_isbase) {
             qabstractitemview_state_isbase = false;
             return QAbstractItemView::state();
-        } else if (qabstractitemview_state_callback != nullptr) {
-            int callback_ret = qabstractitemview_state_callback();
-            return static_cast<VirtualQAbstractItemView::State>(callback_ret);
-        } else {
-            return QAbstractItemView::state();
         }
+        auto state_cb = qabstractitemview_state_callback;
+        if (state_cb) {
+            int callback_ret = state_cb();
+            return static_cast<VirtualQAbstractItemView::State>(callback_ret);
+        }
+        return QAbstractItemView::state();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2139,13 +2226,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_setstate_isbase) {
             qabstractitemview_setstate_isbase = false;
             QAbstractItemView::setState(state);
-        } else if (qabstractitemview_setstate_callback != nullptr) {
+            return;
+        }
+        auto setstate_cb = qabstractitemview_setstate_callback;
+        if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            qabstractitemview_setstate_callback(this, cbval1);
-        } else {
-            QAbstractItemView::setState(state);
+            setstate_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::setState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2153,11 +2243,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_scheduledelayeditemslayout_isbase) {
             qabstractitemview_scheduledelayeditemslayout_isbase = false;
             QAbstractItemView::scheduleDelayedItemsLayout();
-        } else if (qabstractitemview_scheduledelayeditemslayout_callback != nullptr) {
-            qabstractitemview_scheduledelayeditemslayout_callback();
-        } else {
-            QAbstractItemView::scheduleDelayedItemsLayout();
+            return;
         }
+        auto scheduledelayeditemslayout_cb = qabstractitemview_scheduledelayeditemslayout_callback;
+        if (scheduledelayeditemslayout_cb) {
+            scheduledelayeditemslayout_cb();
+            return;
+        }
+        QAbstractItemView::scheduleDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2165,11 +2258,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_executedelayeditemslayout_isbase) {
             qabstractitemview_executedelayeditemslayout_isbase = false;
             QAbstractItemView::executeDelayedItemsLayout();
-        } else if (qabstractitemview_executedelayeditemslayout_callback != nullptr) {
-            qabstractitemview_executedelayeditemslayout_callback();
-        } else {
-            QAbstractItemView::executeDelayedItemsLayout();
+            return;
         }
+        auto executedelayeditemslayout_cb = qabstractitemview_executedelayeditemslayout_callback;
+        if (executedelayeditemslayout_cb) {
+            executedelayeditemslayout_cb();
+            return;
+        }
+        QAbstractItemView::executeDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2177,15 +2273,18 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_setdirtyregion_isbase) {
             qabstractitemview_setdirtyregion_isbase = false;
             QAbstractItemView::setDirtyRegion(region);
-        } else if (qabstractitemview_setdirtyregion_callback != nullptr) {
+            return;
+        }
+        auto setdirtyregion_cb = qabstractitemview_setdirtyregion_callback;
+        if (setdirtyregion_cb) {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
 
-            qabstractitemview_setdirtyregion_callback(this, cbval1);
-        } else {
-            QAbstractItemView::setDirtyRegion(region);
+            setdirtyregion_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::setDirtyRegion(region);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2193,14 +2292,17 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_scrolldirtyregion_isbase) {
             qabstractitemview_scrolldirtyregion_isbase = false;
             QAbstractItemView::scrollDirtyRegion(dx, dy);
-        } else if (qabstractitemview_scrolldirtyregion_callback != nullptr) {
+            return;
+        }
+        auto scrolldirtyregion_cb = qabstractitemview_scrolldirtyregion_callback;
+        if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qabstractitemview_scrolldirtyregion_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractItemView::scrollDirtyRegion(dx, dy);
+            scrolldirtyregion_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractItemView::scrollDirtyRegion(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2208,12 +2310,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_dirtyregionoffset_isbase) {
             qabstractitemview_dirtyregionoffset_isbase = false;
             return QAbstractItemView::dirtyRegionOffset();
-        } else if (qabstractitemview_dirtyregionoffset_callback != nullptr) {
-            QPoint* callback_ret = qabstractitemview_dirtyregionoffset_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractItemView::dirtyRegionOffset();
         }
+        auto dirtyregionoffset_cb = qabstractitemview_dirtyregionoffset_callback;
+        if (dirtyregionoffset_cb) {
+            QPoint* callback_ret = dirtyregionoffset_cb();
+            return *callback_ret;
+        }
+        return QAbstractItemView::dirtyRegionOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2221,11 +2324,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_startautoscroll_isbase) {
             qabstractitemview_startautoscroll_isbase = false;
             QAbstractItemView::startAutoScroll();
-        } else if (qabstractitemview_startautoscroll_callback != nullptr) {
-            qabstractitemview_startautoscroll_callback();
-        } else {
-            QAbstractItemView::startAutoScroll();
+            return;
         }
+        auto startautoscroll_cb = qabstractitemview_startautoscroll_callback;
+        if (startautoscroll_cb) {
+            startautoscroll_cb();
+            return;
+        }
+        QAbstractItemView::startAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2233,11 +2339,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_stopautoscroll_isbase) {
             qabstractitemview_stopautoscroll_isbase = false;
             QAbstractItemView::stopAutoScroll();
-        } else if (qabstractitemview_stopautoscroll_callback != nullptr) {
-            qabstractitemview_stopautoscroll_callback();
-        } else {
-            QAbstractItemView::stopAutoScroll();
+            return;
         }
+        auto stopautoscroll_cb = qabstractitemview_stopautoscroll_callback;
+        if (stopautoscroll_cb) {
+            stopautoscroll_cb();
+            return;
+        }
+        QAbstractItemView::stopAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2245,11 +2354,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_doautoscroll_isbase) {
             qabstractitemview_doautoscroll_isbase = false;
             QAbstractItemView::doAutoScroll();
-        } else if (qabstractitemview_doautoscroll_callback != nullptr) {
-            qabstractitemview_doautoscroll_callback();
-        } else {
-            QAbstractItemView::doAutoScroll();
+            return;
         }
+        auto doautoscroll_cb = qabstractitemview_doautoscroll_callback;
+        if (doautoscroll_cb) {
+            doautoscroll_cb();
+            return;
+        }
+        QAbstractItemView::doAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2257,12 +2369,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_dropindicatorposition_isbase) {
             qabstractitemview_dropindicatorposition_isbase = false;
             return QAbstractItemView::dropIndicatorPosition();
-        } else if (qabstractitemview_dropindicatorposition_callback != nullptr) {
-            int callback_ret = qabstractitemview_dropindicatorposition_callback();
-            return static_cast<VirtualQAbstractItemView::DropIndicatorPosition>(callback_ret);
-        } else {
-            return QAbstractItemView::dropIndicatorPosition();
         }
+        auto dropindicatorposition_cb = qabstractitemview_dropindicatorposition_callback;
+        if (dropindicatorposition_cb) {
+            int callback_ret = dropindicatorposition_cb();
+            return static_cast<VirtualQAbstractItemView::DropIndicatorPosition>(callback_ret);
+        }
+        return QAbstractItemView::dropIndicatorPosition();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2270,16 +2383,19 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_setviewportmargins_isbase) {
             qabstractitemview_setviewportmargins_isbase = false;
             QAbstractItemView::setViewportMargins(left, top, right, bottom);
-        } else if (qabstractitemview_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = qabstractitemview_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            qabstractitemview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QAbstractItemView::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QAbstractItemView::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2287,12 +2403,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_viewportmargins_isbase) {
             qabstractitemview_viewportmargins_isbase = false;
             return QAbstractItemView::viewportMargins();
-        } else if (qabstractitemview_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = qabstractitemview_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractItemView::viewportMargins();
         }
+        auto viewportmargins_cb = qabstractitemview_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return QAbstractItemView::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2300,13 +2417,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_drawframe_isbase) {
             qabstractitemview_drawframe_isbase = false;
             QAbstractItemView::drawFrame(param1);
-        } else if (qabstractitemview_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qabstractitemview_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qabstractitemview_drawframe_callback(this, cbval1);
-        } else {
-            QAbstractItemView::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QAbstractItemView::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2314,11 +2434,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_updatemicrofocus_isbase) {
             qabstractitemview_updatemicrofocus_isbase = false;
             QAbstractItemView::updateMicroFocus();
-        } else if (qabstractitemview_updatemicrofocus_callback != nullptr) {
-            qabstractitemview_updatemicrofocus_callback();
-        } else {
-            QAbstractItemView::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qabstractitemview_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QAbstractItemView::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2326,11 +2449,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_create_isbase) {
             qabstractitemview_create_isbase = false;
             QAbstractItemView::create();
-        } else if (qabstractitemview_create_callback != nullptr) {
-            qabstractitemview_create_callback();
-        } else {
-            QAbstractItemView::create();
+            return;
         }
+        auto create_cb = qabstractitemview_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QAbstractItemView::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2338,11 +2464,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_destroy_isbase) {
             qabstractitemview_destroy_isbase = false;
             QAbstractItemView::destroy();
-        } else if (qabstractitemview_destroy_callback != nullptr) {
-            qabstractitemview_destroy_callback();
-        } else {
-            QAbstractItemView::destroy();
+            return;
         }
+        auto destroy_cb = qabstractitemview_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QAbstractItemView::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2350,12 +2479,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_focusnextchild_isbase) {
             qabstractitemview_focusnextchild_isbase = false;
             return QAbstractItemView::focusNextChild();
-        } else if (qabstractitemview_focusnextchild_callback != nullptr) {
-            bool callback_ret = qabstractitemview_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QAbstractItemView::focusNextChild();
         }
+        auto focusnextchild_cb = qabstractitemview_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QAbstractItemView::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2363,12 +2493,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_focuspreviouschild_isbase) {
             qabstractitemview_focuspreviouschild_isbase = false;
             return QAbstractItemView::focusPreviousChild();
-        } else if (qabstractitemview_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qabstractitemview_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QAbstractItemView::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qabstractitemview_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QAbstractItemView::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2376,12 +2507,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_sender_isbase) {
             qabstractitemview_sender_isbase = false;
             return QAbstractItemView::sender();
-        } else if (qabstractitemview_sender_callback != nullptr) {
-            QObject* callback_ret = qabstractitemview_sender_callback();
-            return callback_ret;
-        } else {
-            return QAbstractItemView::sender();
         }
+        auto sender_cb = qabstractitemview_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAbstractItemView::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2389,12 +2521,13 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_sendersignalindex_isbase) {
             qabstractitemview_sendersignalindex_isbase = false;
             return QAbstractItemView::senderSignalIndex();
-        } else if (qabstractitemview_sendersignalindex_callback != nullptr) {
-            int callback_ret = qabstractitemview_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemView::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qabstractitemview_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractItemView::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2402,14 +2535,15 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_receivers_isbase) {
             qabstractitemview_receivers_isbase = false;
             return QAbstractItemView::receivers(signal);
-        } else if (qabstractitemview_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qabstractitemview_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qabstractitemview_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemView::receivers(signal);
         }
+        return QAbstractItemView::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2417,16 +2551,17 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_issignalconnected_isbase) {
             qabstractitemview_issignalconnected_isbase = false;
             return QAbstractItemView::isSignalConnected(signal);
-        } else if (qabstractitemview_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qabstractitemview_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qabstractitemview_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemView::isSignalConnected(signal);
         }
+        return QAbstractItemView::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2434,15 +2569,16 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (qabstractitemview_getdecodedmetricf_isbase) {
             qabstractitemview_getdecodedmetricf_isbase = false;
             return QAbstractItemView::getDecodedMetricF(metricA, metricB);
-        } else if (qabstractitemview_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qabstractitemview_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qabstractitemview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QAbstractItemView::getDecodedMetricF(metricA, metricB);
         }
+        return QAbstractItemView::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

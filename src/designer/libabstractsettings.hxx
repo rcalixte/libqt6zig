@@ -44,15 +44,6 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
   public:
     VirtualQDesignerSettingsInterface() : QDesignerSettingsInterface() {};
 
-    ~VirtualQDesignerSettingsInterface() {
-        qdesignersettingsinterface_begingroup_callback = nullptr;
-        qdesignersettingsinterface_endgroup_callback = nullptr;
-        qdesignersettingsinterface_contains_callback = nullptr;
-        qdesignersettingsinterface_setvalue_callback = nullptr;
-        qdesignersettingsinterface_value_callback = nullptr;
-        qdesignersettingsinterface_remove_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerSettingsInterface_BeginGroup_Callback(QDesignerSettingsInterface_BeginGroup_Callback cb) { qdesignersettingsinterface_begingroup_callback = cb; }
     inline void setQDesignerSettingsInterface_EndGroup_Callback(QDesignerSettingsInterface_EndGroup_Callback cb) { qdesignersettingsinterface_endgroup_callback = cb; }
@@ -71,7 +62,8 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
 
     // Virtual method for C ABI access and custom callback
     virtual void beginGroup(const QString& prefix) override {
-        if (qdesignersettingsinterface_begingroup_callback != nullptr) {
+        auto begingroup_cb = qdesignersettingsinterface_begingroup_callback;
+        if (begingroup_cb) {
             const QString prefix_ret = prefix;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
@@ -81,21 +73,23 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval1 = prefix_str;
 
-            qdesignersettingsinterface_begingroup_callback(this, cbval1);
+            begingroup_cb(this, cbval1);
             libqt_free(prefix_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void endGroup() override {
-        if (qdesignersettingsinterface_endgroup_callback != nullptr) {
-            qdesignersettingsinterface_endgroup_callback();
+        auto endgroup_cb = qdesignersettingsinterface_endgroup_callback;
+        if (endgroup_cb) {
+            endgroup_cb();
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool contains(const QString& key) const override {
-        if (qdesignersettingsinterface_contains_callback != nullptr) {
+        auto contains_cb = qdesignersettingsinterface_contains_callback;
+        if (contains_cb) {
             const QString key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -105,17 +99,17 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval1 = key_str;
 
-            bool callback_ret = qdesignersettingsinterface_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             libqt_free(key_str);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setValue(const QString& key, const QVariant& value) override {
-        if (qdesignersettingsinterface_setvalue_callback != nullptr) {
+        auto setvalue_cb = qdesignersettingsinterface_setvalue_callback;
+        if (setvalue_cb) {
             const QString key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -128,14 +122,15 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            qdesignersettingsinterface_setvalue_callback(this, cbval1, cbval2);
+            setvalue_cb(this, cbval1, cbval2);
             libqt_free(key_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant value(const QString& key, const QVariant& defaultValue) const override {
-        if (qdesignersettingsinterface_value_callback != nullptr) {
+        auto value_cb = qdesignersettingsinterface_value_callback;
+        if (value_cb) {
             const QString key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -148,17 +143,17 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&defaultValue_ret);
 
-            QVariant* callback_ret = qdesignersettingsinterface_value_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = value_cb(this, cbval1, cbval2);
             libqt_free(key_str);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void remove(const QString& key) override {
-        if (qdesignersettingsinterface_remove_callback != nullptr) {
+        auto remove_cb = qdesignersettingsinterface_remove_callback;
+        if (remove_cb) {
             const QString key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -168,7 +163,7 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval1 = key_str;
 
-            qdesignersettingsinterface_remove_callback(this, cbval1);
+            remove_cb(this, cbval1);
             libqt_free(key_str);
         }
     }

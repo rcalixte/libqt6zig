@@ -38,13 +38,6 @@ class VirtualQTestQTouchEventWidgetSequence final : public QTest::QTouchEventWid
   public:
     VirtualQTestQTouchEventWidgetSequence(const QTest::QTouchEventWidgetSequence& param1) : QTest::QTouchEventWidgetSequence(param1) {};
 
-    ~VirtualQTestQTouchEventWidgetSequence() {
-        qtest__qtoucheventwidgetsequence_stationary_callback = nullptr;
-        qtest__qtoucheventwidgetsequence_commit_callback = nullptr;
-        qtest__qtoucheventwidgetsequence_point_callback = nullptr;
-        qtest__qtoucheventwidgetsequence_pointorpreviouspoint_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTest__QTouchEventWidgetSequence_Stationary_Callback(QTest__QTouchEventWidgetSequence_Stationary_Callback cb) { qtest__qtoucheventwidgetsequence_stationary_callback = cb; }
     inline void setQTest__QTouchEventWidgetSequence_Commit_Callback(QTest__QTouchEventWidgetSequence_Commit_Callback cb) { qtest__qtoucheventwidgetsequence_commit_callback = cb; }
@@ -62,14 +55,15 @@ class VirtualQTestQTouchEventWidgetSequence final : public QTest::QTouchEventWid
         if (qtest__qtoucheventwidgetsequence_stationary_isbase) {
             qtest__qtoucheventwidgetsequence_stationary_isbase = false;
             return QTest__QTouchEventWidgetSequence::stationary(touchId);
-        } else if (qtest__qtoucheventwidgetsequence_stationary_callback != nullptr) {
+        }
+        auto stationary_cb = qtest__qtoucheventwidgetsequence_stationary_callback;
+        if (stationary_cb) {
             int cbval1 = touchId;
 
-            QTest__QTouchEventWidgetSequence* callback_ret = qtest__qtoucheventwidgetsequence_stationary_callback(this, cbval1);
+            QTest__QTouchEventWidgetSequence* callback_ret = stationary_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTest__QTouchEventWidgetSequence::stationary(touchId);
         }
+        return QTest__QTouchEventWidgetSequence::stationary(touchId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -77,14 +71,15 @@ class VirtualQTestQTouchEventWidgetSequence final : public QTest::QTouchEventWid
         if (qtest__qtoucheventwidgetsequence_commit_isbase) {
             qtest__qtoucheventwidgetsequence_commit_isbase = false;
             return QTest__QTouchEventWidgetSequence::commit(processEvents);
-        } else if (qtest__qtoucheventwidgetsequence_commit_callback != nullptr) {
+        }
+        auto commit_cb = qtest__qtoucheventwidgetsequence_commit_callback;
+        if (commit_cb) {
             bool cbval1 = processEvents;
 
-            bool callback_ret = qtest__qtoucheventwidgetsequence_commit_callback(this, cbval1);
+            bool callback_ret = commit_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTest__QTouchEventWidgetSequence::commit(processEvents);
         }
+        return QTest__QTouchEventWidgetSequence::commit(processEvents);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -92,14 +87,15 @@ class VirtualQTestQTouchEventWidgetSequence final : public QTest::QTouchEventWid
         if (qtest__qtoucheventwidgetsequence_point_isbase) {
             qtest__qtoucheventwidgetsequence_point_isbase = false;
             return QTest__QTouchEventWidgetSequence::point(touchId);
-        } else if (qtest__qtoucheventwidgetsequence_point_callback != nullptr) {
+        }
+        auto point_cb = qtest__qtoucheventwidgetsequence_point_callback;
+        if (point_cb) {
             int cbval1 = touchId;
 
-            QEventPoint* callback_ret = qtest__qtoucheventwidgetsequence_point_callback(this, cbval1);
+            QEventPoint* callback_ret = point_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTest__QTouchEventWidgetSequence::point(touchId);
         }
+        return QTest__QTouchEventWidgetSequence::point(touchId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -107,14 +103,15 @@ class VirtualQTestQTouchEventWidgetSequence final : public QTest::QTouchEventWid
         if (qtest__qtoucheventwidgetsequence_pointorpreviouspoint_isbase) {
             qtest__qtoucheventwidgetsequence_pointorpreviouspoint_isbase = false;
             return QTest__QTouchEventWidgetSequence::pointOrPreviousPoint(touchId);
-        } else if (qtest__qtoucheventwidgetsequence_pointorpreviouspoint_callback != nullptr) {
+        }
+        auto pointorpreviouspoint_cb = qtest__qtoucheventwidgetsequence_pointorpreviouspoint_callback;
+        if (pointorpreviouspoint_cb) {
             int cbval1 = touchId;
 
-            QEventPoint* callback_ret = qtest__qtoucheventwidgetsequence_pointorpreviouspoint_callback(this, cbval1);
+            QEventPoint* callback_ret = pointorpreviouspoint_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTest__QTouchEventWidgetSequence::pointOrPreviousPoint(touchId);
         }
+        return QTest__QTouchEventWidgetSequence::pointOrPreviousPoint(touchId);
     }
 
     // Friend functions

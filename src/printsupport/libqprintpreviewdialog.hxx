@@ -229,75 +229,6 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
     VirtualQPrintPreviewDialog(QPrinter* printer, QWidget* parent) : QPrintPreviewDialog(printer, parent) {};
     VirtualQPrintPreviewDialog(QPrinter* printer, QWidget* parent, Qt::WindowFlags flags) : QPrintPreviewDialog(printer, parent, flags) {};
 
-    ~VirtualQPrintPreviewDialog() {
-        qprintpreviewdialog_metaobject_callback = nullptr;
-        qprintpreviewdialog_metacast_callback = nullptr;
-        qprintpreviewdialog_metacall_callback = nullptr;
-        qprintpreviewdialog_setvisible_callback = nullptr;
-        qprintpreviewdialog_done_callback = nullptr;
-        qprintpreviewdialog_sizehint_callback = nullptr;
-        qprintpreviewdialog_minimumsizehint_callback = nullptr;
-        qprintpreviewdialog_open_callback = nullptr;
-        qprintpreviewdialog_exec_callback = nullptr;
-        qprintpreviewdialog_accept_callback = nullptr;
-        qprintpreviewdialog_reject_callback = nullptr;
-        qprintpreviewdialog_keypressevent_callback = nullptr;
-        qprintpreviewdialog_closeevent_callback = nullptr;
-        qprintpreviewdialog_showevent_callback = nullptr;
-        qprintpreviewdialog_resizeevent_callback = nullptr;
-        qprintpreviewdialog_contextmenuevent_callback = nullptr;
-        qprintpreviewdialog_eventfilter_callback = nullptr;
-        qprintpreviewdialog_devtype_callback = nullptr;
-        qprintpreviewdialog_heightforwidth_callback = nullptr;
-        qprintpreviewdialog_hasheightforwidth_callback = nullptr;
-        qprintpreviewdialog_paintengine_callback = nullptr;
-        qprintpreviewdialog_event_callback = nullptr;
-        qprintpreviewdialog_mousepressevent_callback = nullptr;
-        qprintpreviewdialog_mousereleaseevent_callback = nullptr;
-        qprintpreviewdialog_mousedoubleclickevent_callback = nullptr;
-        qprintpreviewdialog_mousemoveevent_callback = nullptr;
-        qprintpreviewdialog_wheelevent_callback = nullptr;
-        qprintpreviewdialog_keyreleaseevent_callback = nullptr;
-        qprintpreviewdialog_focusinevent_callback = nullptr;
-        qprintpreviewdialog_focusoutevent_callback = nullptr;
-        qprintpreviewdialog_enterevent_callback = nullptr;
-        qprintpreviewdialog_leaveevent_callback = nullptr;
-        qprintpreviewdialog_paintevent_callback = nullptr;
-        qprintpreviewdialog_moveevent_callback = nullptr;
-        qprintpreviewdialog_tabletevent_callback = nullptr;
-        qprintpreviewdialog_actionevent_callback = nullptr;
-        qprintpreviewdialog_dragenterevent_callback = nullptr;
-        qprintpreviewdialog_dragmoveevent_callback = nullptr;
-        qprintpreviewdialog_dragleaveevent_callback = nullptr;
-        qprintpreviewdialog_dropevent_callback = nullptr;
-        qprintpreviewdialog_hideevent_callback = nullptr;
-        qprintpreviewdialog_nativeevent_callback = nullptr;
-        qprintpreviewdialog_changeevent_callback = nullptr;
-        qprintpreviewdialog_metric_callback = nullptr;
-        qprintpreviewdialog_initpainter_callback = nullptr;
-        qprintpreviewdialog_redirected_callback = nullptr;
-        qprintpreviewdialog_sharedpainter_callback = nullptr;
-        qprintpreviewdialog_inputmethodevent_callback = nullptr;
-        qprintpreviewdialog_inputmethodquery_callback = nullptr;
-        qprintpreviewdialog_focusnextprevchild_callback = nullptr;
-        qprintpreviewdialog_timerevent_callback = nullptr;
-        qprintpreviewdialog_childevent_callback = nullptr;
-        qprintpreviewdialog_customevent_callback = nullptr;
-        qprintpreviewdialog_connectnotify_callback = nullptr;
-        qprintpreviewdialog_disconnectnotify_callback = nullptr;
-        qprintpreviewdialog_adjustposition_callback = nullptr;
-        qprintpreviewdialog_updatemicrofocus_callback = nullptr;
-        qprintpreviewdialog_create_callback = nullptr;
-        qprintpreviewdialog_destroy_callback = nullptr;
-        qprintpreviewdialog_focusnextchild_callback = nullptr;
-        qprintpreviewdialog_focuspreviouschild_callback = nullptr;
-        qprintpreviewdialog_sender_callback = nullptr;
-        qprintpreviewdialog_sendersignalindex_callback = nullptr;
-        qprintpreviewdialog_receivers_callback = nullptr;
-        qprintpreviewdialog_issignalconnected_callback = nullptr;
-        qprintpreviewdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPrintPreviewDialog_MetaObject_Callback(QPrintPreviewDialog_MetaObject_Callback cb) { qprintpreviewdialog_metaobject_callback = cb; }
     inline void setQPrintPreviewDialog_Metacast_Callback(QPrintPreviewDialog_Metacast_Callback cb) { qprintpreviewdialog_metacast_callback = cb; }
@@ -439,12 +370,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_metaobject_isbase) {
             qprintpreviewdialog_metaobject_isbase = false;
             return QPrintPreviewDialog::metaObject();
-        } else if (qprintpreviewdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qprintpreviewdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPrintPreviewDialog::metaObject();
         }
+        auto metaobject_cb = qprintpreviewdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPrintPreviewDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -452,14 +384,15 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_metacast_isbase) {
             qprintpreviewdialog_metacast_isbase = false;
             return QPrintPreviewDialog::qt_metacast(param1);
-        } else if (qprintpreviewdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qprintpreviewdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qprintpreviewdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPrintPreviewDialog::qt_metacast(param1);
         }
+        return QPrintPreviewDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,16 +400,17 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_metacall_isbase) {
             qprintpreviewdialog_metacall_isbase = false;
             return QPrintPreviewDialog::qt_metacall(param1, param2, param3);
-        } else if (qprintpreviewdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qprintpreviewdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qprintpreviewdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPrintPreviewDialog::qt_metacall(param1, param2, param3);
         }
+        return QPrintPreviewDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,13 +418,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_setvisible_isbase) {
             qprintpreviewdialog_setvisible_isbase = false;
             QPrintPreviewDialog::setVisible(visible);
-        } else if (qprintpreviewdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qprintpreviewdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qprintpreviewdialog_setvisible_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,13 +435,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_done_isbase) {
             qprintpreviewdialog_done_isbase = false;
             QPrintPreviewDialog::done(result);
-        } else if (qprintpreviewdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = qprintpreviewdialog_done_callback;
+        if (done_cb) {
             int cbval1 = result;
 
-            qprintpreviewdialog_done_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::done(result);
+            done_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::done(result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,12 +452,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_sizehint_isbase) {
             qprintpreviewdialog_sizehint_isbase = false;
             return QPrintPreviewDialog::sizeHint();
-        } else if (qprintpreviewdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = qprintpreviewdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QPrintPreviewDialog::sizeHint();
         }
+        auto sizehint_cb = qprintpreviewdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QPrintPreviewDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,12 +466,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_minimumsizehint_isbase) {
             qprintpreviewdialog_minimumsizehint_isbase = false;
             return QPrintPreviewDialog::minimumSizeHint();
-        } else if (qprintpreviewdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qprintpreviewdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QPrintPreviewDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qprintpreviewdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QPrintPreviewDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,11 +480,14 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_open_isbase) {
             qprintpreviewdialog_open_isbase = false;
             QPrintPreviewDialog::open();
-        } else if (qprintpreviewdialog_open_callback != nullptr) {
-            qprintpreviewdialog_open_callback();
-        } else {
-            QPrintPreviewDialog::open();
+            return;
         }
+        auto open_cb = qprintpreviewdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        QPrintPreviewDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,12 +495,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_exec_isbase) {
             qprintpreviewdialog_exec_isbase = false;
             return QPrintPreviewDialog::exec();
-        } else if (qprintpreviewdialog_exec_callback != nullptr) {
-            int callback_ret = qprintpreviewdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPrintPreviewDialog::exec();
         }
+        auto exec_cb = qprintpreviewdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPrintPreviewDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -563,11 +509,14 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_accept_isbase) {
             qprintpreviewdialog_accept_isbase = false;
             QPrintPreviewDialog::accept();
-        } else if (qprintpreviewdialog_accept_callback != nullptr) {
-            qprintpreviewdialog_accept_callback();
-        } else {
-            QPrintPreviewDialog::accept();
+            return;
         }
+        auto accept_cb = qprintpreviewdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        QPrintPreviewDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -575,11 +524,14 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_reject_isbase) {
             qprintpreviewdialog_reject_isbase = false;
             QPrintPreviewDialog::reject();
-        } else if (qprintpreviewdialog_reject_callback != nullptr) {
-            qprintpreviewdialog_reject_callback();
-        } else {
-            QPrintPreviewDialog::reject();
+            return;
         }
+        auto reject_cb = qprintpreviewdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        QPrintPreviewDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,13 +539,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_keypressevent_isbase) {
             qprintpreviewdialog_keypressevent_isbase = false;
             QPrintPreviewDialog::keyPressEvent(param1);
-        } else if (qprintpreviewdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qprintpreviewdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qprintpreviewdialog_keypressevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -601,13 +556,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_closeevent_isbase) {
             qprintpreviewdialog_closeevent_isbase = false;
             QPrintPreviewDialog::closeEvent(param1);
-        } else if (qprintpreviewdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qprintpreviewdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            qprintpreviewdialog_closeevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -615,13 +573,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_showevent_isbase) {
             qprintpreviewdialog_showevent_isbase = false;
             QPrintPreviewDialog::showEvent(param1);
-        } else if (qprintpreviewdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qprintpreviewdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qprintpreviewdialog_showevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -629,13 +590,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_resizeevent_isbase) {
             qprintpreviewdialog_resizeevent_isbase = false;
             QPrintPreviewDialog::resizeEvent(param1);
-        } else if (qprintpreviewdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qprintpreviewdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qprintpreviewdialog_resizeevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -643,13 +607,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_contextmenuevent_isbase) {
             qprintpreviewdialog_contextmenuevent_isbase = false;
             QPrintPreviewDialog::contextMenuEvent(param1);
-        } else if (qprintpreviewdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qprintpreviewdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qprintpreviewdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -657,15 +624,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_eventfilter_isbase) {
             qprintpreviewdialog_eventfilter_isbase = false;
             return QPrintPreviewDialog::eventFilter(param1, param2);
-        } else if (qprintpreviewdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qprintpreviewdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qprintpreviewdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPrintPreviewDialog::eventFilter(param1, param2);
         }
+        return QPrintPreviewDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -673,12 +641,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_devtype_isbase) {
             qprintpreviewdialog_devtype_isbase = false;
             return QPrintPreviewDialog::devType();
-        } else if (qprintpreviewdialog_devtype_callback != nullptr) {
-            int callback_ret = qprintpreviewdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPrintPreviewDialog::devType();
         }
+        auto devtype_cb = qprintpreviewdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPrintPreviewDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -686,14 +655,15 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_heightforwidth_isbase) {
             qprintpreviewdialog_heightforwidth_isbase = false;
             return QPrintPreviewDialog::heightForWidth(param1);
-        } else if (qprintpreviewdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qprintpreviewdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qprintpreviewdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPrintPreviewDialog::heightForWidth(param1);
         }
+        return QPrintPreviewDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -701,12 +671,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_hasheightforwidth_isbase) {
             qprintpreviewdialog_hasheightforwidth_isbase = false;
             return QPrintPreviewDialog::hasHeightForWidth();
-        } else if (qprintpreviewdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qprintpreviewdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QPrintPreviewDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qprintpreviewdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QPrintPreviewDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,12 +685,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_paintengine_isbase) {
             qprintpreviewdialog_paintengine_isbase = false;
             return QPrintPreviewDialog::paintEngine();
-        } else if (qprintpreviewdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qprintpreviewdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QPrintPreviewDialog::paintEngine();
         }
+        auto paintengine_cb = qprintpreviewdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QPrintPreviewDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,14 +699,15 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_event_isbase) {
             qprintpreviewdialog_event_isbase = false;
             return QPrintPreviewDialog::event(event);
-        } else if (qprintpreviewdialog_event_callback != nullptr) {
+        }
+        auto event_cb = qprintpreviewdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qprintpreviewdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPrintPreviewDialog::event(event);
         }
+        return QPrintPreviewDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -742,13 +715,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_mousepressevent_isbase) {
             qprintpreviewdialog_mousepressevent_isbase = false;
             QPrintPreviewDialog::mousePressEvent(event);
-        } else if (qprintpreviewdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qprintpreviewdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprintpreviewdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,13 +732,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_mousereleaseevent_isbase) {
             qprintpreviewdialog_mousereleaseevent_isbase = false;
             QPrintPreviewDialog::mouseReleaseEvent(event);
-        } else if (qprintpreviewdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qprintpreviewdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprintpreviewdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,13 +749,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_mousedoubleclickevent_isbase) {
             qprintpreviewdialog_mousedoubleclickevent_isbase = false;
             QPrintPreviewDialog::mouseDoubleClickEvent(event);
-        } else if (qprintpreviewdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qprintpreviewdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprintpreviewdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,13 +766,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_mousemoveevent_isbase) {
             qprintpreviewdialog_mousemoveevent_isbase = false;
             QPrintPreviewDialog::mouseMoveEvent(event);
-        } else if (qprintpreviewdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qprintpreviewdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprintpreviewdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -798,13 +783,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_wheelevent_isbase) {
             qprintpreviewdialog_wheelevent_isbase = false;
             QPrintPreviewDialog::wheelEvent(event);
-        } else if (qprintpreviewdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qprintpreviewdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qprintpreviewdialog_wheelevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -812,13 +800,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_keyreleaseevent_isbase) {
             qprintpreviewdialog_keyreleaseevent_isbase = false;
             QPrintPreviewDialog::keyReleaseEvent(event);
-        } else if (qprintpreviewdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qprintpreviewdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qprintpreviewdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -826,13 +817,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_focusinevent_isbase) {
             qprintpreviewdialog_focusinevent_isbase = false;
             QPrintPreviewDialog::focusInEvent(event);
-        } else if (qprintpreviewdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qprintpreviewdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qprintpreviewdialog_focusinevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -840,13 +834,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_focusoutevent_isbase) {
             qprintpreviewdialog_focusoutevent_isbase = false;
             QPrintPreviewDialog::focusOutEvent(event);
-        } else if (qprintpreviewdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qprintpreviewdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qprintpreviewdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,13 +851,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_enterevent_isbase) {
             qprintpreviewdialog_enterevent_isbase = false;
             QPrintPreviewDialog::enterEvent(event);
-        } else if (qprintpreviewdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qprintpreviewdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qprintpreviewdialog_enterevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,13 +868,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_leaveevent_isbase) {
             qprintpreviewdialog_leaveevent_isbase = false;
             QPrintPreviewDialog::leaveEvent(event);
-        } else if (qprintpreviewdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qprintpreviewdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qprintpreviewdialog_leaveevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,13 +885,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_paintevent_isbase) {
             qprintpreviewdialog_paintevent_isbase = false;
             QPrintPreviewDialog::paintEvent(event);
-        } else if (qprintpreviewdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qprintpreviewdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qprintpreviewdialog_paintevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -896,13 +902,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_moveevent_isbase) {
             qprintpreviewdialog_moveevent_isbase = false;
             QPrintPreviewDialog::moveEvent(event);
-        } else if (qprintpreviewdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qprintpreviewdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qprintpreviewdialog_moveevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -910,13 +919,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_tabletevent_isbase) {
             qprintpreviewdialog_tabletevent_isbase = false;
             QPrintPreviewDialog::tabletEvent(event);
-        } else if (qprintpreviewdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qprintpreviewdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qprintpreviewdialog_tabletevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,13 +936,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_actionevent_isbase) {
             qprintpreviewdialog_actionevent_isbase = false;
             QPrintPreviewDialog::actionEvent(event);
-        } else if (qprintpreviewdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qprintpreviewdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qprintpreviewdialog_actionevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -938,13 +953,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_dragenterevent_isbase) {
             qprintpreviewdialog_dragenterevent_isbase = false;
             QPrintPreviewDialog::dragEnterEvent(event);
-        } else if (qprintpreviewdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qprintpreviewdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qprintpreviewdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -952,13 +970,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_dragmoveevent_isbase) {
             qprintpreviewdialog_dragmoveevent_isbase = false;
             QPrintPreviewDialog::dragMoveEvent(event);
-        } else if (qprintpreviewdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qprintpreviewdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qprintpreviewdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -966,13 +987,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_dragleaveevent_isbase) {
             qprintpreviewdialog_dragleaveevent_isbase = false;
             QPrintPreviewDialog::dragLeaveEvent(event);
-        } else if (qprintpreviewdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qprintpreviewdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qprintpreviewdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -980,13 +1004,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_dropevent_isbase) {
             qprintpreviewdialog_dropevent_isbase = false;
             QPrintPreviewDialog::dropEvent(event);
-        } else if (qprintpreviewdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qprintpreviewdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qprintpreviewdialog_dropevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -994,13 +1021,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_hideevent_isbase) {
             qprintpreviewdialog_hideevent_isbase = false;
             QPrintPreviewDialog::hideEvent(event);
-        } else if (qprintpreviewdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qprintpreviewdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qprintpreviewdialog_hideevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,7 +1038,9 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_nativeevent_isbase) {
             qprintpreviewdialog_nativeevent_isbase = false;
             return QPrintPreviewDialog::nativeEvent(eventType, message, result);
-        } else if (qprintpreviewdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qprintpreviewdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1019,12 +1051,11 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qprintpreviewdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QPrintPreviewDialog::nativeEvent(eventType, message, result);
         }
+        return QPrintPreviewDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1032,13 +1063,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_changeevent_isbase) {
             qprintpreviewdialog_changeevent_isbase = false;
             QPrintPreviewDialog::changeEvent(param1);
-        } else if (qprintpreviewdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qprintpreviewdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qprintpreviewdialog_changeevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1046,14 +1080,15 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_metric_isbase) {
             qprintpreviewdialog_metric_isbase = false;
             return QPrintPreviewDialog::metric(param1);
-        } else if (qprintpreviewdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = qprintpreviewdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qprintpreviewdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPrintPreviewDialog::metric(param1);
         }
+        return QPrintPreviewDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1061,13 +1096,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_initpainter_isbase) {
             qprintpreviewdialog_initpainter_isbase = false;
             QPrintPreviewDialog::initPainter(painter);
-        } else if (qprintpreviewdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qprintpreviewdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qprintpreviewdialog_initpainter_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1075,14 +1113,15 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_redirected_isbase) {
             qprintpreviewdialog_redirected_isbase = false;
             return QPrintPreviewDialog::redirected(offset);
-        } else if (qprintpreviewdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qprintpreviewdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qprintpreviewdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPrintPreviewDialog::redirected(offset);
         }
+        return QPrintPreviewDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1090,12 +1129,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_sharedpainter_isbase) {
             qprintpreviewdialog_sharedpainter_isbase = false;
             return QPrintPreviewDialog::sharedPainter();
-        } else if (qprintpreviewdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qprintpreviewdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QPrintPreviewDialog::sharedPainter();
         }
+        auto sharedpainter_cb = qprintpreviewdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QPrintPreviewDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,13 +1143,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_inputmethodevent_isbase) {
             qprintpreviewdialog_inputmethodevent_isbase = false;
             QPrintPreviewDialog::inputMethodEvent(param1);
-        } else if (qprintpreviewdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qprintpreviewdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qprintpreviewdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1117,14 +1160,15 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_inputmethodquery_isbase) {
             qprintpreviewdialog_inputmethodquery_isbase = false;
             return QPrintPreviewDialog::inputMethodQuery(param1);
-        } else if (qprintpreviewdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qprintpreviewdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qprintpreviewdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QPrintPreviewDialog::inputMethodQuery(param1);
         }
+        return QPrintPreviewDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1132,14 +1176,15 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_focusnextprevchild_isbase) {
             qprintpreviewdialog_focusnextprevchild_isbase = false;
             return QPrintPreviewDialog::focusNextPrevChild(next);
-        } else if (qprintpreviewdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qprintpreviewdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qprintpreviewdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPrintPreviewDialog::focusNextPrevChild(next);
         }
+        return QPrintPreviewDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1147,13 +1192,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_timerevent_isbase) {
             qprintpreviewdialog_timerevent_isbase = false;
             QPrintPreviewDialog::timerEvent(event);
-        } else if (qprintpreviewdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qprintpreviewdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qprintpreviewdialog_timerevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1161,13 +1209,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_childevent_isbase) {
             qprintpreviewdialog_childevent_isbase = false;
             QPrintPreviewDialog::childEvent(event);
-        } else if (qprintpreviewdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qprintpreviewdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qprintpreviewdialog_childevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1175,13 +1226,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_customevent_isbase) {
             qprintpreviewdialog_customevent_isbase = false;
             QPrintPreviewDialog::customEvent(event);
-        } else if (qprintpreviewdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qprintpreviewdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qprintpreviewdialog_customevent_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1189,15 +1243,18 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_connectnotify_isbase) {
             qprintpreviewdialog_connectnotify_isbase = false;
             QPrintPreviewDialog::connectNotify(signal);
-        } else if (qprintpreviewdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qprintpreviewdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qprintpreviewdialog_connectnotify_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,15 +1262,18 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_disconnectnotify_isbase) {
             qprintpreviewdialog_disconnectnotify_isbase = false;
             QPrintPreviewDialog::disconnectNotify(signal);
-        } else if (qprintpreviewdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qprintpreviewdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qprintpreviewdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,13 +1281,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_adjustposition_isbase) {
             qprintpreviewdialog_adjustposition_isbase = false;
             QPrintPreviewDialog::adjustPosition(param1);
-        } else if (qprintpreviewdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = qprintpreviewdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            qprintpreviewdialog_adjustposition_callback(this, cbval1);
-        } else {
-            QPrintPreviewDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        QPrintPreviewDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,11 +1298,14 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_updatemicrofocus_isbase) {
             qprintpreviewdialog_updatemicrofocus_isbase = false;
             QPrintPreviewDialog::updateMicroFocus();
-        } else if (qprintpreviewdialog_updatemicrofocus_callback != nullptr) {
-            qprintpreviewdialog_updatemicrofocus_callback();
-        } else {
-            QPrintPreviewDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qprintpreviewdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QPrintPreviewDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,11 +1313,14 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_create_isbase) {
             qprintpreviewdialog_create_isbase = false;
             QPrintPreviewDialog::create();
-        } else if (qprintpreviewdialog_create_callback != nullptr) {
-            qprintpreviewdialog_create_callback();
-        } else {
-            QPrintPreviewDialog::create();
+            return;
         }
+        auto create_cb = qprintpreviewdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QPrintPreviewDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,11 +1328,14 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_destroy_isbase) {
             qprintpreviewdialog_destroy_isbase = false;
             QPrintPreviewDialog::destroy();
-        } else if (qprintpreviewdialog_destroy_callback != nullptr) {
-            qprintpreviewdialog_destroy_callback();
-        } else {
-            QPrintPreviewDialog::destroy();
+            return;
         }
+        auto destroy_cb = qprintpreviewdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QPrintPreviewDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1271,12 +1343,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_focusnextchild_isbase) {
             qprintpreviewdialog_focusnextchild_isbase = false;
             return QPrintPreviewDialog::focusNextChild();
-        } else if (qprintpreviewdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = qprintpreviewdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QPrintPreviewDialog::focusNextChild();
         }
+        auto focusnextchild_cb = qprintpreviewdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QPrintPreviewDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,12 +1357,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_focuspreviouschild_isbase) {
             qprintpreviewdialog_focuspreviouschild_isbase = false;
             return QPrintPreviewDialog::focusPreviousChild();
-        } else if (qprintpreviewdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qprintpreviewdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QPrintPreviewDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qprintpreviewdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QPrintPreviewDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1297,12 +1371,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_sender_isbase) {
             qprintpreviewdialog_sender_isbase = false;
             return QPrintPreviewDialog::sender();
-        } else if (qprintpreviewdialog_sender_callback != nullptr) {
-            QObject* callback_ret = qprintpreviewdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return QPrintPreviewDialog::sender();
         }
+        auto sender_cb = qprintpreviewdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPrintPreviewDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1310,12 +1385,13 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_sendersignalindex_isbase) {
             qprintpreviewdialog_sendersignalindex_isbase = false;
             return QPrintPreviewDialog::senderSignalIndex();
-        } else if (qprintpreviewdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = qprintpreviewdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPrintPreviewDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qprintpreviewdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPrintPreviewDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1323,14 +1399,15 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_receivers_isbase) {
             qprintpreviewdialog_receivers_isbase = false;
             return QPrintPreviewDialog::receivers(signal);
-        } else if (qprintpreviewdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qprintpreviewdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qprintpreviewdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPrintPreviewDialog::receivers(signal);
         }
+        return QPrintPreviewDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1338,16 +1415,17 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_issignalconnected_isbase) {
             qprintpreviewdialog_issignalconnected_isbase = false;
             return QPrintPreviewDialog::isSignalConnected(signal);
-        } else if (qprintpreviewdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qprintpreviewdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qprintpreviewdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPrintPreviewDialog::isSignalConnected(signal);
         }
+        return QPrintPreviewDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1355,15 +1433,16 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
         if (qprintpreviewdialog_getdecodedmetricf_isbase) {
             qprintpreviewdialog_getdecodedmetricf_isbase = false;
             return QPrintPreviewDialog::getDecodedMetricF(metricA, metricB);
-        } else if (qprintpreviewdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qprintpreviewdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qprintpreviewdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QPrintPreviewDialog::getDecodedMetricF(metricA, metricB);
         }
+        return QPrintPreviewDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

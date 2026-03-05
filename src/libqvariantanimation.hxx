@@ -87,29 +87,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
     VirtualQVariantAnimation() : QVariantAnimation() {};
     VirtualQVariantAnimation(QObject* parent) : QVariantAnimation(parent) {};
 
-    ~VirtualQVariantAnimation() {
-        qvariantanimation_metaobject_callback = nullptr;
-        qvariantanimation_metacast_callback = nullptr;
-        qvariantanimation_metacall_callback = nullptr;
-        qvariantanimation_duration_callback = nullptr;
-        qvariantanimation_event_callback = nullptr;
-        qvariantanimation_updatecurrenttime_callback = nullptr;
-        qvariantanimation_updatestate_callback = nullptr;
-        qvariantanimation_updatecurrentvalue_callback = nullptr;
-        qvariantanimation_interpolated_callback = nullptr;
-        qvariantanimation_updatedirection_callback = nullptr;
-        qvariantanimation_eventfilter_callback = nullptr;
-        qvariantanimation_timerevent_callback = nullptr;
-        qvariantanimation_childevent_callback = nullptr;
-        qvariantanimation_customevent_callback = nullptr;
-        qvariantanimation_connectnotify_callback = nullptr;
-        qvariantanimation_disconnectnotify_callback = nullptr;
-        qvariantanimation_sender_callback = nullptr;
-        qvariantanimation_sendersignalindex_callback = nullptr;
-        qvariantanimation_receivers_callback = nullptr;
-        qvariantanimation_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQVariantAnimation_MetaObject_Callback(QVariantAnimation_MetaObject_Callback cb) { qvariantanimation_metaobject_callback = cb; }
     inline void setQVariantAnimation_Metacast_Callback(QVariantAnimation_Metacast_Callback cb) { qvariantanimation_metacast_callback = cb; }
@@ -159,12 +136,13 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_metaobject_isbase) {
             qvariantanimation_metaobject_isbase = false;
             return QVariantAnimation::metaObject();
-        } else if (qvariantanimation_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qvariantanimation_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QVariantAnimation::metaObject();
         }
+        auto metaobject_cb = qvariantanimation_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QVariantAnimation::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -172,14 +150,15 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_metacast_isbase) {
             qvariantanimation_metacast_isbase = false;
             return QVariantAnimation::qt_metacast(param1);
-        } else if (qvariantanimation_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qvariantanimation_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qvariantanimation_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVariantAnimation::qt_metacast(param1);
         }
+        return QVariantAnimation::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,16 +166,17 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_metacall_isbase) {
             qvariantanimation_metacall_isbase = false;
             return QVariantAnimation::qt_metacall(param1, param2, param3);
-        } else if (qvariantanimation_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qvariantanimation_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qvariantanimation_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QVariantAnimation::qt_metacall(param1, param2, param3);
         }
+        return QVariantAnimation::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,12 +184,13 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_duration_isbase) {
             qvariantanimation_duration_isbase = false;
             return QVariantAnimation::duration();
-        } else if (qvariantanimation_duration_callback != nullptr) {
-            int callback_ret = qvariantanimation_duration_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVariantAnimation::duration();
         }
+        auto duration_cb = qvariantanimation_duration_callback;
+        if (duration_cb) {
+            int callback_ret = duration_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVariantAnimation::duration();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,14 +198,15 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_event_isbase) {
             qvariantanimation_event_isbase = false;
             return QVariantAnimation::event(event);
-        } else if (qvariantanimation_event_callback != nullptr) {
+        }
+        auto event_cb = qvariantanimation_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qvariantanimation_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVariantAnimation::event(event);
         }
+        return QVariantAnimation::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +214,16 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_updatecurrenttime_isbase) {
             qvariantanimation_updatecurrenttime_isbase = false;
             QVariantAnimation::updateCurrentTime(param1);
-        } else if (qvariantanimation_updatecurrenttime_callback != nullptr) {
+            return;
+        }
+        auto updatecurrenttime_cb = qvariantanimation_updatecurrenttime_callback;
+        if (updatecurrenttime_cb) {
             int cbval1 = param1;
 
-            qvariantanimation_updatecurrenttime_callback(this, cbval1);
-        } else {
-            QVariantAnimation::updateCurrentTime(param1);
+            updatecurrenttime_cb(this, cbval1);
+            return;
         }
+        QVariantAnimation::updateCurrentTime(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,14 +231,17 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_updatestate_isbase) {
             qvariantanimation_updatestate_isbase = false;
             QVariantAnimation::updateState(newState, oldState);
-        } else if (qvariantanimation_updatestate_callback != nullptr) {
+            return;
+        }
+        auto updatestate_cb = qvariantanimation_updatestate_callback;
+        if (updatestate_cb) {
             int cbval1 = static_cast<int>(newState);
             int cbval2 = static_cast<int>(oldState);
 
-            qvariantanimation_updatestate_callback(this, cbval1, cbval2);
-        } else {
-            QVariantAnimation::updateState(newState, oldState);
+            updatestate_cb(this, cbval1, cbval2);
+            return;
         }
+        QVariantAnimation::updateState(newState, oldState);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,15 +249,18 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_updatecurrentvalue_isbase) {
             qvariantanimation_updatecurrentvalue_isbase = false;
             QVariantAnimation::updateCurrentValue(value);
-        } else if (qvariantanimation_updatecurrentvalue_callback != nullptr) {
+            return;
+        }
+        auto updatecurrentvalue_cb = qvariantanimation_updatecurrentvalue_callback;
+        if (updatecurrentvalue_cb) {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&value_ret);
 
-            qvariantanimation_updatecurrentvalue_callback(this, cbval1);
-        } else {
-            QVariantAnimation::updateCurrentValue(value);
+            updatecurrentvalue_cb(this, cbval1);
+            return;
         }
+        QVariantAnimation::updateCurrentValue(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,7 +268,9 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_interpolated_isbase) {
             qvariantanimation_interpolated_isbase = false;
             return QVariantAnimation::interpolated(from, to, progress);
-        } else if (qvariantanimation_interpolated_callback != nullptr) {
+        }
+        auto interpolated_cb = qvariantanimation_interpolated_callback;
+        if (interpolated_cb) {
             const QVariant& from_ret = from;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&from_ret);
@@ -286,11 +279,10 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
             QVariant* cbval2 = const_cast<QVariant*>(&to_ret);
             double cbval3 = static_cast<double>(progress);
 
-            QVariant* callback_ret = qvariantanimation_interpolated_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = interpolated_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QVariantAnimation::interpolated(from, to, progress);
         }
+        return QVariantAnimation::interpolated(from, to, progress);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,13 +290,16 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_updatedirection_isbase) {
             qvariantanimation_updatedirection_isbase = false;
             QVariantAnimation::updateDirection(direction);
-        } else if (qvariantanimation_updatedirection_callback != nullptr) {
+            return;
+        }
+        auto updatedirection_cb = qvariantanimation_updatedirection_callback;
+        if (updatedirection_cb) {
             int cbval1 = static_cast<int>(direction);
 
-            qvariantanimation_updatedirection_callback(this, cbval1);
-        } else {
-            QVariantAnimation::updateDirection(direction);
+            updatedirection_cb(this, cbval1);
+            return;
         }
+        QVariantAnimation::updateDirection(direction);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,15 +307,16 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_eventfilter_isbase) {
             qvariantanimation_eventfilter_isbase = false;
             return QVariantAnimation::eventFilter(watched, event);
-        } else if (qvariantanimation_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qvariantanimation_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qvariantanimation_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QVariantAnimation::eventFilter(watched, event);
         }
+        return QVariantAnimation::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -328,13 +324,16 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_timerevent_isbase) {
             qvariantanimation_timerevent_isbase = false;
             QVariantAnimation::timerEvent(event);
-        } else if (qvariantanimation_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qvariantanimation_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qvariantanimation_timerevent_callback(this, cbval1);
-        } else {
-            QVariantAnimation::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QVariantAnimation::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -342,13 +341,16 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_childevent_isbase) {
             qvariantanimation_childevent_isbase = false;
             QVariantAnimation::childEvent(event);
-        } else if (qvariantanimation_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qvariantanimation_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qvariantanimation_childevent_callback(this, cbval1);
-        } else {
-            QVariantAnimation::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QVariantAnimation::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -356,13 +358,16 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_customevent_isbase) {
             qvariantanimation_customevent_isbase = false;
             QVariantAnimation::customEvent(event);
-        } else if (qvariantanimation_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qvariantanimation_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qvariantanimation_customevent_callback(this, cbval1);
-        } else {
-            QVariantAnimation::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QVariantAnimation::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -370,15 +375,18 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_connectnotify_isbase) {
             qvariantanimation_connectnotify_isbase = false;
             QVariantAnimation::connectNotify(signal);
-        } else if (qvariantanimation_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qvariantanimation_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvariantanimation_connectnotify_callback(this, cbval1);
-        } else {
-            QVariantAnimation::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QVariantAnimation::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -386,15 +394,18 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_disconnectnotify_isbase) {
             qvariantanimation_disconnectnotify_isbase = false;
             QVariantAnimation::disconnectNotify(signal);
-        } else if (qvariantanimation_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qvariantanimation_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvariantanimation_disconnectnotify_callback(this, cbval1);
-        } else {
-            QVariantAnimation::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QVariantAnimation::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -402,12 +413,13 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_sender_isbase) {
             qvariantanimation_sender_isbase = false;
             return QVariantAnimation::sender();
-        } else if (qvariantanimation_sender_callback != nullptr) {
-            QObject* callback_ret = qvariantanimation_sender_callback();
-            return callback_ret;
-        } else {
-            return QVariantAnimation::sender();
         }
+        auto sender_cb = qvariantanimation_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QVariantAnimation::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -415,12 +427,13 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_sendersignalindex_isbase) {
             qvariantanimation_sendersignalindex_isbase = false;
             return QVariantAnimation::senderSignalIndex();
-        } else if (qvariantanimation_sendersignalindex_callback != nullptr) {
-            int callback_ret = qvariantanimation_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVariantAnimation::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qvariantanimation_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVariantAnimation::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -428,14 +441,15 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_receivers_isbase) {
             qvariantanimation_receivers_isbase = false;
             return QVariantAnimation::receivers(signal);
-        } else if (qvariantanimation_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qvariantanimation_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qvariantanimation_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QVariantAnimation::receivers(signal);
         }
+        return QVariantAnimation::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -443,16 +457,17 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (qvariantanimation_issignalconnected_isbase) {
             qvariantanimation_issignalconnected_isbase = false;
             return QVariantAnimation::isSignalConnected(signal);
-        } else if (qvariantanimation_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qvariantanimation_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qvariantanimation_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVariantAnimation::isSignalConnected(signal);
         }
+        return QVariantAnimation::isSignalConnected(signal);
     }
 
     // Friend functions

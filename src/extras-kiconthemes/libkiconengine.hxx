@@ -72,23 +72,6 @@ class VirtualKIconEngine final : public KIconEngine {
     VirtualKIconEngine(const QString& iconName, const KIconColors& colors, KIconLoader* iconLoader, const QList<QString>& overlays) : KIconEngine(iconName, colors, iconLoader, overlays) {};
     VirtualKIconEngine(const KIconEngine& param1) : KIconEngine(param1) {};
 
-    ~VirtualKIconEngine() {
-        kiconengine_actualsize_callback = nullptr;
-        kiconengine_paint_callback = nullptr;
-        kiconengine_pixmap_callback = nullptr;
-        kiconengine_scaledpixmap_callback = nullptr;
-        kiconengine_iconname_callback = nullptr;
-        kiconengine_availablesizes_callback = nullptr;
-        kiconengine_isnull_callback = nullptr;
-        kiconengine_key_callback = nullptr;
-        kiconengine_clone_callback = nullptr;
-        kiconengine_read_callback = nullptr;
-        kiconengine_write_callback = nullptr;
-        kiconengine_addpixmap_callback = nullptr;
-        kiconengine_addfile_callback = nullptr;
-        kiconengine_virtualhook_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKIconEngine_ActualSize_Callback(KIconEngine_ActualSize_Callback cb) { kiconengine_actualsize_callback = cb; }
     inline void setKIconEngine_Paint_Callback(KIconEngine_Paint_Callback cb) { kiconengine_paint_callback = cb; }
@@ -126,18 +109,19 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_actualsize_isbase) {
             kiconengine_actualsize_isbase = false;
             return KIconEngine::actualSize(size, mode, state);
-        } else if (kiconengine_actualsize_callback != nullptr) {
+        }
+        auto actualsize_cb = kiconengine_actualsize_callback;
+        if (actualsize_cb) {
             const QSize& size_ret = size;
             // Cast returned reference into pointer
             QSize* cbval1 = const_cast<QSize*>(&size_ret);
             int cbval2 = static_cast<int>(mode);
             int cbval3 = static_cast<int>(state);
 
-            QSize* callback_ret = kiconengine_actualsize_callback(this, cbval1, cbval2, cbval3);
+            QSize* callback_ret = actualsize_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KIconEngine::actualSize(size, mode, state);
         }
+        return KIconEngine::actualSize(size, mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -145,7 +129,10 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_paint_isbase) {
             kiconengine_paint_isbase = false;
             KIconEngine::paint(painter, rect, mode, state);
-        } else if (kiconengine_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = kiconengine_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
@@ -153,10 +140,10 @@ class VirtualKIconEngine final : public KIconEngine {
             int cbval3 = static_cast<int>(mode);
             int cbval4 = static_cast<int>(state);
 
-            kiconengine_paint_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KIconEngine::paint(painter, rect, mode, state);
+            paint_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KIconEngine::paint(painter, rect, mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -164,18 +151,19 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_pixmap_isbase) {
             kiconengine_pixmap_isbase = false;
             return KIconEngine::pixmap(size, mode, state);
-        } else if (kiconengine_pixmap_callback != nullptr) {
+        }
+        auto pixmap_cb = kiconengine_pixmap_callback;
+        if (pixmap_cb) {
             const QSize& size_ret = size;
             // Cast returned reference into pointer
             QSize* cbval1 = const_cast<QSize*>(&size_ret);
             int cbval2 = static_cast<int>(mode);
             int cbval3 = static_cast<int>(state);
 
-            QPixmap* callback_ret = kiconengine_pixmap_callback(this, cbval1, cbval2, cbval3);
+            QPixmap* callback_ret = pixmap_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KIconEngine::pixmap(size, mode, state);
         }
+        return KIconEngine::pixmap(size, mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,7 +171,9 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_scaledpixmap_isbase) {
             kiconengine_scaledpixmap_isbase = false;
             return KIconEngine::scaledPixmap(size, mode, state, scale);
-        } else if (kiconengine_scaledpixmap_callback != nullptr) {
+        }
+        auto scaledpixmap_cb = kiconengine_scaledpixmap_callback;
+        if (scaledpixmap_cb) {
             const QSize& size_ret = size;
             // Cast returned reference into pointer
             QSize* cbval1 = const_cast<QSize*>(&size_ret);
@@ -191,11 +181,10 @@ class VirtualKIconEngine final : public KIconEngine {
             int cbval3 = static_cast<int>(state);
             double cbval4 = static_cast<double>(scale);
 
-            QPixmap* callback_ret = kiconengine_scaledpixmap_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QPixmap* callback_ret = scaledpixmap_cb(this, cbval1, cbval2, cbval3, cbval4);
             return *callback_ret;
-        } else {
-            return KIconEngine::scaledPixmap(size, mode, state, scale);
         }
+        return KIconEngine::scaledPixmap(size, mode, state, scale);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -203,13 +192,14 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_iconname_isbase) {
             kiconengine_iconname_isbase = false;
             return KIconEngine::iconName();
-        } else if (kiconengine_iconname_callback != nullptr) {
-            const char* callback_ret = kiconengine_iconname_callback();
+        }
+        auto iconname_cb = kiconengine_iconname_callback;
+        if (iconname_cb) {
+            const char* callback_ret = iconname_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KIconEngine::iconName();
         }
+        return KIconEngine::iconName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,11 +207,13 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_availablesizes_isbase) {
             kiconengine_availablesizes_isbase = false;
             return KIconEngine::availableSizes(mode, state);
-        } else if (kiconengine_availablesizes_callback != nullptr) {
+        }
+        auto availablesizes_cb = kiconengine_availablesizes_callback;
+        if (availablesizes_cb) {
             int cbval1 = static_cast<int>(mode);
             int cbval2 = static_cast<int>(state);
 
-            libqt_list /* of QSize* */ callback_ret = kiconengine_availablesizes_callback(this, cbval1, cbval2);
+            libqt_list /* of QSize* */ callback_ret = availablesizes_cb(this, cbval1, cbval2);
             QList<QSize> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QSize** callback_ret_arr = static_cast<QSize**>(callback_ret.data);
@@ -230,9 +222,8 @@ class VirtualKIconEngine final : public KIconEngine {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KIconEngine::availableSizes(mode, state);
         }
+        return KIconEngine::availableSizes(mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,12 +231,13 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_isnull_isbase) {
             kiconengine_isnull_isbase = false;
             return KIconEngine::isNull();
-        } else if (kiconengine_isnull_callback != nullptr) {
-            bool callback_ret = kiconengine_isnull_callback();
-            return callback_ret;
-        } else {
-            return KIconEngine::isNull();
         }
+        auto isnull_cb = kiconengine_isnull_callback;
+        if (isnull_cb) {
+            bool callback_ret = isnull_cb();
+            return callback_ret;
+        }
+        return KIconEngine::isNull();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -253,13 +245,14 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_key_isbase) {
             kiconengine_key_isbase = false;
             return KIconEngine::key();
-        } else if (kiconengine_key_callback != nullptr) {
-            const char* callback_ret = kiconengine_key_callback();
+        }
+        auto key_cb = kiconengine_key_callback;
+        if (key_cb) {
+            const char* callback_ret = key_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KIconEngine::key();
         }
+        return KIconEngine::key();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -267,12 +260,13 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_clone_isbase) {
             kiconengine_clone_isbase = false;
             return KIconEngine::clone();
-        } else if (kiconengine_clone_callback != nullptr) {
-            QIconEngine* callback_ret = kiconengine_clone_callback();
-            return callback_ret;
-        } else {
-            return KIconEngine::clone();
         }
+        auto clone_cb = kiconengine_clone_callback;
+        if (clone_cb) {
+            QIconEngine* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return KIconEngine::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -280,16 +274,17 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_read_isbase) {
             kiconengine_read_isbase = false;
             return KIconEngine::read(in);
-        } else if (kiconengine_read_callback != nullptr) {
+        }
+        auto read_cb = kiconengine_read_callback;
+        if (read_cb) {
             QDataStream& in_ret = in;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &in_ret;
 
-            bool callback_ret = kiconengine_read_callback(this, cbval1);
+            bool callback_ret = read_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIconEngine::read(in);
         }
+        return KIconEngine::read(in);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -297,16 +292,17 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_write_isbase) {
             kiconengine_write_isbase = false;
             return KIconEngine::write(out);
-        } else if (kiconengine_write_callback != nullptr) {
+        }
+        auto write_cb = kiconengine_write_callback;
+        if (write_cb) {
             QDataStream& out_ret = out;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &out_ret;
 
-            bool callback_ret = kiconengine_write_callback(this, cbval1);
+            bool callback_ret = write_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIconEngine::write(out);
         }
+        return KIconEngine::write(out);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,17 +310,20 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_addpixmap_isbase) {
             kiconengine_addpixmap_isbase = false;
             KIconEngine::addPixmap(pixmap, mode, state);
-        } else if (kiconengine_addpixmap_callback != nullptr) {
+            return;
+        }
+        auto addpixmap_cb = kiconengine_addpixmap_callback;
+        if (addpixmap_cb) {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval1 = const_cast<QPixmap*>(&pixmap_ret);
             int cbval2 = static_cast<int>(mode);
             int cbval3 = static_cast<int>(state);
 
-            kiconengine_addpixmap_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KIconEngine::addPixmap(pixmap, mode, state);
+            addpixmap_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KIconEngine::addPixmap(pixmap, mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,7 +331,10 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_addfile_isbase) {
             kiconengine_addfile_isbase = false;
             KIconEngine::addFile(fileName, size, mode, state);
-        } else if (kiconengine_addfile_callback != nullptr) {
+            return;
+        }
+        auto addfile_cb = kiconengine_addfile_callback;
+        if (addfile_cb) {
             const QString fileName_ret = fileName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray fileName_b = fileName_ret.toUtf8();
@@ -347,11 +349,11 @@ class VirtualKIconEngine final : public KIconEngine {
             int cbval3 = static_cast<int>(mode);
             int cbval4 = static_cast<int>(state);
 
-            kiconengine_addfile_callback(this, cbval1, cbval2, cbval3, cbval4);
+            addfile_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(fileName_str);
-        } else {
-            KIconEngine::addFile(fileName, size, mode, state);
+            return;
         }
+        KIconEngine::addFile(fileName, size, mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -359,14 +361,17 @@ class VirtualKIconEngine final : public KIconEngine {
         if (kiconengine_virtualhook_isbase) {
             kiconengine_virtualhook_isbase = false;
             KIconEngine::virtual_hook(id, data);
-        } else if (kiconengine_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kiconengine_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kiconengine_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KIconEngine::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KIconEngine::virtual_hook(id, data);
     }
 };
 

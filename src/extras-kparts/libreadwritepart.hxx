@@ -181,60 +181,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
     VirtualKPartsReadWritePart(QObject* parent) : KParts::ReadWritePart(parent) {};
     VirtualKPartsReadWritePart(QObject* parent, const KPluginMetaData& data) : KParts::ReadWritePart(parent, data) {};
 
-    ~VirtualKPartsReadWritePart() {
-        kparts__readwritepart_metaobject_callback = nullptr;
-        kparts__readwritepart_metacast_callback = nullptr;
-        kparts__readwritepart_metacall_callback = nullptr;
-        kparts__readwritepart_setreadwrite_callback = nullptr;
-        kparts__readwritepart_queryclose_callback = nullptr;
-        kparts__readwritepart_closeurl_callback = nullptr;
-        kparts__readwritepart_closeurl2_callback = nullptr;
-        kparts__readwritepart_saveas_callback = nullptr;
-        kparts__readwritepart_setmodified_callback = nullptr;
-        kparts__readwritepart_save_callback = nullptr;
-        kparts__readwritepart_savefile_callback = nullptr;
-        kparts__readwritepart_savetourl_callback = nullptr;
-        kparts__readwritepart_openurl_callback = nullptr;
-        kparts__readwritepart_openfile_callback = nullptr;
-        kparts__readwritepart_guiactivateevent_callback = nullptr;
-        kparts__readwritepart_widget_callback = nullptr;
-        kparts__readwritepart_setmanager_callback = nullptr;
-        kparts__readwritepart_hittest_callback = nullptr;
-        kparts__readwritepart_setwidget_callback = nullptr;
-        kparts__readwritepart_customevent_callback = nullptr;
-        kparts__readwritepart_partactivateevent_callback = nullptr;
-        kparts__readwritepart_event_callback = nullptr;
-        kparts__readwritepart_eventfilter_callback = nullptr;
-        kparts__readwritepart_timerevent_callback = nullptr;
-        kparts__readwritepart_childevent_callback = nullptr;
-        kparts__readwritepart_connectnotify_callback = nullptr;
-        kparts__readwritepart_disconnectnotify_callback = nullptr;
-        kparts__readwritepart_action2_callback = nullptr;
-        kparts__readwritepart_actioncollection_callback = nullptr;
-        kparts__readwritepart_componentname_callback = nullptr;
-        kparts__readwritepart_domdocument_callback = nullptr;
-        kparts__readwritepart_xmlfile_callback = nullptr;
-        kparts__readwritepart_localxmlfile_callback = nullptr;
-        kparts__readwritepart_setcomponentname_callback = nullptr;
-        kparts__readwritepart_setxmlfile_callback = nullptr;
-        kparts__readwritepart_setlocalxmlfile_callback = nullptr;
-        kparts__readwritepart_setxml_callback = nullptr;
-        kparts__readwritepart_setdomdocument_callback = nullptr;
-        kparts__readwritepart_statechanged_callback = nullptr;
-        kparts__readwritepart_abortload_callback = nullptr;
-        kparts__readwritepart_seturl_callback = nullptr;
-        kparts__readwritepart_localfilepath_callback = nullptr;
-        kparts__readwritepart_setlocalfilepath_callback = nullptr;
-        kparts__readwritepart_hostcontainer_callback = nullptr;
-        kparts__readwritepart_slotwidgetdestroyed_callback = nullptr;
-        kparts__readwritepart_sender_callback = nullptr;
-        kparts__readwritepart_sendersignalindex_callback = nullptr;
-        kparts__readwritepart_receivers_callback = nullptr;
-        kparts__readwritepart_issignalconnected_callback = nullptr;
-        kparts__readwritepart_standardsxmlfilelocation_callback = nullptr;
-        kparts__readwritepart_loadstandardsxmlfile_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKParts__ReadWritePart_MetaObject_Callback(KParts__ReadWritePart_MetaObject_Callback cb) { kparts__readwritepart_metaobject_callback = cb; }
     inline void setKParts__ReadWritePart_Metacast_Callback(KParts__ReadWritePart_Metacast_Callback cb) { kparts__readwritepart_metacast_callback = cb; }
@@ -346,12 +292,13 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_metaobject_isbase) {
             kparts__readwritepart_metaobject_isbase = false;
             return KParts__ReadWritePart::metaObject();
-        } else if (kparts__readwritepart_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kparts__readwritepart_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KParts__ReadWritePart::metaObject();
         }
+        auto metaobject_cb = kparts__readwritepart_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KParts__ReadWritePart::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -359,14 +306,15 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_metacast_isbase) {
             kparts__readwritepart_metacast_isbase = false;
             return KParts__ReadWritePart::qt_metacast(param1);
-        } else if (kparts__readwritepart_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kparts__readwritepart_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kparts__readwritepart_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ReadWritePart::qt_metacast(param1);
         }
+        return KParts__ReadWritePart::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -374,16 +322,17 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_metacall_isbase) {
             kparts__readwritepart_metacall_isbase = false;
             return KParts__ReadWritePart::qt_metacall(param1, param2, param3);
-        } else if (kparts__readwritepart_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kparts__readwritepart_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kparts__readwritepart_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__ReadWritePart::qt_metacall(param1, param2, param3);
         }
+        return KParts__ReadWritePart::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -391,13 +340,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_setreadwrite_isbase) {
             kparts__readwritepart_setreadwrite_isbase = false;
             KParts__ReadWritePart::setReadWrite(readwrite);
-        } else if (kparts__readwritepart_setreadwrite_callback != nullptr) {
+            return;
+        }
+        auto setreadwrite_cb = kparts__readwritepart_setreadwrite_callback;
+        if (setreadwrite_cb) {
             bool cbval1 = readwrite;
 
-            kparts__readwritepart_setreadwrite_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::setReadWrite(readwrite);
+            setreadwrite_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::setReadWrite(readwrite);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -405,12 +357,13 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_queryclose_isbase) {
             kparts__readwritepart_queryclose_isbase = false;
             return KParts__ReadWritePart::queryClose();
-        } else if (kparts__readwritepart_queryclose_callback != nullptr) {
-            bool callback_ret = kparts__readwritepart_queryclose_callback();
-            return callback_ret;
-        } else {
-            return KParts__ReadWritePart::queryClose();
         }
+        auto queryclose_cb = kparts__readwritepart_queryclose_callback;
+        if (queryclose_cb) {
+            bool callback_ret = queryclose_cb();
+            return callback_ret;
+        }
+        return KParts__ReadWritePart::queryClose();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -418,12 +371,13 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_closeurl_isbase) {
             kparts__readwritepart_closeurl_isbase = false;
             return KParts__ReadWritePart::closeUrl();
-        } else if (kparts__readwritepart_closeurl_callback != nullptr) {
-            bool callback_ret = kparts__readwritepart_closeurl_callback();
-            return callback_ret;
-        } else {
-            return KParts__ReadWritePart::closeUrl();
         }
+        auto closeurl_cb = kparts__readwritepart_closeurl_callback;
+        if (closeurl_cb) {
+            bool callback_ret = closeurl_cb();
+            return callback_ret;
+        }
+        return KParts__ReadWritePart::closeUrl();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -431,14 +385,15 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_closeurl2_isbase) {
             kparts__readwritepart_closeurl2_isbase = false;
             return KParts__ReadWritePart::closeUrl(promptToSave);
-        } else if (kparts__readwritepart_closeurl2_callback != nullptr) {
+        }
+        auto closeurl2_cb = kparts__readwritepart_closeurl2_callback;
+        if (closeurl2_cb) {
             bool cbval1 = promptToSave;
 
-            bool callback_ret = kparts__readwritepart_closeurl2_callback(this, cbval1);
+            bool callback_ret = closeurl2_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ReadWritePart::closeUrl(promptToSave);
         }
+        return KParts__ReadWritePart::closeUrl(promptToSave);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -446,16 +401,17 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_saveas_isbase) {
             kparts__readwritepart_saveas_isbase = false;
             return KParts__ReadWritePart::saveAs(url);
-        } else if (kparts__readwritepart_saveas_callback != nullptr) {
+        }
+        auto saveas_cb = kparts__readwritepart_saveas_callback;
+        if (saveas_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            bool callback_ret = kparts__readwritepart_saveas_callback(this, cbval1);
+            bool callback_ret = saveas_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ReadWritePart::saveAs(url);
         }
+        return KParts__ReadWritePart::saveAs(url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -463,13 +419,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_setmodified_isbase) {
             kparts__readwritepart_setmodified_isbase = false;
             KParts__ReadWritePart::setModified(modified);
-        } else if (kparts__readwritepart_setmodified_callback != nullptr) {
+            return;
+        }
+        auto setmodified_cb = kparts__readwritepart_setmodified_callback;
+        if (setmodified_cb) {
             bool cbval1 = modified;
 
-            kparts__readwritepart_setmodified_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::setModified(modified);
+            setmodified_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::setModified(modified);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -477,22 +436,23 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_save_isbase) {
             kparts__readwritepart_save_isbase = false;
             return KParts__ReadWritePart::save();
-        } else if (kparts__readwritepart_save_callback != nullptr) {
-            bool callback_ret = kparts__readwritepart_save_callback();
-            return callback_ret;
-        } else {
-            return KParts__ReadWritePart::save();
         }
+        auto save_cb = kparts__readwritepart_save_callback;
+        if (save_cb) {
+            bool callback_ret = save_cb();
+            return callback_ret;
+        }
+        return KParts__ReadWritePart::save();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool saveFile() override {
-        if (kparts__readwritepart_savefile_callback != nullptr) {
-            bool callback_ret = kparts__readwritepart_savefile_callback();
+        auto savefile_cb = kparts__readwritepart_savefile_callback;
+        if (savefile_cb) {
+            bool callback_ret = savefile_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -500,12 +460,13 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_savetourl_isbase) {
             kparts__readwritepart_savetourl_isbase = false;
             return KParts__ReadWritePart::saveToUrl();
-        } else if (kparts__readwritepart_savetourl_callback != nullptr) {
-            bool callback_ret = kparts__readwritepart_savetourl_callback();
-            return callback_ret;
-        } else {
-            return KParts__ReadWritePart::saveToUrl();
         }
+        auto savetourl_cb = kparts__readwritepart_savetourl_callback;
+        if (savetourl_cb) {
+            bool callback_ret = savetourl_cb();
+            return callback_ret;
+        }
+        return KParts__ReadWritePart::saveToUrl();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,16 +474,17 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_openurl_isbase) {
             kparts__readwritepart_openurl_isbase = false;
             return KParts__ReadWritePart::openUrl(url);
-        } else if (kparts__readwritepart_openurl_callback != nullptr) {
+        }
+        auto openurl_cb = kparts__readwritepart_openurl_callback;
+        if (openurl_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            bool callback_ret = kparts__readwritepart_openurl_callback(this, cbval1);
+            bool callback_ret = openurl_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ReadWritePart::openUrl(url);
         }
+        return KParts__ReadWritePart::openUrl(url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,12 +492,13 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_openfile_isbase) {
             kparts__readwritepart_openfile_isbase = false;
             return KParts__ReadWritePart::openFile();
-        } else if (kparts__readwritepart_openfile_callback != nullptr) {
-            bool callback_ret = kparts__readwritepart_openfile_callback();
-            return callback_ret;
-        } else {
-            return KParts__ReadWritePart::openFile();
         }
+        auto openfile_cb = kparts__readwritepart_openfile_callback;
+        if (openfile_cb) {
+            bool callback_ret = openfile_cb();
+            return callback_ret;
+        }
+        return KParts__ReadWritePart::openFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,13 +506,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_guiactivateevent_isbase) {
             kparts__readwritepart_guiactivateevent_isbase = false;
             KParts__ReadWritePart::guiActivateEvent(event);
-        } else if (kparts__readwritepart_guiactivateevent_callback != nullptr) {
+            return;
+        }
+        auto guiactivateevent_cb = kparts__readwritepart_guiactivateevent_callback;
+        if (guiactivateevent_cb) {
             KParts__GUIActivateEvent* cbval1 = event;
 
-            kparts__readwritepart_guiactivateevent_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::guiActivateEvent(event);
+            guiactivateevent_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::guiActivateEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -557,12 +523,13 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_widget_isbase) {
             kparts__readwritepart_widget_isbase = false;
             return KParts__ReadWritePart::widget();
-        } else if (kparts__readwritepart_widget_callback != nullptr) {
-            QWidget* callback_ret = kparts__readwritepart_widget_callback();
-            return callback_ret;
-        } else {
-            return KParts__ReadWritePart::widget();
         }
+        auto widget_cb = kparts__readwritepart_widget_callback;
+        if (widget_cb) {
+            QWidget* callback_ret = widget_cb();
+            return callback_ret;
+        }
+        return KParts__ReadWritePart::widget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -570,13 +537,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_setmanager_isbase) {
             kparts__readwritepart_setmanager_isbase = false;
             KParts__ReadWritePart::setManager(manager);
-        } else if (kparts__readwritepart_setmanager_callback != nullptr) {
+            return;
+        }
+        auto setmanager_cb = kparts__readwritepart_setmanager_callback;
+        if (setmanager_cb) {
             KParts__PartManager* cbval1 = manager;
 
-            kparts__readwritepart_setmanager_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::setManager(manager);
+            setmanager_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::setManager(manager);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,17 +554,18 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_hittest_isbase) {
             kparts__readwritepart_hittest_isbase = false;
             return KParts__ReadWritePart::hitTest(widget, globalPos);
-        } else if (kparts__readwritepart_hittest_callback != nullptr) {
+        }
+        auto hittest_cb = kparts__readwritepart_hittest_callback;
+        if (hittest_cb) {
             QWidget* cbval1 = widget;
             const QPoint& globalPos_ret = globalPos;
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&globalPos_ret);
 
-            KParts__Part* callback_ret = kparts__readwritepart_hittest_callback(this, cbval1, cbval2);
+            KParts__Part* callback_ret = hittest_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KParts__ReadWritePart::hitTest(widget, globalPos);
         }
+        return KParts__ReadWritePart::hitTest(widget, globalPos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,13 +573,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_setwidget_isbase) {
             kparts__readwritepart_setwidget_isbase = false;
             KParts__ReadWritePart::setWidget(widget);
-        } else if (kparts__readwritepart_setwidget_callback != nullptr) {
+            return;
+        }
+        auto setwidget_cb = kparts__readwritepart_setwidget_callback;
+        if (setwidget_cb) {
             QWidget* cbval1 = widget;
 
-            kparts__readwritepart_setwidget_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::setWidget(widget);
+            setwidget_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::setWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -616,13 +590,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_customevent_isbase) {
             kparts__readwritepart_customevent_isbase = false;
             KParts__ReadWritePart::customEvent(event);
-        } else if (kparts__readwritepart_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kparts__readwritepart_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kparts__readwritepart_customevent_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -630,13 +607,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_partactivateevent_isbase) {
             kparts__readwritepart_partactivateevent_isbase = false;
             KParts__ReadWritePart::partActivateEvent(event);
-        } else if (kparts__readwritepart_partactivateevent_callback != nullptr) {
+            return;
+        }
+        auto partactivateevent_cb = kparts__readwritepart_partactivateevent_callback;
+        if (partactivateevent_cb) {
             KParts__PartActivateEvent* cbval1 = event;
 
-            kparts__readwritepart_partactivateevent_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::partActivateEvent(event);
+            partactivateevent_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::partActivateEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -644,14 +624,15 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_event_isbase) {
             kparts__readwritepart_event_isbase = false;
             return KParts__ReadWritePart::event(event);
-        } else if (kparts__readwritepart_event_callback != nullptr) {
+        }
+        auto event_cb = kparts__readwritepart_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kparts__readwritepart_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ReadWritePart::event(event);
         }
+        return KParts__ReadWritePart::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -659,15 +640,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_eventfilter_isbase) {
             kparts__readwritepart_eventfilter_isbase = false;
             return KParts__ReadWritePart::eventFilter(watched, event);
-        } else if (kparts__readwritepart_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kparts__readwritepart_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kparts__readwritepart_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KParts__ReadWritePart::eventFilter(watched, event);
         }
+        return KParts__ReadWritePart::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,13 +657,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_timerevent_isbase) {
             kparts__readwritepart_timerevent_isbase = false;
             KParts__ReadWritePart::timerEvent(event);
-        } else if (kparts__readwritepart_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kparts__readwritepart_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kparts__readwritepart_timerevent_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,13 +674,16 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_childevent_isbase) {
             kparts__readwritepart_childevent_isbase = false;
             KParts__ReadWritePart::childEvent(event);
-        } else if (kparts__readwritepart_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kparts__readwritepart_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kparts__readwritepart_childevent_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,15 +691,18 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_connectnotify_isbase) {
             kparts__readwritepart_connectnotify_isbase = false;
             KParts__ReadWritePart::connectNotify(signal);
-        } else if (kparts__readwritepart_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kparts__readwritepart_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__readwritepart_connectnotify_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,15 +710,18 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_disconnectnotify_isbase) {
             kparts__readwritepart_disconnectnotify_isbase = false;
             KParts__ReadWritePart::disconnectNotify(signal);
-        } else if (kparts__readwritepart_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kparts__readwritepart_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__readwritepart_disconnectnotify_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,16 +729,17 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_action2_isbase) {
             kparts__readwritepart_action2_isbase = false;
             return KParts__ReadWritePart::action(element);
-        } else if (kparts__readwritepart_action2_callback != nullptr) {
+        }
+        auto action2_cb = kparts__readwritepart_action2_callback;
+        if (action2_cb) {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
 
-            QAction* callback_ret = kparts__readwritepart_action2_callback(this, cbval1);
+            QAction* callback_ret = action2_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ReadWritePart::action(element);
         }
+        return KParts__ReadWritePart::action(element);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,12 +747,13 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_actioncollection_isbase) {
             kparts__readwritepart_actioncollection_isbase = false;
             return KParts__ReadWritePart::actionCollection();
-        } else if (kparts__readwritepart_actioncollection_callback != nullptr) {
-            KActionCollection* callback_ret = kparts__readwritepart_actioncollection_callback();
-            return callback_ret;
-        } else {
-            return KParts__ReadWritePart::actionCollection();
         }
+        auto actioncollection_cb = kparts__readwritepart_actioncollection_callback;
+        if (actioncollection_cb) {
+            KActionCollection* callback_ret = actioncollection_cb();
+            return callback_ret;
+        }
+        return KParts__ReadWritePart::actionCollection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +761,14 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_componentname_isbase) {
             kparts__readwritepart_componentname_isbase = false;
             return KParts__ReadWritePart::componentName();
-        } else if (kparts__readwritepart_componentname_callback != nullptr) {
-            const char* callback_ret = kparts__readwritepart_componentname_callback();
+        }
+        auto componentname_cb = kparts__readwritepart_componentname_callback;
+        if (componentname_cb) {
+            const char* callback_ret = componentname_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__ReadWritePart::componentName();
         }
+        return KParts__ReadWritePart::componentName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,12 +776,13 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_domdocument_isbase) {
             kparts__readwritepart_domdocument_isbase = false;
             return KParts__ReadWritePart::domDocument();
-        } else if (kparts__readwritepart_domdocument_callback != nullptr) {
-            QDomDocument* callback_ret = kparts__readwritepart_domdocument_callback();
-            return *callback_ret;
-        } else {
-            return KParts__ReadWritePart::domDocument();
         }
+        auto domdocument_cb = kparts__readwritepart_domdocument_callback;
+        if (domdocument_cb) {
+            QDomDocument* callback_ret = domdocument_cb();
+            return *callback_ret;
+        }
+        return KParts__ReadWritePart::domDocument();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -792,13 +790,14 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_xmlfile_isbase) {
             kparts__readwritepart_xmlfile_isbase = false;
             return KParts__ReadWritePart::xmlFile();
-        } else if (kparts__readwritepart_xmlfile_callback != nullptr) {
-            const char* callback_ret = kparts__readwritepart_xmlfile_callback();
+        }
+        auto xmlfile_cb = kparts__readwritepart_xmlfile_callback;
+        if (xmlfile_cb) {
+            const char* callback_ret = xmlfile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__ReadWritePart::xmlFile();
         }
+        return KParts__ReadWritePart::xmlFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -806,13 +805,14 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_localxmlfile_isbase) {
             kparts__readwritepart_localxmlfile_isbase = false;
             return KParts__ReadWritePart::localXMLFile();
-        } else if (kparts__readwritepart_localxmlfile_callback != nullptr) {
-            const char* callback_ret = kparts__readwritepart_localxmlfile_callback();
+        }
+        auto localxmlfile_cb = kparts__readwritepart_localxmlfile_callback;
+        if (localxmlfile_cb) {
+            const char* callback_ret = localxmlfile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__ReadWritePart::localXMLFile();
         }
+        return KParts__ReadWritePart::localXMLFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -820,7 +820,10 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_setcomponentname_isbase) {
             kparts__readwritepart_setcomponentname_isbase = false;
             KParts__ReadWritePart::setComponentName(componentName, componentDisplayName);
-        } else if (kparts__readwritepart_setcomponentname_callback != nullptr) {
+            return;
+        }
+        auto setcomponentname_cb = kparts__readwritepart_setcomponentname_callback;
+        if (setcomponentname_cb) {
             const QString componentName_ret = componentName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
@@ -838,12 +841,12 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
 
-            kparts__readwritepart_setcomponentname_callback(this, cbval1, cbval2);
+            setcomponentname_cb(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
-        } else {
-            KParts__ReadWritePart::setComponentName(componentName, componentDisplayName);
+            return;
         }
+        KParts__ReadWritePart::setComponentName(componentName, componentDisplayName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -851,7 +854,10 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_setxmlfile_isbase) {
             kparts__readwritepart_setxmlfile_isbase = false;
             KParts__ReadWritePart::setXMLFile(file, merge, setXMLDoc);
-        } else if (kparts__readwritepart_setxmlfile_callback != nullptr) {
+            return;
+        }
+        auto setxmlfile_cb = kparts__readwritepart_setxmlfile_callback;
+        if (setxmlfile_cb) {
             const QString file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -863,11 +869,11 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
 
-            kparts__readwritepart_setxmlfile_callback(this, cbval1, cbval2, cbval3);
+            setxmlfile_cb(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
-        } else {
-            KParts__ReadWritePart::setXMLFile(file, merge, setXMLDoc);
+            return;
         }
+        KParts__ReadWritePart::setXMLFile(file, merge, setXMLDoc);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -875,7 +881,10 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_setlocalxmlfile_isbase) {
             kparts__readwritepart_setlocalxmlfile_isbase = false;
             KParts__ReadWritePart::setLocalXMLFile(file);
-        } else if (kparts__readwritepart_setlocalxmlfile_callback != nullptr) {
+            return;
+        }
+        auto setlocalxmlfile_cb = kparts__readwritepart_setlocalxmlfile_callback;
+        if (setlocalxmlfile_cb) {
             const QString file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -885,11 +894,11 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
 
-            kparts__readwritepart_setlocalxmlfile_callback(this, cbval1);
+            setlocalxmlfile_cb(this, cbval1);
             libqt_free(file_str);
-        } else {
-            KParts__ReadWritePart::setLocalXMLFile(file);
+            return;
         }
+        KParts__ReadWritePart::setLocalXMLFile(file);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -897,7 +906,10 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_setxml_isbase) {
             kparts__readwritepart_setxml_isbase = false;
             KParts__ReadWritePart::setXML(document, merge);
-        } else if (kparts__readwritepart_setxml_callback != nullptr) {
+            return;
+        }
+        auto setxml_cb = kparts__readwritepart_setxml_callback;
+        if (setxml_cb) {
             const QString document_ret = document;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
@@ -908,11 +920,11 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const char* cbval1 = document_str;
             bool cbval2 = merge;
 
-            kparts__readwritepart_setxml_callback(this, cbval1, cbval2);
+            setxml_cb(this, cbval1, cbval2);
             libqt_free(document_str);
-        } else {
-            KParts__ReadWritePart::setXML(document, merge);
+            return;
         }
+        KParts__ReadWritePart::setXML(document, merge);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -920,16 +932,19 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_setdomdocument_isbase) {
             kparts__readwritepart_setdomdocument_isbase = false;
             KParts__ReadWritePart::setDOMDocument(document, merge);
-        } else if (kparts__readwritepart_setdomdocument_callback != nullptr) {
+            return;
+        }
+        auto setdomdocument_cb = kparts__readwritepart_setdomdocument_callback;
+        if (setdomdocument_cb) {
             const QDomDocument& document_ret = document;
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
 
-            kparts__readwritepart_setdomdocument_callback(this, cbval1, cbval2);
-        } else {
-            KParts__ReadWritePart::setDOMDocument(document, merge);
+            setdomdocument_cb(this, cbval1, cbval2);
+            return;
         }
+        KParts__ReadWritePart::setDOMDocument(document, merge);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -937,7 +952,10 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_statechanged_isbase) {
             kparts__readwritepart_statechanged_isbase = false;
             KParts__ReadWritePart::stateChanged(newstate, reverse);
-        } else if (kparts__readwritepart_statechanged_callback != nullptr) {
+            return;
+        }
+        auto statechanged_cb = kparts__readwritepart_statechanged_callback;
+        if (statechanged_cb) {
             const QString newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -948,11 +966,11 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
 
-            kparts__readwritepart_statechanged_callback(this, cbval1, cbval2);
+            statechanged_cb(this, cbval1, cbval2);
             libqt_free(newstate_str);
-        } else {
-            KParts__ReadWritePart::stateChanged(newstate, reverse);
+            return;
         }
+        KParts__ReadWritePart::stateChanged(newstate, reverse);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -960,11 +978,14 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_abortload_isbase) {
             kparts__readwritepart_abortload_isbase = false;
             KParts__ReadWritePart::abortLoad();
-        } else if (kparts__readwritepart_abortload_callback != nullptr) {
-            kparts__readwritepart_abortload_callback();
-        } else {
-            KParts__ReadWritePart::abortLoad();
+            return;
         }
+        auto abortload_cb = kparts__readwritepart_abortload_callback;
+        if (abortload_cb) {
+            abortload_cb();
+            return;
+        }
+        KParts__ReadWritePart::abortLoad();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,15 +993,18 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_seturl_isbase) {
             kparts__readwritepart_seturl_isbase = false;
             KParts__ReadWritePart::setUrl(url);
-        } else if (kparts__readwritepart_seturl_callback != nullptr) {
+            return;
+        }
+        auto seturl_cb = kparts__readwritepart_seturl_callback;
+        if (seturl_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            kparts__readwritepart_seturl_callback(this, cbval1);
-        } else {
-            KParts__ReadWritePart::setUrl(url);
+            seturl_cb(this, cbval1);
+            return;
         }
+        KParts__ReadWritePart::setUrl(url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -988,13 +1012,14 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_localfilepath_isbase) {
             kparts__readwritepart_localfilepath_isbase = false;
             return KParts__ReadWritePart::localFilePath();
-        } else if (kparts__readwritepart_localfilepath_callback != nullptr) {
-            const char* callback_ret = kparts__readwritepart_localfilepath_callback();
+        }
+        auto localfilepath_cb = kparts__readwritepart_localfilepath_callback;
+        if (localfilepath_cb) {
+            const char* callback_ret = localfilepath_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__ReadWritePart::localFilePath();
         }
+        return KParts__ReadWritePart::localFilePath();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1002,7 +1027,10 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_setlocalfilepath_isbase) {
             kparts__readwritepart_setlocalfilepath_isbase = false;
             KParts__ReadWritePart::setLocalFilePath(localFilePath);
-        } else if (kparts__readwritepart_setlocalfilepath_callback != nullptr) {
+            return;
+        }
+        auto setlocalfilepath_cb = kparts__readwritepart_setlocalfilepath_callback;
+        if (setlocalfilepath_cb) {
             const QString localFilePath_ret = localFilePath;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray localFilePath_b = localFilePath_ret.toUtf8();
@@ -1012,11 +1040,11 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             ((char*)localFilePath_str)[localFilePath_str_len] = '\0';
             const char* cbval1 = localFilePath_str;
 
-            kparts__readwritepart_setlocalfilepath_callback(this, cbval1);
+            setlocalfilepath_cb(this, cbval1);
             libqt_free(localFilePath_str);
-        } else {
-            KParts__ReadWritePart::setLocalFilePath(localFilePath);
+            return;
         }
+        KParts__ReadWritePart::setLocalFilePath(localFilePath);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,7 +1052,9 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_hostcontainer_isbase) {
             kparts__readwritepart_hostcontainer_isbase = false;
             return KParts__ReadWritePart::hostContainer(containerName);
-        } else if (kparts__readwritepart_hostcontainer_callback != nullptr) {
+        }
+        auto hostcontainer_cb = kparts__readwritepart_hostcontainer_callback;
+        if (hostcontainer_cb) {
             const QString containerName_ret = containerName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray containerName_b = containerName_ret.toUtf8();
@@ -1034,12 +1064,11 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             ((char*)containerName_str)[containerName_str_len] = '\0';
             const char* cbval1 = containerName_str;
 
-            QWidget* callback_ret = kparts__readwritepart_hostcontainer_callback(this, cbval1);
+            QWidget* callback_ret = hostcontainer_cb(this, cbval1);
             libqt_free(containerName_str);
             return callback_ret;
-        } else {
-            return KParts__ReadWritePart::hostContainer(containerName);
         }
+        return KParts__ReadWritePart::hostContainer(containerName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1047,11 +1076,14 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_slotwidgetdestroyed_isbase) {
             kparts__readwritepart_slotwidgetdestroyed_isbase = false;
             KParts__ReadWritePart::slotWidgetDestroyed();
-        } else if (kparts__readwritepart_slotwidgetdestroyed_callback != nullptr) {
-            kparts__readwritepart_slotwidgetdestroyed_callback();
-        } else {
-            KParts__ReadWritePart::slotWidgetDestroyed();
+            return;
         }
+        auto slotwidgetdestroyed_cb = kparts__readwritepart_slotwidgetdestroyed_callback;
+        if (slotwidgetdestroyed_cb) {
+            slotwidgetdestroyed_cb();
+            return;
+        }
+        KParts__ReadWritePart::slotWidgetDestroyed();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,12 +1091,13 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_sender_isbase) {
             kparts__readwritepart_sender_isbase = false;
             return KParts__ReadWritePart::sender();
-        } else if (kparts__readwritepart_sender_callback != nullptr) {
-            QObject* callback_ret = kparts__readwritepart_sender_callback();
-            return callback_ret;
-        } else {
-            return KParts__ReadWritePart::sender();
         }
+        auto sender_cb = kparts__readwritepart_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KParts__ReadWritePart::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,12 +1105,13 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_sendersignalindex_isbase) {
             kparts__readwritepart_sendersignalindex_isbase = false;
             return KParts__ReadWritePart::senderSignalIndex();
-        } else if (kparts__readwritepart_sendersignalindex_callback != nullptr) {
-            int callback_ret = kparts__readwritepart_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KParts__ReadWritePart::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kparts__readwritepart_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KParts__ReadWritePart::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1085,14 +1119,15 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_receivers_isbase) {
             kparts__readwritepart_receivers_isbase = false;
             return KParts__ReadWritePart::receivers(signal);
-        } else if (kparts__readwritepart_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kparts__readwritepart_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kparts__readwritepart_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__ReadWritePart::receivers(signal);
         }
+        return KParts__ReadWritePart::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1100,16 +1135,17 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_issignalconnected_isbase) {
             kparts__readwritepart_issignalconnected_isbase = false;
             return KParts__ReadWritePart::isSignalConnected(signal);
-        } else if (kparts__readwritepart_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kparts__readwritepart_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kparts__readwritepart_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ReadWritePart::isSignalConnected(signal);
         }
+        return KParts__ReadWritePart::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1117,13 +1153,14 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_standardsxmlfilelocation_isbase) {
             kparts__readwritepart_standardsxmlfilelocation_isbase = false;
             return KParts__ReadWritePart::standardsXmlFileLocation();
-        } else if (kparts__readwritepart_standardsxmlfilelocation_callback != nullptr) {
-            const char* callback_ret = kparts__readwritepart_standardsxmlfilelocation_callback();
+        }
+        auto standardsxmlfilelocation_cb = kparts__readwritepart_standardsxmlfilelocation_callback;
+        if (standardsxmlfilelocation_cb) {
+            const char* callback_ret = standardsxmlfilelocation_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__ReadWritePart::standardsXmlFileLocation();
         }
+        return KParts__ReadWritePart::standardsXmlFileLocation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1131,11 +1168,14 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (kparts__readwritepart_loadstandardsxmlfile_isbase) {
             kparts__readwritepart_loadstandardsxmlfile_isbase = false;
             KParts__ReadWritePart::loadStandardsXmlFile();
-        } else if (kparts__readwritepart_loadstandardsxmlfile_callback != nullptr) {
-            kparts__readwritepart_loadstandardsxmlfile_callback();
-        } else {
-            KParts__ReadWritePart::loadStandardsXmlFile();
+            return;
         }
+        auto loadstandardsxmlfile_cb = kparts__readwritepart_loadstandardsxmlfile_callback;
+        if (loadstandardsxmlfile_cb) {
+            loadstandardsxmlfile_cb();
+            return;
+        }
+        KParts__ReadWritePart::loadStandardsXmlFile();
     }
 
     // Friend functions

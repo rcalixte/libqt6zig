@@ -71,23 +71,6 @@ class VirtualQWebSocket final : public QWebSocket {
     VirtualQWebSocket(const QString& origin, QWebSocketProtocol::Version version) : QWebSocket(origin, version) {};
     VirtualQWebSocket(const QString& origin, QWebSocketProtocol::Version version, QObject* parent) : QWebSocket(origin, version, parent) {};
 
-    ~VirtualQWebSocket() {
-        qwebsocket_metaobject_callback = nullptr;
-        qwebsocket_metacast_callback = nullptr;
-        qwebsocket_metacall_callback = nullptr;
-        qwebsocket_event_callback = nullptr;
-        qwebsocket_eventfilter_callback = nullptr;
-        qwebsocket_timerevent_callback = nullptr;
-        qwebsocket_childevent_callback = nullptr;
-        qwebsocket_customevent_callback = nullptr;
-        qwebsocket_connectnotify_callback = nullptr;
-        qwebsocket_disconnectnotify_callback = nullptr;
-        qwebsocket_sender_callback = nullptr;
-        qwebsocket_sendersignalindex_callback = nullptr;
-        qwebsocket_receivers_callback = nullptr;
-        qwebsocket_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQWebSocket_MetaObject_Callback(QWebSocket_MetaObject_Callback cb) { qwebsocket_metaobject_callback = cb; }
     inline void setQWebSocket_Metacast_Callback(QWebSocket_Metacast_Callback cb) { qwebsocket_metacast_callback = cb; }
@@ -125,12 +108,13 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_metaobject_isbase) {
             qwebsocket_metaobject_isbase = false;
             return QWebSocket::metaObject();
-        } else if (qwebsocket_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qwebsocket_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QWebSocket::metaObject();
         }
+        auto metaobject_cb = qwebsocket_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QWebSocket::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,14 +122,15 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_metacast_isbase) {
             qwebsocket_metacast_isbase = false;
             return QWebSocket::qt_metacast(param1);
-        } else if (qwebsocket_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qwebsocket_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qwebsocket_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebSocket::qt_metacast(param1);
         }
+        return QWebSocket::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,16 +138,17 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_metacall_isbase) {
             qwebsocket_metacall_isbase = false;
             return QWebSocket::qt_metacall(param1, param2, param3);
-        } else if (qwebsocket_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qwebsocket_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qwebsocket_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebSocket::qt_metacall(param1, param2, param3);
         }
+        return QWebSocket::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,14 +156,15 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_event_isbase) {
             qwebsocket_event_isbase = false;
             return QWebSocket::event(event);
-        } else if (qwebsocket_event_callback != nullptr) {
+        }
+        auto event_cb = qwebsocket_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qwebsocket_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebSocket::event(event);
         }
+        return QWebSocket::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,15 +172,16 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_eventfilter_isbase) {
             qwebsocket_eventfilter_isbase = false;
             return QWebSocket::eventFilter(watched, event);
-        } else if (qwebsocket_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qwebsocket_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qwebsocket_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QWebSocket::eventFilter(watched, event);
         }
+        return QWebSocket::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,13 +189,16 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_timerevent_isbase) {
             qwebsocket_timerevent_isbase = false;
             QWebSocket::timerEvent(event);
-        } else if (qwebsocket_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qwebsocket_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qwebsocket_timerevent_callback(this, cbval1);
-        } else {
-            QWebSocket::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QWebSocket::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,13 +206,16 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_childevent_isbase) {
             qwebsocket_childevent_isbase = false;
             QWebSocket::childEvent(event);
-        } else if (qwebsocket_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qwebsocket_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qwebsocket_childevent_callback(this, cbval1);
-        } else {
-            QWebSocket::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QWebSocket::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,13 +223,16 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_customevent_isbase) {
             qwebsocket_customevent_isbase = false;
             QWebSocket::customEvent(event);
-        } else if (qwebsocket_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qwebsocket_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qwebsocket_customevent_callback(this, cbval1);
-        } else {
-            QWebSocket::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QWebSocket::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +240,18 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_connectnotify_isbase) {
             qwebsocket_connectnotify_isbase = false;
             QWebSocket::connectNotify(signal);
-        } else if (qwebsocket_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qwebsocket_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebsocket_connectnotify_callback(this, cbval1);
-        } else {
-            QWebSocket::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QWebSocket::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,15 +259,18 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_disconnectnotify_isbase) {
             qwebsocket_disconnectnotify_isbase = false;
             QWebSocket::disconnectNotify(signal);
-        } else if (qwebsocket_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qwebsocket_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebsocket_disconnectnotify_callback(this, cbval1);
-        } else {
-            QWebSocket::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QWebSocket::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,12 +278,13 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_sender_isbase) {
             qwebsocket_sender_isbase = false;
             return QWebSocket::sender();
-        } else if (qwebsocket_sender_callback != nullptr) {
-            QObject* callback_ret = qwebsocket_sender_callback();
-            return callback_ret;
-        } else {
-            return QWebSocket::sender();
         }
+        auto sender_cb = qwebsocket_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QWebSocket::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,12 +292,13 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_sendersignalindex_isbase) {
             qwebsocket_sendersignalindex_isbase = false;
             return QWebSocket::senderSignalIndex();
-        } else if (qwebsocket_sendersignalindex_callback != nullptr) {
-            int callback_ret = qwebsocket_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QWebSocket::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qwebsocket_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QWebSocket::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,14 +306,15 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_receivers_isbase) {
             qwebsocket_receivers_isbase = false;
             return QWebSocket::receivers(signal);
-        } else if (qwebsocket_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qwebsocket_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qwebsocket_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebSocket::receivers(signal);
         }
+        return QWebSocket::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,16 +322,17 @@ class VirtualQWebSocket final : public QWebSocket {
         if (qwebsocket_issignalconnected_isbase) {
             qwebsocket_issignalconnected_isbase = false;
             return QWebSocket::isSignalConnected(signal);
-        } else if (qwebsocket_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qwebsocket_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qwebsocket_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebSocket::isSignalConnected(signal);
         }
+        return QWebSocket::isSignalConnected(signal);
     }
 
     // Friend functions

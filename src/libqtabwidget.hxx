@@ -219,73 +219,6 @@ class VirtualQTabWidget final : public QTabWidget {
     VirtualQTabWidget(QWidget* parent) : QTabWidget(parent) {};
     VirtualQTabWidget() : QTabWidget() {};
 
-    ~VirtualQTabWidget() {
-        qtabwidget_metaobject_callback = nullptr;
-        qtabwidget_metacast_callback = nullptr;
-        qtabwidget_metacall_callback = nullptr;
-        qtabwidget_sizehint_callback = nullptr;
-        qtabwidget_minimumsizehint_callback = nullptr;
-        qtabwidget_heightforwidth_callback = nullptr;
-        qtabwidget_hasheightforwidth_callback = nullptr;
-        qtabwidget_tabinserted_callback = nullptr;
-        qtabwidget_tabremoved_callback = nullptr;
-        qtabwidget_showevent_callback = nullptr;
-        qtabwidget_resizeevent_callback = nullptr;
-        qtabwidget_keypressevent_callback = nullptr;
-        qtabwidget_paintevent_callback = nullptr;
-        qtabwidget_changeevent_callback = nullptr;
-        qtabwidget_event_callback = nullptr;
-        qtabwidget_initstyleoption_callback = nullptr;
-        qtabwidget_devtype_callback = nullptr;
-        qtabwidget_setvisible_callback = nullptr;
-        qtabwidget_paintengine_callback = nullptr;
-        qtabwidget_mousepressevent_callback = nullptr;
-        qtabwidget_mousereleaseevent_callback = nullptr;
-        qtabwidget_mousedoubleclickevent_callback = nullptr;
-        qtabwidget_mousemoveevent_callback = nullptr;
-        qtabwidget_wheelevent_callback = nullptr;
-        qtabwidget_keyreleaseevent_callback = nullptr;
-        qtabwidget_focusinevent_callback = nullptr;
-        qtabwidget_focusoutevent_callback = nullptr;
-        qtabwidget_enterevent_callback = nullptr;
-        qtabwidget_leaveevent_callback = nullptr;
-        qtabwidget_moveevent_callback = nullptr;
-        qtabwidget_closeevent_callback = nullptr;
-        qtabwidget_contextmenuevent_callback = nullptr;
-        qtabwidget_tabletevent_callback = nullptr;
-        qtabwidget_actionevent_callback = nullptr;
-        qtabwidget_dragenterevent_callback = nullptr;
-        qtabwidget_dragmoveevent_callback = nullptr;
-        qtabwidget_dragleaveevent_callback = nullptr;
-        qtabwidget_dropevent_callback = nullptr;
-        qtabwidget_hideevent_callback = nullptr;
-        qtabwidget_nativeevent_callback = nullptr;
-        qtabwidget_metric_callback = nullptr;
-        qtabwidget_initpainter_callback = nullptr;
-        qtabwidget_redirected_callback = nullptr;
-        qtabwidget_sharedpainter_callback = nullptr;
-        qtabwidget_inputmethodevent_callback = nullptr;
-        qtabwidget_inputmethodquery_callback = nullptr;
-        qtabwidget_focusnextprevchild_callback = nullptr;
-        qtabwidget_eventfilter_callback = nullptr;
-        qtabwidget_timerevent_callback = nullptr;
-        qtabwidget_childevent_callback = nullptr;
-        qtabwidget_customevent_callback = nullptr;
-        qtabwidget_connectnotify_callback = nullptr;
-        qtabwidget_disconnectnotify_callback = nullptr;
-        qtabwidget_settabbar_callback = nullptr;
-        qtabwidget_updatemicrofocus_callback = nullptr;
-        qtabwidget_create_callback = nullptr;
-        qtabwidget_destroy_callback = nullptr;
-        qtabwidget_focusnextchild_callback = nullptr;
-        qtabwidget_focuspreviouschild_callback = nullptr;
-        qtabwidget_sender_callback = nullptr;
-        qtabwidget_sendersignalindex_callback = nullptr;
-        qtabwidget_receivers_callback = nullptr;
-        qtabwidget_issignalconnected_callback = nullptr;
-        qtabwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTabWidget_MetaObject_Callback(QTabWidget_MetaObject_Callback cb) { qtabwidget_metaobject_callback = cb; }
     inline void setQTabWidget_Metacast_Callback(QTabWidget_Metacast_Callback cb) { qtabwidget_metacast_callback = cb; }
@@ -423,12 +356,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_metaobject_isbase) {
             qtabwidget_metaobject_isbase = false;
             return QTabWidget::metaObject();
-        } else if (qtabwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtabwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTabWidget::metaObject();
         }
+        auto metaobject_cb = qtabwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTabWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,14 +370,15 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_metacast_isbase) {
             qtabwidget_metacast_isbase = false;
             return QTabWidget::qt_metacast(param1);
-        } else if (qtabwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtabwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtabwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTabWidget::qt_metacast(param1);
         }
+        return QTabWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,16 +386,17 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_metacall_isbase) {
             qtabwidget_metacall_isbase = false;
             return QTabWidget::qt_metacall(param1, param2, param3);
-        } else if (qtabwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtabwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtabwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTabWidget::qt_metacall(param1, param2, param3);
         }
+        return QTabWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,12 +404,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_sizehint_isbase) {
             qtabwidget_sizehint_isbase = false;
             return QTabWidget::sizeHint();
-        } else if (qtabwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = qtabwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTabWidget::sizeHint();
         }
+        auto sizehint_cb = qtabwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QTabWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,12 +418,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_minimumsizehint_isbase) {
             qtabwidget_minimumsizehint_isbase = false;
             return QTabWidget::minimumSizeHint();
-        } else if (qtabwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qtabwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTabWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qtabwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QTabWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,14 +432,15 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_heightforwidth_isbase) {
             qtabwidget_heightforwidth_isbase = false;
             return QTabWidget::heightForWidth(width);
-        } else if (qtabwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qtabwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = width;
 
-            int callback_ret = qtabwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTabWidget::heightForWidth(width);
         }
+        return QTabWidget::heightForWidth(width);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,12 +448,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_hasheightforwidth_isbase) {
             qtabwidget_hasheightforwidth_isbase = false;
             return QTabWidget::hasHeightForWidth();
-        } else if (qtabwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qtabwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QTabWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qtabwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QTabWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,13 +462,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_tabinserted_isbase) {
             qtabwidget_tabinserted_isbase = false;
             QTabWidget::tabInserted(index);
-        } else if (qtabwidget_tabinserted_callback != nullptr) {
+            return;
+        }
+        auto tabinserted_cb = qtabwidget_tabinserted_callback;
+        if (tabinserted_cb) {
             int cbval1 = index;
 
-            qtabwidget_tabinserted_callback(this, cbval1);
-        } else {
-            QTabWidget::tabInserted(index);
+            tabinserted_cb(this, cbval1);
+            return;
         }
+        QTabWidget::tabInserted(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -536,13 +479,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_tabremoved_isbase) {
             qtabwidget_tabremoved_isbase = false;
             QTabWidget::tabRemoved(index);
-        } else if (qtabwidget_tabremoved_callback != nullptr) {
+            return;
+        }
+        auto tabremoved_cb = qtabwidget_tabremoved_callback;
+        if (tabremoved_cb) {
             int cbval1 = index;
 
-            qtabwidget_tabremoved_callback(this, cbval1);
-        } else {
-            QTabWidget::tabRemoved(index);
+            tabremoved_cb(this, cbval1);
+            return;
         }
+        QTabWidget::tabRemoved(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,13 +496,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_showevent_isbase) {
             qtabwidget_showevent_isbase = false;
             QTabWidget::showEvent(param1);
-        } else if (qtabwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qtabwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qtabwidget_showevent_callback(this, cbval1);
-        } else {
-            QTabWidget::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,13 +513,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_resizeevent_isbase) {
             qtabwidget_resizeevent_isbase = false;
             QTabWidget::resizeEvent(param1);
-        } else if (qtabwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qtabwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qtabwidget_resizeevent_callback(this, cbval1);
-        } else {
-            QTabWidget::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,13 +530,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_keypressevent_isbase) {
             qtabwidget_keypressevent_isbase = false;
             QTabWidget::keyPressEvent(param1);
-        } else if (qtabwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qtabwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qtabwidget_keypressevent_callback(this, cbval1);
-        } else {
-            QTabWidget::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,13 +547,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_paintevent_isbase) {
             qtabwidget_paintevent_isbase = false;
             QTabWidget::paintEvent(param1);
-        } else if (qtabwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qtabwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qtabwidget_paintevent_callback(this, cbval1);
-        } else {
-            QTabWidget::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -606,13 +564,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_changeevent_isbase) {
             qtabwidget_changeevent_isbase = false;
             QTabWidget::changeEvent(param1);
-        } else if (qtabwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qtabwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qtabwidget_changeevent_callback(this, cbval1);
-        } else {
-            QTabWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -620,14 +581,15 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_event_isbase) {
             qtabwidget_event_isbase = false;
             return QTabWidget::event(param1);
-        } else if (qtabwidget_event_callback != nullptr) {
+        }
+        auto event_cb = qtabwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qtabwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTabWidget::event(param1);
         }
+        return QTabWidget::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,13 +597,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_initstyleoption_isbase) {
             qtabwidget_initstyleoption_isbase = false;
             QTabWidget::initStyleOption(option);
-        } else if (qtabwidget_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qtabwidget_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionTabWidgetFrame* cbval1 = option;
 
-            qtabwidget_initstyleoption_callback(this, cbval1);
-        } else {
-            QTabWidget::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QTabWidget::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,12 +614,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_devtype_isbase) {
             qtabwidget_devtype_isbase = false;
             return QTabWidget::devType();
-        } else if (qtabwidget_devtype_callback != nullptr) {
-            int callback_ret = qtabwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTabWidget::devType();
         }
+        auto devtype_cb = qtabwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTabWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,13 +628,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_setvisible_isbase) {
             qtabwidget_setvisible_isbase = false;
             QTabWidget::setVisible(visible);
-        } else if (qtabwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qtabwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qtabwidget_setvisible_callback(this, cbval1);
-        } else {
-            QTabWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QTabWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,12 +645,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_paintengine_isbase) {
             qtabwidget_paintengine_isbase = false;
             return QTabWidget::paintEngine();
-        } else if (qtabwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qtabwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QTabWidget::paintEngine();
         }
+        auto paintengine_cb = qtabwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QTabWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,13 +659,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_mousepressevent_isbase) {
             qtabwidget_mousepressevent_isbase = false;
             QTabWidget::mousePressEvent(event);
-        } else if (qtabwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qtabwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtabwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            QTabWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,13 +676,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_mousereleaseevent_isbase) {
             qtabwidget_mousereleaseevent_isbase = false;
             QTabWidget::mouseReleaseEvent(event);
-        } else if (qtabwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qtabwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtabwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QTabWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -717,13 +693,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_mousedoubleclickevent_isbase) {
             qtabwidget_mousedoubleclickevent_isbase = false;
             QTabWidget::mouseDoubleClickEvent(event);
-        } else if (qtabwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qtabwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtabwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QTabWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -731,13 +710,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_mousemoveevent_isbase) {
             qtabwidget_mousemoveevent_isbase = false;
             QTabWidget::mouseMoveEvent(event);
-        } else if (qtabwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qtabwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtabwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            QTabWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,13 +727,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_wheelevent_isbase) {
             qtabwidget_wheelevent_isbase = false;
             QTabWidget::wheelEvent(event);
-        } else if (qtabwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qtabwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qtabwidget_wheelevent_callback(this, cbval1);
-        } else {
-            QTabWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,13 +744,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_keyreleaseevent_isbase) {
             qtabwidget_keyreleaseevent_isbase = false;
             QTabWidget::keyReleaseEvent(event);
-        } else if (qtabwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qtabwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qtabwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QTabWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,13 +761,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_focusinevent_isbase) {
             qtabwidget_focusinevent_isbase = false;
             QTabWidget::focusInEvent(event);
-        } else if (qtabwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qtabwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qtabwidget_focusinevent_callback(this, cbval1);
-        } else {
-            QTabWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,13 +778,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_focusoutevent_isbase) {
             qtabwidget_focusoutevent_isbase = false;
             QTabWidget::focusOutEvent(event);
-        } else if (qtabwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qtabwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qtabwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            QTabWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,13 +795,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_enterevent_isbase) {
             qtabwidget_enterevent_isbase = false;
             QTabWidget::enterEvent(event);
-        } else if (qtabwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qtabwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qtabwidget_enterevent_callback(this, cbval1);
-        } else {
-            QTabWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,13 +812,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_leaveevent_isbase) {
             qtabwidget_leaveevent_isbase = false;
             QTabWidget::leaveEvent(event);
-        } else if (qtabwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qtabwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qtabwidget_leaveevent_callback(this, cbval1);
-        } else {
-            QTabWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +829,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_moveevent_isbase) {
             qtabwidget_moveevent_isbase = false;
             QTabWidget::moveEvent(event);
-        } else if (qtabwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qtabwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qtabwidget_moveevent_callback(this, cbval1);
-        } else {
-            QTabWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +846,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_closeevent_isbase) {
             qtabwidget_closeevent_isbase = false;
             QTabWidget::closeEvent(event);
-        } else if (qtabwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qtabwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qtabwidget_closeevent_callback(this, cbval1);
-        } else {
-            QTabWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +863,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_contextmenuevent_isbase) {
             qtabwidget_contextmenuevent_isbase = false;
             QTabWidget::contextMenuEvent(event);
-        } else if (qtabwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qtabwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qtabwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            QTabWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +880,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_tabletevent_isbase) {
             qtabwidget_tabletevent_isbase = false;
             QTabWidget::tabletEvent(event);
-        } else if (qtabwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qtabwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qtabwidget_tabletevent_callback(this, cbval1);
-        } else {
-            QTabWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +897,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_actionevent_isbase) {
             qtabwidget_actionevent_isbase = false;
             QTabWidget::actionEvent(event);
-        } else if (qtabwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qtabwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qtabwidget_actionevent_callback(this, cbval1);
-        } else {
-            QTabWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +914,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_dragenterevent_isbase) {
             qtabwidget_dragenterevent_isbase = false;
             QTabWidget::dragEnterEvent(event);
-        } else if (qtabwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qtabwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qtabwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            QTabWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +931,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_dragmoveevent_isbase) {
             qtabwidget_dragmoveevent_isbase = false;
             QTabWidget::dragMoveEvent(event);
-        } else if (qtabwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qtabwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qtabwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            QTabWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +948,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_dragleaveevent_isbase) {
             qtabwidget_dragleaveevent_isbase = false;
             QTabWidget::dragLeaveEvent(event);
-        } else if (qtabwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qtabwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qtabwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            QTabWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +965,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_dropevent_isbase) {
             qtabwidget_dropevent_isbase = false;
             QTabWidget::dropEvent(event);
-        } else if (qtabwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qtabwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qtabwidget_dropevent_callback(this, cbval1);
-        } else {
-            QTabWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,13 +982,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_hideevent_isbase) {
             qtabwidget_hideevent_isbase = false;
             QTabWidget::hideEvent(event);
-        } else if (qtabwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qtabwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qtabwidget_hideevent_callback(this, cbval1);
-        } else {
-            QTabWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,7 +999,9 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_nativeevent_isbase) {
             qtabwidget_nativeevent_isbase = false;
             return QTabWidget::nativeEvent(eventType, message, result);
-        } else if (qtabwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qtabwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -980,12 +1012,11 @@ class VirtualQTabWidget final : public QTabWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qtabwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QTabWidget::nativeEvent(eventType, message, result);
         }
+        return QTabWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -993,14 +1024,15 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_metric_isbase) {
             qtabwidget_metric_isbase = false;
             return QTabWidget::metric(param1);
-        } else if (qtabwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = qtabwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qtabwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTabWidget::metric(param1);
         }
+        return QTabWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,13 +1040,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_initpainter_isbase) {
             qtabwidget_initpainter_isbase = false;
             QTabWidget::initPainter(painter);
-        } else if (qtabwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qtabwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qtabwidget_initpainter_callback(this, cbval1);
-        } else {
-            QTabWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QTabWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,14 +1057,15 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_redirected_isbase) {
             qtabwidget_redirected_isbase = false;
             return QTabWidget::redirected(offset);
-        } else if (qtabwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qtabwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qtabwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTabWidget::redirected(offset);
         }
+        return QTabWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,12 +1073,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_sharedpainter_isbase) {
             qtabwidget_sharedpainter_isbase = false;
             return QTabWidget::sharedPainter();
-        } else if (qtabwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qtabwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QTabWidget::sharedPainter();
         }
+        auto sharedpainter_cb = qtabwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QTabWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,13 +1087,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_inputmethodevent_isbase) {
             qtabwidget_inputmethodevent_isbase = false;
             QTabWidget::inputMethodEvent(param1);
-        } else if (qtabwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qtabwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qtabwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            QTabWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,14 +1104,15 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_inputmethodquery_isbase) {
             qtabwidget_inputmethodquery_isbase = false;
             return QTabWidget::inputMethodQuery(param1);
-        } else if (qtabwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qtabwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qtabwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTabWidget::inputMethodQuery(param1);
         }
+        return QTabWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1079,14 +1120,15 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_focusnextprevchild_isbase) {
             qtabwidget_focusnextprevchild_isbase = false;
             return QTabWidget::focusNextPrevChild(next);
-        } else if (qtabwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qtabwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qtabwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTabWidget::focusNextPrevChild(next);
         }
+        return QTabWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1094,15 +1136,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_eventfilter_isbase) {
             qtabwidget_eventfilter_isbase = false;
             return QTabWidget::eventFilter(watched, event);
-        } else if (qtabwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtabwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtabwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTabWidget::eventFilter(watched, event);
         }
+        return QTabWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1110,13 +1153,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_timerevent_isbase) {
             qtabwidget_timerevent_isbase = false;
             QTabWidget::timerEvent(event);
-        } else if (qtabwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtabwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtabwidget_timerevent_callback(this, cbval1);
-        } else {
-            QTabWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1124,13 +1170,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_childevent_isbase) {
             qtabwidget_childevent_isbase = false;
             QTabWidget::childEvent(event);
-        } else if (qtabwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtabwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtabwidget_childevent_callback(this, cbval1);
-        } else {
-            QTabWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1138,13 +1187,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_customevent_isbase) {
             qtabwidget_customevent_isbase = false;
             QTabWidget::customEvent(event);
-        } else if (qtabwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtabwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtabwidget_customevent_callback(this, cbval1);
-        } else {
-            QTabWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTabWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1152,15 +1204,18 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_connectnotify_isbase) {
             qtabwidget_connectnotify_isbase = false;
             QTabWidget::connectNotify(signal);
-        } else if (qtabwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtabwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtabwidget_connectnotify_callback(this, cbval1);
-        } else {
-            QTabWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTabWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1168,15 +1223,18 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_disconnectnotify_isbase) {
             qtabwidget_disconnectnotify_isbase = false;
             QTabWidget::disconnectNotify(signal);
-        } else if (qtabwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtabwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtabwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTabWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTabWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,13 +1242,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_settabbar_isbase) {
             qtabwidget_settabbar_isbase = false;
             QTabWidget::setTabBar(tabBar);
-        } else if (qtabwidget_settabbar_callback != nullptr) {
+            return;
+        }
+        auto settabbar_cb = qtabwidget_settabbar_callback;
+        if (settabbar_cb) {
             QTabBar* cbval1 = tabBar;
 
-            qtabwidget_settabbar_callback(this, cbval1);
-        } else {
-            QTabWidget::setTabBar(tabBar);
+            settabbar_cb(this, cbval1);
+            return;
         }
+        QTabWidget::setTabBar(tabBar);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1198,11 +1259,14 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_updatemicrofocus_isbase) {
             qtabwidget_updatemicrofocus_isbase = false;
             QTabWidget::updateMicroFocus();
-        } else if (qtabwidget_updatemicrofocus_callback != nullptr) {
-            qtabwidget_updatemicrofocus_callback();
-        } else {
-            QTabWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qtabwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QTabWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,11 +1274,14 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_create_isbase) {
             qtabwidget_create_isbase = false;
             QTabWidget::create();
-        } else if (qtabwidget_create_callback != nullptr) {
-            qtabwidget_create_callback();
-        } else {
-            QTabWidget::create();
+            return;
         }
+        auto create_cb = qtabwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QTabWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,11 +1289,14 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_destroy_isbase) {
             qtabwidget_destroy_isbase = false;
             QTabWidget::destroy();
-        } else if (qtabwidget_destroy_callback != nullptr) {
-            qtabwidget_destroy_callback();
-        } else {
-            QTabWidget::destroy();
+            return;
         }
+        auto destroy_cb = qtabwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QTabWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,12 +1304,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_focusnextchild_isbase) {
             qtabwidget_focusnextchild_isbase = false;
             return QTabWidget::focusNextChild();
-        } else if (qtabwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = qtabwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QTabWidget::focusNextChild();
         }
+        auto focusnextchild_cb = qtabwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QTabWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,12 +1318,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_focuspreviouschild_isbase) {
             qtabwidget_focuspreviouschild_isbase = false;
             return QTabWidget::focusPreviousChild();
-        } else if (qtabwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qtabwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QTabWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qtabwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QTabWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1260,12 +1332,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_sender_isbase) {
             qtabwidget_sender_isbase = false;
             return QTabWidget::sender();
-        } else if (qtabwidget_sender_callback != nullptr) {
-            QObject* callback_ret = qtabwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return QTabWidget::sender();
         }
+        auto sender_cb = qtabwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTabWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1273,12 +1346,13 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_sendersignalindex_isbase) {
             qtabwidget_sendersignalindex_isbase = false;
             return QTabWidget::senderSignalIndex();
-        } else if (qtabwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtabwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTabWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtabwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTabWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1286,14 +1360,15 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_receivers_isbase) {
             qtabwidget_receivers_isbase = false;
             return QTabWidget::receivers(signal);
-        } else if (qtabwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtabwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtabwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTabWidget::receivers(signal);
         }
+        return QTabWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1301,16 +1376,17 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_issignalconnected_isbase) {
             qtabwidget_issignalconnected_isbase = false;
             return QTabWidget::isSignalConnected(signal);
-        } else if (qtabwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtabwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtabwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTabWidget::isSignalConnected(signal);
         }
+        return QTabWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1318,15 +1394,16 @@ class VirtualQTabWidget final : public QTabWidget {
         if (qtabwidget_getdecodedmetricf_isbase) {
             qtabwidget_getdecodedmetricf_isbase = false;
             return QTabWidget::getDecodedMetricF(metricA, metricB);
-        } else if (qtabwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qtabwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qtabwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QTabWidget::getDecodedMetricF(metricA, metricB);
         }
+        return QTabWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -231,77 +231,6 @@ class VirtualQMdiArea final : public QMdiArea {
     VirtualQMdiArea(QWidget* parent) : QMdiArea(parent) {};
     VirtualQMdiArea() : QMdiArea() {};
 
-    ~VirtualQMdiArea() {
-        qmdiarea_metaobject_callback = nullptr;
-        qmdiarea_metacast_callback = nullptr;
-        qmdiarea_metacall_callback = nullptr;
-        qmdiarea_sizehint_callback = nullptr;
-        qmdiarea_minimumsizehint_callback = nullptr;
-        qmdiarea_setupviewport_callback = nullptr;
-        qmdiarea_event_callback = nullptr;
-        qmdiarea_eventfilter_callback = nullptr;
-        qmdiarea_paintevent_callback = nullptr;
-        qmdiarea_childevent_callback = nullptr;
-        qmdiarea_resizeevent_callback = nullptr;
-        qmdiarea_timerevent_callback = nullptr;
-        qmdiarea_showevent_callback = nullptr;
-        qmdiarea_viewportevent_callback = nullptr;
-        qmdiarea_scrollcontentsby_callback = nullptr;
-        qmdiarea_mousepressevent_callback = nullptr;
-        qmdiarea_mousereleaseevent_callback = nullptr;
-        qmdiarea_mousedoubleclickevent_callback = nullptr;
-        qmdiarea_mousemoveevent_callback = nullptr;
-        qmdiarea_wheelevent_callback = nullptr;
-        qmdiarea_contextmenuevent_callback = nullptr;
-        qmdiarea_dragenterevent_callback = nullptr;
-        qmdiarea_dragmoveevent_callback = nullptr;
-        qmdiarea_dragleaveevent_callback = nullptr;
-        qmdiarea_dropevent_callback = nullptr;
-        qmdiarea_keypressevent_callback = nullptr;
-        qmdiarea_viewportsizehint_callback = nullptr;
-        qmdiarea_changeevent_callback = nullptr;
-        qmdiarea_initstyleoption_callback = nullptr;
-        qmdiarea_devtype_callback = nullptr;
-        qmdiarea_setvisible_callback = nullptr;
-        qmdiarea_heightforwidth_callback = nullptr;
-        qmdiarea_hasheightforwidth_callback = nullptr;
-        qmdiarea_paintengine_callback = nullptr;
-        qmdiarea_keyreleaseevent_callback = nullptr;
-        qmdiarea_focusinevent_callback = nullptr;
-        qmdiarea_focusoutevent_callback = nullptr;
-        qmdiarea_enterevent_callback = nullptr;
-        qmdiarea_leaveevent_callback = nullptr;
-        qmdiarea_moveevent_callback = nullptr;
-        qmdiarea_closeevent_callback = nullptr;
-        qmdiarea_tabletevent_callback = nullptr;
-        qmdiarea_actionevent_callback = nullptr;
-        qmdiarea_hideevent_callback = nullptr;
-        qmdiarea_nativeevent_callback = nullptr;
-        qmdiarea_metric_callback = nullptr;
-        qmdiarea_initpainter_callback = nullptr;
-        qmdiarea_redirected_callback = nullptr;
-        qmdiarea_sharedpainter_callback = nullptr;
-        qmdiarea_inputmethodevent_callback = nullptr;
-        qmdiarea_inputmethodquery_callback = nullptr;
-        qmdiarea_focusnextprevchild_callback = nullptr;
-        qmdiarea_customevent_callback = nullptr;
-        qmdiarea_connectnotify_callback = nullptr;
-        qmdiarea_disconnectnotify_callback = nullptr;
-        qmdiarea_setviewportmargins_callback = nullptr;
-        qmdiarea_viewportmargins_callback = nullptr;
-        qmdiarea_drawframe_callback = nullptr;
-        qmdiarea_updatemicrofocus_callback = nullptr;
-        qmdiarea_create_callback = nullptr;
-        qmdiarea_destroy_callback = nullptr;
-        qmdiarea_focusnextchild_callback = nullptr;
-        qmdiarea_focuspreviouschild_callback = nullptr;
-        qmdiarea_sender_callback = nullptr;
-        qmdiarea_sendersignalindex_callback = nullptr;
-        qmdiarea_receivers_callback = nullptr;
-        qmdiarea_issignalconnected_callback = nullptr;
-        qmdiarea_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMdiArea_MetaObject_Callback(QMdiArea_MetaObject_Callback cb) { qmdiarea_metaobject_callback = cb; }
     inline void setQMdiArea_Metacast_Callback(QMdiArea_Metacast_Callback cb) { qmdiarea_metacast_callback = cb; }
@@ -447,12 +376,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_metaobject_isbase) {
             qmdiarea_metaobject_isbase = false;
             return QMdiArea::metaObject();
-        } else if (qmdiarea_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qmdiarea_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QMdiArea::metaObject();
         }
+        auto metaobject_cb = qmdiarea_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QMdiArea::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -460,14 +390,15 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_metacast_isbase) {
             qmdiarea_metacast_isbase = false;
             return QMdiArea::qt_metacast(param1);
-        } else if (qmdiarea_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qmdiarea_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qmdiarea_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiArea::qt_metacast(param1);
         }
+        return QMdiArea::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -475,16 +406,17 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_metacall_isbase) {
             qmdiarea_metacall_isbase = false;
             return QMdiArea::qt_metacall(param1, param2, param3);
-        } else if (qmdiarea_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qmdiarea_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qmdiarea_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMdiArea::qt_metacall(param1, param2, param3);
         }
+        return QMdiArea::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,12 +424,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_sizehint_isbase) {
             qmdiarea_sizehint_isbase = false;
             return QMdiArea::sizeHint();
-        } else if (qmdiarea_sizehint_callback != nullptr) {
-            QSize* callback_ret = qmdiarea_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QMdiArea::sizeHint();
         }
+        auto sizehint_cb = qmdiarea_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QMdiArea::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -505,12 +438,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_minimumsizehint_isbase) {
             qmdiarea_minimumsizehint_isbase = false;
             return QMdiArea::minimumSizeHint();
-        } else if (qmdiarea_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qmdiarea_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QMdiArea::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qmdiarea_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QMdiArea::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,13 +452,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_setupviewport_isbase) {
             qmdiarea_setupviewport_isbase = false;
             QMdiArea::setupViewport(viewport);
-        } else if (qmdiarea_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = qmdiarea_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            qmdiarea_setupviewport_callback(this, cbval1);
-        } else {
-            QMdiArea::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        QMdiArea::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -532,14 +469,15 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_event_isbase) {
             qmdiarea_event_isbase = false;
             return QMdiArea::event(event);
-        } else if (qmdiarea_event_callback != nullptr) {
+        }
+        auto event_cb = qmdiarea_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qmdiarea_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiArea::event(event);
         }
+        return QMdiArea::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,15 +485,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_eventfilter_isbase) {
             qmdiarea_eventfilter_isbase = false;
             return QMdiArea::eventFilter(object, event);
-        } else if (qmdiarea_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qmdiarea_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qmdiarea_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QMdiArea::eventFilter(object, event);
         }
+        return QMdiArea::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -563,13 +502,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_paintevent_isbase) {
             qmdiarea_paintevent_isbase = false;
             QMdiArea::paintEvent(paintEvent);
-        } else if (qmdiarea_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qmdiarea_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = paintEvent;
 
-            qmdiarea_paintevent_callback(this, cbval1);
-        } else {
-            QMdiArea::paintEvent(paintEvent);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::paintEvent(paintEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,13 +519,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_childevent_isbase) {
             qmdiarea_childevent_isbase = false;
             QMdiArea::childEvent(childEvent);
-        } else if (qmdiarea_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qmdiarea_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = childEvent;
 
-            qmdiarea_childevent_callback(this, cbval1);
-        } else {
-            QMdiArea::childEvent(childEvent);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::childEvent(childEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -591,13 +536,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_resizeevent_isbase) {
             qmdiarea_resizeevent_isbase = false;
             QMdiArea::resizeEvent(resizeEvent);
-        } else if (qmdiarea_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qmdiarea_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = resizeEvent;
 
-            qmdiarea_resizeevent_callback(this, cbval1);
-        } else {
-            QMdiArea::resizeEvent(resizeEvent);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::resizeEvent(resizeEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -605,13 +553,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_timerevent_isbase) {
             qmdiarea_timerevent_isbase = false;
             QMdiArea::timerEvent(timerEvent);
-        } else if (qmdiarea_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qmdiarea_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = timerEvent;
 
-            qmdiarea_timerevent_callback(this, cbval1);
-        } else {
-            QMdiArea::timerEvent(timerEvent);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::timerEvent(timerEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,13 +570,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_showevent_isbase) {
             qmdiarea_showevent_isbase = false;
             QMdiArea::showEvent(showEvent);
-        } else if (qmdiarea_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qmdiarea_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = showEvent;
 
-            qmdiarea_showevent_callback(this, cbval1);
-        } else {
-            QMdiArea::showEvent(showEvent);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::showEvent(showEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,14 +587,15 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_viewportevent_isbase) {
             qmdiarea_viewportevent_isbase = false;
             return QMdiArea::viewportEvent(event);
-        } else if (qmdiarea_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = qmdiarea_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qmdiarea_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiArea::viewportEvent(event);
         }
+        return QMdiArea::viewportEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -648,14 +603,17 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_scrollcontentsby_isbase) {
             qmdiarea_scrollcontentsby_isbase = false;
             QMdiArea::scrollContentsBy(dx, dy);
-        } else if (qmdiarea_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = qmdiarea_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qmdiarea_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            QMdiArea::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        QMdiArea::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +621,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_mousepressevent_isbase) {
             qmdiarea_mousepressevent_isbase = false;
             QMdiArea::mousePressEvent(param1);
-        } else if (qmdiarea_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qmdiarea_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qmdiarea_mousepressevent_callback(this, cbval1);
-        } else {
-            QMdiArea::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,13 +638,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_mousereleaseevent_isbase) {
             qmdiarea_mousereleaseevent_isbase = false;
             QMdiArea::mouseReleaseEvent(param1);
-        } else if (qmdiarea_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qmdiarea_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qmdiarea_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QMdiArea::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,13 +655,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_mousedoubleclickevent_isbase) {
             qmdiarea_mousedoubleclickevent_isbase = false;
             QMdiArea::mouseDoubleClickEvent(param1);
-        } else if (qmdiarea_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qmdiarea_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qmdiarea_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QMdiArea::mouseDoubleClickEvent(param1);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::mouseDoubleClickEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,13 +672,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_mousemoveevent_isbase) {
             qmdiarea_mousemoveevent_isbase = false;
             QMdiArea::mouseMoveEvent(param1);
-        } else if (qmdiarea_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qmdiarea_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qmdiarea_mousemoveevent_callback(this, cbval1);
-        } else {
-            QMdiArea::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,13 +689,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_wheelevent_isbase) {
             qmdiarea_wheelevent_isbase = false;
             QMdiArea::wheelEvent(param1);
-        } else if (qmdiarea_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qmdiarea_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            qmdiarea_wheelevent_callback(this, cbval1);
-        } else {
-            QMdiArea::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,13 +706,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_contextmenuevent_isbase) {
             qmdiarea_contextmenuevent_isbase = false;
             QMdiArea::contextMenuEvent(param1);
-        } else if (qmdiarea_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qmdiarea_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qmdiarea_contextmenuevent_callback(this, cbval1);
-        } else {
-            QMdiArea::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,13 +723,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_dragenterevent_isbase) {
             qmdiarea_dragenterevent_isbase = false;
             QMdiArea::dragEnterEvent(param1);
-        } else if (qmdiarea_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qmdiarea_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
 
-            qmdiarea_dragenterevent_callback(this, cbval1);
-        } else {
-            QMdiArea::dragEnterEvent(param1);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::dragEnterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,13 +740,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_dragmoveevent_isbase) {
             qmdiarea_dragmoveevent_isbase = false;
             QMdiArea::dragMoveEvent(param1);
-        } else if (qmdiarea_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qmdiarea_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = param1;
 
-            qmdiarea_dragmoveevent_callback(this, cbval1);
-        } else {
-            QMdiArea::dragMoveEvent(param1);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::dragMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,13 +757,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_dragleaveevent_isbase) {
             qmdiarea_dragleaveevent_isbase = false;
             QMdiArea::dragLeaveEvent(param1);
-        } else if (qmdiarea_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qmdiarea_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = param1;
 
-            qmdiarea_dragleaveevent_callback(this, cbval1);
-        } else {
-            QMdiArea::dragLeaveEvent(param1);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::dragLeaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,13 +774,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_dropevent_isbase) {
             qmdiarea_dropevent_isbase = false;
             QMdiArea::dropEvent(param1);
-        } else if (qmdiarea_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qmdiarea_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
 
-            qmdiarea_dropevent_callback(this, cbval1);
-        } else {
-            QMdiArea::dropEvent(param1);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::dropEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,13 +791,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_keypressevent_isbase) {
             qmdiarea_keypressevent_isbase = false;
             QMdiArea::keyPressEvent(param1);
-        } else if (qmdiarea_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qmdiarea_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qmdiarea_keypressevent_callback(this, cbval1);
-        } else {
-            QMdiArea::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -817,12 +808,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_viewportsizehint_isbase) {
             qmdiarea_viewportsizehint_isbase = false;
             return QMdiArea::viewportSizeHint();
-        } else if (qmdiarea_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = qmdiarea_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QMdiArea::viewportSizeHint();
         }
+        auto viewportsizehint_cb = qmdiarea_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return QMdiArea::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,13 +822,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_changeevent_isbase) {
             qmdiarea_changeevent_isbase = false;
             QMdiArea::changeEvent(param1);
-        } else if (qmdiarea_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qmdiarea_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qmdiarea_changeevent_callback(this, cbval1);
-        } else {
-            QMdiArea::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -844,13 +839,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_initstyleoption_isbase) {
             qmdiarea_initstyleoption_isbase = false;
             QMdiArea::initStyleOption(option);
-        } else if (qmdiarea_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qmdiarea_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qmdiarea_initstyleoption_callback(this, cbval1);
-        } else {
-            QMdiArea::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QMdiArea::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -858,12 +856,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_devtype_isbase) {
             qmdiarea_devtype_isbase = false;
             return QMdiArea::devType();
-        } else if (qmdiarea_devtype_callback != nullptr) {
-            int callback_ret = qmdiarea_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMdiArea::devType();
         }
+        auto devtype_cb = qmdiarea_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMdiArea::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +870,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_setvisible_isbase) {
             qmdiarea_setvisible_isbase = false;
             QMdiArea::setVisible(visible);
-        } else if (qmdiarea_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qmdiarea_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qmdiarea_setvisible_callback(this, cbval1);
-        } else {
-            QMdiArea::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QMdiArea::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,14 +887,15 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_heightforwidth_isbase) {
             qmdiarea_heightforwidth_isbase = false;
             return QMdiArea::heightForWidth(param1);
-        } else if (qmdiarea_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qmdiarea_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qmdiarea_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMdiArea::heightForWidth(param1);
         }
+        return QMdiArea::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -900,12 +903,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_hasheightforwidth_isbase) {
             qmdiarea_hasheightforwidth_isbase = false;
             return QMdiArea::hasHeightForWidth();
-        } else if (qmdiarea_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qmdiarea_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QMdiArea::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qmdiarea_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QMdiArea::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,12 +917,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_paintengine_isbase) {
             qmdiarea_paintengine_isbase = false;
             return QMdiArea::paintEngine();
-        } else if (qmdiarea_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qmdiarea_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QMdiArea::paintEngine();
         }
+        auto paintengine_cb = qmdiarea_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QMdiArea::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,13 +931,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_keyreleaseevent_isbase) {
             qmdiarea_keyreleaseevent_isbase = false;
             QMdiArea::keyReleaseEvent(event);
-        } else if (qmdiarea_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qmdiarea_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qmdiarea_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QMdiArea::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +948,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_focusinevent_isbase) {
             qmdiarea_focusinevent_isbase = false;
             QMdiArea::focusInEvent(event);
-        } else if (qmdiarea_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qmdiarea_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qmdiarea_focusinevent_callback(this, cbval1);
-        } else {
-            QMdiArea::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +965,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_focusoutevent_isbase) {
             qmdiarea_focusoutevent_isbase = false;
             QMdiArea::focusOutEvent(event);
-        } else if (qmdiarea_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qmdiarea_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qmdiarea_focusoutevent_callback(this, cbval1);
-        } else {
-            QMdiArea::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +982,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_enterevent_isbase) {
             qmdiarea_enterevent_isbase = false;
             QMdiArea::enterEvent(event);
-        } else if (qmdiarea_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qmdiarea_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qmdiarea_enterevent_callback(this, cbval1);
-        } else {
-            QMdiArea::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,13 +999,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_leaveevent_isbase) {
             qmdiarea_leaveevent_isbase = false;
             QMdiArea::leaveEvent(event);
-        } else if (qmdiarea_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qmdiarea_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qmdiarea_leaveevent_callback(this, cbval1);
-        } else {
-            QMdiArea::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,13 +1016,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_moveevent_isbase) {
             qmdiarea_moveevent_isbase = false;
             QMdiArea::moveEvent(event);
-        } else if (qmdiarea_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qmdiarea_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qmdiarea_moveevent_callback(this, cbval1);
-        } else {
-            QMdiArea::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1010,13 +1033,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_closeevent_isbase) {
             qmdiarea_closeevent_isbase = false;
             QMdiArea::closeEvent(event);
-        } else if (qmdiarea_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qmdiarea_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qmdiarea_closeevent_callback(this, cbval1);
-        } else {
-            QMdiArea::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,13 +1050,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_tabletevent_isbase) {
             qmdiarea_tabletevent_isbase = false;
             QMdiArea::tabletEvent(event);
-        } else if (qmdiarea_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qmdiarea_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qmdiarea_tabletevent_callback(this, cbval1);
-        } else {
-            QMdiArea::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1038,13 +1067,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_actionevent_isbase) {
             qmdiarea_actionevent_isbase = false;
             QMdiArea::actionEvent(event);
-        } else if (qmdiarea_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qmdiarea_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qmdiarea_actionevent_callback(this, cbval1);
-        } else {
-            QMdiArea::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1052,13 +1084,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_hideevent_isbase) {
             qmdiarea_hideevent_isbase = false;
             QMdiArea::hideEvent(event);
-        } else if (qmdiarea_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qmdiarea_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qmdiarea_hideevent_callback(this, cbval1);
-        } else {
-            QMdiArea::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1066,7 +1101,9 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_nativeevent_isbase) {
             qmdiarea_nativeevent_isbase = false;
             return QMdiArea::nativeEvent(eventType, message, result);
-        } else if (qmdiarea_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qmdiarea_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1077,12 +1114,11 @@ class VirtualQMdiArea final : public QMdiArea {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qmdiarea_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QMdiArea::nativeEvent(eventType, message, result);
         }
+        return QMdiArea::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1090,14 +1126,15 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_metric_isbase) {
             qmdiarea_metric_isbase = false;
             return QMdiArea::metric(param1);
-        } else if (qmdiarea_metric_callback != nullptr) {
+        }
+        auto metric_cb = qmdiarea_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qmdiarea_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMdiArea::metric(param1);
         }
+        return QMdiArea::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,13 +1142,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_initpainter_isbase) {
             qmdiarea_initpainter_isbase = false;
             QMdiArea::initPainter(painter);
-        } else if (qmdiarea_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qmdiarea_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qmdiarea_initpainter_callback(this, cbval1);
-        } else {
-            QMdiArea::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QMdiArea::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1119,14 +1159,15 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_redirected_isbase) {
             qmdiarea_redirected_isbase = false;
             return QMdiArea::redirected(offset);
-        } else if (qmdiarea_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qmdiarea_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qmdiarea_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiArea::redirected(offset);
         }
+        return QMdiArea::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1134,12 +1175,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_sharedpainter_isbase) {
             qmdiarea_sharedpainter_isbase = false;
             return QMdiArea::sharedPainter();
-        } else if (qmdiarea_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qmdiarea_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QMdiArea::sharedPainter();
         }
+        auto sharedpainter_cb = qmdiarea_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QMdiArea::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1147,13 +1189,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_inputmethodevent_isbase) {
             qmdiarea_inputmethodevent_isbase = false;
             QMdiArea::inputMethodEvent(param1);
-        } else if (qmdiarea_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qmdiarea_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qmdiarea_inputmethodevent_callback(this, cbval1);
-        } else {
-            QMdiArea::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1161,14 +1206,15 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_inputmethodquery_isbase) {
             qmdiarea_inputmethodquery_isbase = false;
             return QMdiArea::inputMethodQuery(param1);
-        } else if (qmdiarea_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qmdiarea_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qmdiarea_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QMdiArea::inputMethodQuery(param1);
         }
+        return QMdiArea::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1176,14 +1222,15 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_focusnextprevchild_isbase) {
             qmdiarea_focusnextprevchild_isbase = false;
             return QMdiArea::focusNextPrevChild(next);
-        } else if (qmdiarea_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qmdiarea_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qmdiarea_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiArea::focusNextPrevChild(next);
         }
+        return QMdiArea::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1191,13 +1238,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_customevent_isbase) {
             qmdiarea_customevent_isbase = false;
             QMdiArea::customEvent(event);
-        } else if (qmdiarea_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qmdiarea_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qmdiarea_customevent_callback(this, cbval1);
-        } else {
-            QMdiArea::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QMdiArea::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,15 +1255,18 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_connectnotify_isbase) {
             qmdiarea_connectnotify_isbase = false;
             QMdiArea::connectNotify(signal);
-        } else if (qmdiarea_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qmdiarea_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmdiarea_connectnotify_callback(this, cbval1);
-        } else {
-            QMdiArea::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QMdiArea::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,15 +1274,18 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_disconnectnotify_isbase) {
             qmdiarea_disconnectnotify_isbase = false;
             QMdiArea::disconnectNotify(signal);
-        } else if (qmdiarea_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qmdiarea_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmdiarea_disconnectnotify_callback(this, cbval1);
-        } else {
-            QMdiArea::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QMdiArea::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1237,16 +1293,19 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_setviewportmargins_isbase) {
             qmdiarea_setviewportmargins_isbase = false;
             QMdiArea::setViewportMargins(left, top, right, bottom);
-        } else if (qmdiarea_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = qmdiarea_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            qmdiarea_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QMdiArea::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QMdiArea::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1254,12 +1313,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_viewportmargins_isbase) {
             qmdiarea_viewportmargins_isbase = false;
             return QMdiArea::viewportMargins();
-        } else if (qmdiarea_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = qmdiarea_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return QMdiArea::viewportMargins();
         }
+        auto viewportmargins_cb = qmdiarea_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return QMdiArea::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1267,13 +1327,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_drawframe_isbase) {
             qmdiarea_drawframe_isbase = false;
             QMdiArea::drawFrame(param1);
-        } else if (qmdiarea_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qmdiarea_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qmdiarea_drawframe_callback(this, cbval1);
-        } else {
-            QMdiArea::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QMdiArea::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1281,11 +1344,14 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_updatemicrofocus_isbase) {
             qmdiarea_updatemicrofocus_isbase = false;
             QMdiArea::updateMicroFocus();
-        } else if (qmdiarea_updatemicrofocus_callback != nullptr) {
-            qmdiarea_updatemicrofocus_callback();
-        } else {
-            QMdiArea::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qmdiarea_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QMdiArea::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1293,11 +1359,14 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_create_isbase) {
             qmdiarea_create_isbase = false;
             QMdiArea::create();
-        } else if (qmdiarea_create_callback != nullptr) {
-            qmdiarea_create_callback();
-        } else {
-            QMdiArea::create();
+            return;
         }
+        auto create_cb = qmdiarea_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QMdiArea::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1305,11 +1374,14 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_destroy_isbase) {
             qmdiarea_destroy_isbase = false;
             QMdiArea::destroy();
-        } else if (qmdiarea_destroy_callback != nullptr) {
-            qmdiarea_destroy_callback();
-        } else {
-            QMdiArea::destroy();
+            return;
         }
+        auto destroy_cb = qmdiarea_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QMdiArea::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1317,12 +1389,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_focusnextchild_isbase) {
             qmdiarea_focusnextchild_isbase = false;
             return QMdiArea::focusNextChild();
-        } else if (qmdiarea_focusnextchild_callback != nullptr) {
-            bool callback_ret = qmdiarea_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QMdiArea::focusNextChild();
         }
+        auto focusnextchild_cb = qmdiarea_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QMdiArea::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1330,12 +1403,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_focuspreviouschild_isbase) {
             qmdiarea_focuspreviouschild_isbase = false;
             return QMdiArea::focusPreviousChild();
-        } else if (qmdiarea_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qmdiarea_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QMdiArea::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qmdiarea_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QMdiArea::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1343,12 +1417,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_sender_isbase) {
             qmdiarea_sender_isbase = false;
             return QMdiArea::sender();
-        } else if (qmdiarea_sender_callback != nullptr) {
-            QObject* callback_ret = qmdiarea_sender_callback();
-            return callback_ret;
-        } else {
-            return QMdiArea::sender();
         }
+        auto sender_cb = qmdiarea_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QMdiArea::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1356,12 +1431,13 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_sendersignalindex_isbase) {
             qmdiarea_sendersignalindex_isbase = false;
             return QMdiArea::senderSignalIndex();
-        } else if (qmdiarea_sendersignalindex_callback != nullptr) {
-            int callback_ret = qmdiarea_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMdiArea::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qmdiarea_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMdiArea::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1369,14 +1445,15 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_receivers_isbase) {
             qmdiarea_receivers_isbase = false;
             return QMdiArea::receivers(signal);
-        } else if (qmdiarea_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qmdiarea_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qmdiarea_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMdiArea::receivers(signal);
         }
+        return QMdiArea::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1384,16 +1461,17 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_issignalconnected_isbase) {
             qmdiarea_issignalconnected_isbase = false;
             return QMdiArea::isSignalConnected(signal);
-        } else if (qmdiarea_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qmdiarea_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qmdiarea_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiArea::isSignalConnected(signal);
         }
+        return QMdiArea::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1401,15 +1479,16 @@ class VirtualQMdiArea final : public QMdiArea {
         if (qmdiarea_getdecodedmetricf_isbase) {
             qmdiarea_getdecodedmetricf_isbase = false;
             return QMdiArea::getDecodedMetricF(metricA, metricB);
-        } else if (qmdiarea_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qmdiarea_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qmdiarea_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QMdiArea::getDecodedMetricF(metricA, metricB);
         }
+        return QMdiArea::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

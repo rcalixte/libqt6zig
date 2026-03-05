@@ -69,23 +69,6 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
     VirtualKXMLGUIClient() : KXMLGUIClient() {};
     VirtualKXMLGUIClient(KXMLGUIClient* parent) : KXMLGUIClient(parent) {};
 
-    ~VirtualKXMLGUIClient() {
-        kxmlguiclient_action2_callback = nullptr;
-        kxmlguiclient_actioncollection_callback = nullptr;
-        kxmlguiclient_componentname_callback = nullptr;
-        kxmlguiclient_domdocument_callback = nullptr;
-        kxmlguiclient_xmlfile_callback = nullptr;
-        kxmlguiclient_localxmlfile_callback = nullptr;
-        kxmlguiclient_setcomponentname_callback = nullptr;
-        kxmlguiclient_setxmlfile_callback = nullptr;
-        kxmlguiclient_setlocalxmlfile_callback = nullptr;
-        kxmlguiclient_setxml_callback = nullptr;
-        kxmlguiclient_setdomdocument_callback = nullptr;
-        kxmlguiclient_statechanged_callback = nullptr;
-        kxmlguiclient_standardsxmlfilelocation_callback = nullptr;
-        kxmlguiclient_loadstandardsxmlfile_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKXMLGUIClient_Action2_Callback(KXMLGUIClient_Action2_Callback cb) { kxmlguiclient_action2_callback = cb; }
     inline void setKXMLGUIClient_ActionCollection_Callback(KXMLGUIClient_ActionCollection_Callback cb) { kxmlguiclient_actioncollection_callback = cb; }
@@ -123,16 +106,17 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_action2_isbase) {
             kxmlguiclient_action2_isbase = false;
             return KXMLGUIClient::action(element);
-        } else if (kxmlguiclient_action2_callback != nullptr) {
+        }
+        auto action2_cb = kxmlguiclient_action2_callback;
+        if (action2_cb) {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
 
-            QAction* callback_ret = kxmlguiclient_action2_callback(this, cbval1);
+            QAction* callback_ret = action2_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXMLGUIClient::action(element);
         }
+        return KXMLGUIClient::action(element);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -140,12 +124,13 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_actioncollection_isbase) {
             kxmlguiclient_actioncollection_isbase = false;
             return KXMLGUIClient::actionCollection();
-        } else if (kxmlguiclient_actioncollection_callback != nullptr) {
-            KActionCollection* callback_ret = kxmlguiclient_actioncollection_callback();
-            return callback_ret;
-        } else {
-            return KXMLGUIClient::actionCollection();
         }
+        auto actioncollection_cb = kxmlguiclient_actioncollection_callback;
+        if (actioncollection_cb) {
+            KActionCollection* callback_ret = actioncollection_cb();
+            return callback_ret;
+        }
+        return KXMLGUIClient::actionCollection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,13 +138,14 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_componentname_isbase) {
             kxmlguiclient_componentname_isbase = false;
             return KXMLGUIClient::componentName();
-        } else if (kxmlguiclient_componentname_callback != nullptr) {
-            const char* callback_ret = kxmlguiclient_componentname_callback();
+        }
+        auto componentname_cb = kxmlguiclient_componentname_callback;
+        if (componentname_cb) {
+            const char* callback_ret = componentname_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KXMLGUIClient::componentName();
         }
+        return KXMLGUIClient::componentName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -167,12 +153,13 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_domdocument_isbase) {
             kxmlguiclient_domdocument_isbase = false;
             return KXMLGUIClient::domDocument();
-        } else if (kxmlguiclient_domdocument_callback != nullptr) {
-            QDomDocument* callback_ret = kxmlguiclient_domdocument_callback();
-            return *callback_ret;
-        } else {
-            return KXMLGUIClient::domDocument();
         }
+        auto domdocument_cb = kxmlguiclient_domdocument_callback;
+        if (domdocument_cb) {
+            QDomDocument* callback_ret = domdocument_cb();
+            return *callback_ret;
+        }
+        return KXMLGUIClient::domDocument();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,13 +167,14 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_xmlfile_isbase) {
             kxmlguiclient_xmlfile_isbase = false;
             return KXMLGUIClient::xmlFile();
-        } else if (kxmlguiclient_xmlfile_callback != nullptr) {
-            const char* callback_ret = kxmlguiclient_xmlfile_callback();
+        }
+        auto xmlfile_cb = kxmlguiclient_xmlfile_callback;
+        if (xmlfile_cb) {
+            const char* callback_ret = xmlfile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KXMLGUIClient::xmlFile();
         }
+        return KXMLGUIClient::xmlFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,13 +182,14 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_localxmlfile_isbase) {
             kxmlguiclient_localxmlfile_isbase = false;
             return KXMLGUIClient::localXMLFile();
-        } else if (kxmlguiclient_localxmlfile_callback != nullptr) {
-            const char* callback_ret = kxmlguiclient_localxmlfile_callback();
+        }
+        auto localxmlfile_cb = kxmlguiclient_localxmlfile_callback;
+        if (localxmlfile_cb) {
+            const char* callback_ret = localxmlfile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KXMLGUIClient::localXMLFile();
         }
+        return KXMLGUIClient::localXMLFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -208,7 +197,10 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_setcomponentname_isbase) {
             kxmlguiclient_setcomponentname_isbase = false;
             KXMLGUIClient::setComponentName(componentName, componentDisplayName);
-        } else if (kxmlguiclient_setcomponentname_callback != nullptr) {
+            return;
+        }
+        auto setcomponentname_cb = kxmlguiclient_setcomponentname_callback;
+        if (setcomponentname_cb) {
             const QString componentName_ret = componentName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
@@ -226,12 +218,12 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
 
-            kxmlguiclient_setcomponentname_callback(this, cbval1, cbval2);
+            setcomponentname_cb(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
-        } else {
-            KXMLGUIClient::setComponentName(componentName, componentDisplayName);
+            return;
         }
+        KXMLGUIClient::setComponentName(componentName, componentDisplayName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -239,7 +231,10 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_setxmlfile_isbase) {
             kxmlguiclient_setxmlfile_isbase = false;
             KXMLGUIClient::setXMLFile(file, merge, setXMLDoc);
-        } else if (kxmlguiclient_setxmlfile_callback != nullptr) {
+            return;
+        }
+        auto setxmlfile_cb = kxmlguiclient_setxmlfile_callback;
+        if (setxmlfile_cb) {
             const QString file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -251,11 +246,11 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
 
-            kxmlguiclient_setxmlfile_callback(this, cbval1, cbval2, cbval3);
+            setxmlfile_cb(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
-        } else {
-            KXMLGUIClient::setXMLFile(file, merge, setXMLDoc);
+            return;
         }
+        KXMLGUIClient::setXMLFile(file, merge, setXMLDoc);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,7 +258,10 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_setlocalxmlfile_isbase) {
             kxmlguiclient_setlocalxmlfile_isbase = false;
             KXMLGUIClient::setLocalXMLFile(file);
-        } else if (kxmlguiclient_setlocalxmlfile_callback != nullptr) {
+            return;
+        }
+        auto setlocalxmlfile_cb = kxmlguiclient_setlocalxmlfile_callback;
+        if (setlocalxmlfile_cb) {
             const QString file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -273,11 +271,11 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
 
-            kxmlguiclient_setlocalxmlfile_callback(this, cbval1);
+            setlocalxmlfile_cb(this, cbval1);
             libqt_free(file_str);
-        } else {
-            KXMLGUIClient::setLocalXMLFile(file);
+            return;
         }
+        KXMLGUIClient::setLocalXMLFile(file);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,7 +283,10 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_setxml_isbase) {
             kxmlguiclient_setxml_isbase = false;
             KXMLGUIClient::setXML(document, merge);
-        } else if (kxmlguiclient_setxml_callback != nullptr) {
+            return;
+        }
+        auto setxml_cb = kxmlguiclient_setxml_callback;
+        if (setxml_cb) {
             const QString document_ret = document;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
@@ -296,11 +297,11 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
             const char* cbval1 = document_str;
             bool cbval2 = merge;
 
-            kxmlguiclient_setxml_callback(this, cbval1, cbval2);
+            setxml_cb(this, cbval1, cbval2);
             libqt_free(document_str);
-        } else {
-            KXMLGUIClient::setXML(document, merge);
+            return;
         }
+        KXMLGUIClient::setXML(document, merge);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,16 +309,19 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_setdomdocument_isbase) {
             kxmlguiclient_setdomdocument_isbase = false;
             KXMLGUIClient::setDOMDocument(document, merge);
-        } else if (kxmlguiclient_setdomdocument_callback != nullptr) {
+            return;
+        }
+        auto setdomdocument_cb = kxmlguiclient_setdomdocument_callback;
+        if (setdomdocument_cb) {
             const QDomDocument& document_ret = document;
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
 
-            kxmlguiclient_setdomdocument_callback(this, cbval1, cbval2);
-        } else {
-            KXMLGUIClient::setDOMDocument(document, merge);
+            setdomdocument_cb(this, cbval1, cbval2);
+            return;
         }
+        KXMLGUIClient::setDOMDocument(document, merge);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -325,7 +329,10 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_statechanged_isbase) {
             kxmlguiclient_statechanged_isbase = false;
             KXMLGUIClient::stateChanged(newstate, reverse);
-        } else if (kxmlguiclient_statechanged_callback != nullptr) {
+            return;
+        }
+        auto statechanged_cb = kxmlguiclient_statechanged_callback;
+        if (statechanged_cb) {
             const QString newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -336,11 +343,11 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
 
-            kxmlguiclient_statechanged_callback(this, cbval1, cbval2);
+            statechanged_cb(this, cbval1, cbval2);
             libqt_free(newstate_str);
-        } else {
-            KXMLGUIClient::stateChanged(newstate, reverse);
+            return;
         }
+        KXMLGUIClient::stateChanged(newstate, reverse);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -348,13 +355,14 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_standardsxmlfilelocation_isbase) {
             kxmlguiclient_standardsxmlfilelocation_isbase = false;
             return KXMLGUIClient::standardsXmlFileLocation();
-        } else if (kxmlguiclient_standardsxmlfilelocation_callback != nullptr) {
-            const char* callback_ret = kxmlguiclient_standardsxmlfilelocation_callback();
+        }
+        auto standardsxmlfilelocation_cb = kxmlguiclient_standardsxmlfilelocation_callback;
+        if (standardsxmlfilelocation_cb) {
+            const char* callback_ret = standardsxmlfilelocation_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KXMLGUIClient::standardsXmlFileLocation();
         }
+        return KXMLGUIClient::standardsXmlFileLocation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -362,11 +370,14 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         if (kxmlguiclient_loadstandardsxmlfile_isbase) {
             kxmlguiclient_loadstandardsxmlfile_isbase = false;
             KXMLGUIClient::loadStandardsXmlFile();
-        } else if (kxmlguiclient_loadstandardsxmlfile_callback != nullptr) {
-            kxmlguiclient_loadstandardsxmlfile_callback();
-        } else {
-            KXMLGUIClient::loadStandardsXmlFile();
+            return;
         }
+        auto loadstandardsxmlfile_cb = kxmlguiclient_loadstandardsxmlfile_callback;
+        if (loadstandardsxmlfile_cb) {
+            loadstandardsxmlfile_cb();
+            return;
+        }
+        KXMLGUIClient::loadStandardsXmlFile();
     }
 
     // Friend functions

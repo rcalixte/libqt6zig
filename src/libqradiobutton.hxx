@@ -221,73 +221,6 @@ class VirtualQRadioButton final : public QRadioButton {
     VirtualQRadioButton(const QString& text) : QRadioButton(text) {};
     VirtualQRadioButton(const QString& text, QWidget* parent) : QRadioButton(text, parent) {};
 
-    ~VirtualQRadioButton() {
-        qradiobutton_metaobject_callback = nullptr;
-        qradiobutton_metacast_callback = nullptr;
-        qradiobutton_metacall_callback = nullptr;
-        qradiobutton_sizehint_callback = nullptr;
-        qradiobutton_minimumsizehint_callback = nullptr;
-        qradiobutton_event_callback = nullptr;
-        qradiobutton_hitbutton_callback = nullptr;
-        qradiobutton_paintevent_callback = nullptr;
-        qradiobutton_mousemoveevent_callback = nullptr;
-        qradiobutton_initstyleoption_callback = nullptr;
-        qradiobutton_checkstateset_callback = nullptr;
-        qradiobutton_nextcheckstate_callback = nullptr;
-        qradiobutton_keypressevent_callback = nullptr;
-        qradiobutton_keyreleaseevent_callback = nullptr;
-        qradiobutton_mousepressevent_callback = nullptr;
-        qradiobutton_mousereleaseevent_callback = nullptr;
-        qradiobutton_focusinevent_callback = nullptr;
-        qradiobutton_focusoutevent_callback = nullptr;
-        qradiobutton_changeevent_callback = nullptr;
-        qradiobutton_timerevent_callback = nullptr;
-        qradiobutton_devtype_callback = nullptr;
-        qradiobutton_setvisible_callback = nullptr;
-        qradiobutton_heightforwidth_callback = nullptr;
-        qradiobutton_hasheightforwidth_callback = nullptr;
-        qradiobutton_paintengine_callback = nullptr;
-        qradiobutton_mousedoubleclickevent_callback = nullptr;
-        qradiobutton_wheelevent_callback = nullptr;
-        qradiobutton_enterevent_callback = nullptr;
-        qradiobutton_leaveevent_callback = nullptr;
-        qradiobutton_moveevent_callback = nullptr;
-        qradiobutton_resizeevent_callback = nullptr;
-        qradiobutton_closeevent_callback = nullptr;
-        qradiobutton_contextmenuevent_callback = nullptr;
-        qradiobutton_tabletevent_callback = nullptr;
-        qradiobutton_actionevent_callback = nullptr;
-        qradiobutton_dragenterevent_callback = nullptr;
-        qradiobutton_dragmoveevent_callback = nullptr;
-        qradiobutton_dragleaveevent_callback = nullptr;
-        qradiobutton_dropevent_callback = nullptr;
-        qradiobutton_showevent_callback = nullptr;
-        qradiobutton_hideevent_callback = nullptr;
-        qradiobutton_nativeevent_callback = nullptr;
-        qradiobutton_metric_callback = nullptr;
-        qradiobutton_initpainter_callback = nullptr;
-        qradiobutton_redirected_callback = nullptr;
-        qradiobutton_sharedpainter_callback = nullptr;
-        qradiobutton_inputmethodevent_callback = nullptr;
-        qradiobutton_inputmethodquery_callback = nullptr;
-        qradiobutton_focusnextprevchild_callback = nullptr;
-        qradiobutton_eventfilter_callback = nullptr;
-        qradiobutton_childevent_callback = nullptr;
-        qradiobutton_customevent_callback = nullptr;
-        qradiobutton_connectnotify_callback = nullptr;
-        qradiobutton_disconnectnotify_callback = nullptr;
-        qradiobutton_updatemicrofocus_callback = nullptr;
-        qradiobutton_create_callback = nullptr;
-        qradiobutton_destroy_callback = nullptr;
-        qradiobutton_focusnextchild_callback = nullptr;
-        qradiobutton_focuspreviouschild_callback = nullptr;
-        qradiobutton_sender_callback = nullptr;
-        qradiobutton_sendersignalindex_callback = nullptr;
-        qradiobutton_receivers_callback = nullptr;
-        qradiobutton_issignalconnected_callback = nullptr;
-        qradiobutton_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQRadioButton_MetaObject_Callback(QRadioButton_MetaObject_Callback cb) { qradiobutton_metaobject_callback = cb; }
     inline void setQRadioButton_Metacast_Callback(QRadioButton_Metacast_Callback cb) { qradiobutton_metacast_callback = cb; }
@@ -425,12 +358,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_metaobject_isbase) {
             qradiobutton_metaobject_isbase = false;
             return QRadioButton::metaObject();
-        } else if (qradiobutton_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qradiobutton_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QRadioButton::metaObject();
         }
+        auto metaobject_cb = qradiobutton_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QRadioButton::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -438,14 +372,15 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_metacast_isbase) {
             qradiobutton_metacast_isbase = false;
             return QRadioButton::qt_metacast(param1);
-        } else if (qradiobutton_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qradiobutton_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qradiobutton_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRadioButton::qt_metacast(param1);
         }
+        return QRadioButton::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -453,16 +388,17 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_metacall_isbase) {
             qradiobutton_metacall_isbase = false;
             return QRadioButton::qt_metacall(param1, param2, param3);
-        } else if (qradiobutton_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qradiobutton_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qradiobutton_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRadioButton::qt_metacall(param1, param2, param3);
         }
+        return QRadioButton::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,12 +406,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_sizehint_isbase) {
             qradiobutton_sizehint_isbase = false;
             return QRadioButton::sizeHint();
-        } else if (qradiobutton_sizehint_callback != nullptr) {
-            QSize* callback_ret = qradiobutton_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QRadioButton::sizeHint();
         }
+        auto sizehint_cb = qradiobutton_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QRadioButton::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,12 +420,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_minimumsizehint_isbase) {
             qradiobutton_minimumsizehint_isbase = false;
             return QRadioButton::minimumSizeHint();
-        } else if (qradiobutton_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qradiobutton_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QRadioButton::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qradiobutton_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QRadioButton::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,14 +434,15 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_event_isbase) {
             qradiobutton_event_isbase = false;
             return QRadioButton::event(e);
-        } else if (qradiobutton_event_callback != nullptr) {
+        }
+        auto event_cb = qradiobutton_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qradiobutton_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRadioButton::event(e);
         }
+        return QRadioButton::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,16 +450,17 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_hitbutton_isbase) {
             qradiobutton_hitbutton_isbase = false;
             return QRadioButton::hitButton(param1);
-        } else if (qradiobutton_hitbutton_callback != nullptr) {
+        }
+        auto hitbutton_cb = qradiobutton_hitbutton_callback;
+        if (hitbutton_cb) {
             const QPoint& param1_ret = param1;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&param1_ret);
 
-            bool callback_ret = qradiobutton_hitbutton_callback(this, cbval1);
+            bool callback_ret = hitbutton_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRadioButton::hitButton(param1);
         }
+        return QRadioButton::hitButton(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,13 +468,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_paintevent_isbase) {
             qradiobutton_paintevent_isbase = false;
             QRadioButton::paintEvent(param1);
-        } else if (qradiobutton_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qradiobutton_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qradiobutton_paintevent_callback(this, cbval1);
-        } else {
-            QRadioButton::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -542,13 +485,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_mousemoveevent_isbase) {
             qradiobutton_mousemoveevent_isbase = false;
             QRadioButton::mouseMoveEvent(param1);
-        } else if (qradiobutton_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qradiobutton_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qradiobutton_mousemoveevent_callback(this, cbval1);
-        } else {
-            QRadioButton::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,13 +502,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_initstyleoption_isbase) {
             qradiobutton_initstyleoption_isbase = false;
             QRadioButton::initStyleOption(button);
-        } else if (qradiobutton_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qradiobutton_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionButton* cbval1 = button;
 
-            qradiobutton_initstyleoption_callback(this, cbval1);
-        } else {
-            QRadioButton::initStyleOption(button);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QRadioButton::initStyleOption(button);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -570,11 +519,14 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_checkstateset_isbase) {
             qradiobutton_checkstateset_isbase = false;
             QRadioButton::checkStateSet();
-        } else if (qradiobutton_checkstateset_callback != nullptr) {
-            qradiobutton_checkstateset_callback();
-        } else {
-            QRadioButton::checkStateSet();
+            return;
         }
+        auto checkstateset_cb = qradiobutton_checkstateset_callback;
+        if (checkstateset_cb) {
+            checkstateset_cb();
+            return;
+        }
+        QRadioButton::checkStateSet();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,11 +534,14 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_nextcheckstate_isbase) {
             qradiobutton_nextcheckstate_isbase = false;
             QRadioButton::nextCheckState();
-        } else if (qradiobutton_nextcheckstate_callback != nullptr) {
-            qradiobutton_nextcheckstate_callback();
-        } else {
-            QRadioButton::nextCheckState();
+            return;
         }
+        auto nextcheckstate_cb = qradiobutton_nextcheckstate_callback;
+        if (nextcheckstate_cb) {
+            nextcheckstate_cb();
+            return;
+        }
+        QRadioButton::nextCheckState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,13 +549,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_keypressevent_isbase) {
             qradiobutton_keypressevent_isbase = false;
             QRadioButton::keyPressEvent(e);
-        } else if (qradiobutton_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qradiobutton_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            qradiobutton_keypressevent_callback(this, cbval1);
-        } else {
-            QRadioButton::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -608,13 +566,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_keyreleaseevent_isbase) {
             qradiobutton_keyreleaseevent_isbase = false;
             QRadioButton::keyReleaseEvent(e);
-        } else if (qradiobutton_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qradiobutton_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            qradiobutton_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QRadioButton::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,13 +583,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_mousepressevent_isbase) {
             qradiobutton_mousepressevent_isbase = false;
             QRadioButton::mousePressEvent(e);
-        } else if (qradiobutton_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qradiobutton_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            qradiobutton_mousepressevent_callback(this, cbval1);
-        } else {
-            QRadioButton::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,13 +600,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_mousereleaseevent_isbase) {
             qradiobutton_mousereleaseevent_isbase = false;
             QRadioButton::mouseReleaseEvent(e);
-        } else if (qradiobutton_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qradiobutton_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            qradiobutton_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QRadioButton::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -650,13 +617,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_focusinevent_isbase) {
             qradiobutton_focusinevent_isbase = false;
             QRadioButton::focusInEvent(e);
-        } else if (qradiobutton_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qradiobutton_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            qradiobutton_focusinevent_callback(this, cbval1);
-        } else {
-            QRadioButton::focusInEvent(e);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::focusInEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -664,13 +634,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_focusoutevent_isbase) {
             qradiobutton_focusoutevent_isbase = false;
             QRadioButton::focusOutEvent(e);
-        } else if (qradiobutton_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qradiobutton_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            qradiobutton_focusoutevent_callback(this, cbval1);
-        } else {
-            QRadioButton::focusOutEvent(e);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::focusOutEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -678,13 +651,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_changeevent_isbase) {
             qradiobutton_changeevent_isbase = false;
             QRadioButton::changeEvent(e);
-        } else if (qradiobutton_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qradiobutton_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            qradiobutton_changeevent_callback(this, cbval1);
-        } else {
-            QRadioButton::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -692,13 +668,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_timerevent_isbase) {
             qradiobutton_timerevent_isbase = false;
             QRadioButton::timerEvent(e);
-        } else if (qradiobutton_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qradiobutton_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
 
-            qradiobutton_timerevent_callback(this, cbval1);
-        } else {
-            QRadioButton::timerEvent(e);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::timerEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -706,12 +685,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_devtype_isbase) {
             qradiobutton_devtype_isbase = false;
             return QRadioButton::devType();
-        } else if (qradiobutton_devtype_callback != nullptr) {
-            int callback_ret = qradiobutton_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QRadioButton::devType();
         }
+        auto devtype_cb = qradiobutton_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QRadioButton::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,13 +699,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_setvisible_isbase) {
             qradiobutton_setvisible_isbase = false;
             QRadioButton::setVisible(visible);
-        } else if (qradiobutton_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qradiobutton_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qradiobutton_setvisible_callback(this, cbval1);
-        } else {
-            QRadioButton::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QRadioButton::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,14 +716,15 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_heightforwidth_isbase) {
             qradiobutton_heightforwidth_isbase = false;
             return QRadioButton::heightForWidth(param1);
-        } else if (qradiobutton_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qradiobutton_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qradiobutton_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRadioButton::heightForWidth(param1);
         }
+        return QRadioButton::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -748,12 +732,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_hasheightforwidth_isbase) {
             qradiobutton_hasheightforwidth_isbase = false;
             return QRadioButton::hasHeightForWidth();
-        } else if (qradiobutton_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qradiobutton_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QRadioButton::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qradiobutton_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QRadioButton::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,12 +746,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_paintengine_isbase) {
             qradiobutton_paintengine_isbase = false;
             return QRadioButton::paintEngine();
-        } else if (qradiobutton_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qradiobutton_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QRadioButton::paintEngine();
         }
+        auto paintengine_cb = qradiobutton_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QRadioButton::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -774,13 +760,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_mousedoubleclickevent_isbase) {
             qradiobutton_mousedoubleclickevent_isbase = false;
             QRadioButton::mouseDoubleClickEvent(event);
-        } else if (qradiobutton_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qradiobutton_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qradiobutton_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QRadioButton::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,13 +777,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_wheelevent_isbase) {
             qradiobutton_wheelevent_isbase = false;
             QRadioButton::wheelEvent(event);
-        } else if (qradiobutton_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qradiobutton_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qradiobutton_wheelevent_callback(this, cbval1);
-        } else {
-            QRadioButton::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,13 +794,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_enterevent_isbase) {
             qradiobutton_enterevent_isbase = false;
             QRadioButton::enterEvent(event);
-        } else if (qradiobutton_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qradiobutton_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qradiobutton_enterevent_callback(this, cbval1);
-        } else {
-            QRadioButton::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -816,13 +811,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_leaveevent_isbase) {
             qradiobutton_leaveevent_isbase = false;
             QRadioButton::leaveEvent(event);
-        } else if (qradiobutton_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qradiobutton_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qradiobutton_leaveevent_callback(this, cbval1);
-        } else {
-            QRadioButton::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,13 +828,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_moveevent_isbase) {
             qradiobutton_moveevent_isbase = false;
             QRadioButton::moveEvent(event);
-        } else if (qradiobutton_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qradiobutton_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qradiobutton_moveevent_callback(this, cbval1);
-        } else {
-            QRadioButton::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -844,13 +845,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_resizeevent_isbase) {
             qradiobutton_resizeevent_isbase = false;
             QRadioButton::resizeEvent(event);
-        } else if (qradiobutton_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qradiobutton_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qradiobutton_resizeevent_callback(this, cbval1);
-        } else {
-            QRadioButton::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -858,13 +862,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_closeevent_isbase) {
             qradiobutton_closeevent_isbase = false;
             QRadioButton::closeEvent(event);
-        } else if (qradiobutton_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qradiobutton_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qradiobutton_closeevent_callback(this, cbval1);
-        } else {
-            QRadioButton::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -872,13 +879,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_contextmenuevent_isbase) {
             qradiobutton_contextmenuevent_isbase = false;
             QRadioButton::contextMenuEvent(event);
-        } else if (qradiobutton_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qradiobutton_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qradiobutton_contextmenuevent_callback(this, cbval1);
-        } else {
-            QRadioButton::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -886,13 +896,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_tabletevent_isbase) {
             qradiobutton_tabletevent_isbase = false;
             QRadioButton::tabletEvent(event);
-        } else if (qradiobutton_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qradiobutton_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qradiobutton_tabletevent_callback(this, cbval1);
-        } else {
-            QRadioButton::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -900,13 +913,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_actionevent_isbase) {
             qradiobutton_actionevent_isbase = false;
             QRadioButton::actionEvent(event);
-        } else if (qradiobutton_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qradiobutton_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qradiobutton_actionevent_callback(this, cbval1);
-        } else {
-            QRadioButton::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -914,13 +930,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_dragenterevent_isbase) {
             qradiobutton_dragenterevent_isbase = false;
             QRadioButton::dragEnterEvent(event);
-        } else if (qradiobutton_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qradiobutton_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qradiobutton_dragenterevent_callback(this, cbval1);
-        } else {
-            QRadioButton::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -928,13 +947,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_dragmoveevent_isbase) {
             qradiobutton_dragmoveevent_isbase = false;
             QRadioButton::dragMoveEvent(event);
-        } else if (qradiobutton_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qradiobutton_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qradiobutton_dragmoveevent_callback(this, cbval1);
-        } else {
-            QRadioButton::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,13 +964,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_dragleaveevent_isbase) {
             qradiobutton_dragleaveevent_isbase = false;
             QRadioButton::dragLeaveEvent(event);
-        } else if (qradiobutton_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qradiobutton_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qradiobutton_dragleaveevent_callback(this, cbval1);
-        } else {
-            QRadioButton::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,13 +981,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_dropevent_isbase) {
             qradiobutton_dropevent_isbase = false;
             QRadioButton::dropEvent(event);
-        } else if (qradiobutton_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qradiobutton_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qradiobutton_dropevent_callback(this, cbval1);
-        } else {
-            QRadioButton::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -970,13 +998,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_showevent_isbase) {
             qradiobutton_showevent_isbase = false;
             QRadioButton::showEvent(event);
-        } else if (qradiobutton_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qradiobutton_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qradiobutton_showevent_callback(this, cbval1);
-        } else {
-            QRadioButton::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,13 +1015,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_hideevent_isbase) {
             qradiobutton_hideevent_isbase = false;
             QRadioButton::hideEvent(event);
-        } else if (qradiobutton_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qradiobutton_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qradiobutton_hideevent_callback(this, cbval1);
-        } else {
-            QRadioButton::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -998,7 +1032,9 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_nativeevent_isbase) {
             qradiobutton_nativeevent_isbase = false;
             return QRadioButton::nativeEvent(eventType, message, result);
-        } else if (qradiobutton_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qradiobutton_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1009,12 +1045,11 @@ class VirtualQRadioButton final : public QRadioButton {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qradiobutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QRadioButton::nativeEvent(eventType, message, result);
         }
+        return QRadioButton::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,14 +1057,15 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_metric_isbase) {
             qradiobutton_metric_isbase = false;
             return QRadioButton::metric(param1);
-        } else if (qradiobutton_metric_callback != nullptr) {
+        }
+        auto metric_cb = qradiobutton_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qradiobutton_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRadioButton::metric(param1);
         }
+        return QRadioButton::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,13 +1073,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_initpainter_isbase) {
             qradiobutton_initpainter_isbase = false;
             QRadioButton::initPainter(painter);
-        } else if (qradiobutton_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qradiobutton_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qradiobutton_initpainter_callback(this, cbval1);
-        } else {
-            QRadioButton::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QRadioButton::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1051,14 +1090,15 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_redirected_isbase) {
             qradiobutton_redirected_isbase = false;
             return QRadioButton::redirected(offset);
-        } else if (qradiobutton_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qradiobutton_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qradiobutton_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRadioButton::redirected(offset);
         }
+        return QRadioButton::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1066,12 +1106,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_sharedpainter_isbase) {
             qradiobutton_sharedpainter_isbase = false;
             return QRadioButton::sharedPainter();
-        } else if (qradiobutton_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qradiobutton_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QRadioButton::sharedPainter();
         }
+        auto sharedpainter_cb = qradiobutton_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QRadioButton::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1079,13 +1120,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_inputmethodevent_isbase) {
             qradiobutton_inputmethodevent_isbase = false;
             QRadioButton::inputMethodEvent(param1);
-        } else if (qradiobutton_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qradiobutton_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qradiobutton_inputmethodevent_callback(this, cbval1);
-        } else {
-            QRadioButton::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1093,14 +1137,15 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_inputmethodquery_isbase) {
             qradiobutton_inputmethodquery_isbase = false;
             return QRadioButton::inputMethodQuery(param1);
-        } else if (qradiobutton_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qradiobutton_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qradiobutton_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QRadioButton::inputMethodQuery(param1);
         }
+        return QRadioButton::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1108,14 +1153,15 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_focusnextprevchild_isbase) {
             qradiobutton_focusnextprevchild_isbase = false;
             return QRadioButton::focusNextPrevChild(next);
-        } else if (qradiobutton_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qradiobutton_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qradiobutton_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRadioButton::focusNextPrevChild(next);
         }
+        return QRadioButton::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1123,15 +1169,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_eventfilter_isbase) {
             qradiobutton_eventfilter_isbase = false;
             return QRadioButton::eventFilter(watched, event);
-        } else if (qradiobutton_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qradiobutton_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qradiobutton_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QRadioButton::eventFilter(watched, event);
         }
+        return QRadioButton::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1139,13 +1186,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_childevent_isbase) {
             qradiobutton_childevent_isbase = false;
             QRadioButton::childEvent(event);
-        } else if (qradiobutton_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qradiobutton_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qradiobutton_childevent_callback(this, cbval1);
-        } else {
-            QRadioButton::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,13 +1203,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_customevent_isbase) {
             qradiobutton_customevent_isbase = false;
             QRadioButton::customEvent(event);
-        } else if (qradiobutton_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qradiobutton_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qradiobutton_customevent_callback(this, cbval1);
-        } else {
-            QRadioButton::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QRadioButton::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,15 +1220,18 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_connectnotify_isbase) {
             qradiobutton_connectnotify_isbase = false;
             QRadioButton::connectNotify(signal);
-        } else if (qradiobutton_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qradiobutton_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qradiobutton_connectnotify_callback(this, cbval1);
-        } else {
-            QRadioButton::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QRadioButton::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,15 +1239,18 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_disconnectnotify_isbase) {
             qradiobutton_disconnectnotify_isbase = false;
             QRadioButton::disconnectNotify(signal);
-        } else if (qradiobutton_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qradiobutton_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qradiobutton_disconnectnotify_callback(this, cbval1);
-        } else {
-            QRadioButton::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QRadioButton::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1199,11 +1258,14 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_updatemicrofocus_isbase) {
             qradiobutton_updatemicrofocus_isbase = false;
             QRadioButton::updateMicroFocus();
-        } else if (qradiobutton_updatemicrofocus_callback != nullptr) {
-            qradiobutton_updatemicrofocus_callback();
-        } else {
-            QRadioButton::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qradiobutton_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QRadioButton::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1211,11 +1273,14 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_create_isbase) {
             qradiobutton_create_isbase = false;
             QRadioButton::create();
-        } else if (qradiobutton_create_callback != nullptr) {
-            qradiobutton_create_callback();
-        } else {
-            QRadioButton::create();
+            return;
         }
+        auto create_cb = qradiobutton_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QRadioButton::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1223,11 +1288,14 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_destroy_isbase) {
             qradiobutton_destroy_isbase = false;
             QRadioButton::destroy();
-        } else if (qradiobutton_destroy_callback != nullptr) {
-            qradiobutton_destroy_callback();
-        } else {
-            QRadioButton::destroy();
+            return;
         }
+        auto destroy_cb = qradiobutton_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QRadioButton::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,12 +1303,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_focusnextchild_isbase) {
             qradiobutton_focusnextchild_isbase = false;
             return QRadioButton::focusNextChild();
-        } else if (qradiobutton_focusnextchild_callback != nullptr) {
-            bool callback_ret = qradiobutton_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QRadioButton::focusNextChild();
         }
+        auto focusnextchild_cb = qradiobutton_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QRadioButton::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1248,12 +1317,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_focuspreviouschild_isbase) {
             qradiobutton_focuspreviouschild_isbase = false;
             return QRadioButton::focusPreviousChild();
-        } else if (qradiobutton_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qradiobutton_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QRadioButton::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qradiobutton_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QRadioButton::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,12 +1331,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_sender_isbase) {
             qradiobutton_sender_isbase = false;
             return QRadioButton::sender();
-        } else if (qradiobutton_sender_callback != nullptr) {
-            QObject* callback_ret = qradiobutton_sender_callback();
-            return callback_ret;
-        } else {
-            return QRadioButton::sender();
         }
+        auto sender_cb = qradiobutton_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QRadioButton::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1274,12 +1345,13 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_sendersignalindex_isbase) {
             qradiobutton_sendersignalindex_isbase = false;
             return QRadioButton::senderSignalIndex();
-        } else if (qradiobutton_sendersignalindex_callback != nullptr) {
-            int callback_ret = qradiobutton_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QRadioButton::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qradiobutton_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QRadioButton::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1287,14 +1359,15 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_receivers_isbase) {
             qradiobutton_receivers_isbase = false;
             return QRadioButton::receivers(signal);
-        } else if (qradiobutton_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qradiobutton_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qradiobutton_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRadioButton::receivers(signal);
         }
+        return QRadioButton::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1302,16 +1375,17 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_issignalconnected_isbase) {
             qradiobutton_issignalconnected_isbase = false;
             return QRadioButton::isSignalConnected(signal);
-        } else if (qradiobutton_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qradiobutton_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qradiobutton_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRadioButton::isSignalConnected(signal);
         }
+        return QRadioButton::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1319,15 +1393,16 @@ class VirtualQRadioButton final : public QRadioButton {
         if (qradiobutton_getdecodedmetricf_isbase) {
             qradiobutton_getdecodedmetricf_isbase = false;
             return QRadioButton::getDecodedMetricF(metricA, metricB);
-        } else if (qradiobutton_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qradiobutton_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qradiobutton_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QRadioButton::getDecodedMetricF(metricA, metricB);
         }
+        return QRadioButton::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

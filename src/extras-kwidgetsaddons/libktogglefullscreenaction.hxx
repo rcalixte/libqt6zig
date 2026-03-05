@@ -72,24 +72,6 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
     VirtualKToggleFullScreenAction(QObject* parent) : KToggleFullScreenAction(parent) {};
     VirtualKToggleFullScreenAction(QWidget* window, QObject* parent) : KToggleFullScreenAction(window, parent) {};
 
-    ~VirtualKToggleFullScreenAction() {
-        ktogglefullscreenaction_metaobject_callback = nullptr;
-        ktogglefullscreenaction_metacast_callback = nullptr;
-        ktogglefullscreenaction_metacall_callback = nullptr;
-        ktogglefullscreenaction_eventfilter_callback = nullptr;
-        ktogglefullscreenaction_slottoggled_callback = nullptr;
-        ktogglefullscreenaction_event_callback = nullptr;
-        ktogglefullscreenaction_timerevent_callback = nullptr;
-        ktogglefullscreenaction_childevent_callback = nullptr;
-        ktogglefullscreenaction_customevent_callback = nullptr;
-        ktogglefullscreenaction_connectnotify_callback = nullptr;
-        ktogglefullscreenaction_disconnectnotify_callback = nullptr;
-        ktogglefullscreenaction_sender_callback = nullptr;
-        ktogglefullscreenaction_sendersignalindex_callback = nullptr;
-        ktogglefullscreenaction_receivers_callback = nullptr;
-        ktogglefullscreenaction_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKToggleFullScreenAction_MetaObject_Callback(KToggleFullScreenAction_MetaObject_Callback cb) { ktogglefullscreenaction_metaobject_callback = cb; }
     inline void setKToggleFullScreenAction_Metacast_Callback(KToggleFullScreenAction_Metacast_Callback cb) { ktogglefullscreenaction_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_metaobject_isbase) {
             ktogglefullscreenaction_metaobject_isbase = false;
             return KToggleFullScreenAction::metaObject();
-        } else if (ktogglefullscreenaction_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktogglefullscreenaction_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KToggleFullScreenAction::metaObject();
         }
+        auto metaobject_cb = ktogglefullscreenaction_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KToggleFullScreenAction::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_metacast_isbase) {
             ktogglefullscreenaction_metacast_isbase = false;
             return KToggleFullScreenAction::qt_metacast(param1);
-        } else if (ktogglefullscreenaction_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktogglefullscreenaction_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktogglefullscreenaction_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToggleFullScreenAction::qt_metacast(param1);
         }
+        return KToggleFullScreenAction::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_metacall_isbase) {
             ktogglefullscreenaction_metacall_isbase = false;
             return KToggleFullScreenAction::qt_metacall(param1, param2, param3);
-        } else if (ktogglefullscreenaction_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktogglefullscreenaction_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktogglefullscreenaction_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToggleFullScreenAction::qt_metacall(param1, param2, param3);
         }
+        return KToggleFullScreenAction::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,15 +159,16 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_eventfilter_isbase) {
             ktogglefullscreenaction_eventfilter_isbase = false;
             return KToggleFullScreenAction::eventFilter(object, event);
-        } else if (ktogglefullscreenaction_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktogglefullscreenaction_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ktogglefullscreenaction_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KToggleFullScreenAction::eventFilter(object, event);
         }
+        return KToggleFullScreenAction::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -190,13 +176,16 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_slottoggled_isbase) {
             ktogglefullscreenaction_slottoggled_isbase = false;
             KToggleFullScreenAction::slotToggled(checked);
-        } else if (ktogglefullscreenaction_slottoggled_callback != nullptr) {
+            return;
+        }
+        auto slottoggled_cb = ktogglefullscreenaction_slottoggled_callback;
+        if (slottoggled_cb) {
             bool cbval1 = checked;
 
-            ktogglefullscreenaction_slottoggled_callback(this, cbval1);
-        } else {
-            KToggleFullScreenAction::slotToggled(checked);
+            slottoggled_cb(this, cbval1);
+            return;
         }
+        KToggleFullScreenAction::slotToggled(checked);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,14 +193,15 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_event_isbase) {
             ktogglefullscreenaction_event_isbase = false;
             return KToggleFullScreenAction::event(param1);
-        } else if (ktogglefullscreenaction_event_callback != nullptr) {
+        }
+        auto event_cb = ktogglefullscreenaction_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = ktogglefullscreenaction_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToggleFullScreenAction::event(param1);
         }
+        return KToggleFullScreenAction::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,13 +209,16 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_timerevent_isbase) {
             ktogglefullscreenaction_timerevent_isbase = false;
             KToggleFullScreenAction::timerEvent(event);
-        } else if (ktogglefullscreenaction_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktogglefullscreenaction_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktogglefullscreenaction_timerevent_callback(this, cbval1);
-        } else {
-            KToggleFullScreenAction::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KToggleFullScreenAction::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +226,16 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_childevent_isbase) {
             ktogglefullscreenaction_childevent_isbase = false;
             KToggleFullScreenAction::childEvent(event);
-        } else if (ktogglefullscreenaction_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktogglefullscreenaction_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktogglefullscreenaction_childevent_callback(this, cbval1);
-        } else {
-            KToggleFullScreenAction::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KToggleFullScreenAction::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,13 +243,16 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_customevent_isbase) {
             ktogglefullscreenaction_customevent_isbase = false;
             KToggleFullScreenAction::customEvent(event);
-        } else if (ktogglefullscreenaction_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktogglefullscreenaction_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktogglefullscreenaction_customevent_callback(this, cbval1);
-        } else {
-            KToggleFullScreenAction::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KToggleFullScreenAction::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,15 +260,18 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_connectnotify_isbase) {
             ktogglefullscreenaction_connectnotify_isbase = false;
             KToggleFullScreenAction::connectNotify(signal);
-        } else if (ktogglefullscreenaction_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktogglefullscreenaction_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktogglefullscreenaction_connectnotify_callback(this, cbval1);
-        } else {
-            KToggleFullScreenAction::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KToggleFullScreenAction::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,15 +279,18 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_disconnectnotify_isbase) {
             ktogglefullscreenaction_disconnectnotify_isbase = false;
             KToggleFullScreenAction::disconnectNotify(signal);
-        } else if (ktogglefullscreenaction_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktogglefullscreenaction_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktogglefullscreenaction_disconnectnotify_callback(this, cbval1);
-        } else {
-            KToggleFullScreenAction::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KToggleFullScreenAction::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -293,12 +298,13 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_sender_isbase) {
             ktogglefullscreenaction_sender_isbase = false;
             return KToggleFullScreenAction::sender();
-        } else if (ktogglefullscreenaction_sender_callback != nullptr) {
-            QObject* callback_ret = ktogglefullscreenaction_sender_callback();
-            return callback_ret;
-        } else {
-            return KToggleFullScreenAction::sender();
         }
+        auto sender_cb = ktogglefullscreenaction_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KToggleFullScreenAction::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -306,12 +312,13 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_sendersignalindex_isbase) {
             ktogglefullscreenaction_sendersignalindex_isbase = false;
             return KToggleFullScreenAction::senderSignalIndex();
-        } else if (ktogglefullscreenaction_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktogglefullscreenaction_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KToggleFullScreenAction::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktogglefullscreenaction_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KToggleFullScreenAction::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,14 +326,15 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_receivers_isbase) {
             ktogglefullscreenaction_receivers_isbase = false;
             return KToggleFullScreenAction::receivers(signal);
-        } else if (ktogglefullscreenaction_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktogglefullscreenaction_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktogglefullscreenaction_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToggleFullScreenAction::receivers(signal);
         }
+        return KToggleFullScreenAction::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -334,16 +342,17 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
         if (ktogglefullscreenaction_issignalconnected_isbase) {
             ktogglefullscreenaction_issignalconnected_isbase = false;
             return KToggleFullScreenAction::isSignalConnected(signal);
-        } else if (ktogglefullscreenaction_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktogglefullscreenaction_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktogglefullscreenaction_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToggleFullScreenAction::isSignalConnected(signal);
         }
+        return KToggleFullScreenAction::isSignalConnected(signal);
     }
 
     // Friend functions

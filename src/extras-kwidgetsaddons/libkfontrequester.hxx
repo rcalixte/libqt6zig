@@ -217,72 +217,6 @@ class VirtualKFontRequester final : public KFontRequester {
     VirtualKFontRequester() : KFontRequester() {};
     VirtualKFontRequester(QWidget* parent, bool onlyFixed) : KFontRequester(parent, onlyFixed) {};
 
-    ~VirtualKFontRequester() {
-        kfontrequester_metaobject_callback = nullptr;
-        kfontrequester_metacast_callback = nullptr;
-        kfontrequester_metacall_callback = nullptr;
-        kfontrequester_setfont_callback = nullptr;
-        kfontrequester_setsampletext_callback = nullptr;
-        kfontrequester_settitle_callback = nullptr;
-        kfontrequester_eventfilter_callback = nullptr;
-        kfontrequester_devtype_callback = nullptr;
-        kfontrequester_setvisible_callback = nullptr;
-        kfontrequester_sizehint_callback = nullptr;
-        kfontrequester_minimumsizehint_callback = nullptr;
-        kfontrequester_heightforwidth_callback = nullptr;
-        kfontrequester_hasheightforwidth_callback = nullptr;
-        kfontrequester_paintengine_callback = nullptr;
-        kfontrequester_event_callback = nullptr;
-        kfontrequester_mousepressevent_callback = nullptr;
-        kfontrequester_mousereleaseevent_callback = nullptr;
-        kfontrequester_mousedoubleclickevent_callback = nullptr;
-        kfontrequester_mousemoveevent_callback = nullptr;
-        kfontrequester_wheelevent_callback = nullptr;
-        kfontrequester_keypressevent_callback = nullptr;
-        kfontrequester_keyreleaseevent_callback = nullptr;
-        kfontrequester_focusinevent_callback = nullptr;
-        kfontrequester_focusoutevent_callback = nullptr;
-        kfontrequester_enterevent_callback = nullptr;
-        kfontrequester_leaveevent_callback = nullptr;
-        kfontrequester_paintevent_callback = nullptr;
-        kfontrequester_moveevent_callback = nullptr;
-        kfontrequester_resizeevent_callback = nullptr;
-        kfontrequester_closeevent_callback = nullptr;
-        kfontrequester_contextmenuevent_callback = nullptr;
-        kfontrequester_tabletevent_callback = nullptr;
-        kfontrequester_actionevent_callback = nullptr;
-        kfontrequester_dragenterevent_callback = nullptr;
-        kfontrequester_dragmoveevent_callback = nullptr;
-        kfontrequester_dragleaveevent_callback = nullptr;
-        kfontrequester_dropevent_callback = nullptr;
-        kfontrequester_showevent_callback = nullptr;
-        kfontrequester_hideevent_callback = nullptr;
-        kfontrequester_nativeevent_callback = nullptr;
-        kfontrequester_changeevent_callback = nullptr;
-        kfontrequester_metric_callback = nullptr;
-        kfontrequester_initpainter_callback = nullptr;
-        kfontrequester_redirected_callback = nullptr;
-        kfontrequester_sharedpainter_callback = nullptr;
-        kfontrequester_inputmethodevent_callback = nullptr;
-        kfontrequester_inputmethodquery_callback = nullptr;
-        kfontrequester_focusnextprevchild_callback = nullptr;
-        kfontrequester_timerevent_callback = nullptr;
-        kfontrequester_childevent_callback = nullptr;
-        kfontrequester_customevent_callback = nullptr;
-        kfontrequester_connectnotify_callback = nullptr;
-        kfontrequester_disconnectnotify_callback = nullptr;
-        kfontrequester_updatemicrofocus_callback = nullptr;
-        kfontrequester_create_callback = nullptr;
-        kfontrequester_destroy_callback = nullptr;
-        kfontrequester_focusnextchild_callback = nullptr;
-        kfontrequester_focuspreviouschild_callback = nullptr;
-        kfontrequester_sender_callback = nullptr;
-        kfontrequester_sendersignalindex_callback = nullptr;
-        kfontrequester_receivers_callback = nullptr;
-        kfontrequester_issignalconnected_callback = nullptr;
-        kfontrequester_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFontRequester_MetaObject_Callback(KFontRequester_MetaObject_Callback cb) { kfontrequester_metaobject_callback = cb; }
     inline void setKFontRequester_Metacast_Callback(KFontRequester_Metacast_Callback cb) { kfontrequester_metacast_callback = cb; }
@@ -418,12 +352,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_metaobject_isbase) {
             kfontrequester_metaobject_isbase = false;
             return KFontRequester::metaObject();
-        } else if (kfontrequester_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfontrequester_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFontRequester::metaObject();
         }
+        auto metaobject_cb = kfontrequester_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFontRequester::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -431,14 +366,15 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_metacast_isbase) {
             kfontrequester_metacast_isbase = false;
             return KFontRequester::qt_metacast(param1);
-        } else if (kfontrequester_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfontrequester_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfontrequester_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFontRequester::qt_metacast(param1);
         }
+        return KFontRequester::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -446,16 +382,17 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_metacall_isbase) {
             kfontrequester_metacall_isbase = false;
             return KFontRequester::qt_metacall(param1, param2, param3);
-        } else if (kfontrequester_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfontrequester_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfontrequester_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFontRequester::qt_metacall(param1, param2, param3);
         }
+        return KFontRequester::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -463,16 +400,19 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_setfont_isbase) {
             kfontrequester_setfont_isbase = false;
             KFontRequester::setFont(font, onlyFixed);
-        } else if (kfontrequester_setfont_callback != nullptr) {
+            return;
+        }
+        auto setfont_cb = kfontrequester_setfont_callback;
+        if (setfont_cb) {
             const QFont& font_ret = font;
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&font_ret);
             bool cbval2 = onlyFixed;
 
-            kfontrequester_setfont_callback(this, cbval1, cbval2);
-        } else {
-            KFontRequester::setFont(font, onlyFixed);
+            setfont_cb(this, cbval1, cbval2);
+            return;
         }
+        KFontRequester::setFont(font, onlyFixed);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,7 +420,10 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_setsampletext_isbase) {
             kfontrequester_setsampletext_isbase = false;
             KFontRequester::setSampleText(text);
-        } else if (kfontrequester_setsampletext_callback != nullptr) {
+            return;
+        }
+        auto setsampletext_cb = kfontrequester_setsampletext_callback;
+        if (setsampletext_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -490,11 +433,11 @@ class VirtualKFontRequester final : public KFontRequester {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            kfontrequester_setsampletext_callback(this, cbval1);
+            setsampletext_cb(this, cbval1);
             libqt_free(text_str);
-        } else {
-            KFontRequester::setSampleText(text);
+            return;
         }
+        KFontRequester::setSampleText(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,7 +445,10 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_settitle_isbase) {
             kfontrequester_settitle_isbase = false;
             KFontRequester::setTitle(title);
-        } else if (kfontrequester_settitle_callback != nullptr) {
+            return;
+        }
+        auto settitle_cb = kfontrequester_settitle_callback;
+        if (settitle_cb) {
             const QString title_ret = title;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray title_b = title_ret.toUtf8();
@@ -512,11 +458,11 @@ class VirtualKFontRequester final : public KFontRequester {
             ((char*)title_str)[title_str_len] = '\0';
             const char* cbval1 = title_str;
 
-            kfontrequester_settitle_callback(this, cbval1);
+            settitle_cb(this, cbval1);
             libqt_free(title_str);
-        } else {
-            KFontRequester::setTitle(title);
+            return;
         }
+        KFontRequester::setTitle(title);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,15 +470,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_eventfilter_isbase) {
             kfontrequester_eventfilter_isbase = false;
             return KFontRequester::eventFilter(watched, event);
-        } else if (kfontrequester_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfontrequester_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kfontrequester_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFontRequester::eventFilter(watched, event);
         }
+        return KFontRequester::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,12 +487,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_devtype_isbase) {
             kfontrequester_devtype_isbase = false;
             return KFontRequester::devType();
-        } else if (kfontrequester_devtype_callback != nullptr) {
-            int callback_ret = kfontrequester_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFontRequester::devType();
         }
+        auto devtype_cb = kfontrequester_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFontRequester::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,13 +501,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_setvisible_isbase) {
             kfontrequester_setvisible_isbase = false;
             KFontRequester::setVisible(visible);
-        } else if (kfontrequester_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kfontrequester_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kfontrequester_setvisible_callback(this, cbval1);
-        } else {
-            KFontRequester::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KFontRequester::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,12 +518,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_sizehint_isbase) {
             kfontrequester_sizehint_isbase = false;
             return KFontRequester::sizeHint();
-        } else if (kfontrequester_sizehint_callback != nullptr) {
-            QSize* callback_ret = kfontrequester_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFontRequester::sizeHint();
         }
+        auto sizehint_cb = kfontrequester_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KFontRequester::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -580,12 +532,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_minimumsizehint_isbase) {
             kfontrequester_minimumsizehint_isbase = false;
             return KFontRequester::minimumSizeHint();
-        } else if (kfontrequester_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kfontrequester_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFontRequester::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kfontrequester_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KFontRequester::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -593,14 +546,15 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_heightforwidth_isbase) {
             kfontrequester_heightforwidth_isbase = false;
             return KFontRequester::heightForWidth(param1);
-        } else if (kfontrequester_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kfontrequester_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kfontrequester_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFontRequester::heightForWidth(param1);
         }
+        return KFontRequester::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -608,12 +562,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_hasheightforwidth_isbase) {
             kfontrequester_hasheightforwidth_isbase = false;
             return KFontRequester::hasHeightForWidth();
-        } else if (kfontrequester_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kfontrequester_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KFontRequester::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kfontrequester_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KFontRequester::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,12 +576,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_paintengine_isbase) {
             kfontrequester_paintengine_isbase = false;
             return KFontRequester::paintEngine();
-        } else if (kfontrequester_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kfontrequester_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KFontRequester::paintEngine();
         }
+        auto paintengine_cb = kfontrequester_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KFontRequester::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,14 +590,15 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_event_isbase) {
             kfontrequester_event_isbase = false;
             return KFontRequester::event(event);
-        } else if (kfontrequester_event_callback != nullptr) {
+        }
+        auto event_cb = kfontrequester_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfontrequester_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFontRequester::event(event);
         }
+        return KFontRequester::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +606,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_mousepressevent_isbase) {
             kfontrequester_mousepressevent_isbase = false;
             KFontRequester::mousePressEvent(event);
-        } else if (kfontrequester_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kfontrequester_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfontrequester_mousepressevent_callback(this, cbval1);
-        } else {
-            KFontRequester::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +623,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_mousereleaseevent_isbase) {
             kfontrequester_mousereleaseevent_isbase = false;
             KFontRequester::mouseReleaseEvent(event);
-        } else if (kfontrequester_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kfontrequester_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfontrequester_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KFontRequester::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,13 +640,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_mousedoubleclickevent_isbase) {
             kfontrequester_mousedoubleclickevent_isbase = false;
             KFontRequester::mouseDoubleClickEvent(event);
-        } else if (kfontrequester_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kfontrequester_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfontrequester_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KFontRequester::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,13 +657,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_mousemoveevent_isbase) {
             kfontrequester_mousemoveevent_isbase = false;
             KFontRequester::mouseMoveEvent(event);
-        } else if (kfontrequester_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kfontrequester_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfontrequester_mousemoveevent_callback(this, cbval1);
-        } else {
-            KFontRequester::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,13 +674,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_wheelevent_isbase) {
             kfontrequester_wheelevent_isbase = false;
             KFontRequester::wheelEvent(event);
-        } else if (kfontrequester_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kfontrequester_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kfontrequester_wheelevent_callback(this, cbval1);
-        } else {
-            KFontRequester::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,13 +691,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_keypressevent_isbase) {
             kfontrequester_keypressevent_isbase = false;
             KFontRequester::keyPressEvent(event);
-        } else if (kfontrequester_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kfontrequester_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kfontrequester_keypressevent_callback(this, cbval1);
-        } else {
-            KFontRequester::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,13 +708,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_keyreleaseevent_isbase) {
             kfontrequester_keyreleaseevent_isbase = false;
             KFontRequester::keyReleaseEvent(event);
-        } else if (kfontrequester_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kfontrequester_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kfontrequester_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KFontRequester::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,13 +725,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_focusinevent_isbase) {
             kfontrequester_focusinevent_isbase = false;
             KFontRequester::focusInEvent(event);
-        } else if (kfontrequester_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kfontrequester_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kfontrequester_focusinevent_callback(this, cbval1);
-        } else {
-            KFontRequester::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,13 +742,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_focusoutevent_isbase) {
             kfontrequester_focusoutevent_isbase = false;
             KFontRequester::focusOutEvent(event);
-        } else if (kfontrequester_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kfontrequester_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kfontrequester_focusoutevent_callback(this, cbval1);
-        } else {
-            KFontRequester::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,13 +759,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_enterevent_isbase) {
             kfontrequester_enterevent_isbase = false;
             KFontRequester::enterEvent(event);
-        } else if (kfontrequester_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kfontrequester_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kfontrequester_enterevent_callback(this, cbval1);
-        } else {
-            KFontRequester::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,13 +776,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_leaveevent_isbase) {
             kfontrequester_leaveevent_isbase = false;
             KFontRequester::leaveEvent(event);
-        } else if (kfontrequester_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kfontrequester_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kfontrequester_leaveevent_callback(this, cbval1);
-        } else {
-            KFontRequester::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,13 +793,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_paintevent_isbase) {
             kfontrequester_paintevent_isbase = false;
             KFontRequester::paintEvent(event);
-        } else if (kfontrequester_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kfontrequester_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kfontrequester_paintevent_callback(this, cbval1);
-        } else {
-            KFontRequester::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -817,13 +810,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_moveevent_isbase) {
             kfontrequester_moveevent_isbase = false;
             KFontRequester::moveEvent(event);
-        } else if (kfontrequester_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kfontrequester_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kfontrequester_moveevent_callback(this, cbval1);
-        } else {
-            KFontRequester::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -831,13 +827,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_resizeevent_isbase) {
             kfontrequester_resizeevent_isbase = false;
             KFontRequester::resizeEvent(event);
-        } else if (kfontrequester_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kfontrequester_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kfontrequester_resizeevent_callback(this, cbval1);
-        } else {
-            KFontRequester::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,13 +844,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_closeevent_isbase) {
             kfontrequester_closeevent_isbase = false;
             KFontRequester::closeEvent(event);
-        } else if (kfontrequester_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kfontrequester_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kfontrequester_closeevent_callback(this, cbval1);
-        } else {
-            KFontRequester::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -859,13 +861,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_contextmenuevent_isbase) {
             kfontrequester_contextmenuevent_isbase = false;
             KFontRequester::contextMenuEvent(event);
-        } else if (kfontrequester_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kfontrequester_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kfontrequester_contextmenuevent_callback(this, cbval1);
-        } else {
-            KFontRequester::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,13 +878,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_tabletevent_isbase) {
             kfontrequester_tabletevent_isbase = false;
             KFontRequester::tabletEvent(event);
-        } else if (kfontrequester_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kfontrequester_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kfontrequester_tabletevent_callback(this, cbval1);
-        } else {
-            KFontRequester::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -887,13 +895,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_actionevent_isbase) {
             kfontrequester_actionevent_isbase = false;
             KFontRequester::actionEvent(event);
-        } else if (kfontrequester_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kfontrequester_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kfontrequester_actionevent_callback(this, cbval1);
-        } else {
-            KFontRequester::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -901,13 +912,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_dragenterevent_isbase) {
             kfontrequester_dragenterevent_isbase = false;
             KFontRequester::dragEnterEvent(event);
-        } else if (kfontrequester_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kfontrequester_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kfontrequester_dragenterevent_callback(this, cbval1);
-        } else {
-            KFontRequester::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -915,13 +929,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_dragmoveevent_isbase) {
             kfontrequester_dragmoveevent_isbase = false;
             KFontRequester::dragMoveEvent(event);
-        } else if (kfontrequester_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kfontrequester_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kfontrequester_dragmoveevent_callback(this, cbval1);
-        } else {
-            KFontRequester::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -929,13 +946,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_dragleaveevent_isbase) {
             kfontrequester_dragleaveevent_isbase = false;
             KFontRequester::dragLeaveEvent(event);
-        } else if (kfontrequester_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kfontrequester_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kfontrequester_dragleaveevent_callback(this, cbval1);
-        } else {
-            KFontRequester::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -943,13 +963,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_dropevent_isbase) {
             kfontrequester_dropevent_isbase = false;
             KFontRequester::dropEvent(event);
-        } else if (kfontrequester_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kfontrequester_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kfontrequester_dropevent_callback(this, cbval1);
-        } else {
-            KFontRequester::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -957,13 +980,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_showevent_isbase) {
             kfontrequester_showevent_isbase = false;
             KFontRequester::showEvent(event);
-        } else if (kfontrequester_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kfontrequester_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kfontrequester_showevent_callback(this, cbval1);
-        } else {
-            KFontRequester::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -971,13 +997,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_hideevent_isbase) {
             kfontrequester_hideevent_isbase = false;
             KFontRequester::hideEvent(event);
-        } else if (kfontrequester_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kfontrequester_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kfontrequester_hideevent_callback(this, cbval1);
-        } else {
-            KFontRequester::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -985,7 +1014,9 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_nativeevent_isbase) {
             kfontrequester_nativeevent_isbase = false;
             return KFontRequester::nativeEvent(eventType, message, result);
-        } else if (kfontrequester_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kfontrequester_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -996,12 +1027,11 @@ class VirtualKFontRequester final : public KFontRequester {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kfontrequester_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KFontRequester::nativeEvent(eventType, message, result);
         }
+        return KFontRequester::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,13 +1039,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_changeevent_isbase) {
             kfontrequester_changeevent_isbase = false;
             KFontRequester::changeEvent(param1);
-        } else if (kfontrequester_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kfontrequester_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kfontrequester_changeevent_callback(this, cbval1);
-        } else {
-            KFontRequester::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1023,14 +1056,15 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_metric_isbase) {
             kfontrequester_metric_isbase = false;
             return KFontRequester::metric(param1);
-        } else if (kfontrequester_metric_callback != nullptr) {
+        }
+        auto metric_cb = kfontrequester_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kfontrequester_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFontRequester::metric(param1);
         }
+        return KFontRequester::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1038,13 +1072,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_initpainter_isbase) {
             kfontrequester_initpainter_isbase = false;
             KFontRequester::initPainter(painter);
-        } else if (kfontrequester_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kfontrequester_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kfontrequester_initpainter_callback(this, cbval1);
-        } else {
-            KFontRequester::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KFontRequester::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1052,14 +1089,15 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_redirected_isbase) {
             kfontrequester_redirected_isbase = false;
             return KFontRequester::redirected(offset);
-        } else if (kfontrequester_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kfontrequester_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kfontrequester_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFontRequester::redirected(offset);
         }
+        return KFontRequester::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1067,12 +1105,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_sharedpainter_isbase) {
             kfontrequester_sharedpainter_isbase = false;
             return KFontRequester::sharedPainter();
-        } else if (kfontrequester_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kfontrequester_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KFontRequester::sharedPainter();
         }
+        auto sharedpainter_cb = kfontrequester_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KFontRequester::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1080,13 +1119,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_inputmethodevent_isbase) {
             kfontrequester_inputmethodevent_isbase = false;
             KFontRequester::inputMethodEvent(param1);
-        } else if (kfontrequester_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kfontrequester_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kfontrequester_inputmethodevent_callback(this, cbval1);
-        } else {
-            KFontRequester::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1094,14 +1136,15 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_inputmethodquery_isbase) {
             kfontrequester_inputmethodquery_isbase = false;
             return KFontRequester::inputMethodQuery(param1);
-        } else if (kfontrequester_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kfontrequester_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kfontrequester_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFontRequester::inputMethodQuery(param1);
         }
+        return KFontRequester::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1109,14 +1152,15 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_focusnextprevchild_isbase) {
             kfontrequester_focusnextprevchild_isbase = false;
             return KFontRequester::focusNextPrevChild(next);
-        } else if (kfontrequester_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kfontrequester_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kfontrequester_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFontRequester::focusNextPrevChild(next);
         }
+        return KFontRequester::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1124,13 +1168,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_timerevent_isbase) {
             kfontrequester_timerevent_isbase = false;
             KFontRequester::timerEvent(event);
-        } else if (kfontrequester_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfontrequester_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfontrequester_timerevent_callback(this, cbval1);
-        } else {
-            KFontRequester::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1138,13 +1185,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_childevent_isbase) {
             kfontrequester_childevent_isbase = false;
             KFontRequester::childEvent(event);
-        } else if (kfontrequester_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfontrequester_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfontrequester_childevent_callback(this, cbval1);
-        } else {
-            KFontRequester::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1152,13 +1202,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_customevent_isbase) {
             kfontrequester_customevent_isbase = false;
             KFontRequester::customEvent(event);
-        } else if (kfontrequester_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfontrequester_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfontrequester_customevent_callback(this, cbval1);
-        } else {
-            KFontRequester::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFontRequester::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,15 +1219,18 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_connectnotify_isbase) {
             kfontrequester_connectnotify_isbase = false;
             KFontRequester::connectNotify(signal);
-        } else if (kfontrequester_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfontrequester_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfontrequester_connectnotify_callback(this, cbval1);
-        } else {
-            KFontRequester::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFontRequester::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1182,15 +1238,18 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_disconnectnotify_isbase) {
             kfontrequester_disconnectnotify_isbase = false;
             KFontRequester::disconnectNotify(signal);
-        } else if (kfontrequester_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfontrequester_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfontrequester_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFontRequester::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFontRequester::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1198,11 +1257,14 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_updatemicrofocus_isbase) {
             kfontrequester_updatemicrofocus_isbase = false;
             KFontRequester::updateMicroFocus();
-        } else if (kfontrequester_updatemicrofocus_callback != nullptr) {
-            kfontrequester_updatemicrofocus_callback();
-        } else {
-            KFontRequester::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kfontrequester_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KFontRequester::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,11 +1272,14 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_create_isbase) {
             kfontrequester_create_isbase = false;
             KFontRequester::create();
-        } else if (kfontrequester_create_callback != nullptr) {
-            kfontrequester_create_callback();
-        } else {
-            KFontRequester::create();
+            return;
         }
+        auto create_cb = kfontrequester_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KFontRequester::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,11 +1287,14 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_destroy_isbase) {
             kfontrequester_destroy_isbase = false;
             KFontRequester::destroy();
-        } else if (kfontrequester_destroy_callback != nullptr) {
-            kfontrequester_destroy_callback();
-        } else {
-            KFontRequester::destroy();
+            return;
         }
+        auto destroy_cb = kfontrequester_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KFontRequester::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,12 +1302,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_focusnextchild_isbase) {
             kfontrequester_focusnextchild_isbase = false;
             return KFontRequester::focusNextChild();
-        } else if (kfontrequester_focusnextchild_callback != nullptr) {
-            bool callback_ret = kfontrequester_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KFontRequester::focusNextChild();
         }
+        auto focusnextchild_cb = kfontrequester_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KFontRequester::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,12 +1316,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_focuspreviouschild_isbase) {
             kfontrequester_focuspreviouschild_isbase = false;
             return KFontRequester::focusPreviousChild();
-        } else if (kfontrequester_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kfontrequester_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KFontRequester::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kfontrequester_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KFontRequester::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1260,12 +1330,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_sender_isbase) {
             kfontrequester_sender_isbase = false;
             return KFontRequester::sender();
-        } else if (kfontrequester_sender_callback != nullptr) {
-            QObject* callback_ret = kfontrequester_sender_callback();
-            return callback_ret;
-        } else {
-            return KFontRequester::sender();
         }
+        auto sender_cb = kfontrequester_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFontRequester::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1273,12 +1344,13 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_sendersignalindex_isbase) {
             kfontrequester_sendersignalindex_isbase = false;
             return KFontRequester::senderSignalIndex();
-        } else if (kfontrequester_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfontrequester_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFontRequester::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfontrequester_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFontRequester::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1286,14 +1358,15 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_receivers_isbase) {
             kfontrequester_receivers_isbase = false;
             return KFontRequester::receivers(signal);
-        } else if (kfontrequester_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfontrequester_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfontrequester_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFontRequester::receivers(signal);
         }
+        return KFontRequester::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1301,16 +1374,17 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_issignalconnected_isbase) {
             kfontrequester_issignalconnected_isbase = false;
             return KFontRequester::isSignalConnected(signal);
-        } else if (kfontrequester_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfontrequester_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfontrequester_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFontRequester::isSignalConnected(signal);
         }
+        return KFontRequester::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1318,15 +1392,16 @@ class VirtualKFontRequester final : public KFontRequester {
         if (kfontrequester_getdecodedmetricf_isbase) {
             kfontrequester_getdecodedmetricf_isbase = false;
             return KFontRequester::getDecodedMetricF(metricA, metricB);
-        } else if (kfontrequester_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kfontrequester_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kfontrequester_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KFontRequester::getDecodedMetricF(metricA, metricB);
         }
+        return KFontRequester::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -38,12 +38,6 @@ class VirtualKFileMetaDataExtractionResult : public KFileMetaData::ExtractionRes
     VirtualKFileMetaDataExtractionResult(const QString& url, const QString& mimetype) : KFileMetaData::ExtractionResult(url, mimetype) {};
     VirtualKFileMetaDataExtractionResult(const QString& url, const QString& mimetype, const KFileMetaData::ExtractionResult::Flags& flags) : KFileMetaData::ExtractionResult(url, mimetype, flags) {};
 
-    ~VirtualKFileMetaDataExtractionResult() {
-        kfilemetadata__extractionresult_append_callback = nullptr;
-        kfilemetadata__extractionresult_add_callback = nullptr;
-        kfilemetadata__extractionresult_addtype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFileMetaData__ExtractionResult_Append_Callback(KFileMetaData__ExtractionResult_Append_Callback cb) { kfilemetadata__extractionresult_append_callback = cb; }
     inline void setKFileMetaData__ExtractionResult_Add_Callback(KFileMetaData__ExtractionResult_Add_Callback cb) { kfilemetadata__extractionresult_add_callback = cb; }
@@ -56,7 +50,8 @@ class VirtualKFileMetaDataExtractionResult : public KFileMetaData::ExtractionRes
 
     // Virtual method for C ABI access and custom callback
     virtual void append(const QString& text) override {
-        if (kfilemetadata__extractionresult_append_callback != nullptr) {
+        auto append_cb = kfilemetadata__extractionresult_append_callback;
+        if (append_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -66,29 +61,31 @@ class VirtualKFileMetaDataExtractionResult : public KFileMetaData::ExtractionRes
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            kfilemetadata__extractionresult_append_callback(this, cbval1);
+            append_cb(this, cbval1);
             libqt_free(text_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void add(KFileMetaData::Property::Property property, const QVariant& value) override {
-        if (kfilemetadata__extractionresult_add_callback != nullptr) {
+        auto add_cb = kfilemetadata__extractionresult_add_callback;
+        if (add_cb) {
             int cbval1 = static_cast<int>(property);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            kfilemetadata__extractionresult_add_callback(this, cbval1, cbval2);
+            add_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void addType(KFileMetaData::Type::Type typeVal) override {
-        if (kfilemetadata__extractionresult_addtype_callback != nullptr) {
+        auto addtype_cb = kfilemetadata__extractionresult_addtype_callback;
+        if (addtype_cb) {
             int cbval1 = static_cast<int>(typeVal);
 
-            kfilemetadata__extractionresult_addtype_callback(this, cbval1);
+            addtype_cb(this, cbval1);
         }
     }
 };

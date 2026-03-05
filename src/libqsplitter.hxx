@@ -227,75 +227,6 @@ class VirtualQSplitter final : public QSplitter {
     VirtualQSplitter(Qt::Orientation param1) : QSplitter(param1) {};
     VirtualQSplitter(Qt::Orientation param1, QWidget* parent) : QSplitter(param1, parent) {};
 
-    ~VirtualQSplitter() {
-        qsplitter_metaobject_callback = nullptr;
-        qsplitter_metacast_callback = nullptr;
-        qsplitter_metacall_callback = nullptr;
-        qsplitter_sizehint_callback = nullptr;
-        qsplitter_minimumsizehint_callback = nullptr;
-        qsplitter_createhandle_callback = nullptr;
-        qsplitter_childevent_callback = nullptr;
-        qsplitter_event_callback = nullptr;
-        qsplitter_resizeevent_callback = nullptr;
-        qsplitter_changeevent_callback = nullptr;
-        qsplitter_paintevent_callback = nullptr;
-        qsplitter_initstyleoption_callback = nullptr;
-        qsplitter_devtype_callback = nullptr;
-        qsplitter_setvisible_callback = nullptr;
-        qsplitter_heightforwidth_callback = nullptr;
-        qsplitter_hasheightforwidth_callback = nullptr;
-        qsplitter_paintengine_callback = nullptr;
-        qsplitter_mousepressevent_callback = nullptr;
-        qsplitter_mousereleaseevent_callback = nullptr;
-        qsplitter_mousedoubleclickevent_callback = nullptr;
-        qsplitter_mousemoveevent_callback = nullptr;
-        qsplitter_wheelevent_callback = nullptr;
-        qsplitter_keypressevent_callback = nullptr;
-        qsplitter_keyreleaseevent_callback = nullptr;
-        qsplitter_focusinevent_callback = nullptr;
-        qsplitter_focusoutevent_callback = nullptr;
-        qsplitter_enterevent_callback = nullptr;
-        qsplitter_leaveevent_callback = nullptr;
-        qsplitter_moveevent_callback = nullptr;
-        qsplitter_closeevent_callback = nullptr;
-        qsplitter_contextmenuevent_callback = nullptr;
-        qsplitter_tabletevent_callback = nullptr;
-        qsplitter_actionevent_callback = nullptr;
-        qsplitter_dragenterevent_callback = nullptr;
-        qsplitter_dragmoveevent_callback = nullptr;
-        qsplitter_dragleaveevent_callback = nullptr;
-        qsplitter_dropevent_callback = nullptr;
-        qsplitter_showevent_callback = nullptr;
-        qsplitter_hideevent_callback = nullptr;
-        qsplitter_nativeevent_callback = nullptr;
-        qsplitter_metric_callback = nullptr;
-        qsplitter_initpainter_callback = nullptr;
-        qsplitter_redirected_callback = nullptr;
-        qsplitter_sharedpainter_callback = nullptr;
-        qsplitter_inputmethodevent_callback = nullptr;
-        qsplitter_inputmethodquery_callback = nullptr;
-        qsplitter_focusnextprevchild_callback = nullptr;
-        qsplitter_eventfilter_callback = nullptr;
-        qsplitter_timerevent_callback = nullptr;
-        qsplitter_customevent_callback = nullptr;
-        qsplitter_connectnotify_callback = nullptr;
-        qsplitter_disconnectnotify_callback = nullptr;
-        qsplitter_movesplitter_callback = nullptr;
-        qsplitter_setrubberband_callback = nullptr;
-        qsplitter_closestlegalposition_callback = nullptr;
-        qsplitter_drawframe_callback = nullptr;
-        qsplitter_updatemicrofocus_callback = nullptr;
-        qsplitter_create_callback = nullptr;
-        qsplitter_destroy_callback = nullptr;
-        qsplitter_focusnextchild_callback = nullptr;
-        qsplitter_focuspreviouschild_callback = nullptr;
-        qsplitter_sender_callback = nullptr;
-        qsplitter_sendersignalindex_callback = nullptr;
-        qsplitter_receivers_callback = nullptr;
-        qsplitter_issignalconnected_callback = nullptr;
-        qsplitter_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSplitter_MetaObject_Callback(QSplitter_MetaObject_Callback cb) { qsplitter_metaobject_callback = cb; }
     inline void setQSplitter_Metacast_Callback(QSplitter_Metacast_Callback cb) { qsplitter_metacast_callback = cb; }
@@ -437,12 +368,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_metaobject_isbase) {
             qsplitter_metaobject_isbase = false;
             return QSplitter::metaObject();
-        } else if (qsplitter_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsplitter_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSplitter::metaObject();
         }
+        auto metaobject_cb = qsplitter_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSplitter::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +382,15 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_metacast_isbase) {
             qsplitter_metacast_isbase = false;
             return QSplitter::qt_metacast(param1);
-        } else if (qsplitter_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsplitter_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsplitter_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplitter::qt_metacast(param1);
         }
+        return QSplitter::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,16 +398,17 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_metacall_isbase) {
             qsplitter_metacall_isbase = false;
             return QSplitter::qt_metacall(param1, param2, param3);
-        } else if (qsplitter_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsplitter_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsplitter_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplitter::qt_metacall(param1, param2, param3);
         }
+        return QSplitter::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,12 +416,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_sizehint_isbase) {
             qsplitter_sizehint_isbase = false;
             return QSplitter::sizeHint();
-        } else if (qsplitter_sizehint_callback != nullptr) {
-            QSize* callback_ret = qsplitter_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QSplitter::sizeHint();
         }
+        auto sizehint_cb = qsplitter_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QSplitter::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,12 +430,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_minimumsizehint_isbase) {
             qsplitter_minimumsizehint_isbase = false;
             return QSplitter::minimumSizeHint();
-        } else if (qsplitter_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qsplitter_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QSplitter::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qsplitter_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QSplitter::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -508,12 +444,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_createhandle_isbase) {
             qsplitter_createhandle_isbase = false;
             return QSplitter::createHandle();
-        } else if (qsplitter_createhandle_callback != nullptr) {
-            QSplitterHandle* callback_ret = qsplitter_createhandle_callback();
-            return callback_ret;
-        } else {
-            return QSplitter::createHandle();
         }
+        auto createhandle_cb = qsplitter_createhandle_callback;
+        if (createhandle_cb) {
+            QSplitterHandle* callback_ret = createhandle_cb();
+            return callback_ret;
+        }
+        return QSplitter::createHandle();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -521,13 +458,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_childevent_isbase) {
             qsplitter_childevent_isbase = false;
             QSplitter::childEvent(param1);
-        } else if (qsplitter_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsplitter_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = param1;
 
-            qsplitter_childevent_callback(this, cbval1);
-        } else {
-            QSplitter::childEvent(param1);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::childEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -535,14 +475,15 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_event_isbase) {
             qsplitter_event_isbase = false;
             return QSplitter::event(param1);
-        } else if (qsplitter_event_callback != nullptr) {
+        }
+        auto event_cb = qsplitter_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qsplitter_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplitter::event(param1);
         }
+        return QSplitter::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,13 +491,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_resizeevent_isbase) {
             qsplitter_resizeevent_isbase = false;
             QSplitter::resizeEvent(param1);
-        } else if (qsplitter_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qsplitter_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qsplitter_resizeevent_callback(this, cbval1);
-        } else {
-            QSplitter::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,13 +508,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_changeevent_isbase) {
             qsplitter_changeevent_isbase = false;
             QSplitter::changeEvent(param1);
-        } else if (qsplitter_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qsplitter_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qsplitter_changeevent_callback(this, cbval1);
-        } else {
-            QSplitter::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,13 +525,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_paintevent_isbase) {
             qsplitter_paintevent_isbase = false;
             QSplitter::paintEvent(param1);
-        } else if (qsplitter_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qsplitter_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qsplitter_paintevent_callback(this, cbval1);
-        } else {
-            QSplitter::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,13 +542,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_initstyleoption_isbase) {
             qsplitter_initstyleoption_isbase = false;
             QSplitter::initStyleOption(option);
-        } else if (qsplitter_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qsplitter_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qsplitter_initstyleoption_callback(this, cbval1);
-        } else {
-            QSplitter::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QSplitter::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -606,12 +559,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_devtype_isbase) {
             qsplitter_devtype_isbase = false;
             return QSplitter::devType();
-        } else if (qsplitter_devtype_callback != nullptr) {
-            int callback_ret = qsplitter_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSplitter::devType();
         }
+        auto devtype_cb = qsplitter_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSplitter::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,13 +573,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_setvisible_isbase) {
             qsplitter_setvisible_isbase = false;
             QSplitter::setVisible(visible);
-        } else if (qsplitter_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qsplitter_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qsplitter_setvisible_callback(this, cbval1);
-        } else {
-            QSplitter::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QSplitter::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,14 +590,15 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_heightforwidth_isbase) {
             qsplitter_heightforwidth_isbase = false;
             return QSplitter::heightForWidth(param1);
-        } else if (qsplitter_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qsplitter_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qsplitter_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplitter::heightForWidth(param1);
         }
+        return QSplitter::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -648,12 +606,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_hasheightforwidth_isbase) {
             qsplitter_hasheightforwidth_isbase = false;
             return QSplitter::hasHeightForWidth();
-        } else if (qsplitter_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qsplitter_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QSplitter::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qsplitter_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QSplitter::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -661,12 +620,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_paintengine_isbase) {
             qsplitter_paintengine_isbase = false;
             return QSplitter::paintEngine();
-        } else if (qsplitter_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qsplitter_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QSplitter::paintEngine();
         }
+        auto paintengine_cb = qsplitter_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QSplitter::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -674,13 +634,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_mousepressevent_isbase) {
             qsplitter_mousepressevent_isbase = false;
             QSplitter::mousePressEvent(event);
-        } else if (qsplitter_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qsplitter_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qsplitter_mousepressevent_callback(this, cbval1);
-        } else {
-            QSplitter::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,13 +651,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_mousereleaseevent_isbase) {
             qsplitter_mousereleaseevent_isbase = false;
             QSplitter::mouseReleaseEvent(event);
-        } else if (qsplitter_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qsplitter_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qsplitter_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QSplitter::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -702,13 +668,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_mousedoubleclickevent_isbase) {
             qsplitter_mousedoubleclickevent_isbase = false;
             QSplitter::mouseDoubleClickEvent(event);
-        } else if (qsplitter_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qsplitter_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qsplitter_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QSplitter::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,13 +685,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_mousemoveevent_isbase) {
             qsplitter_mousemoveevent_isbase = false;
             QSplitter::mouseMoveEvent(event);
-        } else if (qsplitter_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qsplitter_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qsplitter_mousemoveevent_callback(this, cbval1);
-        } else {
-            QSplitter::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -730,13 +702,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_wheelevent_isbase) {
             qsplitter_wheelevent_isbase = false;
             QSplitter::wheelEvent(event);
-        } else if (qsplitter_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qsplitter_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qsplitter_wheelevent_callback(this, cbval1);
-        } else {
-            QSplitter::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,13 +719,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_keypressevent_isbase) {
             qsplitter_keypressevent_isbase = false;
             QSplitter::keyPressEvent(event);
-        } else if (qsplitter_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qsplitter_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qsplitter_keypressevent_callback(this, cbval1);
-        } else {
-            QSplitter::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,13 +736,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_keyreleaseevent_isbase) {
             qsplitter_keyreleaseevent_isbase = false;
             QSplitter::keyReleaseEvent(event);
-        } else if (qsplitter_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qsplitter_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qsplitter_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QSplitter::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -772,13 +753,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_focusinevent_isbase) {
             qsplitter_focusinevent_isbase = false;
             QSplitter::focusInEvent(event);
-        } else if (qsplitter_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qsplitter_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qsplitter_focusinevent_callback(this, cbval1);
-        } else {
-            QSplitter::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,13 +770,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_focusoutevent_isbase) {
             qsplitter_focusoutevent_isbase = false;
             QSplitter::focusOutEvent(event);
-        } else if (qsplitter_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qsplitter_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qsplitter_focusoutevent_callback(this, cbval1);
-        } else {
-            QSplitter::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -800,13 +787,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_enterevent_isbase) {
             qsplitter_enterevent_isbase = false;
             QSplitter::enterEvent(event);
-        } else if (qsplitter_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qsplitter_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qsplitter_enterevent_callback(this, cbval1);
-        } else {
-            QSplitter::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,13 +804,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_leaveevent_isbase) {
             qsplitter_leaveevent_isbase = false;
             QSplitter::leaveEvent(event);
-        } else if (qsplitter_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qsplitter_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qsplitter_leaveevent_callback(this, cbval1);
-        } else {
-            QSplitter::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,13 +821,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_moveevent_isbase) {
             qsplitter_moveevent_isbase = false;
             QSplitter::moveEvent(event);
-        } else if (qsplitter_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qsplitter_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qsplitter_moveevent_callback(this, cbval1);
-        } else {
-            QSplitter::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -842,13 +838,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_closeevent_isbase) {
             qsplitter_closeevent_isbase = false;
             QSplitter::closeEvent(event);
-        } else if (qsplitter_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qsplitter_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qsplitter_closeevent_callback(this, cbval1);
-        } else {
-            QSplitter::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -856,13 +855,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_contextmenuevent_isbase) {
             qsplitter_contextmenuevent_isbase = false;
             QSplitter::contextMenuEvent(event);
-        } else if (qsplitter_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qsplitter_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qsplitter_contextmenuevent_callback(this, cbval1);
-        } else {
-            QSplitter::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -870,13 +872,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_tabletevent_isbase) {
             qsplitter_tabletevent_isbase = false;
             QSplitter::tabletEvent(event);
-        } else if (qsplitter_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qsplitter_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qsplitter_tabletevent_callback(this, cbval1);
-        } else {
-            QSplitter::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -884,13 +889,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_actionevent_isbase) {
             qsplitter_actionevent_isbase = false;
             QSplitter::actionEvent(event);
-        } else if (qsplitter_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qsplitter_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qsplitter_actionevent_callback(this, cbval1);
-        } else {
-            QSplitter::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,13 +906,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_dragenterevent_isbase) {
             qsplitter_dragenterevent_isbase = false;
             QSplitter::dragEnterEvent(event);
-        } else if (qsplitter_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qsplitter_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qsplitter_dragenterevent_callback(this, cbval1);
-        } else {
-            QSplitter::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,13 +923,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_dragmoveevent_isbase) {
             qsplitter_dragmoveevent_isbase = false;
             QSplitter::dragMoveEvent(event);
-        } else if (qsplitter_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qsplitter_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qsplitter_dragmoveevent_callback(this, cbval1);
-        } else {
-            QSplitter::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,13 +940,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_dragleaveevent_isbase) {
             qsplitter_dragleaveevent_isbase = false;
             QSplitter::dragLeaveEvent(event);
-        } else if (qsplitter_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qsplitter_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qsplitter_dragleaveevent_callback(this, cbval1);
-        } else {
-            QSplitter::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +957,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_dropevent_isbase) {
             qsplitter_dropevent_isbase = false;
             QSplitter::dropEvent(event);
-        } else if (qsplitter_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qsplitter_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qsplitter_dropevent_callback(this, cbval1);
-        } else {
-            QSplitter::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +974,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_showevent_isbase) {
             qsplitter_showevent_isbase = false;
             QSplitter::showEvent(event);
-        } else if (qsplitter_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qsplitter_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qsplitter_showevent_callback(this, cbval1);
-        } else {
-            QSplitter::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +991,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_hideevent_isbase) {
             qsplitter_hideevent_isbase = false;
             QSplitter::hideEvent(event);
-        } else if (qsplitter_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qsplitter_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qsplitter_hideevent_callback(this, cbval1);
-        } else {
-            QSplitter::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,7 +1008,9 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_nativeevent_isbase) {
             qsplitter_nativeevent_isbase = false;
             return QSplitter::nativeEvent(eventType, message, result);
-        } else if (qsplitter_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qsplitter_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -993,12 +1021,11 @@ class VirtualQSplitter final : public QSplitter {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qsplitter_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QSplitter::nativeEvent(eventType, message, result);
         }
+        return QSplitter::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,14 +1033,15 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_metric_isbase) {
             qsplitter_metric_isbase = false;
             return QSplitter::metric(param1);
-        } else if (qsplitter_metric_callback != nullptr) {
+        }
+        auto metric_cb = qsplitter_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qsplitter_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplitter::metric(param1);
         }
+        return QSplitter::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1021,13 +1049,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_initpainter_isbase) {
             qsplitter_initpainter_isbase = false;
             QSplitter::initPainter(painter);
-        } else if (qsplitter_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qsplitter_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qsplitter_initpainter_callback(this, cbval1);
-        } else {
-            QSplitter::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QSplitter::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,14 +1066,15 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_redirected_isbase) {
             qsplitter_redirected_isbase = false;
             return QSplitter::redirected(offset);
-        } else if (qsplitter_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qsplitter_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qsplitter_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplitter::redirected(offset);
         }
+        return QSplitter::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,12 +1082,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_sharedpainter_isbase) {
             qsplitter_sharedpainter_isbase = false;
             return QSplitter::sharedPainter();
-        } else if (qsplitter_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qsplitter_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QSplitter::sharedPainter();
         }
+        auto sharedpainter_cb = qsplitter_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QSplitter::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,13 +1096,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_inputmethodevent_isbase) {
             qsplitter_inputmethodevent_isbase = false;
             QSplitter::inputMethodEvent(param1);
-        } else if (qsplitter_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qsplitter_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qsplitter_inputmethodevent_callback(this, cbval1);
-        } else {
-            QSplitter::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,14 +1113,15 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_inputmethodquery_isbase) {
             qsplitter_inputmethodquery_isbase = false;
             return QSplitter::inputMethodQuery(param1);
-        } else if (qsplitter_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qsplitter_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qsplitter_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSplitter::inputMethodQuery(param1);
         }
+        return QSplitter::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,14 +1129,15 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_focusnextprevchild_isbase) {
             qsplitter_focusnextprevchild_isbase = false;
             return QSplitter::focusNextPrevChild(next);
-        } else if (qsplitter_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qsplitter_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qsplitter_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplitter::focusNextPrevChild(next);
         }
+        return QSplitter::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1107,15 +1145,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_eventfilter_isbase) {
             qsplitter_eventfilter_isbase = false;
             return QSplitter::eventFilter(watched, event);
-        } else if (qsplitter_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsplitter_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsplitter_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSplitter::eventFilter(watched, event);
         }
+        return QSplitter::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1123,13 +1162,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_timerevent_isbase) {
             qsplitter_timerevent_isbase = false;
             QSplitter::timerEvent(event);
-        } else if (qsplitter_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsplitter_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsplitter_timerevent_callback(this, cbval1);
-        } else {
-            QSplitter::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,13 +1179,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_customevent_isbase) {
             qsplitter_customevent_isbase = false;
             QSplitter::customEvent(event);
-        } else if (qsplitter_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsplitter_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsplitter_customevent_callback(this, cbval1);
-        } else {
-            QSplitter::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSplitter::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1151,15 +1196,18 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_connectnotify_isbase) {
             qsplitter_connectnotify_isbase = false;
             QSplitter::connectNotify(signal);
-        } else if (qsplitter_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsplitter_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsplitter_connectnotify_callback(this, cbval1);
-        } else {
-            QSplitter::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSplitter::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,15 +1215,18 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_disconnectnotify_isbase) {
             qsplitter_disconnectnotify_isbase = false;
             QSplitter::disconnectNotify(signal);
-        } else if (qsplitter_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsplitter_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsplitter_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSplitter::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSplitter::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,14 +1234,17 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_movesplitter_isbase) {
             qsplitter_movesplitter_isbase = false;
             QSplitter::moveSplitter(pos, index);
-        } else if (qsplitter_movesplitter_callback != nullptr) {
+            return;
+        }
+        auto movesplitter_cb = qsplitter_movesplitter_callback;
+        if (movesplitter_cb) {
             int cbval1 = pos;
             int cbval2 = index;
 
-            qsplitter_movesplitter_callback(this, cbval1, cbval2);
-        } else {
-            QSplitter::moveSplitter(pos, index);
+            movesplitter_cb(this, cbval1, cbval2);
+            return;
         }
+        QSplitter::moveSplitter(pos, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1198,13 +1252,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_setrubberband_isbase) {
             qsplitter_setrubberband_isbase = false;
             QSplitter::setRubberBand(position);
-        } else if (qsplitter_setrubberband_callback != nullptr) {
+            return;
+        }
+        auto setrubberband_cb = qsplitter_setrubberband_callback;
+        if (setrubberband_cb) {
             int cbval1 = position;
 
-            qsplitter_setrubberband_callback(this, cbval1);
-        } else {
-            QSplitter::setRubberBand(position);
+            setrubberband_cb(this, cbval1);
+            return;
         }
+        QSplitter::setRubberBand(position);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1212,15 +1269,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_closestlegalposition_isbase) {
             qsplitter_closestlegalposition_isbase = false;
             return QSplitter::closestLegalPosition(param1, param2);
-        } else if (qsplitter_closestlegalposition_callback != nullptr) {
+        }
+        auto closestlegalposition_cb = qsplitter_closestlegalposition_callback;
+        if (closestlegalposition_cb) {
             int cbval1 = param1;
             int cbval2 = param2;
 
-            int callback_ret = qsplitter_closestlegalposition_callback(this, cbval1, cbval2);
+            int callback_ret = closestlegalposition_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplitter::closestLegalPosition(param1, param2);
         }
+        return QSplitter::closestLegalPosition(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1228,13 +1286,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_drawframe_isbase) {
             qsplitter_drawframe_isbase = false;
             QSplitter::drawFrame(param1);
-        } else if (qsplitter_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qsplitter_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qsplitter_drawframe_callback(this, cbval1);
-        } else {
-            QSplitter::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QSplitter::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1242,11 +1303,14 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_updatemicrofocus_isbase) {
             qsplitter_updatemicrofocus_isbase = false;
             QSplitter::updateMicroFocus();
-        } else if (qsplitter_updatemicrofocus_callback != nullptr) {
-            qsplitter_updatemicrofocus_callback();
-        } else {
-            QSplitter::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qsplitter_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QSplitter::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1254,11 +1318,14 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_create_isbase) {
             qsplitter_create_isbase = false;
             QSplitter::create();
-        } else if (qsplitter_create_callback != nullptr) {
-            qsplitter_create_callback();
-        } else {
-            QSplitter::create();
+            return;
         }
+        auto create_cb = qsplitter_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QSplitter::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1266,11 +1333,14 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_destroy_isbase) {
             qsplitter_destroy_isbase = false;
             QSplitter::destroy();
-        } else if (qsplitter_destroy_callback != nullptr) {
-            qsplitter_destroy_callback();
-        } else {
-            QSplitter::destroy();
+            return;
         }
+        auto destroy_cb = qsplitter_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QSplitter::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,12 +1348,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_focusnextchild_isbase) {
             qsplitter_focusnextchild_isbase = false;
             return QSplitter::focusNextChild();
-        } else if (qsplitter_focusnextchild_callback != nullptr) {
-            bool callback_ret = qsplitter_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QSplitter::focusNextChild();
         }
+        auto focusnextchild_cb = qsplitter_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QSplitter::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1291,12 +1362,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_focuspreviouschild_isbase) {
             qsplitter_focuspreviouschild_isbase = false;
             return QSplitter::focusPreviousChild();
-        } else if (qsplitter_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qsplitter_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QSplitter::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qsplitter_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QSplitter::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1304,12 +1376,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_sender_isbase) {
             qsplitter_sender_isbase = false;
             return QSplitter::sender();
-        } else if (qsplitter_sender_callback != nullptr) {
-            QObject* callback_ret = qsplitter_sender_callback();
-            return callback_ret;
-        } else {
-            return QSplitter::sender();
         }
+        auto sender_cb = qsplitter_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSplitter::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1317,12 +1390,13 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_sendersignalindex_isbase) {
             qsplitter_sendersignalindex_isbase = false;
             return QSplitter::senderSignalIndex();
-        } else if (qsplitter_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsplitter_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSplitter::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsplitter_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSplitter::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1330,14 +1404,15 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_receivers_isbase) {
             qsplitter_receivers_isbase = false;
             return QSplitter::receivers(signal);
-        } else if (qsplitter_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsplitter_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsplitter_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplitter::receivers(signal);
         }
+        return QSplitter::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1345,16 +1420,17 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_issignalconnected_isbase) {
             qsplitter_issignalconnected_isbase = false;
             return QSplitter::isSignalConnected(signal);
-        } else if (qsplitter_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsplitter_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsplitter_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplitter::isSignalConnected(signal);
         }
+        return QSplitter::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1362,15 +1438,16 @@ class VirtualQSplitter final : public QSplitter {
         if (qsplitter_getdecodedmetricf_isbase) {
             qsplitter_getdecodedmetricf_isbase = false;
             return QSplitter::getDecodedMetricF(metricA, metricB);
-        } else if (qsplitter_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qsplitter_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qsplitter_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QSplitter::getDecodedMetricF(metricA, metricB);
         }
+        return QSplitter::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions
@@ -1687,71 +1764,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
   public:
     VirtualQSplitterHandle(Qt::Orientation o, QSplitter* parent) : QSplitterHandle(o, parent) {};
 
-    ~VirtualQSplitterHandle() {
-        qsplitterhandle_metaobject_callback = nullptr;
-        qsplitterhandle_metacast_callback = nullptr;
-        qsplitterhandle_metacall_callback = nullptr;
-        qsplitterhandle_sizehint_callback = nullptr;
-        qsplitterhandle_paintevent_callback = nullptr;
-        qsplitterhandle_mousemoveevent_callback = nullptr;
-        qsplitterhandle_mousepressevent_callback = nullptr;
-        qsplitterhandle_mousereleaseevent_callback = nullptr;
-        qsplitterhandle_resizeevent_callback = nullptr;
-        qsplitterhandle_event_callback = nullptr;
-        qsplitterhandle_devtype_callback = nullptr;
-        qsplitterhandle_setvisible_callback = nullptr;
-        qsplitterhandle_minimumsizehint_callback = nullptr;
-        qsplitterhandle_heightforwidth_callback = nullptr;
-        qsplitterhandle_hasheightforwidth_callback = nullptr;
-        qsplitterhandle_paintengine_callback = nullptr;
-        qsplitterhandle_mousedoubleclickevent_callback = nullptr;
-        qsplitterhandle_wheelevent_callback = nullptr;
-        qsplitterhandle_keypressevent_callback = nullptr;
-        qsplitterhandle_keyreleaseevent_callback = nullptr;
-        qsplitterhandle_focusinevent_callback = nullptr;
-        qsplitterhandle_focusoutevent_callback = nullptr;
-        qsplitterhandle_enterevent_callback = nullptr;
-        qsplitterhandle_leaveevent_callback = nullptr;
-        qsplitterhandle_moveevent_callback = nullptr;
-        qsplitterhandle_closeevent_callback = nullptr;
-        qsplitterhandle_contextmenuevent_callback = nullptr;
-        qsplitterhandle_tabletevent_callback = nullptr;
-        qsplitterhandle_actionevent_callback = nullptr;
-        qsplitterhandle_dragenterevent_callback = nullptr;
-        qsplitterhandle_dragmoveevent_callback = nullptr;
-        qsplitterhandle_dragleaveevent_callback = nullptr;
-        qsplitterhandle_dropevent_callback = nullptr;
-        qsplitterhandle_showevent_callback = nullptr;
-        qsplitterhandle_hideevent_callback = nullptr;
-        qsplitterhandle_nativeevent_callback = nullptr;
-        qsplitterhandle_changeevent_callback = nullptr;
-        qsplitterhandle_metric_callback = nullptr;
-        qsplitterhandle_initpainter_callback = nullptr;
-        qsplitterhandle_redirected_callback = nullptr;
-        qsplitterhandle_sharedpainter_callback = nullptr;
-        qsplitterhandle_inputmethodevent_callback = nullptr;
-        qsplitterhandle_inputmethodquery_callback = nullptr;
-        qsplitterhandle_focusnextprevchild_callback = nullptr;
-        qsplitterhandle_eventfilter_callback = nullptr;
-        qsplitterhandle_timerevent_callback = nullptr;
-        qsplitterhandle_childevent_callback = nullptr;
-        qsplitterhandle_customevent_callback = nullptr;
-        qsplitterhandle_connectnotify_callback = nullptr;
-        qsplitterhandle_disconnectnotify_callback = nullptr;
-        qsplitterhandle_movesplitter_callback = nullptr;
-        qsplitterhandle_closestlegalposition_callback = nullptr;
-        qsplitterhandle_updatemicrofocus_callback = nullptr;
-        qsplitterhandle_create_callback = nullptr;
-        qsplitterhandle_destroy_callback = nullptr;
-        qsplitterhandle_focusnextchild_callback = nullptr;
-        qsplitterhandle_focuspreviouschild_callback = nullptr;
-        qsplitterhandle_sender_callback = nullptr;
-        qsplitterhandle_sendersignalindex_callback = nullptr;
-        qsplitterhandle_receivers_callback = nullptr;
-        qsplitterhandle_issignalconnected_callback = nullptr;
-        qsplitterhandle_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSplitterHandle_MetaObject_Callback(QSplitterHandle_MetaObject_Callback cb) { qsplitterhandle_metaobject_callback = cb; }
     inline void setQSplitterHandle_Metacast_Callback(QSplitterHandle_Metacast_Callback cb) { qsplitterhandle_metacast_callback = cb; }
@@ -1885,12 +1897,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_metaobject_isbase) {
             qsplitterhandle_metaobject_isbase = false;
             return QSplitterHandle::metaObject();
-        } else if (qsplitterhandle_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsplitterhandle_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSplitterHandle::metaObject();
         }
+        auto metaobject_cb = qsplitterhandle_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSplitterHandle::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1898,14 +1911,15 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_metacast_isbase) {
             qsplitterhandle_metacast_isbase = false;
             return QSplitterHandle::qt_metacast(param1);
-        } else if (qsplitterhandle_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsplitterhandle_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsplitterhandle_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplitterHandle::qt_metacast(param1);
         }
+        return QSplitterHandle::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1913,16 +1927,17 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_metacall_isbase) {
             qsplitterhandle_metacall_isbase = false;
             return QSplitterHandle::qt_metacall(param1, param2, param3);
-        } else if (qsplitterhandle_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsplitterhandle_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsplitterhandle_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplitterHandle::qt_metacall(param1, param2, param3);
         }
+        return QSplitterHandle::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1930,12 +1945,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_sizehint_isbase) {
             qsplitterhandle_sizehint_isbase = false;
             return QSplitterHandle::sizeHint();
-        } else if (qsplitterhandle_sizehint_callback != nullptr) {
-            QSize* callback_ret = qsplitterhandle_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QSplitterHandle::sizeHint();
         }
+        auto sizehint_cb = qsplitterhandle_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QSplitterHandle::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1943,13 +1959,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_paintevent_isbase) {
             qsplitterhandle_paintevent_isbase = false;
             QSplitterHandle::paintEvent(param1);
-        } else if (qsplitterhandle_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qsplitterhandle_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qsplitterhandle_paintevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1957,13 +1976,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_mousemoveevent_isbase) {
             qsplitterhandle_mousemoveevent_isbase = false;
             QSplitterHandle::mouseMoveEvent(param1);
-        } else if (qsplitterhandle_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qsplitterhandle_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qsplitterhandle_mousemoveevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1971,13 +1993,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_mousepressevent_isbase) {
             qsplitterhandle_mousepressevent_isbase = false;
             QSplitterHandle::mousePressEvent(param1);
-        } else if (qsplitterhandle_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qsplitterhandle_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qsplitterhandle_mousepressevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1985,13 +2010,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_mousereleaseevent_isbase) {
             qsplitterhandle_mousereleaseevent_isbase = false;
             QSplitterHandle::mouseReleaseEvent(param1);
-        } else if (qsplitterhandle_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qsplitterhandle_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qsplitterhandle_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1999,13 +2027,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_resizeevent_isbase) {
             qsplitterhandle_resizeevent_isbase = false;
             QSplitterHandle::resizeEvent(param1);
-        } else if (qsplitterhandle_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qsplitterhandle_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qsplitterhandle_resizeevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2013,14 +2044,15 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_event_isbase) {
             qsplitterhandle_event_isbase = false;
             return QSplitterHandle::event(param1);
-        } else if (qsplitterhandle_event_callback != nullptr) {
+        }
+        auto event_cb = qsplitterhandle_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qsplitterhandle_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplitterHandle::event(param1);
         }
+        return QSplitterHandle::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2028,12 +2060,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_devtype_isbase) {
             qsplitterhandle_devtype_isbase = false;
             return QSplitterHandle::devType();
-        } else if (qsplitterhandle_devtype_callback != nullptr) {
-            int callback_ret = qsplitterhandle_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSplitterHandle::devType();
         }
+        auto devtype_cb = qsplitterhandle_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSplitterHandle::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2041,13 +2074,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_setvisible_isbase) {
             qsplitterhandle_setvisible_isbase = false;
             QSplitterHandle::setVisible(visible);
-        } else if (qsplitterhandle_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qsplitterhandle_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qsplitterhandle_setvisible_callback(this, cbval1);
-        } else {
-            QSplitterHandle::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2055,12 +2091,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_minimumsizehint_isbase) {
             qsplitterhandle_minimumsizehint_isbase = false;
             return QSplitterHandle::minimumSizeHint();
-        } else if (qsplitterhandle_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qsplitterhandle_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QSplitterHandle::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qsplitterhandle_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QSplitterHandle::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2068,14 +2105,15 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_heightforwidth_isbase) {
             qsplitterhandle_heightforwidth_isbase = false;
             return QSplitterHandle::heightForWidth(param1);
-        } else if (qsplitterhandle_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qsplitterhandle_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qsplitterhandle_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplitterHandle::heightForWidth(param1);
         }
+        return QSplitterHandle::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2083,12 +2121,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_hasheightforwidth_isbase) {
             qsplitterhandle_hasheightforwidth_isbase = false;
             return QSplitterHandle::hasHeightForWidth();
-        } else if (qsplitterhandle_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qsplitterhandle_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QSplitterHandle::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qsplitterhandle_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QSplitterHandle::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2096,12 +2135,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_paintengine_isbase) {
             qsplitterhandle_paintengine_isbase = false;
             return QSplitterHandle::paintEngine();
-        } else if (qsplitterhandle_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qsplitterhandle_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QSplitterHandle::paintEngine();
         }
+        auto paintengine_cb = qsplitterhandle_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QSplitterHandle::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2109,13 +2149,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_mousedoubleclickevent_isbase) {
             qsplitterhandle_mousedoubleclickevent_isbase = false;
             QSplitterHandle::mouseDoubleClickEvent(event);
-        } else if (qsplitterhandle_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qsplitterhandle_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qsplitterhandle_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2123,13 +2166,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_wheelevent_isbase) {
             qsplitterhandle_wheelevent_isbase = false;
             QSplitterHandle::wheelEvent(event);
-        } else if (qsplitterhandle_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qsplitterhandle_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qsplitterhandle_wheelevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2137,13 +2183,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_keypressevent_isbase) {
             qsplitterhandle_keypressevent_isbase = false;
             QSplitterHandle::keyPressEvent(event);
-        } else if (qsplitterhandle_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qsplitterhandle_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qsplitterhandle_keypressevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2151,13 +2200,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_keyreleaseevent_isbase) {
             qsplitterhandle_keyreleaseevent_isbase = false;
             QSplitterHandle::keyReleaseEvent(event);
-        } else if (qsplitterhandle_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qsplitterhandle_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qsplitterhandle_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2165,13 +2217,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_focusinevent_isbase) {
             qsplitterhandle_focusinevent_isbase = false;
             QSplitterHandle::focusInEvent(event);
-        } else if (qsplitterhandle_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qsplitterhandle_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qsplitterhandle_focusinevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2179,13 +2234,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_focusoutevent_isbase) {
             qsplitterhandle_focusoutevent_isbase = false;
             QSplitterHandle::focusOutEvent(event);
-        } else if (qsplitterhandle_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qsplitterhandle_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qsplitterhandle_focusoutevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2193,13 +2251,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_enterevent_isbase) {
             qsplitterhandle_enterevent_isbase = false;
             QSplitterHandle::enterEvent(event);
-        } else if (qsplitterhandle_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qsplitterhandle_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qsplitterhandle_enterevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2207,13 +2268,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_leaveevent_isbase) {
             qsplitterhandle_leaveevent_isbase = false;
             QSplitterHandle::leaveEvent(event);
-        } else if (qsplitterhandle_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qsplitterhandle_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qsplitterhandle_leaveevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2221,13 +2285,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_moveevent_isbase) {
             qsplitterhandle_moveevent_isbase = false;
             QSplitterHandle::moveEvent(event);
-        } else if (qsplitterhandle_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qsplitterhandle_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qsplitterhandle_moveevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2235,13 +2302,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_closeevent_isbase) {
             qsplitterhandle_closeevent_isbase = false;
             QSplitterHandle::closeEvent(event);
-        } else if (qsplitterhandle_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qsplitterhandle_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qsplitterhandle_closeevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2249,13 +2319,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_contextmenuevent_isbase) {
             qsplitterhandle_contextmenuevent_isbase = false;
             QSplitterHandle::contextMenuEvent(event);
-        } else if (qsplitterhandle_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qsplitterhandle_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qsplitterhandle_contextmenuevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2263,13 +2336,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_tabletevent_isbase) {
             qsplitterhandle_tabletevent_isbase = false;
             QSplitterHandle::tabletEvent(event);
-        } else if (qsplitterhandle_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qsplitterhandle_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qsplitterhandle_tabletevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2277,13 +2353,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_actionevent_isbase) {
             qsplitterhandle_actionevent_isbase = false;
             QSplitterHandle::actionEvent(event);
-        } else if (qsplitterhandle_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qsplitterhandle_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qsplitterhandle_actionevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2291,13 +2370,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_dragenterevent_isbase) {
             qsplitterhandle_dragenterevent_isbase = false;
             QSplitterHandle::dragEnterEvent(event);
-        } else if (qsplitterhandle_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qsplitterhandle_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qsplitterhandle_dragenterevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2305,13 +2387,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_dragmoveevent_isbase) {
             qsplitterhandle_dragmoveevent_isbase = false;
             QSplitterHandle::dragMoveEvent(event);
-        } else if (qsplitterhandle_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qsplitterhandle_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qsplitterhandle_dragmoveevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2319,13 +2404,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_dragleaveevent_isbase) {
             qsplitterhandle_dragleaveevent_isbase = false;
             QSplitterHandle::dragLeaveEvent(event);
-        } else if (qsplitterhandle_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qsplitterhandle_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qsplitterhandle_dragleaveevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2333,13 +2421,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_dropevent_isbase) {
             qsplitterhandle_dropevent_isbase = false;
             QSplitterHandle::dropEvent(event);
-        } else if (qsplitterhandle_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qsplitterhandle_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qsplitterhandle_dropevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2347,13 +2438,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_showevent_isbase) {
             qsplitterhandle_showevent_isbase = false;
             QSplitterHandle::showEvent(event);
-        } else if (qsplitterhandle_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qsplitterhandle_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qsplitterhandle_showevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2361,13 +2455,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_hideevent_isbase) {
             qsplitterhandle_hideevent_isbase = false;
             QSplitterHandle::hideEvent(event);
-        } else if (qsplitterhandle_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qsplitterhandle_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qsplitterhandle_hideevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2375,7 +2472,9 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_nativeevent_isbase) {
             qsplitterhandle_nativeevent_isbase = false;
             return QSplitterHandle::nativeEvent(eventType, message, result);
-        } else if (qsplitterhandle_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qsplitterhandle_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2386,12 +2485,11 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qsplitterhandle_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QSplitterHandle::nativeEvent(eventType, message, result);
         }
+        return QSplitterHandle::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2399,13 +2497,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_changeevent_isbase) {
             qsplitterhandle_changeevent_isbase = false;
             QSplitterHandle::changeEvent(param1);
-        } else if (qsplitterhandle_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qsplitterhandle_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qsplitterhandle_changeevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2413,14 +2514,15 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_metric_isbase) {
             qsplitterhandle_metric_isbase = false;
             return QSplitterHandle::metric(param1);
-        } else if (qsplitterhandle_metric_callback != nullptr) {
+        }
+        auto metric_cb = qsplitterhandle_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qsplitterhandle_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplitterHandle::metric(param1);
         }
+        return QSplitterHandle::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2428,13 +2530,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_initpainter_isbase) {
             qsplitterhandle_initpainter_isbase = false;
             QSplitterHandle::initPainter(painter);
-        } else if (qsplitterhandle_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qsplitterhandle_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qsplitterhandle_initpainter_callback(this, cbval1);
-        } else {
-            QSplitterHandle::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2442,14 +2547,15 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_redirected_isbase) {
             qsplitterhandle_redirected_isbase = false;
             return QSplitterHandle::redirected(offset);
-        } else if (qsplitterhandle_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qsplitterhandle_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qsplitterhandle_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplitterHandle::redirected(offset);
         }
+        return QSplitterHandle::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2457,12 +2563,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_sharedpainter_isbase) {
             qsplitterhandle_sharedpainter_isbase = false;
             return QSplitterHandle::sharedPainter();
-        } else if (qsplitterhandle_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qsplitterhandle_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QSplitterHandle::sharedPainter();
         }
+        auto sharedpainter_cb = qsplitterhandle_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QSplitterHandle::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2470,13 +2577,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_inputmethodevent_isbase) {
             qsplitterhandle_inputmethodevent_isbase = false;
             QSplitterHandle::inputMethodEvent(param1);
-        } else if (qsplitterhandle_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qsplitterhandle_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qsplitterhandle_inputmethodevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2484,14 +2594,15 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_inputmethodquery_isbase) {
             qsplitterhandle_inputmethodquery_isbase = false;
             return QSplitterHandle::inputMethodQuery(param1);
-        } else if (qsplitterhandle_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qsplitterhandle_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qsplitterhandle_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSplitterHandle::inputMethodQuery(param1);
         }
+        return QSplitterHandle::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2499,14 +2610,15 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_focusnextprevchild_isbase) {
             qsplitterhandle_focusnextprevchild_isbase = false;
             return QSplitterHandle::focusNextPrevChild(next);
-        } else if (qsplitterhandle_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qsplitterhandle_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qsplitterhandle_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplitterHandle::focusNextPrevChild(next);
         }
+        return QSplitterHandle::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2514,15 +2626,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_eventfilter_isbase) {
             qsplitterhandle_eventfilter_isbase = false;
             return QSplitterHandle::eventFilter(watched, event);
-        } else if (qsplitterhandle_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsplitterhandle_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsplitterhandle_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSplitterHandle::eventFilter(watched, event);
         }
+        return QSplitterHandle::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2530,13 +2643,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_timerevent_isbase) {
             qsplitterhandle_timerevent_isbase = false;
             QSplitterHandle::timerEvent(event);
-        } else if (qsplitterhandle_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsplitterhandle_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsplitterhandle_timerevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2544,13 +2660,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_childevent_isbase) {
             qsplitterhandle_childevent_isbase = false;
             QSplitterHandle::childEvent(event);
-        } else if (qsplitterhandle_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsplitterhandle_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsplitterhandle_childevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2558,13 +2677,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_customevent_isbase) {
             qsplitterhandle_customevent_isbase = false;
             QSplitterHandle::customEvent(event);
-        } else if (qsplitterhandle_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsplitterhandle_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsplitterhandle_customevent_callback(this, cbval1);
-        } else {
-            QSplitterHandle::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2572,15 +2694,18 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_connectnotify_isbase) {
             qsplitterhandle_connectnotify_isbase = false;
             QSplitterHandle::connectNotify(signal);
-        } else if (qsplitterhandle_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsplitterhandle_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsplitterhandle_connectnotify_callback(this, cbval1);
-        } else {
-            QSplitterHandle::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2588,15 +2713,18 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_disconnectnotify_isbase) {
             qsplitterhandle_disconnectnotify_isbase = false;
             QSplitterHandle::disconnectNotify(signal);
-        } else if (qsplitterhandle_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsplitterhandle_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsplitterhandle_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSplitterHandle::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2604,13 +2732,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_movesplitter_isbase) {
             qsplitterhandle_movesplitter_isbase = false;
             QSplitterHandle::moveSplitter(p);
-        } else if (qsplitterhandle_movesplitter_callback != nullptr) {
+            return;
+        }
+        auto movesplitter_cb = qsplitterhandle_movesplitter_callback;
+        if (movesplitter_cb) {
             int cbval1 = p;
 
-            qsplitterhandle_movesplitter_callback(this, cbval1);
-        } else {
-            QSplitterHandle::moveSplitter(p);
+            movesplitter_cb(this, cbval1);
+            return;
         }
+        QSplitterHandle::moveSplitter(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2618,14 +2749,15 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_closestlegalposition_isbase) {
             qsplitterhandle_closestlegalposition_isbase = false;
             return QSplitterHandle::closestLegalPosition(p);
-        } else if (qsplitterhandle_closestlegalposition_callback != nullptr) {
+        }
+        auto closestlegalposition_cb = qsplitterhandle_closestlegalposition_callback;
+        if (closestlegalposition_cb) {
             int cbval1 = p;
 
-            int callback_ret = qsplitterhandle_closestlegalposition_callback(this, cbval1);
+            int callback_ret = closestlegalposition_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplitterHandle::closestLegalPosition(p);
         }
+        return QSplitterHandle::closestLegalPosition(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2633,11 +2765,14 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_updatemicrofocus_isbase) {
             qsplitterhandle_updatemicrofocus_isbase = false;
             QSplitterHandle::updateMicroFocus();
-        } else if (qsplitterhandle_updatemicrofocus_callback != nullptr) {
-            qsplitterhandle_updatemicrofocus_callback();
-        } else {
-            QSplitterHandle::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qsplitterhandle_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QSplitterHandle::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2645,11 +2780,14 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_create_isbase) {
             qsplitterhandle_create_isbase = false;
             QSplitterHandle::create();
-        } else if (qsplitterhandle_create_callback != nullptr) {
-            qsplitterhandle_create_callback();
-        } else {
-            QSplitterHandle::create();
+            return;
         }
+        auto create_cb = qsplitterhandle_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QSplitterHandle::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2657,11 +2795,14 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_destroy_isbase) {
             qsplitterhandle_destroy_isbase = false;
             QSplitterHandle::destroy();
-        } else if (qsplitterhandle_destroy_callback != nullptr) {
-            qsplitterhandle_destroy_callback();
-        } else {
-            QSplitterHandle::destroy();
+            return;
         }
+        auto destroy_cb = qsplitterhandle_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QSplitterHandle::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2669,12 +2810,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_focusnextchild_isbase) {
             qsplitterhandle_focusnextchild_isbase = false;
             return QSplitterHandle::focusNextChild();
-        } else if (qsplitterhandle_focusnextchild_callback != nullptr) {
-            bool callback_ret = qsplitterhandle_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QSplitterHandle::focusNextChild();
         }
+        auto focusnextchild_cb = qsplitterhandle_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QSplitterHandle::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2682,12 +2824,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_focuspreviouschild_isbase) {
             qsplitterhandle_focuspreviouschild_isbase = false;
             return QSplitterHandle::focusPreviousChild();
-        } else if (qsplitterhandle_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qsplitterhandle_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QSplitterHandle::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qsplitterhandle_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QSplitterHandle::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2695,12 +2838,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_sender_isbase) {
             qsplitterhandle_sender_isbase = false;
             return QSplitterHandle::sender();
-        } else if (qsplitterhandle_sender_callback != nullptr) {
-            QObject* callback_ret = qsplitterhandle_sender_callback();
-            return callback_ret;
-        } else {
-            return QSplitterHandle::sender();
         }
+        auto sender_cb = qsplitterhandle_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSplitterHandle::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2708,12 +2852,13 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_sendersignalindex_isbase) {
             qsplitterhandle_sendersignalindex_isbase = false;
             return QSplitterHandle::senderSignalIndex();
-        } else if (qsplitterhandle_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsplitterhandle_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSplitterHandle::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsplitterhandle_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSplitterHandle::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2721,14 +2866,15 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_receivers_isbase) {
             qsplitterhandle_receivers_isbase = false;
             return QSplitterHandle::receivers(signal);
-        } else if (qsplitterhandle_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsplitterhandle_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsplitterhandle_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplitterHandle::receivers(signal);
         }
+        return QSplitterHandle::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2736,16 +2882,17 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_issignalconnected_isbase) {
             qsplitterhandle_issignalconnected_isbase = false;
             return QSplitterHandle::isSignalConnected(signal);
-        } else if (qsplitterhandle_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsplitterhandle_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsplitterhandle_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplitterHandle::isSignalConnected(signal);
         }
+        return QSplitterHandle::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2753,15 +2900,16 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (qsplitterhandle_getdecodedmetricf_isbase) {
             qsplitterhandle_getdecodedmetricf_isbase = false;
             return QSplitterHandle::getDecodedMetricF(metricA, metricB);
-        } else if (qsplitterhandle_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qsplitterhandle_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qsplitterhandle_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QSplitterHandle::getDecodedMetricF(metricA, metricB);
         }
+        return QSplitterHandle::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -223,74 +223,6 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
     VirtualQAbstractSlider(QWidget* parent) : QAbstractSlider(parent) {};
     VirtualQAbstractSlider() : QAbstractSlider() {};
 
-    ~VirtualQAbstractSlider() {
-        qabstractslider_metaobject_callback = nullptr;
-        qabstractslider_metacast_callback = nullptr;
-        qabstractslider_metacall_callback = nullptr;
-        qabstractslider_event_callback = nullptr;
-        qabstractslider_sliderchange_callback = nullptr;
-        qabstractslider_keypressevent_callback = nullptr;
-        qabstractslider_timerevent_callback = nullptr;
-        qabstractslider_wheelevent_callback = nullptr;
-        qabstractslider_changeevent_callback = nullptr;
-        qabstractslider_devtype_callback = nullptr;
-        qabstractslider_setvisible_callback = nullptr;
-        qabstractslider_sizehint_callback = nullptr;
-        qabstractslider_minimumsizehint_callback = nullptr;
-        qabstractslider_heightforwidth_callback = nullptr;
-        qabstractslider_hasheightforwidth_callback = nullptr;
-        qabstractslider_paintengine_callback = nullptr;
-        qabstractslider_mousepressevent_callback = nullptr;
-        qabstractslider_mousereleaseevent_callback = nullptr;
-        qabstractslider_mousedoubleclickevent_callback = nullptr;
-        qabstractslider_mousemoveevent_callback = nullptr;
-        qabstractslider_keyreleaseevent_callback = nullptr;
-        qabstractslider_focusinevent_callback = nullptr;
-        qabstractslider_focusoutevent_callback = nullptr;
-        qabstractslider_enterevent_callback = nullptr;
-        qabstractslider_leaveevent_callback = nullptr;
-        qabstractslider_paintevent_callback = nullptr;
-        qabstractslider_moveevent_callback = nullptr;
-        qabstractslider_resizeevent_callback = nullptr;
-        qabstractslider_closeevent_callback = nullptr;
-        qabstractslider_contextmenuevent_callback = nullptr;
-        qabstractslider_tabletevent_callback = nullptr;
-        qabstractslider_actionevent_callback = nullptr;
-        qabstractslider_dragenterevent_callback = nullptr;
-        qabstractslider_dragmoveevent_callback = nullptr;
-        qabstractslider_dragleaveevent_callback = nullptr;
-        qabstractslider_dropevent_callback = nullptr;
-        qabstractslider_showevent_callback = nullptr;
-        qabstractslider_hideevent_callback = nullptr;
-        qabstractslider_nativeevent_callback = nullptr;
-        qabstractslider_metric_callback = nullptr;
-        qabstractslider_initpainter_callback = nullptr;
-        qabstractslider_redirected_callback = nullptr;
-        qabstractslider_sharedpainter_callback = nullptr;
-        qabstractslider_inputmethodevent_callback = nullptr;
-        qabstractslider_inputmethodquery_callback = nullptr;
-        qabstractslider_focusnextprevchild_callback = nullptr;
-        qabstractslider_eventfilter_callback = nullptr;
-        qabstractslider_childevent_callback = nullptr;
-        qabstractslider_customevent_callback = nullptr;
-        qabstractslider_connectnotify_callback = nullptr;
-        qabstractslider_disconnectnotify_callback = nullptr;
-        qabstractslider_setrepeataction_callback = nullptr;
-        qabstractslider_repeataction_callback = nullptr;
-        qabstractslider_setrepeataction2_callback = nullptr;
-        qabstractslider_setrepeataction3_callback = nullptr;
-        qabstractslider_updatemicrofocus_callback = nullptr;
-        qabstractslider_create_callback = nullptr;
-        qabstractslider_destroy_callback = nullptr;
-        qabstractslider_focusnextchild_callback = nullptr;
-        qabstractslider_focuspreviouschild_callback = nullptr;
-        qabstractslider_sender_callback = nullptr;
-        qabstractslider_sendersignalindex_callback = nullptr;
-        qabstractslider_receivers_callback = nullptr;
-        qabstractslider_issignalconnected_callback = nullptr;
-        qabstractslider_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractSlider_MetaObject_Callback(QAbstractSlider_MetaObject_Callback cb) { qabstractslider_metaobject_callback = cb; }
     inline void setQAbstractSlider_Metacast_Callback(QAbstractSlider_Metacast_Callback cb) { qabstractslider_metacast_callback = cb; }
@@ -430,12 +362,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_metaobject_isbase) {
             qabstractslider_metaobject_isbase = false;
             return QAbstractSlider::metaObject();
-        } else if (qabstractslider_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qabstractslider_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSlider::metaObject();
         }
+        auto metaobject_cb = qabstractslider_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAbstractSlider::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -443,14 +376,15 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_metacast_isbase) {
             qabstractslider_metacast_isbase = false;
             return QAbstractSlider::qt_metacast(param1);
-        } else if (qabstractslider_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qabstractslider_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qabstractslider_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractSlider::qt_metacast(param1);
         }
+        return QAbstractSlider::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,16 +392,17 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_metacall_isbase) {
             qabstractslider_metacall_isbase = false;
             return QAbstractSlider::qt_metacall(param1, param2, param3);
-        } else if (qabstractslider_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qabstractslider_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qabstractslider_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSlider::qt_metacall(param1, param2, param3);
         }
+        return QAbstractSlider::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -475,14 +410,15 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_event_isbase) {
             qabstractslider_event_isbase = false;
             return QAbstractSlider::event(e);
-        } else if (qabstractslider_event_callback != nullptr) {
+        }
+        auto event_cb = qabstractslider_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qabstractslider_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractSlider::event(e);
         }
+        return QAbstractSlider::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -490,13 +426,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_sliderchange_isbase) {
             qabstractslider_sliderchange_isbase = false;
             QAbstractSlider::sliderChange(change);
-        } else if (qabstractslider_sliderchange_callback != nullptr) {
+            return;
+        }
+        auto sliderchange_cb = qabstractslider_sliderchange_callback;
+        if (sliderchange_cb) {
             int cbval1 = static_cast<int>(change);
 
-            qabstractslider_sliderchange_callback(this, cbval1);
-        } else {
-            QAbstractSlider::sliderChange(change);
+            sliderchange_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::sliderChange(change);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -504,13 +443,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_keypressevent_isbase) {
             qabstractslider_keypressevent_isbase = false;
             QAbstractSlider::keyPressEvent(ev);
-        } else if (qabstractslider_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qabstractslider_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
 
-            qabstractslider_keypressevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::keyPressEvent(ev);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::keyPressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,13 +460,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_timerevent_isbase) {
             qabstractslider_timerevent_isbase = false;
             QAbstractSlider::timerEvent(param1);
-        } else if (qabstractslider_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qabstractslider_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            qabstractslider_timerevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -532,13 +477,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_wheelevent_isbase) {
             qabstractslider_wheelevent_isbase = false;
             QAbstractSlider::wheelEvent(e);
-        } else if (qabstractslider_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qabstractslider_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            qabstractslider_wheelevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,13 +494,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_changeevent_isbase) {
             qabstractslider_changeevent_isbase = false;
             QAbstractSlider::changeEvent(e);
-        } else if (qabstractslider_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qabstractslider_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            qabstractslider_changeevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,12 +511,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_devtype_isbase) {
             qabstractslider_devtype_isbase = false;
             return QAbstractSlider::devType();
-        } else if (qabstractslider_devtype_callback != nullptr) {
-            int callback_ret = qabstractslider_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSlider::devType();
         }
+        auto devtype_cb = qabstractslider_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractSlider::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,13 +525,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_setvisible_isbase) {
             qabstractslider_setvisible_isbase = false;
             QAbstractSlider::setVisible(visible);
-        } else if (qabstractslider_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qabstractslider_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qabstractslider_setvisible_callback(this, cbval1);
-        } else {
-            QAbstractSlider::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,12 +542,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_sizehint_isbase) {
             qabstractslider_sizehint_isbase = false;
             return QAbstractSlider::sizeHint();
-        } else if (qabstractslider_sizehint_callback != nullptr) {
-            QSize* callback_ret = qabstractslider_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractSlider::sizeHint();
         }
+        auto sizehint_cb = qabstractslider_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QAbstractSlider::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -600,12 +556,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_minimumsizehint_isbase) {
             qabstractslider_minimumsizehint_isbase = false;
             return QAbstractSlider::minimumSizeHint();
-        } else if (qabstractslider_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qabstractslider_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractSlider::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qabstractslider_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QAbstractSlider::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,14 +570,15 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_heightforwidth_isbase) {
             qabstractslider_heightforwidth_isbase = false;
             return QAbstractSlider::heightForWidth(param1);
-        } else if (qabstractslider_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qabstractslider_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qabstractslider_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSlider::heightForWidth(param1);
         }
+        return QAbstractSlider::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -628,12 +586,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_hasheightforwidth_isbase) {
             qabstractslider_hasheightforwidth_isbase = false;
             return QAbstractSlider::hasHeightForWidth();
-        } else if (qabstractslider_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qabstractslider_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSlider::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qabstractslider_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QAbstractSlider::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,12 +600,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_paintengine_isbase) {
             qabstractslider_paintengine_isbase = false;
             return QAbstractSlider::paintEngine();
-        } else if (qabstractslider_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qabstractslider_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSlider::paintEngine();
         }
+        auto paintengine_cb = qabstractslider_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QAbstractSlider::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,13 +614,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_mousepressevent_isbase) {
             qabstractslider_mousepressevent_isbase = false;
             QAbstractSlider::mousePressEvent(event);
-        } else if (qabstractslider_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qabstractslider_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractslider_mousepressevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,13 +631,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_mousereleaseevent_isbase) {
             qabstractslider_mousereleaseevent_isbase = false;
             QAbstractSlider::mouseReleaseEvent(event);
-        } else if (qabstractslider_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qabstractslider_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractslider_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,13 +648,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_mousedoubleclickevent_isbase) {
             qabstractslider_mousedoubleclickevent_isbase = false;
             QAbstractSlider::mouseDoubleClickEvent(event);
-        } else if (qabstractslider_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qabstractslider_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractslider_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,13 +665,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_mousemoveevent_isbase) {
             qabstractslider_mousemoveevent_isbase = false;
             QAbstractSlider::mouseMoveEvent(event);
-        } else if (qabstractslider_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qabstractslider_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractslider_mousemoveevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -710,13 +682,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_keyreleaseevent_isbase) {
             qabstractslider_keyreleaseevent_isbase = false;
             QAbstractSlider::keyReleaseEvent(event);
-        } else if (qabstractslider_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qabstractslider_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qabstractslider_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,13 +699,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_focusinevent_isbase) {
             qabstractslider_focusinevent_isbase = false;
             QAbstractSlider::focusInEvent(event);
-        } else if (qabstractslider_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qabstractslider_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qabstractslider_focusinevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -738,13 +716,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_focusoutevent_isbase) {
             qabstractslider_focusoutevent_isbase = false;
             QAbstractSlider::focusOutEvent(event);
-        } else if (qabstractslider_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qabstractslider_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qabstractslider_focusoutevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,13 +733,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_enterevent_isbase) {
             qabstractslider_enterevent_isbase = false;
             QAbstractSlider::enterEvent(event);
-        } else if (qabstractslider_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qabstractslider_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qabstractslider_enterevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -766,13 +750,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_leaveevent_isbase) {
             qabstractslider_leaveevent_isbase = false;
             QAbstractSlider::leaveEvent(event);
-        } else if (qabstractslider_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qabstractslider_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractslider_leaveevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -780,13 +767,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_paintevent_isbase) {
             qabstractslider_paintevent_isbase = false;
             QAbstractSlider::paintEvent(event);
-        } else if (qabstractslider_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qabstractslider_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qabstractslider_paintevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -794,13 +784,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_moveevent_isbase) {
             qabstractslider_moveevent_isbase = false;
             QAbstractSlider::moveEvent(event);
-        } else if (qabstractslider_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qabstractslider_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qabstractslider_moveevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -808,13 +801,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_resizeevent_isbase) {
             qabstractslider_resizeevent_isbase = false;
             QAbstractSlider::resizeEvent(event);
-        } else if (qabstractslider_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qabstractslider_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qabstractslider_resizeevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -822,13 +818,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_closeevent_isbase) {
             qabstractslider_closeevent_isbase = false;
             QAbstractSlider::closeEvent(event);
-        } else if (qabstractslider_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qabstractslider_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qabstractslider_closeevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -836,13 +835,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_contextmenuevent_isbase) {
             qabstractslider_contextmenuevent_isbase = false;
             QAbstractSlider::contextMenuEvent(event);
-        } else if (qabstractslider_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qabstractslider_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qabstractslider_contextmenuevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -850,13 +852,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_tabletevent_isbase) {
             qabstractslider_tabletevent_isbase = false;
             QAbstractSlider::tabletEvent(event);
-        } else if (qabstractslider_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qabstractslider_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qabstractslider_tabletevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -864,13 +869,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_actionevent_isbase) {
             qabstractslider_actionevent_isbase = false;
             QAbstractSlider::actionEvent(event);
-        } else if (qabstractslider_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qabstractslider_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qabstractslider_actionevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -878,13 +886,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_dragenterevent_isbase) {
             qabstractslider_dragenterevent_isbase = false;
             QAbstractSlider::dragEnterEvent(event);
-        } else if (qabstractslider_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qabstractslider_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qabstractslider_dragenterevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -892,13 +903,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_dragmoveevent_isbase) {
             qabstractslider_dragmoveevent_isbase = false;
             QAbstractSlider::dragMoveEvent(event);
-        } else if (qabstractslider_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qabstractslider_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qabstractslider_dragmoveevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -906,13 +920,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_dragleaveevent_isbase) {
             qabstractslider_dragleaveevent_isbase = false;
             QAbstractSlider::dragLeaveEvent(event);
-        } else if (qabstractslider_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qabstractslider_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qabstractslider_dragleaveevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -920,13 +937,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_dropevent_isbase) {
             qabstractslider_dropevent_isbase = false;
             QAbstractSlider::dropEvent(event);
-        } else if (qabstractslider_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qabstractslider_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qabstractslider_dropevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -934,13 +954,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_showevent_isbase) {
             qabstractslider_showevent_isbase = false;
             QAbstractSlider::showEvent(event);
-        } else if (qabstractslider_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qabstractslider_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qabstractslider_showevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -948,13 +971,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_hideevent_isbase) {
             qabstractslider_hideevent_isbase = false;
             QAbstractSlider::hideEvent(event);
-        } else if (qabstractslider_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qabstractslider_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qabstractslider_hideevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -962,7 +988,9 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_nativeevent_isbase) {
             qabstractslider_nativeevent_isbase = false;
             return QAbstractSlider::nativeEvent(eventType, message, result);
-        } else if (qabstractslider_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qabstractslider_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -973,12 +1001,11 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qabstractslider_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QAbstractSlider::nativeEvent(eventType, message, result);
         }
+        return QAbstractSlider::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,14 +1013,15 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_metric_isbase) {
             qabstractslider_metric_isbase = false;
             return QAbstractSlider::metric(param1);
-        } else if (qabstractslider_metric_callback != nullptr) {
+        }
+        auto metric_cb = qabstractslider_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qabstractslider_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSlider::metric(param1);
         }
+        return QAbstractSlider::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1001,13 +1029,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_initpainter_isbase) {
             qabstractslider_initpainter_isbase = false;
             QAbstractSlider::initPainter(painter);
-        } else if (qabstractslider_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qabstractslider_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qabstractslider_initpainter_callback(this, cbval1);
-        } else {
-            QAbstractSlider::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1015,14 +1046,15 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_redirected_isbase) {
             qabstractslider_redirected_isbase = false;
             return QAbstractSlider::redirected(offset);
-        } else if (qabstractslider_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qabstractslider_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qabstractslider_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractSlider::redirected(offset);
         }
+        return QAbstractSlider::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1030,12 +1062,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_sharedpainter_isbase) {
             qabstractslider_sharedpainter_isbase = false;
             return QAbstractSlider::sharedPainter();
-        } else if (qabstractslider_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qabstractslider_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSlider::sharedPainter();
         }
+        auto sharedpainter_cb = qabstractslider_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QAbstractSlider::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,13 +1076,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_inputmethodevent_isbase) {
             qabstractslider_inputmethodevent_isbase = false;
             QAbstractSlider::inputMethodEvent(param1);
-        } else if (qabstractslider_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qabstractslider_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qabstractslider_inputmethodevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1057,14 +1093,15 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_inputmethodquery_isbase) {
             qabstractslider_inputmethodquery_isbase = false;
             return QAbstractSlider::inputMethodQuery(param1);
-        } else if (qabstractslider_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qabstractslider_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qabstractslider_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractSlider::inputMethodQuery(param1);
         }
+        return QAbstractSlider::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,14 +1109,15 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_focusnextprevchild_isbase) {
             qabstractslider_focusnextprevchild_isbase = false;
             return QAbstractSlider::focusNextPrevChild(next);
-        } else if (qabstractslider_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qabstractslider_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qabstractslider_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractSlider::focusNextPrevChild(next);
         }
+        return QAbstractSlider::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1087,15 +1125,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_eventfilter_isbase) {
             qabstractslider_eventfilter_isbase = false;
             return QAbstractSlider::eventFilter(watched, event);
-        } else if (qabstractslider_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qabstractslider_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qabstractslider_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractSlider::eventFilter(watched, event);
         }
+        return QAbstractSlider::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,13 +1142,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_childevent_isbase) {
             qabstractslider_childevent_isbase = false;
             QAbstractSlider::childEvent(event);
-        } else if (qabstractslider_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qabstractslider_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qabstractslider_childevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1117,13 +1159,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_customevent_isbase) {
             qabstractslider_customevent_isbase = false;
             QAbstractSlider::customEvent(event);
-        } else if (qabstractslider_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qabstractslider_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractslider_customevent_callback(this, cbval1);
-        } else {
-            QAbstractSlider::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1131,15 +1176,18 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_connectnotify_isbase) {
             qabstractslider_connectnotify_isbase = false;
             QAbstractSlider::connectNotify(signal);
-        } else if (qabstractslider_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qabstractslider_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractslider_connectnotify_callback(this, cbval1);
-        } else {
-            QAbstractSlider::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1147,15 +1195,18 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_disconnectnotify_isbase) {
             qabstractslider_disconnectnotify_isbase = false;
             QAbstractSlider::disconnectNotify(signal);
-        } else if (qabstractslider_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qabstractslider_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractslider_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAbstractSlider::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1163,13 +1214,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_setrepeataction_isbase) {
             qabstractslider_setrepeataction_isbase = false;
             QAbstractSlider::setRepeatAction(action);
-        } else if (qabstractslider_setrepeataction_callback != nullptr) {
+            return;
+        }
+        auto setrepeataction_cb = qabstractslider_setrepeataction_callback;
+        if (setrepeataction_cb) {
             int cbval1 = static_cast<int>(action);
 
-            qabstractslider_setrepeataction_callback(this, cbval1);
-        } else {
-            QAbstractSlider::setRepeatAction(action);
+            setrepeataction_cb(this, cbval1);
+            return;
         }
+        QAbstractSlider::setRepeatAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1177,12 +1231,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_repeataction_isbase) {
             qabstractslider_repeataction_isbase = false;
             return QAbstractSlider::repeatAction();
-        } else if (qabstractslider_repeataction_callback != nullptr) {
-            int callback_ret = qabstractslider_repeataction_callback();
-            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
-        } else {
-            return QAbstractSlider::repeatAction();
         }
+        auto repeataction_cb = qabstractslider_repeataction_callback;
+        if (repeataction_cb) {
+            int callback_ret = repeataction_cb();
+            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
+        }
+        return QAbstractSlider::repeatAction();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1190,14 +1245,17 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_setrepeataction2_isbase) {
             qabstractslider_setrepeataction2_isbase = false;
             QAbstractSlider::setRepeatAction(action, thresholdTime);
-        } else if (qabstractslider_setrepeataction2_callback != nullptr) {
+            return;
+        }
+        auto setrepeataction2_cb = qabstractslider_setrepeataction2_callback;
+        if (setrepeataction2_cb) {
             int cbval1 = static_cast<int>(action);
             int cbval2 = thresholdTime;
 
-            qabstractslider_setrepeataction2_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractSlider::setRepeatAction(action, thresholdTime);
+            setrepeataction2_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractSlider::setRepeatAction(action, thresholdTime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,15 +1263,18 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_setrepeataction3_isbase) {
             qabstractslider_setrepeataction3_isbase = false;
             QAbstractSlider::setRepeatAction(action, thresholdTime, repeatTime);
-        } else if (qabstractslider_setrepeataction3_callback != nullptr) {
+            return;
+        }
+        auto setrepeataction3_cb = qabstractslider_setrepeataction3_callback;
+        if (setrepeataction3_cb) {
             int cbval1 = static_cast<int>(action);
             int cbval2 = thresholdTime;
             int cbval3 = repeatTime;
 
-            qabstractslider_setrepeataction3_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractSlider::setRepeatAction(action, thresholdTime, repeatTime);
+            setrepeataction3_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractSlider::setRepeatAction(action, thresholdTime, repeatTime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,11 +1282,14 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_updatemicrofocus_isbase) {
             qabstractslider_updatemicrofocus_isbase = false;
             QAbstractSlider::updateMicroFocus();
-        } else if (qabstractslider_updatemicrofocus_callback != nullptr) {
-            qabstractslider_updatemicrofocus_callback();
-        } else {
-            QAbstractSlider::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qabstractslider_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QAbstractSlider::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,11 +1297,14 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_create_isbase) {
             qabstractslider_create_isbase = false;
             QAbstractSlider::create();
-        } else if (qabstractslider_create_callback != nullptr) {
-            qabstractslider_create_callback();
-        } else {
-            QAbstractSlider::create();
+            return;
         }
+        auto create_cb = qabstractslider_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QAbstractSlider::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,11 +1312,14 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_destroy_isbase) {
             qabstractslider_destroy_isbase = false;
             QAbstractSlider::destroy();
-        } else if (qabstractslider_destroy_callback != nullptr) {
-            qabstractslider_destroy_callback();
-        } else {
-            QAbstractSlider::destroy();
+            return;
         }
+        auto destroy_cb = qabstractslider_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QAbstractSlider::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,12 +1327,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_focusnextchild_isbase) {
             qabstractslider_focusnextchild_isbase = false;
             return QAbstractSlider::focusNextChild();
-        } else if (qabstractslider_focusnextchild_callback != nullptr) {
-            bool callback_ret = qabstractslider_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSlider::focusNextChild();
         }
+        auto focusnextchild_cb = qabstractslider_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QAbstractSlider::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1270,12 +1341,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_focuspreviouschild_isbase) {
             qabstractslider_focuspreviouschild_isbase = false;
             return QAbstractSlider::focusPreviousChild();
-        } else if (qabstractslider_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qabstractslider_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSlider::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qabstractslider_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QAbstractSlider::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1283,12 +1355,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_sender_isbase) {
             qabstractslider_sender_isbase = false;
             return QAbstractSlider::sender();
-        } else if (qabstractslider_sender_callback != nullptr) {
-            QObject* callback_ret = qabstractslider_sender_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSlider::sender();
         }
+        auto sender_cb = qabstractslider_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAbstractSlider::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1296,12 +1369,13 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_sendersignalindex_isbase) {
             qabstractslider_sendersignalindex_isbase = false;
             return QAbstractSlider::senderSignalIndex();
-        } else if (qabstractslider_sendersignalindex_callback != nullptr) {
-            int callback_ret = qabstractslider_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSlider::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qabstractslider_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractSlider::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1309,14 +1383,15 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_receivers_isbase) {
             qabstractslider_receivers_isbase = false;
             return QAbstractSlider::receivers(signal);
-        } else if (qabstractslider_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qabstractslider_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qabstractslider_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSlider::receivers(signal);
         }
+        return QAbstractSlider::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1324,16 +1399,17 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_issignalconnected_isbase) {
             qabstractslider_issignalconnected_isbase = false;
             return QAbstractSlider::isSignalConnected(signal);
-        } else if (qabstractslider_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qabstractslider_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qabstractslider_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractSlider::isSignalConnected(signal);
         }
+        return QAbstractSlider::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1341,15 +1417,16 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
         if (qabstractslider_getdecodedmetricf_isbase) {
             qabstractslider_getdecodedmetricf_isbase = false;
             return QAbstractSlider::getDecodedMetricF(metricA, metricB);
-        } else if (qabstractslider_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qabstractslider_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qabstractslider_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QAbstractSlider::getDecodedMetricF(metricA, metricB);
         }
+        return QAbstractSlider::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

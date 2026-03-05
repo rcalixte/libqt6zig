@@ -120,40 +120,6 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
     VirtualKTerminalLauncherJob(const QString& command) : KTerminalLauncherJob(command) {};
     VirtualKTerminalLauncherJob(const QString& command, QObject* parent) : KTerminalLauncherJob(command, parent) {};
 
-    ~VirtualKTerminalLauncherJob() {
-        kterminallauncherjob_metaobject_callback = nullptr;
-        kterminallauncherjob_metacast_callback = nullptr;
-        kterminallauncherjob_metacall_callback = nullptr;
-        kterminallauncherjob_start_callback = nullptr;
-        kterminallauncherjob_dokill_callback = nullptr;
-        kterminallauncherjob_dosuspend_callback = nullptr;
-        kterminallauncherjob_doresume_callback = nullptr;
-        kterminallauncherjob_errorstring_callback = nullptr;
-        kterminallauncherjob_event_callback = nullptr;
-        kterminallauncherjob_eventfilter_callback = nullptr;
-        kterminallauncherjob_timerevent_callback = nullptr;
-        kterminallauncherjob_childevent_callback = nullptr;
-        kterminallauncherjob_customevent_callback = nullptr;
-        kterminallauncherjob_connectnotify_callback = nullptr;
-        kterminallauncherjob_disconnectnotify_callback = nullptr;
-        kterminallauncherjob_setcapabilities_callback = nullptr;
-        kterminallauncherjob_isfinished_callback = nullptr;
-        kterminallauncherjob_seterror_callback = nullptr;
-        kterminallauncherjob_seterrortext_callback = nullptr;
-        kterminallauncherjob_setprocessedamount_callback = nullptr;
-        kterminallauncherjob_settotalamount_callback = nullptr;
-        kterminallauncherjob_setprogressunit_callback = nullptr;
-        kterminallauncherjob_setpercent_callback = nullptr;
-        kterminallauncherjob_emitresult_callback = nullptr;
-        kterminallauncherjob_emitpercent_callback = nullptr;
-        kterminallauncherjob_emitspeed_callback = nullptr;
-        kterminallauncherjob_startelapsedtimer_callback = nullptr;
-        kterminallauncherjob_sender_callback = nullptr;
-        kterminallauncherjob_sendersignalindex_callback = nullptr;
-        kterminallauncherjob_receivers_callback = nullptr;
-        kterminallauncherjob_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKTerminalLauncherJob_MetaObject_Callback(KTerminalLauncherJob_MetaObject_Callback cb) { kterminallauncherjob_metaobject_callback = cb; }
     inline void setKTerminalLauncherJob_Metacast_Callback(KTerminalLauncherJob_Metacast_Callback cb) { kterminallauncherjob_metacast_callback = cb; }
@@ -225,12 +191,13 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_metaobject_isbase) {
             kterminallauncherjob_metaobject_isbase = false;
             return KTerminalLauncherJob::metaObject();
-        } else if (kterminallauncherjob_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kterminallauncherjob_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KTerminalLauncherJob::metaObject();
         }
+        auto metaobject_cb = kterminallauncherjob_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KTerminalLauncherJob::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -238,14 +205,15 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_metacast_isbase) {
             kterminallauncherjob_metacast_isbase = false;
             return KTerminalLauncherJob::qt_metacast(param1);
-        } else if (kterminallauncherjob_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kterminallauncherjob_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kterminallauncherjob_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTerminalLauncherJob::qt_metacast(param1);
         }
+        return KTerminalLauncherJob::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -253,16 +221,17 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_metacall_isbase) {
             kterminallauncherjob_metacall_isbase = false;
             return KTerminalLauncherJob::qt_metacall(param1, param2, param3);
-        } else if (kterminallauncherjob_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kterminallauncherjob_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kterminallauncherjob_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTerminalLauncherJob::qt_metacall(param1, param2, param3);
         }
+        return KTerminalLauncherJob::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,11 +239,14 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_start_isbase) {
             kterminallauncherjob_start_isbase = false;
             KTerminalLauncherJob::start();
-        } else if (kterminallauncherjob_start_callback != nullptr) {
-            kterminallauncherjob_start_callback();
-        } else {
-            KTerminalLauncherJob::start();
+            return;
         }
+        auto start_cb = kterminallauncherjob_start_callback;
+        if (start_cb) {
+            start_cb();
+            return;
+        }
+        KTerminalLauncherJob::start();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,12 +254,13 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_dokill_isbase) {
             kterminallauncherjob_dokill_isbase = false;
             return KTerminalLauncherJob::doKill();
-        } else if (kterminallauncherjob_dokill_callback != nullptr) {
-            bool callback_ret = kterminallauncherjob_dokill_callback();
-            return callback_ret;
-        } else {
-            return KTerminalLauncherJob::doKill();
         }
+        auto dokill_cb = kterminallauncherjob_dokill_callback;
+        if (dokill_cb) {
+            bool callback_ret = dokill_cb();
+            return callback_ret;
+        }
+        return KTerminalLauncherJob::doKill();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,12 +268,13 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_dosuspend_isbase) {
             kterminallauncherjob_dosuspend_isbase = false;
             return KTerminalLauncherJob::doSuspend();
-        } else if (kterminallauncherjob_dosuspend_callback != nullptr) {
-            bool callback_ret = kterminallauncherjob_dosuspend_callback();
-            return callback_ret;
-        } else {
-            return KTerminalLauncherJob::doSuspend();
         }
+        auto dosuspend_cb = kterminallauncherjob_dosuspend_callback;
+        if (dosuspend_cb) {
+            bool callback_ret = dosuspend_cb();
+            return callback_ret;
+        }
+        return KTerminalLauncherJob::doSuspend();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,12 +282,13 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_doresume_isbase) {
             kterminallauncherjob_doresume_isbase = false;
             return KTerminalLauncherJob::doResume();
-        } else if (kterminallauncherjob_doresume_callback != nullptr) {
-            bool callback_ret = kterminallauncherjob_doresume_callback();
-            return callback_ret;
-        } else {
-            return KTerminalLauncherJob::doResume();
         }
+        auto doresume_cb = kterminallauncherjob_doresume_callback;
+        if (doresume_cb) {
+            bool callback_ret = doresume_cb();
+            return callback_ret;
+        }
+        return KTerminalLauncherJob::doResume();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,13 +296,14 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_errorstring_isbase) {
             kterminallauncherjob_errorstring_isbase = false;
             return KTerminalLauncherJob::errorString();
-        } else if (kterminallauncherjob_errorstring_callback != nullptr) {
-            const char* callback_ret = kterminallauncherjob_errorstring_callback();
+        }
+        auto errorstring_cb = kterminallauncherjob_errorstring_callback;
+        if (errorstring_cb) {
+            const char* callback_ret = errorstring_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KTerminalLauncherJob::errorString();
         }
+        return KTerminalLauncherJob::errorString();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,14 +311,15 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_event_isbase) {
             kterminallauncherjob_event_isbase = false;
             return KTerminalLauncherJob::event(event);
-        } else if (kterminallauncherjob_event_callback != nullptr) {
+        }
+        auto event_cb = kterminallauncherjob_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kterminallauncherjob_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTerminalLauncherJob::event(event);
         }
+        return KTerminalLauncherJob::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -350,15 +327,16 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_eventfilter_isbase) {
             kterminallauncherjob_eventfilter_isbase = false;
             return KTerminalLauncherJob::eventFilter(watched, event);
-        } else if (kterminallauncherjob_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kterminallauncherjob_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kterminallauncherjob_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KTerminalLauncherJob::eventFilter(watched, event);
         }
+        return KTerminalLauncherJob::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,13 +344,16 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_timerevent_isbase) {
             kterminallauncherjob_timerevent_isbase = false;
             KTerminalLauncherJob::timerEvent(event);
-        } else if (kterminallauncherjob_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kterminallauncherjob_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kterminallauncherjob_timerevent_callback(this, cbval1);
-        } else {
-            KTerminalLauncherJob::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KTerminalLauncherJob::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,13 +361,16 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_childevent_isbase) {
             kterminallauncherjob_childevent_isbase = false;
             KTerminalLauncherJob::childEvent(event);
-        } else if (kterminallauncherjob_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kterminallauncherjob_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kterminallauncherjob_childevent_callback(this, cbval1);
-        } else {
-            KTerminalLauncherJob::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KTerminalLauncherJob::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,13 +378,16 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_customevent_isbase) {
             kterminallauncherjob_customevent_isbase = false;
             KTerminalLauncherJob::customEvent(event);
-        } else if (kterminallauncherjob_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kterminallauncherjob_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kterminallauncherjob_customevent_callback(this, cbval1);
-        } else {
-            KTerminalLauncherJob::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KTerminalLauncherJob::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -408,15 +395,18 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_connectnotify_isbase) {
             kterminallauncherjob_connectnotify_isbase = false;
             KTerminalLauncherJob::connectNotify(signal);
-        } else if (kterminallauncherjob_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kterminallauncherjob_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kterminallauncherjob_connectnotify_callback(this, cbval1);
-        } else {
-            KTerminalLauncherJob::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KTerminalLauncherJob::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,15 +414,18 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_disconnectnotify_isbase) {
             kterminallauncherjob_disconnectnotify_isbase = false;
             KTerminalLauncherJob::disconnectNotify(signal);
-        } else if (kterminallauncherjob_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kterminallauncherjob_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kterminallauncherjob_disconnectnotify_callback(this, cbval1);
-        } else {
-            KTerminalLauncherJob::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KTerminalLauncherJob::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -440,13 +433,16 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_setcapabilities_isbase) {
             kterminallauncherjob_setcapabilities_isbase = false;
             KTerminalLauncherJob::setCapabilities(capabilities);
-        } else if (kterminallauncherjob_setcapabilities_callback != nullptr) {
+            return;
+        }
+        auto setcapabilities_cb = kterminallauncherjob_setcapabilities_callback;
+        if (setcapabilities_cb) {
             int cbval1 = static_cast<int>(capabilities);
 
-            kterminallauncherjob_setcapabilities_callback(this, cbval1);
-        } else {
-            KTerminalLauncherJob::setCapabilities(capabilities);
+            setcapabilities_cb(this, cbval1);
+            return;
         }
+        KTerminalLauncherJob::setCapabilities(capabilities);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,12 +450,13 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_isfinished_isbase) {
             kterminallauncherjob_isfinished_isbase = false;
             return KTerminalLauncherJob::isFinished();
-        } else if (kterminallauncherjob_isfinished_callback != nullptr) {
-            bool callback_ret = kterminallauncherjob_isfinished_callback();
-            return callback_ret;
-        } else {
-            return KTerminalLauncherJob::isFinished();
         }
+        auto isfinished_cb = kterminallauncherjob_isfinished_callback;
+        if (isfinished_cb) {
+            bool callback_ret = isfinished_cb();
+            return callback_ret;
+        }
+        return KTerminalLauncherJob::isFinished();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,13 +464,16 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_seterror_isbase) {
             kterminallauncherjob_seterror_isbase = false;
             KTerminalLauncherJob::setError(errorCode);
-        } else if (kterminallauncherjob_seterror_callback != nullptr) {
+            return;
+        }
+        auto seterror_cb = kterminallauncherjob_seterror_callback;
+        if (seterror_cb) {
             int cbval1 = errorCode;
 
-            kterminallauncherjob_seterror_callback(this, cbval1);
-        } else {
-            KTerminalLauncherJob::setError(errorCode);
+            seterror_cb(this, cbval1);
+            return;
         }
+        KTerminalLauncherJob::setError(errorCode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,7 +481,10 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_seterrortext_isbase) {
             kterminallauncherjob_seterrortext_isbase = false;
             KTerminalLauncherJob::setErrorText(errorText);
-        } else if (kterminallauncherjob_seterrortext_callback != nullptr) {
+            return;
+        }
+        auto seterrortext_cb = kterminallauncherjob_seterrortext_callback;
+        if (seterrortext_cb) {
             const QString errorText_ret = errorText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
@@ -491,11 +494,11 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
             ((char*)errorText_str)[errorText_str_len] = '\0';
             const char* cbval1 = errorText_str;
 
-            kterminallauncherjob_seterrortext_callback(this, cbval1);
+            seterrortext_cb(this, cbval1);
             libqt_free(errorText_str);
-        } else {
-            KTerminalLauncherJob::setErrorText(errorText);
+            return;
         }
+        KTerminalLauncherJob::setErrorText(errorText);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -503,14 +506,17 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_setprocessedamount_isbase) {
             kterminallauncherjob_setprocessedamount_isbase = false;
             KTerminalLauncherJob::setProcessedAmount(unit, amount);
-        } else if (kterminallauncherjob_setprocessedamount_callback != nullptr) {
+            return;
+        }
+        auto setprocessedamount_cb = kterminallauncherjob_setprocessedamount_callback;
+        if (setprocessedamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            kterminallauncherjob_setprocessedamount_callback(this, cbval1, cbval2);
-        } else {
-            KTerminalLauncherJob::setProcessedAmount(unit, amount);
+            setprocessedamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KTerminalLauncherJob::setProcessedAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,14 +524,17 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_settotalamount_isbase) {
             kterminallauncherjob_settotalamount_isbase = false;
             KTerminalLauncherJob::setTotalAmount(unit, amount);
-        } else if (kterminallauncherjob_settotalamount_callback != nullptr) {
+            return;
+        }
+        auto settotalamount_cb = kterminallauncherjob_settotalamount_callback;
+        if (settotalamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            kterminallauncherjob_settotalamount_callback(this, cbval1, cbval2);
-        } else {
-            KTerminalLauncherJob::setTotalAmount(unit, amount);
+            settotalamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KTerminalLauncherJob::setTotalAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -533,13 +542,16 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_setprogressunit_isbase) {
             kterminallauncherjob_setprogressunit_isbase = false;
             KTerminalLauncherJob::setProgressUnit(unit);
-        } else if (kterminallauncherjob_setprogressunit_callback != nullptr) {
+            return;
+        }
+        auto setprogressunit_cb = kterminallauncherjob_setprogressunit_callback;
+        if (setprogressunit_cb) {
             int cbval1 = static_cast<int>(unit);
 
-            kterminallauncherjob_setprogressunit_callback(this, cbval1);
-        } else {
-            KTerminalLauncherJob::setProgressUnit(unit);
+            setprogressunit_cb(this, cbval1);
+            return;
         }
+        KTerminalLauncherJob::setProgressUnit(unit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,13 +559,16 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_setpercent_isbase) {
             kterminallauncherjob_setpercent_isbase = false;
             KTerminalLauncherJob::setPercent(percentage);
-        } else if (kterminallauncherjob_setpercent_callback != nullptr) {
+            return;
+        }
+        auto setpercent_cb = kterminallauncherjob_setpercent_callback;
+        if (setpercent_cb) {
             unsigned long cbval1 = percentage;
 
-            kterminallauncherjob_setpercent_callback(this, cbval1);
-        } else {
-            KTerminalLauncherJob::setPercent(percentage);
+            setpercent_cb(this, cbval1);
+            return;
         }
+        KTerminalLauncherJob::setPercent(percentage);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,11 +576,14 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_emitresult_isbase) {
             kterminallauncherjob_emitresult_isbase = false;
             KTerminalLauncherJob::emitResult();
-        } else if (kterminallauncherjob_emitresult_callback != nullptr) {
-            kterminallauncherjob_emitresult_callback();
-        } else {
-            KTerminalLauncherJob::emitResult();
+            return;
         }
+        auto emitresult_cb = kterminallauncherjob_emitresult_callback;
+        if (emitresult_cb) {
+            emitresult_cb();
+            return;
+        }
+        KTerminalLauncherJob::emitResult();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,14 +591,17 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_emitpercent_isbase) {
             kterminallauncherjob_emitpercent_isbase = false;
             KTerminalLauncherJob::emitPercent(processedAmount, totalAmount);
-        } else if (kterminallauncherjob_emitpercent_callback != nullptr) {
+            return;
+        }
+        auto emitpercent_cb = kterminallauncherjob_emitpercent_callback;
+        if (emitpercent_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(processedAmount);
             unsigned long long cbval2 = static_cast<unsigned long long>(totalAmount);
 
-            kterminallauncherjob_emitpercent_callback(this, cbval1, cbval2);
-        } else {
-            KTerminalLauncherJob::emitPercent(processedAmount, totalAmount);
+            emitpercent_cb(this, cbval1, cbval2);
+            return;
         }
+        KTerminalLauncherJob::emitPercent(processedAmount, totalAmount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -588,13 +609,16 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_emitspeed_isbase) {
             kterminallauncherjob_emitspeed_isbase = false;
             KTerminalLauncherJob::emitSpeed(speed);
-        } else if (kterminallauncherjob_emitspeed_callback != nullptr) {
+            return;
+        }
+        auto emitspeed_cb = kterminallauncherjob_emitspeed_callback;
+        if (emitspeed_cb) {
             unsigned long cbval1 = speed;
 
-            kterminallauncherjob_emitspeed_callback(this, cbval1);
-        } else {
-            KTerminalLauncherJob::emitSpeed(speed);
+            emitspeed_cb(this, cbval1);
+            return;
         }
+        KTerminalLauncherJob::emitSpeed(speed);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,11 +626,14 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_startelapsedtimer_isbase) {
             kterminallauncherjob_startelapsedtimer_isbase = false;
             KTerminalLauncherJob::startElapsedTimer();
-        } else if (kterminallauncherjob_startelapsedtimer_callback != nullptr) {
-            kterminallauncherjob_startelapsedtimer_callback();
-        } else {
-            KTerminalLauncherJob::startElapsedTimer();
+            return;
         }
+        auto startelapsedtimer_cb = kterminallauncherjob_startelapsedtimer_callback;
+        if (startelapsedtimer_cb) {
+            startelapsedtimer_cb();
+            return;
+        }
+        KTerminalLauncherJob::startElapsedTimer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -614,12 +641,13 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_sender_isbase) {
             kterminallauncherjob_sender_isbase = false;
             return KTerminalLauncherJob::sender();
-        } else if (kterminallauncherjob_sender_callback != nullptr) {
-            QObject* callback_ret = kterminallauncherjob_sender_callback();
-            return callback_ret;
-        } else {
-            return KTerminalLauncherJob::sender();
         }
+        auto sender_cb = kterminallauncherjob_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KTerminalLauncherJob::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,12 +655,13 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_sendersignalindex_isbase) {
             kterminallauncherjob_sendersignalindex_isbase = false;
             return KTerminalLauncherJob::senderSignalIndex();
-        } else if (kterminallauncherjob_sendersignalindex_callback != nullptr) {
-            int callback_ret = kterminallauncherjob_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KTerminalLauncherJob::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kterminallauncherjob_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KTerminalLauncherJob::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,14 +669,15 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_receivers_isbase) {
             kterminallauncherjob_receivers_isbase = false;
             return KTerminalLauncherJob::receivers(signal);
-        } else if (kterminallauncherjob_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kterminallauncherjob_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kterminallauncherjob_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTerminalLauncherJob::receivers(signal);
         }
+        return KTerminalLauncherJob::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,16 +685,17 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
         if (kterminallauncherjob_issignalconnected_isbase) {
             kterminallauncherjob_issignalconnected_isbase = false;
             return KTerminalLauncherJob::isSignalConnected(signal);
-        } else if (kterminallauncherjob_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kterminallauncherjob_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kterminallauncherjob_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTerminalLauncherJob::isSignalConnected(signal);
         }
+        return KTerminalLauncherJob::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -227,75 +227,6 @@ class VirtualKEditToolBar final : public KEditToolBar {
     VirtualKEditToolBar(KActionCollection* collection, QWidget* parent) : KEditToolBar(collection, parent) {};
     VirtualKEditToolBar(KXMLGUIFactory* factory, QWidget* parent) : KEditToolBar(factory, parent) {};
 
-    ~VirtualKEditToolBar() {
-        kedittoolbar_metaobject_callback = nullptr;
-        kedittoolbar_metacast_callback = nullptr;
-        kedittoolbar_metacall_callback = nullptr;
-        kedittoolbar_showevent_callback = nullptr;
-        kedittoolbar_hideevent_callback = nullptr;
-        kedittoolbar_setvisible_callback = nullptr;
-        kedittoolbar_sizehint_callback = nullptr;
-        kedittoolbar_minimumsizehint_callback = nullptr;
-        kedittoolbar_open_callback = nullptr;
-        kedittoolbar_exec_callback = nullptr;
-        kedittoolbar_done_callback = nullptr;
-        kedittoolbar_accept_callback = nullptr;
-        kedittoolbar_reject_callback = nullptr;
-        kedittoolbar_keypressevent_callback = nullptr;
-        kedittoolbar_closeevent_callback = nullptr;
-        kedittoolbar_resizeevent_callback = nullptr;
-        kedittoolbar_contextmenuevent_callback = nullptr;
-        kedittoolbar_eventfilter_callback = nullptr;
-        kedittoolbar_devtype_callback = nullptr;
-        kedittoolbar_heightforwidth_callback = nullptr;
-        kedittoolbar_hasheightforwidth_callback = nullptr;
-        kedittoolbar_paintengine_callback = nullptr;
-        kedittoolbar_event_callback = nullptr;
-        kedittoolbar_mousepressevent_callback = nullptr;
-        kedittoolbar_mousereleaseevent_callback = nullptr;
-        kedittoolbar_mousedoubleclickevent_callback = nullptr;
-        kedittoolbar_mousemoveevent_callback = nullptr;
-        kedittoolbar_wheelevent_callback = nullptr;
-        kedittoolbar_keyreleaseevent_callback = nullptr;
-        kedittoolbar_focusinevent_callback = nullptr;
-        kedittoolbar_focusoutevent_callback = nullptr;
-        kedittoolbar_enterevent_callback = nullptr;
-        kedittoolbar_leaveevent_callback = nullptr;
-        kedittoolbar_paintevent_callback = nullptr;
-        kedittoolbar_moveevent_callback = nullptr;
-        kedittoolbar_tabletevent_callback = nullptr;
-        kedittoolbar_actionevent_callback = nullptr;
-        kedittoolbar_dragenterevent_callback = nullptr;
-        kedittoolbar_dragmoveevent_callback = nullptr;
-        kedittoolbar_dragleaveevent_callback = nullptr;
-        kedittoolbar_dropevent_callback = nullptr;
-        kedittoolbar_nativeevent_callback = nullptr;
-        kedittoolbar_changeevent_callback = nullptr;
-        kedittoolbar_metric_callback = nullptr;
-        kedittoolbar_initpainter_callback = nullptr;
-        kedittoolbar_redirected_callback = nullptr;
-        kedittoolbar_sharedpainter_callback = nullptr;
-        kedittoolbar_inputmethodevent_callback = nullptr;
-        kedittoolbar_inputmethodquery_callback = nullptr;
-        kedittoolbar_focusnextprevchild_callback = nullptr;
-        kedittoolbar_timerevent_callback = nullptr;
-        kedittoolbar_childevent_callback = nullptr;
-        kedittoolbar_customevent_callback = nullptr;
-        kedittoolbar_connectnotify_callback = nullptr;
-        kedittoolbar_disconnectnotify_callback = nullptr;
-        kedittoolbar_adjustposition_callback = nullptr;
-        kedittoolbar_updatemicrofocus_callback = nullptr;
-        kedittoolbar_create_callback = nullptr;
-        kedittoolbar_destroy_callback = nullptr;
-        kedittoolbar_focusnextchild_callback = nullptr;
-        kedittoolbar_focuspreviouschild_callback = nullptr;
-        kedittoolbar_sender_callback = nullptr;
-        kedittoolbar_sendersignalindex_callback = nullptr;
-        kedittoolbar_receivers_callback = nullptr;
-        kedittoolbar_issignalconnected_callback = nullptr;
-        kedittoolbar_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKEditToolBar_MetaObject_Callback(KEditToolBar_MetaObject_Callback cb) { kedittoolbar_metaobject_callback = cb; }
     inline void setKEditToolBar_Metacast_Callback(KEditToolBar_Metacast_Callback cb) { kedittoolbar_metacast_callback = cb; }
@@ -437,12 +368,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_metaobject_isbase) {
             kedittoolbar_metaobject_isbase = false;
             return KEditToolBar::metaObject();
-        } else if (kedittoolbar_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kedittoolbar_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KEditToolBar::metaObject();
         }
+        auto metaobject_cb = kedittoolbar_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KEditToolBar::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +382,15 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_metacast_isbase) {
             kedittoolbar_metacast_isbase = false;
             return KEditToolBar::qt_metacast(param1);
-        } else if (kedittoolbar_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kedittoolbar_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kedittoolbar_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEditToolBar::qt_metacast(param1);
         }
+        return KEditToolBar::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,16 +398,17 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_metacall_isbase) {
             kedittoolbar_metacall_isbase = false;
             return KEditToolBar::qt_metacall(param1, param2, param3);
-        } else if (kedittoolbar_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kedittoolbar_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kedittoolbar_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEditToolBar::qt_metacall(param1, param2, param3);
         }
+        return KEditToolBar::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,13 +416,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_showevent_isbase) {
             kedittoolbar_showevent_isbase = false;
             KEditToolBar::showEvent(event);
-        } else if (kedittoolbar_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kedittoolbar_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kedittoolbar_showevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,13 +433,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_hideevent_isbase) {
             kedittoolbar_hideevent_isbase = false;
             KEditToolBar::hideEvent(event);
-        } else if (kedittoolbar_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kedittoolbar_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kedittoolbar_hideevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,13 +450,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_setvisible_isbase) {
             kedittoolbar_setvisible_isbase = false;
             KEditToolBar::setVisible(visible);
-        } else if (kedittoolbar_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kedittoolbar_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kedittoolbar_setvisible_callback(this, cbval1);
-        } else {
-            KEditToolBar::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,12 +467,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_sizehint_isbase) {
             kedittoolbar_sizehint_isbase = false;
             return KEditToolBar::sizeHint();
-        } else if (kedittoolbar_sizehint_callback != nullptr) {
-            QSize* callback_ret = kedittoolbar_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KEditToolBar::sizeHint();
         }
+        auto sizehint_cb = kedittoolbar_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KEditToolBar::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,12 +481,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_minimumsizehint_isbase) {
             kedittoolbar_minimumsizehint_isbase = false;
             return KEditToolBar::minimumSizeHint();
-        } else if (kedittoolbar_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kedittoolbar_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KEditToolBar::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kedittoolbar_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KEditToolBar::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,11 +495,14 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_open_isbase) {
             kedittoolbar_open_isbase = false;
             KEditToolBar::open();
-        } else if (kedittoolbar_open_callback != nullptr) {
-            kedittoolbar_open_callback();
-        } else {
-            KEditToolBar::open();
+            return;
         }
+        auto open_cb = kedittoolbar_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KEditToolBar::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -562,12 +510,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_exec_isbase) {
             kedittoolbar_exec_isbase = false;
             return KEditToolBar::exec();
-        } else if (kedittoolbar_exec_callback != nullptr) {
-            int callback_ret = kedittoolbar_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KEditToolBar::exec();
         }
+        auto exec_cb = kedittoolbar_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KEditToolBar::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -575,13 +524,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_done_isbase) {
             kedittoolbar_done_isbase = false;
             KEditToolBar::done(param1);
-        } else if (kedittoolbar_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kedittoolbar_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kedittoolbar_done_callback(this, cbval1);
-        } else {
-            KEditToolBar::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -589,11 +541,14 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_accept_isbase) {
             kedittoolbar_accept_isbase = false;
             KEditToolBar::accept();
-        } else if (kedittoolbar_accept_callback != nullptr) {
-            kedittoolbar_accept_callback();
-        } else {
-            KEditToolBar::accept();
+            return;
         }
+        auto accept_cb = kedittoolbar_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KEditToolBar::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -601,11 +556,14 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_reject_isbase) {
             kedittoolbar_reject_isbase = false;
             KEditToolBar::reject();
-        } else if (kedittoolbar_reject_callback != nullptr) {
-            kedittoolbar_reject_callback();
-        } else {
-            KEditToolBar::reject();
+            return;
         }
+        auto reject_cb = kedittoolbar_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KEditToolBar::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,13 +571,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_keypressevent_isbase) {
             kedittoolbar_keypressevent_isbase = false;
             KEditToolBar::keyPressEvent(param1);
-        } else if (kedittoolbar_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kedittoolbar_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kedittoolbar_keypressevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +588,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_closeevent_isbase) {
             kedittoolbar_closeevent_isbase = false;
             KEditToolBar::closeEvent(param1);
-        } else if (kedittoolbar_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kedittoolbar_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kedittoolbar_closeevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +605,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_resizeevent_isbase) {
             kedittoolbar_resizeevent_isbase = false;
             KEditToolBar::resizeEvent(param1);
-        } else if (kedittoolbar_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kedittoolbar_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kedittoolbar_resizeevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,13 +622,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_contextmenuevent_isbase) {
             kedittoolbar_contextmenuevent_isbase = false;
             KEditToolBar::contextMenuEvent(param1);
-        } else if (kedittoolbar_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kedittoolbar_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kedittoolbar_contextmenuevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,15 +639,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_eventfilter_isbase) {
             kedittoolbar_eventfilter_isbase = false;
             return KEditToolBar::eventFilter(param1, param2);
-        } else if (kedittoolbar_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kedittoolbar_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kedittoolbar_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KEditToolBar::eventFilter(param1, param2);
         }
+        return KEditToolBar::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -685,12 +656,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_devtype_isbase) {
             kedittoolbar_devtype_isbase = false;
             return KEditToolBar::devType();
-        } else if (kedittoolbar_devtype_callback != nullptr) {
-            int callback_ret = kedittoolbar_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KEditToolBar::devType();
         }
+        auto devtype_cb = kedittoolbar_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KEditToolBar::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,14 +670,15 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_heightforwidth_isbase) {
             kedittoolbar_heightforwidth_isbase = false;
             return KEditToolBar::heightForWidth(param1);
-        } else if (kedittoolbar_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kedittoolbar_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kedittoolbar_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEditToolBar::heightForWidth(param1);
         }
+        return KEditToolBar::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -713,12 +686,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_hasheightforwidth_isbase) {
             kedittoolbar_hasheightforwidth_isbase = false;
             return KEditToolBar::hasHeightForWidth();
-        } else if (kedittoolbar_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kedittoolbar_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KEditToolBar::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kedittoolbar_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KEditToolBar::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -726,12 +700,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_paintengine_isbase) {
             kedittoolbar_paintengine_isbase = false;
             return KEditToolBar::paintEngine();
-        } else if (kedittoolbar_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kedittoolbar_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KEditToolBar::paintEngine();
         }
+        auto paintengine_cb = kedittoolbar_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KEditToolBar::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,14 +714,15 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_event_isbase) {
             kedittoolbar_event_isbase = false;
             return KEditToolBar::event(event);
-        } else if (kedittoolbar_event_callback != nullptr) {
+        }
+        auto event_cb = kedittoolbar_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kedittoolbar_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEditToolBar::event(event);
         }
+        return KEditToolBar::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,13 +730,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_mousepressevent_isbase) {
             kedittoolbar_mousepressevent_isbase = false;
             KEditToolBar::mousePressEvent(event);
-        } else if (kedittoolbar_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kedittoolbar_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kedittoolbar_mousepressevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,13 +747,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_mousereleaseevent_isbase) {
             kedittoolbar_mousereleaseevent_isbase = false;
             KEditToolBar::mouseReleaseEvent(event);
-        } else if (kedittoolbar_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kedittoolbar_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kedittoolbar_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,13 +764,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_mousedoubleclickevent_isbase) {
             kedittoolbar_mousedoubleclickevent_isbase = false;
             KEditToolBar::mouseDoubleClickEvent(event);
-        } else if (kedittoolbar_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kedittoolbar_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kedittoolbar_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,13 +781,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_mousemoveevent_isbase) {
             kedittoolbar_mousemoveevent_isbase = false;
             KEditToolBar::mouseMoveEvent(event);
-        } else if (kedittoolbar_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kedittoolbar_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kedittoolbar_mousemoveevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -810,13 +798,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_wheelevent_isbase) {
             kedittoolbar_wheelevent_isbase = false;
             KEditToolBar::wheelEvent(event);
-        } else if (kedittoolbar_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kedittoolbar_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kedittoolbar_wheelevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -824,13 +815,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_keyreleaseevent_isbase) {
             kedittoolbar_keyreleaseevent_isbase = false;
             KEditToolBar::keyReleaseEvent(event);
-        } else if (kedittoolbar_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kedittoolbar_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kedittoolbar_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,13 +832,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_focusinevent_isbase) {
             kedittoolbar_focusinevent_isbase = false;
             KEditToolBar::focusInEvent(event);
-        } else if (kedittoolbar_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kedittoolbar_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kedittoolbar_focusinevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,13 +849,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_focusoutevent_isbase) {
             kedittoolbar_focusoutevent_isbase = false;
             KEditToolBar::focusOutEvent(event);
-        } else if (kedittoolbar_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kedittoolbar_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kedittoolbar_focusoutevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,13 +866,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_enterevent_isbase) {
             kedittoolbar_enterevent_isbase = false;
             KEditToolBar::enterEvent(event);
-        } else if (kedittoolbar_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kedittoolbar_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kedittoolbar_enterevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -880,13 +883,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_leaveevent_isbase) {
             kedittoolbar_leaveevent_isbase = false;
             KEditToolBar::leaveEvent(event);
-        } else if (kedittoolbar_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kedittoolbar_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kedittoolbar_leaveevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -894,13 +900,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_paintevent_isbase) {
             kedittoolbar_paintevent_isbase = false;
             KEditToolBar::paintEvent(event);
-        } else if (kedittoolbar_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kedittoolbar_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kedittoolbar_paintevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -908,13 +917,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_moveevent_isbase) {
             kedittoolbar_moveevent_isbase = false;
             KEditToolBar::moveEvent(event);
-        } else if (kedittoolbar_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kedittoolbar_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kedittoolbar_moveevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -922,13 +934,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_tabletevent_isbase) {
             kedittoolbar_tabletevent_isbase = false;
             KEditToolBar::tabletEvent(event);
-        } else if (kedittoolbar_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kedittoolbar_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kedittoolbar_tabletevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -936,13 +951,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_actionevent_isbase) {
             kedittoolbar_actionevent_isbase = false;
             KEditToolBar::actionEvent(event);
-        } else if (kedittoolbar_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kedittoolbar_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kedittoolbar_actionevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -950,13 +968,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_dragenterevent_isbase) {
             kedittoolbar_dragenterevent_isbase = false;
             KEditToolBar::dragEnterEvent(event);
-        } else if (kedittoolbar_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kedittoolbar_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kedittoolbar_dragenterevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -964,13 +985,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_dragmoveevent_isbase) {
             kedittoolbar_dragmoveevent_isbase = false;
             KEditToolBar::dragMoveEvent(event);
-        } else if (kedittoolbar_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kedittoolbar_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kedittoolbar_dragmoveevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -978,13 +1002,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_dragleaveevent_isbase) {
             kedittoolbar_dragleaveevent_isbase = false;
             KEditToolBar::dragLeaveEvent(event);
-        } else if (kedittoolbar_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kedittoolbar_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kedittoolbar_dragleaveevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,13 +1019,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_dropevent_isbase) {
             kedittoolbar_dropevent_isbase = false;
             KEditToolBar::dropEvent(event);
-        } else if (kedittoolbar_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kedittoolbar_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kedittoolbar_dropevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,7 +1036,9 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_nativeevent_isbase) {
             kedittoolbar_nativeevent_isbase = false;
             return KEditToolBar::nativeEvent(eventType, message, result);
-        } else if (kedittoolbar_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kedittoolbar_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1017,12 +1049,11 @@ class VirtualKEditToolBar final : public KEditToolBar {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kedittoolbar_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KEditToolBar::nativeEvent(eventType, message, result);
         }
+        return KEditToolBar::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1030,13 +1061,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_changeevent_isbase) {
             kedittoolbar_changeevent_isbase = false;
             KEditToolBar::changeEvent(param1);
-        } else if (kedittoolbar_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kedittoolbar_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kedittoolbar_changeevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,14 +1078,15 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_metric_isbase) {
             kedittoolbar_metric_isbase = false;
             return KEditToolBar::metric(param1);
-        } else if (kedittoolbar_metric_callback != nullptr) {
+        }
+        auto metric_cb = kedittoolbar_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kedittoolbar_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEditToolBar::metric(param1);
         }
+        return KEditToolBar::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,13 +1094,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_initpainter_isbase) {
             kedittoolbar_initpainter_isbase = false;
             KEditToolBar::initPainter(painter);
-        } else if (kedittoolbar_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kedittoolbar_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kedittoolbar_initpainter_callback(this, cbval1);
-        } else {
-            KEditToolBar::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1073,14 +1111,15 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_redirected_isbase) {
             kedittoolbar_redirected_isbase = false;
             return KEditToolBar::redirected(offset);
-        } else if (kedittoolbar_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kedittoolbar_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kedittoolbar_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEditToolBar::redirected(offset);
         }
+        return KEditToolBar::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,12 +1127,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_sharedpainter_isbase) {
             kedittoolbar_sharedpainter_isbase = false;
             return KEditToolBar::sharedPainter();
-        } else if (kedittoolbar_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kedittoolbar_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KEditToolBar::sharedPainter();
         }
+        auto sharedpainter_cb = kedittoolbar_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KEditToolBar::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1141,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_inputmethodevent_isbase) {
             kedittoolbar_inputmethodevent_isbase = false;
             KEditToolBar::inputMethodEvent(param1);
-        } else if (kedittoolbar_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kedittoolbar_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kedittoolbar_inputmethodevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,14 +1158,15 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_inputmethodquery_isbase) {
             kedittoolbar_inputmethodquery_isbase = false;
             return KEditToolBar::inputMethodQuery(param1);
-        } else if (kedittoolbar_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kedittoolbar_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kedittoolbar_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KEditToolBar::inputMethodQuery(param1);
         }
+        return KEditToolBar::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,14 +1174,15 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_focusnextprevchild_isbase) {
             kedittoolbar_focusnextprevchild_isbase = false;
             return KEditToolBar::focusNextPrevChild(next);
-        } else if (kedittoolbar_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kedittoolbar_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kedittoolbar_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEditToolBar::focusNextPrevChild(next);
         }
+        return KEditToolBar::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1145,13 +1190,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_timerevent_isbase) {
             kedittoolbar_timerevent_isbase = false;
             KEditToolBar::timerEvent(event);
-        } else if (kedittoolbar_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kedittoolbar_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kedittoolbar_timerevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,13 +1207,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_childevent_isbase) {
             kedittoolbar_childevent_isbase = false;
             KEditToolBar::childEvent(event);
-        } else if (kedittoolbar_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kedittoolbar_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kedittoolbar_childevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1173,13 +1224,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_customevent_isbase) {
             kedittoolbar_customevent_isbase = false;
             KEditToolBar::customEvent(event);
-        } else if (kedittoolbar_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kedittoolbar_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kedittoolbar_customevent_callback(this, cbval1);
-        } else {
-            KEditToolBar::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,15 +1241,18 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_connectnotify_isbase) {
             kedittoolbar_connectnotify_isbase = false;
             KEditToolBar::connectNotify(signal);
-        } else if (kedittoolbar_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kedittoolbar_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kedittoolbar_connectnotify_callback(this, cbval1);
-        } else {
-            KEditToolBar::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,15 +1260,18 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_disconnectnotify_isbase) {
             kedittoolbar_disconnectnotify_isbase = false;
             KEditToolBar::disconnectNotify(signal);
-        } else if (kedittoolbar_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kedittoolbar_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kedittoolbar_disconnectnotify_callback(this, cbval1);
-        } else {
-            KEditToolBar::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,13 +1279,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_adjustposition_isbase) {
             kedittoolbar_adjustposition_isbase = false;
             KEditToolBar::adjustPosition(param1);
-        } else if (kedittoolbar_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kedittoolbar_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kedittoolbar_adjustposition_callback(this, cbval1);
-        } else {
-            KEditToolBar::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KEditToolBar::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,11 +1296,14 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_updatemicrofocus_isbase) {
             kedittoolbar_updatemicrofocus_isbase = false;
             KEditToolBar::updateMicroFocus();
-        } else if (kedittoolbar_updatemicrofocus_callback != nullptr) {
-            kedittoolbar_updatemicrofocus_callback();
-        } else {
-            KEditToolBar::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kedittoolbar_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KEditToolBar::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,11 +1311,14 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_create_isbase) {
             kedittoolbar_create_isbase = false;
             KEditToolBar::create();
-        } else if (kedittoolbar_create_callback != nullptr) {
-            kedittoolbar_create_callback();
-        } else {
-            KEditToolBar::create();
+            return;
         }
+        auto create_cb = kedittoolbar_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KEditToolBar::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,11 +1326,14 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_destroy_isbase) {
             kedittoolbar_destroy_isbase = false;
             KEditToolBar::destroy();
-        } else if (kedittoolbar_destroy_callback != nullptr) {
-            kedittoolbar_destroy_callback();
-        } else {
-            KEditToolBar::destroy();
+            return;
         }
+        auto destroy_cb = kedittoolbar_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KEditToolBar::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,12 +1341,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_focusnextchild_isbase) {
             kedittoolbar_focusnextchild_isbase = false;
             return KEditToolBar::focusNextChild();
-        } else if (kedittoolbar_focusnextchild_callback != nullptr) {
-            bool callback_ret = kedittoolbar_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KEditToolBar::focusNextChild();
         }
+        auto focusnextchild_cb = kedittoolbar_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KEditToolBar::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,12 +1355,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_focuspreviouschild_isbase) {
             kedittoolbar_focuspreviouschild_isbase = false;
             return KEditToolBar::focusPreviousChild();
-        } else if (kedittoolbar_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kedittoolbar_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KEditToolBar::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kedittoolbar_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KEditToolBar::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,12 +1369,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_sender_isbase) {
             kedittoolbar_sender_isbase = false;
             return KEditToolBar::sender();
-        } else if (kedittoolbar_sender_callback != nullptr) {
-            QObject* callback_ret = kedittoolbar_sender_callback();
-            return callback_ret;
-        } else {
-            return KEditToolBar::sender();
         }
+        auto sender_cb = kedittoolbar_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KEditToolBar::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,12 +1383,13 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_sendersignalindex_isbase) {
             kedittoolbar_sendersignalindex_isbase = false;
             return KEditToolBar::senderSignalIndex();
-        } else if (kedittoolbar_sendersignalindex_callback != nullptr) {
-            int callback_ret = kedittoolbar_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KEditToolBar::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kedittoolbar_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KEditToolBar::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,14 +1397,15 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_receivers_isbase) {
             kedittoolbar_receivers_isbase = false;
             return KEditToolBar::receivers(signal);
-        } else if (kedittoolbar_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kedittoolbar_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kedittoolbar_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEditToolBar::receivers(signal);
         }
+        return KEditToolBar::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,16 +1413,17 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_issignalconnected_isbase) {
             kedittoolbar_issignalconnected_isbase = false;
             return KEditToolBar::isSignalConnected(signal);
-        } else if (kedittoolbar_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kedittoolbar_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kedittoolbar_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEditToolBar::isSignalConnected(signal);
         }
+        return KEditToolBar::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,15 +1431,16 @@ class VirtualKEditToolBar final : public KEditToolBar {
         if (kedittoolbar_getdecodedmetricf_isbase) {
             kedittoolbar_getdecodedmetricf_isbase = false;
             return KEditToolBar::getDecodedMetricF(metricA, metricB);
-        } else if (kedittoolbar_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kedittoolbar_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kedittoolbar_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KEditToolBar::getDecodedMetricF(metricA, metricB);
         }
+        return KEditToolBar::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

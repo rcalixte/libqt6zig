@@ -99,33 +99,6 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
     VirtualQVBoxPlotModelMapper() : QVBoxPlotModelMapper() {};
     VirtualQVBoxPlotModelMapper(QObject* parent) : QVBoxPlotModelMapper(parent) {};
 
-    ~VirtualQVBoxPlotModelMapper() {
-        qvboxplotmodelmapper_metaobject_callback = nullptr;
-        qvboxplotmodelmapper_metacast_callback = nullptr;
-        qvboxplotmodelmapper_metacall_callback = nullptr;
-        qvboxplotmodelmapper_event_callback = nullptr;
-        qvboxplotmodelmapper_eventfilter_callback = nullptr;
-        qvboxplotmodelmapper_timerevent_callback = nullptr;
-        qvboxplotmodelmapper_childevent_callback = nullptr;
-        qvboxplotmodelmapper_customevent_callback = nullptr;
-        qvboxplotmodelmapper_connectnotify_callback = nullptr;
-        qvboxplotmodelmapper_disconnectnotify_callback = nullptr;
-        qvboxplotmodelmapper_first_callback = nullptr;
-        qvboxplotmodelmapper_setfirst_callback = nullptr;
-        qvboxplotmodelmapper_count_callback = nullptr;
-        qvboxplotmodelmapper_setcount_callback = nullptr;
-        qvboxplotmodelmapper_firstboxsetsection_callback = nullptr;
-        qvboxplotmodelmapper_setfirstboxsetsection_callback = nullptr;
-        qvboxplotmodelmapper_lastboxsetsection_callback = nullptr;
-        qvboxplotmodelmapper_setlastboxsetsection_callback = nullptr;
-        qvboxplotmodelmapper_orientation_callback = nullptr;
-        qvboxplotmodelmapper_setorientation_callback = nullptr;
-        qvboxplotmodelmapper_sender_callback = nullptr;
-        qvboxplotmodelmapper_sendersignalindex_callback = nullptr;
-        qvboxplotmodelmapper_receivers_callback = nullptr;
-        qvboxplotmodelmapper_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQVBoxPlotModelMapper_MetaObject_Callback(QVBoxPlotModelMapper_MetaObject_Callback cb) { qvboxplotmodelmapper_metaobject_callback = cb; }
     inline void setQVBoxPlotModelMapper_Metacast_Callback(QVBoxPlotModelMapper_Metacast_Callback cb) { qvboxplotmodelmapper_metacast_callback = cb; }
@@ -183,12 +156,13 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_metaobject_isbase) {
             qvboxplotmodelmapper_metaobject_isbase = false;
             return QVBoxPlotModelMapper::metaObject();
-        } else if (qvboxplotmodelmapper_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qvboxplotmodelmapper_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QVBoxPlotModelMapper::metaObject();
         }
+        auto metaobject_cb = qvboxplotmodelmapper_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QVBoxPlotModelMapper::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -196,14 +170,15 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_metacast_isbase) {
             qvboxplotmodelmapper_metacast_isbase = false;
             return QVBoxPlotModelMapper::qt_metacast(param1);
-        } else if (qvboxplotmodelmapper_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qvboxplotmodelmapper_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qvboxplotmodelmapper_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVBoxPlotModelMapper::qt_metacast(param1);
         }
+        return QVBoxPlotModelMapper::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,16 +186,17 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_metacall_isbase) {
             qvboxplotmodelmapper_metacall_isbase = false;
             return QVBoxPlotModelMapper::qt_metacall(param1, param2, param3);
-        } else if (qvboxplotmodelmapper_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qvboxplotmodelmapper_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qvboxplotmodelmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QVBoxPlotModelMapper::qt_metacall(param1, param2, param3);
         }
+        return QVBoxPlotModelMapper::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,14 +204,15 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_event_isbase) {
             qvboxplotmodelmapper_event_isbase = false;
             return QVBoxPlotModelMapper::event(event);
-        } else if (qvboxplotmodelmapper_event_callback != nullptr) {
+        }
+        auto event_cb = qvboxplotmodelmapper_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qvboxplotmodelmapper_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVBoxPlotModelMapper::event(event);
         }
+        return QVBoxPlotModelMapper::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +220,16 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_eventfilter_isbase) {
             qvboxplotmodelmapper_eventfilter_isbase = false;
             return QVBoxPlotModelMapper::eventFilter(watched, event);
-        } else if (qvboxplotmodelmapper_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qvboxplotmodelmapper_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qvboxplotmodelmapper_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QVBoxPlotModelMapper::eventFilter(watched, event);
         }
+        return QVBoxPlotModelMapper::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,13 +237,16 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_timerevent_isbase) {
             qvboxplotmodelmapper_timerevent_isbase = false;
             QVBoxPlotModelMapper::timerEvent(event);
-        } else if (qvboxplotmodelmapper_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qvboxplotmodelmapper_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qvboxplotmodelmapper_timerevent_callback(this, cbval1);
-        } else {
-            QVBoxPlotModelMapper::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QVBoxPlotModelMapper::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,13 +254,16 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_childevent_isbase) {
             qvboxplotmodelmapper_childevent_isbase = false;
             QVBoxPlotModelMapper::childEvent(event);
-        } else if (qvboxplotmodelmapper_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qvboxplotmodelmapper_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qvboxplotmodelmapper_childevent_callback(this, cbval1);
-        } else {
-            QVBoxPlotModelMapper::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QVBoxPlotModelMapper::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,13 +271,16 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_customevent_isbase) {
             qvboxplotmodelmapper_customevent_isbase = false;
             QVBoxPlotModelMapper::customEvent(event);
-        } else if (qvboxplotmodelmapper_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qvboxplotmodelmapper_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qvboxplotmodelmapper_customevent_callback(this, cbval1);
-        } else {
-            QVBoxPlotModelMapper::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QVBoxPlotModelMapper::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,15 +288,18 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_connectnotify_isbase) {
             qvboxplotmodelmapper_connectnotify_isbase = false;
             QVBoxPlotModelMapper::connectNotify(signal);
-        } else if (qvboxplotmodelmapper_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qvboxplotmodelmapper_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvboxplotmodelmapper_connectnotify_callback(this, cbval1);
-        } else {
-            QVBoxPlotModelMapper::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QVBoxPlotModelMapper::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,15 +307,18 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_disconnectnotify_isbase) {
             qvboxplotmodelmapper_disconnectnotify_isbase = false;
             QVBoxPlotModelMapper::disconnectNotify(signal);
-        } else if (qvboxplotmodelmapper_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qvboxplotmodelmapper_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvboxplotmodelmapper_disconnectnotify_callback(this, cbval1);
-        } else {
-            QVBoxPlotModelMapper::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QVBoxPlotModelMapper::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,12 +326,13 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_first_isbase) {
             qvboxplotmodelmapper_first_isbase = false;
             return QVBoxPlotModelMapper::first();
-        } else if (qvboxplotmodelmapper_first_callback != nullptr) {
-            int callback_ret = qvboxplotmodelmapper_first_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVBoxPlotModelMapper::first();
         }
+        auto first_cb = qvboxplotmodelmapper_first_callback;
+        if (first_cb) {
+            int callback_ret = first_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVBoxPlotModelMapper::first();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,13 +340,16 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_setfirst_isbase) {
             qvboxplotmodelmapper_setfirst_isbase = false;
             QVBoxPlotModelMapper::setFirst(first);
-        } else if (qvboxplotmodelmapper_setfirst_callback != nullptr) {
+            return;
+        }
+        auto setfirst_cb = qvboxplotmodelmapper_setfirst_callback;
+        if (setfirst_cb) {
             int cbval1 = first;
 
-            qvboxplotmodelmapper_setfirst_callback(this, cbval1);
-        } else {
-            QVBoxPlotModelMapper::setFirst(first);
+            setfirst_cb(this, cbval1);
+            return;
         }
+        QVBoxPlotModelMapper::setFirst(first);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,12 +357,13 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_count_isbase) {
             qvboxplotmodelmapper_count_isbase = false;
             return QVBoxPlotModelMapper::count();
-        } else if (qvboxplotmodelmapper_count_callback != nullptr) {
-            int callback_ret = qvboxplotmodelmapper_count_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVBoxPlotModelMapper::count();
         }
+        auto count_cb = qvboxplotmodelmapper_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVBoxPlotModelMapper::count();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,13 +371,16 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_setcount_isbase) {
             qvboxplotmodelmapper_setcount_isbase = false;
             QVBoxPlotModelMapper::setCount(count);
-        } else if (qvboxplotmodelmapper_setcount_callback != nullptr) {
+            return;
+        }
+        auto setcount_cb = qvboxplotmodelmapper_setcount_callback;
+        if (setcount_cb) {
             int cbval1 = count;
 
-            qvboxplotmodelmapper_setcount_callback(this, cbval1);
-        } else {
-            QVBoxPlotModelMapper::setCount(count);
+            setcount_cb(this, cbval1);
+            return;
         }
+        QVBoxPlotModelMapper::setCount(count);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,12 +388,13 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_firstboxsetsection_isbase) {
             qvboxplotmodelmapper_firstboxsetsection_isbase = false;
             return QVBoxPlotModelMapper::firstBoxSetSection();
-        } else if (qvboxplotmodelmapper_firstboxsetsection_callback != nullptr) {
-            int callback_ret = qvboxplotmodelmapper_firstboxsetsection_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVBoxPlotModelMapper::firstBoxSetSection();
         }
+        auto firstboxsetsection_cb = qvboxplotmodelmapper_firstboxsetsection_callback;
+        if (firstboxsetsection_cb) {
+            int callback_ret = firstboxsetsection_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVBoxPlotModelMapper::firstBoxSetSection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -400,13 +402,16 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_setfirstboxsetsection_isbase) {
             qvboxplotmodelmapper_setfirstboxsetsection_isbase = false;
             QVBoxPlotModelMapper::setFirstBoxSetSection(firstBoxSetSection);
-        } else if (qvboxplotmodelmapper_setfirstboxsetsection_callback != nullptr) {
+            return;
+        }
+        auto setfirstboxsetsection_cb = qvboxplotmodelmapper_setfirstboxsetsection_callback;
+        if (setfirstboxsetsection_cb) {
             int cbval1 = firstBoxSetSection;
 
-            qvboxplotmodelmapper_setfirstboxsetsection_callback(this, cbval1);
-        } else {
-            QVBoxPlotModelMapper::setFirstBoxSetSection(firstBoxSetSection);
+            setfirstboxsetsection_cb(this, cbval1);
+            return;
         }
+        QVBoxPlotModelMapper::setFirstBoxSetSection(firstBoxSetSection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,12 +419,13 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_lastboxsetsection_isbase) {
             qvboxplotmodelmapper_lastboxsetsection_isbase = false;
             return QVBoxPlotModelMapper::lastBoxSetSection();
-        } else if (qvboxplotmodelmapper_lastboxsetsection_callback != nullptr) {
-            int callback_ret = qvboxplotmodelmapper_lastboxsetsection_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVBoxPlotModelMapper::lastBoxSetSection();
         }
+        auto lastboxsetsection_cb = qvboxplotmodelmapper_lastboxsetsection_callback;
+        if (lastboxsetsection_cb) {
+            int callback_ret = lastboxsetsection_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVBoxPlotModelMapper::lastBoxSetSection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,13 +433,16 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_setlastboxsetsection_isbase) {
             qvboxplotmodelmapper_setlastboxsetsection_isbase = false;
             QVBoxPlotModelMapper::setLastBoxSetSection(lastBoxSetSection);
-        } else if (qvboxplotmodelmapper_setlastboxsetsection_callback != nullptr) {
+            return;
+        }
+        auto setlastboxsetsection_cb = qvboxplotmodelmapper_setlastboxsetsection_callback;
+        if (setlastboxsetsection_cb) {
             int cbval1 = lastBoxSetSection;
 
-            qvboxplotmodelmapper_setlastboxsetsection_callback(this, cbval1);
-        } else {
-            QVBoxPlotModelMapper::setLastBoxSetSection(lastBoxSetSection);
+            setlastboxsetsection_cb(this, cbval1);
+            return;
         }
+        QVBoxPlotModelMapper::setLastBoxSetSection(lastBoxSetSection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,12 +450,13 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_orientation_isbase) {
             qvboxplotmodelmapper_orientation_isbase = false;
             return QVBoxPlotModelMapper::orientation();
-        } else if (qvboxplotmodelmapper_orientation_callback != nullptr) {
-            int callback_ret = qvboxplotmodelmapper_orientation_callback();
-            return static_cast<Qt::Orientation>(callback_ret);
-        } else {
-            return QVBoxPlotModelMapper::orientation();
         }
+        auto orientation_cb = qvboxplotmodelmapper_orientation_callback;
+        if (orientation_cb) {
+            int callback_ret = orientation_cb();
+            return static_cast<Qt::Orientation>(callback_ret);
+        }
+        return QVBoxPlotModelMapper::orientation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,13 +464,16 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_setorientation_isbase) {
             qvboxplotmodelmapper_setorientation_isbase = false;
             QVBoxPlotModelMapper::setOrientation(orientation);
-        } else if (qvboxplotmodelmapper_setorientation_callback != nullptr) {
+            return;
+        }
+        auto setorientation_cb = qvboxplotmodelmapper_setorientation_callback;
+        if (setorientation_cb) {
             int cbval1 = static_cast<int>(orientation);
 
-            qvboxplotmodelmapper_setorientation_callback(this, cbval1);
-        } else {
-            QVBoxPlotModelMapper::setOrientation(orientation);
+            setorientation_cb(this, cbval1);
+            return;
         }
+        QVBoxPlotModelMapper::setOrientation(orientation);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,12 +481,13 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_sender_isbase) {
             qvboxplotmodelmapper_sender_isbase = false;
             return QVBoxPlotModelMapper::sender();
-        } else if (qvboxplotmodelmapper_sender_callback != nullptr) {
-            QObject* callback_ret = qvboxplotmodelmapper_sender_callback();
-            return callback_ret;
-        } else {
-            return QVBoxPlotModelMapper::sender();
         }
+        auto sender_cb = qvboxplotmodelmapper_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QVBoxPlotModelMapper::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,12 +495,13 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_sendersignalindex_isbase) {
             qvboxplotmodelmapper_sendersignalindex_isbase = false;
             return QVBoxPlotModelMapper::senderSignalIndex();
-        } else if (qvboxplotmodelmapper_sendersignalindex_callback != nullptr) {
-            int callback_ret = qvboxplotmodelmapper_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVBoxPlotModelMapper::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qvboxplotmodelmapper_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVBoxPlotModelMapper::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,14 +509,15 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_receivers_isbase) {
             qvboxplotmodelmapper_receivers_isbase = false;
             return QVBoxPlotModelMapper::receivers(signal);
-        } else if (qvboxplotmodelmapper_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qvboxplotmodelmapper_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qvboxplotmodelmapper_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QVBoxPlotModelMapper::receivers(signal);
         }
+        return QVBoxPlotModelMapper::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,16 +525,17 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
         if (qvboxplotmodelmapper_issignalconnected_isbase) {
             qvboxplotmodelmapper_issignalconnected_isbase = false;
             return QVBoxPlotModelMapper::isSignalConnected(signal);
-        } else if (qvboxplotmodelmapper_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qvboxplotmodelmapper_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qvboxplotmodelmapper_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVBoxPlotModelMapper::isSignalConnected(signal);
         }
+        return QVBoxPlotModelMapper::isSignalConnected(signal);
     }
 
     // Friend functions

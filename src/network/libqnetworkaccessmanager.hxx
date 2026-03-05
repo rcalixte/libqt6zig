@@ -78,26 +78,6 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     VirtualQNetworkAccessManager() : QNetworkAccessManager() {};
     VirtualQNetworkAccessManager(QObject* parent) : QNetworkAccessManager(parent) {};
 
-    ~VirtualQNetworkAccessManager() {
-        qnetworkaccessmanager_metaobject_callback = nullptr;
-        qnetworkaccessmanager_metacast_callback = nullptr;
-        qnetworkaccessmanager_metacall_callback = nullptr;
-        qnetworkaccessmanager_supportedschemes_callback = nullptr;
-        qnetworkaccessmanager_createrequest_callback = nullptr;
-        qnetworkaccessmanager_event_callback = nullptr;
-        qnetworkaccessmanager_eventfilter_callback = nullptr;
-        qnetworkaccessmanager_timerevent_callback = nullptr;
-        qnetworkaccessmanager_childevent_callback = nullptr;
-        qnetworkaccessmanager_customevent_callback = nullptr;
-        qnetworkaccessmanager_connectnotify_callback = nullptr;
-        qnetworkaccessmanager_disconnectnotify_callback = nullptr;
-        qnetworkaccessmanager_supportedschemesimplementation_callback = nullptr;
-        qnetworkaccessmanager_sender_callback = nullptr;
-        qnetworkaccessmanager_sendersignalindex_callback = nullptr;
-        qnetworkaccessmanager_receivers_callback = nullptr;
-        qnetworkaccessmanager_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQNetworkAccessManager_MetaObject_Callback(QNetworkAccessManager_MetaObject_Callback cb) { qnetworkaccessmanager_metaobject_callback = cb; }
     inline void setQNetworkAccessManager_Metacast_Callback(QNetworkAccessManager_Metacast_Callback cb) { qnetworkaccessmanager_metacast_callback = cb; }
@@ -141,12 +121,13 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_metaobject_isbase) {
             qnetworkaccessmanager_metaobject_isbase = false;
             return QNetworkAccessManager::metaObject();
-        } else if (qnetworkaccessmanager_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qnetworkaccessmanager_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QNetworkAccessManager::metaObject();
         }
+        auto metaobject_cb = qnetworkaccessmanager_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QNetworkAccessManager::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -154,14 +135,15 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_metacast_isbase) {
             qnetworkaccessmanager_metacast_isbase = false;
             return QNetworkAccessManager::qt_metacast(param1);
-        } else if (qnetworkaccessmanager_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qnetworkaccessmanager_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qnetworkaccessmanager_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNetworkAccessManager::qt_metacast(param1);
         }
+        return QNetworkAccessManager::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -169,16 +151,17 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_metacall_isbase) {
             qnetworkaccessmanager_metacall_isbase = false;
             return QNetworkAccessManager::qt_metacall(param1, param2, param3);
-        } else if (qnetworkaccessmanager_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qnetworkaccessmanager_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qnetworkaccessmanager_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QNetworkAccessManager::qt_metacall(param1, param2, param3);
         }
+        return QNetworkAccessManager::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -186,8 +169,10 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_supportedschemes_isbase) {
             qnetworkaccessmanager_supportedschemes_isbase = false;
             return QNetworkAccessManager::supportedSchemes();
-        } else if (qnetworkaccessmanager_supportedschemes_callback != nullptr) {
-            const char** callback_ret = qnetworkaccessmanager_supportedschemes_callback();
+        }
+        auto supportedschemes_cb = qnetworkaccessmanager_supportedschemes_callback;
+        if (supportedschemes_cb) {
+            const char** callback_ret = supportedschemes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -198,9 +183,8 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QNetworkAccessManager::supportedSchemes();
         }
+        return QNetworkAccessManager::supportedSchemes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -208,18 +192,19 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_createrequest_isbase) {
             qnetworkaccessmanager_createrequest_isbase = false;
             return QNetworkAccessManager::createRequest(op, request, outgoingData);
-        } else if (qnetworkaccessmanager_createrequest_callback != nullptr) {
+        }
+        auto createrequest_cb = qnetworkaccessmanager_createrequest_callback;
+        if (createrequest_cb) {
             int cbval1 = static_cast<int>(op);
             const QNetworkRequest& request_ret = request;
             // Cast returned reference into pointer
             QNetworkRequest* cbval2 = const_cast<QNetworkRequest*>(&request_ret);
             QIODevice* cbval3 = outgoingData;
 
-            QNetworkReply* callback_ret = qnetworkaccessmanager_createrequest_callback(this, cbval1, cbval2, cbval3);
+            QNetworkReply* callback_ret = createrequest_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QNetworkAccessManager::createRequest(op, request, outgoingData);
         }
+        return QNetworkAccessManager::createRequest(op, request, outgoingData);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,14 +212,15 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_event_isbase) {
             qnetworkaccessmanager_event_isbase = false;
             return QNetworkAccessManager::event(event);
-        } else if (qnetworkaccessmanager_event_callback != nullptr) {
+        }
+        auto event_cb = qnetworkaccessmanager_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qnetworkaccessmanager_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNetworkAccessManager::event(event);
         }
+        return QNetworkAccessManager::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,15 +228,16 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_eventfilter_isbase) {
             qnetworkaccessmanager_eventfilter_isbase = false;
             return QNetworkAccessManager::eventFilter(watched, event);
-        } else if (qnetworkaccessmanager_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qnetworkaccessmanager_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qnetworkaccessmanager_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QNetworkAccessManager::eventFilter(watched, event);
         }
+        return QNetworkAccessManager::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,13 +245,16 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_timerevent_isbase) {
             qnetworkaccessmanager_timerevent_isbase = false;
             QNetworkAccessManager::timerEvent(event);
-        } else if (qnetworkaccessmanager_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qnetworkaccessmanager_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qnetworkaccessmanager_timerevent_callback(this, cbval1);
-        } else {
-            QNetworkAccessManager::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QNetworkAccessManager::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,13 +262,16 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_childevent_isbase) {
             qnetworkaccessmanager_childevent_isbase = false;
             QNetworkAccessManager::childEvent(event);
-        } else if (qnetworkaccessmanager_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qnetworkaccessmanager_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qnetworkaccessmanager_childevent_callback(this, cbval1);
-        } else {
-            QNetworkAccessManager::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QNetworkAccessManager::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,13 +279,16 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_customevent_isbase) {
             qnetworkaccessmanager_customevent_isbase = false;
             QNetworkAccessManager::customEvent(event);
-        } else if (qnetworkaccessmanager_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qnetworkaccessmanager_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qnetworkaccessmanager_customevent_callback(this, cbval1);
-        } else {
-            QNetworkAccessManager::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QNetworkAccessManager::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -300,15 +296,18 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_connectnotify_isbase) {
             qnetworkaccessmanager_connectnotify_isbase = false;
             QNetworkAccessManager::connectNotify(signal);
-        } else if (qnetworkaccessmanager_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qnetworkaccessmanager_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qnetworkaccessmanager_connectnotify_callback(this, cbval1);
-        } else {
-            QNetworkAccessManager::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QNetworkAccessManager::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,15 +315,18 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_disconnectnotify_isbase) {
             qnetworkaccessmanager_disconnectnotify_isbase = false;
             QNetworkAccessManager::disconnectNotify(signal);
-        } else if (qnetworkaccessmanager_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qnetworkaccessmanager_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qnetworkaccessmanager_disconnectnotify_callback(this, cbval1);
-        } else {
-            QNetworkAccessManager::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QNetworkAccessManager::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,8 +334,10 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_supportedschemesimplementation_isbase) {
             qnetworkaccessmanager_supportedschemesimplementation_isbase = false;
             return QNetworkAccessManager::supportedSchemesImplementation();
-        } else if (qnetworkaccessmanager_supportedschemesimplementation_callback != nullptr) {
-            const char** callback_ret = qnetworkaccessmanager_supportedschemesimplementation_callback();
+        }
+        auto supportedschemesimplementation_cb = qnetworkaccessmanager_supportedschemesimplementation_callback;
+        if (supportedschemesimplementation_cb) {
+            const char** callback_ret = supportedschemesimplementation_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -344,9 +348,8 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QNetworkAccessManager::supportedSchemesImplementation();
         }
+        return QNetworkAccessManager::supportedSchemesImplementation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -354,12 +357,13 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_sender_isbase) {
             qnetworkaccessmanager_sender_isbase = false;
             return QNetworkAccessManager::sender();
-        } else if (qnetworkaccessmanager_sender_callback != nullptr) {
-            QObject* callback_ret = qnetworkaccessmanager_sender_callback();
-            return callback_ret;
-        } else {
-            return QNetworkAccessManager::sender();
         }
+        auto sender_cb = qnetworkaccessmanager_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QNetworkAccessManager::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -367,12 +371,13 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_sendersignalindex_isbase) {
             qnetworkaccessmanager_sendersignalindex_isbase = false;
             return QNetworkAccessManager::senderSignalIndex();
-        } else if (qnetworkaccessmanager_sendersignalindex_callback != nullptr) {
-            int callback_ret = qnetworkaccessmanager_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QNetworkAccessManager::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qnetworkaccessmanager_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QNetworkAccessManager::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,14 +385,15 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_receivers_isbase) {
             qnetworkaccessmanager_receivers_isbase = false;
             return QNetworkAccessManager::receivers(signal);
-        } else if (qnetworkaccessmanager_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qnetworkaccessmanager_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qnetworkaccessmanager_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QNetworkAccessManager::receivers(signal);
         }
+        return QNetworkAccessManager::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -395,16 +401,17 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
         if (qnetworkaccessmanager_issignalconnected_isbase) {
             qnetworkaccessmanager_issignalconnected_isbase = false;
             return QNetworkAccessManager::isSignalConnected(signal);
-        } else if (qnetworkaccessmanager_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qnetworkaccessmanager_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qnetworkaccessmanager_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNetworkAccessManager::isSignalConnected(signal);
         }
+        return QNetworkAccessManager::isSignalConnected(signal);
     }
 
     // Friend functions

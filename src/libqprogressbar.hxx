@@ -213,71 +213,6 @@ class VirtualQProgressBar final : public QProgressBar {
     VirtualQProgressBar(QWidget* parent) : QProgressBar(parent) {};
     VirtualQProgressBar() : QProgressBar() {};
 
-    ~VirtualQProgressBar() {
-        qprogressbar_metaobject_callback = nullptr;
-        qprogressbar_metacast_callback = nullptr;
-        qprogressbar_metacall_callback = nullptr;
-        qprogressbar_text_callback = nullptr;
-        qprogressbar_sizehint_callback = nullptr;
-        qprogressbar_minimumsizehint_callback = nullptr;
-        qprogressbar_event_callback = nullptr;
-        qprogressbar_paintevent_callback = nullptr;
-        qprogressbar_initstyleoption_callback = nullptr;
-        qprogressbar_devtype_callback = nullptr;
-        qprogressbar_setvisible_callback = nullptr;
-        qprogressbar_heightforwidth_callback = nullptr;
-        qprogressbar_hasheightforwidth_callback = nullptr;
-        qprogressbar_paintengine_callback = nullptr;
-        qprogressbar_mousepressevent_callback = nullptr;
-        qprogressbar_mousereleaseevent_callback = nullptr;
-        qprogressbar_mousedoubleclickevent_callback = nullptr;
-        qprogressbar_mousemoveevent_callback = nullptr;
-        qprogressbar_wheelevent_callback = nullptr;
-        qprogressbar_keypressevent_callback = nullptr;
-        qprogressbar_keyreleaseevent_callback = nullptr;
-        qprogressbar_focusinevent_callback = nullptr;
-        qprogressbar_focusoutevent_callback = nullptr;
-        qprogressbar_enterevent_callback = nullptr;
-        qprogressbar_leaveevent_callback = nullptr;
-        qprogressbar_moveevent_callback = nullptr;
-        qprogressbar_resizeevent_callback = nullptr;
-        qprogressbar_closeevent_callback = nullptr;
-        qprogressbar_contextmenuevent_callback = nullptr;
-        qprogressbar_tabletevent_callback = nullptr;
-        qprogressbar_actionevent_callback = nullptr;
-        qprogressbar_dragenterevent_callback = nullptr;
-        qprogressbar_dragmoveevent_callback = nullptr;
-        qprogressbar_dragleaveevent_callback = nullptr;
-        qprogressbar_dropevent_callback = nullptr;
-        qprogressbar_showevent_callback = nullptr;
-        qprogressbar_hideevent_callback = nullptr;
-        qprogressbar_nativeevent_callback = nullptr;
-        qprogressbar_changeevent_callback = nullptr;
-        qprogressbar_metric_callback = nullptr;
-        qprogressbar_initpainter_callback = nullptr;
-        qprogressbar_redirected_callback = nullptr;
-        qprogressbar_sharedpainter_callback = nullptr;
-        qprogressbar_inputmethodevent_callback = nullptr;
-        qprogressbar_inputmethodquery_callback = nullptr;
-        qprogressbar_focusnextprevchild_callback = nullptr;
-        qprogressbar_eventfilter_callback = nullptr;
-        qprogressbar_timerevent_callback = nullptr;
-        qprogressbar_childevent_callback = nullptr;
-        qprogressbar_customevent_callback = nullptr;
-        qprogressbar_connectnotify_callback = nullptr;
-        qprogressbar_disconnectnotify_callback = nullptr;
-        qprogressbar_updatemicrofocus_callback = nullptr;
-        qprogressbar_create_callback = nullptr;
-        qprogressbar_destroy_callback = nullptr;
-        qprogressbar_focusnextchild_callback = nullptr;
-        qprogressbar_focuspreviouschild_callback = nullptr;
-        qprogressbar_sender_callback = nullptr;
-        qprogressbar_sendersignalindex_callback = nullptr;
-        qprogressbar_receivers_callback = nullptr;
-        qprogressbar_issignalconnected_callback = nullptr;
-        qprogressbar_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQProgressBar_MetaObject_Callback(QProgressBar_MetaObject_Callback cb) { qprogressbar_metaobject_callback = cb; }
     inline void setQProgressBar_Metacast_Callback(QProgressBar_Metacast_Callback cb) { qprogressbar_metacast_callback = cb; }
@@ -411,12 +346,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_metaobject_isbase) {
             qprogressbar_metaobject_isbase = false;
             return QProgressBar::metaObject();
-        } else if (qprogressbar_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qprogressbar_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QProgressBar::metaObject();
         }
+        auto metaobject_cb = qprogressbar_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QProgressBar::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,14 +360,15 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_metacast_isbase) {
             qprogressbar_metacast_isbase = false;
             return QProgressBar::qt_metacast(param1);
-        } else if (qprogressbar_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qprogressbar_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qprogressbar_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProgressBar::qt_metacast(param1);
         }
+        return QProgressBar::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,16 +376,17 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_metacall_isbase) {
             qprogressbar_metacall_isbase = false;
             return QProgressBar::qt_metacall(param1, param2, param3);
-        } else if (qprogressbar_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qprogressbar_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qprogressbar_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProgressBar::qt_metacall(param1, param2, param3);
         }
+        return QProgressBar::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -456,13 +394,14 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_text_isbase) {
             qprogressbar_text_isbase = false;
             return QProgressBar::text();
-        } else if (qprogressbar_text_callback != nullptr) {
-            const char* callback_ret = qprogressbar_text_callback();
+        }
+        auto text_cb = qprogressbar_text_callback;
+        if (text_cb) {
+            const char* callback_ret = text_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QProgressBar::text();
         }
+        return QProgressBar::text();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,12 +409,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_sizehint_isbase) {
             qprogressbar_sizehint_isbase = false;
             return QProgressBar::sizeHint();
-        } else if (qprogressbar_sizehint_callback != nullptr) {
-            QSize* callback_ret = qprogressbar_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QProgressBar::sizeHint();
         }
+        auto sizehint_cb = qprogressbar_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QProgressBar::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,12 +423,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_minimumsizehint_isbase) {
             qprogressbar_minimumsizehint_isbase = false;
             return QProgressBar::minimumSizeHint();
-        } else if (qprogressbar_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qprogressbar_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QProgressBar::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qprogressbar_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QProgressBar::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,14 +437,15 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_event_isbase) {
             qprogressbar_event_isbase = false;
             return QProgressBar::event(e);
-        } else if (qprogressbar_event_callback != nullptr) {
+        }
+        auto event_cb = qprogressbar_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qprogressbar_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProgressBar::event(e);
         }
+        return QProgressBar::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,13 +453,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_paintevent_isbase) {
             qprogressbar_paintevent_isbase = false;
             QProgressBar::paintEvent(param1);
-        } else if (qprogressbar_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qprogressbar_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qprogressbar_paintevent_callback(this, cbval1);
-        } else {
-            QProgressBar::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,13 +470,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_initstyleoption_isbase) {
             qprogressbar_initstyleoption_isbase = false;
             QProgressBar::initStyleOption(option);
-        } else if (qprogressbar_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qprogressbar_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionProgressBar* cbval1 = option;
 
-            qprogressbar_initstyleoption_callback(this, cbval1);
-        } else {
-            QProgressBar::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QProgressBar::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -539,12 +487,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_devtype_isbase) {
             qprogressbar_devtype_isbase = false;
             return QProgressBar::devType();
-        } else if (qprogressbar_devtype_callback != nullptr) {
-            int callback_ret = qprogressbar_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QProgressBar::devType();
         }
+        auto devtype_cb = qprogressbar_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QProgressBar::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,13 +501,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_setvisible_isbase) {
             qprogressbar_setvisible_isbase = false;
             QProgressBar::setVisible(visible);
-        } else if (qprogressbar_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qprogressbar_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qprogressbar_setvisible_callback(this, cbval1);
-        } else {
-            QProgressBar::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QProgressBar::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -566,14 +518,15 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_heightforwidth_isbase) {
             qprogressbar_heightforwidth_isbase = false;
             return QProgressBar::heightForWidth(param1);
-        } else if (qprogressbar_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qprogressbar_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qprogressbar_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProgressBar::heightForWidth(param1);
         }
+        return QProgressBar::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,12 +534,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_hasheightforwidth_isbase) {
             qprogressbar_hasheightforwidth_isbase = false;
             return QProgressBar::hasHeightForWidth();
-        } else if (qprogressbar_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qprogressbar_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QProgressBar::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qprogressbar_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QProgressBar::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,12 +548,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_paintengine_isbase) {
             qprogressbar_paintengine_isbase = false;
             return QProgressBar::paintEngine();
-        } else if (qprogressbar_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qprogressbar_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QProgressBar::paintEngine();
         }
+        auto paintengine_cb = qprogressbar_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QProgressBar::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,13 +562,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_mousepressevent_isbase) {
             qprogressbar_mousepressevent_isbase = false;
             QProgressBar::mousePressEvent(event);
-        } else if (qprogressbar_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qprogressbar_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprogressbar_mousepressevent_callback(this, cbval1);
-        } else {
-            QProgressBar::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,13 +579,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_mousereleaseevent_isbase) {
             qprogressbar_mousereleaseevent_isbase = false;
             QProgressBar::mouseReleaseEvent(event);
-        } else if (qprogressbar_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qprogressbar_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprogressbar_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QProgressBar::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,13 +596,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_mousedoubleclickevent_isbase) {
             qprogressbar_mousedoubleclickevent_isbase = false;
             QProgressBar::mouseDoubleClickEvent(event);
-        } else if (qprogressbar_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qprogressbar_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprogressbar_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QProgressBar::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +613,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_mousemoveevent_isbase) {
             qprogressbar_mousemoveevent_isbase = false;
             QProgressBar::mouseMoveEvent(event);
-        } else if (qprogressbar_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qprogressbar_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprogressbar_mousemoveevent_callback(this, cbval1);
-        } else {
-            QProgressBar::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +630,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_wheelevent_isbase) {
             qprogressbar_wheelevent_isbase = false;
             QProgressBar::wheelEvent(event);
-        } else if (qprogressbar_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qprogressbar_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qprogressbar_wheelevent_callback(this, cbval1);
-        } else {
-            QProgressBar::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,13 +647,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_keypressevent_isbase) {
             qprogressbar_keypressevent_isbase = false;
             QProgressBar::keyPressEvent(event);
-        } else if (qprogressbar_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qprogressbar_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qprogressbar_keypressevent_callback(this, cbval1);
-        } else {
-            QProgressBar::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,13 +664,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_keyreleaseevent_isbase) {
             qprogressbar_keyreleaseevent_isbase = false;
             QProgressBar::keyReleaseEvent(event);
-        } else if (qprogressbar_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qprogressbar_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qprogressbar_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QProgressBar::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,13 +681,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_focusinevent_isbase) {
             qprogressbar_focusinevent_isbase = false;
             QProgressBar::focusInEvent(event);
-        } else if (qprogressbar_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qprogressbar_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qprogressbar_focusinevent_callback(this, cbval1);
-        } else {
-            QProgressBar::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,13 +698,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_focusoutevent_isbase) {
             qprogressbar_focusoutevent_isbase = false;
             QProgressBar::focusOutEvent(event);
-        } else if (qprogressbar_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qprogressbar_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qprogressbar_focusoutevent_callback(this, cbval1);
-        } else {
-            QProgressBar::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,13 +715,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_enterevent_isbase) {
             qprogressbar_enterevent_isbase = false;
             QProgressBar::enterEvent(event);
-        } else if (qprogressbar_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qprogressbar_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qprogressbar_enterevent_callback(this, cbval1);
-        } else {
-            QProgressBar::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,13 +732,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_leaveevent_isbase) {
             qprogressbar_leaveevent_isbase = false;
             QProgressBar::leaveEvent(event);
-        } else if (qprogressbar_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qprogressbar_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qprogressbar_leaveevent_callback(this, cbval1);
-        } else {
-            QProgressBar::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,13 +749,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_moveevent_isbase) {
             qprogressbar_moveevent_isbase = false;
             QProgressBar::moveEvent(event);
-        } else if (qprogressbar_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qprogressbar_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qprogressbar_moveevent_callback(this, cbval1);
-        } else {
-            QProgressBar::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,13 +766,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_resizeevent_isbase) {
             qprogressbar_resizeevent_isbase = false;
             QProgressBar::resizeEvent(event);
-        } else if (qprogressbar_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qprogressbar_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qprogressbar_resizeevent_callback(this, cbval1);
-        } else {
-            QProgressBar::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,13 +783,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_closeevent_isbase) {
             qprogressbar_closeevent_isbase = false;
             QProgressBar::closeEvent(event);
-        } else if (qprogressbar_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qprogressbar_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qprogressbar_closeevent_callback(this, cbval1);
-        } else {
-            QProgressBar::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,13 +800,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_contextmenuevent_isbase) {
             qprogressbar_contextmenuevent_isbase = false;
             QProgressBar::contextMenuEvent(event);
-        } else if (qprogressbar_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qprogressbar_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qprogressbar_contextmenuevent_callback(this, cbval1);
-        } else {
-            QProgressBar::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -817,13 +817,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_tabletevent_isbase) {
             qprogressbar_tabletevent_isbase = false;
             QProgressBar::tabletEvent(event);
-        } else if (qprogressbar_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qprogressbar_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qprogressbar_tabletevent_callback(this, cbval1);
-        } else {
-            QProgressBar::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -831,13 +834,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_actionevent_isbase) {
             qprogressbar_actionevent_isbase = false;
             QProgressBar::actionEvent(event);
-        } else if (qprogressbar_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qprogressbar_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qprogressbar_actionevent_callback(this, cbval1);
-        } else {
-            QProgressBar::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,13 +851,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_dragenterevent_isbase) {
             qprogressbar_dragenterevent_isbase = false;
             QProgressBar::dragEnterEvent(event);
-        } else if (qprogressbar_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qprogressbar_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qprogressbar_dragenterevent_callback(this, cbval1);
-        } else {
-            QProgressBar::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -859,13 +868,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_dragmoveevent_isbase) {
             qprogressbar_dragmoveevent_isbase = false;
             QProgressBar::dragMoveEvent(event);
-        } else if (qprogressbar_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qprogressbar_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qprogressbar_dragmoveevent_callback(this, cbval1);
-        } else {
-            QProgressBar::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,13 +885,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_dragleaveevent_isbase) {
             qprogressbar_dragleaveevent_isbase = false;
             QProgressBar::dragLeaveEvent(event);
-        } else if (qprogressbar_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qprogressbar_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qprogressbar_dragleaveevent_callback(this, cbval1);
-        } else {
-            QProgressBar::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -887,13 +902,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_dropevent_isbase) {
             qprogressbar_dropevent_isbase = false;
             QProgressBar::dropEvent(event);
-        } else if (qprogressbar_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qprogressbar_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qprogressbar_dropevent_callback(this, cbval1);
-        } else {
-            QProgressBar::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -901,13 +919,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_showevent_isbase) {
             qprogressbar_showevent_isbase = false;
             QProgressBar::showEvent(event);
-        } else if (qprogressbar_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qprogressbar_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qprogressbar_showevent_callback(this, cbval1);
-        } else {
-            QProgressBar::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -915,13 +936,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_hideevent_isbase) {
             qprogressbar_hideevent_isbase = false;
             QProgressBar::hideEvent(event);
-        } else if (qprogressbar_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qprogressbar_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qprogressbar_hideevent_callback(this, cbval1);
-        } else {
-            QProgressBar::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -929,7 +953,9 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_nativeevent_isbase) {
             qprogressbar_nativeevent_isbase = false;
             return QProgressBar::nativeEvent(eventType, message, result);
-        } else if (qprogressbar_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qprogressbar_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -940,12 +966,11 @@ class VirtualQProgressBar final : public QProgressBar {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qprogressbar_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QProgressBar::nativeEvent(eventType, message, result);
         }
+        return QProgressBar::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,13 +978,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_changeevent_isbase) {
             qprogressbar_changeevent_isbase = false;
             QProgressBar::changeEvent(param1);
-        } else if (qprogressbar_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qprogressbar_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qprogressbar_changeevent_callback(this, cbval1);
-        } else {
-            QProgressBar::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,14 +995,15 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_metric_isbase) {
             qprogressbar_metric_isbase = false;
             return QProgressBar::metric(param1);
-        } else if (qprogressbar_metric_callback != nullptr) {
+        }
+        auto metric_cb = qprogressbar_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qprogressbar_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProgressBar::metric(param1);
         }
+        return QProgressBar::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,13 +1011,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_initpainter_isbase) {
             qprogressbar_initpainter_isbase = false;
             QProgressBar::initPainter(painter);
-        } else if (qprogressbar_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qprogressbar_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qprogressbar_initpainter_callback(this, cbval1);
-        } else {
-            QProgressBar::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QProgressBar::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,14 +1028,15 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_redirected_isbase) {
             qprogressbar_redirected_isbase = false;
             return QProgressBar::redirected(offset);
-        } else if (qprogressbar_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qprogressbar_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qprogressbar_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProgressBar::redirected(offset);
         }
+        return QProgressBar::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1011,12 +1044,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_sharedpainter_isbase) {
             qprogressbar_sharedpainter_isbase = false;
             return QProgressBar::sharedPainter();
-        } else if (qprogressbar_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qprogressbar_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QProgressBar::sharedPainter();
         }
+        auto sharedpainter_cb = qprogressbar_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QProgressBar::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,13 +1058,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_inputmethodevent_isbase) {
             qprogressbar_inputmethodevent_isbase = false;
             QProgressBar::inputMethodEvent(param1);
-        } else if (qprogressbar_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qprogressbar_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qprogressbar_inputmethodevent_callback(this, cbval1);
-        } else {
-            QProgressBar::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1038,14 +1075,15 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_inputmethodquery_isbase) {
             qprogressbar_inputmethodquery_isbase = false;
             return QProgressBar::inputMethodQuery(param1);
-        } else if (qprogressbar_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qprogressbar_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qprogressbar_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QProgressBar::inputMethodQuery(param1);
         }
+        return QProgressBar::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1053,14 +1091,15 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_focusnextprevchild_isbase) {
             qprogressbar_focusnextprevchild_isbase = false;
             return QProgressBar::focusNextPrevChild(next);
-        } else if (qprogressbar_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qprogressbar_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qprogressbar_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProgressBar::focusNextPrevChild(next);
         }
+        return QProgressBar::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,15 +1107,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_eventfilter_isbase) {
             qprogressbar_eventfilter_isbase = false;
             return QProgressBar::eventFilter(watched, event);
-        } else if (qprogressbar_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qprogressbar_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qprogressbar_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QProgressBar::eventFilter(watched, event);
         }
+        return QProgressBar::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1084,13 +1124,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_timerevent_isbase) {
             qprogressbar_timerevent_isbase = false;
             QProgressBar::timerEvent(event);
-        } else if (qprogressbar_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qprogressbar_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qprogressbar_timerevent_callback(this, cbval1);
-        } else {
-            QProgressBar::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1098,13 +1141,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_childevent_isbase) {
             qprogressbar_childevent_isbase = false;
             QProgressBar::childEvent(event);
-        } else if (qprogressbar_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qprogressbar_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qprogressbar_childevent_callback(this, cbval1);
-        } else {
-            QProgressBar::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,13 +1158,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_customevent_isbase) {
             qprogressbar_customevent_isbase = false;
             QProgressBar::customEvent(event);
-        } else if (qprogressbar_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qprogressbar_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qprogressbar_customevent_callback(this, cbval1);
-        } else {
-            QProgressBar::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QProgressBar::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1126,15 +1175,18 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_connectnotify_isbase) {
             qprogressbar_connectnotify_isbase = false;
             QProgressBar::connectNotify(signal);
-        } else if (qprogressbar_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qprogressbar_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qprogressbar_connectnotify_callback(this, cbval1);
-        } else {
-            QProgressBar::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QProgressBar::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,15 +1194,18 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_disconnectnotify_isbase) {
             qprogressbar_disconnectnotify_isbase = false;
             QProgressBar::disconnectNotify(signal);
-        } else if (qprogressbar_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qprogressbar_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qprogressbar_disconnectnotify_callback(this, cbval1);
-        } else {
-            QProgressBar::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QProgressBar::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1158,11 +1213,14 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_updatemicrofocus_isbase) {
             qprogressbar_updatemicrofocus_isbase = false;
             QProgressBar::updateMicroFocus();
-        } else if (qprogressbar_updatemicrofocus_callback != nullptr) {
-            qprogressbar_updatemicrofocus_callback();
-        } else {
-            QProgressBar::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qprogressbar_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QProgressBar::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1170,11 +1228,14 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_create_isbase) {
             qprogressbar_create_isbase = false;
             QProgressBar::create();
-        } else if (qprogressbar_create_callback != nullptr) {
-            qprogressbar_create_callback();
-        } else {
-            QProgressBar::create();
+            return;
         }
+        auto create_cb = qprogressbar_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QProgressBar::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1182,11 +1243,14 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_destroy_isbase) {
             qprogressbar_destroy_isbase = false;
             QProgressBar::destroy();
-        } else if (qprogressbar_destroy_callback != nullptr) {
-            qprogressbar_destroy_callback();
-        } else {
-            QProgressBar::destroy();
+            return;
         }
+        auto destroy_cb = qprogressbar_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QProgressBar::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,12 +1258,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_focusnextchild_isbase) {
             qprogressbar_focusnextchild_isbase = false;
             return QProgressBar::focusNextChild();
-        } else if (qprogressbar_focusnextchild_callback != nullptr) {
-            bool callback_ret = qprogressbar_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QProgressBar::focusNextChild();
         }
+        auto focusnextchild_cb = qprogressbar_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QProgressBar::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1207,12 +1272,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_focuspreviouschild_isbase) {
             qprogressbar_focuspreviouschild_isbase = false;
             return QProgressBar::focusPreviousChild();
-        } else if (qprogressbar_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qprogressbar_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QProgressBar::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qprogressbar_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QProgressBar::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1220,12 +1286,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_sender_isbase) {
             qprogressbar_sender_isbase = false;
             return QProgressBar::sender();
-        } else if (qprogressbar_sender_callback != nullptr) {
-            QObject* callback_ret = qprogressbar_sender_callback();
-            return callback_ret;
-        } else {
-            return QProgressBar::sender();
         }
+        auto sender_cb = qprogressbar_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QProgressBar::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,12 +1300,13 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_sendersignalindex_isbase) {
             qprogressbar_sendersignalindex_isbase = false;
             return QProgressBar::senderSignalIndex();
-        } else if (qprogressbar_sendersignalindex_callback != nullptr) {
-            int callback_ret = qprogressbar_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QProgressBar::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qprogressbar_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QProgressBar::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,14 +1314,15 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_receivers_isbase) {
             qprogressbar_receivers_isbase = false;
             return QProgressBar::receivers(signal);
-        } else if (qprogressbar_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qprogressbar_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qprogressbar_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProgressBar::receivers(signal);
         }
+        return QProgressBar::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,16 +1330,17 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_issignalconnected_isbase) {
             qprogressbar_issignalconnected_isbase = false;
             return QProgressBar::isSignalConnected(signal);
-        } else if (qprogressbar_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qprogressbar_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qprogressbar_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProgressBar::isSignalConnected(signal);
         }
+        return QProgressBar::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,15 +1348,16 @@ class VirtualQProgressBar final : public QProgressBar {
         if (qprogressbar_getdecodedmetricf_isbase) {
             qprogressbar_getdecodedmetricf_isbase = false;
             return QProgressBar::getDecodedMetricF(metricA, metricB);
-        } else if (qprogressbar_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qprogressbar_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qprogressbar_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QProgressBar::getDecodedMetricF(metricA, metricB);
         }
+        return QProgressBar::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -119,40 +119,6 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
   public:
     VirtualKListOpenFilesJob(const QString& path) : KListOpenFilesJob(path) {};
 
-    ~VirtualKListOpenFilesJob() {
-        klistopenfilesjob_metaobject_callback = nullptr;
-        klistopenfilesjob_metacast_callback = nullptr;
-        klistopenfilesjob_metacall_callback = nullptr;
-        klistopenfilesjob_start_callback = nullptr;
-        klistopenfilesjob_dokill_callback = nullptr;
-        klistopenfilesjob_dosuspend_callback = nullptr;
-        klistopenfilesjob_doresume_callback = nullptr;
-        klistopenfilesjob_errorstring_callback = nullptr;
-        klistopenfilesjob_event_callback = nullptr;
-        klistopenfilesjob_eventfilter_callback = nullptr;
-        klistopenfilesjob_timerevent_callback = nullptr;
-        klistopenfilesjob_childevent_callback = nullptr;
-        klistopenfilesjob_customevent_callback = nullptr;
-        klistopenfilesjob_connectnotify_callback = nullptr;
-        klistopenfilesjob_disconnectnotify_callback = nullptr;
-        klistopenfilesjob_setcapabilities_callback = nullptr;
-        klistopenfilesjob_isfinished_callback = nullptr;
-        klistopenfilesjob_seterror_callback = nullptr;
-        klistopenfilesjob_seterrortext_callback = nullptr;
-        klistopenfilesjob_setprocessedamount_callback = nullptr;
-        klistopenfilesjob_settotalamount_callback = nullptr;
-        klistopenfilesjob_setprogressunit_callback = nullptr;
-        klistopenfilesjob_setpercent_callback = nullptr;
-        klistopenfilesjob_emitresult_callback = nullptr;
-        klistopenfilesjob_emitpercent_callback = nullptr;
-        klistopenfilesjob_emitspeed_callback = nullptr;
-        klistopenfilesjob_startelapsedtimer_callback = nullptr;
-        klistopenfilesjob_sender_callback = nullptr;
-        klistopenfilesjob_sendersignalindex_callback = nullptr;
-        klistopenfilesjob_receivers_callback = nullptr;
-        klistopenfilesjob_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKListOpenFilesJob_MetaObject_Callback(KListOpenFilesJob_MetaObject_Callback cb) { klistopenfilesjob_metaobject_callback = cb; }
     inline void setKListOpenFilesJob_Metacast_Callback(KListOpenFilesJob_Metacast_Callback cb) { klistopenfilesjob_metacast_callback = cb; }
@@ -224,12 +190,13 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_metaobject_isbase) {
             klistopenfilesjob_metaobject_isbase = false;
             return KListOpenFilesJob::metaObject();
-        } else if (klistopenfilesjob_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = klistopenfilesjob_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KListOpenFilesJob::metaObject();
         }
+        auto metaobject_cb = klistopenfilesjob_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KListOpenFilesJob::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -237,14 +204,15 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_metacast_isbase) {
             klistopenfilesjob_metacast_isbase = false;
             return KListOpenFilesJob::qt_metacast(param1);
-        } else if (klistopenfilesjob_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = klistopenfilesjob_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = klistopenfilesjob_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KListOpenFilesJob::qt_metacast(param1);
         }
+        return KListOpenFilesJob::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -252,16 +220,17 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_metacall_isbase) {
             klistopenfilesjob_metacall_isbase = false;
             return KListOpenFilesJob::qt_metacall(param1, param2, param3);
-        } else if (klistopenfilesjob_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = klistopenfilesjob_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = klistopenfilesjob_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KListOpenFilesJob::qt_metacall(param1, param2, param3);
         }
+        return KListOpenFilesJob::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -269,11 +238,14 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_start_isbase) {
             klistopenfilesjob_start_isbase = false;
             KListOpenFilesJob::start();
-        } else if (klistopenfilesjob_start_callback != nullptr) {
-            klistopenfilesjob_start_callback();
-        } else {
-            KListOpenFilesJob::start();
+            return;
         }
+        auto start_cb = klistopenfilesjob_start_callback;
+        if (start_cb) {
+            start_cb();
+            return;
+        }
+        KListOpenFilesJob::start();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -281,12 +253,13 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_dokill_isbase) {
             klistopenfilesjob_dokill_isbase = false;
             return KListOpenFilesJob::doKill();
-        } else if (klistopenfilesjob_dokill_callback != nullptr) {
-            bool callback_ret = klistopenfilesjob_dokill_callback();
-            return callback_ret;
-        } else {
-            return KListOpenFilesJob::doKill();
         }
+        auto dokill_cb = klistopenfilesjob_dokill_callback;
+        if (dokill_cb) {
+            bool callback_ret = dokill_cb();
+            return callback_ret;
+        }
+        return KListOpenFilesJob::doKill();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -294,12 +267,13 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_dosuspend_isbase) {
             klistopenfilesjob_dosuspend_isbase = false;
             return KListOpenFilesJob::doSuspend();
-        } else if (klistopenfilesjob_dosuspend_callback != nullptr) {
-            bool callback_ret = klistopenfilesjob_dosuspend_callback();
-            return callback_ret;
-        } else {
-            return KListOpenFilesJob::doSuspend();
         }
+        auto dosuspend_cb = klistopenfilesjob_dosuspend_callback;
+        if (dosuspend_cb) {
+            bool callback_ret = dosuspend_cb();
+            return callback_ret;
+        }
+        return KListOpenFilesJob::doSuspend();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -307,12 +281,13 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_doresume_isbase) {
             klistopenfilesjob_doresume_isbase = false;
             return KListOpenFilesJob::doResume();
-        } else if (klistopenfilesjob_doresume_callback != nullptr) {
-            bool callback_ret = klistopenfilesjob_doresume_callback();
-            return callback_ret;
-        } else {
-            return KListOpenFilesJob::doResume();
         }
+        auto doresume_cb = klistopenfilesjob_doresume_callback;
+        if (doresume_cb) {
+            bool callback_ret = doresume_cb();
+            return callback_ret;
+        }
+        return KListOpenFilesJob::doResume();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,13 +295,14 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_errorstring_isbase) {
             klistopenfilesjob_errorstring_isbase = false;
             return KListOpenFilesJob::errorString();
-        } else if (klistopenfilesjob_errorstring_callback != nullptr) {
-            const char* callback_ret = klistopenfilesjob_errorstring_callback();
+        }
+        auto errorstring_cb = klistopenfilesjob_errorstring_callback;
+        if (errorstring_cb) {
+            const char* callback_ret = errorstring_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KListOpenFilesJob::errorString();
         }
+        return KListOpenFilesJob::errorString();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -334,14 +310,15 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_event_isbase) {
             klistopenfilesjob_event_isbase = false;
             return KListOpenFilesJob::event(event);
-        } else if (klistopenfilesjob_event_callback != nullptr) {
+        }
+        auto event_cb = klistopenfilesjob_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = klistopenfilesjob_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KListOpenFilesJob::event(event);
         }
+        return KListOpenFilesJob::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -349,15 +326,16 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_eventfilter_isbase) {
             klistopenfilesjob_eventfilter_isbase = false;
             return KListOpenFilesJob::eventFilter(watched, event);
-        } else if (klistopenfilesjob_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = klistopenfilesjob_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = klistopenfilesjob_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KListOpenFilesJob::eventFilter(watched, event);
         }
+        return KListOpenFilesJob::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -365,13 +343,16 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_timerevent_isbase) {
             klistopenfilesjob_timerevent_isbase = false;
             KListOpenFilesJob::timerEvent(event);
-        } else if (klistopenfilesjob_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = klistopenfilesjob_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            klistopenfilesjob_timerevent_callback(this, cbval1);
-        } else {
-            KListOpenFilesJob::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KListOpenFilesJob::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -379,13 +360,16 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_childevent_isbase) {
             klistopenfilesjob_childevent_isbase = false;
             KListOpenFilesJob::childEvent(event);
-        } else if (klistopenfilesjob_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = klistopenfilesjob_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            klistopenfilesjob_childevent_callback(this, cbval1);
-        } else {
-            KListOpenFilesJob::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KListOpenFilesJob::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -393,13 +377,16 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_customevent_isbase) {
             klistopenfilesjob_customevent_isbase = false;
             KListOpenFilesJob::customEvent(event);
-        } else if (klistopenfilesjob_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = klistopenfilesjob_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            klistopenfilesjob_customevent_callback(this, cbval1);
-        } else {
-            KListOpenFilesJob::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KListOpenFilesJob::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -407,15 +394,18 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_connectnotify_isbase) {
             klistopenfilesjob_connectnotify_isbase = false;
             KListOpenFilesJob::connectNotify(signal);
-        } else if (klistopenfilesjob_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = klistopenfilesjob_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klistopenfilesjob_connectnotify_callback(this, cbval1);
-        } else {
-            KListOpenFilesJob::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KListOpenFilesJob::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,15 +413,18 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_disconnectnotify_isbase) {
             klistopenfilesjob_disconnectnotify_isbase = false;
             KListOpenFilesJob::disconnectNotify(signal);
-        } else if (klistopenfilesjob_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = klistopenfilesjob_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klistopenfilesjob_disconnectnotify_callback(this, cbval1);
-        } else {
-            KListOpenFilesJob::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KListOpenFilesJob::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,13 +432,16 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_setcapabilities_isbase) {
             klistopenfilesjob_setcapabilities_isbase = false;
             KListOpenFilesJob::setCapabilities(capabilities);
-        } else if (klistopenfilesjob_setcapabilities_callback != nullptr) {
+            return;
+        }
+        auto setcapabilities_cb = klistopenfilesjob_setcapabilities_callback;
+        if (setcapabilities_cb) {
             int cbval1 = static_cast<int>(capabilities);
 
-            klistopenfilesjob_setcapabilities_callback(this, cbval1);
-        } else {
-            KListOpenFilesJob::setCapabilities(capabilities);
+            setcapabilities_cb(this, cbval1);
+            return;
         }
+        KListOpenFilesJob::setCapabilities(capabilities);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -453,12 +449,13 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_isfinished_isbase) {
             klistopenfilesjob_isfinished_isbase = false;
             return KListOpenFilesJob::isFinished();
-        } else if (klistopenfilesjob_isfinished_callback != nullptr) {
-            bool callback_ret = klistopenfilesjob_isfinished_callback();
-            return callback_ret;
-        } else {
-            return KListOpenFilesJob::isFinished();
         }
+        auto isfinished_cb = klistopenfilesjob_isfinished_callback;
+        if (isfinished_cb) {
+            bool callback_ret = isfinished_cb();
+            return callback_ret;
+        }
+        return KListOpenFilesJob::isFinished();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -466,13 +463,16 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_seterror_isbase) {
             klistopenfilesjob_seterror_isbase = false;
             KListOpenFilesJob::setError(errorCode);
-        } else if (klistopenfilesjob_seterror_callback != nullptr) {
+            return;
+        }
+        auto seterror_cb = klistopenfilesjob_seterror_callback;
+        if (seterror_cb) {
             int cbval1 = errorCode;
 
-            klistopenfilesjob_seterror_callback(this, cbval1);
-        } else {
-            KListOpenFilesJob::setError(errorCode);
+            seterror_cb(this, cbval1);
+            return;
         }
+        KListOpenFilesJob::setError(errorCode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,7 +480,10 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_seterrortext_isbase) {
             klistopenfilesjob_seterrortext_isbase = false;
             KListOpenFilesJob::setErrorText(errorText);
-        } else if (klistopenfilesjob_seterrortext_callback != nullptr) {
+            return;
+        }
+        auto seterrortext_cb = klistopenfilesjob_seterrortext_callback;
+        if (seterrortext_cb) {
             const QString errorText_ret = errorText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
@@ -490,11 +493,11 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
             ((char*)errorText_str)[errorText_str_len] = '\0';
             const char* cbval1 = errorText_str;
 
-            klistopenfilesjob_seterrortext_callback(this, cbval1);
+            seterrortext_cb(this, cbval1);
             libqt_free(errorText_str);
-        } else {
-            KListOpenFilesJob::setErrorText(errorText);
+            return;
         }
+        KListOpenFilesJob::setErrorText(errorText);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,14 +505,17 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_setprocessedamount_isbase) {
             klistopenfilesjob_setprocessedamount_isbase = false;
             KListOpenFilesJob::setProcessedAmount(unit, amount);
-        } else if (klistopenfilesjob_setprocessedamount_callback != nullptr) {
+            return;
+        }
+        auto setprocessedamount_cb = klistopenfilesjob_setprocessedamount_callback;
+        if (setprocessedamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            klistopenfilesjob_setprocessedamount_callback(this, cbval1, cbval2);
-        } else {
-            KListOpenFilesJob::setProcessedAmount(unit, amount);
+            setprocessedamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KListOpenFilesJob::setProcessedAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -517,14 +523,17 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_settotalamount_isbase) {
             klistopenfilesjob_settotalamount_isbase = false;
             KListOpenFilesJob::setTotalAmount(unit, amount);
-        } else if (klistopenfilesjob_settotalamount_callback != nullptr) {
+            return;
+        }
+        auto settotalamount_cb = klistopenfilesjob_settotalamount_callback;
+        if (settotalamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            klistopenfilesjob_settotalamount_callback(this, cbval1, cbval2);
-        } else {
-            KListOpenFilesJob::setTotalAmount(unit, amount);
+            settotalamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KListOpenFilesJob::setTotalAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -532,13 +541,16 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_setprogressunit_isbase) {
             klistopenfilesjob_setprogressunit_isbase = false;
             KListOpenFilesJob::setProgressUnit(unit);
-        } else if (klistopenfilesjob_setprogressunit_callback != nullptr) {
+            return;
+        }
+        auto setprogressunit_cb = klistopenfilesjob_setprogressunit_callback;
+        if (setprogressunit_cb) {
             int cbval1 = static_cast<int>(unit);
 
-            klistopenfilesjob_setprogressunit_callback(this, cbval1);
-        } else {
-            KListOpenFilesJob::setProgressUnit(unit);
+            setprogressunit_cb(this, cbval1);
+            return;
         }
+        KListOpenFilesJob::setProgressUnit(unit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,13 +558,16 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_setpercent_isbase) {
             klistopenfilesjob_setpercent_isbase = false;
             KListOpenFilesJob::setPercent(percentage);
-        } else if (klistopenfilesjob_setpercent_callback != nullptr) {
+            return;
+        }
+        auto setpercent_cb = klistopenfilesjob_setpercent_callback;
+        if (setpercent_cb) {
             unsigned long cbval1 = percentage;
 
-            klistopenfilesjob_setpercent_callback(this, cbval1);
-        } else {
-            KListOpenFilesJob::setPercent(percentage);
+            setpercent_cb(this, cbval1);
+            return;
         }
+        KListOpenFilesJob::setPercent(percentage);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,11 +575,14 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_emitresult_isbase) {
             klistopenfilesjob_emitresult_isbase = false;
             KListOpenFilesJob::emitResult();
-        } else if (klistopenfilesjob_emitresult_callback != nullptr) {
-            klistopenfilesjob_emitresult_callback();
-        } else {
-            KListOpenFilesJob::emitResult();
+            return;
         }
+        auto emitresult_cb = klistopenfilesjob_emitresult_callback;
+        if (emitresult_cb) {
+            emitresult_cb();
+            return;
+        }
+        KListOpenFilesJob::emitResult();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -572,14 +590,17 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_emitpercent_isbase) {
             klistopenfilesjob_emitpercent_isbase = false;
             KListOpenFilesJob::emitPercent(processedAmount, totalAmount);
-        } else if (klistopenfilesjob_emitpercent_callback != nullptr) {
+            return;
+        }
+        auto emitpercent_cb = klistopenfilesjob_emitpercent_callback;
+        if (emitpercent_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(processedAmount);
             unsigned long long cbval2 = static_cast<unsigned long long>(totalAmount);
 
-            klistopenfilesjob_emitpercent_callback(this, cbval1, cbval2);
-        } else {
-            KListOpenFilesJob::emitPercent(processedAmount, totalAmount);
+            emitpercent_cb(this, cbval1, cbval2);
+            return;
         }
+        KListOpenFilesJob::emitPercent(processedAmount, totalAmount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,13 +608,16 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_emitspeed_isbase) {
             klistopenfilesjob_emitspeed_isbase = false;
             KListOpenFilesJob::emitSpeed(speed);
-        } else if (klistopenfilesjob_emitspeed_callback != nullptr) {
+            return;
+        }
+        auto emitspeed_cb = klistopenfilesjob_emitspeed_callback;
+        if (emitspeed_cb) {
             unsigned long cbval1 = speed;
 
-            klistopenfilesjob_emitspeed_callback(this, cbval1);
-        } else {
-            KListOpenFilesJob::emitSpeed(speed);
+            emitspeed_cb(this, cbval1);
+            return;
         }
+        KListOpenFilesJob::emitSpeed(speed);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -601,11 +625,14 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_startelapsedtimer_isbase) {
             klistopenfilesjob_startelapsedtimer_isbase = false;
             KListOpenFilesJob::startElapsedTimer();
-        } else if (klistopenfilesjob_startelapsedtimer_callback != nullptr) {
-            klistopenfilesjob_startelapsedtimer_callback();
-        } else {
-            KListOpenFilesJob::startElapsedTimer();
+            return;
         }
+        auto startelapsedtimer_cb = klistopenfilesjob_startelapsedtimer_callback;
+        if (startelapsedtimer_cb) {
+            startelapsedtimer_cb();
+            return;
+        }
+        KListOpenFilesJob::startElapsedTimer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,12 +640,13 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_sender_isbase) {
             klistopenfilesjob_sender_isbase = false;
             return KListOpenFilesJob::sender();
-        } else if (klistopenfilesjob_sender_callback != nullptr) {
-            QObject* callback_ret = klistopenfilesjob_sender_callback();
-            return callback_ret;
-        } else {
-            return KListOpenFilesJob::sender();
         }
+        auto sender_cb = klistopenfilesjob_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KListOpenFilesJob::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,12 +654,13 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_sendersignalindex_isbase) {
             klistopenfilesjob_sendersignalindex_isbase = false;
             return KListOpenFilesJob::senderSignalIndex();
-        } else if (klistopenfilesjob_sendersignalindex_callback != nullptr) {
-            int callback_ret = klistopenfilesjob_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KListOpenFilesJob::senderSignalIndex();
         }
+        auto sendersignalindex_cb = klistopenfilesjob_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KListOpenFilesJob::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,14 +668,15 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_receivers_isbase) {
             klistopenfilesjob_receivers_isbase = false;
             return KListOpenFilesJob::receivers(signal);
-        } else if (klistopenfilesjob_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = klistopenfilesjob_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = klistopenfilesjob_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KListOpenFilesJob::receivers(signal);
         }
+        return KListOpenFilesJob::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,16 +684,17 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
         if (klistopenfilesjob_issignalconnected_isbase) {
             klistopenfilesjob_issignalconnected_isbase = false;
             return KListOpenFilesJob::isSignalConnected(signal);
-        } else if (klistopenfilesjob_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = klistopenfilesjob_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = klistopenfilesjob_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KListOpenFilesJob::isSignalConnected(signal);
         }
+        return KListOpenFilesJob::isSignalConnected(signal);
     }
 
     // Friend functions

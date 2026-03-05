@@ -213,71 +213,6 @@ class VirtualQStatusBar final : public QStatusBar {
     VirtualQStatusBar(QWidget* parent) : QStatusBar(parent) {};
     VirtualQStatusBar() : QStatusBar() {};
 
-    ~VirtualQStatusBar() {
-        qstatusbar_metaobject_callback = nullptr;
-        qstatusbar_metacast_callback = nullptr;
-        qstatusbar_metacall_callback = nullptr;
-        qstatusbar_showevent_callback = nullptr;
-        qstatusbar_paintevent_callback = nullptr;
-        qstatusbar_resizeevent_callback = nullptr;
-        qstatusbar_event_callback = nullptr;
-        qstatusbar_devtype_callback = nullptr;
-        qstatusbar_setvisible_callback = nullptr;
-        qstatusbar_sizehint_callback = nullptr;
-        qstatusbar_minimumsizehint_callback = nullptr;
-        qstatusbar_heightforwidth_callback = nullptr;
-        qstatusbar_hasheightforwidth_callback = nullptr;
-        qstatusbar_paintengine_callback = nullptr;
-        qstatusbar_mousepressevent_callback = nullptr;
-        qstatusbar_mousereleaseevent_callback = nullptr;
-        qstatusbar_mousedoubleclickevent_callback = nullptr;
-        qstatusbar_mousemoveevent_callback = nullptr;
-        qstatusbar_wheelevent_callback = nullptr;
-        qstatusbar_keypressevent_callback = nullptr;
-        qstatusbar_keyreleaseevent_callback = nullptr;
-        qstatusbar_focusinevent_callback = nullptr;
-        qstatusbar_focusoutevent_callback = nullptr;
-        qstatusbar_enterevent_callback = nullptr;
-        qstatusbar_leaveevent_callback = nullptr;
-        qstatusbar_moveevent_callback = nullptr;
-        qstatusbar_closeevent_callback = nullptr;
-        qstatusbar_contextmenuevent_callback = nullptr;
-        qstatusbar_tabletevent_callback = nullptr;
-        qstatusbar_actionevent_callback = nullptr;
-        qstatusbar_dragenterevent_callback = nullptr;
-        qstatusbar_dragmoveevent_callback = nullptr;
-        qstatusbar_dragleaveevent_callback = nullptr;
-        qstatusbar_dropevent_callback = nullptr;
-        qstatusbar_hideevent_callback = nullptr;
-        qstatusbar_nativeevent_callback = nullptr;
-        qstatusbar_changeevent_callback = nullptr;
-        qstatusbar_metric_callback = nullptr;
-        qstatusbar_initpainter_callback = nullptr;
-        qstatusbar_redirected_callback = nullptr;
-        qstatusbar_sharedpainter_callback = nullptr;
-        qstatusbar_inputmethodevent_callback = nullptr;
-        qstatusbar_inputmethodquery_callback = nullptr;
-        qstatusbar_focusnextprevchild_callback = nullptr;
-        qstatusbar_eventfilter_callback = nullptr;
-        qstatusbar_timerevent_callback = nullptr;
-        qstatusbar_childevent_callback = nullptr;
-        qstatusbar_customevent_callback = nullptr;
-        qstatusbar_connectnotify_callback = nullptr;
-        qstatusbar_disconnectnotify_callback = nullptr;
-        qstatusbar_reformat_callback = nullptr;
-        qstatusbar_hideorshow_callback = nullptr;
-        qstatusbar_updatemicrofocus_callback = nullptr;
-        qstatusbar_create_callback = nullptr;
-        qstatusbar_destroy_callback = nullptr;
-        qstatusbar_focusnextchild_callback = nullptr;
-        qstatusbar_focuspreviouschild_callback = nullptr;
-        qstatusbar_sender_callback = nullptr;
-        qstatusbar_sendersignalindex_callback = nullptr;
-        qstatusbar_receivers_callback = nullptr;
-        qstatusbar_issignalconnected_callback = nullptr;
-        qstatusbar_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQStatusBar_MetaObject_Callback(QStatusBar_MetaObject_Callback cb) { qstatusbar_metaobject_callback = cb; }
     inline void setQStatusBar_Metacast_Callback(QStatusBar_Metacast_Callback cb) { qstatusbar_metacast_callback = cb; }
@@ -411,12 +346,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_metaobject_isbase) {
             qstatusbar_metaobject_isbase = false;
             return QStatusBar::metaObject();
-        } else if (qstatusbar_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qstatusbar_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QStatusBar::metaObject();
         }
+        auto metaobject_cb = qstatusbar_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QStatusBar::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,14 +360,15 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_metacast_isbase) {
             qstatusbar_metacast_isbase = false;
             return QStatusBar::qt_metacast(param1);
-        } else if (qstatusbar_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qstatusbar_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qstatusbar_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStatusBar::qt_metacast(param1);
         }
+        return QStatusBar::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,16 +376,17 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_metacall_isbase) {
             qstatusbar_metacall_isbase = false;
             return QStatusBar::qt_metacall(param1, param2, param3);
-        } else if (qstatusbar_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qstatusbar_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qstatusbar_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QStatusBar::qt_metacall(param1, param2, param3);
         }
+        return QStatusBar::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -456,13 +394,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_showevent_isbase) {
             qstatusbar_showevent_isbase = false;
             QStatusBar::showEvent(param1);
-        } else if (qstatusbar_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qstatusbar_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qstatusbar_showevent_callback(this, cbval1);
-        } else {
-            QStatusBar::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,13 +411,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_paintevent_isbase) {
             qstatusbar_paintevent_isbase = false;
             QStatusBar::paintEvent(param1);
-        } else if (qstatusbar_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qstatusbar_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qstatusbar_paintevent_callback(this, cbval1);
-        } else {
-            QStatusBar::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,13 +428,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_resizeevent_isbase) {
             qstatusbar_resizeevent_isbase = false;
             QStatusBar::resizeEvent(param1);
-        } else if (qstatusbar_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qstatusbar_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qstatusbar_resizeevent_callback(this, cbval1);
-        } else {
-            QStatusBar::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,14 +445,15 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_event_isbase) {
             qstatusbar_event_isbase = false;
             return QStatusBar::event(param1);
-        } else if (qstatusbar_event_callback != nullptr) {
+        }
+        auto event_cb = qstatusbar_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qstatusbar_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStatusBar::event(param1);
         }
+        return QStatusBar::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,12 +461,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_devtype_isbase) {
             qstatusbar_devtype_isbase = false;
             return QStatusBar::devType();
-        } else if (qstatusbar_devtype_callback != nullptr) {
-            int callback_ret = qstatusbar_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QStatusBar::devType();
         }
+        auto devtype_cb = qstatusbar_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QStatusBar::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,13 +475,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_setvisible_isbase) {
             qstatusbar_setvisible_isbase = false;
             QStatusBar::setVisible(visible);
-        } else if (qstatusbar_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qstatusbar_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qstatusbar_setvisible_callback(this, cbval1);
-        } else {
-            QStatusBar::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QStatusBar::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,12 +492,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_sizehint_isbase) {
             qstatusbar_sizehint_isbase = false;
             return QStatusBar::sizeHint();
-        } else if (qstatusbar_sizehint_callback != nullptr) {
-            QSize* callback_ret = qstatusbar_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QStatusBar::sizeHint();
         }
+        auto sizehint_cb = qstatusbar_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QStatusBar::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,12 +506,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_minimumsizehint_isbase) {
             qstatusbar_minimumsizehint_isbase = false;
             return QStatusBar::minimumSizeHint();
-        } else if (qstatusbar_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qstatusbar_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QStatusBar::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qstatusbar_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QStatusBar::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -566,14 +520,15 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_heightforwidth_isbase) {
             qstatusbar_heightforwidth_isbase = false;
             return QStatusBar::heightForWidth(param1);
-        } else if (qstatusbar_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qstatusbar_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qstatusbar_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QStatusBar::heightForWidth(param1);
         }
+        return QStatusBar::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,12 +536,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_hasheightforwidth_isbase) {
             qstatusbar_hasheightforwidth_isbase = false;
             return QStatusBar::hasHeightForWidth();
-        } else if (qstatusbar_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qstatusbar_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QStatusBar::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qstatusbar_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QStatusBar::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,12 +550,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_paintengine_isbase) {
             qstatusbar_paintengine_isbase = false;
             return QStatusBar::paintEngine();
-        } else if (qstatusbar_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qstatusbar_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QStatusBar::paintEngine();
         }
+        auto paintengine_cb = qstatusbar_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QStatusBar::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,13 +564,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_mousepressevent_isbase) {
             qstatusbar_mousepressevent_isbase = false;
             QStatusBar::mousePressEvent(event);
-        } else if (qstatusbar_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qstatusbar_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qstatusbar_mousepressevent_callback(this, cbval1);
-        } else {
-            QStatusBar::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,13 +581,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_mousereleaseevent_isbase) {
             qstatusbar_mousereleaseevent_isbase = false;
             QStatusBar::mouseReleaseEvent(event);
-        } else if (qstatusbar_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qstatusbar_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qstatusbar_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QStatusBar::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,13 +598,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_mousedoubleclickevent_isbase) {
             qstatusbar_mousedoubleclickevent_isbase = false;
             QStatusBar::mouseDoubleClickEvent(event);
-        } else if (qstatusbar_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qstatusbar_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qstatusbar_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QStatusBar::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +615,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_mousemoveevent_isbase) {
             qstatusbar_mousemoveevent_isbase = false;
             QStatusBar::mouseMoveEvent(event);
-        } else if (qstatusbar_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qstatusbar_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qstatusbar_mousemoveevent_callback(this, cbval1);
-        } else {
-            QStatusBar::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +632,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_wheelevent_isbase) {
             qstatusbar_wheelevent_isbase = false;
             QStatusBar::wheelEvent(event);
-        } else if (qstatusbar_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qstatusbar_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qstatusbar_wheelevent_callback(this, cbval1);
-        } else {
-            QStatusBar::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,13 +649,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_keypressevent_isbase) {
             qstatusbar_keypressevent_isbase = false;
             QStatusBar::keyPressEvent(event);
-        } else if (qstatusbar_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qstatusbar_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qstatusbar_keypressevent_callback(this, cbval1);
-        } else {
-            QStatusBar::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,13 +666,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_keyreleaseevent_isbase) {
             qstatusbar_keyreleaseevent_isbase = false;
             QStatusBar::keyReleaseEvent(event);
-        } else if (qstatusbar_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qstatusbar_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qstatusbar_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QStatusBar::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,13 +683,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_focusinevent_isbase) {
             qstatusbar_focusinevent_isbase = false;
             QStatusBar::focusInEvent(event);
-        } else if (qstatusbar_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qstatusbar_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qstatusbar_focusinevent_callback(this, cbval1);
-        } else {
-            QStatusBar::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,13 +700,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_focusoutevent_isbase) {
             qstatusbar_focusoutevent_isbase = false;
             QStatusBar::focusOutEvent(event);
-        } else if (qstatusbar_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qstatusbar_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qstatusbar_focusoutevent_callback(this, cbval1);
-        } else {
-            QStatusBar::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,13 +717,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_enterevent_isbase) {
             qstatusbar_enterevent_isbase = false;
             QStatusBar::enterEvent(event);
-        } else if (qstatusbar_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qstatusbar_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qstatusbar_enterevent_callback(this, cbval1);
-        } else {
-            QStatusBar::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,13 +734,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_leaveevent_isbase) {
             qstatusbar_leaveevent_isbase = false;
             QStatusBar::leaveEvent(event);
-        } else if (qstatusbar_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qstatusbar_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qstatusbar_leaveevent_callback(this, cbval1);
-        } else {
-            QStatusBar::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,13 +751,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_moveevent_isbase) {
             qstatusbar_moveevent_isbase = false;
             QStatusBar::moveEvent(event);
-        } else if (qstatusbar_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qstatusbar_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qstatusbar_moveevent_callback(this, cbval1);
-        } else {
-            QStatusBar::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,13 +768,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_closeevent_isbase) {
             qstatusbar_closeevent_isbase = false;
             QStatusBar::closeEvent(event);
-        } else if (qstatusbar_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qstatusbar_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qstatusbar_closeevent_callback(this, cbval1);
-        } else {
-            QStatusBar::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,13 +785,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_contextmenuevent_isbase) {
             qstatusbar_contextmenuevent_isbase = false;
             QStatusBar::contextMenuEvent(event);
-        } else if (qstatusbar_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qstatusbar_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qstatusbar_contextmenuevent_callback(this, cbval1);
-        } else {
-            QStatusBar::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,13 +802,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_tabletevent_isbase) {
             qstatusbar_tabletevent_isbase = false;
             QStatusBar::tabletEvent(event);
-        } else if (qstatusbar_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qstatusbar_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qstatusbar_tabletevent_callback(this, cbval1);
-        } else {
-            QStatusBar::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -817,13 +819,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_actionevent_isbase) {
             qstatusbar_actionevent_isbase = false;
             QStatusBar::actionEvent(event);
-        } else if (qstatusbar_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qstatusbar_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qstatusbar_actionevent_callback(this, cbval1);
-        } else {
-            QStatusBar::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -831,13 +836,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_dragenterevent_isbase) {
             qstatusbar_dragenterevent_isbase = false;
             QStatusBar::dragEnterEvent(event);
-        } else if (qstatusbar_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qstatusbar_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qstatusbar_dragenterevent_callback(this, cbval1);
-        } else {
-            QStatusBar::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,13 +853,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_dragmoveevent_isbase) {
             qstatusbar_dragmoveevent_isbase = false;
             QStatusBar::dragMoveEvent(event);
-        } else if (qstatusbar_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qstatusbar_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qstatusbar_dragmoveevent_callback(this, cbval1);
-        } else {
-            QStatusBar::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -859,13 +870,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_dragleaveevent_isbase) {
             qstatusbar_dragleaveevent_isbase = false;
             QStatusBar::dragLeaveEvent(event);
-        } else if (qstatusbar_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qstatusbar_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qstatusbar_dragleaveevent_callback(this, cbval1);
-        } else {
-            QStatusBar::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,13 +887,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_dropevent_isbase) {
             qstatusbar_dropevent_isbase = false;
             QStatusBar::dropEvent(event);
-        } else if (qstatusbar_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qstatusbar_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qstatusbar_dropevent_callback(this, cbval1);
-        } else {
-            QStatusBar::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -887,13 +904,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_hideevent_isbase) {
             qstatusbar_hideevent_isbase = false;
             QStatusBar::hideEvent(event);
-        } else if (qstatusbar_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qstatusbar_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qstatusbar_hideevent_callback(this, cbval1);
-        } else {
-            QStatusBar::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -901,7 +921,9 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_nativeevent_isbase) {
             qstatusbar_nativeevent_isbase = false;
             return QStatusBar::nativeEvent(eventType, message, result);
-        } else if (qstatusbar_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qstatusbar_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -912,12 +934,11 @@ class VirtualQStatusBar final : public QStatusBar {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qstatusbar_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QStatusBar::nativeEvent(eventType, message, result);
         }
+        return QStatusBar::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -925,13 +946,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_changeevent_isbase) {
             qstatusbar_changeevent_isbase = false;
             QStatusBar::changeEvent(param1);
-        } else if (qstatusbar_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qstatusbar_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qstatusbar_changeevent_callback(this, cbval1);
-        } else {
-            QStatusBar::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -939,14 +963,15 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_metric_isbase) {
             qstatusbar_metric_isbase = false;
             return QStatusBar::metric(param1);
-        } else if (qstatusbar_metric_callback != nullptr) {
+        }
+        auto metric_cb = qstatusbar_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qstatusbar_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QStatusBar::metric(param1);
         }
+        return QStatusBar::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +979,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_initpainter_isbase) {
             qstatusbar_initpainter_isbase = false;
             QStatusBar::initPainter(painter);
-        } else if (qstatusbar_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qstatusbar_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qstatusbar_initpainter_callback(this, cbval1);
-        } else {
-            QStatusBar::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QStatusBar::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,14 +996,15 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_redirected_isbase) {
             qstatusbar_redirected_isbase = false;
             return QStatusBar::redirected(offset);
-        } else if (qstatusbar_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qstatusbar_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qstatusbar_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStatusBar::redirected(offset);
         }
+        return QStatusBar::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,12 +1012,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_sharedpainter_isbase) {
             qstatusbar_sharedpainter_isbase = false;
             return QStatusBar::sharedPainter();
-        } else if (qstatusbar_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qstatusbar_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QStatusBar::sharedPainter();
         }
+        auto sharedpainter_cb = qstatusbar_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QStatusBar::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,13 +1026,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_inputmethodevent_isbase) {
             qstatusbar_inputmethodevent_isbase = false;
             QStatusBar::inputMethodEvent(param1);
-        } else if (qstatusbar_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qstatusbar_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qstatusbar_inputmethodevent_callback(this, cbval1);
-        } else {
-            QStatusBar::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1010,14 +1043,15 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_inputmethodquery_isbase) {
             qstatusbar_inputmethodquery_isbase = false;
             return QStatusBar::inputMethodQuery(param1);
-        } else if (qstatusbar_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qstatusbar_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qstatusbar_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QStatusBar::inputMethodQuery(param1);
         }
+        return QStatusBar::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1025,14 +1059,15 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_focusnextprevchild_isbase) {
             qstatusbar_focusnextprevchild_isbase = false;
             return QStatusBar::focusNextPrevChild(next);
-        } else if (qstatusbar_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qstatusbar_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qstatusbar_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStatusBar::focusNextPrevChild(next);
         }
+        return QStatusBar::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1040,15 +1075,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_eventfilter_isbase) {
             qstatusbar_eventfilter_isbase = false;
             return QStatusBar::eventFilter(watched, event);
-        } else if (qstatusbar_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qstatusbar_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qstatusbar_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QStatusBar::eventFilter(watched, event);
         }
+        return QStatusBar::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,13 +1092,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_timerevent_isbase) {
             qstatusbar_timerevent_isbase = false;
             QStatusBar::timerEvent(event);
-        } else if (qstatusbar_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qstatusbar_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qstatusbar_timerevent_callback(this, cbval1);
-        } else {
-            QStatusBar::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,13 +1109,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_childevent_isbase) {
             qstatusbar_childevent_isbase = false;
             QStatusBar::childEvent(event);
-        } else if (qstatusbar_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qstatusbar_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qstatusbar_childevent_callback(this, cbval1);
-        } else {
-            QStatusBar::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1084,13 +1126,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_customevent_isbase) {
             qstatusbar_customevent_isbase = false;
             QStatusBar::customEvent(event);
-        } else if (qstatusbar_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qstatusbar_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qstatusbar_customevent_callback(this, cbval1);
-        } else {
-            QStatusBar::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QStatusBar::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1098,15 +1143,18 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_connectnotify_isbase) {
             qstatusbar_connectnotify_isbase = false;
             QStatusBar::connectNotify(signal);
-        } else if (qstatusbar_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qstatusbar_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qstatusbar_connectnotify_callback(this, cbval1);
-        } else {
-            QStatusBar::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QStatusBar::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1114,15 +1162,18 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_disconnectnotify_isbase) {
             qstatusbar_disconnectnotify_isbase = false;
             QStatusBar::disconnectNotify(signal);
-        } else if (qstatusbar_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qstatusbar_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qstatusbar_disconnectnotify_callback(this, cbval1);
-        } else {
-            QStatusBar::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QStatusBar::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,11 +1181,14 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_reformat_isbase) {
             qstatusbar_reformat_isbase = false;
             QStatusBar::reformat();
-        } else if (qstatusbar_reformat_callback != nullptr) {
-            qstatusbar_reformat_callback();
-        } else {
-            QStatusBar::reformat();
+            return;
         }
+        auto reformat_cb = qstatusbar_reformat_callback;
+        if (reformat_cb) {
+            reformat_cb();
+            return;
+        }
+        QStatusBar::reformat();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1196,14 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_hideorshow_isbase) {
             qstatusbar_hideorshow_isbase = false;
             QStatusBar::hideOrShow();
-        } else if (qstatusbar_hideorshow_callback != nullptr) {
-            qstatusbar_hideorshow_callback();
-        } else {
-            QStatusBar::hideOrShow();
+            return;
         }
+        auto hideorshow_cb = qstatusbar_hideorshow_callback;
+        if (hideorshow_cb) {
+            hideorshow_cb();
+            return;
+        }
+        QStatusBar::hideOrShow();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,11 +1211,14 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_updatemicrofocus_isbase) {
             qstatusbar_updatemicrofocus_isbase = false;
             QStatusBar::updateMicroFocus();
-        } else if (qstatusbar_updatemicrofocus_callback != nullptr) {
-            qstatusbar_updatemicrofocus_callback();
-        } else {
-            QStatusBar::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qstatusbar_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QStatusBar::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,11 +1226,14 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_create_isbase) {
             qstatusbar_create_isbase = false;
             QStatusBar::create();
-        } else if (qstatusbar_create_callback != nullptr) {
-            qstatusbar_create_callback();
-        } else {
-            QStatusBar::create();
+            return;
         }
+        auto create_cb = qstatusbar_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QStatusBar::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1178,11 +1241,14 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_destroy_isbase) {
             qstatusbar_destroy_isbase = false;
             QStatusBar::destroy();
-        } else if (qstatusbar_destroy_callback != nullptr) {
-            qstatusbar_destroy_callback();
-        } else {
-            QStatusBar::destroy();
+            return;
         }
+        auto destroy_cb = qstatusbar_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QStatusBar::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1190,12 +1256,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_focusnextchild_isbase) {
             qstatusbar_focusnextchild_isbase = false;
             return QStatusBar::focusNextChild();
-        } else if (qstatusbar_focusnextchild_callback != nullptr) {
-            bool callback_ret = qstatusbar_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QStatusBar::focusNextChild();
         }
+        auto focusnextchild_cb = qstatusbar_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QStatusBar::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,12 +1270,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_focuspreviouschild_isbase) {
             qstatusbar_focuspreviouschild_isbase = false;
             return QStatusBar::focusPreviousChild();
-        } else if (qstatusbar_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qstatusbar_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QStatusBar::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qstatusbar_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QStatusBar::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1216,12 +1284,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_sender_isbase) {
             qstatusbar_sender_isbase = false;
             return QStatusBar::sender();
-        } else if (qstatusbar_sender_callback != nullptr) {
-            QObject* callback_ret = qstatusbar_sender_callback();
-            return callback_ret;
-        } else {
-            return QStatusBar::sender();
         }
+        auto sender_cb = qstatusbar_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QStatusBar::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1229,12 +1298,13 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_sendersignalindex_isbase) {
             qstatusbar_sendersignalindex_isbase = false;
             return QStatusBar::senderSignalIndex();
-        } else if (qstatusbar_sendersignalindex_callback != nullptr) {
-            int callback_ret = qstatusbar_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QStatusBar::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qstatusbar_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QStatusBar::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1242,14 +1312,15 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_receivers_isbase) {
             qstatusbar_receivers_isbase = false;
             return QStatusBar::receivers(signal);
-        } else if (qstatusbar_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qstatusbar_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qstatusbar_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QStatusBar::receivers(signal);
         }
+        return QStatusBar::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,16 +1328,17 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_issignalconnected_isbase) {
             qstatusbar_issignalconnected_isbase = false;
             return QStatusBar::isSignalConnected(signal);
-        } else if (qstatusbar_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qstatusbar_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qstatusbar_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStatusBar::isSignalConnected(signal);
         }
+        return QStatusBar::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1274,15 +1346,16 @@ class VirtualQStatusBar final : public QStatusBar {
         if (qstatusbar_getdecodedmetricf_isbase) {
             qstatusbar_getdecodedmetricf_isbase = false;
             return QStatusBar::getDecodedMetricF(metricA, metricB);
-        } else if (qstatusbar_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qstatusbar_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qstatusbar_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QStatusBar::getDecodedMetricF(metricA, metricB);
         }
+        return QStatusBar::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

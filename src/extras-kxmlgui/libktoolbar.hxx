@@ -220,71 +220,6 @@ class VirtualKToolBar final : public KToolBar {
     VirtualKToolBar(const QString& objectName, QMainWindow* parentWindow, Qt::ToolBarArea area, bool newLine, bool isMainToolBar) : KToolBar(objectName, parentWindow, area, newLine, isMainToolBar) {};
     VirtualKToolBar(const QString& objectName, QMainWindow* parentWindow, Qt::ToolBarArea area, bool newLine, bool isMainToolBar, bool readConfig) : KToolBar(objectName, parentWindow, area, newLine, isMainToolBar, readConfig) {};
 
-    ~VirtualKToolBar() {
-        ktoolbar_metaobject_callback = nullptr;
-        ktoolbar_metacast_callback = nullptr;
-        ktoolbar_metacall_callback = nullptr;
-        ktoolbar_eventfilter_callback = nullptr;
-        ktoolbar_slotmovablechanged_callback = nullptr;
-        ktoolbar_contextmenuevent_callback = nullptr;
-        ktoolbar_actionevent_callback = nullptr;
-        ktoolbar_dragenterevent_callback = nullptr;
-        ktoolbar_dragmoveevent_callback = nullptr;
-        ktoolbar_dragleaveevent_callback = nullptr;
-        ktoolbar_dropevent_callback = nullptr;
-        ktoolbar_mousepressevent_callback = nullptr;
-        ktoolbar_mousemoveevent_callback = nullptr;
-        ktoolbar_mousereleaseevent_callback = nullptr;
-        ktoolbar_changeevent_callback = nullptr;
-        ktoolbar_paintevent_callback = nullptr;
-        ktoolbar_event_callback = nullptr;
-        ktoolbar_initstyleoption_callback = nullptr;
-        ktoolbar_devtype_callback = nullptr;
-        ktoolbar_setvisible_callback = nullptr;
-        ktoolbar_sizehint_callback = nullptr;
-        ktoolbar_minimumsizehint_callback = nullptr;
-        ktoolbar_heightforwidth_callback = nullptr;
-        ktoolbar_hasheightforwidth_callback = nullptr;
-        ktoolbar_paintengine_callback = nullptr;
-        ktoolbar_mousedoubleclickevent_callback = nullptr;
-        ktoolbar_wheelevent_callback = nullptr;
-        ktoolbar_keypressevent_callback = nullptr;
-        ktoolbar_keyreleaseevent_callback = nullptr;
-        ktoolbar_focusinevent_callback = nullptr;
-        ktoolbar_focusoutevent_callback = nullptr;
-        ktoolbar_enterevent_callback = nullptr;
-        ktoolbar_leaveevent_callback = nullptr;
-        ktoolbar_moveevent_callback = nullptr;
-        ktoolbar_resizeevent_callback = nullptr;
-        ktoolbar_closeevent_callback = nullptr;
-        ktoolbar_tabletevent_callback = nullptr;
-        ktoolbar_showevent_callback = nullptr;
-        ktoolbar_hideevent_callback = nullptr;
-        ktoolbar_nativeevent_callback = nullptr;
-        ktoolbar_metric_callback = nullptr;
-        ktoolbar_initpainter_callback = nullptr;
-        ktoolbar_redirected_callback = nullptr;
-        ktoolbar_sharedpainter_callback = nullptr;
-        ktoolbar_inputmethodevent_callback = nullptr;
-        ktoolbar_inputmethodquery_callback = nullptr;
-        ktoolbar_focusnextprevchild_callback = nullptr;
-        ktoolbar_timerevent_callback = nullptr;
-        ktoolbar_childevent_callback = nullptr;
-        ktoolbar_customevent_callback = nullptr;
-        ktoolbar_connectnotify_callback = nullptr;
-        ktoolbar_disconnectnotify_callback = nullptr;
-        ktoolbar_updatemicrofocus_callback = nullptr;
-        ktoolbar_create_callback = nullptr;
-        ktoolbar_destroy_callback = nullptr;
-        ktoolbar_focusnextchild_callback = nullptr;
-        ktoolbar_focuspreviouschild_callback = nullptr;
-        ktoolbar_sender_callback = nullptr;
-        ktoolbar_sendersignalindex_callback = nullptr;
-        ktoolbar_receivers_callback = nullptr;
-        ktoolbar_issignalconnected_callback = nullptr;
-        ktoolbar_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKToolBar_MetaObject_Callback(KToolBar_MetaObject_Callback cb) { ktoolbar_metaobject_callback = cb; }
     inline void setKToolBar_Metacast_Callback(KToolBar_Metacast_Callback cb) { ktoolbar_metacast_callback = cb; }
@@ -418,12 +353,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_metaobject_isbase) {
             ktoolbar_metaobject_isbase = false;
             return KToolBar::metaObject();
-        } else if (ktoolbar_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktoolbar_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KToolBar::metaObject();
         }
+        auto metaobject_cb = ktoolbar_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KToolBar::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -431,14 +367,15 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_metacast_isbase) {
             ktoolbar_metacast_isbase = false;
             return KToolBar::qt_metacast(param1);
-        } else if (ktoolbar_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktoolbar_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktoolbar_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBar::qt_metacast(param1);
         }
+        return KToolBar::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -446,16 +383,17 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_metacall_isbase) {
             ktoolbar_metacall_isbase = false;
             return KToolBar::qt_metacall(param1, param2, param3);
-        } else if (ktoolbar_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktoolbar_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktoolbar_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolBar::qt_metacall(param1, param2, param3);
         }
+        return KToolBar::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -463,15 +401,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_eventfilter_isbase) {
             ktoolbar_eventfilter_isbase = false;
             return KToolBar::eventFilter(watched, event);
-        } else if (ktoolbar_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktoolbar_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ktoolbar_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KToolBar::eventFilter(watched, event);
         }
+        return KToolBar::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -479,13 +418,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_slotmovablechanged_isbase) {
             ktoolbar_slotmovablechanged_isbase = false;
             KToolBar::slotMovableChanged(movable);
-        } else if (ktoolbar_slotmovablechanged_callback != nullptr) {
+            return;
+        }
+        auto slotmovablechanged_cb = ktoolbar_slotmovablechanged_callback;
+        if (slotmovablechanged_cb) {
             bool cbval1 = movable;
 
-            ktoolbar_slotmovablechanged_callback(this, cbval1);
-        } else {
-            KToolBar::slotMovableChanged(movable);
+            slotmovablechanged_cb(this, cbval1);
+            return;
         }
+        KToolBar::slotMovableChanged(movable);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,13 +435,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_contextmenuevent_isbase) {
             ktoolbar_contextmenuevent_isbase = false;
             KToolBar::contextMenuEvent(param1);
-        } else if (ktoolbar_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = ktoolbar_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            ktoolbar_contextmenuevent_callback(this, cbval1);
-        } else {
-            KToolBar::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -507,13 +452,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_actionevent_isbase) {
             ktoolbar_actionevent_isbase = false;
             KToolBar::actionEvent(param1);
-        } else if (ktoolbar_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = ktoolbar_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
 
-            ktoolbar_actionevent_callback(this, cbval1);
-        } else {
-            KToolBar::actionEvent(param1);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::actionEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -521,13 +469,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_dragenterevent_isbase) {
             ktoolbar_dragenterevent_isbase = false;
             KToolBar::dragEnterEvent(param1);
-        } else if (ktoolbar_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = ktoolbar_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
 
-            ktoolbar_dragenterevent_callback(this, cbval1);
-        } else {
-            KToolBar::dragEnterEvent(param1);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::dragEnterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -535,13 +486,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_dragmoveevent_isbase) {
             ktoolbar_dragmoveevent_isbase = false;
             KToolBar::dragMoveEvent(param1);
-        } else if (ktoolbar_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = ktoolbar_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = param1;
 
-            ktoolbar_dragmoveevent_callback(this, cbval1);
-        } else {
-            KToolBar::dragMoveEvent(param1);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::dragMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -549,13 +503,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_dragleaveevent_isbase) {
             ktoolbar_dragleaveevent_isbase = false;
             KToolBar::dragLeaveEvent(param1);
-        } else if (ktoolbar_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = ktoolbar_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = param1;
 
-            ktoolbar_dragleaveevent_callback(this, cbval1);
-        } else {
-            KToolBar::dragLeaveEvent(param1);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::dragLeaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -563,13 +520,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_dropevent_isbase) {
             ktoolbar_dropevent_isbase = false;
             KToolBar::dropEvent(param1);
-        } else if (ktoolbar_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = ktoolbar_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
 
-            ktoolbar_dropevent_callback(this, cbval1);
-        } else {
-            KToolBar::dropEvent(param1);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::dropEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,13 +537,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_mousepressevent_isbase) {
             ktoolbar_mousepressevent_isbase = false;
             KToolBar::mousePressEvent(param1);
-        } else if (ktoolbar_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = ktoolbar_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            ktoolbar_mousepressevent_callback(this, cbval1);
-        } else {
-            KToolBar::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -591,13 +554,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_mousemoveevent_isbase) {
             ktoolbar_mousemoveevent_isbase = false;
             KToolBar::mouseMoveEvent(param1);
-        } else if (ktoolbar_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = ktoolbar_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            ktoolbar_mousemoveevent_callback(this, cbval1);
-        } else {
-            KToolBar::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -605,13 +571,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_mousereleaseevent_isbase) {
             ktoolbar_mousereleaseevent_isbase = false;
             KToolBar::mouseReleaseEvent(param1);
-        } else if (ktoolbar_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = ktoolbar_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            ktoolbar_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KToolBar::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,13 +588,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_changeevent_isbase) {
             ktoolbar_changeevent_isbase = false;
             KToolBar::changeEvent(event);
-        } else if (ktoolbar_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = ktoolbar_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            ktoolbar_changeevent_callback(this, cbval1);
-        } else {
-            KToolBar::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,13 +605,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_paintevent_isbase) {
             ktoolbar_paintevent_isbase = false;
             KToolBar::paintEvent(event);
-        } else if (ktoolbar_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = ktoolbar_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            ktoolbar_paintevent_callback(this, cbval1);
-        } else {
-            KToolBar::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -647,14 +622,15 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_event_isbase) {
             ktoolbar_event_isbase = false;
             return KToolBar::event(event);
-        } else if (ktoolbar_event_callback != nullptr) {
+        }
+        auto event_cb = ktoolbar_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ktoolbar_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBar::event(event);
         }
+        return KToolBar::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,13 +638,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_initstyleoption_isbase) {
             ktoolbar_initstyleoption_isbase = false;
             KToolBar::initStyleOption(option);
-        } else if (ktoolbar_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = ktoolbar_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionToolBar* cbval1 = option;
 
-            ktoolbar_initstyleoption_callback(this, cbval1);
-        } else {
-            KToolBar::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KToolBar::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,12 +655,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_devtype_isbase) {
             ktoolbar_devtype_isbase = false;
             return KToolBar::devType();
-        } else if (ktoolbar_devtype_callback != nullptr) {
-            int callback_ret = ktoolbar_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KToolBar::devType();
         }
+        auto devtype_cb = ktoolbar_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KToolBar::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,13 +669,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_setvisible_isbase) {
             ktoolbar_setvisible_isbase = false;
             KToolBar::setVisible(visible);
-        } else if (ktoolbar_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = ktoolbar_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            ktoolbar_setvisible_callback(this, cbval1);
-        } else {
-            KToolBar::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KToolBar::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,12 +686,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_sizehint_isbase) {
             ktoolbar_sizehint_isbase = false;
             return KToolBar::sizeHint();
-        } else if (ktoolbar_sizehint_callback != nullptr) {
-            QSize* callback_ret = ktoolbar_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KToolBar::sizeHint();
         }
+        auto sizehint_cb = ktoolbar_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KToolBar::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,12 +700,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_minimumsizehint_isbase) {
             ktoolbar_minimumsizehint_isbase = false;
             return KToolBar::minimumSizeHint();
-        } else if (ktoolbar_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = ktoolbar_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KToolBar::minimumSizeHint();
         }
+        auto minimumsizehint_cb = ktoolbar_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KToolBar::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -729,14 +714,15 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_heightforwidth_isbase) {
             ktoolbar_heightforwidth_isbase = false;
             return KToolBar::heightForWidth(param1);
-        } else if (ktoolbar_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = ktoolbar_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = ktoolbar_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolBar::heightForWidth(param1);
         }
+        return KToolBar::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,12 +730,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_hasheightforwidth_isbase) {
             ktoolbar_hasheightforwidth_isbase = false;
             return KToolBar::hasHeightForWidth();
-        } else if (ktoolbar_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = ktoolbar_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KToolBar::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = ktoolbar_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KToolBar::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -757,12 +744,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_paintengine_isbase) {
             ktoolbar_paintengine_isbase = false;
             return KToolBar::paintEngine();
-        } else if (ktoolbar_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = ktoolbar_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KToolBar::paintEngine();
         }
+        auto paintengine_cb = ktoolbar_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KToolBar::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,13 +758,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_mousedoubleclickevent_isbase) {
             ktoolbar_mousedoubleclickevent_isbase = false;
             KToolBar::mouseDoubleClickEvent(event);
-        } else if (ktoolbar_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = ktoolbar_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ktoolbar_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KToolBar::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,13 +775,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_wheelevent_isbase) {
             ktoolbar_wheelevent_isbase = false;
             KToolBar::wheelEvent(event);
-        } else if (ktoolbar_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = ktoolbar_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            ktoolbar_wheelevent_callback(this, cbval1);
-        } else {
-            KToolBar::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -798,13 +792,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_keypressevent_isbase) {
             ktoolbar_keypressevent_isbase = false;
             KToolBar::keyPressEvent(event);
-        } else if (ktoolbar_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = ktoolbar_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            ktoolbar_keypressevent_callback(this, cbval1);
-        } else {
-            KToolBar::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -812,13 +809,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_keyreleaseevent_isbase) {
             ktoolbar_keyreleaseevent_isbase = false;
             KToolBar::keyReleaseEvent(event);
-        } else if (ktoolbar_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = ktoolbar_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            ktoolbar_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KToolBar::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -826,13 +826,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_focusinevent_isbase) {
             ktoolbar_focusinevent_isbase = false;
             KToolBar::focusInEvent(event);
-        } else if (ktoolbar_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = ktoolbar_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            ktoolbar_focusinevent_callback(this, cbval1);
-        } else {
-            KToolBar::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -840,13 +843,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_focusoutevent_isbase) {
             ktoolbar_focusoutevent_isbase = false;
             KToolBar::focusOutEvent(event);
-        } else if (ktoolbar_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = ktoolbar_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            ktoolbar_focusoutevent_callback(this, cbval1);
-        } else {
-            KToolBar::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,13 +860,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_enterevent_isbase) {
             ktoolbar_enterevent_isbase = false;
             KToolBar::enterEvent(event);
-        } else if (ktoolbar_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = ktoolbar_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            ktoolbar_enterevent_callback(this, cbval1);
-        } else {
-            KToolBar::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,13 +877,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_leaveevent_isbase) {
             ktoolbar_leaveevent_isbase = false;
             KToolBar::leaveEvent(event);
-        } else if (ktoolbar_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = ktoolbar_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            ktoolbar_leaveevent_callback(this, cbval1);
-        } else {
-            KToolBar::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,13 +894,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_moveevent_isbase) {
             ktoolbar_moveevent_isbase = false;
             KToolBar::moveEvent(event);
-        } else if (ktoolbar_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = ktoolbar_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            ktoolbar_moveevent_callback(this, cbval1);
-        } else {
-            KToolBar::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -896,13 +911,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_resizeevent_isbase) {
             ktoolbar_resizeevent_isbase = false;
             KToolBar::resizeEvent(event);
-        } else if (ktoolbar_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = ktoolbar_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            ktoolbar_resizeevent_callback(this, cbval1);
-        } else {
-            KToolBar::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -910,13 +928,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_closeevent_isbase) {
             ktoolbar_closeevent_isbase = false;
             KToolBar::closeEvent(event);
-        } else if (ktoolbar_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = ktoolbar_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            ktoolbar_closeevent_callback(this, cbval1);
-        } else {
-            KToolBar::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,13 +945,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_tabletevent_isbase) {
             ktoolbar_tabletevent_isbase = false;
             KToolBar::tabletEvent(event);
-        } else if (ktoolbar_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = ktoolbar_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            ktoolbar_tabletevent_callback(this, cbval1);
-        } else {
-            KToolBar::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -938,13 +962,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_showevent_isbase) {
             ktoolbar_showevent_isbase = false;
             KToolBar::showEvent(event);
-        } else if (ktoolbar_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = ktoolbar_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            ktoolbar_showevent_callback(this, cbval1);
-        } else {
-            KToolBar::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -952,13 +979,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_hideevent_isbase) {
             ktoolbar_hideevent_isbase = false;
             KToolBar::hideEvent(event);
-        } else if (ktoolbar_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = ktoolbar_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            ktoolbar_hideevent_callback(this, cbval1);
-        } else {
-            KToolBar::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -966,7 +996,9 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_nativeevent_isbase) {
             ktoolbar_nativeevent_isbase = false;
             return KToolBar::nativeEvent(eventType, message, result);
-        } else if (ktoolbar_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = ktoolbar_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -977,12 +1009,11 @@ class VirtualKToolBar final : public KToolBar {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = ktoolbar_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KToolBar::nativeEvent(eventType, message, result);
         }
+        return KToolBar::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -990,14 +1021,15 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_metric_isbase) {
             ktoolbar_metric_isbase = false;
             return KToolBar::metric(param1);
-        } else if (ktoolbar_metric_callback != nullptr) {
+        }
+        auto metric_cb = ktoolbar_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = ktoolbar_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolBar::metric(param1);
         }
+        return KToolBar::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1005,13 +1037,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_initpainter_isbase) {
             ktoolbar_initpainter_isbase = false;
             KToolBar::initPainter(painter);
-        } else if (ktoolbar_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = ktoolbar_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            ktoolbar_initpainter_callback(this, cbval1);
-        } else {
-            KToolBar::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KToolBar::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1019,14 +1054,15 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_redirected_isbase) {
             ktoolbar_redirected_isbase = false;
             return KToolBar::redirected(offset);
-        } else if (ktoolbar_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = ktoolbar_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = ktoolbar_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBar::redirected(offset);
         }
+        return KToolBar::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,12 +1070,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_sharedpainter_isbase) {
             ktoolbar_sharedpainter_isbase = false;
             return KToolBar::sharedPainter();
-        } else if (ktoolbar_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = ktoolbar_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KToolBar::sharedPainter();
         }
+        auto sharedpainter_cb = ktoolbar_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KToolBar::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1047,13 +1084,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_inputmethodevent_isbase) {
             ktoolbar_inputmethodevent_isbase = false;
             KToolBar::inputMethodEvent(param1);
-        } else if (ktoolbar_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = ktoolbar_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            ktoolbar_inputmethodevent_callback(this, cbval1);
-        } else {
-            KToolBar::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1061,14 +1101,15 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_inputmethodquery_isbase) {
             ktoolbar_inputmethodquery_isbase = false;
             return KToolBar::inputMethodQuery(param1);
-        } else if (ktoolbar_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = ktoolbar_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = ktoolbar_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KToolBar::inputMethodQuery(param1);
         }
+        return KToolBar::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1076,14 +1117,15 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_focusnextprevchild_isbase) {
             ktoolbar_focusnextprevchild_isbase = false;
             return KToolBar::focusNextPrevChild(next);
-        } else if (ktoolbar_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = ktoolbar_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = ktoolbar_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBar::focusNextPrevChild(next);
         }
+        return KToolBar::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,13 +1133,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_timerevent_isbase) {
             ktoolbar_timerevent_isbase = false;
             KToolBar::timerEvent(event);
-        } else if (ktoolbar_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktoolbar_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktoolbar_timerevent_callback(this, cbval1);
-        } else {
-            KToolBar::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,13 +1150,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_childevent_isbase) {
             ktoolbar_childevent_isbase = false;
             KToolBar::childEvent(event);
-        } else if (ktoolbar_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktoolbar_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktoolbar_childevent_callback(this, cbval1);
-        } else {
-            KToolBar::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1119,13 +1167,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_customevent_isbase) {
             ktoolbar_customevent_isbase = false;
             KToolBar::customEvent(event);
-        } else if (ktoolbar_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktoolbar_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktoolbar_customevent_callback(this, cbval1);
-        } else {
-            KToolBar::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KToolBar::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1133,15 +1184,18 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_connectnotify_isbase) {
             ktoolbar_connectnotify_isbase = false;
             KToolBar::connectNotify(signal);
-        } else if (ktoolbar_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktoolbar_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktoolbar_connectnotify_callback(this, cbval1);
-        } else {
-            KToolBar::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KToolBar::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1149,15 +1203,18 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_disconnectnotify_isbase) {
             ktoolbar_disconnectnotify_isbase = false;
             KToolBar::disconnectNotify(signal);
-        } else if (ktoolbar_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktoolbar_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktoolbar_disconnectnotify_callback(this, cbval1);
-        } else {
-            KToolBar::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KToolBar::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1165,11 +1222,14 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_updatemicrofocus_isbase) {
             ktoolbar_updatemicrofocus_isbase = false;
             KToolBar::updateMicroFocus();
-        } else if (ktoolbar_updatemicrofocus_callback != nullptr) {
-            ktoolbar_updatemicrofocus_callback();
-        } else {
-            KToolBar::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = ktoolbar_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KToolBar::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1177,11 +1237,14 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_create_isbase) {
             ktoolbar_create_isbase = false;
             KToolBar::create();
-        } else if (ktoolbar_create_callback != nullptr) {
-            ktoolbar_create_callback();
-        } else {
-            KToolBar::create();
+            return;
         }
+        auto create_cb = ktoolbar_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KToolBar::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1189,11 +1252,14 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_destroy_isbase) {
             ktoolbar_destroy_isbase = false;
             KToolBar::destroy();
-        } else if (ktoolbar_destroy_callback != nullptr) {
-            ktoolbar_destroy_callback();
-        } else {
-            KToolBar::destroy();
+            return;
         }
+        auto destroy_cb = ktoolbar_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KToolBar::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1201,12 +1267,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_focusnextchild_isbase) {
             ktoolbar_focusnextchild_isbase = false;
             return KToolBar::focusNextChild();
-        } else if (ktoolbar_focusnextchild_callback != nullptr) {
-            bool callback_ret = ktoolbar_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KToolBar::focusNextChild();
         }
+        auto focusnextchild_cb = ktoolbar_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KToolBar::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1214,12 +1281,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_focuspreviouschild_isbase) {
             ktoolbar_focuspreviouschild_isbase = false;
             return KToolBar::focusPreviousChild();
-        } else if (ktoolbar_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = ktoolbar_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KToolBar::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = ktoolbar_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KToolBar::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1227,12 +1295,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_sender_isbase) {
             ktoolbar_sender_isbase = false;
             return KToolBar::sender();
-        } else if (ktoolbar_sender_callback != nullptr) {
-            QObject* callback_ret = ktoolbar_sender_callback();
-            return callback_ret;
-        } else {
-            return KToolBar::sender();
         }
+        auto sender_cb = ktoolbar_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KToolBar::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1240,12 +1309,13 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_sendersignalindex_isbase) {
             ktoolbar_sendersignalindex_isbase = false;
             return KToolBar::senderSignalIndex();
-        } else if (ktoolbar_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktoolbar_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KToolBar::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktoolbar_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KToolBar::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1253,14 +1323,15 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_receivers_isbase) {
             ktoolbar_receivers_isbase = false;
             return KToolBar::receivers(signal);
-        } else if (ktoolbar_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktoolbar_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktoolbar_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolBar::receivers(signal);
         }
+        return KToolBar::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1268,16 +1339,17 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_issignalconnected_isbase) {
             ktoolbar_issignalconnected_isbase = false;
             return KToolBar::isSignalConnected(signal);
-        } else if (ktoolbar_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktoolbar_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktoolbar_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBar::isSignalConnected(signal);
         }
+        return KToolBar::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,15 +1357,16 @@ class VirtualKToolBar final : public KToolBar {
         if (ktoolbar_getdecodedmetricf_isbase) {
             ktoolbar_getdecodedmetricf_isbase = false;
             return KToolBar::getDecodedMetricF(metricA, metricB);
-        } else if (ktoolbar_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = ktoolbar_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = ktoolbar_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KToolBar::getDecodedMetricF(metricA, metricB);
         }
+        return KToolBar::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

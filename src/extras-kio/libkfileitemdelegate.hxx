@@ -99,33 +99,6 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
     VirtualKFileItemDelegate() : KFileItemDelegate() {};
     VirtualKFileItemDelegate(QObject* parent) : KFileItemDelegate(parent) {};
 
-    ~VirtualKFileItemDelegate() {
-        kfileitemdelegate_metaobject_callback = nullptr;
-        kfileitemdelegate_metacast_callback = nullptr;
-        kfileitemdelegate_metacall_callback = nullptr;
-        kfileitemdelegate_sizehint_callback = nullptr;
-        kfileitemdelegate_paint_callback = nullptr;
-        kfileitemdelegate_createeditor_callback = nullptr;
-        kfileitemdelegate_editorevent_callback = nullptr;
-        kfileitemdelegate_seteditordata_callback = nullptr;
-        kfileitemdelegate_setmodeldata_callback = nullptr;
-        kfileitemdelegate_updateeditorgeometry_callback = nullptr;
-        kfileitemdelegate_eventfilter_callback = nullptr;
-        kfileitemdelegate_helpevent_callback = nullptr;
-        kfileitemdelegate_destroyeditor_callback = nullptr;
-        kfileitemdelegate_paintingroles_callback = nullptr;
-        kfileitemdelegate_event_callback = nullptr;
-        kfileitemdelegate_timerevent_callback = nullptr;
-        kfileitemdelegate_childevent_callback = nullptr;
-        kfileitemdelegate_customevent_callback = nullptr;
-        kfileitemdelegate_connectnotify_callback = nullptr;
-        kfileitemdelegate_disconnectnotify_callback = nullptr;
-        kfileitemdelegate_sender_callback = nullptr;
-        kfileitemdelegate_sendersignalindex_callback = nullptr;
-        kfileitemdelegate_receivers_callback = nullptr;
-        kfileitemdelegate_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFileItemDelegate_MetaObject_Callback(KFileItemDelegate_MetaObject_Callback cb) { kfileitemdelegate_metaobject_callback = cb; }
     inline void setKFileItemDelegate_Metacast_Callback(KFileItemDelegate_Metacast_Callback cb) { kfileitemdelegate_metacast_callback = cb; }
@@ -183,12 +156,13 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_metaobject_isbase) {
             kfileitemdelegate_metaobject_isbase = false;
             return KFileItemDelegate::metaObject();
-        } else if (kfileitemdelegate_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfileitemdelegate_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFileItemDelegate::metaObject();
         }
+        auto metaobject_cb = kfileitemdelegate_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFileItemDelegate::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -196,14 +170,15 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_metacast_isbase) {
             kfileitemdelegate_metacast_isbase = false;
             return KFileItemDelegate::qt_metacast(param1);
-        } else if (kfileitemdelegate_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfileitemdelegate_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfileitemdelegate_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileItemDelegate::qt_metacast(param1);
         }
+        return KFileItemDelegate::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,16 +186,17 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_metacall_isbase) {
             kfileitemdelegate_metacall_isbase = false;
             return KFileItemDelegate::qt_metacall(param1, param2, param3);
-        } else if (kfileitemdelegate_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfileitemdelegate_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfileitemdelegate_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileItemDelegate::qt_metacall(param1, param2, param3);
         }
+        return KFileItemDelegate::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,7 +204,9 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_sizehint_isbase) {
             kfileitemdelegate_sizehint_isbase = false;
             return KFileItemDelegate::sizeHint(option, index);
-        } else if (kfileitemdelegate_sizehint_callback != nullptr) {
+        }
+        auto sizehint_cb = kfileitemdelegate_sizehint_callback;
+        if (sizehint_cb) {
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
             QStyleOptionViewItem* cbval1 = const_cast<QStyleOptionViewItem*>(&option_ret);
@@ -236,11 +214,10 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = kfileitemdelegate_sizehint_callback(this, cbval1, cbval2);
+            QSize* callback_ret = sizehint_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KFileItemDelegate::sizeHint(option, index);
         }
+        return KFileItemDelegate::sizeHint(option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -248,7 +225,10 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_paint_isbase) {
             kfileitemdelegate_paint_isbase = false;
             KFileItemDelegate::paint(painter, option, index);
-        } else if (kfileitemdelegate_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = kfileitemdelegate_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -257,10 +237,10 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            kfileitemdelegate_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KFileItemDelegate::paint(painter, option, index);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KFileItemDelegate::paint(painter, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -268,7 +248,9 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_createeditor_isbase) {
             kfileitemdelegate_createeditor_isbase = false;
             return KFileItemDelegate::createEditor(parent, option, index);
-        } else if (kfileitemdelegate_createeditor_callback != nullptr) {
+        }
+        auto createeditor_cb = kfileitemdelegate_createeditor_callback;
+        if (createeditor_cb) {
             QWidget* cbval1 = parent;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -277,11 +259,10 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            QWidget* callback_ret = kfileitemdelegate_createeditor_callback(this, cbval1, cbval2, cbval3);
+            QWidget* callback_ret = createeditor_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KFileItemDelegate::createEditor(parent, option, index);
         }
+        return KFileItemDelegate::createEditor(parent, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -289,7 +270,9 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_editorevent_isbase) {
             kfileitemdelegate_editorevent_isbase = false;
             return KFileItemDelegate::editorEvent(event, model, option, index);
-        } else if (kfileitemdelegate_editorevent_callback != nullptr) {
+        }
+        auto editorevent_cb = kfileitemdelegate_editorevent_callback;
+        if (editorevent_cb) {
             QEvent* cbval1 = event;
             QAbstractItemModel* cbval2 = model;
             const QStyleOptionViewItem& option_ret = option;
@@ -299,11 +282,10 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kfileitemdelegate_editorevent_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = editorevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KFileItemDelegate::editorEvent(event, model, option, index);
         }
+        return KFileItemDelegate::editorEvent(event, model, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -311,16 +293,19 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_seteditordata_isbase) {
             kfileitemdelegate_seteditordata_isbase = false;
             KFileItemDelegate::setEditorData(editor, index);
-        } else if (kfileitemdelegate_seteditordata_callback != nullptr) {
+            return;
+        }
+        auto seteditordata_cb = kfileitemdelegate_seteditordata_callback;
+        if (seteditordata_cb) {
             QWidget* cbval1 = editor;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            kfileitemdelegate_seteditordata_callback(this, cbval1, cbval2);
-        } else {
-            KFileItemDelegate::setEditorData(editor, index);
+            seteditordata_cb(this, cbval1, cbval2);
+            return;
         }
+        KFileItemDelegate::setEditorData(editor, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -328,17 +313,20 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_setmodeldata_isbase) {
             kfileitemdelegate_setmodeldata_isbase = false;
             KFileItemDelegate::setModelData(editor, model, index);
-        } else if (kfileitemdelegate_setmodeldata_callback != nullptr) {
+            return;
+        }
+        auto setmodeldata_cb = kfileitemdelegate_setmodeldata_callback;
+        if (setmodeldata_cb) {
             QWidget* cbval1 = editor;
             QAbstractItemModel* cbval2 = model;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            kfileitemdelegate_setmodeldata_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KFileItemDelegate::setModelData(editor, model, index);
+            setmodeldata_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KFileItemDelegate::setModelData(editor, model, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,7 +334,10 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_updateeditorgeometry_isbase) {
             kfileitemdelegate_updateeditorgeometry_isbase = false;
             KFileItemDelegate::updateEditorGeometry(editor, option, index);
-        } else if (kfileitemdelegate_updateeditorgeometry_callback != nullptr) {
+            return;
+        }
+        auto updateeditorgeometry_cb = kfileitemdelegate_updateeditorgeometry_callback;
+        if (updateeditorgeometry_cb) {
             QWidget* cbval1 = editor;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -355,10 +346,10 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            kfileitemdelegate_updateeditorgeometry_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KFileItemDelegate::updateEditorGeometry(editor, option, index);
+            updateeditorgeometry_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KFileItemDelegate::updateEditorGeometry(editor, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,15 +357,16 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_eventfilter_isbase) {
             kfileitemdelegate_eventfilter_isbase = false;
             return KFileItemDelegate::eventFilter(object, event);
-        } else if (kfileitemdelegate_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfileitemdelegate_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kfileitemdelegate_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFileItemDelegate::eventFilter(object, event);
         }
+        return KFileItemDelegate::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -382,7 +374,9 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_helpevent_isbase) {
             kfileitemdelegate_helpevent_isbase = false;
             return KFileItemDelegate::helpEvent(event, view, option, index);
-        } else if (kfileitemdelegate_helpevent_callback != nullptr) {
+        }
+        auto helpevent_cb = kfileitemdelegate_helpevent_callback;
+        if (helpevent_cb) {
             QHelpEvent* cbval1 = event;
             QAbstractItemView* cbval2 = view;
             const QStyleOptionViewItem& option_ret = option;
@@ -392,11 +386,10 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kfileitemdelegate_helpevent_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = helpevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KFileItemDelegate::helpEvent(event, view, option, index);
         }
+        return KFileItemDelegate::helpEvent(event, view, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -404,16 +397,19 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_destroyeditor_isbase) {
             kfileitemdelegate_destroyeditor_isbase = false;
             KFileItemDelegate::destroyEditor(editor, index);
-        } else if (kfileitemdelegate_destroyeditor_callback != nullptr) {
+            return;
+        }
+        auto destroyeditor_cb = kfileitemdelegate_destroyeditor_callback;
+        if (destroyeditor_cb) {
             QWidget* cbval1 = editor;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            kfileitemdelegate_destroyeditor_callback(this, cbval1, cbval2);
-        } else {
-            KFileItemDelegate::destroyEditor(editor, index);
+            destroyeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        KFileItemDelegate::destroyEditor(editor, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -421,8 +417,10 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_paintingroles_isbase) {
             kfileitemdelegate_paintingroles_isbase = false;
             return KFileItemDelegate::paintingRoles();
-        } else if (kfileitemdelegate_paintingroles_callback != nullptr) {
-            libqt_list /* of int */ callback_ret = kfileitemdelegate_paintingroles_callback();
+        }
+        auto paintingroles_cb = kfileitemdelegate_paintingroles_callback;
+        if (paintingroles_cb) {
+            libqt_list /* of int */ callback_ret = paintingroles_cb();
             QList<int> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             int* callback_ret_arr = static_cast<int*>(callback_ret.data);
@@ -431,9 +429,8 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KFileItemDelegate::paintingRoles();
         }
+        return KFileItemDelegate::paintingRoles();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,14 +438,15 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_event_isbase) {
             kfileitemdelegate_event_isbase = false;
             return KFileItemDelegate::event(event);
-        } else if (kfileitemdelegate_event_callback != nullptr) {
+        }
+        auto event_cb = kfileitemdelegate_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfileitemdelegate_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileItemDelegate::event(event);
         }
+        return KFileItemDelegate::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -456,13 +454,16 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_timerevent_isbase) {
             kfileitemdelegate_timerevent_isbase = false;
             KFileItemDelegate::timerEvent(event);
-        } else if (kfileitemdelegate_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfileitemdelegate_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfileitemdelegate_timerevent_callback(this, cbval1);
-        } else {
-            KFileItemDelegate::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFileItemDelegate::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,13 +471,16 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_childevent_isbase) {
             kfileitemdelegate_childevent_isbase = false;
             KFileItemDelegate::childEvent(event);
-        } else if (kfileitemdelegate_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfileitemdelegate_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfileitemdelegate_childevent_callback(this, cbval1);
-        } else {
-            KFileItemDelegate::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFileItemDelegate::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,13 +488,16 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_customevent_isbase) {
             kfileitemdelegate_customevent_isbase = false;
             KFileItemDelegate::customEvent(event);
-        } else if (kfileitemdelegate_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfileitemdelegate_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfileitemdelegate_customevent_callback(this, cbval1);
-        } else {
-            KFileItemDelegate::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFileItemDelegate::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,15 +505,18 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_connectnotify_isbase) {
             kfileitemdelegate_connectnotify_isbase = false;
             KFileItemDelegate::connectNotify(signal);
-        } else if (kfileitemdelegate_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfileitemdelegate_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfileitemdelegate_connectnotify_callback(this, cbval1);
-        } else {
-            KFileItemDelegate::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFileItemDelegate::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,15 +524,18 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_disconnectnotify_isbase) {
             kfileitemdelegate_disconnectnotify_isbase = false;
             KFileItemDelegate::disconnectNotify(signal);
-        } else if (kfileitemdelegate_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfileitemdelegate_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfileitemdelegate_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFileItemDelegate::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFileItemDelegate::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,12 +543,13 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_sender_isbase) {
             kfileitemdelegate_sender_isbase = false;
             return KFileItemDelegate::sender();
-        } else if (kfileitemdelegate_sender_callback != nullptr) {
-            QObject* callback_ret = kfileitemdelegate_sender_callback();
-            return callback_ret;
-        } else {
-            return KFileItemDelegate::sender();
         }
+        auto sender_cb = kfileitemdelegate_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFileItemDelegate::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,12 +557,13 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_sendersignalindex_isbase) {
             kfileitemdelegate_sendersignalindex_isbase = false;
             return KFileItemDelegate::senderSignalIndex();
-        } else if (kfileitemdelegate_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfileitemdelegate_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFileItemDelegate::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfileitemdelegate_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFileItemDelegate::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,14 +571,15 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_receivers_isbase) {
             kfileitemdelegate_receivers_isbase = false;
             return KFileItemDelegate::receivers(signal);
-        } else if (kfileitemdelegate_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfileitemdelegate_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfileitemdelegate_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileItemDelegate::receivers(signal);
         }
+        return KFileItemDelegate::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -571,16 +587,17 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
         if (kfileitemdelegate_issignalconnected_isbase) {
             kfileitemdelegate_issignalconnected_isbase = false;
             return KFileItemDelegate::isSignalConnected(signal);
-        } else if (kfileitemdelegate_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfileitemdelegate_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfileitemdelegate_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileItemDelegate::isSignalConnected(signal);
         }
+        return KFileItemDelegate::isSignalConnected(signal);
     }
 
     // Friend functions

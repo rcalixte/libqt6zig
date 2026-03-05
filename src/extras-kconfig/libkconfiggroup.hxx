@@ -62,20 +62,6 @@ class VirtualKConfigGroup final : public KConfigGroup {
     VirtualKConfigGroup(const KConfigBase* master, const QString& group) : KConfigGroup(master, group) {};
     VirtualKConfigGroup(const KConfigGroup& param1) : KConfigGroup(param1) {};
 
-    ~VirtualKConfigGroup() {
-        kconfiggroup_sync_callback = nullptr;
-        kconfiggroup_markasclean_callback = nullptr;
-        kconfiggroup_accessmode_callback = nullptr;
-        kconfiggroup_grouplist_callback = nullptr;
-        kconfiggroup_isimmutable_callback = nullptr;
-        kconfiggroup_hasgroupimpl_callback = nullptr;
-        kconfiggroup_groupimpl_callback = nullptr;
-        kconfiggroup_groupimpl2_callback = nullptr;
-        kconfiggroup_deletegroupimpl_callback = nullptr;
-        kconfiggroup_isgroupimmutableimpl_callback = nullptr;
-        kconfiggroup_virtualhook_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKConfigGroup_Sync_Callback(KConfigGroup_Sync_Callback cb) { kconfiggroup_sync_callback = cb; }
     inline void setKConfigGroup_MarkAsClean_Callback(KConfigGroup_MarkAsClean_Callback cb) { kconfiggroup_markasclean_callback = cb; }
@@ -107,12 +93,13 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_sync_isbase) {
             kconfiggroup_sync_isbase = false;
             return KConfigGroup::sync();
-        } else if (kconfiggroup_sync_callback != nullptr) {
-            bool callback_ret = kconfiggroup_sync_callback();
-            return callback_ret;
-        } else {
-            return KConfigGroup::sync();
         }
+        auto sync_cb = kconfiggroup_sync_callback;
+        if (sync_cb) {
+            bool callback_ret = sync_cb();
+            return callback_ret;
+        }
+        return KConfigGroup::sync();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -120,11 +107,14 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_markasclean_isbase) {
             kconfiggroup_markasclean_isbase = false;
             KConfigGroup::markAsClean();
-        } else if (kconfiggroup_markasclean_callback != nullptr) {
-            kconfiggroup_markasclean_callback();
-        } else {
-            KConfigGroup::markAsClean();
+            return;
         }
+        auto markasclean_cb = kconfiggroup_markasclean_callback;
+        if (markasclean_cb) {
+            markasclean_cb();
+            return;
+        }
+        KConfigGroup::markAsClean();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -132,12 +122,13 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_accessmode_isbase) {
             kconfiggroup_accessmode_isbase = false;
             return KConfigGroup::accessMode();
-        } else if (kconfiggroup_accessmode_callback != nullptr) {
-            int callback_ret = kconfiggroup_accessmode_callback();
-            return static_cast<KConfigBase::AccessMode>(callback_ret);
-        } else {
-            return KConfigGroup::accessMode();
         }
+        auto accessmode_cb = kconfiggroup_accessmode_callback;
+        if (accessmode_cb) {
+            int callback_ret = accessmode_cb();
+            return static_cast<KConfigBase::AccessMode>(callback_ret);
+        }
+        return KConfigGroup::accessMode();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -145,8 +136,10 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_grouplist_isbase) {
             kconfiggroup_grouplist_isbase = false;
             return KConfigGroup::groupList();
-        } else if (kconfiggroup_grouplist_callback != nullptr) {
-            const char** callback_ret = kconfiggroup_grouplist_callback();
+        }
+        auto grouplist_cb = kconfiggroup_grouplist_callback;
+        if (grouplist_cb) {
+            const char** callback_ret = grouplist_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -157,9 +150,8 @@ class VirtualKConfigGroup final : public KConfigGroup {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KConfigGroup::groupList();
         }
+        return KConfigGroup::groupList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -167,12 +159,13 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_isimmutable_isbase) {
             kconfiggroup_isimmutable_isbase = false;
             return KConfigGroup::isImmutable();
-        } else if (kconfiggroup_isimmutable_callback != nullptr) {
-            bool callback_ret = kconfiggroup_isimmutable_callback();
-            return callback_ret;
-        } else {
-            return KConfigGroup::isImmutable();
         }
+        auto isimmutable_cb = kconfiggroup_isimmutable_callback;
+        if (isimmutable_cb) {
+            bool callback_ret = isimmutable_cb();
+            return callback_ret;
+        }
+        return KConfigGroup::isImmutable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,7 +173,9 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_hasgroupimpl_isbase) {
             kconfiggroup_hasgroupimpl_isbase = false;
             return KConfigGroup::hasGroupImpl(groupName);
-        } else if (kconfiggroup_hasgroupimpl_callback != nullptr) {
+        }
+        auto hasgroupimpl_cb = kconfiggroup_hasgroupimpl_callback;
+        if (hasgroupimpl_cb) {
             const QString groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
@@ -190,12 +185,11 @@ class VirtualKConfigGroup final : public KConfigGroup {
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
 
-            bool callback_ret = kconfiggroup_hasgroupimpl_callback(this, cbval1);
+            bool callback_ret = hasgroupimpl_cb(this, cbval1);
             libqt_free(groupName_str);
             return callback_ret;
-        } else {
-            return KConfigGroup::hasGroupImpl(groupName);
         }
+        return KConfigGroup::hasGroupImpl(groupName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -203,7 +197,9 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_groupimpl_isbase) {
             kconfiggroup_groupimpl_isbase = false;
             return KConfigGroup::groupImpl(groupName);
-        } else if (kconfiggroup_groupimpl_callback != nullptr) {
+        }
+        auto groupimpl_cb = kconfiggroup_groupimpl_callback;
+        if (groupimpl_cb) {
             const QString groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
@@ -213,12 +209,11 @@ class VirtualKConfigGroup final : public KConfigGroup {
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
 
-            KConfigGroup* callback_ret = kconfiggroup_groupimpl_callback(this, cbval1);
+            KConfigGroup* callback_ret = groupimpl_cb(this, cbval1);
             libqt_free(groupName_str);
             return *callback_ret;
-        } else {
-            return KConfigGroup::groupImpl(groupName);
         }
+        return KConfigGroup::groupImpl(groupName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,7 +221,9 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_groupimpl2_isbase) {
             kconfiggroup_groupimpl2_isbase = false;
             return KConfigGroup::groupImpl(groupName);
-        } else if (kconfiggroup_groupimpl2_callback != nullptr) {
+        }
+        auto groupimpl2_cb = kconfiggroup_groupimpl2_callback;
+        if (groupimpl2_cb) {
             const QString groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
@@ -236,12 +233,11 @@ class VirtualKConfigGroup final : public KConfigGroup {
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
 
-            KConfigGroup* callback_ret = kconfiggroup_groupimpl2_callback(this, cbval1);
+            KConfigGroup* callback_ret = groupimpl2_cb(this, cbval1);
             libqt_free(groupName_str);
             return *callback_ret;
-        } else {
-            return KConfigGroup::groupImpl(groupName);
         }
+        return KConfigGroup::groupImpl(groupName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -249,7 +245,10 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_deletegroupimpl_isbase) {
             kconfiggroup_deletegroupimpl_isbase = false;
             KConfigGroup::deleteGroupImpl(groupName, flags);
-        } else if (kconfiggroup_deletegroupimpl_callback != nullptr) {
+            return;
+        }
+        auto deletegroupimpl_cb = kconfiggroup_deletegroupimpl_callback;
+        if (deletegroupimpl_cb) {
             const QString groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
@@ -260,11 +259,11 @@ class VirtualKConfigGroup final : public KConfigGroup {
             const char* cbval1 = groupName_str;
             int cbval2 = static_cast<int>(flags);
 
-            kconfiggroup_deletegroupimpl_callback(this, cbval1, cbval2);
+            deletegroupimpl_cb(this, cbval1, cbval2);
             libqt_free(groupName_str);
-        } else {
-            KConfigGroup::deleteGroupImpl(groupName, flags);
+            return;
         }
+        KConfigGroup::deleteGroupImpl(groupName, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,7 +271,9 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_isgroupimmutableimpl_isbase) {
             kconfiggroup_isgroupimmutableimpl_isbase = false;
             return KConfigGroup::isGroupImmutableImpl(groupName);
-        } else if (kconfiggroup_isgroupimmutableimpl_callback != nullptr) {
+        }
+        auto isgroupimmutableimpl_cb = kconfiggroup_isgroupimmutableimpl_callback;
+        if (isgroupimmutableimpl_cb) {
             const QString groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
@@ -282,12 +283,11 @@ class VirtualKConfigGroup final : public KConfigGroup {
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
 
-            bool callback_ret = kconfiggroup_isgroupimmutableimpl_callback(this, cbval1);
+            bool callback_ret = isgroupimmutableimpl_cb(this, cbval1);
             libqt_free(groupName_str);
             return callback_ret;
-        } else {
-            return KConfigGroup::isGroupImmutableImpl(groupName);
         }
+        return KConfigGroup::isGroupImmutableImpl(groupName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,14 +295,17 @@ class VirtualKConfigGroup final : public KConfigGroup {
         if (kconfiggroup_virtualhook_isbase) {
             kconfiggroup_virtualhook_isbase = false;
             KConfigGroup::virtual_hook(id, data);
-        } else if (kconfiggroup_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kconfiggroup_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kconfiggroup_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KConfigGroup::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KConfigGroup::virtual_hook(id, data);
     }
 
     // Friend functions

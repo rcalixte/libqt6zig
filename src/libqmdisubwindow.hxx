@@ -208,69 +208,6 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
     VirtualQMdiSubWindow() : QMdiSubWindow() {};
     VirtualQMdiSubWindow(QWidget* parent, Qt::WindowFlags flags) : QMdiSubWindow(parent, flags) {};
 
-    ~VirtualQMdiSubWindow() {
-        qmdisubwindow_metaobject_callback = nullptr;
-        qmdisubwindow_metacast_callback = nullptr;
-        qmdisubwindow_metacall_callback = nullptr;
-        qmdisubwindow_sizehint_callback = nullptr;
-        qmdisubwindow_minimumsizehint_callback = nullptr;
-        qmdisubwindow_eventfilter_callback = nullptr;
-        qmdisubwindow_event_callback = nullptr;
-        qmdisubwindow_showevent_callback = nullptr;
-        qmdisubwindow_hideevent_callback = nullptr;
-        qmdisubwindow_changeevent_callback = nullptr;
-        qmdisubwindow_closeevent_callback = nullptr;
-        qmdisubwindow_leaveevent_callback = nullptr;
-        qmdisubwindow_resizeevent_callback = nullptr;
-        qmdisubwindow_timerevent_callback = nullptr;
-        qmdisubwindow_moveevent_callback = nullptr;
-        qmdisubwindow_paintevent_callback = nullptr;
-        qmdisubwindow_mousepressevent_callback = nullptr;
-        qmdisubwindow_mousedoubleclickevent_callback = nullptr;
-        qmdisubwindow_mousereleaseevent_callback = nullptr;
-        qmdisubwindow_mousemoveevent_callback = nullptr;
-        qmdisubwindow_keypressevent_callback = nullptr;
-        qmdisubwindow_contextmenuevent_callback = nullptr;
-        qmdisubwindow_focusinevent_callback = nullptr;
-        qmdisubwindow_focusoutevent_callback = nullptr;
-        qmdisubwindow_childevent_callback = nullptr;
-        qmdisubwindow_devtype_callback = nullptr;
-        qmdisubwindow_setvisible_callback = nullptr;
-        qmdisubwindow_heightforwidth_callback = nullptr;
-        qmdisubwindow_hasheightforwidth_callback = nullptr;
-        qmdisubwindow_paintengine_callback = nullptr;
-        qmdisubwindow_wheelevent_callback = nullptr;
-        qmdisubwindow_keyreleaseevent_callback = nullptr;
-        qmdisubwindow_enterevent_callback = nullptr;
-        qmdisubwindow_tabletevent_callback = nullptr;
-        qmdisubwindow_actionevent_callback = nullptr;
-        qmdisubwindow_dragenterevent_callback = nullptr;
-        qmdisubwindow_dragmoveevent_callback = nullptr;
-        qmdisubwindow_dragleaveevent_callback = nullptr;
-        qmdisubwindow_dropevent_callback = nullptr;
-        qmdisubwindow_nativeevent_callback = nullptr;
-        qmdisubwindow_metric_callback = nullptr;
-        qmdisubwindow_initpainter_callback = nullptr;
-        qmdisubwindow_redirected_callback = nullptr;
-        qmdisubwindow_sharedpainter_callback = nullptr;
-        qmdisubwindow_inputmethodevent_callback = nullptr;
-        qmdisubwindow_inputmethodquery_callback = nullptr;
-        qmdisubwindow_focusnextprevchild_callback = nullptr;
-        qmdisubwindow_customevent_callback = nullptr;
-        qmdisubwindow_connectnotify_callback = nullptr;
-        qmdisubwindow_disconnectnotify_callback = nullptr;
-        qmdisubwindow_updatemicrofocus_callback = nullptr;
-        qmdisubwindow_create_callback = nullptr;
-        qmdisubwindow_destroy_callback = nullptr;
-        qmdisubwindow_focusnextchild_callback = nullptr;
-        qmdisubwindow_focuspreviouschild_callback = nullptr;
-        qmdisubwindow_sender_callback = nullptr;
-        qmdisubwindow_sendersignalindex_callback = nullptr;
-        qmdisubwindow_receivers_callback = nullptr;
-        qmdisubwindow_issignalconnected_callback = nullptr;
-        qmdisubwindow_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMdiSubWindow_MetaObject_Callback(QMdiSubWindow_MetaObject_Callback cb) { qmdisubwindow_metaobject_callback = cb; }
     inline void setQMdiSubWindow_Metacast_Callback(QMdiSubWindow_Metacast_Callback cb) { qmdisubwindow_metacast_callback = cb; }
@@ -400,12 +337,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_metaobject_isbase) {
             qmdisubwindow_metaobject_isbase = false;
             return QMdiSubWindow::metaObject();
-        } else if (qmdisubwindow_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qmdisubwindow_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QMdiSubWindow::metaObject();
         }
+        auto metaobject_cb = qmdisubwindow_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QMdiSubWindow::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -413,14 +351,15 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_metacast_isbase) {
             qmdisubwindow_metacast_isbase = false;
             return QMdiSubWindow::qt_metacast(param1);
-        } else if (qmdisubwindow_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qmdisubwindow_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qmdisubwindow_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiSubWindow::qt_metacast(param1);
         }
+        return QMdiSubWindow::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -428,16 +367,17 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_metacall_isbase) {
             qmdisubwindow_metacall_isbase = false;
             return QMdiSubWindow::qt_metacall(param1, param2, param3);
-        } else if (qmdisubwindow_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qmdisubwindow_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qmdisubwindow_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMdiSubWindow::qt_metacall(param1, param2, param3);
         }
+        return QMdiSubWindow::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -445,12 +385,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_sizehint_isbase) {
             qmdisubwindow_sizehint_isbase = false;
             return QMdiSubWindow::sizeHint();
-        } else if (qmdisubwindow_sizehint_callback != nullptr) {
-            QSize* callback_ret = qmdisubwindow_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QMdiSubWindow::sizeHint();
         }
+        auto sizehint_cb = qmdisubwindow_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QMdiSubWindow::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,12 +399,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_minimumsizehint_isbase) {
             qmdisubwindow_minimumsizehint_isbase = false;
             return QMdiSubWindow::minimumSizeHint();
-        } else if (qmdisubwindow_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qmdisubwindow_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QMdiSubWindow::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qmdisubwindow_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QMdiSubWindow::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,15 +413,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_eventfilter_isbase) {
             qmdisubwindow_eventfilter_isbase = false;
             return QMdiSubWindow::eventFilter(object, event);
-        } else if (qmdisubwindow_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qmdisubwindow_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qmdisubwindow_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QMdiSubWindow::eventFilter(object, event);
         }
+        return QMdiSubWindow::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -487,14 +430,15 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_event_isbase) {
             qmdisubwindow_event_isbase = false;
             return QMdiSubWindow::event(event);
-        } else if (qmdisubwindow_event_callback != nullptr) {
+        }
+        auto event_cb = qmdisubwindow_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qmdisubwindow_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiSubWindow::event(event);
         }
+        return QMdiSubWindow::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,13 +446,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_showevent_isbase) {
             qmdisubwindow_showevent_isbase = false;
             QMdiSubWindow::showEvent(showEvent);
-        } else if (qmdisubwindow_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qmdisubwindow_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = showEvent;
 
-            qmdisubwindow_showevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::showEvent(showEvent);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::showEvent(showEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -516,13 +463,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_hideevent_isbase) {
             qmdisubwindow_hideevent_isbase = false;
             QMdiSubWindow::hideEvent(hideEvent);
-        } else if (qmdisubwindow_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qmdisubwindow_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = hideEvent;
 
-            qmdisubwindow_hideevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::hideEvent(hideEvent);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::hideEvent(hideEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,13 +480,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_changeevent_isbase) {
             qmdisubwindow_changeevent_isbase = false;
             QMdiSubWindow::changeEvent(changeEvent);
-        } else if (qmdisubwindow_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qmdisubwindow_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = changeEvent;
 
-            qmdisubwindow_changeevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::changeEvent(changeEvent);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::changeEvent(changeEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -544,13 +497,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_closeevent_isbase) {
             qmdisubwindow_closeevent_isbase = false;
             QMdiSubWindow::closeEvent(closeEvent);
-        } else if (qmdisubwindow_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qmdisubwindow_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = closeEvent;
 
-            qmdisubwindow_closeevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::closeEvent(closeEvent);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::closeEvent(closeEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -558,13 +514,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_leaveevent_isbase) {
             qmdisubwindow_leaveevent_isbase = false;
             QMdiSubWindow::leaveEvent(leaveEvent);
-        } else if (qmdisubwindow_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qmdisubwindow_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = leaveEvent;
 
-            qmdisubwindow_leaveevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::leaveEvent(leaveEvent);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::leaveEvent(leaveEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -572,13 +531,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_resizeevent_isbase) {
             qmdisubwindow_resizeevent_isbase = false;
             QMdiSubWindow::resizeEvent(resizeEvent);
-        } else if (qmdisubwindow_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qmdisubwindow_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = resizeEvent;
 
-            qmdisubwindow_resizeevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::resizeEvent(resizeEvent);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::resizeEvent(resizeEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,13 +548,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_timerevent_isbase) {
             qmdisubwindow_timerevent_isbase = false;
             QMdiSubWindow::timerEvent(timerEvent);
-        } else if (qmdisubwindow_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qmdisubwindow_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = timerEvent;
 
-            qmdisubwindow_timerevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::timerEvent(timerEvent);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::timerEvent(timerEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -600,13 +565,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_moveevent_isbase) {
             qmdisubwindow_moveevent_isbase = false;
             QMdiSubWindow::moveEvent(moveEvent);
-        } else if (qmdisubwindow_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qmdisubwindow_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = moveEvent;
 
-            qmdisubwindow_moveevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::moveEvent(moveEvent);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::moveEvent(moveEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -614,13 +582,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_paintevent_isbase) {
             qmdisubwindow_paintevent_isbase = false;
             QMdiSubWindow::paintEvent(paintEvent);
-        } else if (qmdisubwindow_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qmdisubwindow_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = paintEvent;
 
-            qmdisubwindow_paintevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::paintEvent(paintEvent);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::paintEvent(paintEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -628,13 +599,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_mousepressevent_isbase) {
             qmdisubwindow_mousepressevent_isbase = false;
             QMdiSubWindow::mousePressEvent(mouseEvent);
-        } else if (qmdisubwindow_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qmdisubwindow_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = mouseEvent;
 
-            qmdisubwindow_mousepressevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::mousePressEvent(mouseEvent);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::mousePressEvent(mouseEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -642,13 +616,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_mousedoubleclickevent_isbase) {
             qmdisubwindow_mousedoubleclickevent_isbase = false;
             QMdiSubWindow::mouseDoubleClickEvent(mouseEvent);
-        } else if (qmdisubwindow_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qmdisubwindow_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = mouseEvent;
 
-            qmdisubwindow_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::mouseDoubleClickEvent(mouseEvent);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::mouseDoubleClickEvent(mouseEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -656,13 +633,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_mousereleaseevent_isbase) {
             qmdisubwindow_mousereleaseevent_isbase = false;
             QMdiSubWindow::mouseReleaseEvent(mouseEvent);
-        } else if (qmdisubwindow_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qmdisubwindow_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = mouseEvent;
 
-            qmdisubwindow_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::mouseReleaseEvent(mouseEvent);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::mouseReleaseEvent(mouseEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -670,13 +650,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_mousemoveevent_isbase) {
             qmdisubwindow_mousemoveevent_isbase = false;
             QMdiSubWindow::mouseMoveEvent(mouseEvent);
-        } else if (qmdisubwindow_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qmdisubwindow_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = mouseEvent;
 
-            qmdisubwindow_mousemoveevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::mouseMoveEvent(mouseEvent);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::mouseMoveEvent(mouseEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,13 +667,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_keypressevent_isbase) {
             qmdisubwindow_keypressevent_isbase = false;
             QMdiSubWindow::keyPressEvent(keyEvent);
-        } else if (qmdisubwindow_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qmdisubwindow_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = keyEvent;
 
-            qmdisubwindow_keypressevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::keyPressEvent(keyEvent);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::keyPressEvent(keyEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,13 +684,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_contextmenuevent_isbase) {
             qmdisubwindow_contextmenuevent_isbase = false;
             QMdiSubWindow::contextMenuEvent(contextMenuEvent);
-        } else if (qmdisubwindow_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qmdisubwindow_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = contextMenuEvent;
 
-            qmdisubwindow_contextmenuevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::contextMenuEvent(contextMenuEvent);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::contextMenuEvent(contextMenuEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -712,13 +701,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_focusinevent_isbase) {
             qmdisubwindow_focusinevent_isbase = false;
             QMdiSubWindow::focusInEvent(focusInEvent);
-        } else if (qmdisubwindow_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qmdisubwindow_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = focusInEvent;
 
-            qmdisubwindow_focusinevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::focusInEvent(focusInEvent);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::focusInEvent(focusInEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -726,13 +718,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_focusoutevent_isbase) {
             qmdisubwindow_focusoutevent_isbase = false;
             QMdiSubWindow::focusOutEvent(focusOutEvent);
-        } else if (qmdisubwindow_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qmdisubwindow_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = focusOutEvent;
 
-            qmdisubwindow_focusoutevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::focusOutEvent(focusOutEvent);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::focusOutEvent(focusOutEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,13 +735,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_childevent_isbase) {
             qmdisubwindow_childevent_isbase = false;
             QMdiSubWindow::childEvent(childEvent);
-        } else if (qmdisubwindow_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qmdisubwindow_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = childEvent;
 
-            qmdisubwindow_childevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::childEvent(childEvent);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::childEvent(childEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,12 +752,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_devtype_isbase) {
             qmdisubwindow_devtype_isbase = false;
             return QMdiSubWindow::devType();
-        } else if (qmdisubwindow_devtype_callback != nullptr) {
-            int callback_ret = qmdisubwindow_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMdiSubWindow::devType();
         }
+        auto devtype_cb = qmdisubwindow_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMdiSubWindow::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -767,13 +766,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_setvisible_isbase) {
             qmdisubwindow_setvisible_isbase = false;
             QMdiSubWindow::setVisible(visible);
-        } else if (qmdisubwindow_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qmdisubwindow_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qmdisubwindow_setvisible_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,14 +783,15 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_heightforwidth_isbase) {
             qmdisubwindow_heightforwidth_isbase = false;
             return QMdiSubWindow::heightForWidth(param1);
-        } else if (qmdisubwindow_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qmdisubwindow_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qmdisubwindow_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMdiSubWindow::heightForWidth(param1);
         }
+        return QMdiSubWindow::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,12 +799,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_hasheightforwidth_isbase) {
             qmdisubwindow_hasheightforwidth_isbase = false;
             return QMdiSubWindow::hasHeightForWidth();
-        } else if (qmdisubwindow_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qmdisubwindow_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QMdiSubWindow::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qmdisubwindow_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QMdiSubWindow::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,12 +813,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_paintengine_isbase) {
             qmdisubwindow_paintengine_isbase = false;
             return QMdiSubWindow::paintEngine();
-        } else if (qmdisubwindow_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qmdisubwindow_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QMdiSubWindow::paintEngine();
         }
+        auto paintengine_cb = qmdisubwindow_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QMdiSubWindow::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -822,13 +827,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_wheelevent_isbase) {
             qmdisubwindow_wheelevent_isbase = false;
             QMdiSubWindow::wheelEvent(event);
-        } else if (qmdisubwindow_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qmdisubwindow_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qmdisubwindow_wheelevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -836,13 +844,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_keyreleaseevent_isbase) {
             qmdisubwindow_keyreleaseevent_isbase = false;
             QMdiSubWindow::keyReleaseEvent(event);
-        } else if (qmdisubwindow_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qmdisubwindow_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qmdisubwindow_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -850,13 +861,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_enterevent_isbase) {
             qmdisubwindow_enterevent_isbase = false;
             QMdiSubWindow::enterEvent(event);
-        } else if (qmdisubwindow_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qmdisubwindow_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qmdisubwindow_enterevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -864,13 +878,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_tabletevent_isbase) {
             qmdisubwindow_tabletevent_isbase = false;
             QMdiSubWindow::tabletEvent(event);
-        } else if (qmdisubwindow_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qmdisubwindow_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qmdisubwindow_tabletevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -878,13 +895,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_actionevent_isbase) {
             qmdisubwindow_actionevent_isbase = false;
             QMdiSubWindow::actionEvent(event);
-        } else if (qmdisubwindow_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qmdisubwindow_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qmdisubwindow_actionevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -892,13 +912,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_dragenterevent_isbase) {
             qmdisubwindow_dragenterevent_isbase = false;
             QMdiSubWindow::dragEnterEvent(event);
-        } else if (qmdisubwindow_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qmdisubwindow_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qmdisubwindow_dragenterevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -906,13 +929,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_dragmoveevent_isbase) {
             qmdisubwindow_dragmoveevent_isbase = false;
             QMdiSubWindow::dragMoveEvent(event);
-        } else if (qmdisubwindow_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qmdisubwindow_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qmdisubwindow_dragmoveevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -920,13 +946,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_dragleaveevent_isbase) {
             qmdisubwindow_dragleaveevent_isbase = false;
             QMdiSubWindow::dragLeaveEvent(event);
-        } else if (qmdisubwindow_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qmdisubwindow_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qmdisubwindow_dragleaveevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -934,13 +963,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_dropevent_isbase) {
             qmdisubwindow_dropevent_isbase = false;
             QMdiSubWindow::dropEvent(event);
-        } else if (qmdisubwindow_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qmdisubwindow_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qmdisubwindow_dropevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -948,7 +980,9 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_nativeevent_isbase) {
             qmdisubwindow_nativeevent_isbase = false;
             return QMdiSubWindow::nativeEvent(eventType, message, result);
-        } else if (qmdisubwindow_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qmdisubwindow_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -959,12 +993,11 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qmdisubwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QMdiSubWindow::nativeEvent(eventType, message, result);
         }
+        return QMdiSubWindow::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,14 +1005,15 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_metric_isbase) {
             qmdisubwindow_metric_isbase = false;
             return QMdiSubWindow::metric(param1);
-        } else if (qmdisubwindow_metric_callback != nullptr) {
+        }
+        auto metric_cb = qmdisubwindow_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qmdisubwindow_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMdiSubWindow::metric(param1);
         }
+        return QMdiSubWindow::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -987,13 +1021,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_initpainter_isbase) {
             qmdisubwindow_initpainter_isbase = false;
             QMdiSubWindow::initPainter(painter);
-        } else if (qmdisubwindow_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qmdisubwindow_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qmdisubwindow_initpainter_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1001,14 +1038,15 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_redirected_isbase) {
             qmdisubwindow_redirected_isbase = false;
             return QMdiSubWindow::redirected(offset);
-        } else if (qmdisubwindow_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qmdisubwindow_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qmdisubwindow_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiSubWindow::redirected(offset);
         }
+        return QMdiSubWindow::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1016,12 +1054,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_sharedpainter_isbase) {
             qmdisubwindow_sharedpainter_isbase = false;
             return QMdiSubWindow::sharedPainter();
-        } else if (qmdisubwindow_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qmdisubwindow_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QMdiSubWindow::sharedPainter();
         }
+        auto sharedpainter_cb = qmdisubwindow_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QMdiSubWindow::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,13 +1068,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_inputmethodevent_isbase) {
             qmdisubwindow_inputmethodevent_isbase = false;
             QMdiSubWindow::inputMethodEvent(param1);
-        } else if (qmdisubwindow_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qmdisubwindow_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qmdisubwindow_inputmethodevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,14 +1085,15 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_inputmethodquery_isbase) {
             qmdisubwindow_inputmethodquery_isbase = false;
             return QMdiSubWindow::inputMethodQuery(param1);
-        } else if (qmdisubwindow_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qmdisubwindow_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qmdisubwindow_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QMdiSubWindow::inputMethodQuery(param1);
         }
+        return QMdiSubWindow::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,14 +1101,15 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_focusnextprevchild_isbase) {
             qmdisubwindow_focusnextprevchild_isbase = false;
             return QMdiSubWindow::focusNextPrevChild(next);
-        } else if (qmdisubwindow_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qmdisubwindow_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qmdisubwindow_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiSubWindow::focusNextPrevChild(next);
         }
+        return QMdiSubWindow::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1073,13 +1117,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_customevent_isbase) {
             qmdisubwindow_customevent_isbase = false;
             QMdiSubWindow::customEvent(event);
-        } else if (qmdisubwindow_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qmdisubwindow_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qmdisubwindow_customevent_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1087,15 +1134,18 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_connectnotify_isbase) {
             qmdisubwindow_connectnotify_isbase = false;
             QMdiSubWindow::connectNotify(signal);
-        } else if (qmdisubwindow_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qmdisubwindow_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmdisubwindow_connectnotify_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,15 +1153,18 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_disconnectnotify_isbase) {
             qmdisubwindow_disconnectnotify_isbase = false;
             QMdiSubWindow::disconnectNotify(signal);
-        } else if (qmdisubwindow_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qmdisubwindow_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmdisubwindow_disconnectnotify_callback(this, cbval1);
-        } else {
-            QMdiSubWindow::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QMdiSubWindow::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1119,11 +1172,14 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_updatemicrofocus_isbase) {
             qmdisubwindow_updatemicrofocus_isbase = false;
             QMdiSubWindow::updateMicroFocus();
-        } else if (qmdisubwindow_updatemicrofocus_callback != nullptr) {
-            qmdisubwindow_updatemicrofocus_callback();
-        } else {
-            QMdiSubWindow::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qmdisubwindow_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QMdiSubWindow::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1131,11 +1187,14 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_create_isbase) {
             qmdisubwindow_create_isbase = false;
             QMdiSubWindow::create();
-        } else if (qmdisubwindow_create_callback != nullptr) {
-            qmdisubwindow_create_callback();
-        } else {
-            QMdiSubWindow::create();
+            return;
         }
+        auto create_cb = qmdisubwindow_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QMdiSubWindow::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1143,11 +1202,14 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_destroy_isbase) {
             qmdisubwindow_destroy_isbase = false;
             QMdiSubWindow::destroy();
-        } else if (qmdisubwindow_destroy_callback != nullptr) {
-            qmdisubwindow_destroy_callback();
-        } else {
-            QMdiSubWindow::destroy();
+            return;
         }
+        auto destroy_cb = qmdisubwindow_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QMdiSubWindow::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1155,12 +1217,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_focusnextchild_isbase) {
             qmdisubwindow_focusnextchild_isbase = false;
             return QMdiSubWindow::focusNextChild();
-        } else if (qmdisubwindow_focusnextchild_callback != nullptr) {
-            bool callback_ret = qmdisubwindow_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QMdiSubWindow::focusNextChild();
         }
+        auto focusnextchild_cb = qmdisubwindow_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QMdiSubWindow::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1168,12 +1231,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_focuspreviouschild_isbase) {
             qmdisubwindow_focuspreviouschild_isbase = false;
             return QMdiSubWindow::focusPreviousChild();
-        } else if (qmdisubwindow_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qmdisubwindow_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QMdiSubWindow::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qmdisubwindow_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QMdiSubWindow::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,12 +1245,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_sender_isbase) {
             qmdisubwindow_sender_isbase = false;
             return QMdiSubWindow::sender();
-        } else if (qmdisubwindow_sender_callback != nullptr) {
-            QObject* callback_ret = qmdisubwindow_sender_callback();
-            return callback_ret;
-        } else {
-            return QMdiSubWindow::sender();
         }
+        auto sender_cb = qmdisubwindow_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QMdiSubWindow::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,12 +1259,13 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_sendersignalindex_isbase) {
             qmdisubwindow_sendersignalindex_isbase = false;
             return QMdiSubWindow::senderSignalIndex();
-        } else if (qmdisubwindow_sendersignalindex_callback != nullptr) {
-            int callback_ret = qmdisubwindow_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMdiSubWindow::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qmdisubwindow_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMdiSubWindow::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1207,14 +1273,15 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_receivers_isbase) {
             qmdisubwindow_receivers_isbase = false;
             return QMdiSubWindow::receivers(signal);
-        } else if (qmdisubwindow_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qmdisubwindow_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qmdisubwindow_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMdiSubWindow::receivers(signal);
         }
+        return QMdiSubWindow::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,16 +1289,17 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_issignalconnected_isbase) {
             qmdisubwindow_issignalconnected_isbase = false;
             return QMdiSubWindow::isSignalConnected(signal);
-        } else if (qmdisubwindow_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qmdisubwindow_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qmdisubwindow_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMdiSubWindow::isSignalConnected(signal);
         }
+        return QMdiSubWindow::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1239,15 +1307,16 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
         if (qmdisubwindow_getdecodedmetricf_isbase) {
             qmdisubwindow_getdecodedmetricf_isbase = false;
             return QMdiSubWindow::getDecodedMetricF(metricA, metricB);
-        } else if (qmdisubwindow_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qmdisubwindow_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qmdisubwindow_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QMdiSubWindow::getDecodedMetricF(metricA, metricB);
         }
+        return QMdiSubWindow::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

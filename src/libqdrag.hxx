@@ -68,23 +68,6 @@ class VirtualQDrag final : public QDrag {
   public:
     VirtualQDrag(QObject* dragSource) : QDrag(dragSource) {};
 
-    ~VirtualQDrag() {
-        qdrag_metaobject_callback = nullptr;
-        qdrag_metacast_callback = nullptr;
-        qdrag_metacall_callback = nullptr;
-        qdrag_event_callback = nullptr;
-        qdrag_eventfilter_callback = nullptr;
-        qdrag_timerevent_callback = nullptr;
-        qdrag_childevent_callback = nullptr;
-        qdrag_customevent_callback = nullptr;
-        qdrag_connectnotify_callback = nullptr;
-        qdrag_disconnectnotify_callback = nullptr;
-        qdrag_sender_callback = nullptr;
-        qdrag_sendersignalindex_callback = nullptr;
-        qdrag_receivers_callback = nullptr;
-        qdrag_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDrag_MetaObject_Callback(QDrag_MetaObject_Callback cb) { qdrag_metaobject_callback = cb; }
     inline void setQDrag_Metacast_Callback(QDrag_Metacast_Callback cb) { qdrag_metacast_callback = cb; }
@@ -122,12 +105,13 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_metaobject_isbase) {
             qdrag_metaobject_isbase = false;
             return QDrag::metaObject();
-        } else if (qdrag_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdrag_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDrag::metaObject();
         }
+        auto metaobject_cb = qdrag_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDrag::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -135,14 +119,15 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_metacast_isbase) {
             qdrag_metacast_isbase = false;
             return QDrag::qt_metacast(param1);
-        } else if (qdrag_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdrag_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdrag_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDrag::qt_metacast(param1);
         }
+        return QDrag::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -150,16 +135,17 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_metacall_isbase) {
             qdrag_metacall_isbase = false;
             return QDrag::qt_metacall(param1, param2, param3);
-        } else if (qdrag_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdrag_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdrag_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDrag::qt_metacall(param1, param2, param3);
         }
+        return QDrag::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -167,14 +153,15 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_event_isbase) {
             qdrag_event_isbase = false;
             return QDrag::event(event);
-        } else if (qdrag_event_callback != nullptr) {
+        }
+        auto event_cb = qdrag_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdrag_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDrag::event(event);
         }
+        return QDrag::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -182,15 +169,16 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_eventfilter_isbase) {
             qdrag_eventfilter_isbase = false;
             return QDrag::eventFilter(watched, event);
-        } else if (qdrag_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdrag_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdrag_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDrag::eventFilter(watched, event);
         }
+        return QDrag::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -198,13 +186,16 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_timerevent_isbase) {
             qdrag_timerevent_isbase = false;
             QDrag::timerEvent(event);
-        } else if (qdrag_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdrag_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdrag_timerevent_callback(this, cbval1);
-        } else {
-            QDrag::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDrag::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,13 +203,16 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_childevent_isbase) {
             qdrag_childevent_isbase = false;
             QDrag::childEvent(event);
-        } else if (qdrag_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdrag_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdrag_childevent_callback(this, cbval1);
-        } else {
-            QDrag::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDrag::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,13 +220,16 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_customevent_isbase) {
             qdrag_customevent_isbase = false;
             QDrag::customEvent(event);
-        } else if (qdrag_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdrag_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdrag_customevent_callback(this, cbval1);
-        } else {
-            QDrag::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDrag::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,15 +237,18 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_connectnotify_isbase) {
             qdrag_connectnotify_isbase = false;
             QDrag::connectNotify(signal);
-        } else if (qdrag_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdrag_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdrag_connectnotify_callback(this, cbval1);
-        } else {
-            QDrag::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDrag::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,15 +256,18 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_disconnectnotify_isbase) {
             qdrag_disconnectnotify_isbase = false;
             QDrag::disconnectNotify(signal);
-        } else if (qdrag_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdrag_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdrag_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDrag::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDrag::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,12 +275,13 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_sender_isbase) {
             qdrag_sender_isbase = false;
             return QDrag::sender();
-        } else if (qdrag_sender_callback != nullptr) {
-            QObject* callback_ret = qdrag_sender_callback();
-            return callback_ret;
-        } else {
-            return QDrag::sender();
         }
+        auto sender_cb = qdrag_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDrag::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,12 +289,13 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_sendersignalindex_isbase) {
             qdrag_sendersignalindex_isbase = false;
             return QDrag::senderSignalIndex();
-        } else if (qdrag_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdrag_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDrag::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdrag_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDrag::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,14 +303,15 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_receivers_isbase) {
             qdrag_receivers_isbase = false;
             return QDrag::receivers(signal);
-        } else if (qdrag_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdrag_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdrag_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDrag::receivers(signal);
         }
+        return QDrag::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,16 +319,17 @@ class VirtualQDrag final : public QDrag {
         if (qdrag_issignalconnected_isbase) {
             qdrag_issignalconnected_isbase = false;
             return QDrag::isSignalConnected(signal);
-        } else if (qdrag_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdrag_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdrag_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDrag::isSignalConnected(signal);
         }
+        return QDrag::isSignalConnected(signal);
     }
 
     // Friend functions

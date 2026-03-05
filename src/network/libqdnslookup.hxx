@@ -78,23 +78,6 @@ class VirtualQDnsLookup final : public QDnsLookup {
     VirtualQDnsLookup(QDnsLookup::Type typeVal, const QString& name, QDnsLookup::Protocol protocol, const QHostAddress& nameserver, quint16 port) : QDnsLookup(typeVal, name, protocol, nameserver, port) {};
     VirtualQDnsLookup(QDnsLookup::Type typeVal, const QString& name, QDnsLookup::Protocol protocol, const QHostAddress& nameserver, quint16 port, QObject* parent) : QDnsLookup(typeVal, name, protocol, nameserver, port, parent) {};
 
-    ~VirtualQDnsLookup() {
-        qdnslookup_metaobject_callback = nullptr;
-        qdnslookup_metacast_callback = nullptr;
-        qdnslookup_metacall_callback = nullptr;
-        qdnslookup_event_callback = nullptr;
-        qdnslookup_eventfilter_callback = nullptr;
-        qdnslookup_timerevent_callback = nullptr;
-        qdnslookup_childevent_callback = nullptr;
-        qdnslookup_customevent_callback = nullptr;
-        qdnslookup_connectnotify_callback = nullptr;
-        qdnslookup_disconnectnotify_callback = nullptr;
-        qdnslookup_sender_callback = nullptr;
-        qdnslookup_sendersignalindex_callback = nullptr;
-        qdnslookup_receivers_callback = nullptr;
-        qdnslookup_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDnsLookup_MetaObject_Callback(QDnsLookup_MetaObject_Callback cb) { qdnslookup_metaobject_callback = cb; }
     inline void setQDnsLookup_Metacast_Callback(QDnsLookup_Metacast_Callback cb) { qdnslookup_metacast_callback = cb; }
@@ -132,12 +115,13 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_metaobject_isbase) {
             qdnslookup_metaobject_isbase = false;
             return QDnsLookup::metaObject();
-        } else if (qdnslookup_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdnslookup_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDnsLookup::metaObject();
         }
+        auto metaobject_cb = qdnslookup_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDnsLookup::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -145,14 +129,15 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_metacast_isbase) {
             qdnslookup_metacast_isbase = false;
             return QDnsLookup::qt_metacast(param1);
-        } else if (qdnslookup_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdnslookup_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdnslookup_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDnsLookup::qt_metacast(param1);
         }
+        return QDnsLookup::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -160,16 +145,17 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_metacall_isbase) {
             qdnslookup_metacall_isbase = false;
             return QDnsLookup::qt_metacall(param1, param2, param3);
-        } else if (qdnslookup_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdnslookup_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdnslookup_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDnsLookup::qt_metacall(param1, param2, param3);
         }
+        return QDnsLookup::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -177,14 +163,15 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_event_isbase) {
             qdnslookup_event_isbase = false;
             return QDnsLookup::event(event);
-        } else if (qdnslookup_event_callback != nullptr) {
+        }
+        auto event_cb = qdnslookup_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdnslookup_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDnsLookup::event(event);
         }
+        return QDnsLookup::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -192,15 +179,16 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_eventfilter_isbase) {
             qdnslookup_eventfilter_isbase = false;
             return QDnsLookup::eventFilter(watched, event);
-        } else if (qdnslookup_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdnslookup_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdnslookup_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDnsLookup::eventFilter(watched, event);
         }
+        return QDnsLookup::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -208,13 +196,16 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_timerevent_isbase) {
             qdnslookup_timerevent_isbase = false;
             QDnsLookup::timerEvent(event);
-        } else if (qdnslookup_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdnslookup_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdnslookup_timerevent_callback(this, cbval1);
-        } else {
-            QDnsLookup::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDnsLookup::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -222,13 +213,16 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_childevent_isbase) {
             qdnslookup_childevent_isbase = false;
             QDnsLookup::childEvent(event);
-        } else if (qdnslookup_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdnslookup_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdnslookup_childevent_callback(this, cbval1);
-        } else {
-            QDnsLookup::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDnsLookup::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -236,13 +230,16 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_customevent_isbase) {
             qdnslookup_customevent_isbase = false;
             QDnsLookup::customEvent(event);
-        } else if (qdnslookup_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdnslookup_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdnslookup_customevent_callback(this, cbval1);
-        } else {
-            QDnsLookup::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDnsLookup::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,15 +247,18 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_connectnotify_isbase) {
             qdnslookup_connectnotify_isbase = false;
             QDnsLookup::connectNotify(signal);
-        } else if (qdnslookup_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdnslookup_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdnslookup_connectnotify_callback(this, cbval1);
-        } else {
-            QDnsLookup::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDnsLookup::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -266,15 +266,18 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_disconnectnotify_isbase) {
             qdnslookup_disconnectnotify_isbase = false;
             QDnsLookup::disconnectNotify(signal);
-        } else if (qdnslookup_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdnslookup_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdnslookup_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDnsLookup::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDnsLookup::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,12 +285,13 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_sender_isbase) {
             qdnslookup_sender_isbase = false;
             return QDnsLookup::sender();
-        } else if (qdnslookup_sender_callback != nullptr) {
-            QObject* callback_ret = qdnslookup_sender_callback();
-            return callback_ret;
-        } else {
-            return QDnsLookup::sender();
         }
+        auto sender_cb = qdnslookup_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDnsLookup::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,12 +299,13 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_sendersignalindex_isbase) {
             qdnslookup_sendersignalindex_isbase = false;
             return QDnsLookup::senderSignalIndex();
-        } else if (qdnslookup_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdnslookup_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDnsLookup::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdnslookup_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDnsLookup::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,14 +313,15 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_receivers_isbase) {
             qdnslookup_receivers_isbase = false;
             return QDnsLookup::receivers(signal);
-        } else if (qdnslookup_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdnslookup_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdnslookup_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDnsLookup::receivers(signal);
         }
+        return QDnsLookup::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -323,16 +329,17 @@ class VirtualQDnsLookup final : public QDnsLookup {
         if (qdnslookup_issignalconnected_isbase) {
             qdnslookup_issignalconnected_isbase = false;
             return QDnsLookup::isSignalConnected(signal);
-        } else if (qdnslookup_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdnslookup_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdnslookup_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDnsLookup::isSignalConnected(signal);
         }
+        return QDnsLookup::isSignalConnected(signal);
     }
 
     // Friend functions

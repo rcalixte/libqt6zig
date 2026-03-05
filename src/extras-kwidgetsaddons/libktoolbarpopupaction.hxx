@@ -77,26 +77,6 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
   public:
     VirtualKToolBarPopupAction(const QIcon& icon, const QString& text, QObject* parent) : KToolBarPopupAction(icon, text, parent) {};
 
-    ~VirtualKToolBarPopupAction() {
-        ktoolbarpopupaction_metaobject_callback = nullptr;
-        ktoolbarpopupaction_metacast_callback = nullptr;
-        ktoolbarpopupaction_metacall_callback = nullptr;
-        ktoolbarpopupaction_createwidget_callback = nullptr;
-        ktoolbarpopupaction_event_callback = nullptr;
-        ktoolbarpopupaction_eventfilter_callback = nullptr;
-        ktoolbarpopupaction_deletewidget_callback = nullptr;
-        ktoolbarpopupaction_timerevent_callback = nullptr;
-        ktoolbarpopupaction_childevent_callback = nullptr;
-        ktoolbarpopupaction_customevent_callback = nullptr;
-        ktoolbarpopupaction_connectnotify_callback = nullptr;
-        ktoolbarpopupaction_disconnectnotify_callback = nullptr;
-        ktoolbarpopupaction_createdwidgets_callback = nullptr;
-        ktoolbarpopupaction_sender_callback = nullptr;
-        ktoolbarpopupaction_sendersignalindex_callback = nullptr;
-        ktoolbarpopupaction_receivers_callback = nullptr;
-        ktoolbarpopupaction_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKToolBarPopupAction_MetaObject_Callback(KToolBarPopupAction_MetaObject_Callback cb) { ktoolbarpopupaction_metaobject_callback = cb; }
     inline void setKToolBarPopupAction_Metacast_Callback(KToolBarPopupAction_Metacast_Callback cb) { ktoolbarpopupaction_metacast_callback = cb; }
@@ -140,12 +120,13 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_metaobject_isbase) {
             ktoolbarpopupaction_metaobject_isbase = false;
             return KToolBarPopupAction::metaObject();
-        } else if (ktoolbarpopupaction_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktoolbarpopupaction_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KToolBarPopupAction::metaObject();
         }
+        auto metaobject_cb = ktoolbarpopupaction_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KToolBarPopupAction::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,14 +134,15 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_metacast_isbase) {
             ktoolbarpopupaction_metacast_isbase = false;
             return KToolBarPopupAction::qt_metacast(param1);
-        } else if (ktoolbarpopupaction_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktoolbarpopupaction_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktoolbarpopupaction_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBarPopupAction::qt_metacast(param1);
         }
+        return KToolBarPopupAction::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,16 +150,17 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_metacall_isbase) {
             ktoolbarpopupaction_metacall_isbase = false;
             return KToolBarPopupAction::qt_metacall(param1, param2, param3);
-        } else if (ktoolbarpopupaction_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktoolbarpopupaction_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktoolbarpopupaction_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolBarPopupAction::qt_metacall(param1, param2, param3);
         }
+        return KToolBarPopupAction::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,14 +168,15 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_createwidget_isbase) {
             ktoolbarpopupaction_createwidget_isbase = false;
             return KToolBarPopupAction::createWidget(parent);
-        } else if (ktoolbarpopupaction_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = ktoolbarpopupaction_createwidget_callback;
+        if (createwidget_cb) {
             QWidget* cbval1 = parent;
 
-            QWidget* callback_ret = ktoolbarpopupaction_createwidget_callback(this, cbval1);
+            QWidget* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBarPopupAction::createWidget(parent);
         }
+        return KToolBarPopupAction::createWidget(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -200,14 +184,15 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_event_isbase) {
             ktoolbarpopupaction_event_isbase = false;
             return KToolBarPopupAction::event(param1);
-        } else if (ktoolbarpopupaction_event_callback != nullptr) {
+        }
+        auto event_cb = ktoolbarpopupaction_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = ktoolbarpopupaction_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBarPopupAction::event(param1);
         }
+        return KToolBarPopupAction::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,15 +200,16 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_eventfilter_isbase) {
             ktoolbarpopupaction_eventfilter_isbase = false;
             return KToolBarPopupAction::eventFilter(param1, param2);
-        } else if (ktoolbarpopupaction_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktoolbarpopupaction_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = ktoolbarpopupaction_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KToolBarPopupAction::eventFilter(param1, param2);
         }
+        return KToolBarPopupAction::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -231,13 +217,16 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_deletewidget_isbase) {
             ktoolbarpopupaction_deletewidget_isbase = false;
             KToolBarPopupAction::deleteWidget(widget);
-        } else if (ktoolbarpopupaction_deletewidget_callback != nullptr) {
+            return;
+        }
+        auto deletewidget_cb = ktoolbarpopupaction_deletewidget_callback;
+        if (deletewidget_cb) {
             QWidget* cbval1 = widget;
 
-            ktoolbarpopupaction_deletewidget_callback(this, cbval1);
-        } else {
-            KToolBarPopupAction::deleteWidget(widget);
+            deletewidget_cb(this, cbval1);
+            return;
         }
+        KToolBarPopupAction::deleteWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -245,13 +234,16 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_timerevent_isbase) {
             ktoolbarpopupaction_timerevent_isbase = false;
             KToolBarPopupAction::timerEvent(event);
-        } else if (ktoolbarpopupaction_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktoolbarpopupaction_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktoolbarpopupaction_timerevent_callback(this, cbval1);
-        } else {
-            KToolBarPopupAction::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KToolBarPopupAction::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,13 +251,16 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_childevent_isbase) {
             ktoolbarpopupaction_childevent_isbase = false;
             KToolBarPopupAction::childEvent(event);
-        } else if (ktoolbarpopupaction_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktoolbarpopupaction_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktoolbarpopupaction_childevent_callback(this, cbval1);
-        } else {
-            KToolBarPopupAction::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KToolBarPopupAction::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,13 +268,16 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_customevent_isbase) {
             ktoolbarpopupaction_customevent_isbase = false;
             KToolBarPopupAction::customEvent(event);
-        } else if (ktoolbarpopupaction_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktoolbarpopupaction_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktoolbarpopupaction_customevent_callback(this, cbval1);
-        } else {
-            KToolBarPopupAction::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KToolBarPopupAction::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,15 +285,18 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_connectnotify_isbase) {
             ktoolbarpopupaction_connectnotify_isbase = false;
             KToolBarPopupAction::connectNotify(signal);
-        } else if (ktoolbarpopupaction_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktoolbarpopupaction_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktoolbarpopupaction_connectnotify_callback(this, cbval1);
-        } else {
-            KToolBarPopupAction::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KToolBarPopupAction::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,15 +304,18 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_disconnectnotify_isbase) {
             ktoolbarpopupaction_disconnectnotify_isbase = false;
             KToolBarPopupAction::disconnectNotify(signal);
-        } else if (ktoolbarpopupaction_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktoolbarpopupaction_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktoolbarpopupaction_disconnectnotify_callback(this, cbval1);
-        } else {
-            KToolBarPopupAction::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KToolBarPopupAction::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,8 +323,10 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_createdwidgets_isbase) {
             ktoolbarpopupaction_createdwidgets_isbase = false;
             return KToolBarPopupAction::createdWidgets();
-        } else if (ktoolbarpopupaction_createdwidgets_callback != nullptr) {
-            libqt_list /* of QWidget* */ callback_ret = ktoolbarpopupaction_createdwidgets_callback();
+        }
+        auto createdwidgets_cb = ktoolbarpopupaction_createdwidgets_callback;
+        if (createdwidgets_cb) {
+            libqt_list /* of QWidget* */ callback_ret = createdwidgets_cb();
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
@@ -329,9 +335,8 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KToolBarPopupAction::createdWidgets();
         }
+        return KToolBarPopupAction::createdWidgets();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,12 +344,13 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_sender_isbase) {
             ktoolbarpopupaction_sender_isbase = false;
             return KToolBarPopupAction::sender();
-        } else if (ktoolbarpopupaction_sender_callback != nullptr) {
-            QObject* callback_ret = ktoolbarpopupaction_sender_callback();
-            return callback_ret;
-        } else {
-            return KToolBarPopupAction::sender();
         }
+        auto sender_cb = ktoolbarpopupaction_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KToolBarPopupAction::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,12 +358,13 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_sendersignalindex_isbase) {
             ktoolbarpopupaction_sendersignalindex_isbase = false;
             return KToolBarPopupAction::senderSignalIndex();
-        } else if (ktoolbarpopupaction_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktoolbarpopupaction_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KToolBarPopupAction::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktoolbarpopupaction_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KToolBarPopupAction::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -365,14 +372,15 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_receivers_isbase) {
             ktoolbarpopupaction_receivers_isbase = false;
             return KToolBarPopupAction::receivers(signal);
-        } else if (ktoolbarpopupaction_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktoolbarpopupaction_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktoolbarpopupaction_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolBarPopupAction::receivers(signal);
         }
+        return KToolBarPopupAction::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,16 +388,17 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
         if (ktoolbarpopupaction_issignalconnected_isbase) {
             ktoolbarpopupaction_issignalconnected_isbase = false;
             return KToolBarPopupAction::isSignalConnected(signal);
-        } else if (ktoolbarpopupaction_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktoolbarpopupaction_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktoolbarpopupaction_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBarPopupAction::isSignalConnected(signal);
         }
+        return KToolBarPopupAction::isSignalConnected(signal);
     }
 
     // Friend functions

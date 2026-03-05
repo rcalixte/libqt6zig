@@ -207,69 +207,6 @@ class VirtualKFileWidget final : public KFileWidget {
     VirtualKFileWidget(const QUrl& startDir) : KFileWidget(startDir) {};
     VirtualKFileWidget(const QUrl& startDir, QWidget* parent) : KFileWidget(startDir, parent) {};
 
-    ~VirtualKFileWidget() {
-        kfilewidget_metaobject_callback = nullptr;
-        kfilewidget_metacast_callback = nullptr;
-        kfilewidget_metacall_callback = nullptr;
-        kfilewidget_sizehint_callback = nullptr;
-        kfilewidget_resizeevent_callback = nullptr;
-        kfilewidget_showevent_callback = nullptr;
-        kfilewidget_eventfilter_callback = nullptr;
-        kfilewidget_devtype_callback = nullptr;
-        kfilewidget_setvisible_callback = nullptr;
-        kfilewidget_minimumsizehint_callback = nullptr;
-        kfilewidget_heightforwidth_callback = nullptr;
-        kfilewidget_hasheightforwidth_callback = nullptr;
-        kfilewidget_paintengine_callback = nullptr;
-        kfilewidget_event_callback = nullptr;
-        kfilewidget_mousepressevent_callback = nullptr;
-        kfilewidget_mousereleaseevent_callback = nullptr;
-        kfilewidget_mousedoubleclickevent_callback = nullptr;
-        kfilewidget_mousemoveevent_callback = nullptr;
-        kfilewidget_wheelevent_callback = nullptr;
-        kfilewidget_keypressevent_callback = nullptr;
-        kfilewidget_keyreleaseevent_callback = nullptr;
-        kfilewidget_focusinevent_callback = nullptr;
-        kfilewidget_focusoutevent_callback = nullptr;
-        kfilewidget_enterevent_callback = nullptr;
-        kfilewidget_leaveevent_callback = nullptr;
-        kfilewidget_paintevent_callback = nullptr;
-        kfilewidget_moveevent_callback = nullptr;
-        kfilewidget_closeevent_callback = nullptr;
-        kfilewidget_contextmenuevent_callback = nullptr;
-        kfilewidget_tabletevent_callback = nullptr;
-        kfilewidget_actionevent_callback = nullptr;
-        kfilewidget_dragenterevent_callback = nullptr;
-        kfilewidget_dragmoveevent_callback = nullptr;
-        kfilewidget_dragleaveevent_callback = nullptr;
-        kfilewidget_dropevent_callback = nullptr;
-        kfilewidget_hideevent_callback = nullptr;
-        kfilewidget_nativeevent_callback = nullptr;
-        kfilewidget_changeevent_callback = nullptr;
-        kfilewidget_metric_callback = nullptr;
-        kfilewidget_initpainter_callback = nullptr;
-        kfilewidget_redirected_callback = nullptr;
-        kfilewidget_sharedpainter_callback = nullptr;
-        kfilewidget_inputmethodevent_callback = nullptr;
-        kfilewidget_inputmethodquery_callback = nullptr;
-        kfilewidget_focusnextprevchild_callback = nullptr;
-        kfilewidget_timerevent_callback = nullptr;
-        kfilewidget_childevent_callback = nullptr;
-        kfilewidget_customevent_callback = nullptr;
-        kfilewidget_connectnotify_callback = nullptr;
-        kfilewidget_disconnectnotify_callback = nullptr;
-        kfilewidget_updatemicrofocus_callback = nullptr;
-        kfilewidget_create_callback = nullptr;
-        kfilewidget_destroy_callback = nullptr;
-        kfilewidget_focusnextchild_callback = nullptr;
-        kfilewidget_focuspreviouschild_callback = nullptr;
-        kfilewidget_sender_callback = nullptr;
-        kfilewidget_sendersignalindex_callback = nullptr;
-        kfilewidget_receivers_callback = nullptr;
-        kfilewidget_issignalconnected_callback = nullptr;
-        kfilewidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFileWidget_MetaObject_Callback(KFileWidget_MetaObject_Callback cb) { kfilewidget_metaobject_callback = cb; }
     inline void setKFileWidget_Metacast_Callback(KFileWidget_Metacast_Callback cb) { kfilewidget_metacast_callback = cb; }
@@ -399,12 +336,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_metaobject_isbase) {
             kfilewidget_metaobject_isbase = false;
             return KFileWidget::metaObject();
-        } else if (kfilewidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfilewidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFileWidget::metaObject();
         }
+        auto metaobject_cb = kfilewidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFileWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,14 +350,15 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_metacast_isbase) {
             kfilewidget_metacast_isbase = false;
             return KFileWidget::qt_metacast(param1);
-        } else if (kfilewidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfilewidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfilewidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileWidget::qt_metacast(param1);
         }
+        return KFileWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,16 +366,17 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_metacall_isbase) {
             kfilewidget_metacall_isbase = false;
             return KFileWidget::qt_metacall(param1, param2, param3);
-        } else if (kfilewidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfilewidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfilewidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileWidget::qt_metacall(param1, param2, param3);
         }
+        return KFileWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,12 +384,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_sizehint_isbase) {
             kfilewidget_sizehint_isbase = false;
             return KFileWidget::sizeHint();
-        } else if (kfilewidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = kfilewidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFileWidget::sizeHint();
         }
+        auto sizehint_cb = kfilewidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KFileWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,13 +398,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_resizeevent_isbase) {
             kfilewidget_resizeevent_isbase = false;
             KFileWidget::resizeEvent(event);
-        } else if (kfilewidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kfilewidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kfilewidget_resizeevent_callback(this, cbval1);
-        } else {
-            KFileWidget::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,13 +415,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_showevent_isbase) {
             kfilewidget_showevent_isbase = false;
             KFileWidget::showEvent(event);
-        } else if (kfilewidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kfilewidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kfilewidget_showevent_callback(this, cbval1);
-        } else {
-            KFileWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -485,15 +432,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_eventfilter_isbase) {
             kfilewidget_eventfilter_isbase = false;
             return KFileWidget::eventFilter(watched, event);
-        } else if (kfilewidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfilewidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kfilewidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFileWidget::eventFilter(watched, event);
         }
+        return KFileWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -501,12 +449,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_devtype_isbase) {
             kfilewidget_devtype_isbase = false;
             return KFileWidget::devType();
-        } else if (kfilewidget_devtype_callback != nullptr) {
-            int callback_ret = kfilewidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFileWidget::devType();
         }
+        auto devtype_cb = kfilewidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFileWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,13 +463,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_setvisible_isbase) {
             kfilewidget_setvisible_isbase = false;
             KFileWidget::setVisible(visible);
-        } else if (kfilewidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kfilewidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kfilewidget_setvisible_callback(this, cbval1);
-        } else {
-            KFileWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KFileWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,12 +480,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_minimumsizehint_isbase) {
             kfilewidget_minimumsizehint_isbase = false;
             return KFileWidget::minimumSizeHint();
-        } else if (kfilewidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kfilewidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFileWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kfilewidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KFileWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,14 +494,15 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_heightforwidth_isbase) {
             kfilewidget_heightforwidth_isbase = false;
             return KFileWidget::heightForWidth(param1);
-        } else if (kfilewidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kfilewidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kfilewidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileWidget::heightForWidth(param1);
         }
+        return KFileWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,12 +510,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_hasheightforwidth_isbase) {
             kfilewidget_hasheightforwidth_isbase = false;
             return KFileWidget::hasHeightForWidth();
-        } else if (kfilewidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kfilewidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KFileWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kfilewidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KFileWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,12 +524,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_paintengine_isbase) {
             kfilewidget_paintengine_isbase = false;
             return KFileWidget::paintEngine();
-        } else if (kfilewidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kfilewidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KFileWidget::paintEngine();
         }
+        auto paintengine_cb = kfilewidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KFileWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,14 +538,15 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_event_isbase) {
             kfilewidget_event_isbase = false;
             return KFileWidget::event(event);
-        } else if (kfilewidget_event_callback != nullptr) {
+        }
+        auto event_cb = kfilewidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfilewidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileWidget::event(event);
         }
+        return KFileWidget::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,13 +554,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_mousepressevent_isbase) {
             kfilewidget_mousepressevent_isbase = false;
             KFileWidget::mousePressEvent(event);
-        } else if (kfilewidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kfilewidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfilewidget_mousepressevent_callback(this, cbval1);
-        } else {
-            KFileWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +571,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_mousereleaseevent_isbase) {
             kfilewidget_mousereleaseevent_isbase = false;
             KFileWidget::mouseReleaseEvent(event);
-        } else if (kfilewidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kfilewidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfilewidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KFileWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,13 +588,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_mousedoubleclickevent_isbase) {
             kfilewidget_mousedoubleclickevent_isbase = false;
             KFileWidget::mouseDoubleClickEvent(event);
-        } else if (kfilewidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kfilewidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfilewidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KFileWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,13 +605,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_mousemoveevent_isbase) {
             kfilewidget_mousemoveevent_isbase = false;
             KFileWidget::mouseMoveEvent(event);
-        } else if (kfilewidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kfilewidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfilewidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            KFileWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +622,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_wheelevent_isbase) {
             kfilewidget_wheelevent_isbase = false;
             KFileWidget::wheelEvent(event);
-        } else if (kfilewidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kfilewidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kfilewidget_wheelevent_callback(this, cbval1);
-        } else {
-            KFileWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,13 +639,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_keypressevent_isbase) {
             kfilewidget_keypressevent_isbase = false;
             KFileWidget::keyPressEvent(event);
-        } else if (kfilewidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kfilewidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kfilewidget_keypressevent_callback(this, cbval1);
-        } else {
-            KFileWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,13 +656,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_keyreleaseevent_isbase) {
             kfilewidget_keyreleaseevent_isbase = false;
             KFileWidget::keyReleaseEvent(event);
-        } else if (kfilewidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kfilewidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kfilewidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KFileWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,13 +673,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_focusinevent_isbase) {
             kfilewidget_focusinevent_isbase = false;
             KFileWidget::focusInEvent(event);
-        } else if (kfilewidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kfilewidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kfilewidget_focusinevent_callback(this, cbval1);
-        } else {
-            KFileWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +690,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_focusoutevent_isbase) {
             kfilewidget_focusoutevent_isbase = false;
             KFileWidget::focusOutEvent(event);
-        } else if (kfilewidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kfilewidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kfilewidget_focusoutevent_callback(this, cbval1);
-        } else {
-            KFileWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,13 +707,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_enterevent_isbase) {
             kfilewidget_enterevent_isbase = false;
             KFileWidget::enterEvent(event);
-        } else if (kfilewidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kfilewidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kfilewidget_enterevent_callback(this, cbval1);
-        } else {
-            KFileWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,13 +724,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_leaveevent_isbase) {
             kfilewidget_leaveevent_isbase = false;
             KFileWidget::leaveEvent(event);
-        } else if (kfilewidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kfilewidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kfilewidget_leaveevent_callback(this, cbval1);
-        } else {
-            KFileWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,13 +741,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_paintevent_isbase) {
             kfilewidget_paintevent_isbase = false;
             KFileWidget::paintEvent(event);
-        } else if (kfilewidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kfilewidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kfilewidget_paintevent_callback(this, cbval1);
-        } else {
-            KFileWidget::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +758,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_moveevent_isbase) {
             kfilewidget_moveevent_isbase = false;
             KFileWidget::moveEvent(event);
-        } else if (kfilewidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kfilewidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kfilewidget_moveevent_callback(this, cbval1);
-        } else {
-            KFileWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +775,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_closeevent_isbase) {
             kfilewidget_closeevent_isbase = false;
             KFileWidget::closeEvent(event);
-        } else if (kfilewidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kfilewidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kfilewidget_closeevent_callback(this, cbval1);
-        } else {
-            KFileWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +792,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_contextmenuevent_isbase) {
             kfilewidget_contextmenuevent_isbase = false;
             KFileWidget::contextMenuEvent(event);
-        } else if (kfilewidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kfilewidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kfilewidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            KFileWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +809,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_tabletevent_isbase) {
             kfilewidget_tabletevent_isbase = false;
             KFileWidget::tabletEvent(event);
-        } else if (kfilewidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kfilewidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kfilewidget_tabletevent_callback(this, cbval1);
-        } else {
-            KFileWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +826,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_actionevent_isbase) {
             kfilewidget_actionevent_isbase = false;
             KFileWidget::actionEvent(event);
-        } else if (kfilewidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kfilewidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kfilewidget_actionevent_callback(this, cbval1);
-        } else {
-            KFileWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +843,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_dragenterevent_isbase) {
             kfilewidget_dragenterevent_isbase = false;
             KFileWidget::dragEnterEvent(event);
-        } else if (kfilewidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kfilewidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kfilewidget_dragenterevent_callback(this, cbval1);
-        } else {
-            KFileWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +860,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_dragmoveevent_isbase) {
             kfilewidget_dragmoveevent_isbase = false;
             KFileWidget::dragMoveEvent(event);
-        } else if (kfilewidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kfilewidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kfilewidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            KFileWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +877,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_dragleaveevent_isbase) {
             kfilewidget_dragleaveevent_isbase = false;
             KFileWidget::dragLeaveEvent(event);
-        } else if (kfilewidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kfilewidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kfilewidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            KFileWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +894,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_dropevent_isbase) {
             kfilewidget_dropevent_isbase = false;
             KFileWidget::dropEvent(event);
-        } else if (kfilewidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kfilewidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kfilewidget_dropevent_callback(this, cbval1);
-        } else {
-            KFileWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +911,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_hideevent_isbase) {
             kfilewidget_hideevent_isbase = false;
             KFileWidget::hideEvent(event);
-        } else if (kfilewidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kfilewidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kfilewidget_hideevent_callback(this, cbval1);
-        } else {
-            KFileWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,7 +928,9 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_nativeevent_isbase) {
             kfilewidget_nativeevent_isbase = false;
             return KFileWidget::nativeEvent(eventType, message, result);
-        } else if (kfilewidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kfilewidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -916,12 +941,11 @@ class VirtualKFileWidget final : public KFileWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kfilewidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KFileWidget::nativeEvent(eventType, message, result);
         }
+        return KFileWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -929,13 +953,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_changeevent_isbase) {
             kfilewidget_changeevent_isbase = false;
             KFileWidget::changeEvent(param1);
-        } else if (kfilewidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kfilewidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kfilewidget_changeevent_callback(this, cbval1);
-        } else {
-            KFileWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -943,14 +970,15 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_metric_isbase) {
             kfilewidget_metric_isbase = false;
             return KFileWidget::metric(param1);
-        } else if (kfilewidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = kfilewidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kfilewidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileWidget::metric(param1);
         }
+        return KFileWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +986,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_initpainter_isbase) {
             kfilewidget_initpainter_isbase = false;
             KFileWidget::initPainter(painter);
-        } else if (kfilewidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kfilewidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kfilewidget_initpainter_callback(this, cbval1);
-        } else {
-            KFileWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KFileWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,14 +1003,15 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_redirected_isbase) {
             kfilewidget_redirected_isbase = false;
             return KFileWidget::redirected(offset);
-        } else if (kfilewidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kfilewidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kfilewidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileWidget::redirected(offset);
         }
+        return KFileWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -987,12 +1019,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_sharedpainter_isbase) {
             kfilewidget_sharedpainter_isbase = false;
             return KFileWidget::sharedPainter();
-        } else if (kfilewidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kfilewidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KFileWidget::sharedPainter();
         }
+        auto sharedpainter_cb = kfilewidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KFileWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,13 +1033,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_inputmethodevent_isbase) {
             kfilewidget_inputmethodevent_isbase = false;
             KFileWidget::inputMethodEvent(param1);
-        } else if (kfilewidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kfilewidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kfilewidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            KFileWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,14 +1050,15 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_inputmethodquery_isbase) {
             kfilewidget_inputmethodquery_isbase = false;
             return KFileWidget::inputMethodQuery(param1);
-        } else if (kfilewidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kfilewidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kfilewidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFileWidget::inputMethodQuery(param1);
         }
+        return KFileWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,14 +1066,15 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_focusnextprevchild_isbase) {
             kfilewidget_focusnextprevchild_isbase = false;
             return KFileWidget::focusNextPrevChild(next);
-        } else if (kfilewidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kfilewidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kfilewidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileWidget::focusNextPrevChild(next);
         }
+        return KFileWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,13 +1082,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_timerevent_isbase) {
             kfilewidget_timerevent_isbase = false;
             KFileWidget::timerEvent(event);
-        } else if (kfilewidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfilewidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfilewidget_timerevent_callback(this, cbval1);
-        } else {
-            KFileWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1099,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_childevent_isbase) {
             kfilewidget_childevent_isbase = false;
             KFileWidget::childEvent(event);
-        } else if (kfilewidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfilewidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfilewidget_childevent_callback(this, cbval1);
-        } else {
-            KFileWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,13 +1116,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_customevent_isbase) {
             kfilewidget_customevent_isbase = false;
             KFileWidget::customEvent(event);
-        } else if (kfilewidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfilewidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfilewidget_customevent_callback(this, cbval1);
-        } else {
-            KFileWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFileWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,15 +1133,18 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_connectnotify_isbase) {
             kfilewidget_connectnotify_isbase = false;
             KFileWidget::connectNotify(signal);
-        } else if (kfilewidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfilewidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfilewidget_connectnotify_callback(this, cbval1);
-        } else {
-            KFileWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFileWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,15 +1152,18 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_disconnectnotify_isbase) {
             kfilewidget_disconnectnotify_isbase = false;
             KFileWidget::disconnectNotify(signal);
-        } else if (kfilewidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfilewidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfilewidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFileWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFileWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,11 +1171,14 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_updatemicrofocus_isbase) {
             kfilewidget_updatemicrofocus_isbase = false;
             KFileWidget::updateMicroFocus();
-        } else if (kfilewidget_updatemicrofocus_callback != nullptr) {
-            kfilewidget_updatemicrofocus_callback();
-        } else {
-            KFileWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kfilewidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KFileWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,11 +1186,14 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_create_isbase) {
             kfilewidget_create_isbase = false;
             KFileWidget::create();
-        } else if (kfilewidget_create_callback != nullptr) {
-            kfilewidget_create_callback();
-        } else {
-            KFileWidget::create();
+            return;
         }
+        auto create_cb = kfilewidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KFileWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1201,14 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_destroy_isbase) {
             kfilewidget_destroy_isbase = false;
             KFileWidget::destroy();
-        } else if (kfilewidget_destroy_callback != nullptr) {
-            kfilewidget_destroy_callback();
-        } else {
-            KFileWidget::destroy();
+            return;
         }
+        auto destroy_cb = kfilewidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KFileWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,12 +1216,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_focusnextchild_isbase) {
             kfilewidget_focusnextchild_isbase = false;
             return KFileWidget::focusNextChild();
-        } else if (kfilewidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = kfilewidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KFileWidget::focusNextChild();
         }
+        auto focusnextchild_cb = kfilewidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KFileWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,12 +1230,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_focuspreviouschild_isbase) {
             kfilewidget_focuspreviouschild_isbase = false;
             return KFileWidget::focusPreviousChild();
-        } else if (kfilewidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kfilewidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KFileWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kfilewidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KFileWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,12 +1244,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_sender_isbase) {
             kfilewidget_sender_isbase = false;
             return KFileWidget::sender();
-        } else if (kfilewidget_sender_callback != nullptr) {
-            QObject* callback_ret = kfilewidget_sender_callback();
-            return callback_ret;
-        } else {
-            return KFileWidget::sender();
         }
+        auto sender_cb = kfilewidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFileWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,12 +1258,13 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_sendersignalindex_isbase) {
             kfilewidget_sendersignalindex_isbase = false;
             return KFileWidget::senderSignalIndex();
-        } else if (kfilewidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfilewidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFileWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfilewidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFileWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,14 +1272,15 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_receivers_isbase) {
             kfilewidget_receivers_isbase = false;
             return KFileWidget::receivers(signal);
-        } else if (kfilewidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfilewidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfilewidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileWidget::receivers(signal);
         }
+        return KFileWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,16 +1288,17 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_issignalconnected_isbase) {
             kfilewidget_issignalconnected_isbase = false;
             return KFileWidget::isSignalConnected(signal);
-        } else if (kfilewidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfilewidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfilewidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileWidget::isSignalConnected(signal);
         }
+        return KFileWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,15 +1306,16 @@ class VirtualKFileWidget final : public KFileWidget {
         if (kfilewidget_getdecodedmetricf_isbase) {
             kfilewidget_getdecodedmetricf_isbase = false;
             return KFileWidget::getDecodedMetricF(metricA, metricB);
-        } else if (kfilewidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kfilewidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kfilewidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KFileWidget::getDecodedMetricF(metricA, metricB);
         }
+        return KFileWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

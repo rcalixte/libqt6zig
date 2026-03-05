@@ -38,13 +38,6 @@ class VirtualQOpenGLFunctions_3_3_Compatibility final : public QOpenGLFunctions_
   public:
     VirtualQOpenGLFunctions_3_3_Compatibility() : QOpenGLFunctions_3_3_Compatibility() {};
 
-    ~VirtualQOpenGLFunctions_3_3_Compatibility() {
-        qopenglfunctions_3_3_compatibility_initializeopenglfunctions_callback = nullptr;
-        qopenglfunctions_3_3_compatibility_isinitialized_callback = nullptr;
-        qopenglfunctions_3_3_compatibility_setowningcontext_callback = nullptr;
-        qopenglfunctions_3_3_compatibility_owningcontext_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQOpenGLFunctions_3_3_Compatibility_InitializeOpenGLFunctions_Callback(QOpenGLFunctions_3_3_Compatibility_InitializeOpenGLFunctions_Callback cb) { qopenglfunctions_3_3_compatibility_initializeopenglfunctions_callback = cb; }
     inline void setQOpenGLFunctions_3_3_Compatibility_IsInitialized_Callback(QOpenGLFunctions_3_3_Compatibility_IsInitialized_Callback cb) { qopenglfunctions_3_3_compatibility_isinitialized_callback = cb; }
@@ -62,12 +55,13 @@ class VirtualQOpenGLFunctions_3_3_Compatibility final : public QOpenGLFunctions_
         if (qopenglfunctions_3_3_compatibility_initializeopenglfunctions_isbase) {
             qopenglfunctions_3_3_compatibility_initializeopenglfunctions_isbase = false;
             return QOpenGLFunctions_3_3_Compatibility::initializeOpenGLFunctions();
-        } else if (qopenglfunctions_3_3_compatibility_initializeopenglfunctions_callback != nullptr) {
-            bool callback_ret = qopenglfunctions_3_3_compatibility_initializeopenglfunctions_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLFunctions_3_3_Compatibility::initializeOpenGLFunctions();
         }
+        auto initializeopenglfunctions_cb = qopenglfunctions_3_3_compatibility_initializeopenglfunctions_callback;
+        if (initializeopenglfunctions_cb) {
+            bool callback_ret = initializeopenglfunctions_cb();
+            return callback_ret;
+        }
+        return QOpenGLFunctions_3_3_Compatibility::initializeOpenGLFunctions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -75,12 +69,13 @@ class VirtualQOpenGLFunctions_3_3_Compatibility final : public QOpenGLFunctions_
         if (qopenglfunctions_3_3_compatibility_isinitialized_isbase) {
             qopenglfunctions_3_3_compatibility_isinitialized_isbase = false;
             return QOpenGLFunctions_3_3_Compatibility::isInitialized();
-        } else if (qopenglfunctions_3_3_compatibility_isinitialized_callback != nullptr) {
-            bool callback_ret = qopenglfunctions_3_3_compatibility_isinitialized_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLFunctions_3_3_Compatibility::isInitialized();
         }
+        auto isinitialized_cb = qopenglfunctions_3_3_compatibility_isinitialized_callback;
+        if (isinitialized_cb) {
+            bool callback_ret = isinitialized_cb();
+            return callback_ret;
+        }
+        return QOpenGLFunctions_3_3_Compatibility::isInitialized();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -88,13 +83,16 @@ class VirtualQOpenGLFunctions_3_3_Compatibility final : public QOpenGLFunctions_
         if (qopenglfunctions_3_3_compatibility_setowningcontext_isbase) {
             qopenglfunctions_3_3_compatibility_setowningcontext_isbase = false;
             QOpenGLFunctions_3_3_Compatibility::setOwningContext(context);
-        } else if (qopenglfunctions_3_3_compatibility_setowningcontext_callback != nullptr) {
+            return;
+        }
+        auto setowningcontext_cb = qopenglfunctions_3_3_compatibility_setowningcontext_callback;
+        if (setowningcontext_cb) {
             QOpenGLContext* cbval1 = (QOpenGLContext*)context;
 
-            qopenglfunctions_3_3_compatibility_setowningcontext_callback(this, cbval1);
-        } else {
-            QOpenGLFunctions_3_3_Compatibility::setOwningContext(context);
+            setowningcontext_cb(this, cbval1);
+            return;
         }
+        QOpenGLFunctions_3_3_Compatibility::setOwningContext(context);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -102,12 +100,13 @@ class VirtualQOpenGLFunctions_3_3_Compatibility final : public QOpenGLFunctions_
         if (qopenglfunctions_3_3_compatibility_owningcontext_isbase) {
             qopenglfunctions_3_3_compatibility_owningcontext_isbase = false;
             return QOpenGLFunctions_3_3_Compatibility::owningContext();
-        } else if (qopenglfunctions_3_3_compatibility_owningcontext_callback != nullptr) {
-            QOpenGLContext* callback_ret = qopenglfunctions_3_3_compatibility_owningcontext_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLFunctions_3_3_Compatibility::owningContext();
         }
+        auto owningcontext_cb = qopenglfunctions_3_3_compatibility_owningcontext_callback;
+        if (owningcontext_cb) {
+            QOpenGLContext* callback_ret = owningcontext_cb();
+            return callback_ret;
+        }
+        return QOpenGLFunctions_3_3_Compatibility::owningContext();
     }
 
     // Friend functions

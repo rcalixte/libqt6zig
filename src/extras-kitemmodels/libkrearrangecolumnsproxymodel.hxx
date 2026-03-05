@@ -264,88 +264,6 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
     VirtualKRearrangeColumnsProxyModel() : KRearrangeColumnsProxyModel() {};
     VirtualKRearrangeColumnsProxyModel(QObject* parent) : KRearrangeColumnsProxyModel(parent) {};
 
-    ~VirtualKRearrangeColumnsProxyModel() {
-        krearrangecolumnsproxymodel_metaobject_callback = nullptr;
-        krearrangecolumnsproxymodel_metacast_callback = nullptr;
-        krearrangecolumnsproxymodel_metacall_callback = nullptr;
-        krearrangecolumnsproxymodel_columncount_callback = nullptr;
-        krearrangecolumnsproxymodel_rowcount_callback = nullptr;
-        krearrangecolumnsproxymodel_index_callback = nullptr;
-        krearrangecolumnsproxymodel_parent_callback = nullptr;
-        krearrangecolumnsproxymodel_mapfromsource_callback = nullptr;
-        krearrangecolumnsproxymodel_maptosource_callback = nullptr;
-        krearrangecolumnsproxymodel_headerdata_callback = nullptr;
-        krearrangecolumnsproxymodel_haschildren_callback = nullptr;
-        krearrangecolumnsproxymodel_sibling_callback = nullptr;
-        krearrangecolumnsproxymodel_dropmimedata_callback = nullptr;
-        krearrangecolumnsproxymodel_mapselectionfromsource_callback = nullptr;
-        krearrangecolumnsproxymodel_mapselectiontosource_callback = nullptr;
-        krearrangecolumnsproxymodel_match_callback = nullptr;
-        krearrangecolumnsproxymodel_setsourcemodel_callback = nullptr;
-        krearrangecolumnsproxymodel_insertcolumns_callback = nullptr;
-        krearrangecolumnsproxymodel_insertrows_callback = nullptr;
-        krearrangecolumnsproxymodel_removecolumns_callback = nullptr;
-        krearrangecolumnsproxymodel_removerows_callback = nullptr;
-        krearrangecolumnsproxymodel_moverows_callback = nullptr;
-        krearrangecolumnsproxymodel_movecolumns_callback = nullptr;
-        krearrangecolumnsproxymodel_submit_callback = nullptr;
-        krearrangecolumnsproxymodel_revert_callback = nullptr;
-        krearrangecolumnsproxymodel_data_callback = nullptr;
-        krearrangecolumnsproxymodel_itemdata_callback = nullptr;
-        krearrangecolumnsproxymodel_flags_callback = nullptr;
-        krearrangecolumnsproxymodel_setdata_callback = nullptr;
-        krearrangecolumnsproxymodel_setitemdata_callback = nullptr;
-        krearrangecolumnsproxymodel_setheaderdata_callback = nullptr;
-        krearrangecolumnsproxymodel_clearitemdata_callback = nullptr;
-        krearrangecolumnsproxymodel_buddy_callback = nullptr;
-        krearrangecolumnsproxymodel_canfetchmore_callback = nullptr;
-        krearrangecolumnsproxymodel_fetchmore_callback = nullptr;
-        krearrangecolumnsproxymodel_sort_callback = nullptr;
-        krearrangecolumnsproxymodel_span_callback = nullptr;
-        krearrangecolumnsproxymodel_mimedata_callback = nullptr;
-        krearrangecolumnsproxymodel_candropmimedata_callback = nullptr;
-        krearrangecolumnsproxymodel_mimetypes_callback = nullptr;
-        krearrangecolumnsproxymodel_supporteddragactions_callback = nullptr;
-        krearrangecolumnsproxymodel_supporteddropactions_callback = nullptr;
-        krearrangecolumnsproxymodel_rolenames_callback = nullptr;
-        krearrangecolumnsproxymodel_multidata_callback = nullptr;
-        krearrangecolumnsproxymodel_resetinternaldata_callback = nullptr;
-        krearrangecolumnsproxymodel_event_callback = nullptr;
-        krearrangecolumnsproxymodel_eventfilter_callback = nullptr;
-        krearrangecolumnsproxymodel_timerevent_callback = nullptr;
-        krearrangecolumnsproxymodel_childevent_callback = nullptr;
-        krearrangecolumnsproxymodel_customevent_callback = nullptr;
-        krearrangecolumnsproxymodel_connectnotify_callback = nullptr;
-        krearrangecolumnsproxymodel_disconnectnotify_callback = nullptr;
-        krearrangecolumnsproxymodel_sethandlesourcelayoutchanges_callback = nullptr;
-        krearrangecolumnsproxymodel_sethandlesourcedatachanges_callback = nullptr;
-        krearrangecolumnsproxymodel_createsourceindex_callback = nullptr;
-        krearrangecolumnsproxymodel_createindex_callback = nullptr;
-        krearrangecolumnsproxymodel_encodedata_callback = nullptr;
-        krearrangecolumnsproxymodel_decodedata_callback = nullptr;
-        krearrangecolumnsproxymodel_begininsertrows_callback = nullptr;
-        krearrangecolumnsproxymodel_endinsertrows_callback = nullptr;
-        krearrangecolumnsproxymodel_beginremoverows_callback = nullptr;
-        krearrangecolumnsproxymodel_endremoverows_callback = nullptr;
-        krearrangecolumnsproxymodel_beginmoverows_callback = nullptr;
-        krearrangecolumnsproxymodel_endmoverows_callback = nullptr;
-        krearrangecolumnsproxymodel_begininsertcolumns_callback = nullptr;
-        krearrangecolumnsproxymodel_endinsertcolumns_callback = nullptr;
-        krearrangecolumnsproxymodel_beginremovecolumns_callback = nullptr;
-        krearrangecolumnsproxymodel_endremovecolumns_callback = nullptr;
-        krearrangecolumnsproxymodel_beginmovecolumns_callback = nullptr;
-        krearrangecolumnsproxymodel_endmovecolumns_callback = nullptr;
-        krearrangecolumnsproxymodel_beginresetmodel_callback = nullptr;
-        krearrangecolumnsproxymodel_endresetmodel_callback = nullptr;
-        krearrangecolumnsproxymodel_changepersistentindex_callback = nullptr;
-        krearrangecolumnsproxymodel_changepersistentindexlist_callback = nullptr;
-        krearrangecolumnsproxymodel_persistentindexlist_callback = nullptr;
-        krearrangecolumnsproxymodel_sender_callback = nullptr;
-        krearrangecolumnsproxymodel_sendersignalindex_callback = nullptr;
-        krearrangecolumnsproxymodel_receivers_callback = nullptr;
-        krearrangecolumnsproxymodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKRearrangeColumnsProxyModel_MetaObject_Callback(KRearrangeColumnsProxyModel_MetaObject_Callback cb) { krearrangecolumnsproxymodel_metaobject_callback = cb; }
     inline void setKRearrangeColumnsProxyModel_Metacast_Callback(KRearrangeColumnsProxyModel_Metacast_Callback cb) { krearrangecolumnsproxymodel_metacast_callback = cb; }
@@ -513,12 +431,13 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_metaobject_isbase) {
             krearrangecolumnsproxymodel_metaobject_isbase = false;
             return KRearrangeColumnsProxyModel::metaObject();
-        } else if (krearrangecolumnsproxymodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = krearrangecolumnsproxymodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::metaObject();
         }
+        auto metaobject_cb = krearrangecolumnsproxymodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KRearrangeColumnsProxyModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,14 +445,15 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_metacast_isbase) {
             krearrangecolumnsproxymodel_metacast_isbase = false;
             return KRearrangeColumnsProxyModel::qt_metacast(param1);
-        } else if (krearrangecolumnsproxymodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = krearrangecolumnsproxymodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = krearrangecolumnsproxymodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::qt_metacast(param1);
         }
+        return KRearrangeColumnsProxyModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,16 +461,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_metacall_isbase) {
             krearrangecolumnsproxymodel_metacall_isbase = false;
             return KRearrangeColumnsProxyModel::qt_metacall(param1, param2, param3);
-        } else if (krearrangecolumnsproxymodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = krearrangecolumnsproxymodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = krearrangecolumnsproxymodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRearrangeColumnsProxyModel::qt_metacall(param1, param2, param3);
         }
+        return KRearrangeColumnsProxyModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -558,16 +479,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_columncount_isbase) {
             krearrangecolumnsproxymodel_columncount_isbase = false;
             return KRearrangeColumnsProxyModel::columnCount(parent);
-        } else if (krearrangecolumnsproxymodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = krearrangecolumnsproxymodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = krearrangecolumnsproxymodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRearrangeColumnsProxyModel::columnCount(parent);
         }
+        return KRearrangeColumnsProxyModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -575,16 +497,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_rowcount_isbase) {
             krearrangecolumnsproxymodel_rowcount_isbase = false;
             return KRearrangeColumnsProxyModel::rowCount(parent);
-        } else if (krearrangecolumnsproxymodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = krearrangecolumnsproxymodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = krearrangecolumnsproxymodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRearrangeColumnsProxyModel::rowCount(parent);
         }
+        return KRearrangeColumnsProxyModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,18 +515,19 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_index_isbase) {
             krearrangecolumnsproxymodel_index_isbase = false;
             return KRearrangeColumnsProxyModel::index(row, column, parent);
-        } else if (krearrangecolumnsproxymodel_index_callback != nullptr) {
+        }
+        auto index_cb = krearrangecolumnsproxymodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = krearrangecolumnsproxymodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::index(row, column, parent);
         }
+        return KRearrangeColumnsProxyModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,16 +535,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_parent_isbase) {
             krearrangecolumnsproxymodel_parent_isbase = false;
             return KRearrangeColumnsProxyModel::parent(child);
-        } else if (krearrangecolumnsproxymodel_parent_callback != nullptr) {
+        }
+        auto parent_cb = krearrangecolumnsproxymodel_parent_callback;
+        if (parent_cb) {
             const QModelIndex& child_ret = child;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
 
-            QModelIndex* callback_ret = krearrangecolumnsproxymodel_parent_callback(this, cbval1);
+            QModelIndex* callback_ret = parent_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::parent(child);
         }
+        return KRearrangeColumnsProxyModel::parent(child);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -628,16 +553,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_mapfromsource_isbase) {
             krearrangecolumnsproxymodel_mapfromsource_isbase = false;
             return KRearrangeColumnsProxyModel::mapFromSource(sourceIndex);
-        } else if (krearrangecolumnsproxymodel_mapfromsource_callback != nullptr) {
+        }
+        auto mapfromsource_cb = krearrangecolumnsproxymodel_mapfromsource_callback;
+        if (mapfromsource_cb) {
             const QModelIndex& sourceIndex_ret = sourceIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceIndex_ret);
 
-            QModelIndex* callback_ret = krearrangecolumnsproxymodel_mapfromsource_callback(this, cbval1);
+            QModelIndex* callback_ret = mapfromsource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::mapFromSource(sourceIndex);
         }
+        return KRearrangeColumnsProxyModel::mapFromSource(sourceIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,16 +571,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_maptosource_isbase) {
             krearrangecolumnsproxymodel_maptosource_isbase = false;
             return KRearrangeColumnsProxyModel::mapToSource(proxyIndex);
-        } else if (krearrangecolumnsproxymodel_maptosource_callback != nullptr) {
+        }
+        auto maptosource_cb = krearrangecolumnsproxymodel_maptosource_callback;
+        if (maptosource_cb) {
             const QModelIndex& proxyIndex_ret = proxyIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
 
-            QModelIndex* callback_ret = krearrangecolumnsproxymodel_maptosource_callback(this, cbval1);
+            QModelIndex* callback_ret = maptosource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::mapToSource(proxyIndex);
         }
+        return KRearrangeColumnsProxyModel::mapToSource(proxyIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,16 +589,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_headerdata_isbase) {
             krearrangecolumnsproxymodel_headerdata_isbase = false;
             return KRearrangeColumnsProxyModel::headerData(section, orientation, role);
-        } else if (krearrangecolumnsproxymodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = krearrangecolumnsproxymodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = krearrangecolumnsproxymodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::headerData(section, orientation, role);
         }
+        return KRearrangeColumnsProxyModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -679,16 +607,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_haschildren_isbase) {
             krearrangecolumnsproxymodel_haschildren_isbase = false;
             return KRearrangeColumnsProxyModel::hasChildren(parent);
-        } else if (krearrangecolumnsproxymodel_haschildren_callback != nullptr) {
+        }
+        auto haschildren_cb = krearrangecolumnsproxymodel_haschildren_callback;
+        if (haschildren_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = krearrangecolumnsproxymodel_haschildren_callback(this, cbval1);
+            bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::hasChildren(parent);
         }
+        return KRearrangeColumnsProxyModel::hasChildren(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,18 +625,19 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_sibling_isbase) {
             krearrangecolumnsproxymodel_sibling_isbase = false;
             return KRearrangeColumnsProxyModel::sibling(row, column, idx);
-        } else if (krearrangecolumnsproxymodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = krearrangecolumnsproxymodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = krearrangecolumnsproxymodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::sibling(row, column, idx);
         }
+        return KRearrangeColumnsProxyModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -715,7 +645,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_dropmimedata_isbase) {
             krearrangecolumnsproxymodel_dropmimedata_isbase = false;
             return KRearrangeColumnsProxyModel::dropMimeData(data, action, row, column, parent);
-        } else if (krearrangecolumnsproxymodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = krearrangecolumnsproxymodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -724,11 +656,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = krearrangecolumnsproxymodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::dropMimeData(data, action, row, column, parent);
         }
+        return KRearrangeColumnsProxyModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -736,16 +667,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_mapselectionfromsource_isbase) {
             krearrangecolumnsproxymodel_mapselectionfromsource_isbase = false;
             return KRearrangeColumnsProxyModel::mapSelectionFromSource(selection);
-        } else if (krearrangecolumnsproxymodel_mapselectionfromsource_callback != nullptr) {
+        }
+        auto mapselectionfromsource_cb = krearrangecolumnsproxymodel_mapselectionfromsource_callback;
+        if (mapselectionfromsource_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QItemSelection* callback_ret = krearrangecolumnsproxymodel_mapselectionfromsource_callback(this, cbval1);
+            QItemSelection* callback_ret = mapselectionfromsource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::mapSelectionFromSource(selection);
         }
+        return KRearrangeColumnsProxyModel::mapSelectionFromSource(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -753,16 +685,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_mapselectiontosource_isbase) {
             krearrangecolumnsproxymodel_mapselectiontosource_isbase = false;
             return KRearrangeColumnsProxyModel::mapSelectionToSource(selection);
-        } else if (krearrangecolumnsproxymodel_mapselectiontosource_callback != nullptr) {
+        }
+        auto mapselectiontosource_cb = krearrangecolumnsproxymodel_mapselectiontosource_callback;
+        if (mapselectiontosource_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QItemSelection* callback_ret = krearrangecolumnsproxymodel_mapselectiontosource_callback(this, cbval1);
+            QItemSelection* callback_ret = mapselectiontosource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::mapSelectionToSource(selection);
         }
+        return KRearrangeColumnsProxyModel::mapSelectionToSource(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,7 +703,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_match_isbase) {
             krearrangecolumnsproxymodel_match_isbase = false;
             return KRearrangeColumnsProxyModel::match(start, role, value, hits, flags);
-        } else if (krearrangecolumnsproxymodel_match_callback != nullptr) {
+        }
+        auto match_cb = krearrangecolumnsproxymodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -781,7 +716,7 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = krearrangecolumnsproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -790,9 +725,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KRearrangeColumnsProxyModel::match(start, role, value, hits, flags);
         }
+        return KRearrangeColumnsProxyModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -800,13 +734,16 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_setsourcemodel_isbase) {
             krearrangecolumnsproxymodel_setsourcemodel_isbase = false;
             KRearrangeColumnsProxyModel::setSourceModel(sourceModel);
-        } else if (krearrangecolumnsproxymodel_setsourcemodel_callback != nullptr) {
+            return;
+        }
+        auto setsourcemodel_cb = krearrangecolumnsproxymodel_setsourcemodel_callback;
+        if (setsourcemodel_cb) {
             QAbstractItemModel* cbval1 = sourceModel;
 
-            krearrangecolumnsproxymodel_setsourcemodel_callback(this, cbval1);
-        } else {
-            KRearrangeColumnsProxyModel::setSourceModel(sourceModel);
+            setsourcemodel_cb(this, cbval1);
+            return;
         }
+        KRearrangeColumnsProxyModel::setSourceModel(sourceModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,18 +751,19 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_insertcolumns_isbase) {
             krearrangecolumnsproxymodel_insertcolumns_isbase = false;
             return KRearrangeColumnsProxyModel::insertColumns(column, count, parent);
-        } else if (krearrangecolumnsproxymodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = krearrangecolumnsproxymodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = krearrangecolumnsproxymodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::insertColumns(column, count, parent);
         }
+        return KRearrangeColumnsProxyModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -833,18 +771,19 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_insertrows_isbase) {
             krearrangecolumnsproxymodel_insertrows_isbase = false;
             return KRearrangeColumnsProxyModel::insertRows(row, count, parent);
-        } else if (krearrangecolumnsproxymodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = krearrangecolumnsproxymodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = krearrangecolumnsproxymodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::insertRows(row, count, parent);
         }
+        return KRearrangeColumnsProxyModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,18 +791,19 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_removecolumns_isbase) {
             krearrangecolumnsproxymodel_removecolumns_isbase = false;
             return KRearrangeColumnsProxyModel::removeColumns(column, count, parent);
-        } else if (krearrangecolumnsproxymodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = krearrangecolumnsproxymodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = krearrangecolumnsproxymodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::removeColumns(column, count, parent);
         }
+        return KRearrangeColumnsProxyModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,18 +811,19 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_removerows_isbase) {
             krearrangecolumnsproxymodel_removerows_isbase = false;
             return KRearrangeColumnsProxyModel::removeRows(row, count, parent);
-        } else if (krearrangecolumnsproxymodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = krearrangecolumnsproxymodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = krearrangecolumnsproxymodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::removeRows(row, count, parent);
         }
+        return KRearrangeColumnsProxyModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -890,7 +831,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_moverows_isbase) {
             krearrangecolumnsproxymodel_moverows_isbase = false;
             return KRearrangeColumnsProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (krearrangecolumnsproxymodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = krearrangecolumnsproxymodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -901,11 +844,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = krearrangecolumnsproxymodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return KRearrangeColumnsProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,7 +855,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_movecolumns_isbase) {
             krearrangecolumnsproxymodel_movecolumns_isbase = false;
             return KRearrangeColumnsProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (krearrangecolumnsproxymodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = krearrangecolumnsproxymodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -924,11 +868,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = krearrangecolumnsproxymodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return KRearrangeColumnsProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -936,12 +879,13 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_submit_isbase) {
             krearrangecolumnsproxymodel_submit_isbase = false;
             return KRearrangeColumnsProxyModel::submit();
-        } else if (krearrangecolumnsproxymodel_submit_callback != nullptr) {
-            bool callback_ret = krearrangecolumnsproxymodel_submit_callback();
-            return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::submit();
         }
+        auto submit_cb = krearrangecolumnsproxymodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return KRearrangeColumnsProxyModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -949,11 +893,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_revert_isbase) {
             krearrangecolumnsproxymodel_revert_isbase = false;
             KRearrangeColumnsProxyModel::revert();
-        } else if (krearrangecolumnsproxymodel_revert_callback != nullptr) {
-            krearrangecolumnsproxymodel_revert_callback();
-        } else {
-            KRearrangeColumnsProxyModel::revert();
+            return;
         }
+        auto revert_cb = krearrangecolumnsproxymodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        KRearrangeColumnsProxyModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,17 +908,18 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_data_isbase) {
             krearrangecolumnsproxymodel_data_isbase = false;
             return KRearrangeColumnsProxyModel::data(proxyIndex, role);
-        } else if (krearrangecolumnsproxymodel_data_callback != nullptr) {
+        }
+        auto data_cb = krearrangecolumnsproxymodel_data_callback;
+        if (data_cb) {
             const QModelIndex& proxyIndex_ret = proxyIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = krearrangecolumnsproxymodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::data(proxyIndex, role);
         }
+        return KRearrangeColumnsProxyModel::data(proxyIndex, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -979,12 +927,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_itemdata_isbase) {
             krearrangecolumnsproxymodel_itemdata_isbase = false;
             return KRearrangeColumnsProxyModel::itemData(index);
-        } else if (krearrangecolumnsproxymodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = krearrangecolumnsproxymodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = krearrangecolumnsproxymodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -992,9 +942,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return KRearrangeColumnsProxyModel::itemData(index);
         }
+        return KRearrangeColumnsProxyModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1002,16 +951,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_flags_isbase) {
             krearrangecolumnsproxymodel_flags_isbase = false;
             return KRearrangeColumnsProxyModel::flags(index);
-        } else if (krearrangecolumnsproxymodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = krearrangecolumnsproxymodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = krearrangecolumnsproxymodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return KRearrangeColumnsProxyModel::flags(index);
         }
+        return KRearrangeColumnsProxyModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1019,7 +969,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_setdata_isbase) {
             krearrangecolumnsproxymodel_setdata_isbase = false;
             return KRearrangeColumnsProxyModel::setData(index, value, role);
-        } else if (krearrangecolumnsproxymodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = krearrangecolumnsproxymodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -1028,11 +980,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = krearrangecolumnsproxymodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::setData(index, value, role);
         }
+        return KRearrangeColumnsProxyModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1040,7 +991,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_setitemdata_isbase) {
             krearrangecolumnsproxymodel_setitemdata_isbase = false;
             return KRearrangeColumnsProxyModel::setItemData(index, roles);
-        } else if (krearrangecolumnsproxymodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = krearrangecolumnsproxymodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -1060,11 +1013,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = krearrangecolumnsproxymodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::setItemData(index, roles);
         }
+        return KRearrangeColumnsProxyModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,7 +1024,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_setheaderdata_isbase) {
             krearrangecolumnsproxymodel_setheaderdata_isbase = false;
             return KRearrangeColumnsProxyModel::setHeaderData(section, orientation, value, role);
-        } else if (krearrangecolumnsproxymodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = krearrangecolumnsproxymodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -1080,11 +1034,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = krearrangecolumnsproxymodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::setHeaderData(section, orientation, value, role);
         }
+        return KRearrangeColumnsProxyModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,16 +1045,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_clearitemdata_isbase) {
             krearrangecolumnsproxymodel_clearitemdata_isbase = false;
             return KRearrangeColumnsProxyModel::clearItemData(index);
-        } else if (krearrangecolumnsproxymodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = krearrangecolumnsproxymodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = krearrangecolumnsproxymodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::clearItemData(index);
         }
+        return KRearrangeColumnsProxyModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1109,16 +1063,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_buddy_isbase) {
             krearrangecolumnsproxymodel_buddy_isbase = false;
             return KRearrangeColumnsProxyModel::buddy(index);
-        } else if (krearrangecolumnsproxymodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = krearrangecolumnsproxymodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = krearrangecolumnsproxymodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::buddy(index);
         }
+        return KRearrangeColumnsProxyModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1126,16 +1081,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_canfetchmore_isbase) {
             krearrangecolumnsproxymodel_canfetchmore_isbase = false;
             return KRearrangeColumnsProxyModel::canFetchMore(parent);
-        } else if (krearrangecolumnsproxymodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = krearrangecolumnsproxymodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = krearrangecolumnsproxymodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::canFetchMore(parent);
         }
+        return KRearrangeColumnsProxyModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1143,15 +1099,18 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_fetchmore_isbase) {
             krearrangecolumnsproxymodel_fetchmore_isbase = false;
             KRearrangeColumnsProxyModel::fetchMore(parent);
-        } else if (krearrangecolumnsproxymodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = krearrangecolumnsproxymodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            krearrangecolumnsproxymodel_fetchmore_callback(this, cbval1);
-        } else {
-            KRearrangeColumnsProxyModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        KRearrangeColumnsProxyModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,14 +1118,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_sort_isbase) {
             krearrangecolumnsproxymodel_sort_isbase = false;
             KRearrangeColumnsProxyModel::sort(column, order);
-        } else if (krearrangecolumnsproxymodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = krearrangecolumnsproxymodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            krearrangecolumnsproxymodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            KRearrangeColumnsProxyModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        KRearrangeColumnsProxyModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1174,16 +1136,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_span_isbase) {
             krearrangecolumnsproxymodel_span_isbase = false;
             return KRearrangeColumnsProxyModel::span(index);
-        } else if (krearrangecolumnsproxymodel_span_callback != nullptr) {
+        }
+        auto span_cb = krearrangecolumnsproxymodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = krearrangecolumnsproxymodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::span(index);
         }
+        return KRearrangeColumnsProxyModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1191,7 +1154,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_mimedata_isbase) {
             krearrangecolumnsproxymodel_mimedata_isbase = false;
             return KRearrangeColumnsProxyModel::mimeData(indexes);
-        } else if (krearrangecolumnsproxymodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = krearrangecolumnsproxymodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1203,12 +1168,11 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = krearrangecolumnsproxymodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::mimeData(indexes);
         }
+        return KRearrangeColumnsProxyModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1216,7 +1180,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_candropmimedata_isbase) {
             krearrangecolumnsproxymodel_candropmimedata_isbase = false;
             return KRearrangeColumnsProxyModel::canDropMimeData(data, action, row, column, parent);
-        } else if (krearrangecolumnsproxymodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = krearrangecolumnsproxymodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1225,11 +1191,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = krearrangecolumnsproxymodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::canDropMimeData(data, action, row, column, parent);
         }
+        return KRearrangeColumnsProxyModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1237,8 +1202,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_mimetypes_isbase) {
             krearrangecolumnsproxymodel_mimetypes_isbase = false;
             return KRearrangeColumnsProxyModel::mimeTypes();
-        } else if (krearrangecolumnsproxymodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = krearrangecolumnsproxymodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = krearrangecolumnsproxymodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1249,9 +1216,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KRearrangeColumnsProxyModel::mimeTypes();
         }
+        return KRearrangeColumnsProxyModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,12 +1225,13 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_supporteddragactions_isbase) {
             krearrangecolumnsproxymodel_supporteddragactions_isbase = false;
             return KRearrangeColumnsProxyModel::supportedDragActions();
-        } else if (krearrangecolumnsproxymodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = krearrangecolumnsproxymodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KRearrangeColumnsProxyModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = krearrangecolumnsproxymodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KRearrangeColumnsProxyModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1272,12 +1239,13 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_supporteddropactions_isbase) {
             krearrangecolumnsproxymodel_supporteddropactions_isbase = false;
             return KRearrangeColumnsProxyModel::supportedDropActions();
-        } else if (krearrangecolumnsproxymodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = krearrangecolumnsproxymodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KRearrangeColumnsProxyModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = krearrangecolumnsproxymodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KRearrangeColumnsProxyModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,8 +1253,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_rolenames_isbase) {
             krearrangecolumnsproxymodel_rolenames_isbase = false;
             return KRearrangeColumnsProxyModel::roleNames();
-        } else if (krearrangecolumnsproxymodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = krearrangecolumnsproxymodel_rolenames_callback();
+        }
+        auto rolenames_cb = krearrangecolumnsproxymodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -1296,9 +1266,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return KRearrangeColumnsProxyModel::roleNames();
         }
+        return KRearrangeColumnsProxyModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1306,16 +1275,19 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_multidata_isbase) {
             krearrangecolumnsproxymodel_multidata_isbase = false;
             KRearrangeColumnsProxyModel::multiData(index, roleDataSpan);
-        } else if (krearrangecolumnsproxymodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = krearrangecolumnsproxymodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            krearrangecolumnsproxymodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            KRearrangeColumnsProxyModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        KRearrangeColumnsProxyModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1323,11 +1295,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_resetinternaldata_isbase) {
             krearrangecolumnsproxymodel_resetinternaldata_isbase = false;
             KRearrangeColumnsProxyModel::resetInternalData();
-        } else if (krearrangecolumnsproxymodel_resetinternaldata_callback != nullptr) {
-            krearrangecolumnsproxymodel_resetinternaldata_callback();
-        } else {
-            KRearrangeColumnsProxyModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = krearrangecolumnsproxymodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        KRearrangeColumnsProxyModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1335,14 +1310,15 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_event_isbase) {
             krearrangecolumnsproxymodel_event_isbase = false;
             return KRearrangeColumnsProxyModel::event(event);
-        } else if (krearrangecolumnsproxymodel_event_callback != nullptr) {
+        }
+        auto event_cb = krearrangecolumnsproxymodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = krearrangecolumnsproxymodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::event(event);
         }
+        return KRearrangeColumnsProxyModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1350,15 +1326,16 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_eventfilter_isbase) {
             krearrangecolumnsproxymodel_eventfilter_isbase = false;
             return KRearrangeColumnsProxyModel::eventFilter(watched, event);
-        } else if (krearrangecolumnsproxymodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = krearrangecolumnsproxymodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = krearrangecolumnsproxymodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::eventFilter(watched, event);
         }
+        return KRearrangeColumnsProxyModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1366,13 +1343,16 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_timerevent_isbase) {
             krearrangecolumnsproxymodel_timerevent_isbase = false;
             KRearrangeColumnsProxyModel::timerEvent(event);
-        } else if (krearrangecolumnsproxymodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = krearrangecolumnsproxymodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            krearrangecolumnsproxymodel_timerevent_callback(this, cbval1);
-        } else {
-            KRearrangeColumnsProxyModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KRearrangeColumnsProxyModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1380,13 +1360,16 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_childevent_isbase) {
             krearrangecolumnsproxymodel_childevent_isbase = false;
             KRearrangeColumnsProxyModel::childEvent(event);
-        } else if (krearrangecolumnsproxymodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = krearrangecolumnsproxymodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            krearrangecolumnsproxymodel_childevent_callback(this, cbval1);
-        } else {
-            KRearrangeColumnsProxyModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KRearrangeColumnsProxyModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1394,13 +1377,16 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_customevent_isbase) {
             krearrangecolumnsproxymodel_customevent_isbase = false;
             KRearrangeColumnsProxyModel::customEvent(event);
-        } else if (krearrangecolumnsproxymodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = krearrangecolumnsproxymodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            krearrangecolumnsproxymodel_customevent_callback(this, cbval1);
-        } else {
-            KRearrangeColumnsProxyModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KRearrangeColumnsProxyModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1408,15 +1394,18 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_connectnotify_isbase) {
             krearrangecolumnsproxymodel_connectnotify_isbase = false;
             KRearrangeColumnsProxyModel::connectNotify(signal);
-        } else if (krearrangecolumnsproxymodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = krearrangecolumnsproxymodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            krearrangecolumnsproxymodel_connectnotify_callback(this, cbval1);
-        } else {
-            KRearrangeColumnsProxyModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KRearrangeColumnsProxyModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1424,15 +1413,18 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_disconnectnotify_isbase) {
             krearrangecolumnsproxymodel_disconnectnotify_isbase = false;
             KRearrangeColumnsProxyModel::disconnectNotify(signal);
-        } else if (krearrangecolumnsproxymodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = krearrangecolumnsproxymodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            krearrangecolumnsproxymodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KRearrangeColumnsProxyModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KRearrangeColumnsProxyModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1440,13 +1432,16 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_sethandlesourcelayoutchanges_isbase) {
             krearrangecolumnsproxymodel_sethandlesourcelayoutchanges_isbase = false;
             KRearrangeColumnsProxyModel::setHandleSourceLayoutChanges(handleSourceLayoutChanges);
-        } else if (krearrangecolumnsproxymodel_sethandlesourcelayoutchanges_callback != nullptr) {
+            return;
+        }
+        auto sethandlesourcelayoutchanges_cb = krearrangecolumnsproxymodel_sethandlesourcelayoutchanges_callback;
+        if (sethandlesourcelayoutchanges_cb) {
             bool cbval1 = handleSourceLayoutChanges;
 
-            krearrangecolumnsproxymodel_sethandlesourcelayoutchanges_callback(this, cbval1);
-        } else {
-            KRearrangeColumnsProxyModel::setHandleSourceLayoutChanges(handleSourceLayoutChanges);
+            sethandlesourcelayoutchanges_cb(this, cbval1);
+            return;
         }
+        KRearrangeColumnsProxyModel::setHandleSourceLayoutChanges(handleSourceLayoutChanges);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1454,13 +1449,16 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_sethandlesourcedatachanges_isbase) {
             krearrangecolumnsproxymodel_sethandlesourcedatachanges_isbase = false;
             KRearrangeColumnsProxyModel::setHandleSourceDataChanges(handleSourceDataChanges);
-        } else if (krearrangecolumnsproxymodel_sethandlesourcedatachanges_callback != nullptr) {
+            return;
+        }
+        auto sethandlesourcedatachanges_cb = krearrangecolumnsproxymodel_sethandlesourcedatachanges_callback;
+        if (sethandlesourcedatachanges_cb) {
             bool cbval1 = handleSourceDataChanges;
 
-            krearrangecolumnsproxymodel_sethandlesourcedatachanges_callback(this, cbval1);
-        } else {
-            KRearrangeColumnsProxyModel::setHandleSourceDataChanges(handleSourceDataChanges);
+            sethandlesourcedatachanges_cb(this, cbval1);
+            return;
         }
+        KRearrangeColumnsProxyModel::setHandleSourceDataChanges(handleSourceDataChanges);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1468,16 +1466,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_createsourceindex_isbase) {
             krearrangecolumnsproxymodel_createsourceindex_isbase = false;
             return KRearrangeColumnsProxyModel::createSourceIndex(row, col, internalPtr);
-        } else if (krearrangecolumnsproxymodel_createsourceindex_callback != nullptr) {
+        }
+        auto createsourceindex_cb = krearrangecolumnsproxymodel_createsourceindex_callback;
+        if (createsourceindex_cb) {
             int cbval1 = row;
             int cbval2 = col;
             void* cbval3 = internalPtr;
 
-            QModelIndex* callback_ret = krearrangecolumnsproxymodel_createsourceindex_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = createsourceindex_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::createSourceIndex(row, col, internalPtr);
         }
+        return KRearrangeColumnsProxyModel::createSourceIndex(row, col, internalPtr);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1485,15 +1484,16 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_createindex_isbase) {
             krearrangecolumnsproxymodel_createindex_isbase = false;
             return KRearrangeColumnsProxyModel::createIndex(row, column);
-        } else if (krearrangecolumnsproxymodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = krearrangecolumnsproxymodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = krearrangecolumnsproxymodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::createIndex(row, column);
         }
+        return KRearrangeColumnsProxyModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1501,7 +1501,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_encodedata_isbase) {
             krearrangecolumnsproxymodel_encodedata_isbase = false;
             KRearrangeColumnsProxyModel::encodeData(indexes, stream);
-        } else if (krearrangecolumnsproxymodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = krearrangecolumnsproxymodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1516,11 +1519,11 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            krearrangecolumnsproxymodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            KRearrangeColumnsProxyModel::encodeData(indexes, stream);
+            return;
         }
+        KRearrangeColumnsProxyModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1528,7 +1531,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_decodedata_isbase) {
             krearrangecolumnsproxymodel_decodedata_isbase = false;
             return KRearrangeColumnsProxyModel::decodeData(row, column, parent, stream);
-        } else if (krearrangecolumnsproxymodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = krearrangecolumnsproxymodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1538,11 +1543,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = krearrangecolumnsproxymodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::decodeData(row, column, parent, stream);
         }
+        return KRearrangeColumnsProxyModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1550,17 +1554,20 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_begininsertrows_isbase) {
             krearrangecolumnsproxymodel_begininsertrows_isbase = false;
             KRearrangeColumnsProxyModel::beginInsertRows(parent, first, last);
-        } else if (krearrangecolumnsproxymodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = krearrangecolumnsproxymodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            krearrangecolumnsproxymodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KRearrangeColumnsProxyModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KRearrangeColumnsProxyModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1568,11 +1575,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_endinsertrows_isbase) {
             krearrangecolumnsproxymodel_endinsertrows_isbase = false;
             KRearrangeColumnsProxyModel::endInsertRows();
-        } else if (krearrangecolumnsproxymodel_endinsertrows_callback != nullptr) {
-            krearrangecolumnsproxymodel_endinsertrows_callback();
-        } else {
-            KRearrangeColumnsProxyModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = krearrangecolumnsproxymodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        KRearrangeColumnsProxyModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1580,17 +1590,20 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_beginremoverows_isbase) {
             krearrangecolumnsproxymodel_beginremoverows_isbase = false;
             KRearrangeColumnsProxyModel::beginRemoveRows(parent, first, last);
-        } else if (krearrangecolumnsproxymodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = krearrangecolumnsproxymodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            krearrangecolumnsproxymodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KRearrangeColumnsProxyModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KRearrangeColumnsProxyModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1598,11 +1611,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_endremoverows_isbase) {
             krearrangecolumnsproxymodel_endremoverows_isbase = false;
             KRearrangeColumnsProxyModel::endRemoveRows();
-        } else if (krearrangecolumnsproxymodel_endremoverows_callback != nullptr) {
-            krearrangecolumnsproxymodel_endremoverows_callback();
-        } else {
-            KRearrangeColumnsProxyModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = krearrangecolumnsproxymodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        KRearrangeColumnsProxyModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1610,7 +1626,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_beginmoverows_isbase) {
             krearrangecolumnsproxymodel_beginmoverows_isbase = false;
             return KRearrangeColumnsProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (krearrangecolumnsproxymodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = krearrangecolumnsproxymodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1621,11 +1639,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = krearrangecolumnsproxymodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return KRearrangeColumnsProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1633,11 +1650,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_endmoverows_isbase) {
             krearrangecolumnsproxymodel_endmoverows_isbase = false;
             KRearrangeColumnsProxyModel::endMoveRows();
-        } else if (krearrangecolumnsproxymodel_endmoverows_callback != nullptr) {
-            krearrangecolumnsproxymodel_endmoverows_callback();
-        } else {
-            KRearrangeColumnsProxyModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = krearrangecolumnsproxymodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        KRearrangeColumnsProxyModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1645,17 +1665,20 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_begininsertcolumns_isbase) {
             krearrangecolumnsproxymodel_begininsertcolumns_isbase = false;
             KRearrangeColumnsProxyModel::beginInsertColumns(parent, first, last);
-        } else if (krearrangecolumnsproxymodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = krearrangecolumnsproxymodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            krearrangecolumnsproxymodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KRearrangeColumnsProxyModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KRearrangeColumnsProxyModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1663,11 +1686,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_endinsertcolumns_isbase) {
             krearrangecolumnsproxymodel_endinsertcolumns_isbase = false;
             KRearrangeColumnsProxyModel::endInsertColumns();
-        } else if (krearrangecolumnsproxymodel_endinsertcolumns_callback != nullptr) {
-            krearrangecolumnsproxymodel_endinsertcolumns_callback();
-        } else {
-            KRearrangeColumnsProxyModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = krearrangecolumnsproxymodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        KRearrangeColumnsProxyModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1675,17 +1701,20 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_beginremovecolumns_isbase) {
             krearrangecolumnsproxymodel_beginremovecolumns_isbase = false;
             KRearrangeColumnsProxyModel::beginRemoveColumns(parent, first, last);
-        } else if (krearrangecolumnsproxymodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = krearrangecolumnsproxymodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            krearrangecolumnsproxymodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KRearrangeColumnsProxyModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KRearrangeColumnsProxyModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1693,11 +1722,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_endremovecolumns_isbase) {
             krearrangecolumnsproxymodel_endremovecolumns_isbase = false;
             KRearrangeColumnsProxyModel::endRemoveColumns();
-        } else if (krearrangecolumnsproxymodel_endremovecolumns_callback != nullptr) {
-            krearrangecolumnsproxymodel_endremovecolumns_callback();
-        } else {
-            KRearrangeColumnsProxyModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = krearrangecolumnsproxymodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        KRearrangeColumnsProxyModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1705,7 +1737,9 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_beginmovecolumns_isbase) {
             krearrangecolumnsproxymodel_beginmovecolumns_isbase = false;
             return KRearrangeColumnsProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (krearrangecolumnsproxymodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = krearrangecolumnsproxymodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1716,11 +1750,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = krearrangecolumnsproxymodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return KRearrangeColumnsProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1728,11 +1761,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_endmovecolumns_isbase) {
             krearrangecolumnsproxymodel_endmovecolumns_isbase = false;
             KRearrangeColumnsProxyModel::endMoveColumns();
-        } else if (krearrangecolumnsproxymodel_endmovecolumns_callback != nullptr) {
-            krearrangecolumnsproxymodel_endmovecolumns_callback();
-        } else {
-            KRearrangeColumnsProxyModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = krearrangecolumnsproxymodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        KRearrangeColumnsProxyModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1740,11 +1776,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_beginresetmodel_isbase) {
             krearrangecolumnsproxymodel_beginresetmodel_isbase = false;
             KRearrangeColumnsProxyModel::beginResetModel();
-        } else if (krearrangecolumnsproxymodel_beginresetmodel_callback != nullptr) {
-            krearrangecolumnsproxymodel_beginresetmodel_callback();
-        } else {
-            KRearrangeColumnsProxyModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = krearrangecolumnsproxymodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        KRearrangeColumnsProxyModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1752,11 +1791,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_endresetmodel_isbase) {
             krearrangecolumnsproxymodel_endresetmodel_isbase = false;
             KRearrangeColumnsProxyModel::endResetModel();
-        } else if (krearrangecolumnsproxymodel_endresetmodel_callback != nullptr) {
-            krearrangecolumnsproxymodel_endresetmodel_callback();
-        } else {
-            KRearrangeColumnsProxyModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = krearrangecolumnsproxymodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        KRearrangeColumnsProxyModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1764,7 +1806,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_changepersistentindex_isbase) {
             krearrangecolumnsproxymodel_changepersistentindex_isbase = false;
             KRearrangeColumnsProxyModel::changePersistentIndex(from, to);
-        } else if (krearrangecolumnsproxymodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = krearrangecolumnsproxymodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1772,10 +1817,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            krearrangecolumnsproxymodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            KRearrangeColumnsProxyModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KRearrangeColumnsProxyModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1783,7 +1828,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_changepersistentindexlist_isbase) {
             krearrangecolumnsproxymodel_changepersistentindexlist_isbase = false;
             KRearrangeColumnsProxyModel::changePersistentIndexList(from, to);
-        } else if (krearrangecolumnsproxymodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = krearrangecolumnsproxymodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1805,12 +1853,12 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            krearrangecolumnsproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            KRearrangeColumnsProxyModel::changePersistentIndexList(from, to);
+            return;
         }
+        KRearrangeColumnsProxyModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1818,8 +1866,10 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_persistentindexlist_isbase) {
             krearrangecolumnsproxymodel_persistentindexlist_isbase = false;
             return KRearrangeColumnsProxyModel::persistentIndexList();
-        } else if (krearrangecolumnsproxymodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = krearrangecolumnsproxymodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = krearrangecolumnsproxymodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1828,9 +1878,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KRearrangeColumnsProxyModel::persistentIndexList();
         }
+        return KRearrangeColumnsProxyModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1838,12 +1887,13 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_sender_isbase) {
             krearrangecolumnsproxymodel_sender_isbase = false;
             return KRearrangeColumnsProxyModel::sender();
-        } else if (krearrangecolumnsproxymodel_sender_callback != nullptr) {
-            QObject* callback_ret = krearrangecolumnsproxymodel_sender_callback();
-            return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::sender();
         }
+        auto sender_cb = krearrangecolumnsproxymodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KRearrangeColumnsProxyModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1851,12 +1901,13 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_sendersignalindex_isbase) {
             krearrangecolumnsproxymodel_sendersignalindex_isbase = false;
             return KRearrangeColumnsProxyModel::senderSignalIndex();
-        } else if (krearrangecolumnsproxymodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = krearrangecolumnsproxymodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KRearrangeColumnsProxyModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = krearrangecolumnsproxymodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KRearrangeColumnsProxyModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1864,14 +1915,15 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_receivers_isbase) {
             krearrangecolumnsproxymodel_receivers_isbase = false;
             return KRearrangeColumnsProxyModel::receivers(signal);
-        } else if (krearrangecolumnsproxymodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = krearrangecolumnsproxymodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = krearrangecolumnsproxymodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRearrangeColumnsProxyModel::receivers(signal);
         }
+        return KRearrangeColumnsProxyModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1879,16 +1931,17 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
         if (krearrangecolumnsproxymodel_issignalconnected_isbase) {
             krearrangecolumnsproxymodel_issignalconnected_isbase = false;
             return KRearrangeColumnsProxyModel::isSignalConnected(signal);
-        } else if (krearrangecolumnsproxymodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = krearrangecolumnsproxymodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = krearrangecolumnsproxymodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRearrangeColumnsProxyModel::isSignalConnected(signal);
         }
+        return KRearrangeColumnsProxyModel::isSignalConnected(signal);
     }
 
     // Friend functions

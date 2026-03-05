@@ -213,71 +213,6 @@ class VirtualKPopupFrame final : public KPopupFrame {
     VirtualKPopupFrame(QWidget* parent) : KPopupFrame(parent) {};
     VirtualKPopupFrame() : KPopupFrame() {};
 
-    ~VirtualKPopupFrame() {
-        kpopupframe_metaobject_callback = nullptr;
-        kpopupframe_metacast_callback = nullptr;
-        kpopupframe_metacall_callback = nullptr;
-        kpopupframe_keypressevent_callback = nullptr;
-        kpopupframe_hideevent_callback = nullptr;
-        kpopupframe_resizeevent_callback = nullptr;
-        kpopupframe_sizehint_callback = nullptr;
-        kpopupframe_event_callback = nullptr;
-        kpopupframe_paintevent_callback = nullptr;
-        kpopupframe_changeevent_callback = nullptr;
-        kpopupframe_initstyleoption_callback = nullptr;
-        kpopupframe_devtype_callback = nullptr;
-        kpopupframe_setvisible_callback = nullptr;
-        kpopupframe_minimumsizehint_callback = nullptr;
-        kpopupframe_heightforwidth_callback = nullptr;
-        kpopupframe_hasheightforwidth_callback = nullptr;
-        kpopupframe_paintengine_callback = nullptr;
-        kpopupframe_mousepressevent_callback = nullptr;
-        kpopupframe_mousereleaseevent_callback = nullptr;
-        kpopupframe_mousedoubleclickevent_callback = nullptr;
-        kpopupframe_mousemoveevent_callback = nullptr;
-        kpopupframe_wheelevent_callback = nullptr;
-        kpopupframe_keyreleaseevent_callback = nullptr;
-        kpopupframe_focusinevent_callback = nullptr;
-        kpopupframe_focusoutevent_callback = nullptr;
-        kpopupframe_enterevent_callback = nullptr;
-        kpopupframe_leaveevent_callback = nullptr;
-        kpopupframe_moveevent_callback = nullptr;
-        kpopupframe_closeevent_callback = nullptr;
-        kpopupframe_contextmenuevent_callback = nullptr;
-        kpopupframe_tabletevent_callback = nullptr;
-        kpopupframe_actionevent_callback = nullptr;
-        kpopupframe_dragenterevent_callback = nullptr;
-        kpopupframe_dragmoveevent_callback = nullptr;
-        kpopupframe_dragleaveevent_callback = nullptr;
-        kpopupframe_dropevent_callback = nullptr;
-        kpopupframe_showevent_callback = nullptr;
-        kpopupframe_nativeevent_callback = nullptr;
-        kpopupframe_metric_callback = nullptr;
-        kpopupframe_initpainter_callback = nullptr;
-        kpopupframe_redirected_callback = nullptr;
-        kpopupframe_sharedpainter_callback = nullptr;
-        kpopupframe_inputmethodevent_callback = nullptr;
-        kpopupframe_inputmethodquery_callback = nullptr;
-        kpopupframe_focusnextprevchild_callback = nullptr;
-        kpopupframe_eventfilter_callback = nullptr;
-        kpopupframe_timerevent_callback = nullptr;
-        kpopupframe_childevent_callback = nullptr;
-        kpopupframe_customevent_callback = nullptr;
-        kpopupframe_connectnotify_callback = nullptr;
-        kpopupframe_disconnectnotify_callback = nullptr;
-        kpopupframe_drawframe_callback = nullptr;
-        kpopupframe_updatemicrofocus_callback = nullptr;
-        kpopupframe_create_callback = nullptr;
-        kpopupframe_destroy_callback = nullptr;
-        kpopupframe_focusnextchild_callback = nullptr;
-        kpopupframe_focuspreviouschild_callback = nullptr;
-        kpopupframe_sender_callback = nullptr;
-        kpopupframe_sendersignalindex_callback = nullptr;
-        kpopupframe_receivers_callback = nullptr;
-        kpopupframe_issignalconnected_callback = nullptr;
-        kpopupframe_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPopupFrame_MetaObject_Callback(KPopupFrame_MetaObject_Callback cb) { kpopupframe_metaobject_callback = cb; }
     inline void setKPopupFrame_Metacast_Callback(KPopupFrame_Metacast_Callback cb) { kpopupframe_metacast_callback = cb; }
@@ -411,12 +346,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_metaobject_isbase) {
             kpopupframe_metaobject_isbase = false;
             return KPopupFrame::metaObject();
-        } else if (kpopupframe_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpopupframe_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPopupFrame::metaObject();
         }
+        auto metaobject_cb = kpopupframe_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPopupFrame::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,14 +360,15 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_metacast_isbase) {
             kpopupframe_metacast_isbase = false;
             return KPopupFrame::qt_metacast(param1);
-        } else if (kpopupframe_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpopupframe_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpopupframe_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPopupFrame::qt_metacast(param1);
         }
+        return KPopupFrame::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,16 +376,17 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_metacall_isbase) {
             kpopupframe_metacall_isbase = false;
             return KPopupFrame::qt_metacall(param1, param2, param3);
-        } else if (kpopupframe_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpopupframe_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpopupframe_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPopupFrame::qt_metacall(param1, param2, param3);
         }
+        return KPopupFrame::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -456,13 +394,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_keypressevent_isbase) {
             kpopupframe_keypressevent_isbase = false;
             KPopupFrame::keyPressEvent(e);
-        } else if (kpopupframe_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kpopupframe_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kpopupframe_keypressevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,13 +411,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_hideevent_isbase) {
             kpopupframe_hideevent_isbase = false;
             KPopupFrame::hideEvent(e);
-        } else if (kpopupframe_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kpopupframe_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = e;
 
-            kpopupframe_hideevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::hideEvent(e);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::hideEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,13 +428,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_resizeevent_isbase) {
             kpopupframe_resizeevent_isbase = false;
             KPopupFrame::resizeEvent(resize);
-        } else if (kpopupframe_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kpopupframe_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = resize;
 
-            kpopupframe_resizeevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::resizeEvent(resize);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::resizeEvent(resize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,12 +445,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_sizehint_isbase) {
             kpopupframe_sizehint_isbase = false;
             return KPopupFrame::sizeHint();
-        } else if (kpopupframe_sizehint_callback != nullptr) {
-            QSize* callback_ret = kpopupframe_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPopupFrame::sizeHint();
         }
+        auto sizehint_cb = kpopupframe_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KPopupFrame::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,14 +459,15 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_event_isbase) {
             kpopupframe_event_isbase = false;
             return KPopupFrame::event(e);
-        } else if (kpopupframe_event_callback != nullptr) {
+        }
+        auto event_cb = kpopupframe_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kpopupframe_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPopupFrame::event(e);
         }
+        return KPopupFrame::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,13 +475,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_paintevent_isbase) {
             kpopupframe_paintevent_isbase = false;
             KPopupFrame::paintEvent(param1);
-        } else if (kpopupframe_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kpopupframe_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kpopupframe_paintevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,13 +492,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_changeevent_isbase) {
             kpopupframe_changeevent_isbase = false;
             KPopupFrame::changeEvent(param1);
-        } else if (kpopupframe_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kpopupframe_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kpopupframe_changeevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,13 +509,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_initstyleoption_isbase) {
             kpopupframe_initstyleoption_isbase = false;
             KPopupFrame::initStyleOption(option);
-        } else if (kpopupframe_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kpopupframe_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kpopupframe_initstyleoption_callback(this, cbval1);
-        } else {
-            KPopupFrame::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,12 +526,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_devtype_isbase) {
             kpopupframe_devtype_isbase = false;
             return KPopupFrame::devType();
-        } else if (kpopupframe_devtype_callback != nullptr) {
-            int callback_ret = kpopupframe_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPopupFrame::devType();
         }
+        auto devtype_cb = kpopupframe_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPopupFrame::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,13 +540,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_setvisible_isbase) {
             kpopupframe_setvisible_isbase = false;
             KPopupFrame::setVisible(visible);
-        } else if (kpopupframe_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kpopupframe_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kpopupframe_setvisible_callback(this, cbval1);
-        } else {
-            KPopupFrame::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -595,12 +557,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_minimumsizehint_isbase) {
             kpopupframe_minimumsizehint_isbase = false;
             return KPopupFrame::minimumSizeHint();
-        } else if (kpopupframe_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kpopupframe_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPopupFrame::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kpopupframe_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KPopupFrame::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -608,14 +571,15 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_heightforwidth_isbase) {
             kpopupframe_heightforwidth_isbase = false;
             return KPopupFrame::heightForWidth(param1);
-        } else if (kpopupframe_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kpopupframe_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kpopupframe_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPopupFrame::heightForWidth(param1);
         }
+        return KPopupFrame::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -623,12 +587,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_hasheightforwidth_isbase) {
             kpopupframe_hasheightforwidth_isbase = false;
             return KPopupFrame::hasHeightForWidth();
-        } else if (kpopupframe_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kpopupframe_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KPopupFrame::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kpopupframe_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KPopupFrame::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,12 +601,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_paintengine_isbase) {
             kpopupframe_paintengine_isbase = false;
             return KPopupFrame::paintEngine();
-        } else if (kpopupframe_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kpopupframe_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KPopupFrame::paintEngine();
         }
+        auto paintengine_cb = kpopupframe_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KPopupFrame::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +615,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_mousepressevent_isbase) {
             kpopupframe_mousepressevent_isbase = false;
             KPopupFrame::mousePressEvent(event);
-        } else if (kpopupframe_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kpopupframe_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpopupframe_mousepressevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +632,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_mousereleaseevent_isbase) {
             kpopupframe_mousereleaseevent_isbase = false;
             KPopupFrame::mouseReleaseEvent(event);
-        } else if (kpopupframe_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kpopupframe_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpopupframe_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,13 +649,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_mousedoubleclickevent_isbase) {
             kpopupframe_mousedoubleclickevent_isbase = false;
             KPopupFrame::mouseDoubleClickEvent(event);
-        } else if (kpopupframe_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kpopupframe_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpopupframe_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,13 +666,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_mousemoveevent_isbase) {
             kpopupframe_mousemoveevent_isbase = false;
             KPopupFrame::mouseMoveEvent(event);
-        } else if (kpopupframe_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kpopupframe_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpopupframe_mousemoveevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,13 +683,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_wheelevent_isbase) {
             kpopupframe_wheelevent_isbase = false;
             KPopupFrame::wheelEvent(event);
-        } else if (kpopupframe_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kpopupframe_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kpopupframe_wheelevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,13 +700,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_keyreleaseevent_isbase) {
             kpopupframe_keyreleaseevent_isbase = false;
             KPopupFrame::keyReleaseEvent(event);
-        } else if (kpopupframe_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kpopupframe_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kpopupframe_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,13 +717,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_focusinevent_isbase) {
             kpopupframe_focusinevent_isbase = false;
             KPopupFrame::focusInEvent(event);
-        } else if (kpopupframe_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kpopupframe_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpopupframe_focusinevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,13 +734,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_focusoutevent_isbase) {
             kpopupframe_focusoutevent_isbase = false;
             KPopupFrame::focusOutEvent(event);
-        } else if (kpopupframe_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kpopupframe_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpopupframe_focusoutevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,13 +751,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_enterevent_isbase) {
             kpopupframe_enterevent_isbase = false;
             KPopupFrame::enterEvent(event);
-        } else if (kpopupframe_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kpopupframe_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kpopupframe_enterevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,13 +768,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_leaveevent_isbase) {
             kpopupframe_leaveevent_isbase = false;
             KPopupFrame::leaveEvent(event);
-        } else if (kpopupframe_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kpopupframe_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kpopupframe_leaveevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,13 +785,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_moveevent_isbase) {
             kpopupframe_moveevent_isbase = false;
             KPopupFrame::moveEvent(event);
-        } else if (kpopupframe_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kpopupframe_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kpopupframe_moveevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,13 +802,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_closeevent_isbase) {
             kpopupframe_closeevent_isbase = false;
             KPopupFrame::closeEvent(event);
-        } else if (kpopupframe_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kpopupframe_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kpopupframe_closeevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -817,13 +819,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_contextmenuevent_isbase) {
             kpopupframe_contextmenuevent_isbase = false;
             KPopupFrame::contextMenuEvent(event);
-        } else if (kpopupframe_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kpopupframe_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kpopupframe_contextmenuevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -831,13 +836,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_tabletevent_isbase) {
             kpopupframe_tabletevent_isbase = false;
             KPopupFrame::tabletEvent(event);
-        } else if (kpopupframe_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kpopupframe_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kpopupframe_tabletevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,13 +853,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_actionevent_isbase) {
             kpopupframe_actionevent_isbase = false;
             KPopupFrame::actionEvent(event);
-        } else if (kpopupframe_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kpopupframe_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kpopupframe_actionevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -859,13 +870,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_dragenterevent_isbase) {
             kpopupframe_dragenterevent_isbase = false;
             KPopupFrame::dragEnterEvent(event);
-        } else if (kpopupframe_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kpopupframe_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kpopupframe_dragenterevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,13 +887,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_dragmoveevent_isbase) {
             kpopupframe_dragmoveevent_isbase = false;
             KPopupFrame::dragMoveEvent(event);
-        } else if (kpopupframe_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kpopupframe_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kpopupframe_dragmoveevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -887,13 +904,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_dragleaveevent_isbase) {
             kpopupframe_dragleaveevent_isbase = false;
             KPopupFrame::dragLeaveEvent(event);
-        } else if (kpopupframe_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kpopupframe_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kpopupframe_dragleaveevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -901,13 +921,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_dropevent_isbase) {
             kpopupframe_dropevent_isbase = false;
             KPopupFrame::dropEvent(event);
-        } else if (kpopupframe_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kpopupframe_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kpopupframe_dropevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -915,13 +938,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_showevent_isbase) {
             kpopupframe_showevent_isbase = false;
             KPopupFrame::showEvent(event);
-        } else if (kpopupframe_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kpopupframe_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kpopupframe_showevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -929,7 +955,9 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_nativeevent_isbase) {
             kpopupframe_nativeevent_isbase = false;
             return KPopupFrame::nativeEvent(eventType, message, result);
-        } else if (kpopupframe_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kpopupframe_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -940,12 +968,11 @@ class VirtualKPopupFrame final : public KPopupFrame {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kpopupframe_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KPopupFrame::nativeEvent(eventType, message, result);
         }
+        return KPopupFrame::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,14 +980,15 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_metric_isbase) {
             kpopupframe_metric_isbase = false;
             return KPopupFrame::metric(param1);
-        } else if (kpopupframe_metric_callback != nullptr) {
+        }
+        auto metric_cb = kpopupframe_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kpopupframe_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPopupFrame::metric(param1);
         }
+        return KPopupFrame::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +996,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_initpainter_isbase) {
             kpopupframe_initpainter_isbase = false;
             KPopupFrame::initPainter(painter);
-        } else if (kpopupframe_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kpopupframe_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kpopupframe_initpainter_callback(this, cbval1);
-        } else {
-            KPopupFrame::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,14 +1013,15 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_redirected_isbase) {
             kpopupframe_redirected_isbase = false;
             return KPopupFrame::redirected(offset);
-        } else if (kpopupframe_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kpopupframe_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kpopupframe_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPopupFrame::redirected(offset);
         }
+        return KPopupFrame::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,12 +1029,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_sharedpainter_isbase) {
             kpopupframe_sharedpainter_isbase = false;
             return KPopupFrame::sharedPainter();
-        } else if (kpopupframe_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kpopupframe_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KPopupFrame::sharedPainter();
         }
+        auto sharedpainter_cb = kpopupframe_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KPopupFrame::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1010,13 +1043,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_inputmethodevent_isbase) {
             kpopupframe_inputmethodevent_isbase = false;
             KPopupFrame::inputMethodEvent(param1);
-        } else if (kpopupframe_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kpopupframe_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kpopupframe_inputmethodevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,14 +1060,15 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_inputmethodquery_isbase) {
             kpopupframe_inputmethodquery_isbase = false;
             return KPopupFrame::inputMethodQuery(param1);
-        } else if (kpopupframe_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kpopupframe_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kpopupframe_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KPopupFrame::inputMethodQuery(param1);
         }
+        return KPopupFrame::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1039,14 +1076,15 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_focusnextprevchild_isbase) {
             kpopupframe_focusnextprevchild_isbase = false;
             return KPopupFrame::focusNextPrevChild(next);
-        } else if (kpopupframe_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kpopupframe_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kpopupframe_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPopupFrame::focusNextPrevChild(next);
         }
+        return KPopupFrame::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1054,15 +1092,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_eventfilter_isbase) {
             kpopupframe_eventfilter_isbase = false;
             return KPopupFrame::eventFilter(watched, event);
-        } else if (kpopupframe_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpopupframe_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kpopupframe_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPopupFrame::eventFilter(watched, event);
         }
+        return KPopupFrame::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,13 +1109,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_timerevent_isbase) {
             kpopupframe_timerevent_isbase = false;
             KPopupFrame::timerEvent(event);
-        } else if (kpopupframe_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpopupframe_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpopupframe_timerevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1084,13 +1126,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_childevent_isbase) {
             kpopupframe_childevent_isbase = false;
             KPopupFrame::childEvent(event);
-        } else if (kpopupframe_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpopupframe_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpopupframe_childevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1098,13 +1143,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_customevent_isbase) {
             kpopupframe_customevent_isbase = false;
             KPopupFrame::customEvent(event);
-        } else if (kpopupframe_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpopupframe_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpopupframe_customevent_callback(this, cbval1);
-        } else {
-            KPopupFrame::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,15 +1160,18 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_connectnotify_isbase) {
             kpopupframe_connectnotify_isbase = false;
             KPopupFrame::connectNotify(signal);
-        } else if (kpopupframe_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpopupframe_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpopupframe_connectnotify_callback(this, cbval1);
-        } else {
-            KPopupFrame::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1128,15 +1179,18 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_disconnectnotify_isbase) {
             kpopupframe_disconnectnotify_isbase = false;
             KPopupFrame::disconnectNotify(signal);
-        } else if (kpopupframe_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpopupframe_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpopupframe_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPopupFrame::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1144,13 +1198,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_drawframe_isbase) {
             kpopupframe_drawframe_isbase = false;
             KPopupFrame::drawFrame(param1);
-        } else if (kpopupframe_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kpopupframe_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kpopupframe_drawframe_callback(this, cbval1);
-        } else {
-            KPopupFrame::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KPopupFrame::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1158,11 +1215,14 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_updatemicrofocus_isbase) {
             kpopupframe_updatemicrofocus_isbase = false;
             KPopupFrame::updateMicroFocus();
-        } else if (kpopupframe_updatemicrofocus_callback != nullptr) {
-            kpopupframe_updatemicrofocus_callback();
-        } else {
-            KPopupFrame::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kpopupframe_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KPopupFrame::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1170,11 +1230,14 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_create_isbase) {
             kpopupframe_create_isbase = false;
             KPopupFrame::create();
-        } else if (kpopupframe_create_callback != nullptr) {
-            kpopupframe_create_callback();
-        } else {
-            KPopupFrame::create();
+            return;
         }
+        auto create_cb = kpopupframe_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KPopupFrame::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1182,11 +1245,14 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_destroy_isbase) {
             kpopupframe_destroy_isbase = false;
             KPopupFrame::destroy();
-        } else if (kpopupframe_destroy_callback != nullptr) {
-            kpopupframe_destroy_callback();
-        } else {
-            KPopupFrame::destroy();
+            return;
         }
+        auto destroy_cb = kpopupframe_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KPopupFrame::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,12 +1260,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_focusnextchild_isbase) {
             kpopupframe_focusnextchild_isbase = false;
             return KPopupFrame::focusNextChild();
-        } else if (kpopupframe_focusnextchild_callback != nullptr) {
-            bool callback_ret = kpopupframe_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KPopupFrame::focusNextChild();
         }
+        auto focusnextchild_cb = kpopupframe_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KPopupFrame::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1207,12 +1274,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_focuspreviouschild_isbase) {
             kpopupframe_focuspreviouschild_isbase = false;
             return KPopupFrame::focusPreviousChild();
-        } else if (kpopupframe_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kpopupframe_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KPopupFrame::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kpopupframe_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KPopupFrame::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1220,12 +1288,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_sender_isbase) {
             kpopupframe_sender_isbase = false;
             return KPopupFrame::sender();
-        } else if (kpopupframe_sender_callback != nullptr) {
-            QObject* callback_ret = kpopupframe_sender_callback();
-            return callback_ret;
-        } else {
-            return KPopupFrame::sender();
         }
+        auto sender_cb = kpopupframe_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPopupFrame::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,12 +1302,13 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_sendersignalindex_isbase) {
             kpopupframe_sendersignalindex_isbase = false;
             return KPopupFrame::senderSignalIndex();
-        } else if (kpopupframe_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpopupframe_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPopupFrame::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpopupframe_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPopupFrame::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,14 +1316,15 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_receivers_isbase) {
             kpopupframe_receivers_isbase = false;
             return KPopupFrame::receivers(signal);
-        } else if (kpopupframe_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpopupframe_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpopupframe_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPopupFrame::receivers(signal);
         }
+        return KPopupFrame::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,16 +1332,17 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_issignalconnected_isbase) {
             kpopupframe_issignalconnected_isbase = false;
             return KPopupFrame::isSignalConnected(signal);
-        } else if (kpopupframe_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpopupframe_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpopupframe_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPopupFrame::isSignalConnected(signal);
         }
+        return KPopupFrame::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,15 +1350,16 @@ class VirtualKPopupFrame final : public KPopupFrame {
         if (kpopupframe_getdecodedmetricf_isbase) {
             kpopupframe_getdecodedmetricf_isbase = false;
             return KPopupFrame::getDecodedMetricF(metricA, metricB);
-        } else if (kpopupframe_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kpopupframe_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kpopupframe_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KPopupFrame::getDecodedMetricF(metricA, metricB);
         }
+        return KPopupFrame::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -69,23 +69,6 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
     VirtualQOpenGLVertexArrayObject() : QOpenGLVertexArrayObject() {};
     VirtualQOpenGLVertexArrayObject(QObject* parent) : QOpenGLVertexArrayObject(parent) {};
 
-    ~VirtualQOpenGLVertexArrayObject() {
-        qopenglvertexarrayobject_metaobject_callback = nullptr;
-        qopenglvertexarrayobject_metacast_callback = nullptr;
-        qopenglvertexarrayobject_metacall_callback = nullptr;
-        qopenglvertexarrayobject_event_callback = nullptr;
-        qopenglvertexarrayobject_eventfilter_callback = nullptr;
-        qopenglvertexarrayobject_timerevent_callback = nullptr;
-        qopenglvertexarrayobject_childevent_callback = nullptr;
-        qopenglvertexarrayobject_customevent_callback = nullptr;
-        qopenglvertexarrayobject_connectnotify_callback = nullptr;
-        qopenglvertexarrayobject_disconnectnotify_callback = nullptr;
-        qopenglvertexarrayobject_sender_callback = nullptr;
-        qopenglvertexarrayobject_sendersignalindex_callback = nullptr;
-        qopenglvertexarrayobject_receivers_callback = nullptr;
-        qopenglvertexarrayobject_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQOpenGLVertexArrayObject_MetaObject_Callback(QOpenGLVertexArrayObject_MetaObject_Callback cb) { qopenglvertexarrayobject_metaobject_callback = cb; }
     inline void setQOpenGLVertexArrayObject_Metacast_Callback(QOpenGLVertexArrayObject_Metacast_Callback cb) { qopenglvertexarrayobject_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_metaobject_isbase) {
             qopenglvertexarrayobject_metaobject_isbase = false;
             return QOpenGLVertexArrayObject::metaObject();
-        } else if (qopenglvertexarrayobject_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qopenglvertexarrayobject_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLVertexArrayObject::metaObject();
         }
+        auto metaobject_cb = qopenglvertexarrayobject_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QOpenGLVertexArrayObject::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_metacast_isbase) {
             qopenglvertexarrayobject_metacast_isbase = false;
             return QOpenGLVertexArrayObject::qt_metacast(param1);
-        } else if (qopenglvertexarrayobject_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qopenglvertexarrayobject_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qopenglvertexarrayobject_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLVertexArrayObject::qt_metacast(param1);
         }
+        return QOpenGLVertexArrayObject::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_metacall_isbase) {
             qopenglvertexarrayobject_metacall_isbase = false;
             return QOpenGLVertexArrayObject::qt_metacall(param1, param2, param3);
-        } else if (qopenglvertexarrayobject_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qopenglvertexarrayobject_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qopenglvertexarrayobject_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLVertexArrayObject::qt_metacall(param1, param2, param3);
         }
+        return QOpenGLVertexArrayObject::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_event_isbase) {
             qopenglvertexarrayobject_event_isbase = false;
             return QOpenGLVertexArrayObject::event(event);
-        } else if (qopenglvertexarrayobject_event_callback != nullptr) {
+        }
+        auto event_cb = qopenglvertexarrayobject_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qopenglvertexarrayobject_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLVertexArrayObject::event(event);
         }
+        return QOpenGLVertexArrayObject::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_eventfilter_isbase) {
             qopenglvertexarrayobject_eventfilter_isbase = false;
             return QOpenGLVertexArrayObject::eventFilter(watched, event);
-        } else if (qopenglvertexarrayobject_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qopenglvertexarrayobject_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qopenglvertexarrayobject_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QOpenGLVertexArrayObject::eventFilter(watched, event);
         }
+        return QOpenGLVertexArrayObject::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_timerevent_isbase) {
             qopenglvertexarrayobject_timerevent_isbase = false;
             QOpenGLVertexArrayObject::timerEvent(event);
-        } else if (qopenglvertexarrayobject_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qopenglvertexarrayobject_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qopenglvertexarrayobject_timerevent_callback(this, cbval1);
-        } else {
-            QOpenGLVertexArrayObject::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLVertexArrayObject::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_childevent_isbase) {
             qopenglvertexarrayobject_childevent_isbase = false;
             QOpenGLVertexArrayObject::childEvent(event);
-        } else if (qopenglvertexarrayobject_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qopenglvertexarrayobject_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qopenglvertexarrayobject_childevent_callback(this, cbval1);
-        } else {
-            QOpenGLVertexArrayObject::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLVertexArrayObject::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_customevent_isbase) {
             qopenglvertexarrayobject_customevent_isbase = false;
             QOpenGLVertexArrayObject::customEvent(event);
-        } else if (qopenglvertexarrayobject_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qopenglvertexarrayobject_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qopenglvertexarrayobject_customevent_callback(this, cbval1);
-        } else {
-            QOpenGLVertexArrayObject::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLVertexArrayObject::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_connectnotify_isbase) {
             qopenglvertexarrayobject_connectnotify_isbase = false;
             QOpenGLVertexArrayObject::connectNotify(signal);
-        } else if (qopenglvertexarrayobject_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qopenglvertexarrayobject_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qopenglvertexarrayobject_connectnotify_callback(this, cbval1);
-        } else {
-            QOpenGLVertexArrayObject::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QOpenGLVertexArrayObject::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_disconnectnotify_isbase) {
             qopenglvertexarrayobject_disconnectnotify_isbase = false;
             QOpenGLVertexArrayObject::disconnectNotify(signal);
-        } else if (qopenglvertexarrayobject_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qopenglvertexarrayobject_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qopenglvertexarrayobject_disconnectnotify_callback(this, cbval1);
-        } else {
-            QOpenGLVertexArrayObject::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QOpenGLVertexArrayObject::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_sender_isbase) {
             qopenglvertexarrayobject_sender_isbase = false;
             return QOpenGLVertexArrayObject::sender();
-        } else if (qopenglvertexarrayobject_sender_callback != nullptr) {
-            QObject* callback_ret = qopenglvertexarrayobject_sender_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLVertexArrayObject::sender();
         }
+        auto sender_cb = qopenglvertexarrayobject_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QOpenGLVertexArrayObject::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_sendersignalindex_isbase) {
             qopenglvertexarrayobject_sendersignalindex_isbase = false;
             return QOpenGLVertexArrayObject::senderSignalIndex();
-        } else if (qopenglvertexarrayobject_sendersignalindex_callback != nullptr) {
-            int callback_ret = qopenglvertexarrayobject_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLVertexArrayObject::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qopenglvertexarrayobject_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QOpenGLVertexArrayObject::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_receivers_isbase) {
             qopenglvertexarrayobject_receivers_isbase = false;
             return QOpenGLVertexArrayObject::receivers(signal);
-        } else if (qopenglvertexarrayobject_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qopenglvertexarrayobject_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qopenglvertexarrayobject_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLVertexArrayObject::receivers(signal);
         }
+        return QOpenGLVertexArrayObject::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
         if (qopenglvertexarrayobject_issignalconnected_isbase) {
             qopenglvertexarrayobject_issignalconnected_isbase = false;
             return QOpenGLVertexArrayObject::isSignalConnected(signal);
-        } else if (qopenglvertexarrayobject_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qopenglvertexarrayobject_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qopenglvertexarrayobject_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLVertexArrayObject::isSignalConnected(signal);
         }
+        return QOpenGLVertexArrayObject::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -82,27 +82,6 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
     VirtualQOffscreenSurface(QScreen* screen) : QOffscreenSurface(screen) {};
     VirtualQOffscreenSurface(QScreen* screen, QObject* parent) : QOffscreenSurface(screen, parent) {};
 
-    ~VirtualQOffscreenSurface() {
-        qoffscreensurface_metaobject_callback = nullptr;
-        qoffscreensurface_metacast_callback = nullptr;
-        qoffscreensurface_metacall_callback = nullptr;
-        qoffscreensurface_surfacetype_callback = nullptr;
-        qoffscreensurface_format_callback = nullptr;
-        qoffscreensurface_size_callback = nullptr;
-        qoffscreensurface_event_callback = nullptr;
-        qoffscreensurface_eventfilter_callback = nullptr;
-        qoffscreensurface_timerevent_callback = nullptr;
-        qoffscreensurface_childevent_callback = nullptr;
-        qoffscreensurface_customevent_callback = nullptr;
-        qoffscreensurface_connectnotify_callback = nullptr;
-        qoffscreensurface_disconnectnotify_callback = nullptr;
-        qoffscreensurface_resolveinterface_callback = nullptr;
-        qoffscreensurface_sender_callback = nullptr;
-        qoffscreensurface_sendersignalindex_callback = nullptr;
-        qoffscreensurface_receivers_callback = nullptr;
-        qoffscreensurface_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQOffscreenSurface_MetaObject_Callback(QOffscreenSurface_MetaObject_Callback cb) { qoffscreensurface_metaobject_callback = cb; }
     inline void setQOffscreenSurface_Metacast_Callback(QOffscreenSurface_Metacast_Callback cb) { qoffscreensurface_metacast_callback = cb; }
@@ -148,12 +127,13 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_metaobject_isbase) {
             qoffscreensurface_metaobject_isbase = false;
             return QOffscreenSurface::metaObject();
-        } else if (qoffscreensurface_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qoffscreensurface_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QOffscreenSurface::metaObject();
         }
+        auto metaobject_cb = qoffscreensurface_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QOffscreenSurface::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -161,14 +141,15 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_metacast_isbase) {
             qoffscreensurface_metacast_isbase = false;
             return QOffscreenSurface::qt_metacast(param1);
-        } else if (qoffscreensurface_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qoffscreensurface_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qoffscreensurface_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOffscreenSurface::qt_metacast(param1);
         }
+        return QOffscreenSurface::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -176,16 +157,17 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_metacall_isbase) {
             qoffscreensurface_metacall_isbase = false;
             return QOffscreenSurface::qt_metacall(param1, param2, param3);
-        } else if (qoffscreensurface_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qoffscreensurface_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qoffscreensurface_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOffscreenSurface::qt_metacall(param1, param2, param3);
         }
+        return QOffscreenSurface::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -193,12 +175,13 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_surfacetype_isbase) {
             qoffscreensurface_surfacetype_isbase = false;
             return QOffscreenSurface::surfaceType();
-        } else if (qoffscreensurface_surfacetype_callback != nullptr) {
-            int callback_ret = qoffscreensurface_surfacetype_callback();
-            return static_cast<QSurface::SurfaceType>(callback_ret);
-        } else {
-            return QOffscreenSurface::surfaceType();
         }
+        auto surfacetype_cb = qoffscreensurface_surfacetype_callback;
+        if (surfacetype_cb) {
+            int callback_ret = surfacetype_cb();
+            return static_cast<QSurface::SurfaceType>(callback_ret);
+        }
+        return QOffscreenSurface::surfaceType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -206,12 +189,13 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_format_isbase) {
             qoffscreensurface_format_isbase = false;
             return QOffscreenSurface::format();
-        } else if (qoffscreensurface_format_callback != nullptr) {
-            QSurfaceFormat* callback_ret = qoffscreensurface_format_callback();
-            return *callback_ret;
-        } else {
-            return QOffscreenSurface::format();
         }
+        auto format_cb = qoffscreensurface_format_callback;
+        if (format_cb) {
+            QSurfaceFormat* callback_ret = format_cb();
+            return *callback_ret;
+        }
+        return QOffscreenSurface::format();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,12 +203,13 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_size_isbase) {
             qoffscreensurface_size_isbase = false;
             return QOffscreenSurface::size();
-        } else if (qoffscreensurface_size_callback != nullptr) {
-            QSize* callback_ret = qoffscreensurface_size_callback();
-            return *callback_ret;
-        } else {
-            return QOffscreenSurface::size();
         }
+        auto size_cb = qoffscreensurface_size_callback;
+        if (size_cb) {
+            QSize* callback_ret = size_cb();
+            return *callback_ret;
+        }
+        return QOffscreenSurface::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,14 +217,15 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_event_isbase) {
             qoffscreensurface_event_isbase = false;
             return QOffscreenSurface::event(event);
-        } else if (qoffscreensurface_event_callback != nullptr) {
+        }
+        auto event_cb = qoffscreensurface_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qoffscreensurface_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOffscreenSurface::event(event);
         }
+        return QOffscreenSurface::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,15 +233,16 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_eventfilter_isbase) {
             qoffscreensurface_eventfilter_isbase = false;
             return QOffscreenSurface::eventFilter(watched, event);
-        } else if (qoffscreensurface_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qoffscreensurface_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qoffscreensurface_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QOffscreenSurface::eventFilter(watched, event);
         }
+        return QOffscreenSurface::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,13 +250,16 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_timerevent_isbase) {
             qoffscreensurface_timerevent_isbase = false;
             QOffscreenSurface::timerEvent(event);
-        } else if (qoffscreensurface_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qoffscreensurface_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qoffscreensurface_timerevent_callback(this, cbval1);
-        } else {
-            QOffscreenSurface::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QOffscreenSurface::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,13 +267,16 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_childevent_isbase) {
             qoffscreensurface_childevent_isbase = false;
             QOffscreenSurface::childEvent(event);
-        } else if (qoffscreensurface_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qoffscreensurface_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qoffscreensurface_childevent_callback(this, cbval1);
-        } else {
-            QOffscreenSurface::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QOffscreenSurface::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -291,13 +284,16 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_customevent_isbase) {
             qoffscreensurface_customevent_isbase = false;
             QOffscreenSurface::customEvent(event);
-        } else if (qoffscreensurface_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qoffscreensurface_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qoffscreensurface_customevent_callback(this, cbval1);
-        } else {
-            QOffscreenSurface::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QOffscreenSurface::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,15 +301,18 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_connectnotify_isbase) {
             qoffscreensurface_connectnotify_isbase = false;
             QOffscreenSurface::connectNotify(signal);
-        } else if (qoffscreensurface_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qoffscreensurface_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qoffscreensurface_connectnotify_callback(this, cbval1);
-        } else {
-            QOffscreenSurface::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QOffscreenSurface::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,15 +320,18 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_disconnectnotify_isbase) {
             qoffscreensurface_disconnectnotify_isbase = false;
             QOffscreenSurface::disconnectNotify(signal);
-        } else if (qoffscreensurface_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qoffscreensurface_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qoffscreensurface_disconnectnotify_callback(this, cbval1);
-        } else {
-            QOffscreenSurface::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QOffscreenSurface::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,15 +339,16 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_resolveinterface_isbase) {
             qoffscreensurface_resolveinterface_isbase = false;
             return QOffscreenSurface::resolveInterface(name, revision);
-        } else if (qoffscreensurface_resolveinterface_callback != nullptr) {
+        }
+        auto resolveinterface_cb = qoffscreensurface_resolveinterface_callback;
+        if (resolveinterface_cb) {
             const char* cbval1 = (const char*)name;
             int cbval2 = revision;
 
-            void* callback_ret = qoffscreensurface_resolveinterface_callback(this, cbval1, cbval2);
+            void* callback_ret = resolveinterface_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QOffscreenSurface::resolveInterface(name, revision);
         }
+        return QOffscreenSurface::resolveInterface(name, revision);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -353,12 +356,13 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_sender_isbase) {
             qoffscreensurface_sender_isbase = false;
             return QOffscreenSurface::sender();
-        } else if (qoffscreensurface_sender_callback != nullptr) {
-            QObject* callback_ret = qoffscreensurface_sender_callback();
-            return callback_ret;
-        } else {
-            return QOffscreenSurface::sender();
         }
+        auto sender_cb = qoffscreensurface_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QOffscreenSurface::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,12 +370,13 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_sendersignalindex_isbase) {
             qoffscreensurface_sendersignalindex_isbase = false;
             return QOffscreenSurface::senderSignalIndex();
-        } else if (qoffscreensurface_sendersignalindex_callback != nullptr) {
-            int callback_ret = qoffscreensurface_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QOffscreenSurface::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qoffscreensurface_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QOffscreenSurface::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -379,14 +384,15 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_receivers_isbase) {
             qoffscreensurface_receivers_isbase = false;
             return QOffscreenSurface::receivers(signal);
-        } else if (qoffscreensurface_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qoffscreensurface_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qoffscreensurface_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOffscreenSurface::receivers(signal);
         }
+        return QOffscreenSurface::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,16 +400,17 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
         if (qoffscreensurface_issignalconnected_isbase) {
             qoffscreensurface_issignalconnected_isbase = false;
             return QOffscreenSurface::isSignalConnected(signal);
-        } else if (qoffscreensurface_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qoffscreensurface_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qoffscreensurface_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOffscreenSurface::isSignalConnected(signal);
         }
+        return QOffscreenSurface::isSignalConnected(signal);
     }
 
     // Friend functions

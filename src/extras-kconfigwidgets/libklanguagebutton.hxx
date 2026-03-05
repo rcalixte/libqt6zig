@@ -209,69 +209,6 @@ class VirtualKLanguageButton final : public KLanguageButton {
     VirtualKLanguageButton(const QString& text) : KLanguageButton(text) {};
     VirtualKLanguageButton(const QString& text, QWidget* parent) : KLanguageButton(text, parent) {};
 
-    ~VirtualKLanguageButton() {
-        klanguagebutton_metaobject_callback = nullptr;
-        klanguagebutton_metacast_callback = nullptr;
-        klanguagebutton_metacall_callback = nullptr;
-        klanguagebutton_devtype_callback = nullptr;
-        klanguagebutton_setvisible_callback = nullptr;
-        klanguagebutton_sizehint_callback = nullptr;
-        klanguagebutton_minimumsizehint_callback = nullptr;
-        klanguagebutton_heightforwidth_callback = nullptr;
-        klanguagebutton_hasheightforwidth_callback = nullptr;
-        klanguagebutton_paintengine_callback = nullptr;
-        klanguagebutton_event_callback = nullptr;
-        klanguagebutton_mousepressevent_callback = nullptr;
-        klanguagebutton_mousereleaseevent_callback = nullptr;
-        klanguagebutton_mousedoubleclickevent_callback = nullptr;
-        klanguagebutton_mousemoveevent_callback = nullptr;
-        klanguagebutton_wheelevent_callback = nullptr;
-        klanguagebutton_keypressevent_callback = nullptr;
-        klanguagebutton_keyreleaseevent_callback = nullptr;
-        klanguagebutton_focusinevent_callback = nullptr;
-        klanguagebutton_focusoutevent_callback = nullptr;
-        klanguagebutton_enterevent_callback = nullptr;
-        klanguagebutton_leaveevent_callback = nullptr;
-        klanguagebutton_paintevent_callback = nullptr;
-        klanguagebutton_moveevent_callback = nullptr;
-        klanguagebutton_resizeevent_callback = nullptr;
-        klanguagebutton_closeevent_callback = nullptr;
-        klanguagebutton_contextmenuevent_callback = nullptr;
-        klanguagebutton_tabletevent_callback = nullptr;
-        klanguagebutton_actionevent_callback = nullptr;
-        klanguagebutton_dragenterevent_callback = nullptr;
-        klanguagebutton_dragmoveevent_callback = nullptr;
-        klanguagebutton_dragleaveevent_callback = nullptr;
-        klanguagebutton_dropevent_callback = nullptr;
-        klanguagebutton_showevent_callback = nullptr;
-        klanguagebutton_hideevent_callback = nullptr;
-        klanguagebutton_nativeevent_callback = nullptr;
-        klanguagebutton_changeevent_callback = nullptr;
-        klanguagebutton_metric_callback = nullptr;
-        klanguagebutton_initpainter_callback = nullptr;
-        klanguagebutton_redirected_callback = nullptr;
-        klanguagebutton_sharedpainter_callback = nullptr;
-        klanguagebutton_inputmethodevent_callback = nullptr;
-        klanguagebutton_inputmethodquery_callback = nullptr;
-        klanguagebutton_focusnextprevchild_callback = nullptr;
-        klanguagebutton_eventfilter_callback = nullptr;
-        klanguagebutton_timerevent_callback = nullptr;
-        klanguagebutton_childevent_callback = nullptr;
-        klanguagebutton_customevent_callback = nullptr;
-        klanguagebutton_connectnotify_callback = nullptr;
-        klanguagebutton_disconnectnotify_callback = nullptr;
-        klanguagebutton_updatemicrofocus_callback = nullptr;
-        klanguagebutton_create_callback = nullptr;
-        klanguagebutton_destroy_callback = nullptr;
-        klanguagebutton_focusnextchild_callback = nullptr;
-        klanguagebutton_focuspreviouschild_callback = nullptr;
-        klanguagebutton_sender_callback = nullptr;
-        klanguagebutton_sendersignalindex_callback = nullptr;
-        klanguagebutton_receivers_callback = nullptr;
-        klanguagebutton_issignalconnected_callback = nullptr;
-        klanguagebutton_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKLanguageButton_MetaObject_Callback(KLanguageButton_MetaObject_Callback cb) { klanguagebutton_metaobject_callback = cb; }
     inline void setKLanguageButton_Metacast_Callback(KLanguageButton_Metacast_Callback cb) { klanguagebutton_metacast_callback = cb; }
@@ -401,12 +338,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_metaobject_isbase) {
             klanguagebutton_metaobject_isbase = false;
             return KLanguageButton::metaObject();
-        } else if (klanguagebutton_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = klanguagebutton_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KLanguageButton::metaObject();
         }
+        auto metaobject_cb = klanguagebutton_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KLanguageButton::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,14 +352,15 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_metacast_isbase) {
             klanguagebutton_metacast_isbase = false;
             return KLanguageButton::qt_metacast(param1);
-        } else if (klanguagebutton_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = klanguagebutton_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = klanguagebutton_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLanguageButton::qt_metacast(param1);
         }
+        return KLanguageButton::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -429,16 +368,17 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_metacall_isbase) {
             klanguagebutton_metacall_isbase = false;
             return KLanguageButton::qt_metacall(param1, param2, param3);
-        } else if (klanguagebutton_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = klanguagebutton_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = klanguagebutton_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLanguageButton::qt_metacall(param1, param2, param3);
         }
+        return KLanguageButton::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -446,12 +386,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_devtype_isbase) {
             klanguagebutton_devtype_isbase = false;
             return KLanguageButton::devType();
-        } else if (klanguagebutton_devtype_callback != nullptr) {
-            int callback_ret = klanguagebutton_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KLanguageButton::devType();
         }
+        auto devtype_cb = klanguagebutton_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KLanguageButton::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -459,13 +400,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_setvisible_isbase) {
             klanguagebutton_setvisible_isbase = false;
             KLanguageButton::setVisible(visible);
-        } else if (klanguagebutton_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = klanguagebutton_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            klanguagebutton_setvisible_callback(this, cbval1);
-        } else {
-            KLanguageButton::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -473,12 +417,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_sizehint_isbase) {
             klanguagebutton_sizehint_isbase = false;
             return KLanguageButton::sizeHint();
-        } else if (klanguagebutton_sizehint_callback != nullptr) {
-            QSize* callback_ret = klanguagebutton_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KLanguageButton::sizeHint();
         }
+        auto sizehint_cb = klanguagebutton_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KLanguageButton::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,12 +431,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_minimumsizehint_isbase) {
             klanguagebutton_minimumsizehint_isbase = false;
             return KLanguageButton::minimumSizeHint();
-        } else if (klanguagebutton_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = klanguagebutton_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KLanguageButton::minimumSizeHint();
         }
+        auto minimumsizehint_cb = klanguagebutton_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KLanguageButton::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,14 +445,15 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_heightforwidth_isbase) {
             klanguagebutton_heightforwidth_isbase = false;
             return KLanguageButton::heightForWidth(param1);
-        } else if (klanguagebutton_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = klanguagebutton_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = klanguagebutton_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLanguageButton::heightForWidth(param1);
         }
+        return KLanguageButton::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,12 +461,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_hasheightforwidth_isbase) {
             klanguagebutton_hasheightforwidth_isbase = false;
             return KLanguageButton::hasHeightForWidth();
-        } else if (klanguagebutton_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = klanguagebutton_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KLanguageButton::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = klanguagebutton_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KLanguageButton::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,12 +475,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_paintengine_isbase) {
             klanguagebutton_paintengine_isbase = false;
             return KLanguageButton::paintEngine();
-        } else if (klanguagebutton_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = klanguagebutton_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KLanguageButton::paintEngine();
         }
+        auto paintengine_cb = klanguagebutton_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KLanguageButton::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,14 +489,15 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_event_isbase) {
             klanguagebutton_event_isbase = false;
             return KLanguageButton::event(event);
-        } else if (klanguagebutton_event_callback != nullptr) {
+        }
+        auto event_cb = klanguagebutton_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = klanguagebutton_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLanguageButton::event(event);
         }
+        return KLanguageButton::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,13 +505,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_mousepressevent_isbase) {
             klanguagebutton_mousepressevent_isbase = false;
             KLanguageButton::mousePressEvent(event);
-        } else if (klanguagebutton_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = klanguagebutton_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            klanguagebutton_mousepressevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,13 +522,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_mousereleaseevent_isbase) {
             klanguagebutton_mousereleaseevent_isbase = false;
             KLanguageButton::mouseReleaseEvent(event);
-        } else if (klanguagebutton_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = klanguagebutton_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            klanguagebutton_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -583,13 +539,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_mousedoubleclickevent_isbase) {
             klanguagebutton_mousedoubleclickevent_isbase = false;
             KLanguageButton::mouseDoubleClickEvent(event);
-        } else if (klanguagebutton_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = klanguagebutton_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            klanguagebutton_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,13 +556,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_mousemoveevent_isbase) {
             klanguagebutton_mousemoveevent_isbase = false;
             KLanguageButton::mouseMoveEvent(event);
-        } else if (klanguagebutton_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = klanguagebutton_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            klanguagebutton_mousemoveevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +573,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_wheelevent_isbase) {
             klanguagebutton_wheelevent_isbase = false;
             KLanguageButton::wheelEvent(event);
-        } else if (klanguagebutton_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = klanguagebutton_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            klanguagebutton_wheelevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,13 +590,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_keypressevent_isbase) {
             klanguagebutton_keypressevent_isbase = false;
             KLanguageButton::keyPressEvent(event);
-        } else if (klanguagebutton_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = klanguagebutton_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            klanguagebutton_keypressevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,13 +607,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_keyreleaseevent_isbase) {
             klanguagebutton_keyreleaseevent_isbase = false;
             KLanguageButton::keyReleaseEvent(event);
-        } else if (klanguagebutton_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = klanguagebutton_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            klanguagebutton_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +624,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_focusinevent_isbase) {
             klanguagebutton_focusinevent_isbase = false;
             KLanguageButton::focusInEvent(event);
-        } else if (klanguagebutton_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = klanguagebutton_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            klanguagebutton_focusinevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,13 +641,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_focusoutevent_isbase) {
             klanguagebutton_focusoutevent_isbase = false;
             KLanguageButton::focusOutEvent(event);
-        } else if (klanguagebutton_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = klanguagebutton_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            klanguagebutton_focusoutevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,13 +658,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_enterevent_isbase) {
             klanguagebutton_enterevent_isbase = false;
             KLanguageButton::enterEvent(event);
-        } else if (klanguagebutton_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = klanguagebutton_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            klanguagebutton_enterevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,13 +675,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_leaveevent_isbase) {
             klanguagebutton_leaveevent_isbase = false;
             KLanguageButton::leaveEvent(event);
-        } else if (klanguagebutton_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = klanguagebutton_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            klanguagebutton_leaveevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +692,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_paintevent_isbase) {
             klanguagebutton_paintevent_isbase = false;
             KLanguageButton::paintEvent(event);
-        } else if (klanguagebutton_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = klanguagebutton_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            klanguagebutton_paintevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,13 +709,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_moveevent_isbase) {
             klanguagebutton_moveevent_isbase = false;
             KLanguageButton::moveEvent(event);
-        } else if (klanguagebutton_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = klanguagebutton_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            klanguagebutton_moveevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,13 +726,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_resizeevent_isbase) {
             klanguagebutton_resizeevent_isbase = false;
             KLanguageButton::resizeEvent(event);
-        } else if (klanguagebutton_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = klanguagebutton_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            klanguagebutton_resizeevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,13 +743,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_closeevent_isbase) {
             klanguagebutton_closeevent_isbase = false;
             KLanguageButton::closeEvent(event);
-        } else if (klanguagebutton_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = klanguagebutton_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            klanguagebutton_closeevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +760,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_contextmenuevent_isbase) {
             klanguagebutton_contextmenuevent_isbase = false;
             KLanguageButton::contextMenuEvent(event);
-        } else if (klanguagebutton_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = klanguagebutton_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            klanguagebutton_contextmenuevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +777,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_tabletevent_isbase) {
             klanguagebutton_tabletevent_isbase = false;
             KLanguageButton::tabletEvent(event);
-        } else if (klanguagebutton_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = klanguagebutton_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            klanguagebutton_tabletevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +794,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_actionevent_isbase) {
             klanguagebutton_actionevent_isbase = false;
             KLanguageButton::actionEvent(event);
-        } else if (klanguagebutton_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = klanguagebutton_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            klanguagebutton_actionevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +811,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_dragenterevent_isbase) {
             klanguagebutton_dragenterevent_isbase = false;
             KLanguageButton::dragEnterEvent(event);
-        } else if (klanguagebutton_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = klanguagebutton_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            klanguagebutton_dragenterevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +828,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_dragmoveevent_isbase) {
             klanguagebutton_dragmoveevent_isbase = false;
             KLanguageButton::dragMoveEvent(event);
-        } else if (klanguagebutton_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = klanguagebutton_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            klanguagebutton_dragmoveevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +845,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_dragleaveevent_isbase) {
             klanguagebutton_dragleaveevent_isbase = false;
             KLanguageButton::dragLeaveEvent(event);
-        } else if (klanguagebutton_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = klanguagebutton_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            klanguagebutton_dragleaveevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +862,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_dropevent_isbase) {
             klanguagebutton_dropevent_isbase = false;
             KLanguageButton::dropEvent(event);
-        } else if (klanguagebutton_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = klanguagebutton_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            klanguagebutton_dropevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +879,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_showevent_isbase) {
             klanguagebutton_showevent_isbase = false;
             KLanguageButton::showEvent(event);
-        } else if (klanguagebutton_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = klanguagebutton_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            klanguagebutton_showevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +896,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_hideevent_isbase) {
             klanguagebutton_hideevent_isbase = false;
             KLanguageButton::hideEvent(event);
-        } else if (klanguagebutton_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = klanguagebutton_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            klanguagebutton_hideevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,7 +913,9 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_nativeevent_isbase) {
             klanguagebutton_nativeevent_isbase = false;
             return KLanguageButton::nativeEvent(eventType, message, result);
-        } else if (klanguagebutton_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = klanguagebutton_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -902,12 +926,11 @@ class VirtualKLanguageButton final : public KLanguageButton {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = klanguagebutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KLanguageButton::nativeEvent(eventType, message, result);
         }
+        return KLanguageButton::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -915,13 +938,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_changeevent_isbase) {
             klanguagebutton_changeevent_isbase = false;
             KLanguageButton::changeEvent(param1);
-        } else if (klanguagebutton_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = klanguagebutton_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            klanguagebutton_changeevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -929,14 +955,15 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_metric_isbase) {
             klanguagebutton_metric_isbase = false;
             return KLanguageButton::metric(param1);
-        } else if (klanguagebutton_metric_callback != nullptr) {
+        }
+        auto metric_cb = klanguagebutton_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = klanguagebutton_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLanguageButton::metric(param1);
         }
+        return KLanguageButton::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,13 +971,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_initpainter_isbase) {
             klanguagebutton_initpainter_isbase = false;
             KLanguageButton::initPainter(painter);
-        } else if (klanguagebutton_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = klanguagebutton_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            klanguagebutton_initpainter_callback(this, cbval1);
-        } else {
-            KLanguageButton::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,14 +988,15 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_redirected_isbase) {
             klanguagebutton_redirected_isbase = false;
             return KLanguageButton::redirected(offset);
-        } else if (klanguagebutton_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = klanguagebutton_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = klanguagebutton_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLanguageButton::redirected(offset);
         }
+        return KLanguageButton::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -973,12 +1004,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_sharedpainter_isbase) {
             klanguagebutton_sharedpainter_isbase = false;
             return KLanguageButton::sharedPainter();
-        } else if (klanguagebutton_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = klanguagebutton_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KLanguageButton::sharedPainter();
         }
+        auto sharedpainter_cb = klanguagebutton_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KLanguageButton::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,13 +1018,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_inputmethodevent_isbase) {
             klanguagebutton_inputmethodevent_isbase = false;
             KLanguageButton::inputMethodEvent(param1);
-        } else if (klanguagebutton_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = klanguagebutton_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            klanguagebutton_inputmethodevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,14 +1035,15 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_inputmethodquery_isbase) {
             klanguagebutton_inputmethodquery_isbase = false;
             return KLanguageButton::inputMethodQuery(param1);
-        } else if (klanguagebutton_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = klanguagebutton_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = klanguagebutton_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KLanguageButton::inputMethodQuery(param1);
         }
+        return KLanguageButton::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1015,14 +1051,15 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_focusnextprevchild_isbase) {
             klanguagebutton_focusnextprevchild_isbase = false;
             return KLanguageButton::focusNextPrevChild(next);
-        } else if (klanguagebutton_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = klanguagebutton_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = klanguagebutton_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLanguageButton::focusNextPrevChild(next);
         }
+        return KLanguageButton::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1030,15 +1067,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_eventfilter_isbase) {
             klanguagebutton_eventfilter_isbase = false;
             return KLanguageButton::eventFilter(watched, event);
-        } else if (klanguagebutton_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = klanguagebutton_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = klanguagebutton_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KLanguageButton::eventFilter(watched, event);
         }
+        return KLanguageButton::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1046,13 +1084,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_timerevent_isbase) {
             klanguagebutton_timerevent_isbase = false;
             KLanguageButton::timerEvent(event);
-        } else if (klanguagebutton_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = klanguagebutton_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            klanguagebutton_timerevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1060,13 +1101,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_childevent_isbase) {
             klanguagebutton_childevent_isbase = false;
             KLanguageButton::childEvent(event);
-        } else if (klanguagebutton_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = klanguagebutton_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            klanguagebutton_childevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1074,13 +1118,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_customevent_isbase) {
             klanguagebutton_customevent_isbase = false;
             KLanguageButton::customEvent(event);
-        } else if (klanguagebutton_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = klanguagebutton_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            klanguagebutton_customevent_callback(this, cbval1);
-        } else {
-            KLanguageButton::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,15 +1135,18 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_connectnotify_isbase) {
             klanguagebutton_connectnotify_isbase = false;
             KLanguageButton::connectNotify(signal);
-        } else if (klanguagebutton_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = klanguagebutton_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klanguagebutton_connectnotify_callback(this, cbval1);
-        } else {
-            KLanguageButton::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1104,15 +1154,18 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_disconnectnotify_isbase) {
             klanguagebutton_disconnectnotify_isbase = false;
             KLanguageButton::disconnectNotify(signal);
-        } else if (klanguagebutton_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = klanguagebutton_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klanguagebutton_disconnectnotify_callback(this, cbval1);
-        } else {
-            KLanguageButton::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KLanguageButton::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,11 +1173,14 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_updatemicrofocus_isbase) {
             klanguagebutton_updatemicrofocus_isbase = false;
             KLanguageButton::updateMicroFocus();
-        } else if (klanguagebutton_updatemicrofocus_callback != nullptr) {
-            klanguagebutton_updatemicrofocus_callback();
-        } else {
-            KLanguageButton::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = klanguagebutton_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KLanguageButton::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1132,11 +1188,14 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_create_isbase) {
             klanguagebutton_create_isbase = false;
             KLanguageButton::create();
-        } else if (klanguagebutton_create_callback != nullptr) {
-            klanguagebutton_create_callback();
-        } else {
-            KLanguageButton::create();
+            return;
         }
+        auto create_cb = klanguagebutton_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KLanguageButton::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1144,11 +1203,14 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_destroy_isbase) {
             klanguagebutton_destroy_isbase = false;
             KLanguageButton::destroy();
-        } else if (klanguagebutton_destroy_callback != nullptr) {
-            klanguagebutton_destroy_callback();
-        } else {
-            KLanguageButton::destroy();
+            return;
         }
+        auto destroy_cb = klanguagebutton_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KLanguageButton::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1156,12 +1218,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_focusnextchild_isbase) {
             klanguagebutton_focusnextchild_isbase = false;
             return KLanguageButton::focusNextChild();
-        } else if (klanguagebutton_focusnextchild_callback != nullptr) {
-            bool callback_ret = klanguagebutton_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KLanguageButton::focusNextChild();
         }
+        auto focusnextchild_cb = klanguagebutton_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KLanguageButton::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,12 +1232,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_focuspreviouschild_isbase) {
             klanguagebutton_focuspreviouschild_isbase = false;
             return KLanguageButton::focusPreviousChild();
-        } else if (klanguagebutton_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = klanguagebutton_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KLanguageButton::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = klanguagebutton_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KLanguageButton::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1182,12 +1246,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_sender_isbase) {
             klanguagebutton_sender_isbase = false;
             return KLanguageButton::sender();
-        } else if (klanguagebutton_sender_callback != nullptr) {
-            QObject* callback_ret = klanguagebutton_sender_callback();
-            return callback_ret;
-        } else {
-            return KLanguageButton::sender();
         }
+        auto sender_cb = klanguagebutton_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KLanguageButton::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,12 +1260,13 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_sendersignalindex_isbase) {
             klanguagebutton_sendersignalindex_isbase = false;
             return KLanguageButton::senderSignalIndex();
-        } else if (klanguagebutton_sendersignalindex_callback != nullptr) {
-            int callback_ret = klanguagebutton_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KLanguageButton::senderSignalIndex();
         }
+        auto sendersignalindex_cb = klanguagebutton_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KLanguageButton::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1208,14 +1274,15 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_receivers_isbase) {
             klanguagebutton_receivers_isbase = false;
             return KLanguageButton::receivers(signal);
-        } else if (klanguagebutton_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = klanguagebutton_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = klanguagebutton_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLanguageButton::receivers(signal);
         }
+        return KLanguageButton::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1223,16 +1290,17 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_issignalconnected_isbase) {
             klanguagebutton_issignalconnected_isbase = false;
             return KLanguageButton::isSignalConnected(signal);
-        } else if (klanguagebutton_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = klanguagebutton_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = klanguagebutton_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLanguageButton::isSignalConnected(signal);
         }
+        return KLanguageButton::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1240,15 +1308,16 @@ class VirtualKLanguageButton final : public KLanguageButton {
         if (klanguagebutton_getdecodedmetricf_isbase) {
             klanguagebutton_getdecodedmetricf_isbase = false;
             return KLanguageButton::getDecodedMetricF(metricA, metricB);
-        } else if (klanguagebutton_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = klanguagebutton_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = klanguagebutton_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KLanguageButton::getDecodedMetricF(metricA, metricB);
         }
+        return KLanguageButton::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

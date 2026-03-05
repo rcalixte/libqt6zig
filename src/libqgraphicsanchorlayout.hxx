@@ -66,22 +66,6 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
     VirtualQGraphicsAnchorLayout() : QGraphicsAnchorLayout() {};
     VirtualQGraphicsAnchorLayout(QGraphicsLayoutItem* parent) : QGraphicsAnchorLayout(parent) {};
 
-    ~VirtualQGraphicsAnchorLayout() {
-        qgraphicsanchorlayout_removeat_callback = nullptr;
-        qgraphicsanchorlayout_setgeometry_callback = nullptr;
-        qgraphicsanchorlayout_count_callback = nullptr;
-        qgraphicsanchorlayout_itemat_callback = nullptr;
-        qgraphicsanchorlayout_invalidate_callback = nullptr;
-        qgraphicsanchorlayout_sizehint_callback = nullptr;
-        qgraphicsanchorlayout_getcontentsmargins_callback = nullptr;
-        qgraphicsanchorlayout_updategeometry_callback = nullptr;
-        qgraphicsanchorlayout_widgetevent_callback = nullptr;
-        qgraphicsanchorlayout_isempty_callback = nullptr;
-        qgraphicsanchorlayout_addchildlayoutitem_callback = nullptr;
-        qgraphicsanchorlayout_setgraphicsitem_callback = nullptr;
-        qgraphicsanchorlayout_setownedbylayout_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsAnchorLayout_RemoveAt_Callback(QGraphicsAnchorLayout_RemoveAt_Callback cb) { qgraphicsanchorlayout_removeat_callback = cb; }
     inline void setQGraphicsAnchorLayout_SetGeometry_Callback(QGraphicsAnchorLayout_SetGeometry_Callback cb) { qgraphicsanchorlayout_setgeometry_callback = cb; }
@@ -117,13 +101,16 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_removeat_isbase) {
             qgraphicsanchorlayout_removeat_isbase = false;
             QGraphicsAnchorLayout::removeAt(index);
-        } else if (qgraphicsanchorlayout_removeat_callback != nullptr) {
+            return;
+        }
+        auto removeat_cb = qgraphicsanchorlayout_removeat_callback;
+        if (removeat_cb) {
             int cbval1 = index;
 
-            qgraphicsanchorlayout_removeat_callback(this, cbval1);
-        } else {
-            QGraphicsAnchorLayout::removeAt(index);
+            removeat_cb(this, cbval1);
+            return;
         }
+        QGraphicsAnchorLayout::removeAt(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -131,15 +118,18 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_setgeometry_isbase) {
             qgraphicsanchorlayout_setgeometry_isbase = false;
             QGraphicsAnchorLayout::setGeometry(rect);
-        } else if (qgraphicsanchorlayout_setgeometry_callback != nullptr) {
+            return;
+        }
+        auto setgeometry_cb = qgraphicsanchorlayout_setgeometry_callback;
+        if (setgeometry_cb) {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
 
-            qgraphicsanchorlayout_setgeometry_callback(this, cbval1);
-        } else {
-            QGraphicsAnchorLayout::setGeometry(rect);
+            setgeometry_cb(this, cbval1);
+            return;
         }
+        QGraphicsAnchorLayout::setGeometry(rect);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -147,12 +137,13 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_count_isbase) {
             qgraphicsanchorlayout_count_isbase = false;
             return QGraphicsAnchorLayout::count();
-        } else if (qgraphicsanchorlayout_count_callback != nullptr) {
-            int callback_ret = qgraphicsanchorlayout_count_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsAnchorLayout::count();
         }
+        auto count_cb = qgraphicsanchorlayout_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsAnchorLayout::count();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -160,14 +151,15 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_itemat_isbase) {
             qgraphicsanchorlayout_itemat_isbase = false;
             return QGraphicsAnchorLayout::itemAt(index);
-        } else if (qgraphicsanchorlayout_itemat_callback != nullptr) {
+        }
+        auto itemat_cb = qgraphicsanchorlayout_itemat_callback;
+        if (itemat_cb) {
             int cbval1 = index;
 
-            QGraphicsLayoutItem* callback_ret = qgraphicsanchorlayout_itemat_callback(this, cbval1);
+            QGraphicsLayoutItem* callback_ret = itemat_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsAnchorLayout::itemAt(index);
         }
+        return QGraphicsAnchorLayout::itemAt(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -175,11 +167,14 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_invalidate_isbase) {
             qgraphicsanchorlayout_invalidate_isbase = false;
             QGraphicsAnchorLayout::invalidate();
-        } else if (qgraphicsanchorlayout_invalidate_callback != nullptr) {
-            qgraphicsanchorlayout_invalidate_callback();
-        } else {
-            QGraphicsAnchorLayout::invalidate();
+            return;
         }
+        auto invalidate_cb = qgraphicsanchorlayout_invalidate_callback;
+        if (invalidate_cb) {
+            invalidate_cb();
+            return;
+        }
+        QGraphicsAnchorLayout::invalidate();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,17 +182,18 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_sizehint_isbase) {
             qgraphicsanchorlayout_sizehint_isbase = false;
             return QGraphicsAnchorLayout::sizeHint(which, constraint);
-        } else if (qgraphicsanchorlayout_sizehint_callback != nullptr) {
+        }
+        auto sizehint_cb = qgraphicsanchorlayout_sizehint_callback;
+        if (sizehint_cb) {
             int cbval1 = static_cast<int>(which);
             const QSizeF& constraint_ret = constraint;
             // Cast returned reference into pointer
             QSizeF* cbval2 = const_cast<QSizeF*>(&constraint_ret);
 
-            QSizeF* callback_ret = qgraphicsanchorlayout_sizehint_callback(this, cbval1, cbval2);
+            QSizeF* callback_ret = sizehint_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsAnchorLayout::sizeHint(which, constraint);
         }
+        return QGraphicsAnchorLayout::sizeHint(which, constraint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,16 +201,19 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_getcontentsmargins_isbase) {
             qgraphicsanchorlayout_getcontentsmargins_isbase = false;
             QGraphicsAnchorLayout::getContentsMargins(left, top, right, bottom);
-        } else if (qgraphicsanchorlayout_getcontentsmargins_callback != nullptr) {
+            return;
+        }
+        auto getcontentsmargins_cb = qgraphicsanchorlayout_getcontentsmargins_callback;
+        if (getcontentsmargins_cb) {
             double* cbval1 = static_cast<double*>(left);
             double* cbval2 = static_cast<double*>(top);
             double* cbval3 = static_cast<double*>(right);
             double* cbval4 = static_cast<double*>(bottom);
 
-            qgraphicsanchorlayout_getcontentsmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QGraphicsAnchorLayout::getContentsMargins(left, top, right, bottom);
+            getcontentsmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QGraphicsAnchorLayout::getContentsMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -222,11 +221,14 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_updategeometry_isbase) {
             qgraphicsanchorlayout_updategeometry_isbase = false;
             QGraphicsAnchorLayout::updateGeometry();
-        } else if (qgraphicsanchorlayout_updategeometry_callback != nullptr) {
-            qgraphicsanchorlayout_updategeometry_callback();
-        } else {
-            QGraphicsAnchorLayout::updateGeometry();
+            return;
         }
+        auto updategeometry_cb = qgraphicsanchorlayout_updategeometry_callback;
+        if (updategeometry_cb) {
+            updategeometry_cb();
+            return;
+        }
+        QGraphicsAnchorLayout::updateGeometry();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -234,13 +236,16 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_widgetevent_isbase) {
             qgraphicsanchorlayout_widgetevent_isbase = false;
             QGraphicsAnchorLayout::widgetEvent(e);
-        } else if (qgraphicsanchorlayout_widgetevent_callback != nullptr) {
+            return;
+        }
+        auto widgetevent_cb = qgraphicsanchorlayout_widgetevent_callback;
+        if (widgetevent_cb) {
             QEvent* cbval1 = e;
 
-            qgraphicsanchorlayout_widgetevent_callback(this, cbval1);
-        } else {
-            QGraphicsAnchorLayout::widgetEvent(e);
+            widgetevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsAnchorLayout::widgetEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -248,12 +253,13 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_isempty_isbase) {
             qgraphicsanchorlayout_isempty_isbase = false;
             return QGraphicsAnchorLayout::isEmpty();
-        } else if (qgraphicsanchorlayout_isempty_callback != nullptr) {
-            bool callback_ret = qgraphicsanchorlayout_isempty_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsAnchorLayout::isEmpty();
         }
+        auto isempty_cb = qgraphicsanchorlayout_isempty_callback;
+        if (isempty_cb) {
+            bool callback_ret = isempty_cb();
+            return callback_ret;
+        }
+        return QGraphicsAnchorLayout::isEmpty();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,13 +267,16 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_addchildlayoutitem_isbase) {
             qgraphicsanchorlayout_addchildlayoutitem_isbase = false;
             QGraphicsAnchorLayout::addChildLayoutItem(layoutItem);
-        } else if (qgraphicsanchorlayout_addchildlayoutitem_callback != nullptr) {
+            return;
+        }
+        auto addchildlayoutitem_cb = qgraphicsanchorlayout_addchildlayoutitem_callback;
+        if (addchildlayoutitem_cb) {
             QGraphicsLayoutItem* cbval1 = layoutItem;
 
-            qgraphicsanchorlayout_addchildlayoutitem_callback(this, cbval1);
-        } else {
-            QGraphicsAnchorLayout::addChildLayoutItem(layoutItem);
+            addchildlayoutitem_cb(this, cbval1);
+            return;
         }
+        QGraphicsAnchorLayout::addChildLayoutItem(layoutItem);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,13 +284,16 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_setgraphicsitem_isbase) {
             qgraphicsanchorlayout_setgraphicsitem_isbase = false;
             QGraphicsAnchorLayout::setGraphicsItem(item);
-        } else if (qgraphicsanchorlayout_setgraphicsitem_callback != nullptr) {
+            return;
+        }
+        auto setgraphicsitem_cb = qgraphicsanchorlayout_setgraphicsitem_callback;
+        if (setgraphicsitem_cb) {
             QGraphicsItem* cbval1 = item;
 
-            qgraphicsanchorlayout_setgraphicsitem_callback(this, cbval1);
-        } else {
-            QGraphicsAnchorLayout::setGraphicsItem(item);
+            setgraphicsitem_cb(this, cbval1);
+            return;
         }
+        QGraphicsAnchorLayout::setGraphicsItem(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -289,13 +301,16 @@ class VirtualQGraphicsAnchorLayout final : public QGraphicsAnchorLayout {
         if (qgraphicsanchorlayout_setownedbylayout_isbase) {
             qgraphicsanchorlayout_setownedbylayout_isbase = false;
             QGraphicsAnchorLayout::setOwnedByLayout(ownedByLayout);
-        } else if (qgraphicsanchorlayout_setownedbylayout_callback != nullptr) {
+            return;
+        }
+        auto setownedbylayout_cb = qgraphicsanchorlayout_setownedbylayout_callback;
+        if (setownedbylayout_cb) {
             bool cbval1 = ownedByLayout;
 
-            qgraphicsanchorlayout_setownedbylayout_callback(this, cbval1);
-        } else {
-            QGraphicsAnchorLayout::setOwnedByLayout(ownedByLayout);
+            setownedbylayout_cb(this, cbval1);
+            return;
         }
+        QGraphicsAnchorLayout::setOwnedByLayout(ownedByLayout);
     }
 
     // Friend functions

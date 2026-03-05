@@ -71,24 +71,6 @@ class VirtualKPluginFactory final : public KPluginFactory {
   public:
     VirtualKPluginFactory() : KPluginFactory() {};
 
-    ~VirtualKPluginFactory() {
-        kpluginfactory_metaobject_callback = nullptr;
-        kpluginfactory_metacast_callback = nullptr;
-        kpluginfactory_metacall_callback = nullptr;
-        kpluginfactory_create_callback = nullptr;
-        kpluginfactory_event_callback = nullptr;
-        kpluginfactory_eventfilter_callback = nullptr;
-        kpluginfactory_timerevent_callback = nullptr;
-        kpluginfactory_childevent_callback = nullptr;
-        kpluginfactory_customevent_callback = nullptr;
-        kpluginfactory_connectnotify_callback = nullptr;
-        kpluginfactory_disconnectnotify_callback = nullptr;
-        kpluginfactory_sender_callback = nullptr;
-        kpluginfactory_sendersignalindex_callback = nullptr;
-        kpluginfactory_receivers_callback = nullptr;
-        kpluginfactory_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPluginFactory_MetaObject_Callback(KPluginFactory_MetaObject_Callback cb) { kpluginfactory_metaobject_callback = cb; }
     inline void setKPluginFactory_Metacast_Callback(KPluginFactory_Metacast_Callback cb) { kpluginfactory_metacast_callback = cb; }
@@ -128,12 +110,13 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_metaobject_isbase) {
             kpluginfactory_metaobject_isbase = false;
             return KPluginFactory::metaObject();
-        } else if (kpluginfactory_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpluginfactory_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPluginFactory::metaObject();
         }
+        auto metaobject_cb = kpluginfactory_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPluginFactory::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -141,14 +124,15 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_metacast_isbase) {
             kpluginfactory_metacast_isbase = false;
             return KPluginFactory::qt_metacast(param1);
-        } else if (kpluginfactory_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpluginfactory_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpluginfactory_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPluginFactory::qt_metacast(param1);
         }
+        return KPluginFactory::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,16 +140,17 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_metacall_isbase) {
             kpluginfactory_metacall_isbase = false;
             return KPluginFactory::qt_metacall(param1, param2, param3);
-        } else if (kpluginfactory_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpluginfactory_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpluginfactory_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPluginFactory::qt_metacall(param1, param2, param3);
         }
+        return KPluginFactory::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -173,7 +158,9 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_create_isbase) {
             kpluginfactory_create_isbase = false;
             return KPluginFactory::create(iface, parentWidget, parent, args);
-        } else if (kpluginfactory_create_callback != nullptr) {
+        }
+        auto create_cb = kpluginfactory_create_callback;
+        if (create_cb) {
             const char* cbval1 = (const char*)iface;
             QWidget* cbval2 = parentWidget;
             QObject* cbval3 = parent;
@@ -188,12 +175,11 @@ class VirtualKPluginFactory final : public KPluginFactory {
             args_out.data = static_cast<void*>(args_arr);
             libqt_list /* of QVariant* */ cbval4 = args_out;
 
-            QObject* callback_ret = kpluginfactory_create_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QObject* callback_ret = create_cb(this, cbval1, cbval2, cbval3, cbval4);
             free(args_arr);
             return callback_ret;
-        } else {
-            return KPluginFactory::create(iface, parentWidget, parent, args);
         }
+        return KPluginFactory::create(iface, parentWidget, parent, args);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,14 +187,15 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_event_isbase) {
             kpluginfactory_event_isbase = false;
             return KPluginFactory::event(event);
-        } else if (kpluginfactory_event_callback != nullptr) {
+        }
+        auto event_cb = kpluginfactory_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kpluginfactory_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPluginFactory::event(event);
         }
+        return KPluginFactory::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -216,15 +203,16 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_eventfilter_isbase) {
             kpluginfactory_eventfilter_isbase = false;
             return KPluginFactory::eventFilter(watched, event);
-        } else if (kpluginfactory_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpluginfactory_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kpluginfactory_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPluginFactory::eventFilter(watched, event);
         }
+        return KPluginFactory::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +220,16 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_timerevent_isbase) {
             kpluginfactory_timerevent_isbase = false;
             KPluginFactory::timerEvent(event);
-        } else if (kpluginfactory_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpluginfactory_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpluginfactory_timerevent_callback(this, cbval1);
-        } else {
-            KPluginFactory::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPluginFactory::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,13 +237,16 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_childevent_isbase) {
             kpluginfactory_childevent_isbase = false;
             KPluginFactory::childEvent(event);
-        } else if (kpluginfactory_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpluginfactory_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpluginfactory_childevent_callback(this, cbval1);
-        } else {
-            KPluginFactory::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPluginFactory::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,13 +254,16 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_customevent_isbase) {
             kpluginfactory_customevent_isbase = false;
             KPluginFactory::customEvent(event);
-        } else if (kpluginfactory_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpluginfactory_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpluginfactory_customevent_callback(this, cbval1);
-        } else {
-            KPluginFactory::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPluginFactory::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -274,15 +271,18 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_connectnotify_isbase) {
             kpluginfactory_connectnotify_isbase = false;
             KPluginFactory::connectNotify(signal);
-        } else if (kpluginfactory_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpluginfactory_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpluginfactory_connectnotify_callback(this, cbval1);
-        } else {
-            KPluginFactory::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPluginFactory::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -290,15 +290,18 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_disconnectnotify_isbase) {
             kpluginfactory_disconnectnotify_isbase = false;
             KPluginFactory::disconnectNotify(signal);
-        } else if (kpluginfactory_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpluginfactory_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpluginfactory_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPluginFactory::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPluginFactory::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -306,12 +309,13 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_sender_isbase) {
             kpluginfactory_sender_isbase = false;
             return KPluginFactory::sender();
-        } else if (kpluginfactory_sender_callback != nullptr) {
-            QObject* callback_ret = kpluginfactory_sender_callback();
-            return callback_ret;
-        } else {
-            return KPluginFactory::sender();
         }
+        auto sender_cb = kpluginfactory_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPluginFactory::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,12 +323,13 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_sendersignalindex_isbase) {
             kpluginfactory_sendersignalindex_isbase = false;
             return KPluginFactory::senderSignalIndex();
-        } else if (kpluginfactory_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpluginfactory_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPluginFactory::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpluginfactory_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPluginFactory::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,14 +337,15 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_receivers_isbase) {
             kpluginfactory_receivers_isbase = false;
             return KPluginFactory::receivers(signal);
-        } else if (kpluginfactory_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpluginfactory_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpluginfactory_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPluginFactory::receivers(signal);
         }
+        return KPluginFactory::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -347,16 +353,17 @@ class VirtualKPluginFactory final : public KPluginFactory {
         if (kpluginfactory_issignalconnected_isbase) {
             kpluginfactory_issignalconnected_isbase = false;
             return KPluginFactory::isSignalConnected(signal);
-        } else if (kpluginfactory_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpluginfactory_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpluginfactory_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPluginFactory::isSignalConnected(signal);
         }
+        return KPluginFactory::isSignalConnected(signal);
     }
 
     // Friend functions

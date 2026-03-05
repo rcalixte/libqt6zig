@@ -228,76 +228,6 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
     VirtualQDesignerPropertyEditorInterface(QWidget* parent) : QDesignerPropertyEditorInterface(parent) {};
     VirtualQDesignerPropertyEditorInterface(QWidget* parent, Qt::WindowFlags flags) : QDesignerPropertyEditorInterface(parent, flags) {};
 
-    ~VirtualQDesignerPropertyEditorInterface() {
-        qdesignerpropertyeditorinterface_metaobject_callback = nullptr;
-        qdesignerpropertyeditorinterface_metacast_callback = nullptr;
-        qdesignerpropertyeditorinterface_metacall_callback = nullptr;
-        qdesignerpropertyeditorinterface_core_callback = nullptr;
-        qdesignerpropertyeditorinterface_isreadonly_callback = nullptr;
-        qdesignerpropertyeditorinterface_object_callback = nullptr;
-        qdesignerpropertyeditorinterface_currentpropertyname_callback = nullptr;
-        qdesignerpropertyeditorinterface_setobject_callback = nullptr;
-        qdesignerpropertyeditorinterface_setpropertyvalue_callback = nullptr;
-        qdesignerpropertyeditorinterface_setreadonly_callback = nullptr;
-        qdesignerpropertyeditorinterface_devtype_callback = nullptr;
-        qdesignerpropertyeditorinterface_setvisible_callback = nullptr;
-        qdesignerpropertyeditorinterface_sizehint_callback = nullptr;
-        qdesignerpropertyeditorinterface_minimumsizehint_callback = nullptr;
-        qdesignerpropertyeditorinterface_heightforwidth_callback = nullptr;
-        qdesignerpropertyeditorinterface_hasheightforwidth_callback = nullptr;
-        qdesignerpropertyeditorinterface_paintengine_callback = nullptr;
-        qdesignerpropertyeditorinterface_event_callback = nullptr;
-        qdesignerpropertyeditorinterface_mousepressevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_mousereleaseevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_mousedoubleclickevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_mousemoveevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_wheelevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_keypressevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_keyreleaseevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_focusinevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_focusoutevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_enterevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_leaveevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_paintevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_moveevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_resizeevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_closeevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_contextmenuevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_tabletevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_actionevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_dragenterevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_dragmoveevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_dragleaveevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_dropevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_showevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_hideevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_nativeevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_changeevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_metric_callback = nullptr;
-        qdesignerpropertyeditorinterface_initpainter_callback = nullptr;
-        qdesignerpropertyeditorinterface_redirected_callback = nullptr;
-        qdesignerpropertyeditorinterface_sharedpainter_callback = nullptr;
-        qdesignerpropertyeditorinterface_inputmethodevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_inputmethodquery_callback = nullptr;
-        qdesignerpropertyeditorinterface_focusnextprevchild_callback = nullptr;
-        qdesignerpropertyeditorinterface_eventfilter_callback = nullptr;
-        qdesignerpropertyeditorinterface_timerevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_childevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_customevent_callback = nullptr;
-        qdesignerpropertyeditorinterface_connectnotify_callback = nullptr;
-        qdesignerpropertyeditorinterface_disconnectnotify_callback = nullptr;
-        qdesignerpropertyeditorinterface_updatemicrofocus_callback = nullptr;
-        qdesignerpropertyeditorinterface_create_callback = nullptr;
-        qdesignerpropertyeditorinterface_destroy_callback = nullptr;
-        qdesignerpropertyeditorinterface_focusnextchild_callback = nullptr;
-        qdesignerpropertyeditorinterface_focuspreviouschild_callback = nullptr;
-        qdesignerpropertyeditorinterface_sender_callback = nullptr;
-        qdesignerpropertyeditorinterface_sendersignalindex_callback = nullptr;
-        qdesignerpropertyeditorinterface_receivers_callback = nullptr;
-        qdesignerpropertyeditorinterface_issignalconnected_callback = nullptr;
-        qdesignerpropertyeditorinterface_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerPropertyEditorInterface_MetaObject_Callback(QDesignerPropertyEditorInterface_MetaObject_Callback cb) { qdesignerpropertyeditorinterface_metaobject_callback = cb; }
     inline void setQDesignerPropertyEditorInterface_Metacast_Callback(QDesignerPropertyEditorInterface_Metacast_Callback cb) { qdesignerpropertyeditorinterface_metacast_callback = cb; }
@@ -441,12 +371,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_metaobject_isbase) {
             qdesignerpropertyeditorinterface_metaobject_isbase = false;
             return QDesignerPropertyEditorInterface::metaObject();
-        } else if (qdesignerpropertyeditorinterface_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdesignerpropertyeditorinterface_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::metaObject();
         }
+        auto metaobject_cb = qdesignerpropertyeditorinterface_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDesignerPropertyEditorInterface::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,14 +385,15 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_metacast_isbase) {
             qdesignerpropertyeditorinterface_metacast_isbase = false;
             return QDesignerPropertyEditorInterface::qt_metacast(param1);
-        } else if (qdesignerpropertyeditorinterface_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdesignerpropertyeditorinterface_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdesignerpropertyeditorinterface_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::qt_metacast(param1);
         }
+        return QDesignerPropertyEditorInterface::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,16 +401,17 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_metacall_isbase) {
             qdesignerpropertyeditorinterface_metacall_isbase = false;
             return QDesignerPropertyEditorInterface::qt_metacall(param1, param2, param3);
-        } else if (qdesignerpropertyeditorinterface_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdesignerpropertyeditorinterface_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdesignerpropertyeditorinterface_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerPropertyEditorInterface::qt_metacall(param1, param2, param3);
         }
+        return QDesignerPropertyEditorInterface::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,57 +419,60 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_core_isbase) {
             qdesignerpropertyeditorinterface_core_isbase = false;
             return QDesignerPropertyEditorInterface::core();
-        } else if (qdesignerpropertyeditorinterface_core_callback != nullptr) {
-            QDesignerFormEditorInterface* callback_ret = qdesignerpropertyeditorinterface_core_callback();
-            return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::core();
         }
+        auto core_cb = qdesignerpropertyeditorinterface_core_callback;
+        if (core_cb) {
+            QDesignerFormEditorInterface* callback_ret = core_cb();
+            return callback_ret;
+        }
+        return QDesignerPropertyEditorInterface::core();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isReadOnly() const override {
-        if (qdesignerpropertyeditorinterface_isreadonly_callback != nullptr) {
-            bool callback_ret = qdesignerpropertyeditorinterface_isreadonly_callback();
+        auto isreadonly_cb = qdesignerpropertyeditorinterface_isreadonly_callback;
+        if (isreadonly_cb) {
+            bool callback_ret = isreadonly_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QObject* object() const override {
-        if (qdesignerpropertyeditorinterface_object_callback != nullptr) {
-            QObject* callback_ret = qdesignerpropertyeditorinterface_object_callback();
+        auto object_cb = qdesignerpropertyeditorinterface_object_callback;
+        if (object_cb) {
+            QObject* callback_ret = object_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString currentPropertyName() const override {
-        if (qdesignerpropertyeditorinterface_currentpropertyname_callback != nullptr) {
-            const char* callback_ret = qdesignerpropertyeditorinterface_currentpropertyname_callback();
+        auto currentpropertyname_cb = qdesignerpropertyeditorinterface_currentpropertyname_callback;
+        if (currentpropertyname_cb) {
+            const char* callback_ret = currentpropertyname_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setObject(QObject* object) override {
-        if (qdesignerpropertyeditorinterface_setobject_callback != nullptr) {
+        auto setobject_cb = qdesignerpropertyeditorinterface_setobject_callback;
+        if (setobject_cb) {
             QObject* cbval1 = object;
 
-            qdesignerpropertyeditorinterface_setobject_callback(this, cbval1);
+            setobject_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setPropertyValue(const QString& name, const QVariant& value, bool changed) override {
-        if (qdesignerpropertyeditorinterface_setpropertyvalue_callback != nullptr) {
+        auto setpropertyvalue_cb = qdesignerpropertyeditorinterface_setpropertyvalue_callback;
+        if (setpropertyvalue_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -550,17 +486,18 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             bool cbval3 = changed;
 
-            qdesignerpropertyeditorinterface_setpropertyvalue_callback(this, cbval1, cbval2, cbval3);
+            setpropertyvalue_cb(this, cbval1, cbval2, cbval3);
             libqt_free(name_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setReadOnly(bool readOnly) override {
-        if (qdesignerpropertyeditorinterface_setreadonly_callback != nullptr) {
+        auto setreadonly_cb = qdesignerpropertyeditorinterface_setreadonly_callback;
+        if (setreadonly_cb) {
             bool cbval1 = readOnly;
 
-            qdesignerpropertyeditorinterface_setreadonly_callback(this, cbval1);
+            setreadonly_cb(this, cbval1);
         }
     }
 
@@ -569,12 +506,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_devtype_isbase) {
             qdesignerpropertyeditorinterface_devtype_isbase = false;
             return QDesignerPropertyEditorInterface::devType();
-        } else if (qdesignerpropertyeditorinterface_devtype_callback != nullptr) {
-            int callback_ret = qdesignerpropertyeditorinterface_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerPropertyEditorInterface::devType();
         }
+        auto devtype_cb = qdesignerpropertyeditorinterface_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerPropertyEditorInterface::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,13 +520,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_setvisible_isbase) {
             qdesignerpropertyeditorinterface_setvisible_isbase = false;
             QDesignerPropertyEditorInterface::setVisible(visible);
-        } else if (qdesignerpropertyeditorinterface_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qdesignerpropertyeditorinterface_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qdesignerpropertyeditorinterface_setvisible_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -596,12 +537,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_sizehint_isbase) {
             qdesignerpropertyeditorinterface_sizehint_isbase = false;
             return QDesignerPropertyEditorInterface::sizeHint();
-        } else if (qdesignerpropertyeditorinterface_sizehint_callback != nullptr) {
-            QSize* callback_ret = qdesignerpropertyeditorinterface_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::sizeHint();
         }
+        auto sizehint_cb = qdesignerpropertyeditorinterface_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QDesignerPropertyEditorInterface::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,12 +551,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_minimumsizehint_isbase) {
             qdesignerpropertyeditorinterface_minimumsizehint_isbase = false;
             return QDesignerPropertyEditorInterface::minimumSizeHint();
-        } else if (qdesignerpropertyeditorinterface_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qdesignerpropertyeditorinterface_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qdesignerpropertyeditorinterface_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QDesignerPropertyEditorInterface::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,14 +565,15 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_heightforwidth_isbase) {
             qdesignerpropertyeditorinterface_heightforwidth_isbase = false;
             return QDesignerPropertyEditorInterface::heightForWidth(param1);
-        } else if (qdesignerpropertyeditorinterface_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qdesignerpropertyeditorinterface_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qdesignerpropertyeditorinterface_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerPropertyEditorInterface::heightForWidth(param1);
         }
+        return QDesignerPropertyEditorInterface::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,12 +581,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_hasheightforwidth_isbase) {
             qdesignerpropertyeditorinterface_hasheightforwidth_isbase = false;
             return QDesignerPropertyEditorInterface::hasHeightForWidth();
-        } else if (qdesignerpropertyeditorinterface_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qdesignerpropertyeditorinterface_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qdesignerpropertyeditorinterface_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QDesignerPropertyEditorInterface::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -650,12 +595,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_paintengine_isbase) {
             qdesignerpropertyeditorinterface_paintengine_isbase = false;
             return QDesignerPropertyEditorInterface::paintEngine();
-        } else if (qdesignerpropertyeditorinterface_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qdesignerpropertyeditorinterface_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::paintEngine();
         }
+        auto paintengine_cb = qdesignerpropertyeditorinterface_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QDesignerPropertyEditorInterface::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,14 +609,15 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_event_isbase) {
             qdesignerpropertyeditorinterface_event_isbase = false;
             return QDesignerPropertyEditorInterface::event(event);
-        } else if (qdesignerpropertyeditorinterface_event_callback != nullptr) {
+        }
+        auto event_cb = qdesignerpropertyeditorinterface_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdesignerpropertyeditorinterface_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::event(event);
         }
+        return QDesignerPropertyEditorInterface::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -678,13 +625,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_mousepressevent_isbase) {
             qdesignerpropertyeditorinterface_mousepressevent_isbase = false;
             QDesignerPropertyEditorInterface::mousePressEvent(event);
-        } else if (qdesignerpropertyeditorinterface_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qdesignerpropertyeditorinterface_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_mousepressevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -692,13 +642,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_mousereleaseevent_isbase) {
             qdesignerpropertyeditorinterface_mousereleaseevent_isbase = false;
             QDesignerPropertyEditorInterface::mouseReleaseEvent(event);
-        } else if (qdesignerpropertyeditorinterface_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qdesignerpropertyeditorinterface_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -706,13 +659,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_mousedoubleclickevent_isbase) {
             qdesignerpropertyeditorinterface_mousedoubleclickevent_isbase = false;
             QDesignerPropertyEditorInterface::mouseDoubleClickEvent(event);
-        } else if (qdesignerpropertyeditorinterface_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qdesignerpropertyeditorinterface_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -720,13 +676,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_mousemoveevent_isbase) {
             qdesignerpropertyeditorinterface_mousemoveevent_isbase = false;
             QDesignerPropertyEditorInterface::mouseMoveEvent(event);
-        } else if (qdesignerpropertyeditorinterface_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qdesignerpropertyeditorinterface_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_mousemoveevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -734,13 +693,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_wheelevent_isbase) {
             qdesignerpropertyeditorinterface_wheelevent_isbase = false;
             QDesignerPropertyEditorInterface::wheelEvent(event);
-        } else if (qdesignerpropertyeditorinterface_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qdesignerpropertyeditorinterface_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_wheelevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -748,13 +710,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_keypressevent_isbase) {
             qdesignerpropertyeditorinterface_keypressevent_isbase = false;
             QDesignerPropertyEditorInterface::keyPressEvent(event);
-        } else if (qdesignerpropertyeditorinterface_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qdesignerpropertyeditorinterface_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_keypressevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -762,13 +727,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_keyreleaseevent_isbase) {
             qdesignerpropertyeditorinterface_keyreleaseevent_isbase = false;
             QDesignerPropertyEditorInterface::keyReleaseEvent(event);
-        } else if (qdesignerpropertyeditorinterface_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qdesignerpropertyeditorinterface_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,13 +744,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_focusinevent_isbase) {
             qdesignerpropertyeditorinterface_focusinevent_isbase = false;
             QDesignerPropertyEditorInterface::focusInEvent(event);
-        } else if (qdesignerpropertyeditorinterface_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qdesignerpropertyeditorinterface_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_focusinevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -790,13 +761,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_focusoutevent_isbase) {
             qdesignerpropertyeditorinterface_focusoutevent_isbase = false;
             QDesignerPropertyEditorInterface::focusOutEvent(event);
-        } else if (qdesignerpropertyeditorinterface_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qdesignerpropertyeditorinterface_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_focusoutevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,13 +778,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_enterevent_isbase) {
             qdesignerpropertyeditorinterface_enterevent_isbase = false;
             QDesignerPropertyEditorInterface::enterEvent(event);
-        } else if (qdesignerpropertyeditorinterface_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qdesignerpropertyeditorinterface_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_enterevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -818,13 +795,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_leaveevent_isbase) {
             qdesignerpropertyeditorinterface_leaveevent_isbase = false;
             QDesignerPropertyEditorInterface::leaveEvent(event);
-        } else if (qdesignerpropertyeditorinterface_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qdesignerpropertyeditorinterface_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_leaveevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -832,13 +812,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_paintevent_isbase) {
             qdesignerpropertyeditorinterface_paintevent_isbase = false;
             QDesignerPropertyEditorInterface::paintEvent(event);
-        } else if (qdesignerpropertyeditorinterface_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qdesignerpropertyeditorinterface_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_paintevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -846,13 +829,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_moveevent_isbase) {
             qdesignerpropertyeditorinterface_moveevent_isbase = false;
             QDesignerPropertyEditorInterface::moveEvent(event);
-        } else if (qdesignerpropertyeditorinterface_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qdesignerpropertyeditorinterface_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_moveevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -860,13 +846,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_resizeevent_isbase) {
             qdesignerpropertyeditorinterface_resizeevent_isbase = false;
             QDesignerPropertyEditorInterface::resizeEvent(event);
-        } else if (qdesignerpropertyeditorinterface_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qdesignerpropertyeditorinterface_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_resizeevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -874,13 +863,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_closeevent_isbase) {
             qdesignerpropertyeditorinterface_closeevent_isbase = false;
             QDesignerPropertyEditorInterface::closeEvent(event);
-        } else if (qdesignerpropertyeditorinterface_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qdesignerpropertyeditorinterface_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_closeevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -888,13 +880,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_contextmenuevent_isbase) {
             qdesignerpropertyeditorinterface_contextmenuevent_isbase = false;
             QDesignerPropertyEditorInterface::contextMenuEvent(event);
-        } else if (qdesignerpropertyeditorinterface_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qdesignerpropertyeditorinterface_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_contextmenuevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -902,13 +897,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_tabletevent_isbase) {
             qdesignerpropertyeditorinterface_tabletevent_isbase = false;
             QDesignerPropertyEditorInterface::tabletEvent(event);
-        } else if (qdesignerpropertyeditorinterface_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qdesignerpropertyeditorinterface_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_tabletevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -916,13 +914,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_actionevent_isbase) {
             qdesignerpropertyeditorinterface_actionevent_isbase = false;
             QDesignerPropertyEditorInterface::actionEvent(event);
-        } else if (qdesignerpropertyeditorinterface_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qdesignerpropertyeditorinterface_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_actionevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,13 +931,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_dragenterevent_isbase) {
             qdesignerpropertyeditorinterface_dragenterevent_isbase = false;
             QDesignerPropertyEditorInterface::dragEnterEvent(event);
-        } else if (qdesignerpropertyeditorinterface_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qdesignerpropertyeditorinterface_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_dragenterevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,13 +948,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_dragmoveevent_isbase) {
             qdesignerpropertyeditorinterface_dragmoveevent_isbase = false;
             QDesignerPropertyEditorInterface::dragMoveEvent(event);
-        } else if (qdesignerpropertyeditorinterface_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qdesignerpropertyeditorinterface_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_dragmoveevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +965,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_dragleaveevent_isbase) {
             qdesignerpropertyeditorinterface_dragleaveevent_isbase = false;
             QDesignerPropertyEditorInterface::dragLeaveEvent(event);
-        } else if (qdesignerpropertyeditorinterface_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qdesignerpropertyeditorinterface_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_dragleaveevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,13 +982,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_dropevent_isbase) {
             qdesignerpropertyeditorinterface_dropevent_isbase = false;
             QDesignerPropertyEditorInterface::dropEvent(event);
-        } else if (qdesignerpropertyeditorinterface_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qdesignerpropertyeditorinterface_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_dropevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,13 +999,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_showevent_isbase) {
             qdesignerpropertyeditorinterface_showevent_isbase = false;
             QDesignerPropertyEditorInterface::showEvent(event);
-        } else if (qdesignerpropertyeditorinterface_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qdesignerpropertyeditorinterface_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_showevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,13 +1016,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_hideevent_isbase) {
             qdesignerpropertyeditorinterface_hideevent_isbase = false;
             QDesignerPropertyEditorInterface::hideEvent(event);
-        } else if (qdesignerpropertyeditorinterface_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qdesignerpropertyeditorinterface_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_hideevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,7 +1033,9 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_nativeevent_isbase) {
             qdesignerpropertyeditorinterface_nativeevent_isbase = false;
             return QDesignerPropertyEditorInterface::nativeEvent(eventType, message, result);
-        } else if (qdesignerpropertyeditorinterface_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qdesignerpropertyeditorinterface_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1025,12 +1046,11 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qdesignerpropertyeditorinterface_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::nativeEvent(eventType, message, result);
         }
+        return QDesignerPropertyEditorInterface::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1038,13 +1058,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_changeevent_isbase) {
             qdesignerpropertyeditorinterface_changeevent_isbase = false;
             QDesignerPropertyEditorInterface::changeEvent(param1);
-        } else if (qdesignerpropertyeditorinterface_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qdesignerpropertyeditorinterface_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qdesignerpropertyeditorinterface_changeevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1052,14 +1075,15 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_metric_isbase) {
             qdesignerpropertyeditorinterface_metric_isbase = false;
             return QDesignerPropertyEditorInterface::metric(param1);
-        } else if (qdesignerpropertyeditorinterface_metric_callback != nullptr) {
+        }
+        auto metric_cb = qdesignerpropertyeditorinterface_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qdesignerpropertyeditorinterface_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerPropertyEditorInterface::metric(param1);
         }
+        return QDesignerPropertyEditorInterface::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1067,13 +1091,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_initpainter_isbase) {
             qdesignerpropertyeditorinterface_initpainter_isbase = false;
             QDesignerPropertyEditorInterface::initPainter(painter);
-        } else if (qdesignerpropertyeditorinterface_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qdesignerpropertyeditorinterface_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qdesignerpropertyeditorinterface_initpainter_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1081,14 +1108,15 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_redirected_isbase) {
             qdesignerpropertyeditorinterface_redirected_isbase = false;
             return QDesignerPropertyEditorInterface::redirected(offset);
-        } else if (qdesignerpropertyeditorinterface_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qdesignerpropertyeditorinterface_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qdesignerpropertyeditorinterface_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::redirected(offset);
         }
+        return QDesignerPropertyEditorInterface::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1096,12 +1124,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_sharedpainter_isbase) {
             qdesignerpropertyeditorinterface_sharedpainter_isbase = false;
             return QDesignerPropertyEditorInterface::sharedPainter();
-        } else if (qdesignerpropertyeditorinterface_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qdesignerpropertyeditorinterface_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::sharedPainter();
         }
+        auto sharedpainter_cb = qdesignerpropertyeditorinterface_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QDesignerPropertyEditorInterface::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1109,13 +1138,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_inputmethodevent_isbase) {
             qdesignerpropertyeditorinterface_inputmethodevent_isbase = false;
             QDesignerPropertyEditorInterface::inputMethodEvent(param1);
-        } else if (qdesignerpropertyeditorinterface_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qdesignerpropertyeditorinterface_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qdesignerpropertyeditorinterface_inputmethodevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1123,14 +1155,15 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_inputmethodquery_isbase) {
             qdesignerpropertyeditorinterface_inputmethodquery_isbase = false;
             return QDesignerPropertyEditorInterface::inputMethodQuery(param1);
-        } else if (qdesignerpropertyeditorinterface_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qdesignerpropertyeditorinterface_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qdesignerpropertyeditorinterface_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::inputMethodQuery(param1);
         }
+        return QDesignerPropertyEditorInterface::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1138,14 +1171,15 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_focusnextprevchild_isbase) {
             qdesignerpropertyeditorinterface_focusnextprevchild_isbase = false;
             return QDesignerPropertyEditorInterface::focusNextPrevChild(next);
-        } else if (qdesignerpropertyeditorinterface_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qdesignerpropertyeditorinterface_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qdesignerpropertyeditorinterface_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::focusNextPrevChild(next);
         }
+        return QDesignerPropertyEditorInterface::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,15 +1187,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_eventfilter_isbase) {
             qdesignerpropertyeditorinterface_eventfilter_isbase = false;
             return QDesignerPropertyEditorInterface::eventFilter(watched, event);
-        } else if (qdesignerpropertyeditorinterface_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdesignerpropertyeditorinterface_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdesignerpropertyeditorinterface_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::eventFilter(watched, event);
         }
+        return QDesignerPropertyEditorInterface::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,13 +1204,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_timerevent_isbase) {
             qdesignerpropertyeditorinterface_timerevent_isbase = false;
             QDesignerPropertyEditorInterface::timerEvent(event);
-        } else if (qdesignerpropertyeditorinterface_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdesignerpropertyeditorinterface_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_timerevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,13 +1221,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_childevent_isbase) {
             qdesignerpropertyeditorinterface_childevent_isbase = false;
             QDesignerPropertyEditorInterface::childEvent(event);
-        } else if (qdesignerpropertyeditorinterface_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdesignerpropertyeditorinterface_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_childevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1197,13 +1238,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_customevent_isbase) {
             qdesignerpropertyeditorinterface_customevent_isbase = false;
             QDesignerPropertyEditorInterface::customEvent(event);
-        } else if (qdesignerpropertyeditorinterface_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdesignerpropertyeditorinterface_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdesignerpropertyeditorinterface_customevent_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1211,15 +1255,18 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_connectnotify_isbase) {
             qdesignerpropertyeditorinterface_connectnotify_isbase = false;
             QDesignerPropertyEditorInterface::connectNotify(signal);
-        } else if (qdesignerpropertyeditorinterface_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdesignerpropertyeditorinterface_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesignerpropertyeditorinterface_connectnotify_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1227,15 +1274,18 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_disconnectnotify_isbase) {
             qdesignerpropertyeditorinterface_disconnectnotify_isbase = false;
             QDesignerPropertyEditorInterface::disconnectNotify(signal);
-        } else if (qdesignerpropertyeditorinterface_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdesignerpropertyeditorinterface_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesignerpropertyeditorinterface_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDesignerPropertyEditorInterface::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerPropertyEditorInterface::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,11 +1293,14 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_updatemicrofocus_isbase) {
             qdesignerpropertyeditorinterface_updatemicrofocus_isbase = false;
             QDesignerPropertyEditorInterface::updateMicroFocus();
-        } else if (qdesignerpropertyeditorinterface_updatemicrofocus_callback != nullptr) {
-            qdesignerpropertyeditorinterface_updatemicrofocus_callback();
-        } else {
-            QDesignerPropertyEditorInterface::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qdesignerpropertyeditorinterface_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QDesignerPropertyEditorInterface::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1255,11 +1308,14 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_create_isbase) {
             qdesignerpropertyeditorinterface_create_isbase = false;
             QDesignerPropertyEditorInterface::create();
-        } else if (qdesignerpropertyeditorinterface_create_callback != nullptr) {
-            qdesignerpropertyeditorinterface_create_callback();
-        } else {
-            QDesignerPropertyEditorInterface::create();
+            return;
         }
+        auto create_cb = qdesignerpropertyeditorinterface_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QDesignerPropertyEditorInterface::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1267,11 +1323,14 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_destroy_isbase) {
             qdesignerpropertyeditorinterface_destroy_isbase = false;
             QDesignerPropertyEditorInterface::destroy();
-        } else if (qdesignerpropertyeditorinterface_destroy_callback != nullptr) {
-            qdesignerpropertyeditorinterface_destroy_callback();
-        } else {
-            QDesignerPropertyEditorInterface::destroy();
+            return;
         }
+        auto destroy_cb = qdesignerpropertyeditorinterface_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QDesignerPropertyEditorInterface::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1279,12 +1338,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_focusnextchild_isbase) {
             qdesignerpropertyeditorinterface_focusnextchild_isbase = false;
             return QDesignerPropertyEditorInterface::focusNextChild();
-        } else if (qdesignerpropertyeditorinterface_focusnextchild_callback != nullptr) {
-            bool callback_ret = qdesignerpropertyeditorinterface_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::focusNextChild();
         }
+        auto focusnextchild_cb = qdesignerpropertyeditorinterface_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QDesignerPropertyEditorInterface::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1292,12 +1352,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_focuspreviouschild_isbase) {
             qdesignerpropertyeditorinterface_focuspreviouschild_isbase = false;
             return QDesignerPropertyEditorInterface::focusPreviousChild();
-        } else if (qdesignerpropertyeditorinterface_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qdesignerpropertyeditorinterface_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qdesignerpropertyeditorinterface_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QDesignerPropertyEditorInterface::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1305,12 +1366,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_sender_isbase) {
             qdesignerpropertyeditorinterface_sender_isbase = false;
             return QDesignerPropertyEditorInterface::sender();
-        } else if (qdesignerpropertyeditorinterface_sender_callback != nullptr) {
-            QObject* callback_ret = qdesignerpropertyeditorinterface_sender_callback();
-            return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::sender();
         }
+        auto sender_cb = qdesignerpropertyeditorinterface_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDesignerPropertyEditorInterface::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1318,12 +1380,13 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_sendersignalindex_isbase) {
             qdesignerpropertyeditorinterface_sendersignalindex_isbase = false;
             return QDesignerPropertyEditorInterface::senderSignalIndex();
-        } else if (qdesignerpropertyeditorinterface_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdesignerpropertyeditorinterface_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerPropertyEditorInterface::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdesignerpropertyeditorinterface_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerPropertyEditorInterface::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1331,14 +1394,15 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_receivers_isbase) {
             qdesignerpropertyeditorinterface_receivers_isbase = false;
             return QDesignerPropertyEditorInterface::receivers(signal);
-        } else if (qdesignerpropertyeditorinterface_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdesignerpropertyeditorinterface_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdesignerpropertyeditorinterface_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerPropertyEditorInterface::receivers(signal);
         }
+        return QDesignerPropertyEditorInterface::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1346,16 +1410,17 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_issignalconnected_isbase) {
             qdesignerpropertyeditorinterface_issignalconnected_isbase = false;
             return QDesignerPropertyEditorInterface::isSignalConnected(signal);
-        } else if (qdesignerpropertyeditorinterface_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdesignerpropertyeditorinterface_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdesignerpropertyeditorinterface_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerPropertyEditorInterface::isSignalConnected(signal);
         }
+        return QDesignerPropertyEditorInterface::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1363,15 +1428,16 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
         if (qdesignerpropertyeditorinterface_getdecodedmetricf_isbase) {
             qdesignerpropertyeditorinterface_getdecodedmetricf_isbase = false;
             return QDesignerPropertyEditorInterface::getDecodedMetricF(metricA, metricB);
-        } else if (qdesignerpropertyeditorinterface_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qdesignerpropertyeditorinterface_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qdesignerpropertyeditorinterface_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QDesignerPropertyEditorInterface::getDecodedMetricF(metricA, metricB);
         }
+        return QDesignerPropertyEditorInterface::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

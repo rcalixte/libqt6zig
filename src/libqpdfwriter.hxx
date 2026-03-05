@@ -108,36 +108,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
     VirtualQPdfWriter(const QString& filename) : QPdfWriter(filename) {};
     VirtualQPdfWriter(QIODevice* device) : QPdfWriter(device) {};
 
-    ~VirtualQPdfWriter() {
-        qpdfwriter_metaobject_callback = nullptr;
-        qpdfwriter_metacast_callback = nullptr;
-        qpdfwriter_metacall_callback = nullptr;
-        qpdfwriter_newpage_callback = nullptr;
-        qpdfwriter_paintengine_callback = nullptr;
-        qpdfwriter_metric_callback = nullptr;
-        qpdfwriter_event_callback = nullptr;
-        qpdfwriter_eventfilter_callback = nullptr;
-        qpdfwriter_timerevent_callback = nullptr;
-        qpdfwriter_childevent_callback = nullptr;
-        qpdfwriter_customevent_callback = nullptr;
-        qpdfwriter_connectnotify_callback = nullptr;
-        qpdfwriter_disconnectnotify_callback = nullptr;
-        qpdfwriter_setpagelayout_callback = nullptr;
-        qpdfwriter_setpagesize_callback = nullptr;
-        qpdfwriter_setpageorientation_callback = nullptr;
-        qpdfwriter_setpagemargins_callback = nullptr;
-        qpdfwriter_setpageranges_callback = nullptr;
-        qpdfwriter_devtype_callback = nullptr;
-        qpdfwriter_initpainter_callback = nullptr;
-        qpdfwriter_redirected_callback = nullptr;
-        qpdfwriter_sharedpainter_callback = nullptr;
-        qpdfwriter_sender_callback = nullptr;
-        qpdfwriter_sendersignalindex_callback = nullptr;
-        qpdfwriter_receivers_callback = nullptr;
-        qpdfwriter_issignalconnected_callback = nullptr;
-        qpdfwriter_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPdfWriter_MetaObject_Callback(QPdfWriter_MetaObject_Callback cb) { qpdfwriter_metaobject_callback = cb; }
     inline void setQPdfWriter_Metacast_Callback(QPdfWriter_Metacast_Callback cb) { qpdfwriter_metacast_callback = cb; }
@@ -201,12 +171,13 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_metaobject_isbase) {
             qpdfwriter_metaobject_isbase = false;
             return QPdfWriter::metaObject();
-        } else if (qpdfwriter_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qpdfwriter_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPdfWriter::metaObject();
         }
+        auto metaobject_cb = qpdfwriter_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPdfWriter::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -214,14 +185,15 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_metacast_isbase) {
             qpdfwriter_metacast_isbase = false;
             return QPdfWriter::qt_metacast(param1);
-        } else if (qpdfwriter_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qpdfwriter_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qpdfwriter_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfWriter::qt_metacast(param1);
         }
+        return QPdfWriter::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,16 +201,17 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_metacall_isbase) {
             qpdfwriter_metacall_isbase = false;
             return QPdfWriter::qt_metacall(param1, param2, param3);
-        } else if (qpdfwriter_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qpdfwriter_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qpdfwriter_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPdfWriter::qt_metacall(param1, param2, param3);
         }
+        return QPdfWriter::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,12 +219,13 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_newpage_isbase) {
             qpdfwriter_newpage_isbase = false;
             return QPdfWriter::newPage();
-        } else if (qpdfwriter_newpage_callback != nullptr) {
-            bool callback_ret = qpdfwriter_newpage_callback();
-            return callback_ret;
-        } else {
-            return QPdfWriter::newPage();
         }
+        auto newpage_cb = qpdfwriter_newpage_callback;
+        if (newpage_cb) {
+            bool callback_ret = newpage_cb();
+            return callback_ret;
+        }
+        return QPdfWriter::newPage();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,12 +233,13 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_paintengine_isbase) {
             qpdfwriter_paintengine_isbase = false;
             return QPdfWriter::paintEngine();
-        } else if (qpdfwriter_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qpdfwriter_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QPdfWriter::paintEngine();
         }
+        auto paintengine_cb = qpdfwriter_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QPdfWriter::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,14 +247,15 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_metric_isbase) {
             qpdfwriter_metric_isbase = false;
             return QPdfWriter::metric(id);
-        } else if (qpdfwriter_metric_callback != nullptr) {
+        }
+        auto metric_cb = qpdfwriter_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(id);
 
-            int callback_ret = qpdfwriter_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPdfWriter::metric(id);
         }
+        return QPdfWriter::metric(id);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,14 +263,15 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_event_isbase) {
             qpdfwriter_event_isbase = false;
             return QPdfWriter::event(event);
-        } else if (qpdfwriter_event_callback != nullptr) {
+        }
+        auto event_cb = qpdfwriter_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qpdfwriter_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfWriter::event(event);
         }
+        return QPdfWriter::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,15 +279,16 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_eventfilter_isbase) {
             qpdfwriter_eventfilter_isbase = false;
             return QPdfWriter::eventFilter(watched, event);
-        } else if (qpdfwriter_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qpdfwriter_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qpdfwriter_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPdfWriter::eventFilter(watched, event);
         }
+        return QPdfWriter::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,13 +296,16 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_timerevent_isbase) {
             qpdfwriter_timerevent_isbase = false;
             QPdfWriter::timerEvent(event);
-        } else if (qpdfwriter_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qpdfwriter_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qpdfwriter_timerevent_callback(this, cbval1);
-        } else {
-            QPdfWriter::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPdfWriter::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,13 +313,16 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_childevent_isbase) {
             qpdfwriter_childevent_isbase = false;
             QPdfWriter::childEvent(event);
-        } else if (qpdfwriter_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qpdfwriter_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qpdfwriter_childevent_callback(this, cbval1);
-        } else {
-            QPdfWriter::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPdfWriter::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,13 +330,16 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_customevent_isbase) {
             qpdfwriter_customevent_isbase = false;
             QPdfWriter::customEvent(event);
-        } else if (qpdfwriter_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qpdfwriter_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qpdfwriter_customevent_callback(this, cbval1);
-        } else {
-            QPdfWriter::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPdfWriter::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,15 +347,18 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_connectnotify_isbase) {
             qpdfwriter_connectnotify_isbase = false;
             QPdfWriter::connectNotify(signal);
-        } else if (qpdfwriter_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qpdfwriter_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpdfwriter_connectnotify_callback(this, cbval1);
-        } else {
-            QPdfWriter::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPdfWriter::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -376,15 +366,18 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_disconnectnotify_isbase) {
             qpdfwriter_disconnectnotify_isbase = false;
             QPdfWriter::disconnectNotify(signal);
-        } else if (qpdfwriter_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qpdfwriter_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpdfwriter_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPdfWriter::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPdfWriter::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -392,16 +385,17 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_setpagelayout_isbase) {
             qpdfwriter_setpagelayout_isbase = false;
             return QPdfWriter::setPageLayout(pageLayout);
-        } else if (qpdfwriter_setpagelayout_callback != nullptr) {
+        }
+        auto setpagelayout_cb = qpdfwriter_setpagelayout_callback;
+        if (setpagelayout_cb) {
             const QPageLayout& pageLayout_ret = pageLayout;
             // Cast returned reference into pointer
             QPageLayout* cbval1 = const_cast<QPageLayout*>(&pageLayout_ret);
 
-            bool callback_ret = qpdfwriter_setpagelayout_callback(this, cbval1);
+            bool callback_ret = setpagelayout_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfWriter::setPageLayout(pageLayout);
         }
+        return QPdfWriter::setPageLayout(pageLayout);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -409,16 +403,17 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_setpagesize_isbase) {
             qpdfwriter_setpagesize_isbase = false;
             return QPdfWriter::setPageSize(pageSize);
-        } else if (qpdfwriter_setpagesize_callback != nullptr) {
+        }
+        auto setpagesize_cb = qpdfwriter_setpagesize_callback;
+        if (setpagesize_cb) {
             const QPageSize& pageSize_ret = pageSize;
             // Cast returned reference into pointer
             QPageSize* cbval1 = const_cast<QPageSize*>(&pageSize_ret);
 
-            bool callback_ret = qpdfwriter_setpagesize_callback(this, cbval1);
+            bool callback_ret = setpagesize_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfWriter::setPageSize(pageSize);
         }
+        return QPdfWriter::setPageSize(pageSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,14 +421,15 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_setpageorientation_isbase) {
             qpdfwriter_setpageorientation_isbase = false;
             return QPdfWriter::setPageOrientation(orientation);
-        } else if (qpdfwriter_setpageorientation_callback != nullptr) {
+        }
+        auto setpageorientation_cb = qpdfwriter_setpageorientation_callback;
+        if (setpageorientation_cb) {
             int cbval1 = static_cast<int>(orientation);
 
-            bool callback_ret = qpdfwriter_setpageorientation_callback(this, cbval1);
+            bool callback_ret = setpageorientation_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfWriter::setPageOrientation(orientation);
         }
+        return QPdfWriter::setPageOrientation(orientation);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,17 +437,18 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_setpagemargins_isbase) {
             qpdfwriter_setpagemargins_isbase = false;
             return QPdfWriter::setPageMargins(margins, units);
-        } else if (qpdfwriter_setpagemargins_callback != nullptr) {
+        }
+        auto setpagemargins_cb = qpdfwriter_setpagemargins_callback;
+        if (setpagemargins_cb) {
             const QMarginsF& margins_ret = margins;
             // Cast returned reference into pointer
             QMarginsF* cbval1 = const_cast<QMarginsF*>(&margins_ret);
             int cbval2 = static_cast<int>(units);
 
-            bool callback_ret = qpdfwriter_setpagemargins_callback(this, cbval1, cbval2);
+            bool callback_ret = setpagemargins_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPdfWriter::setPageMargins(margins, units);
         }
+        return QPdfWriter::setPageMargins(margins, units);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -459,15 +456,18 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_setpageranges_isbase) {
             qpdfwriter_setpageranges_isbase = false;
             QPdfWriter::setPageRanges(ranges);
-        } else if (qpdfwriter_setpageranges_callback != nullptr) {
+            return;
+        }
+        auto setpageranges_cb = qpdfwriter_setpageranges_callback;
+        if (setpageranges_cb) {
             const QPageRanges& ranges_ret = ranges;
             // Cast returned reference into pointer
             QPageRanges* cbval1 = const_cast<QPageRanges*>(&ranges_ret);
 
-            qpdfwriter_setpageranges_callback(this, cbval1);
-        } else {
-            QPdfWriter::setPageRanges(ranges);
+            setpageranges_cb(this, cbval1);
+            return;
         }
+        QPdfWriter::setPageRanges(ranges);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -475,12 +475,13 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_devtype_isbase) {
             qpdfwriter_devtype_isbase = false;
             return QPdfWriter::devType();
-        } else if (qpdfwriter_devtype_callback != nullptr) {
-            int callback_ret = qpdfwriter_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPdfWriter::devType();
         }
+        auto devtype_cb = qpdfwriter_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPdfWriter::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -488,13 +489,16 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_initpainter_isbase) {
             qpdfwriter_initpainter_isbase = false;
             QPdfWriter::initPainter(painter);
-        } else if (qpdfwriter_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qpdfwriter_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qpdfwriter_initpainter_callback(this, cbval1);
-        } else {
-            QPdfWriter::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QPdfWriter::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,14 +506,15 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_redirected_isbase) {
             qpdfwriter_redirected_isbase = false;
             return QPdfWriter::redirected(offset);
-        } else if (qpdfwriter_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qpdfwriter_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qpdfwriter_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfWriter::redirected(offset);
         }
+        return QPdfWriter::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -517,12 +522,13 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_sharedpainter_isbase) {
             qpdfwriter_sharedpainter_isbase = false;
             return QPdfWriter::sharedPainter();
-        } else if (qpdfwriter_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qpdfwriter_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QPdfWriter::sharedPainter();
         }
+        auto sharedpainter_cb = qpdfwriter_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QPdfWriter::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,12 +536,13 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_sender_isbase) {
             qpdfwriter_sender_isbase = false;
             return QPdfWriter::sender();
-        } else if (qpdfwriter_sender_callback != nullptr) {
-            QObject* callback_ret = qpdfwriter_sender_callback();
-            return callback_ret;
-        } else {
-            return QPdfWriter::sender();
         }
+        auto sender_cb = qpdfwriter_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPdfWriter::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,12 +550,13 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_sendersignalindex_isbase) {
             qpdfwriter_sendersignalindex_isbase = false;
             return QPdfWriter::senderSignalIndex();
-        } else if (qpdfwriter_sendersignalindex_callback != nullptr) {
-            int callback_ret = qpdfwriter_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPdfWriter::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qpdfwriter_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPdfWriter::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,14 +564,15 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_receivers_isbase) {
             qpdfwriter_receivers_isbase = false;
             return QPdfWriter::receivers(signal);
-        } else if (qpdfwriter_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qpdfwriter_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qpdfwriter_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPdfWriter::receivers(signal);
         }
+        return QPdfWriter::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -571,16 +580,17 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_issignalconnected_isbase) {
             qpdfwriter_issignalconnected_isbase = false;
             return QPdfWriter::isSignalConnected(signal);
-        } else if (qpdfwriter_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qpdfwriter_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qpdfwriter_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfWriter::isSignalConnected(signal);
         }
+        return QPdfWriter::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -588,15 +598,16 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (qpdfwriter_getdecodedmetricf_isbase) {
             qpdfwriter_getdecodedmetricf_isbase = false;
             return QPdfWriter::getDecodedMetricF(metricA, metricB);
-        } else if (qpdfwriter_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qpdfwriter_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qpdfwriter_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QPdfWriter::getDecodedMetricF(metricA, metricB);
         }
+        return QPdfWriter::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

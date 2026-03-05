@@ -396,131 +396,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
     VirtualKFilePlacesView(QWidget* parent) : KFilePlacesView(parent) {};
     VirtualKFilePlacesView() : KFilePlacesView() {};
 
-    ~VirtualKFilePlacesView() {
-        kfileplacesview_metaobject_callback = nullptr;
-        kfileplacesview_metacast_callback = nullptr;
-        kfileplacesview_metacall_callback = nullptr;
-        kfileplacesview_sizehint_callback = nullptr;
-        kfileplacesview_setmodel_callback = nullptr;
-        kfileplacesview_keypressevent_callback = nullptr;
-        kfileplacesview_contextmenuevent_callback = nullptr;
-        kfileplacesview_resizeevent_callback = nullptr;
-        kfileplacesview_showevent_callback = nullptr;
-        kfileplacesview_hideevent_callback = nullptr;
-        kfileplacesview_dragenterevent_callback = nullptr;
-        kfileplacesview_dragleaveevent_callback = nullptr;
-        kfileplacesview_dragmoveevent_callback = nullptr;
-        kfileplacesview_dropevent_callback = nullptr;
-        kfileplacesview_paintevent_callback = nullptr;
-        kfileplacesview_startdrag_callback = nullptr;
-        kfileplacesview_mousepressevent_callback = nullptr;
-        kfileplacesview_rowsinserted_callback = nullptr;
-        kfileplacesview_datachanged_callback = nullptr;
-        kfileplacesview_visualrect_callback = nullptr;
-        kfileplacesview_scrollto_callback = nullptr;
-        kfileplacesview_indexat_callback = nullptr;
-        kfileplacesview_doitemslayout_callback = nullptr;
-        kfileplacesview_reset_callback = nullptr;
-        kfileplacesview_setrootindex_callback = nullptr;
-        kfileplacesview_event_callback = nullptr;
-        kfileplacesview_scrollcontentsby_callback = nullptr;
-        kfileplacesview_rowsabouttoberemoved_callback = nullptr;
-        kfileplacesview_mousemoveevent_callback = nullptr;
-        kfileplacesview_mousereleaseevent_callback = nullptr;
-        kfileplacesview_wheelevent_callback = nullptr;
-        kfileplacesview_timerevent_callback = nullptr;
-        kfileplacesview_initviewitemoption_callback = nullptr;
-        kfileplacesview_horizontaloffset_callback = nullptr;
-        kfileplacesview_verticaloffset_callback = nullptr;
-        kfileplacesview_movecursor_callback = nullptr;
-        kfileplacesview_setselection_callback = nullptr;
-        kfileplacesview_visualregionforselection_callback = nullptr;
-        kfileplacesview_selectedindexes_callback = nullptr;
-        kfileplacesview_updategeometries_callback = nullptr;
-        kfileplacesview_isindexhidden_callback = nullptr;
-        kfileplacesview_selectionchanged_callback = nullptr;
-        kfileplacesview_currentchanged_callback = nullptr;
-        kfileplacesview_viewportsizehint_callback = nullptr;
-        kfileplacesview_setselectionmodel_callback = nullptr;
-        kfileplacesview_keyboardsearch_callback = nullptr;
-        kfileplacesview_sizehintforrow_callback = nullptr;
-        kfileplacesview_sizehintforcolumn_callback = nullptr;
-        kfileplacesview_itemdelegateforindex_callback = nullptr;
-        kfileplacesview_inputmethodquery_callback = nullptr;
-        kfileplacesview_selectall_callback = nullptr;
-        kfileplacesview_updateeditordata_callback = nullptr;
-        kfileplacesview_updateeditorgeometries_callback = nullptr;
-        kfileplacesview_verticalscrollbaraction_callback = nullptr;
-        kfileplacesview_horizontalscrollbaraction_callback = nullptr;
-        kfileplacesview_verticalscrollbarvaluechanged_callback = nullptr;
-        kfileplacesview_horizontalscrollbarvaluechanged_callback = nullptr;
-        kfileplacesview_closeeditor_callback = nullptr;
-        kfileplacesview_commitdata_callback = nullptr;
-        kfileplacesview_editordestroyed_callback = nullptr;
-        kfileplacesview_edit2_callback = nullptr;
-        kfileplacesview_selectioncommand_callback = nullptr;
-        kfileplacesview_focusnextprevchild_callback = nullptr;
-        kfileplacesview_viewportevent_callback = nullptr;
-        kfileplacesview_mousedoubleclickevent_callback = nullptr;
-        kfileplacesview_focusinevent_callback = nullptr;
-        kfileplacesview_focusoutevent_callback = nullptr;
-        kfileplacesview_inputmethodevent_callback = nullptr;
-        kfileplacesview_eventfilter_callback = nullptr;
-        kfileplacesview_minimumsizehint_callback = nullptr;
-        kfileplacesview_setupviewport_callback = nullptr;
-        kfileplacesview_changeevent_callback = nullptr;
-        kfileplacesview_initstyleoption_callback = nullptr;
-        kfileplacesview_devtype_callback = nullptr;
-        kfileplacesview_setvisible_callback = nullptr;
-        kfileplacesview_heightforwidth_callback = nullptr;
-        kfileplacesview_hasheightforwidth_callback = nullptr;
-        kfileplacesview_paintengine_callback = nullptr;
-        kfileplacesview_keyreleaseevent_callback = nullptr;
-        kfileplacesview_enterevent_callback = nullptr;
-        kfileplacesview_leaveevent_callback = nullptr;
-        kfileplacesview_moveevent_callback = nullptr;
-        kfileplacesview_closeevent_callback = nullptr;
-        kfileplacesview_tabletevent_callback = nullptr;
-        kfileplacesview_actionevent_callback = nullptr;
-        kfileplacesview_nativeevent_callback = nullptr;
-        kfileplacesview_metric_callback = nullptr;
-        kfileplacesview_initpainter_callback = nullptr;
-        kfileplacesview_redirected_callback = nullptr;
-        kfileplacesview_sharedpainter_callback = nullptr;
-        kfileplacesview_childevent_callback = nullptr;
-        kfileplacesview_customevent_callback = nullptr;
-        kfileplacesview_connectnotify_callback = nullptr;
-        kfileplacesview_disconnectnotify_callback = nullptr;
-        kfileplacesview_resizecontents_callback = nullptr;
-        kfileplacesview_contentssize_callback = nullptr;
-        kfileplacesview_rectforindex_callback = nullptr;
-        kfileplacesview_setpositionforindex_callback = nullptr;
-        kfileplacesview_state_callback = nullptr;
-        kfileplacesview_setstate_callback = nullptr;
-        kfileplacesview_scheduledelayeditemslayout_callback = nullptr;
-        kfileplacesview_executedelayeditemslayout_callback = nullptr;
-        kfileplacesview_setdirtyregion_callback = nullptr;
-        kfileplacesview_scrolldirtyregion_callback = nullptr;
-        kfileplacesview_dirtyregionoffset_callback = nullptr;
-        kfileplacesview_startautoscroll_callback = nullptr;
-        kfileplacesview_stopautoscroll_callback = nullptr;
-        kfileplacesview_doautoscroll_callback = nullptr;
-        kfileplacesview_dropindicatorposition_callback = nullptr;
-        kfileplacesview_setviewportmargins_callback = nullptr;
-        kfileplacesview_viewportmargins_callback = nullptr;
-        kfileplacesview_drawframe_callback = nullptr;
-        kfileplacesview_updatemicrofocus_callback = nullptr;
-        kfileplacesview_create_callback = nullptr;
-        kfileplacesview_destroy_callback = nullptr;
-        kfileplacesview_focusnextchild_callback = nullptr;
-        kfileplacesview_focuspreviouschild_callback = nullptr;
-        kfileplacesview_sender_callback = nullptr;
-        kfileplacesview_sendersignalindex_callback = nullptr;
-        kfileplacesview_receivers_callback = nullptr;
-        kfileplacesview_issignalconnected_callback = nullptr;
-        kfileplacesview_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFilePlacesView_MetaObject_Callback(KFilePlacesView_MetaObject_Callback cb) { kfileplacesview_metaobject_callback = cb; }
     inline void setKFilePlacesView_Metacast_Callback(KFilePlacesView_Metacast_Callback cb) { kfileplacesview_metacast_callback = cb; }
@@ -774,12 +649,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_metaobject_isbase) {
             kfileplacesview_metaobject_isbase = false;
             return KFilePlacesView::metaObject();
-        } else if (kfileplacesview_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfileplacesview_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFilePlacesView::metaObject();
         }
+        auto metaobject_cb = kfileplacesview_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFilePlacesView::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,14 +663,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_metacast_isbase) {
             kfileplacesview_metacast_isbase = false;
             return KFilePlacesView::qt_metacast(param1);
-        } else if (kfileplacesview_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfileplacesview_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfileplacesview_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesView::qt_metacast(param1);
         }
+        return KFilePlacesView::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,16 +679,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_metacall_isbase) {
             kfileplacesview_metacall_isbase = false;
             return KFilePlacesView::qt_metacall(param1, param2, param3);
-        } else if (kfileplacesview_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfileplacesview_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfileplacesview_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesView::qt_metacall(param1, param2, param3);
         }
+        return KFilePlacesView::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,12 +697,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_sizehint_isbase) {
             kfileplacesview_sizehint_isbase = false;
             return KFilePlacesView::sizeHint();
-        } else if (kfileplacesview_sizehint_callback != nullptr) {
-            QSize* callback_ret = kfileplacesview_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFilePlacesView::sizeHint();
         }
+        auto sizehint_cb = kfileplacesview_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KFilePlacesView::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -832,13 +711,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_setmodel_isbase) {
             kfileplacesview_setmodel_isbase = false;
             KFilePlacesView::setModel(model);
-        } else if (kfileplacesview_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = kfileplacesview_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            kfileplacesview_setmodel_callback(this, cbval1);
-        } else {
-            KFilePlacesView::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -846,13 +728,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_keypressevent_isbase) {
             kfileplacesview_keypressevent_isbase = false;
             KFilePlacesView::keyPressEvent(event);
-        } else if (kfileplacesview_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kfileplacesview_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kfileplacesview_keypressevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -860,13 +745,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_contextmenuevent_isbase) {
             kfileplacesview_contextmenuevent_isbase = false;
             KFilePlacesView::contextMenuEvent(event);
-        } else if (kfileplacesview_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kfileplacesview_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kfileplacesview_contextmenuevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -874,13 +762,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_resizeevent_isbase) {
             kfileplacesview_resizeevent_isbase = false;
             KFilePlacesView::resizeEvent(event);
-        } else if (kfileplacesview_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kfileplacesview_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kfileplacesview_resizeevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -888,13 +779,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_showevent_isbase) {
             kfileplacesview_showevent_isbase = false;
             KFilePlacesView::showEvent(event);
-        } else if (kfileplacesview_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kfileplacesview_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kfileplacesview_showevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -902,13 +796,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_hideevent_isbase) {
             kfileplacesview_hideevent_isbase = false;
             KFilePlacesView::hideEvent(event);
-        } else if (kfileplacesview_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kfileplacesview_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kfileplacesview_hideevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -916,13 +813,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_dragenterevent_isbase) {
             kfileplacesview_dragenterevent_isbase = false;
             KFilePlacesView::dragEnterEvent(event);
-        } else if (kfileplacesview_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kfileplacesview_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kfileplacesview_dragenterevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,13 +830,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_dragleaveevent_isbase) {
             kfileplacesview_dragleaveevent_isbase = false;
             KFilePlacesView::dragLeaveEvent(event);
-        } else if (kfileplacesview_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kfileplacesview_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kfileplacesview_dragleaveevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,13 +847,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_dragmoveevent_isbase) {
             kfileplacesview_dragmoveevent_isbase = false;
             KFilePlacesView::dragMoveEvent(event);
-        } else if (kfileplacesview_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kfileplacesview_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kfileplacesview_dragmoveevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +864,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_dropevent_isbase) {
             kfileplacesview_dropevent_isbase = false;
             KFilePlacesView::dropEvent(event);
-        } else if (kfileplacesview_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kfileplacesview_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kfileplacesview_dropevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,13 +881,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_paintevent_isbase) {
             kfileplacesview_paintevent_isbase = false;
             KFilePlacesView::paintEvent(event);
-        } else if (kfileplacesview_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kfileplacesview_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kfileplacesview_paintevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,13 +898,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_startdrag_isbase) {
             kfileplacesview_startdrag_isbase = false;
             KFilePlacesView::startDrag(supportedActions);
-        } else if (kfileplacesview_startdrag_callback != nullptr) {
+            return;
+        }
+        auto startdrag_cb = kfileplacesview_startdrag_callback;
+        if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
 
-            kfileplacesview_startdrag_callback(this, cbval1);
-        } else {
-            KFilePlacesView::startDrag(supportedActions);
+            startdrag_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::startDrag(supportedActions);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,13 +915,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_mousepressevent_isbase) {
             kfileplacesview_mousepressevent_isbase = false;
             KFilePlacesView::mousePressEvent(event);
-        } else if (kfileplacesview_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kfileplacesview_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfileplacesview_mousepressevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,17 +932,20 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_rowsinserted_isbase) {
             kfileplacesview_rowsinserted_isbase = false;
             KFilePlacesView::rowsInserted(parent, start, end);
-        } else if (kfileplacesview_rowsinserted_callback != nullptr) {
+            return;
+        }
+        auto rowsinserted_cb = kfileplacesview_rowsinserted_callback;
+        if (rowsinserted_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            kfileplacesview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KFilePlacesView::rowsInserted(parent, start, end);
+            rowsinserted_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KFilePlacesView::rowsInserted(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1032,7 +953,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_datachanged_isbase) {
             kfileplacesview_datachanged_isbase = false;
             KFilePlacesView::dataChanged(topLeft, bottomRight, roles);
-        } else if (kfileplacesview_datachanged_callback != nullptr) {
+            return;
+        }
+        auto datachanged_cb = kfileplacesview_datachanged_callback;
+        if (datachanged_cb) {
             const QModelIndex& topLeft_ret = topLeft;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
@@ -1050,11 +974,11 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
-            kfileplacesview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
-        } else {
-            KFilePlacesView::dataChanged(topLeft, bottomRight, roles);
+            return;
         }
+        KFilePlacesView::dataChanged(topLeft, bottomRight, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1062,16 +986,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_visualrect_isbase) {
             kfileplacesview_visualrect_isbase = false;
             return KFilePlacesView::visualRect(index);
-        } else if (kfileplacesview_visualrect_callback != nullptr) {
+        }
+        auto visualrect_cb = kfileplacesview_visualrect_callback;
+        if (visualrect_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = kfileplacesview_visualrect_callback(this, cbval1);
+            QRect* callback_ret = visualrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFilePlacesView::visualRect(index);
         }
+        return KFilePlacesView::visualRect(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1079,16 +1004,19 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_scrollto_isbase) {
             kfileplacesview_scrollto_isbase = false;
             KFilePlacesView::scrollTo(index, hint);
-        } else if (kfileplacesview_scrollto_callback != nullptr) {
+            return;
+        }
+        auto scrollto_cb = kfileplacesview_scrollto_callback;
+        if (scrollto_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
 
-            kfileplacesview_scrollto_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesView::scrollTo(index, hint);
+            scrollto_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesView::scrollTo(index, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1096,16 +1024,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_indexat_isbase) {
             kfileplacesview_indexat_isbase = false;
             return KFilePlacesView::indexAt(p);
-        } else if (kfileplacesview_indexat_callback != nullptr) {
+        }
+        auto indexat_cb = kfileplacesview_indexat_callback;
+        if (indexat_cb) {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
 
-            QModelIndex* callback_ret = kfileplacesview_indexat_callback(this, cbval1);
+            QModelIndex* callback_ret = indexat_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFilePlacesView::indexAt(p);
         }
+        return KFilePlacesView::indexAt(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1113,11 +1042,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_doitemslayout_isbase) {
             kfileplacesview_doitemslayout_isbase = false;
             KFilePlacesView::doItemsLayout();
-        } else if (kfileplacesview_doitemslayout_callback != nullptr) {
-            kfileplacesview_doitemslayout_callback();
-        } else {
-            KFilePlacesView::doItemsLayout();
+            return;
         }
+        auto doitemslayout_cb = kfileplacesview_doitemslayout_callback;
+        if (doitemslayout_cb) {
+            doitemslayout_cb();
+            return;
+        }
+        KFilePlacesView::doItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1125,11 +1057,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_reset_isbase) {
             kfileplacesview_reset_isbase = false;
             KFilePlacesView::reset();
-        } else if (kfileplacesview_reset_callback != nullptr) {
-            kfileplacesview_reset_callback();
-        } else {
-            KFilePlacesView::reset();
+            return;
         }
+        auto reset_cb = kfileplacesview_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        KFilePlacesView::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,15 +1072,18 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_setrootindex_isbase) {
             kfileplacesview_setrootindex_isbase = false;
             KFilePlacesView::setRootIndex(index);
-        } else if (kfileplacesview_setrootindex_callback != nullptr) {
+            return;
+        }
+        auto setrootindex_cb = kfileplacesview_setrootindex_callback;
+        if (setrootindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            kfileplacesview_setrootindex_callback(this, cbval1);
-        } else {
-            KFilePlacesView::setRootIndex(index);
+            setrootindex_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::setRootIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,14 +1091,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_event_isbase) {
             kfileplacesview_event_isbase = false;
             return KFilePlacesView::event(e);
-        } else if (kfileplacesview_event_callback != nullptr) {
+        }
+        auto event_cb = kfileplacesview_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kfileplacesview_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesView::event(e);
         }
+        return KFilePlacesView::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1168,14 +1107,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_scrollcontentsby_isbase) {
             kfileplacesview_scrollcontentsby_isbase = false;
             KFilePlacesView::scrollContentsBy(dx, dy);
-        } else if (kfileplacesview_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = kfileplacesview_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            kfileplacesview_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesView::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesView::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,17 +1125,20 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_rowsabouttoberemoved_isbase) {
             kfileplacesview_rowsabouttoberemoved_isbase = false;
             KFilePlacesView::rowsAboutToBeRemoved(parent, start, end);
-        } else if (kfileplacesview_rowsabouttoberemoved_callback != nullptr) {
+            return;
+        }
+        auto rowsabouttoberemoved_cb = kfileplacesview_rowsabouttoberemoved_callback;
+        if (rowsabouttoberemoved_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            kfileplacesview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KFilePlacesView::rowsAboutToBeRemoved(parent, start, end);
+            rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KFilePlacesView::rowsAboutToBeRemoved(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1201,13 +1146,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_mousemoveevent_isbase) {
             kfileplacesview_mousemoveevent_isbase = false;
             KFilePlacesView::mouseMoveEvent(e);
-        } else if (kfileplacesview_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kfileplacesview_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kfileplacesview_mousemoveevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1215,13 +1163,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_mousereleaseevent_isbase) {
             kfileplacesview_mousereleaseevent_isbase = false;
             KFilePlacesView::mouseReleaseEvent(e);
-        } else if (kfileplacesview_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kfileplacesview_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kfileplacesview_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1229,13 +1180,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_wheelevent_isbase) {
             kfileplacesview_wheelevent_isbase = false;
             KFilePlacesView::wheelEvent(e);
-        } else if (kfileplacesview_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kfileplacesview_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            kfileplacesview_wheelevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,13 +1197,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_timerevent_isbase) {
             kfileplacesview_timerevent_isbase = false;
             KFilePlacesView::timerEvent(e);
-        } else if (kfileplacesview_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfileplacesview_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
 
-            kfileplacesview_timerevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::timerEvent(e);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::timerEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,13 +1214,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_initviewitemoption_isbase) {
             kfileplacesview_initviewitemoption_isbase = false;
             KFilePlacesView::initViewItemOption(option);
-        } else if (kfileplacesview_initviewitemoption_callback != nullptr) {
+            return;
+        }
+        auto initviewitemoption_cb = kfileplacesview_initviewitemoption_callback;
+        if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
 
-            kfileplacesview_initviewitemoption_callback(this, cbval1);
-        } else {
-            KFilePlacesView::initViewItemOption(option);
+            initviewitemoption_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::initViewItemOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1271,12 +1231,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_horizontaloffset_isbase) {
             kfileplacesview_horizontaloffset_isbase = false;
             return KFilePlacesView::horizontalOffset();
-        } else if (kfileplacesview_horizontaloffset_callback != nullptr) {
-            int callback_ret = kfileplacesview_horizontaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesView::horizontalOffset();
         }
+        auto horizontaloffset_cb = kfileplacesview_horizontaloffset_callback;
+        if (horizontaloffset_cb) {
+            int callback_ret = horizontaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFilePlacesView::horizontalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,12 +1245,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_verticaloffset_isbase) {
             kfileplacesview_verticaloffset_isbase = false;
             return KFilePlacesView::verticalOffset();
-        } else if (kfileplacesview_verticaloffset_callback != nullptr) {
-            int callback_ret = kfileplacesview_verticaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesView::verticalOffset();
         }
+        auto verticaloffset_cb = kfileplacesview_verticaloffset_callback;
+        if (verticaloffset_cb) {
+            int callback_ret = verticaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFilePlacesView::verticalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1297,15 +1259,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_movecursor_isbase) {
             kfileplacesview_movecursor_isbase = false;
             return KFilePlacesView::moveCursor(cursorAction, modifiers);
-        } else if (kfileplacesview_movecursor_callback != nullptr) {
+        }
+        auto movecursor_cb = kfileplacesview_movecursor_callback;
+        if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
 
-            QModelIndex* callback_ret = kfileplacesview_movecursor_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KFilePlacesView::moveCursor(cursorAction, modifiers);
         }
+        return KFilePlacesView::moveCursor(cursorAction, modifiers);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1313,16 +1276,19 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_setselection_isbase) {
             kfileplacesview_setselection_isbase = false;
             KFilePlacesView::setSelection(rect, command);
-        } else if (kfileplacesview_setselection_callback != nullptr) {
+            return;
+        }
+        auto setselection_cb = kfileplacesview_setselection_callback;
+        if (setselection_cb) {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
 
-            kfileplacesview_setselection_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesView::setSelection(rect, command);
+            setselection_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesView::setSelection(rect, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1330,16 +1296,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_visualregionforselection_isbase) {
             kfileplacesview_visualregionforselection_isbase = false;
             return KFilePlacesView::visualRegionForSelection(selection);
-        } else if (kfileplacesview_visualregionforselection_callback != nullptr) {
+        }
+        auto visualregionforselection_cb = kfileplacesview_visualregionforselection_callback;
+        if (visualregionforselection_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QRegion* callback_ret = kfileplacesview_visualregionforselection_callback(this, cbval1);
+            QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFilePlacesView::visualRegionForSelection(selection);
         }
+        return KFilePlacesView::visualRegionForSelection(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1347,8 +1314,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_selectedindexes_isbase) {
             kfileplacesview_selectedindexes_isbase = false;
             return KFilePlacesView::selectedIndexes();
-        } else if (kfileplacesview_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = kfileplacesview_selectedindexes_callback();
+        }
+        auto selectedindexes_cb = kfileplacesview_selectedindexes_callback;
+        if (selectedindexes_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = selectedindexes_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1357,9 +1326,8 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KFilePlacesView::selectedIndexes();
         }
+        return KFilePlacesView::selectedIndexes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1367,11 +1335,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_updategeometries_isbase) {
             kfileplacesview_updategeometries_isbase = false;
             KFilePlacesView::updateGeometries();
-        } else if (kfileplacesview_updategeometries_callback != nullptr) {
-            kfileplacesview_updategeometries_callback();
-        } else {
-            KFilePlacesView::updateGeometries();
+            return;
         }
+        auto updategeometries_cb = kfileplacesview_updategeometries_callback;
+        if (updategeometries_cb) {
+            updategeometries_cb();
+            return;
+        }
+        KFilePlacesView::updateGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1379,16 +1350,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_isindexhidden_isbase) {
             kfileplacesview_isindexhidden_isbase = false;
             return KFilePlacesView::isIndexHidden(index);
-        } else if (kfileplacesview_isindexhidden_callback != nullptr) {
+        }
+        auto isindexhidden_cb = kfileplacesview_isindexhidden_callback;
+        if (isindexhidden_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kfileplacesview_isindexhidden_callback(this, cbval1);
+            bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesView::isIndexHidden(index);
         }
+        return KFilePlacesView::isIndexHidden(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1396,7 +1368,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_selectionchanged_isbase) {
             kfileplacesview_selectionchanged_isbase = false;
             KFilePlacesView::selectionChanged(selected, deselected);
-        } else if (kfileplacesview_selectionchanged_callback != nullptr) {
+            return;
+        }
+        auto selectionchanged_cb = kfileplacesview_selectionchanged_callback;
+        if (selectionchanged_cb) {
             const QItemSelection& selected_ret = selected;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
@@ -1404,10 +1379,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
 
-            kfileplacesview_selectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesView::selectionChanged(selected, deselected);
+            selectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesView::selectionChanged(selected, deselected);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1415,7 +1390,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_currentchanged_isbase) {
             kfileplacesview_currentchanged_isbase = false;
             KFilePlacesView::currentChanged(current, previous);
-        } else if (kfileplacesview_currentchanged_callback != nullptr) {
+            return;
+        }
+        auto currentchanged_cb = kfileplacesview_currentchanged_callback;
+        if (currentchanged_cb) {
             const QModelIndex& current_ret = current;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
@@ -1423,10 +1401,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
 
-            kfileplacesview_currentchanged_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesView::currentChanged(current, previous);
+            currentchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesView::currentChanged(current, previous);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1434,12 +1412,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_viewportsizehint_isbase) {
             kfileplacesview_viewportsizehint_isbase = false;
             return KFilePlacesView::viewportSizeHint();
-        } else if (kfileplacesview_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = kfileplacesview_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFilePlacesView::viewportSizeHint();
         }
+        auto viewportsizehint_cb = kfileplacesview_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return KFilePlacesView::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1447,13 +1426,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_setselectionmodel_isbase) {
             kfileplacesview_setselectionmodel_isbase = false;
             KFilePlacesView::setSelectionModel(selectionModel);
-        } else if (kfileplacesview_setselectionmodel_callback != nullptr) {
+            return;
+        }
+        auto setselectionmodel_cb = kfileplacesview_setselectionmodel_callback;
+        if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
 
-            kfileplacesview_setselectionmodel_callback(this, cbval1);
-        } else {
-            KFilePlacesView::setSelectionModel(selectionModel);
+            setselectionmodel_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::setSelectionModel(selectionModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1461,7 +1443,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_keyboardsearch_isbase) {
             kfileplacesview_keyboardsearch_isbase = false;
             KFilePlacesView::keyboardSearch(search);
-        } else if (kfileplacesview_keyboardsearch_callback != nullptr) {
+            return;
+        }
+        auto keyboardsearch_cb = kfileplacesview_keyboardsearch_callback;
+        if (keyboardsearch_cb) {
             const QString search_ret = search;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
@@ -1471,11 +1456,11 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
 
-            kfileplacesview_keyboardsearch_callback(this, cbval1);
+            keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
-        } else {
-            KFilePlacesView::keyboardSearch(search);
+            return;
         }
+        KFilePlacesView::keyboardSearch(search);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1483,14 +1468,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_sizehintforrow_isbase) {
             kfileplacesview_sizehintforrow_isbase = false;
             return KFilePlacesView::sizeHintForRow(row);
-        } else if (kfileplacesview_sizehintforrow_callback != nullptr) {
+        }
+        auto sizehintforrow_cb = kfileplacesview_sizehintforrow_callback;
+        if (sizehintforrow_cb) {
             int cbval1 = row;
 
-            int callback_ret = kfileplacesview_sizehintforrow_callback(this, cbval1);
+            int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesView::sizeHintForRow(row);
         }
+        return KFilePlacesView::sizeHintForRow(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1498,14 +1484,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_sizehintforcolumn_isbase) {
             kfileplacesview_sizehintforcolumn_isbase = false;
             return KFilePlacesView::sizeHintForColumn(column);
-        } else if (kfileplacesview_sizehintforcolumn_callback != nullptr) {
+        }
+        auto sizehintforcolumn_cb = kfileplacesview_sizehintforcolumn_callback;
+        if (sizehintforcolumn_cb) {
             int cbval1 = column;
 
-            int callback_ret = kfileplacesview_sizehintforcolumn_callback(this, cbval1);
+            int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesView::sizeHintForColumn(column);
         }
+        return KFilePlacesView::sizeHintForColumn(column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1513,16 +1500,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_itemdelegateforindex_isbase) {
             kfileplacesview_itemdelegateforindex_isbase = false;
             return KFilePlacesView::itemDelegateForIndex(index);
-        } else if (kfileplacesview_itemdelegateforindex_callback != nullptr) {
+        }
+        auto itemdelegateforindex_cb = kfileplacesview_itemdelegateforindex_callback;
+        if (itemdelegateforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QAbstractItemDelegate* callback_ret = kfileplacesview_itemdelegateforindex_callback(this, cbval1);
+            QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesView::itemDelegateForIndex(index);
         }
+        return KFilePlacesView::itemDelegateForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1530,14 +1518,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_inputmethodquery_isbase) {
             kfileplacesview_inputmethodquery_isbase = false;
             return KFilePlacesView::inputMethodQuery(query);
-        } else if (kfileplacesview_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kfileplacesview_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = kfileplacesview_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFilePlacesView::inputMethodQuery(query);
         }
+        return KFilePlacesView::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1545,11 +1534,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_selectall_isbase) {
             kfileplacesview_selectall_isbase = false;
             KFilePlacesView::selectAll();
-        } else if (kfileplacesview_selectall_callback != nullptr) {
-            kfileplacesview_selectall_callback();
-        } else {
-            KFilePlacesView::selectAll();
+            return;
         }
+        auto selectall_cb = kfileplacesview_selectall_callback;
+        if (selectall_cb) {
+            selectall_cb();
+            return;
+        }
+        KFilePlacesView::selectAll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1557,11 +1549,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_updateeditordata_isbase) {
             kfileplacesview_updateeditordata_isbase = false;
             KFilePlacesView::updateEditorData();
-        } else if (kfileplacesview_updateeditordata_callback != nullptr) {
-            kfileplacesview_updateeditordata_callback();
-        } else {
-            KFilePlacesView::updateEditorData();
+            return;
         }
+        auto updateeditordata_cb = kfileplacesview_updateeditordata_callback;
+        if (updateeditordata_cb) {
+            updateeditordata_cb();
+            return;
+        }
+        KFilePlacesView::updateEditorData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1569,11 +1564,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_updateeditorgeometries_isbase) {
             kfileplacesview_updateeditorgeometries_isbase = false;
             KFilePlacesView::updateEditorGeometries();
-        } else if (kfileplacesview_updateeditorgeometries_callback != nullptr) {
-            kfileplacesview_updateeditorgeometries_callback();
-        } else {
-            KFilePlacesView::updateEditorGeometries();
+            return;
         }
+        auto updateeditorgeometries_cb = kfileplacesview_updateeditorgeometries_callback;
+        if (updateeditorgeometries_cb) {
+            updateeditorgeometries_cb();
+            return;
+        }
+        KFilePlacesView::updateEditorGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1581,13 +1579,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_verticalscrollbaraction_isbase) {
             kfileplacesview_verticalscrollbaraction_isbase = false;
             KFilePlacesView::verticalScrollbarAction(action);
-        } else if (kfileplacesview_verticalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbaraction_cb = kfileplacesview_verticalscrollbaraction_callback;
+        if (verticalscrollbaraction_cb) {
             int cbval1 = action;
 
-            kfileplacesview_verticalscrollbaraction_callback(this, cbval1);
-        } else {
-            KFilePlacesView::verticalScrollbarAction(action);
+            verticalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::verticalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1595,13 +1596,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_horizontalscrollbaraction_isbase) {
             kfileplacesview_horizontalscrollbaraction_isbase = false;
             KFilePlacesView::horizontalScrollbarAction(action);
-        } else if (kfileplacesview_horizontalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbaraction_cb = kfileplacesview_horizontalscrollbaraction_callback;
+        if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
 
-            kfileplacesview_horizontalscrollbaraction_callback(this, cbval1);
-        } else {
-            KFilePlacesView::horizontalScrollbarAction(action);
+            horizontalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::horizontalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1609,13 +1613,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_verticalscrollbarvaluechanged_isbase) {
             kfileplacesview_verticalscrollbarvaluechanged_isbase = false;
             KFilePlacesView::verticalScrollbarValueChanged(value);
-        } else if (kfileplacesview_verticalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbarvaluechanged_cb = kfileplacesview_verticalscrollbarvaluechanged_callback;
+        if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            kfileplacesview_verticalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            KFilePlacesView::verticalScrollbarValueChanged(value);
+            verticalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::verticalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1623,13 +1630,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_horizontalscrollbarvaluechanged_isbase) {
             kfileplacesview_horizontalscrollbarvaluechanged_isbase = false;
             KFilePlacesView::horizontalScrollbarValueChanged(value);
-        } else if (kfileplacesview_horizontalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbarvaluechanged_cb = kfileplacesview_horizontalscrollbarvaluechanged_callback;
+        if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            kfileplacesview_horizontalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            KFilePlacesView::horizontalScrollbarValueChanged(value);
+            horizontalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::horizontalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1637,14 +1647,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_closeeditor_isbase) {
             kfileplacesview_closeeditor_isbase = false;
             KFilePlacesView::closeEditor(editor, hint);
-        } else if (kfileplacesview_closeeditor_callback != nullptr) {
+            return;
+        }
+        auto closeeditor_cb = kfileplacesview_closeeditor_callback;
+        if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
 
-            kfileplacesview_closeeditor_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesView::closeEditor(editor, hint);
+            closeeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesView::closeEditor(editor, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1652,13 +1665,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_commitdata_isbase) {
             kfileplacesview_commitdata_isbase = false;
             KFilePlacesView::commitData(editor);
-        } else if (kfileplacesview_commitdata_callback != nullptr) {
+            return;
+        }
+        auto commitdata_cb = kfileplacesview_commitdata_callback;
+        if (commitdata_cb) {
             QWidget* cbval1 = editor;
 
-            kfileplacesview_commitdata_callback(this, cbval1);
-        } else {
-            KFilePlacesView::commitData(editor);
+            commitdata_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::commitData(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1666,13 +1682,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_editordestroyed_isbase) {
             kfileplacesview_editordestroyed_isbase = false;
             KFilePlacesView::editorDestroyed(editor);
-        } else if (kfileplacesview_editordestroyed_callback != nullptr) {
+            return;
+        }
+        auto editordestroyed_cb = kfileplacesview_editordestroyed_callback;
+        if (editordestroyed_cb) {
             QObject* cbval1 = editor;
 
-            kfileplacesview_editordestroyed_callback(this, cbval1);
-        } else {
-            KFilePlacesView::editorDestroyed(editor);
+            editordestroyed_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::editorDestroyed(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1680,18 +1699,19 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_edit2_isbase) {
             kfileplacesview_edit2_isbase = false;
             return KFilePlacesView::edit(index, trigger, event);
-        } else if (kfileplacesview_edit2_callback != nullptr) {
+        }
+        auto edit2_cb = kfileplacesview_edit2_callback;
+        if (edit2_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
 
-            bool callback_ret = kfileplacesview_edit2_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KFilePlacesView::edit(index, trigger, event);
         }
+        return KFilePlacesView::edit(index, trigger, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1699,17 +1719,18 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_selectioncommand_isbase) {
             kfileplacesview_selectioncommand_isbase = false;
             return KFilePlacesView::selectionCommand(index, event);
-        } else if (kfileplacesview_selectioncommand_callback != nullptr) {
+        }
+        auto selectioncommand_cb = kfileplacesview_selectioncommand_callback;
+        if (selectioncommand_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
 
-            int callback_ret = kfileplacesview_selectioncommand_callback(this, cbval1, cbval2);
+            int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
-        } else {
-            return KFilePlacesView::selectionCommand(index, event);
         }
+        return KFilePlacesView::selectionCommand(index, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1717,14 +1738,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_focusnextprevchild_isbase) {
             kfileplacesview_focusnextprevchild_isbase = false;
             return KFilePlacesView::focusNextPrevChild(next);
-        } else if (kfileplacesview_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kfileplacesview_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kfileplacesview_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesView::focusNextPrevChild(next);
         }
+        return KFilePlacesView::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1732,14 +1754,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_viewportevent_isbase) {
             kfileplacesview_viewportevent_isbase = false;
             return KFilePlacesView::viewportEvent(event);
-        } else if (kfileplacesview_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = kfileplacesview_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfileplacesview_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesView::viewportEvent(event);
         }
+        return KFilePlacesView::viewportEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1747,13 +1770,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_mousedoubleclickevent_isbase) {
             kfileplacesview_mousedoubleclickevent_isbase = false;
             KFilePlacesView::mouseDoubleClickEvent(event);
-        } else if (kfileplacesview_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kfileplacesview_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfileplacesview_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1761,13 +1787,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_focusinevent_isbase) {
             kfileplacesview_focusinevent_isbase = false;
             KFilePlacesView::focusInEvent(event);
-        } else if (kfileplacesview_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kfileplacesview_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kfileplacesview_focusinevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1775,13 +1804,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_focusoutevent_isbase) {
             kfileplacesview_focusoutevent_isbase = false;
             KFilePlacesView::focusOutEvent(event);
-        } else if (kfileplacesview_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kfileplacesview_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kfileplacesview_focusoutevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1789,13 +1821,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_inputmethodevent_isbase) {
             kfileplacesview_inputmethodevent_isbase = false;
             KFilePlacesView::inputMethodEvent(event);
-        } else if (kfileplacesview_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kfileplacesview_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            kfileplacesview_inputmethodevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1803,15 +1838,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_eventfilter_isbase) {
             kfileplacesview_eventfilter_isbase = false;
             return KFilePlacesView::eventFilter(object, event);
-        } else if (kfileplacesview_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfileplacesview_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kfileplacesview_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFilePlacesView::eventFilter(object, event);
         }
+        return KFilePlacesView::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1819,12 +1855,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_minimumsizehint_isbase) {
             kfileplacesview_minimumsizehint_isbase = false;
             return KFilePlacesView::minimumSizeHint();
-        } else if (kfileplacesview_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kfileplacesview_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFilePlacesView::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kfileplacesview_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KFilePlacesView::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1832,13 +1869,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_setupviewport_isbase) {
             kfileplacesview_setupviewport_isbase = false;
             KFilePlacesView::setupViewport(viewport);
-        } else if (kfileplacesview_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = kfileplacesview_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            kfileplacesview_setupviewport_callback(this, cbval1);
-        } else {
-            KFilePlacesView::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1846,13 +1886,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_changeevent_isbase) {
             kfileplacesview_changeevent_isbase = false;
             KFilePlacesView::changeEvent(param1);
-        } else if (kfileplacesview_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kfileplacesview_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kfileplacesview_changeevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1860,13 +1903,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_initstyleoption_isbase) {
             kfileplacesview_initstyleoption_isbase = false;
             KFilePlacesView::initStyleOption(option);
-        } else if (kfileplacesview_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kfileplacesview_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kfileplacesview_initstyleoption_callback(this, cbval1);
-        } else {
-            KFilePlacesView::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1874,12 +1920,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_devtype_isbase) {
             kfileplacesview_devtype_isbase = false;
             return KFilePlacesView::devType();
-        } else if (kfileplacesview_devtype_callback != nullptr) {
-            int callback_ret = kfileplacesview_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesView::devType();
         }
+        auto devtype_cb = kfileplacesview_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFilePlacesView::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1887,13 +1934,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_setvisible_isbase) {
             kfileplacesview_setvisible_isbase = false;
             KFilePlacesView::setVisible(visible);
-        } else if (kfileplacesview_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kfileplacesview_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kfileplacesview_setvisible_callback(this, cbval1);
-        } else {
-            KFilePlacesView::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1901,14 +1951,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_heightforwidth_isbase) {
             kfileplacesview_heightforwidth_isbase = false;
             return KFilePlacesView::heightForWidth(param1);
-        } else if (kfileplacesview_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kfileplacesview_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kfileplacesview_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesView::heightForWidth(param1);
         }
+        return KFilePlacesView::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1916,12 +1967,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_hasheightforwidth_isbase) {
             kfileplacesview_hasheightforwidth_isbase = false;
             return KFilePlacesView::hasHeightForWidth();
-        } else if (kfileplacesview_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kfileplacesview_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KFilePlacesView::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kfileplacesview_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KFilePlacesView::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1929,12 +1981,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_paintengine_isbase) {
             kfileplacesview_paintengine_isbase = false;
             return KFilePlacesView::paintEngine();
-        } else if (kfileplacesview_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kfileplacesview_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KFilePlacesView::paintEngine();
         }
+        auto paintengine_cb = kfileplacesview_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KFilePlacesView::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1942,13 +1995,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_keyreleaseevent_isbase) {
             kfileplacesview_keyreleaseevent_isbase = false;
             KFilePlacesView::keyReleaseEvent(event);
-        } else if (kfileplacesview_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kfileplacesview_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kfileplacesview_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1956,13 +2012,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_enterevent_isbase) {
             kfileplacesview_enterevent_isbase = false;
             KFilePlacesView::enterEvent(event);
-        } else if (kfileplacesview_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kfileplacesview_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kfileplacesview_enterevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1970,13 +2029,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_leaveevent_isbase) {
             kfileplacesview_leaveevent_isbase = false;
             KFilePlacesView::leaveEvent(event);
-        } else if (kfileplacesview_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kfileplacesview_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kfileplacesview_leaveevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1984,13 +2046,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_moveevent_isbase) {
             kfileplacesview_moveevent_isbase = false;
             KFilePlacesView::moveEvent(event);
-        } else if (kfileplacesview_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kfileplacesview_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kfileplacesview_moveevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1998,13 +2063,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_closeevent_isbase) {
             kfileplacesview_closeevent_isbase = false;
             KFilePlacesView::closeEvent(event);
-        } else if (kfileplacesview_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kfileplacesview_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kfileplacesview_closeevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2012,13 +2080,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_tabletevent_isbase) {
             kfileplacesview_tabletevent_isbase = false;
             KFilePlacesView::tabletEvent(event);
-        } else if (kfileplacesview_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kfileplacesview_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kfileplacesview_tabletevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2026,13 +2097,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_actionevent_isbase) {
             kfileplacesview_actionevent_isbase = false;
             KFilePlacesView::actionEvent(event);
-        } else if (kfileplacesview_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kfileplacesview_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kfileplacesview_actionevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2040,7 +2114,9 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_nativeevent_isbase) {
             kfileplacesview_nativeevent_isbase = false;
             return KFilePlacesView::nativeEvent(eventType, message, result);
-        } else if (kfileplacesview_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kfileplacesview_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2051,12 +2127,11 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kfileplacesview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KFilePlacesView::nativeEvent(eventType, message, result);
         }
+        return KFilePlacesView::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2064,14 +2139,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_metric_isbase) {
             kfileplacesview_metric_isbase = false;
             return KFilePlacesView::metric(param1);
-        } else if (kfileplacesview_metric_callback != nullptr) {
+        }
+        auto metric_cb = kfileplacesview_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kfileplacesview_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesView::metric(param1);
         }
+        return KFilePlacesView::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2079,13 +2155,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_initpainter_isbase) {
             kfileplacesview_initpainter_isbase = false;
             KFilePlacesView::initPainter(painter);
-        } else if (kfileplacesview_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kfileplacesview_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kfileplacesview_initpainter_callback(this, cbval1);
-        } else {
-            KFilePlacesView::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2093,14 +2172,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_redirected_isbase) {
             kfileplacesview_redirected_isbase = false;
             return KFilePlacesView::redirected(offset);
-        } else if (kfileplacesview_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kfileplacesview_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kfileplacesview_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesView::redirected(offset);
         }
+        return KFilePlacesView::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2108,12 +2188,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_sharedpainter_isbase) {
             kfileplacesview_sharedpainter_isbase = false;
             return KFilePlacesView::sharedPainter();
-        } else if (kfileplacesview_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kfileplacesview_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KFilePlacesView::sharedPainter();
         }
+        auto sharedpainter_cb = kfileplacesview_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KFilePlacesView::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2121,13 +2202,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_childevent_isbase) {
             kfileplacesview_childevent_isbase = false;
             KFilePlacesView::childEvent(event);
-        } else if (kfileplacesview_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfileplacesview_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfileplacesview_childevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2135,13 +2219,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_customevent_isbase) {
             kfileplacesview_customevent_isbase = false;
             KFilePlacesView::customEvent(event);
-        } else if (kfileplacesview_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfileplacesview_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfileplacesview_customevent_callback(this, cbval1);
-        } else {
-            KFilePlacesView::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2149,15 +2236,18 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_connectnotify_isbase) {
             kfileplacesview_connectnotify_isbase = false;
             KFilePlacesView::connectNotify(signal);
-        } else if (kfileplacesview_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfileplacesview_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfileplacesview_connectnotify_callback(this, cbval1);
-        } else {
-            KFilePlacesView::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2165,15 +2255,18 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_disconnectnotify_isbase) {
             kfileplacesview_disconnectnotify_isbase = false;
             KFilePlacesView::disconnectNotify(signal);
-        } else if (kfileplacesview_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfileplacesview_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfileplacesview_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFilePlacesView::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2181,14 +2274,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_resizecontents_isbase) {
             kfileplacesview_resizecontents_isbase = false;
             KFilePlacesView::resizeContents(width, height);
-        } else if (kfileplacesview_resizecontents_callback != nullptr) {
+            return;
+        }
+        auto resizecontents_cb = kfileplacesview_resizecontents_callback;
+        if (resizecontents_cb) {
             int cbval1 = width;
             int cbval2 = height;
 
-            kfileplacesview_resizecontents_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesView::resizeContents(width, height);
+            resizecontents_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesView::resizeContents(width, height);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2196,12 +2292,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_contentssize_isbase) {
             kfileplacesview_contentssize_isbase = false;
             return KFilePlacesView::contentsSize();
-        } else if (kfileplacesview_contentssize_callback != nullptr) {
-            QSize* callback_ret = kfileplacesview_contentssize_callback();
-            return *callback_ret;
-        } else {
-            return KFilePlacesView::contentsSize();
         }
+        auto contentssize_cb = kfileplacesview_contentssize_callback;
+        if (contentssize_cb) {
+            QSize* callback_ret = contentssize_cb();
+            return *callback_ret;
+        }
+        return KFilePlacesView::contentsSize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2209,16 +2306,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_rectforindex_isbase) {
             kfileplacesview_rectforindex_isbase = false;
             return KFilePlacesView::rectForIndex(index);
-        } else if (kfileplacesview_rectforindex_callback != nullptr) {
+        }
+        auto rectforindex_cb = kfileplacesview_rectforindex_callback;
+        if (rectforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = kfileplacesview_rectforindex_callback(this, cbval1);
+            QRect* callback_ret = rectforindex_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFilePlacesView::rectForIndex(index);
         }
+        return KFilePlacesView::rectForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2226,7 +2324,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_setpositionforindex_isbase) {
             kfileplacesview_setpositionforindex_isbase = false;
             KFilePlacesView::setPositionForIndex(position, index);
-        } else if (kfileplacesview_setpositionforindex_callback != nullptr) {
+            return;
+        }
+        auto setpositionforindex_cb = kfileplacesview_setpositionforindex_callback;
+        if (setpositionforindex_cb) {
             const QPoint& position_ret = position;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&position_ret);
@@ -2234,10 +2335,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            kfileplacesview_setpositionforindex_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesView::setPositionForIndex(position, index);
+            setpositionforindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesView::setPositionForIndex(position, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2245,12 +2346,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_state_isbase) {
             kfileplacesview_state_isbase = false;
             return KFilePlacesView::state();
-        } else if (kfileplacesview_state_callback != nullptr) {
-            int callback_ret = kfileplacesview_state_callback();
-            return static_cast<VirtualKFilePlacesView::State>(callback_ret);
-        } else {
-            return KFilePlacesView::state();
         }
+        auto state_cb = kfileplacesview_state_callback;
+        if (state_cb) {
+            int callback_ret = state_cb();
+            return static_cast<VirtualKFilePlacesView::State>(callback_ret);
+        }
+        return KFilePlacesView::state();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2258,13 +2360,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_setstate_isbase) {
             kfileplacesview_setstate_isbase = false;
             KFilePlacesView::setState(state);
-        } else if (kfileplacesview_setstate_callback != nullptr) {
+            return;
+        }
+        auto setstate_cb = kfileplacesview_setstate_callback;
+        if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            kfileplacesview_setstate_callback(this, cbval1);
-        } else {
-            KFilePlacesView::setState(state);
+            setstate_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::setState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2272,11 +2377,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_scheduledelayeditemslayout_isbase) {
             kfileplacesview_scheduledelayeditemslayout_isbase = false;
             KFilePlacesView::scheduleDelayedItemsLayout();
-        } else if (kfileplacesview_scheduledelayeditemslayout_callback != nullptr) {
-            kfileplacesview_scheduledelayeditemslayout_callback();
-        } else {
-            KFilePlacesView::scheduleDelayedItemsLayout();
+            return;
         }
+        auto scheduledelayeditemslayout_cb = kfileplacesview_scheduledelayeditemslayout_callback;
+        if (scheduledelayeditemslayout_cb) {
+            scheduledelayeditemslayout_cb();
+            return;
+        }
+        KFilePlacesView::scheduleDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2284,11 +2392,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_executedelayeditemslayout_isbase) {
             kfileplacesview_executedelayeditemslayout_isbase = false;
             KFilePlacesView::executeDelayedItemsLayout();
-        } else if (kfileplacesview_executedelayeditemslayout_callback != nullptr) {
-            kfileplacesview_executedelayeditemslayout_callback();
-        } else {
-            KFilePlacesView::executeDelayedItemsLayout();
+            return;
         }
+        auto executedelayeditemslayout_cb = kfileplacesview_executedelayeditemslayout_callback;
+        if (executedelayeditemslayout_cb) {
+            executedelayeditemslayout_cb();
+            return;
+        }
+        KFilePlacesView::executeDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2296,15 +2407,18 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_setdirtyregion_isbase) {
             kfileplacesview_setdirtyregion_isbase = false;
             KFilePlacesView::setDirtyRegion(region);
-        } else if (kfileplacesview_setdirtyregion_callback != nullptr) {
+            return;
+        }
+        auto setdirtyregion_cb = kfileplacesview_setdirtyregion_callback;
+        if (setdirtyregion_cb) {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
 
-            kfileplacesview_setdirtyregion_callback(this, cbval1);
-        } else {
-            KFilePlacesView::setDirtyRegion(region);
+            setdirtyregion_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::setDirtyRegion(region);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2312,14 +2426,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_scrolldirtyregion_isbase) {
             kfileplacesview_scrolldirtyregion_isbase = false;
             KFilePlacesView::scrollDirtyRegion(dx, dy);
-        } else if (kfileplacesview_scrolldirtyregion_callback != nullptr) {
+            return;
+        }
+        auto scrolldirtyregion_cb = kfileplacesview_scrolldirtyregion_callback;
+        if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            kfileplacesview_scrolldirtyregion_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesView::scrollDirtyRegion(dx, dy);
+            scrolldirtyregion_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesView::scrollDirtyRegion(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2327,12 +2444,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_dirtyregionoffset_isbase) {
             kfileplacesview_dirtyregionoffset_isbase = false;
             return KFilePlacesView::dirtyRegionOffset();
-        } else if (kfileplacesview_dirtyregionoffset_callback != nullptr) {
-            QPoint* callback_ret = kfileplacesview_dirtyregionoffset_callback();
-            return *callback_ret;
-        } else {
-            return KFilePlacesView::dirtyRegionOffset();
         }
+        auto dirtyregionoffset_cb = kfileplacesview_dirtyregionoffset_callback;
+        if (dirtyregionoffset_cb) {
+            QPoint* callback_ret = dirtyregionoffset_cb();
+            return *callback_ret;
+        }
+        return KFilePlacesView::dirtyRegionOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2340,11 +2458,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_startautoscroll_isbase) {
             kfileplacesview_startautoscroll_isbase = false;
             KFilePlacesView::startAutoScroll();
-        } else if (kfileplacesview_startautoscroll_callback != nullptr) {
-            kfileplacesview_startautoscroll_callback();
-        } else {
-            KFilePlacesView::startAutoScroll();
+            return;
         }
+        auto startautoscroll_cb = kfileplacesview_startautoscroll_callback;
+        if (startautoscroll_cb) {
+            startautoscroll_cb();
+            return;
+        }
+        KFilePlacesView::startAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2352,11 +2473,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_stopautoscroll_isbase) {
             kfileplacesview_stopautoscroll_isbase = false;
             KFilePlacesView::stopAutoScroll();
-        } else if (kfileplacesview_stopautoscroll_callback != nullptr) {
-            kfileplacesview_stopautoscroll_callback();
-        } else {
-            KFilePlacesView::stopAutoScroll();
+            return;
         }
+        auto stopautoscroll_cb = kfileplacesview_stopautoscroll_callback;
+        if (stopautoscroll_cb) {
+            stopautoscroll_cb();
+            return;
+        }
+        KFilePlacesView::stopAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2364,11 +2488,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_doautoscroll_isbase) {
             kfileplacesview_doautoscroll_isbase = false;
             KFilePlacesView::doAutoScroll();
-        } else if (kfileplacesview_doautoscroll_callback != nullptr) {
-            kfileplacesview_doautoscroll_callback();
-        } else {
-            KFilePlacesView::doAutoScroll();
+            return;
         }
+        auto doautoscroll_cb = kfileplacesview_doautoscroll_callback;
+        if (doautoscroll_cb) {
+            doautoscroll_cb();
+            return;
+        }
+        KFilePlacesView::doAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2376,12 +2503,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_dropindicatorposition_isbase) {
             kfileplacesview_dropindicatorposition_isbase = false;
             return KFilePlacesView::dropIndicatorPosition();
-        } else if (kfileplacesview_dropindicatorposition_callback != nullptr) {
-            int callback_ret = kfileplacesview_dropindicatorposition_callback();
-            return static_cast<VirtualKFilePlacesView::DropIndicatorPosition>(callback_ret);
-        } else {
-            return KFilePlacesView::dropIndicatorPosition();
         }
+        auto dropindicatorposition_cb = kfileplacesview_dropindicatorposition_callback;
+        if (dropindicatorposition_cb) {
+            int callback_ret = dropindicatorposition_cb();
+            return static_cast<VirtualKFilePlacesView::DropIndicatorPosition>(callback_ret);
+        }
+        return KFilePlacesView::dropIndicatorPosition();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2389,16 +2517,19 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_setviewportmargins_isbase) {
             kfileplacesview_setviewportmargins_isbase = false;
             KFilePlacesView::setViewportMargins(left, top, right, bottom);
-        } else if (kfileplacesview_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = kfileplacesview_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            kfileplacesview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KFilePlacesView::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KFilePlacesView::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2406,12 +2537,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_viewportmargins_isbase) {
             kfileplacesview_viewportmargins_isbase = false;
             return KFilePlacesView::viewportMargins();
-        } else if (kfileplacesview_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = kfileplacesview_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return KFilePlacesView::viewportMargins();
         }
+        auto viewportmargins_cb = kfileplacesview_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return KFilePlacesView::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2419,13 +2551,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_drawframe_isbase) {
             kfileplacesview_drawframe_isbase = false;
             KFilePlacesView::drawFrame(param1);
-        } else if (kfileplacesview_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kfileplacesview_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kfileplacesview_drawframe_callback(this, cbval1);
-        } else {
-            KFilePlacesView::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KFilePlacesView::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2433,11 +2568,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_updatemicrofocus_isbase) {
             kfileplacesview_updatemicrofocus_isbase = false;
             KFilePlacesView::updateMicroFocus();
-        } else if (kfileplacesview_updatemicrofocus_callback != nullptr) {
-            kfileplacesview_updatemicrofocus_callback();
-        } else {
-            KFilePlacesView::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kfileplacesview_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KFilePlacesView::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2445,11 +2583,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_create_isbase) {
             kfileplacesview_create_isbase = false;
             KFilePlacesView::create();
-        } else if (kfileplacesview_create_callback != nullptr) {
-            kfileplacesview_create_callback();
-        } else {
-            KFilePlacesView::create();
+            return;
         }
+        auto create_cb = kfileplacesview_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KFilePlacesView::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2457,11 +2598,14 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_destroy_isbase) {
             kfileplacesview_destroy_isbase = false;
             KFilePlacesView::destroy();
-        } else if (kfileplacesview_destroy_callback != nullptr) {
-            kfileplacesview_destroy_callback();
-        } else {
-            KFilePlacesView::destroy();
+            return;
         }
+        auto destroy_cb = kfileplacesview_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KFilePlacesView::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2469,12 +2613,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_focusnextchild_isbase) {
             kfileplacesview_focusnextchild_isbase = false;
             return KFilePlacesView::focusNextChild();
-        } else if (kfileplacesview_focusnextchild_callback != nullptr) {
-            bool callback_ret = kfileplacesview_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KFilePlacesView::focusNextChild();
         }
+        auto focusnextchild_cb = kfileplacesview_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KFilePlacesView::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2482,12 +2627,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_focuspreviouschild_isbase) {
             kfileplacesview_focuspreviouschild_isbase = false;
             return KFilePlacesView::focusPreviousChild();
-        } else if (kfileplacesview_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kfileplacesview_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KFilePlacesView::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kfileplacesview_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KFilePlacesView::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2495,12 +2641,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_sender_isbase) {
             kfileplacesview_sender_isbase = false;
             return KFilePlacesView::sender();
-        } else if (kfileplacesview_sender_callback != nullptr) {
-            QObject* callback_ret = kfileplacesview_sender_callback();
-            return callback_ret;
-        } else {
-            return KFilePlacesView::sender();
         }
+        auto sender_cb = kfileplacesview_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFilePlacesView::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2508,12 +2655,13 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_sendersignalindex_isbase) {
             kfileplacesview_sendersignalindex_isbase = false;
             return KFilePlacesView::senderSignalIndex();
-        } else if (kfileplacesview_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfileplacesview_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesView::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfileplacesview_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFilePlacesView::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2521,14 +2669,15 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_receivers_isbase) {
             kfileplacesview_receivers_isbase = false;
             return KFilePlacesView::receivers(signal);
-        } else if (kfileplacesview_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfileplacesview_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfileplacesview_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesView::receivers(signal);
         }
+        return KFilePlacesView::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2536,16 +2685,17 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_issignalconnected_isbase) {
             kfileplacesview_issignalconnected_isbase = false;
             return KFilePlacesView::isSignalConnected(signal);
-        } else if (kfileplacesview_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfileplacesview_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfileplacesview_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesView::isSignalConnected(signal);
         }
+        return KFilePlacesView::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2553,15 +2703,16 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (kfileplacesview_getdecodedmetricf_isbase) {
             kfileplacesview_getdecodedmetricf_isbase = false;
             return KFilePlacesView::getDecodedMetricF(metricA, metricB);
-        } else if (kfileplacesview_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kfileplacesview_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kfileplacesview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KFilePlacesView::getDecodedMetricF(metricA, metricB);
         }
+        return KFilePlacesView::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -282,94 +282,6 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
     VirtualKCategorizedSortFilterProxyModel() : KCategorizedSortFilterProxyModel() {};
     VirtualKCategorizedSortFilterProxyModel(QObject* parent) : KCategorizedSortFilterProxyModel(parent) {};
 
-    ~VirtualKCategorizedSortFilterProxyModel() {
-        kcategorizedsortfilterproxymodel_metaobject_callback = nullptr;
-        kcategorizedsortfilterproxymodel_metacast_callback = nullptr;
-        kcategorizedsortfilterproxymodel_metacall_callback = nullptr;
-        kcategorizedsortfilterproxymodel_sort_callback = nullptr;
-        kcategorizedsortfilterproxymodel_lessthan_callback = nullptr;
-        kcategorizedsortfilterproxymodel_subsortlessthan_callback = nullptr;
-        kcategorizedsortfilterproxymodel_comparecategories_callback = nullptr;
-        kcategorizedsortfilterproxymodel_setsourcemodel_callback = nullptr;
-        kcategorizedsortfilterproxymodel_maptosource_callback = nullptr;
-        kcategorizedsortfilterproxymodel_mapfromsource_callback = nullptr;
-        kcategorizedsortfilterproxymodel_mapselectiontosource_callback = nullptr;
-        kcategorizedsortfilterproxymodel_mapselectionfromsource_callback = nullptr;
-        kcategorizedsortfilterproxymodel_filteracceptsrow_callback = nullptr;
-        kcategorizedsortfilterproxymodel_filteracceptscolumn_callback = nullptr;
-        kcategorizedsortfilterproxymodel_index_callback = nullptr;
-        kcategorizedsortfilterproxymodel_parent_callback = nullptr;
-        kcategorizedsortfilterproxymodel_sibling_callback = nullptr;
-        kcategorizedsortfilterproxymodel_rowcount_callback = nullptr;
-        kcategorizedsortfilterproxymodel_columncount_callback = nullptr;
-        kcategorizedsortfilterproxymodel_haschildren_callback = nullptr;
-        kcategorizedsortfilterproxymodel_data_callback = nullptr;
-        kcategorizedsortfilterproxymodel_setdata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_headerdata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_setheaderdata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_mimedata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_dropmimedata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_insertrows_callback = nullptr;
-        kcategorizedsortfilterproxymodel_insertcolumns_callback = nullptr;
-        kcategorizedsortfilterproxymodel_removerows_callback = nullptr;
-        kcategorizedsortfilterproxymodel_removecolumns_callback = nullptr;
-        kcategorizedsortfilterproxymodel_fetchmore_callback = nullptr;
-        kcategorizedsortfilterproxymodel_canfetchmore_callback = nullptr;
-        kcategorizedsortfilterproxymodel_flags_callback = nullptr;
-        kcategorizedsortfilterproxymodel_buddy_callback = nullptr;
-        kcategorizedsortfilterproxymodel_match_callback = nullptr;
-        kcategorizedsortfilterproxymodel_span_callback = nullptr;
-        kcategorizedsortfilterproxymodel_mimetypes_callback = nullptr;
-        kcategorizedsortfilterproxymodel_supporteddropactions_callback = nullptr;
-        kcategorizedsortfilterproxymodel_submit_callback = nullptr;
-        kcategorizedsortfilterproxymodel_revert_callback = nullptr;
-        kcategorizedsortfilterproxymodel_itemdata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_setitemdata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_clearitemdata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_candropmimedata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_supporteddragactions_callback = nullptr;
-        kcategorizedsortfilterproxymodel_rolenames_callback = nullptr;
-        kcategorizedsortfilterproxymodel_moverows_callback = nullptr;
-        kcategorizedsortfilterproxymodel_movecolumns_callback = nullptr;
-        kcategorizedsortfilterproxymodel_multidata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_resetinternaldata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_event_callback = nullptr;
-        kcategorizedsortfilterproxymodel_eventfilter_callback = nullptr;
-        kcategorizedsortfilterproxymodel_timerevent_callback = nullptr;
-        kcategorizedsortfilterproxymodel_childevent_callback = nullptr;
-        kcategorizedsortfilterproxymodel_customevent_callback = nullptr;
-        kcategorizedsortfilterproxymodel_connectnotify_callback = nullptr;
-        kcategorizedsortfilterproxymodel_disconnectnotify_callback = nullptr;
-        kcategorizedsortfilterproxymodel_invalidatefilter_callback = nullptr;
-        kcategorizedsortfilterproxymodel_invalidaterowsfilter_callback = nullptr;
-        kcategorizedsortfilterproxymodel_invalidatecolumnsfilter_callback = nullptr;
-        kcategorizedsortfilterproxymodel_createsourceindex_callback = nullptr;
-        kcategorizedsortfilterproxymodel_createindex_callback = nullptr;
-        kcategorizedsortfilterproxymodel_encodedata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_decodedata_callback = nullptr;
-        kcategorizedsortfilterproxymodel_begininsertrows_callback = nullptr;
-        kcategorizedsortfilterproxymodel_endinsertrows_callback = nullptr;
-        kcategorizedsortfilterproxymodel_beginremoverows_callback = nullptr;
-        kcategorizedsortfilterproxymodel_endremoverows_callback = nullptr;
-        kcategorizedsortfilterproxymodel_beginmoverows_callback = nullptr;
-        kcategorizedsortfilterproxymodel_endmoverows_callback = nullptr;
-        kcategorizedsortfilterproxymodel_begininsertcolumns_callback = nullptr;
-        kcategorizedsortfilterproxymodel_endinsertcolumns_callback = nullptr;
-        kcategorizedsortfilterproxymodel_beginremovecolumns_callback = nullptr;
-        kcategorizedsortfilterproxymodel_endremovecolumns_callback = nullptr;
-        kcategorizedsortfilterproxymodel_beginmovecolumns_callback = nullptr;
-        kcategorizedsortfilterproxymodel_endmovecolumns_callback = nullptr;
-        kcategorizedsortfilterproxymodel_beginresetmodel_callback = nullptr;
-        kcategorizedsortfilterproxymodel_endresetmodel_callback = nullptr;
-        kcategorizedsortfilterproxymodel_changepersistentindex_callback = nullptr;
-        kcategorizedsortfilterproxymodel_changepersistentindexlist_callback = nullptr;
-        kcategorizedsortfilterproxymodel_persistentindexlist_callback = nullptr;
-        kcategorizedsortfilterproxymodel_sender_callback = nullptr;
-        kcategorizedsortfilterproxymodel_sendersignalindex_callback = nullptr;
-        kcategorizedsortfilterproxymodel_receivers_callback = nullptr;
-        kcategorizedsortfilterproxymodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCategorizedSortFilterProxyModel_MetaObject_Callback(KCategorizedSortFilterProxyModel_MetaObject_Callback cb) { kcategorizedsortfilterproxymodel_metaobject_callback = cb; }
     inline void setKCategorizedSortFilterProxyModel_Metacast_Callback(KCategorizedSortFilterProxyModel_Metacast_Callback cb) { kcategorizedsortfilterproxymodel_metacast_callback = cb; }
@@ -549,12 +461,13 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_metaobject_isbase) {
             kcategorizedsortfilterproxymodel_metaobject_isbase = false;
             return KCategorizedSortFilterProxyModel::metaObject();
-        } else if (kcategorizedsortfilterproxymodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcategorizedsortfilterproxymodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::metaObject();
         }
+        auto metaobject_cb = kcategorizedsortfilterproxymodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCategorizedSortFilterProxyModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -562,14 +475,15 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_metacast_isbase) {
             kcategorizedsortfilterproxymodel_metacast_isbase = false;
             return KCategorizedSortFilterProxyModel::qt_metacast(param1);
-        } else if (kcategorizedsortfilterproxymodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcategorizedsortfilterproxymodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcategorizedsortfilterproxymodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::qt_metacast(param1);
         }
+        return KCategorizedSortFilterProxyModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,16 +491,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_metacall_isbase) {
             kcategorizedsortfilterproxymodel_metacall_isbase = false;
             return KCategorizedSortFilterProxyModel::qt_metacall(param1, param2, param3);
-        } else if (kcategorizedsortfilterproxymodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcategorizedsortfilterproxymodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcategorizedsortfilterproxymodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedSortFilterProxyModel::qt_metacall(param1, param2, param3);
         }
+        return KCategorizedSortFilterProxyModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,14 +509,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_sort_isbase) {
             kcategorizedsortfilterproxymodel_sort_isbase = false;
             KCategorizedSortFilterProxyModel::sort(column, order);
-        } else if (kcategorizedsortfilterproxymodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = kcategorizedsortfilterproxymodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            kcategorizedsortfilterproxymodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedSortFilterProxyModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedSortFilterProxyModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,7 +527,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_lessthan_isbase) {
             kcategorizedsortfilterproxymodel_lessthan_isbase = false;
             return KCategorizedSortFilterProxyModel::lessThan(left, right);
-        } else if (kcategorizedsortfilterproxymodel_lessthan_callback != nullptr) {
+        }
+        auto lessthan_cb = kcategorizedsortfilterproxymodel_lessthan_callback;
+        if (lessthan_cb) {
             const QModelIndex& left_ret = left;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&left_ret);
@@ -617,11 +537,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&right_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_lessthan_callback(this, cbval1, cbval2);
+            bool callback_ret = lessthan_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::lessThan(left, right);
         }
+        return KCategorizedSortFilterProxyModel::lessThan(left, right);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -629,7 +548,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_subsortlessthan_isbase) {
             kcategorizedsortfilterproxymodel_subsortlessthan_isbase = false;
             return KCategorizedSortFilterProxyModel::subSortLessThan(left, right);
-        } else if (kcategorizedsortfilterproxymodel_subsortlessthan_callback != nullptr) {
+        }
+        auto subsortlessthan_cb = kcategorizedsortfilterproxymodel_subsortlessthan_callback;
+        if (subsortlessthan_cb) {
             const QModelIndex& left_ret = left;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&left_ret);
@@ -637,11 +558,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&right_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_subsortlessthan_callback(this, cbval1, cbval2);
+            bool callback_ret = subsortlessthan_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::subSortLessThan(left, right);
         }
+        return KCategorizedSortFilterProxyModel::subSortLessThan(left, right);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,7 +569,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_comparecategories_isbase) {
             kcategorizedsortfilterproxymodel_comparecategories_isbase = false;
             return KCategorizedSortFilterProxyModel::compareCategories(left, right);
-        } else if (kcategorizedsortfilterproxymodel_comparecategories_callback != nullptr) {
+        }
+        auto comparecategories_cb = kcategorizedsortfilterproxymodel_comparecategories_callback;
+        if (comparecategories_cb) {
             const QModelIndex& left_ret = left;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&left_ret);
@@ -657,11 +579,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&right_ret);
 
-            int callback_ret = kcategorizedsortfilterproxymodel_comparecategories_callback(this, cbval1, cbval2);
+            int callback_ret = comparecategories_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedSortFilterProxyModel::compareCategories(left, right);
         }
+        return KCategorizedSortFilterProxyModel::compareCategories(left, right);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,13 +590,16 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_setsourcemodel_isbase) {
             kcategorizedsortfilterproxymodel_setsourcemodel_isbase = false;
             KCategorizedSortFilterProxyModel::setSourceModel(sourceModel);
-        } else if (kcategorizedsortfilterproxymodel_setsourcemodel_callback != nullptr) {
+            return;
+        }
+        auto setsourcemodel_cb = kcategorizedsortfilterproxymodel_setsourcemodel_callback;
+        if (setsourcemodel_cb) {
             QAbstractItemModel* cbval1 = sourceModel;
 
-            kcategorizedsortfilterproxymodel_setsourcemodel_callback(this, cbval1);
-        } else {
-            KCategorizedSortFilterProxyModel::setSourceModel(sourceModel);
+            setsourcemodel_cb(this, cbval1);
+            return;
         }
+        KCategorizedSortFilterProxyModel::setSourceModel(sourceModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,16 +607,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_maptosource_isbase) {
             kcategorizedsortfilterproxymodel_maptosource_isbase = false;
             return KCategorizedSortFilterProxyModel::mapToSource(proxyIndex);
-        } else if (kcategorizedsortfilterproxymodel_maptosource_callback != nullptr) {
+        }
+        auto maptosource_cb = kcategorizedsortfilterproxymodel_maptosource_callback;
+        if (maptosource_cb) {
             const QModelIndex& proxyIndex_ret = proxyIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
 
-            QModelIndex* callback_ret = kcategorizedsortfilterproxymodel_maptosource_callback(this, cbval1);
+            QModelIndex* callback_ret = maptosource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::mapToSource(proxyIndex);
         }
+        return KCategorizedSortFilterProxyModel::mapToSource(proxyIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -700,16 +625,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_mapfromsource_isbase) {
             kcategorizedsortfilterproxymodel_mapfromsource_isbase = false;
             return KCategorizedSortFilterProxyModel::mapFromSource(sourceIndex);
-        } else if (kcategorizedsortfilterproxymodel_mapfromsource_callback != nullptr) {
+        }
+        auto mapfromsource_cb = kcategorizedsortfilterproxymodel_mapfromsource_callback;
+        if (mapfromsource_cb) {
             const QModelIndex& sourceIndex_ret = sourceIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceIndex_ret);
 
-            QModelIndex* callback_ret = kcategorizedsortfilterproxymodel_mapfromsource_callback(this, cbval1);
+            QModelIndex* callback_ret = mapfromsource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::mapFromSource(sourceIndex);
         }
+        return KCategorizedSortFilterProxyModel::mapFromSource(sourceIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -717,16 +643,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_mapselectiontosource_isbase) {
             kcategorizedsortfilterproxymodel_mapselectiontosource_isbase = false;
             return KCategorizedSortFilterProxyModel::mapSelectionToSource(proxySelection);
-        } else if (kcategorizedsortfilterproxymodel_mapselectiontosource_callback != nullptr) {
+        }
+        auto mapselectiontosource_cb = kcategorizedsortfilterproxymodel_mapselectiontosource_callback;
+        if (mapselectiontosource_cb) {
             const QItemSelection& proxySelection_ret = proxySelection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&proxySelection_ret);
 
-            QItemSelection* callback_ret = kcategorizedsortfilterproxymodel_mapselectiontosource_callback(this, cbval1);
+            QItemSelection* callback_ret = mapselectiontosource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::mapSelectionToSource(proxySelection);
         }
+        return KCategorizedSortFilterProxyModel::mapSelectionToSource(proxySelection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -734,16 +661,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_mapselectionfromsource_isbase) {
             kcategorizedsortfilterproxymodel_mapselectionfromsource_isbase = false;
             return KCategorizedSortFilterProxyModel::mapSelectionFromSource(sourceSelection);
-        } else if (kcategorizedsortfilterproxymodel_mapselectionfromsource_callback != nullptr) {
+        }
+        auto mapselectionfromsource_cb = kcategorizedsortfilterproxymodel_mapselectionfromsource_callback;
+        if (mapselectionfromsource_cb) {
             const QItemSelection& sourceSelection_ret = sourceSelection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&sourceSelection_ret);
 
-            QItemSelection* callback_ret = kcategorizedsortfilterproxymodel_mapselectionfromsource_callback(this, cbval1);
+            QItemSelection* callback_ret = mapselectionfromsource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::mapSelectionFromSource(sourceSelection);
         }
+        return KCategorizedSortFilterProxyModel::mapSelectionFromSource(sourceSelection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,17 +679,18 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_filteracceptsrow_isbase) {
             kcategorizedsortfilterproxymodel_filteracceptsrow_isbase = false;
             return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
-        } else if (kcategorizedsortfilterproxymodel_filteracceptsrow_callback != nullptr) {
+        }
+        auto filteracceptsrow_cb = kcategorizedsortfilterproxymodel_filteracceptsrow_callback;
+        if (filteracceptsrow_cb) {
             int cbval1 = source_row;
             const QModelIndex& source_parent_ret = source_parent;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&source_parent_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_filteracceptsrow_callback(this, cbval1, cbval2);
+            bool callback_ret = filteracceptsrow_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
         }
+        return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -769,17 +698,18 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_filteracceptscolumn_isbase) {
             kcategorizedsortfilterproxymodel_filteracceptscolumn_isbase = false;
             return KCategorizedSortFilterProxyModel::filterAcceptsColumn(source_column, source_parent);
-        } else if (kcategorizedsortfilterproxymodel_filteracceptscolumn_callback != nullptr) {
+        }
+        auto filteracceptscolumn_cb = kcategorizedsortfilterproxymodel_filteracceptscolumn_callback;
+        if (filteracceptscolumn_cb) {
             int cbval1 = source_column;
             const QModelIndex& source_parent_ret = source_parent;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&source_parent_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_filteracceptscolumn_callback(this, cbval1, cbval2);
+            bool callback_ret = filteracceptscolumn_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::filterAcceptsColumn(source_column, source_parent);
         }
+        return KCategorizedSortFilterProxyModel::filterAcceptsColumn(source_column, source_parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,18 +717,19 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_index_isbase) {
             kcategorizedsortfilterproxymodel_index_isbase = false;
             return KCategorizedSortFilterProxyModel::index(row, column, parent);
-        } else if (kcategorizedsortfilterproxymodel_index_callback != nullptr) {
+        }
+        auto index_cb = kcategorizedsortfilterproxymodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = kcategorizedsortfilterproxymodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::index(row, column, parent);
         }
+        return KCategorizedSortFilterProxyModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -806,16 +737,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_parent_isbase) {
             kcategorizedsortfilterproxymodel_parent_isbase = false;
             return KCategorizedSortFilterProxyModel::parent(child);
-        } else if (kcategorizedsortfilterproxymodel_parent_callback != nullptr) {
+        }
+        auto parent_cb = kcategorizedsortfilterproxymodel_parent_callback;
+        if (parent_cb) {
             const QModelIndex& child_ret = child;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
 
-            QModelIndex* callback_ret = kcategorizedsortfilterproxymodel_parent_callback(this, cbval1);
+            QModelIndex* callback_ret = parent_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::parent(child);
         }
+        return KCategorizedSortFilterProxyModel::parent(child);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,18 +755,19 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_sibling_isbase) {
             kcategorizedsortfilterproxymodel_sibling_isbase = false;
             return KCategorizedSortFilterProxyModel::sibling(row, column, idx);
-        } else if (kcategorizedsortfilterproxymodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = kcategorizedsortfilterproxymodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = kcategorizedsortfilterproxymodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::sibling(row, column, idx);
         }
+        return KCategorizedSortFilterProxyModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -842,16 +775,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_rowcount_isbase) {
             kcategorizedsortfilterproxymodel_rowcount_isbase = false;
             return KCategorizedSortFilterProxyModel::rowCount(parent);
-        } else if (kcategorizedsortfilterproxymodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = kcategorizedsortfilterproxymodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kcategorizedsortfilterproxymodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedSortFilterProxyModel::rowCount(parent);
         }
+        return KCategorizedSortFilterProxyModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -859,16 +793,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_columncount_isbase) {
             kcategorizedsortfilterproxymodel_columncount_isbase = false;
             return KCategorizedSortFilterProxyModel::columnCount(parent);
-        } else if (kcategorizedsortfilterproxymodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = kcategorizedsortfilterproxymodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kcategorizedsortfilterproxymodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedSortFilterProxyModel::columnCount(parent);
         }
+        return KCategorizedSortFilterProxyModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -876,16 +811,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_haschildren_isbase) {
             kcategorizedsortfilterproxymodel_haschildren_isbase = false;
             return KCategorizedSortFilterProxyModel::hasChildren(parent);
-        } else if (kcategorizedsortfilterproxymodel_haschildren_callback != nullptr) {
+        }
+        auto haschildren_cb = kcategorizedsortfilterproxymodel_haschildren_callback;
+        if (haschildren_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_haschildren_callback(this, cbval1);
+            bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::hasChildren(parent);
         }
+        return KCategorizedSortFilterProxyModel::hasChildren(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -893,17 +829,18 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_data_isbase) {
             kcategorizedsortfilterproxymodel_data_isbase = false;
             return KCategorizedSortFilterProxyModel::data(index, role);
-        } else if (kcategorizedsortfilterproxymodel_data_callback != nullptr) {
+        }
+        auto data_cb = kcategorizedsortfilterproxymodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = kcategorizedsortfilterproxymodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::data(index, role);
         }
+        return KCategorizedSortFilterProxyModel::data(index, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -911,7 +848,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_setdata_isbase) {
             kcategorizedsortfilterproxymodel_setdata_isbase = false;
             return KCategorizedSortFilterProxyModel::setData(index, value, role);
-        } else if (kcategorizedsortfilterproxymodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = kcategorizedsortfilterproxymodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -920,11 +859,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::setData(index, value, role);
         }
+        return KCategorizedSortFilterProxyModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -932,16 +870,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_headerdata_isbase) {
             kcategorizedsortfilterproxymodel_headerdata_isbase = false;
             return KCategorizedSortFilterProxyModel::headerData(section, orientation, role);
-        } else if (kcategorizedsortfilterproxymodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = kcategorizedsortfilterproxymodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = kcategorizedsortfilterproxymodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::headerData(section, orientation, role);
         }
+        return KCategorizedSortFilterProxyModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -949,7 +888,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_setheaderdata_isbase) {
             kcategorizedsortfilterproxymodel_setheaderdata_isbase = false;
             return KCategorizedSortFilterProxyModel::setHeaderData(section, orientation, value, role);
-        } else if (kcategorizedsortfilterproxymodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = kcategorizedsortfilterproxymodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -957,11 +898,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::setHeaderData(section, orientation, value, role);
         }
+        return KCategorizedSortFilterProxyModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,7 +909,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_mimedata_isbase) {
             kcategorizedsortfilterproxymodel_mimedata_isbase = false;
             return KCategorizedSortFilterProxyModel::mimeData(indexes);
-        } else if (kcategorizedsortfilterproxymodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = kcategorizedsortfilterproxymodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -981,12 +923,11 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = kcategorizedsortfilterproxymodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::mimeData(indexes);
         }
+        return KCategorizedSortFilterProxyModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -994,7 +935,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_dropmimedata_isbase) {
             kcategorizedsortfilterproxymodel_dropmimedata_isbase = false;
             return KCategorizedSortFilterProxyModel::dropMimeData(data, action, row, column, parent);
-        } else if (kcategorizedsortfilterproxymodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = kcategorizedsortfilterproxymodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1003,11 +946,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::dropMimeData(data, action, row, column, parent);
         }
+        return KCategorizedSortFilterProxyModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1015,18 +957,19 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_insertrows_isbase) {
             kcategorizedsortfilterproxymodel_insertrows_isbase = false;
             return KCategorizedSortFilterProxyModel::insertRows(row, count, parent);
-        } else if (kcategorizedsortfilterproxymodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = kcategorizedsortfilterproxymodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::insertRows(row, count, parent);
         }
+        return KCategorizedSortFilterProxyModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,18 +977,19 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_insertcolumns_isbase) {
             kcategorizedsortfilterproxymodel_insertcolumns_isbase = false;
             return KCategorizedSortFilterProxyModel::insertColumns(column, count, parent);
-        } else if (kcategorizedsortfilterproxymodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = kcategorizedsortfilterproxymodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::insertColumns(column, count, parent);
         }
+        return KCategorizedSortFilterProxyModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1053,18 +997,19 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_removerows_isbase) {
             kcategorizedsortfilterproxymodel_removerows_isbase = false;
             return KCategorizedSortFilterProxyModel::removeRows(row, count, parent);
-        } else if (kcategorizedsortfilterproxymodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = kcategorizedsortfilterproxymodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::removeRows(row, count, parent);
         }
+        return KCategorizedSortFilterProxyModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,18 +1017,19 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_removecolumns_isbase) {
             kcategorizedsortfilterproxymodel_removecolumns_isbase = false;
             return KCategorizedSortFilterProxyModel::removeColumns(column, count, parent);
-        } else if (kcategorizedsortfilterproxymodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = kcategorizedsortfilterproxymodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::removeColumns(column, count, parent);
         }
+        return KCategorizedSortFilterProxyModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,15 +1037,18 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_fetchmore_isbase) {
             kcategorizedsortfilterproxymodel_fetchmore_isbase = false;
             KCategorizedSortFilterProxyModel::fetchMore(parent);
-        } else if (kcategorizedsortfilterproxymodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = kcategorizedsortfilterproxymodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            kcategorizedsortfilterproxymodel_fetchmore_callback(this, cbval1);
-        } else {
-            KCategorizedSortFilterProxyModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        KCategorizedSortFilterProxyModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1107,16 +1056,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_canfetchmore_isbase) {
             kcategorizedsortfilterproxymodel_canfetchmore_isbase = false;
             return KCategorizedSortFilterProxyModel::canFetchMore(parent);
-        } else if (kcategorizedsortfilterproxymodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = kcategorizedsortfilterproxymodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::canFetchMore(parent);
         }
+        return KCategorizedSortFilterProxyModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1124,16 +1074,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_flags_isbase) {
             kcategorizedsortfilterproxymodel_flags_isbase = false;
             return KCategorizedSortFilterProxyModel::flags(index);
-        } else if (kcategorizedsortfilterproxymodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = kcategorizedsortfilterproxymodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = kcategorizedsortfilterproxymodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return KCategorizedSortFilterProxyModel::flags(index);
         }
+        return KCategorizedSortFilterProxyModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1141,16 +1092,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_buddy_isbase) {
             kcategorizedsortfilterproxymodel_buddy_isbase = false;
             return KCategorizedSortFilterProxyModel::buddy(index);
-        } else if (kcategorizedsortfilterproxymodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = kcategorizedsortfilterproxymodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = kcategorizedsortfilterproxymodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::buddy(index);
         }
+        return KCategorizedSortFilterProxyModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1158,7 +1110,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_match_isbase) {
             kcategorizedsortfilterproxymodel_match_isbase = false;
             return KCategorizedSortFilterProxyModel::match(start, role, value, hits, flags);
-        } else if (kcategorizedsortfilterproxymodel_match_callback != nullptr) {
+        }
+        auto match_cb = kcategorizedsortfilterproxymodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1169,7 +1123,7 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = kcategorizedsortfilterproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1178,9 +1132,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KCategorizedSortFilterProxyModel::match(start, role, value, hits, flags);
         }
+        return KCategorizedSortFilterProxyModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1188,16 +1141,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_span_isbase) {
             kcategorizedsortfilterproxymodel_span_isbase = false;
             return KCategorizedSortFilterProxyModel::span(index);
-        } else if (kcategorizedsortfilterproxymodel_span_callback != nullptr) {
+        }
+        auto span_cb = kcategorizedsortfilterproxymodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = kcategorizedsortfilterproxymodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::span(index);
         }
+        return KCategorizedSortFilterProxyModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,8 +1159,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_mimetypes_isbase) {
             kcategorizedsortfilterproxymodel_mimetypes_isbase = false;
             return KCategorizedSortFilterProxyModel::mimeTypes();
-        } else if (kcategorizedsortfilterproxymodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = kcategorizedsortfilterproxymodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = kcategorizedsortfilterproxymodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1217,9 +1173,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KCategorizedSortFilterProxyModel::mimeTypes();
         }
+        return KCategorizedSortFilterProxyModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1227,12 +1182,13 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_supporteddropactions_isbase) {
             kcategorizedsortfilterproxymodel_supporteddropactions_isbase = false;
             return KCategorizedSortFilterProxyModel::supportedDropActions();
-        } else if (kcategorizedsortfilterproxymodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = kcategorizedsortfilterproxymodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KCategorizedSortFilterProxyModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = kcategorizedsortfilterproxymodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KCategorizedSortFilterProxyModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1240,12 +1196,13 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_submit_isbase) {
             kcategorizedsortfilterproxymodel_submit_isbase = false;
             return KCategorizedSortFilterProxyModel::submit();
-        } else if (kcategorizedsortfilterproxymodel_submit_callback != nullptr) {
-            bool callback_ret = kcategorizedsortfilterproxymodel_submit_callback();
-            return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::submit();
         }
+        auto submit_cb = kcategorizedsortfilterproxymodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return KCategorizedSortFilterProxyModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1253,11 +1210,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_revert_isbase) {
             kcategorizedsortfilterproxymodel_revert_isbase = false;
             KCategorizedSortFilterProxyModel::revert();
-        } else if (kcategorizedsortfilterproxymodel_revert_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_revert_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::revert();
+            return;
         }
+        auto revert_cb = kcategorizedsortfilterproxymodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1265,12 +1225,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_itemdata_isbase) {
             kcategorizedsortfilterproxymodel_itemdata_isbase = false;
             return KCategorizedSortFilterProxyModel::itemData(index);
-        } else if (kcategorizedsortfilterproxymodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = kcategorizedsortfilterproxymodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = kcategorizedsortfilterproxymodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -1278,9 +1240,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return KCategorizedSortFilterProxyModel::itemData(index);
         }
+        return KCategorizedSortFilterProxyModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1288,7 +1249,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_setitemdata_isbase) {
             kcategorizedsortfilterproxymodel_setitemdata_isbase = false;
             return KCategorizedSortFilterProxyModel::setItemData(index, roles);
-        } else if (kcategorizedsortfilterproxymodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = kcategorizedsortfilterproxymodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -1308,11 +1271,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::setItemData(index, roles);
         }
+        return KCategorizedSortFilterProxyModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1320,16 +1282,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_clearitemdata_isbase) {
             kcategorizedsortfilterproxymodel_clearitemdata_isbase = false;
             return KCategorizedSortFilterProxyModel::clearItemData(index);
-        } else if (kcategorizedsortfilterproxymodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = kcategorizedsortfilterproxymodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::clearItemData(index);
         }
+        return KCategorizedSortFilterProxyModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1337,7 +1300,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_candropmimedata_isbase) {
             kcategorizedsortfilterproxymodel_candropmimedata_isbase = false;
             return KCategorizedSortFilterProxyModel::canDropMimeData(data, action, row, column, parent);
-        } else if (kcategorizedsortfilterproxymodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = kcategorizedsortfilterproxymodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1346,11 +1311,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::canDropMimeData(data, action, row, column, parent);
         }
+        return KCategorizedSortFilterProxyModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1358,12 +1322,13 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_supporteddragactions_isbase) {
             kcategorizedsortfilterproxymodel_supporteddragactions_isbase = false;
             return KCategorizedSortFilterProxyModel::supportedDragActions();
-        } else if (kcategorizedsortfilterproxymodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = kcategorizedsortfilterproxymodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KCategorizedSortFilterProxyModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = kcategorizedsortfilterproxymodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KCategorizedSortFilterProxyModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1371,8 +1336,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_rolenames_isbase) {
             kcategorizedsortfilterproxymodel_rolenames_isbase = false;
             return KCategorizedSortFilterProxyModel::roleNames();
-        } else if (kcategorizedsortfilterproxymodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = kcategorizedsortfilterproxymodel_rolenames_callback();
+        }
+        auto rolenames_cb = kcategorizedsortfilterproxymodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -1382,9 +1349,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return KCategorizedSortFilterProxyModel::roleNames();
         }
+        return KCategorizedSortFilterProxyModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1392,7 +1358,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_moverows_isbase) {
             kcategorizedsortfilterproxymodel_moverows_isbase = false;
             return KCategorizedSortFilterProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (kcategorizedsortfilterproxymodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = kcategorizedsortfilterproxymodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1403,11 +1371,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return KCategorizedSortFilterProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1415,7 +1382,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_movecolumns_isbase) {
             kcategorizedsortfilterproxymodel_movecolumns_isbase = false;
             return KCategorizedSortFilterProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (kcategorizedsortfilterproxymodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = kcategorizedsortfilterproxymodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1426,11 +1395,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return KCategorizedSortFilterProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1438,16 +1406,19 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_multidata_isbase) {
             kcategorizedsortfilterproxymodel_multidata_isbase = false;
             KCategorizedSortFilterProxyModel::multiData(index, roleDataSpan);
-        } else if (kcategorizedsortfilterproxymodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = kcategorizedsortfilterproxymodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            kcategorizedsortfilterproxymodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedSortFilterProxyModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedSortFilterProxyModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1455,11 +1426,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_resetinternaldata_isbase) {
             kcategorizedsortfilterproxymodel_resetinternaldata_isbase = false;
             KCategorizedSortFilterProxyModel::resetInternalData();
-        } else if (kcategorizedsortfilterproxymodel_resetinternaldata_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_resetinternaldata_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = kcategorizedsortfilterproxymodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1467,14 +1441,15 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_event_isbase) {
             kcategorizedsortfilterproxymodel_event_isbase = false;
             return KCategorizedSortFilterProxyModel::event(event);
-        } else if (kcategorizedsortfilterproxymodel_event_callback != nullptr) {
+        }
+        auto event_cb = kcategorizedsortfilterproxymodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::event(event);
         }
+        return KCategorizedSortFilterProxyModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1482,15 +1457,16 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_eventfilter_isbase) {
             kcategorizedsortfilterproxymodel_eventfilter_isbase = false;
             return KCategorizedSortFilterProxyModel::eventFilter(watched, event);
-        } else if (kcategorizedsortfilterproxymodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcategorizedsortfilterproxymodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::eventFilter(watched, event);
         }
+        return KCategorizedSortFilterProxyModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1498,13 +1474,16 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_timerevent_isbase) {
             kcategorizedsortfilterproxymodel_timerevent_isbase = false;
             KCategorizedSortFilterProxyModel::timerEvent(event);
-        } else if (kcategorizedsortfilterproxymodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcategorizedsortfilterproxymodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcategorizedsortfilterproxymodel_timerevent_callback(this, cbval1);
-        } else {
-            KCategorizedSortFilterProxyModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedSortFilterProxyModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1512,13 +1491,16 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_childevent_isbase) {
             kcategorizedsortfilterproxymodel_childevent_isbase = false;
             KCategorizedSortFilterProxyModel::childEvent(event);
-        } else if (kcategorizedsortfilterproxymodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcategorizedsortfilterproxymodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcategorizedsortfilterproxymodel_childevent_callback(this, cbval1);
-        } else {
-            KCategorizedSortFilterProxyModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedSortFilterProxyModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1526,13 +1508,16 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_customevent_isbase) {
             kcategorizedsortfilterproxymodel_customevent_isbase = false;
             KCategorizedSortFilterProxyModel::customEvent(event);
-        } else if (kcategorizedsortfilterproxymodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcategorizedsortfilterproxymodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcategorizedsortfilterproxymodel_customevent_callback(this, cbval1);
-        } else {
-            KCategorizedSortFilterProxyModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedSortFilterProxyModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1540,15 +1525,18 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_connectnotify_isbase) {
             kcategorizedsortfilterproxymodel_connectnotify_isbase = false;
             KCategorizedSortFilterProxyModel::connectNotify(signal);
-        } else if (kcategorizedsortfilterproxymodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcategorizedsortfilterproxymodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcategorizedsortfilterproxymodel_connectnotify_callback(this, cbval1);
-        } else {
-            KCategorizedSortFilterProxyModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCategorizedSortFilterProxyModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1556,15 +1544,18 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_disconnectnotify_isbase) {
             kcategorizedsortfilterproxymodel_disconnectnotify_isbase = false;
             KCategorizedSortFilterProxyModel::disconnectNotify(signal);
-        } else if (kcategorizedsortfilterproxymodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcategorizedsortfilterproxymodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcategorizedsortfilterproxymodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCategorizedSortFilterProxyModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCategorizedSortFilterProxyModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1572,11 +1563,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_invalidatefilter_isbase) {
             kcategorizedsortfilterproxymodel_invalidatefilter_isbase = false;
             KCategorizedSortFilterProxyModel::invalidateFilter();
-        } else if (kcategorizedsortfilterproxymodel_invalidatefilter_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_invalidatefilter_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::invalidateFilter();
+            return;
         }
+        auto invalidatefilter_cb = kcategorizedsortfilterproxymodel_invalidatefilter_callback;
+        if (invalidatefilter_cb) {
+            invalidatefilter_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::invalidateFilter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1584,11 +1578,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_invalidaterowsfilter_isbase) {
             kcategorizedsortfilterproxymodel_invalidaterowsfilter_isbase = false;
             KCategorizedSortFilterProxyModel::invalidateRowsFilter();
-        } else if (kcategorizedsortfilterproxymodel_invalidaterowsfilter_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_invalidaterowsfilter_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::invalidateRowsFilter();
+            return;
         }
+        auto invalidaterowsfilter_cb = kcategorizedsortfilterproxymodel_invalidaterowsfilter_callback;
+        if (invalidaterowsfilter_cb) {
+            invalidaterowsfilter_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::invalidateRowsFilter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1596,11 +1593,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_invalidatecolumnsfilter_isbase) {
             kcategorizedsortfilterproxymodel_invalidatecolumnsfilter_isbase = false;
             KCategorizedSortFilterProxyModel::invalidateColumnsFilter();
-        } else if (kcategorizedsortfilterproxymodel_invalidatecolumnsfilter_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_invalidatecolumnsfilter_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::invalidateColumnsFilter();
+            return;
         }
+        auto invalidatecolumnsfilter_cb = kcategorizedsortfilterproxymodel_invalidatecolumnsfilter_callback;
+        if (invalidatecolumnsfilter_cb) {
+            invalidatecolumnsfilter_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::invalidateColumnsFilter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1608,16 +1608,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_createsourceindex_isbase) {
             kcategorizedsortfilterproxymodel_createsourceindex_isbase = false;
             return KCategorizedSortFilterProxyModel::createSourceIndex(row, col, internalPtr);
-        } else if (kcategorizedsortfilterproxymodel_createsourceindex_callback != nullptr) {
+        }
+        auto createsourceindex_cb = kcategorizedsortfilterproxymodel_createsourceindex_callback;
+        if (createsourceindex_cb) {
             int cbval1 = row;
             int cbval2 = col;
             void* cbval3 = internalPtr;
 
-            QModelIndex* callback_ret = kcategorizedsortfilterproxymodel_createsourceindex_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = createsourceindex_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::createSourceIndex(row, col, internalPtr);
         }
+        return KCategorizedSortFilterProxyModel::createSourceIndex(row, col, internalPtr);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1625,15 +1626,16 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_createindex_isbase) {
             kcategorizedsortfilterproxymodel_createindex_isbase = false;
             return KCategorizedSortFilterProxyModel::createIndex(row, column);
-        } else if (kcategorizedsortfilterproxymodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = kcategorizedsortfilterproxymodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = kcategorizedsortfilterproxymodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::createIndex(row, column);
         }
+        return KCategorizedSortFilterProxyModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1641,7 +1643,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_encodedata_isbase) {
             kcategorizedsortfilterproxymodel_encodedata_isbase = false;
             KCategorizedSortFilterProxyModel::encodeData(indexes, stream);
-        } else if (kcategorizedsortfilterproxymodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = kcategorizedsortfilterproxymodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1656,11 +1661,11 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            kcategorizedsortfilterproxymodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            KCategorizedSortFilterProxyModel::encodeData(indexes, stream);
+            return;
         }
+        KCategorizedSortFilterProxyModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1668,7 +1673,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_decodedata_isbase) {
             kcategorizedsortfilterproxymodel_decodedata_isbase = false;
             return KCategorizedSortFilterProxyModel::decodeData(row, column, parent, stream);
-        } else if (kcategorizedsortfilterproxymodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = kcategorizedsortfilterproxymodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1678,11 +1685,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::decodeData(row, column, parent, stream);
         }
+        return KCategorizedSortFilterProxyModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1690,17 +1696,20 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_begininsertrows_isbase) {
             kcategorizedsortfilterproxymodel_begininsertrows_isbase = false;
             KCategorizedSortFilterProxyModel::beginInsertRows(parent, first, last);
-        } else if (kcategorizedsortfilterproxymodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = kcategorizedsortfilterproxymodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcategorizedsortfilterproxymodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCategorizedSortFilterProxyModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCategorizedSortFilterProxyModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1708,11 +1717,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_endinsertrows_isbase) {
             kcategorizedsortfilterproxymodel_endinsertrows_isbase = false;
             KCategorizedSortFilterProxyModel::endInsertRows();
-        } else if (kcategorizedsortfilterproxymodel_endinsertrows_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_endinsertrows_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = kcategorizedsortfilterproxymodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1720,17 +1732,20 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_beginremoverows_isbase) {
             kcategorizedsortfilterproxymodel_beginremoverows_isbase = false;
             KCategorizedSortFilterProxyModel::beginRemoveRows(parent, first, last);
-        } else if (kcategorizedsortfilterproxymodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = kcategorizedsortfilterproxymodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcategorizedsortfilterproxymodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCategorizedSortFilterProxyModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCategorizedSortFilterProxyModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1738,11 +1753,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_endremoverows_isbase) {
             kcategorizedsortfilterproxymodel_endremoverows_isbase = false;
             KCategorizedSortFilterProxyModel::endRemoveRows();
-        } else if (kcategorizedsortfilterproxymodel_endremoverows_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_endremoverows_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = kcategorizedsortfilterproxymodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1750,7 +1768,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_beginmoverows_isbase) {
             kcategorizedsortfilterproxymodel_beginmoverows_isbase = false;
             return KCategorizedSortFilterProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (kcategorizedsortfilterproxymodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = kcategorizedsortfilterproxymodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1761,11 +1781,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return KCategorizedSortFilterProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1773,11 +1792,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_endmoverows_isbase) {
             kcategorizedsortfilterproxymodel_endmoverows_isbase = false;
             KCategorizedSortFilterProxyModel::endMoveRows();
-        } else if (kcategorizedsortfilterproxymodel_endmoverows_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_endmoverows_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = kcategorizedsortfilterproxymodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1785,17 +1807,20 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_begininsertcolumns_isbase) {
             kcategorizedsortfilterproxymodel_begininsertcolumns_isbase = false;
             KCategorizedSortFilterProxyModel::beginInsertColumns(parent, first, last);
-        } else if (kcategorizedsortfilterproxymodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = kcategorizedsortfilterproxymodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcategorizedsortfilterproxymodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCategorizedSortFilterProxyModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCategorizedSortFilterProxyModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1803,11 +1828,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_endinsertcolumns_isbase) {
             kcategorizedsortfilterproxymodel_endinsertcolumns_isbase = false;
             KCategorizedSortFilterProxyModel::endInsertColumns();
-        } else if (kcategorizedsortfilterproxymodel_endinsertcolumns_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_endinsertcolumns_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = kcategorizedsortfilterproxymodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1815,17 +1843,20 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_beginremovecolumns_isbase) {
             kcategorizedsortfilterproxymodel_beginremovecolumns_isbase = false;
             KCategorizedSortFilterProxyModel::beginRemoveColumns(parent, first, last);
-        } else if (kcategorizedsortfilterproxymodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = kcategorizedsortfilterproxymodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcategorizedsortfilterproxymodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCategorizedSortFilterProxyModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCategorizedSortFilterProxyModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1833,11 +1864,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_endremovecolumns_isbase) {
             kcategorizedsortfilterproxymodel_endremovecolumns_isbase = false;
             KCategorizedSortFilterProxyModel::endRemoveColumns();
-        } else if (kcategorizedsortfilterproxymodel_endremovecolumns_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_endremovecolumns_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = kcategorizedsortfilterproxymodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1845,7 +1879,9 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_beginmovecolumns_isbase) {
             kcategorizedsortfilterproxymodel_beginmovecolumns_isbase = false;
             return KCategorizedSortFilterProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (kcategorizedsortfilterproxymodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = kcategorizedsortfilterproxymodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1856,11 +1892,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return KCategorizedSortFilterProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1868,11 +1903,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_endmovecolumns_isbase) {
             kcategorizedsortfilterproxymodel_endmovecolumns_isbase = false;
             KCategorizedSortFilterProxyModel::endMoveColumns();
-        } else if (kcategorizedsortfilterproxymodel_endmovecolumns_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_endmovecolumns_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = kcategorizedsortfilterproxymodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1880,11 +1918,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_beginresetmodel_isbase) {
             kcategorizedsortfilterproxymodel_beginresetmodel_isbase = false;
             KCategorizedSortFilterProxyModel::beginResetModel();
-        } else if (kcategorizedsortfilterproxymodel_beginresetmodel_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_beginresetmodel_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = kcategorizedsortfilterproxymodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1892,11 +1933,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_endresetmodel_isbase) {
             kcategorizedsortfilterproxymodel_endresetmodel_isbase = false;
             KCategorizedSortFilterProxyModel::endResetModel();
-        } else if (kcategorizedsortfilterproxymodel_endresetmodel_callback != nullptr) {
-            kcategorizedsortfilterproxymodel_endresetmodel_callback();
-        } else {
-            KCategorizedSortFilterProxyModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = kcategorizedsortfilterproxymodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        KCategorizedSortFilterProxyModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1904,7 +1948,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_changepersistentindex_isbase) {
             kcategorizedsortfilterproxymodel_changepersistentindex_isbase = false;
             KCategorizedSortFilterProxyModel::changePersistentIndex(from, to);
-        } else if (kcategorizedsortfilterproxymodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = kcategorizedsortfilterproxymodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1912,10 +1959,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            kcategorizedsortfilterproxymodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedSortFilterProxyModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedSortFilterProxyModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1923,7 +1970,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_changepersistentindexlist_isbase) {
             kcategorizedsortfilterproxymodel_changepersistentindexlist_isbase = false;
             KCategorizedSortFilterProxyModel::changePersistentIndexList(from, to);
-        } else if (kcategorizedsortfilterproxymodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = kcategorizedsortfilterproxymodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1945,12 +1995,12 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            kcategorizedsortfilterproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            KCategorizedSortFilterProxyModel::changePersistentIndexList(from, to);
+            return;
         }
+        KCategorizedSortFilterProxyModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1958,8 +2008,10 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_persistentindexlist_isbase) {
             kcategorizedsortfilterproxymodel_persistentindexlist_isbase = false;
             return KCategorizedSortFilterProxyModel::persistentIndexList();
-        } else if (kcategorizedsortfilterproxymodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = kcategorizedsortfilterproxymodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = kcategorizedsortfilterproxymodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1968,9 +2020,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KCategorizedSortFilterProxyModel::persistentIndexList();
         }
+        return KCategorizedSortFilterProxyModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1978,12 +2029,13 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_sender_isbase) {
             kcategorizedsortfilterproxymodel_sender_isbase = false;
             return KCategorizedSortFilterProxyModel::sender();
-        } else if (kcategorizedsortfilterproxymodel_sender_callback != nullptr) {
-            QObject* callback_ret = kcategorizedsortfilterproxymodel_sender_callback();
-            return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::sender();
         }
+        auto sender_cb = kcategorizedsortfilterproxymodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCategorizedSortFilterProxyModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1991,12 +2043,13 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_sendersignalindex_isbase) {
             kcategorizedsortfilterproxymodel_sendersignalindex_isbase = false;
             return KCategorizedSortFilterProxyModel::senderSignalIndex();
-        } else if (kcategorizedsortfilterproxymodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcategorizedsortfilterproxymodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedSortFilterProxyModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcategorizedsortfilterproxymodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCategorizedSortFilterProxyModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2004,14 +2057,15 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_receivers_isbase) {
             kcategorizedsortfilterproxymodel_receivers_isbase = false;
             return KCategorizedSortFilterProxyModel::receivers(signal);
-        } else if (kcategorizedsortfilterproxymodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcategorizedsortfilterproxymodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcategorizedsortfilterproxymodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedSortFilterProxyModel::receivers(signal);
         }
+        return KCategorizedSortFilterProxyModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2019,16 +2073,17 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
         if (kcategorizedsortfilterproxymodel_issignalconnected_isbase) {
             kcategorizedsortfilterproxymodel_issignalconnected_isbase = false;
             return KCategorizedSortFilterProxyModel::isSignalConnected(signal);
-        } else if (kcategorizedsortfilterproxymodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcategorizedsortfilterproxymodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcategorizedsortfilterproxymodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedSortFilterProxyModel::isSignalConnected(signal);
         }
+        return KCategorizedSortFilterProxyModel::isSignalConnected(signal);
     }
 
     // Friend functions

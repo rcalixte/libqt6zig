@@ -215,71 +215,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
     VirtualKDatePickerPopup(KDatePickerPopup::Modes modes, QDate date) : KDatePickerPopup(modes, date) {};
     VirtualKDatePickerPopup(KDatePickerPopup::Modes modes, QDate date, QWidget* parent) : KDatePickerPopup(modes, date, parent) {};
 
-    ~VirtualKDatePickerPopup() {
-        kdatepickerpopup_metaobject_callback = nullptr;
-        kdatepickerpopup_metacast_callback = nullptr;
-        kdatepickerpopup_metacall_callback = nullptr;
-        kdatepickerpopup_sizehint_callback = nullptr;
-        kdatepickerpopup_changeevent_callback = nullptr;
-        kdatepickerpopup_keypressevent_callback = nullptr;
-        kdatepickerpopup_mousereleaseevent_callback = nullptr;
-        kdatepickerpopup_mousepressevent_callback = nullptr;
-        kdatepickerpopup_mousemoveevent_callback = nullptr;
-        kdatepickerpopup_wheelevent_callback = nullptr;
-        kdatepickerpopup_enterevent_callback = nullptr;
-        kdatepickerpopup_leaveevent_callback = nullptr;
-        kdatepickerpopup_hideevent_callback = nullptr;
-        kdatepickerpopup_paintevent_callback = nullptr;
-        kdatepickerpopup_actionevent_callback = nullptr;
-        kdatepickerpopup_timerevent_callback = nullptr;
-        kdatepickerpopup_event_callback = nullptr;
-        kdatepickerpopup_focusnextprevchild_callback = nullptr;
-        kdatepickerpopup_initstyleoption_callback = nullptr;
-        kdatepickerpopup_devtype_callback = nullptr;
-        kdatepickerpopup_setvisible_callback = nullptr;
-        kdatepickerpopup_minimumsizehint_callback = nullptr;
-        kdatepickerpopup_heightforwidth_callback = nullptr;
-        kdatepickerpopup_hasheightforwidth_callback = nullptr;
-        kdatepickerpopup_paintengine_callback = nullptr;
-        kdatepickerpopup_mousedoubleclickevent_callback = nullptr;
-        kdatepickerpopup_keyreleaseevent_callback = nullptr;
-        kdatepickerpopup_focusinevent_callback = nullptr;
-        kdatepickerpopup_focusoutevent_callback = nullptr;
-        kdatepickerpopup_moveevent_callback = nullptr;
-        kdatepickerpopup_resizeevent_callback = nullptr;
-        kdatepickerpopup_closeevent_callback = nullptr;
-        kdatepickerpopup_contextmenuevent_callback = nullptr;
-        kdatepickerpopup_tabletevent_callback = nullptr;
-        kdatepickerpopup_dragenterevent_callback = nullptr;
-        kdatepickerpopup_dragmoveevent_callback = nullptr;
-        kdatepickerpopup_dragleaveevent_callback = nullptr;
-        kdatepickerpopup_dropevent_callback = nullptr;
-        kdatepickerpopup_showevent_callback = nullptr;
-        kdatepickerpopup_nativeevent_callback = nullptr;
-        kdatepickerpopup_metric_callback = nullptr;
-        kdatepickerpopup_initpainter_callback = nullptr;
-        kdatepickerpopup_redirected_callback = nullptr;
-        kdatepickerpopup_sharedpainter_callback = nullptr;
-        kdatepickerpopup_inputmethodevent_callback = nullptr;
-        kdatepickerpopup_inputmethodquery_callback = nullptr;
-        kdatepickerpopup_eventfilter_callback = nullptr;
-        kdatepickerpopup_childevent_callback = nullptr;
-        kdatepickerpopup_customevent_callback = nullptr;
-        kdatepickerpopup_connectnotify_callback = nullptr;
-        kdatepickerpopup_disconnectnotify_callback = nullptr;
-        kdatepickerpopup_columncount_callback = nullptr;
-        kdatepickerpopup_updatemicrofocus_callback = nullptr;
-        kdatepickerpopup_create_callback = nullptr;
-        kdatepickerpopup_destroy_callback = nullptr;
-        kdatepickerpopup_focusnextchild_callback = nullptr;
-        kdatepickerpopup_focuspreviouschild_callback = nullptr;
-        kdatepickerpopup_sender_callback = nullptr;
-        kdatepickerpopup_sendersignalindex_callback = nullptr;
-        kdatepickerpopup_receivers_callback = nullptr;
-        kdatepickerpopup_issignalconnected_callback = nullptr;
-        kdatepickerpopup_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKDatePickerPopup_MetaObject_Callback(KDatePickerPopup_MetaObject_Callback cb) { kdatepickerpopup_metaobject_callback = cb; }
     inline void setKDatePickerPopup_Metacast_Callback(KDatePickerPopup_Metacast_Callback cb) { kdatepickerpopup_metacast_callback = cb; }
@@ -413,12 +348,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_metaobject_isbase) {
             kdatepickerpopup_metaobject_isbase = false;
             return KDatePickerPopup::metaObject();
-        } else if (kdatepickerpopup_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kdatepickerpopup_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KDatePickerPopup::metaObject();
         }
+        auto metaobject_cb = kdatepickerpopup_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KDatePickerPopup::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,14 +362,15 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_metacast_isbase) {
             kdatepickerpopup_metacast_isbase = false;
             return KDatePickerPopup::qt_metacast(param1);
-        } else if (kdatepickerpopup_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kdatepickerpopup_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kdatepickerpopup_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDatePickerPopup::qt_metacast(param1);
         }
+        return KDatePickerPopup::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,16 +378,17 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_metacall_isbase) {
             kdatepickerpopup_metacall_isbase = false;
             return KDatePickerPopup::qt_metacall(param1, param2, param3);
-        } else if (kdatepickerpopup_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kdatepickerpopup_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kdatepickerpopup_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDatePickerPopup::qt_metacall(param1, param2, param3);
         }
+        return KDatePickerPopup::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,12 +396,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_sizehint_isbase) {
             kdatepickerpopup_sizehint_isbase = false;
             return KDatePickerPopup::sizeHint();
-        } else if (kdatepickerpopup_sizehint_callback != nullptr) {
-            QSize* callback_ret = kdatepickerpopup_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KDatePickerPopup::sizeHint();
         }
+        auto sizehint_cb = kdatepickerpopup_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KDatePickerPopup::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,13 +410,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_changeevent_isbase) {
             kdatepickerpopup_changeevent_isbase = false;
             KDatePickerPopup::changeEvent(param1);
-        } else if (kdatepickerpopup_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kdatepickerpopup_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kdatepickerpopup_changeevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -485,13 +427,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_keypressevent_isbase) {
             kdatepickerpopup_keypressevent_isbase = false;
             KDatePickerPopup::keyPressEvent(param1);
-        } else if (kdatepickerpopup_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kdatepickerpopup_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kdatepickerpopup_keypressevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,13 +444,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_mousereleaseevent_isbase) {
             kdatepickerpopup_mousereleaseevent_isbase = false;
             KDatePickerPopup::mouseReleaseEvent(param1);
-        } else if (kdatepickerpopup_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kdatepickerpopup_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kdatepickerpopup_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,13 +461,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_mousepressevent_isbase) {
             kdatepickerpopup_mousepressevent_isbase = false;
             KDatePickerPopup::mousePressEvent(param1);
-        } else if (kdatepickerpopup_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kdatepickerpopup_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kdatepickerpopup_mousepressevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,13 +478,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_mousemoveevent_isbase) {
             kdatepickerpopup_mousemoveevent_isbase = false;
             KDatePickerPopup::mouseMoveEvent(param1);
-        } else if (kdatepickerpopup_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kdatepickerpopup_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kdatepickerpopup_mousemoveevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,13 +495,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_wheelevent_isbase) {
             kdatepickerpopup_wheelevent_isbase = false;
             KDatePickerPopup::wheelEvent(param1);
-        } else if (kdatepickerpopup_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kdatepickerpopup_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            kdatepickerpopup_wheelevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,13 +512,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_enterevent_isbase) {
             kdatepickerpopup_enterevent_isbase = false;
             KDatePickerPopup::enterEvent(param1);
-        } else if (kdatepickerpopup_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kdatepickerpopup_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = param1;
 
-            kdatepickerpopup_enterevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::enterEvent(param1);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::enterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,13 +529,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_leaveevent_isbase) {
             kdatepickerpopup_leaveevent_isbase = false;
             KDatePickerPopup::leaveEvent(param1);
-        } else if (kdatepickerpopup_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kdatepickerpopup_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = param1;
 
-            kdatepickerpopup_leaveevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::leaveEvent(param1);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::leaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -583,13 +546,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_hideevent_isbase) {
             kdatepickerpopup_hideevent_isbase = false;
             KDatePickerPopup::hideEvent(param1);
-        } else if (kdatepickerpopup_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kdatepickerpopup_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
 
-            kdatepickerpopup_hideevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::hideEvent(param1);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::hideEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,13 +563,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_paintevent_isbase) {
             kdatepickerpopup_paintevent_isbase = false;
             KDatePickerPopup::paintEvent(param1);
-        } else if (kdatepickerpopup_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kdatepickerpopup_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kdatepickerpopup_paintevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +580,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_actionevent_isbase) {
             kdatepickerpopup_actionevent_isbase = false;
             KDatePickerPopup::actionEvent(param1);
-        } else if (kdatepickerpopup_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kdatepickerpopup_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
 
-            kdatepickerpopup_actionevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::actionEvent(param1);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::actionEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,13 +597,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_timerevent_isbase) {
             kdatepickerpopup_timerevent_isbase = false;
             KDatePickerPopup::timerEvent(param1);
-        } else if (kdatepickerpopup_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kdatepickerpopup_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            kdatepickerpopup_timerevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,14 +614,15 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_event_isbase) {
             kdatepickerpopup_event_isbase = false;
             return KDatePickerPopup::event(param1);
-        } else if (kdatepickerpopup_event_callback != nullptr) {
+        }
+        auto event_cb = kdatepickerpopup_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = kdatepickerpopup_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDatePickerPopup::event(param1);
         }
+        return KDatePickerPopup::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,14 +630,15 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_focusnextprevchild_isbase) {
             kdatepickerpopup_focusnextprevchild_isbase = false;
             return KDatePickerPopup::focusNextPrevChild(next);
-        } else if (kdatepickerpopup_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kdatepickerpopup_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kdatepickerpopup_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDatePickerPopup::focusNextPrevChild(next);
         }
+        return KDatePickerPopup::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,14 +646,17 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_initstyleoption_isbase) {
             kdatepickerpopup_initstyleoption_isbase = false;
             KDatePickerPopup::initStyleOption(option, action);
-        } else if (kdatepickerpopup_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kdatepickerpopup_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionMenuItem* cbval1 = option;
             QAction* cbval2 = (QAction*)action;
 
-            kdatepickerpopup_initstyleoption_callback(this, cbval1, cbval2);
-        } else {
-            KDatePickerPopup::initStyleOption(option, action);
+            initstyleoption_cb(this, cbval1, cbval2);
+            return;
         }
+        KDatePickerPopup::initStyleOption(option, action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,12 +664,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_devtype_isbase) {
             kdatepickerpopup_devtype_isbase = false;
             return KDatePickerPopup::devType();
-        } else if (kdatepickerpopup_devtype_callback != nullptr) {
-            int callback_ret = kdatepickerpopup_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDatePickerPopup::devType();
         }
+        auto devtype_cb = kdatepickerpopup_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDatePickerPopup::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -697,13 +678,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_setvisible_isbase) {
             kdatepickerpopup_setvisible_isbase = false;
             KDatePickerPopup::setVisible(visible);
-        } else if (kdatepickerpopup_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kdatepickerpopup_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kdatepickerpopup_setvisible_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,12 +695,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_minimumsizehint_isbase) {
             kdatepickerpopup_minimumsizehint_isbase = false;
             return KDatePickerPopup::minimumSizeHint();
-        } else if (kdatepickerpopup_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kdatepickerpopup_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KDatePickerPopup::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kdatepickerpopup_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KDatePickerPopup::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,14 +709,15 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_heightforwidth_isbase) {
             kdatepickerpopup_heightforwidth_isbase = false;
             return KDatePickerPopup::heightForWidth(param1);
-        } else if (kdatepickerpopup_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kdatepickerpopup_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kdatepickerpopup_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDatePickerPopup::heightForWidth(param1);
         }
+        return KDatePickerPopup::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,12 +725,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_hasheightforwidth_isbase) {
             kdatepickerpopup_hasheightforwidth_isbase = false;
             return KDatePickerPopup::hasHeightForWidth();
-        } else if (kdatepickerpopup_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kdatepickerpopup_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KDatePickerPopup::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kdatepickerpopup_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KDatePickerPopup::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,12 +739,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_paintengine_isbase) {
             kdatepickerpopup_paintengine_isbase = false;
             return KDatePickerPopup::paintEngine();
-        } else if (kdatepickerpopup_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kdatepickerpopup_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KDatePickerPopup::paintEngine();
         }
+        auto paintengine_cb = kdatepickerpopup_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KDatePickerPopup::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +753,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_mousedoubleclickevent_isbase) {
             kdatepickerpopup_mousedoubleclickevent_isbase = false;
             KDatePickerPopup::mouseDoubleClickEvent(event);
-        } else if (kdatepickerpopup_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kdatepickerpopup_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdatepickerpopup_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +770,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_keyreleaseevent_isbase) {
             kdatepickerpopup_keyreleaseevent_isbase = false;
             KDatePickerPopup::keyReleaseEvent(event);
-        } else if (kdatepickerpopup_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kdatepickerpopup_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kdatepickerpopup_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +787,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_focusinevent_isbase) {
             kdatepickerpopup_focusinevent_isbase = false;
             KDatePickerPopup::focusInEvent(event);
-        } else if (kdatepickerpopup_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kdatepickerpopup_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kdatepickerpopup_focusinevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +804,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_focusoutevent_isbase) {
             kdatepickerpopup_focusoutevent_isbase = false;
             KDatePickerPopup::focusOutEvent(event);
-        } else if (kdatepickerpopup_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kdatepickerpopup_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kdatepickerpopup_focusoutevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +821,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_moveevent_isbase) {
             kdatepickerpopup_moveevent_isbase = false;
             KDatePickerPopup::moveEvent(event);
-        } else if (kdatepickerpopup_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kdatepickerpopup_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kdatepickerpopup_moveevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +838,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_resizeevent_isbase) {
             kdatepickerpopup_resizeevent_isbase = false;
             KDatePickerPopup::resizeEvent(event);
-        } else if (kdatepickerpopup_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kdatepickerpopup_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kdatepickerpopup_resizeevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +855,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_closeevent_isbase) {
             kdatepickerpopup_closeevent_isbase = false;
             KDatePickerPopup::closeEvent(event);
-        } else if (kdatepickerpopup_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kdatepickerpopup_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kdatepickerpopup_closeevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +872,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_contextmenuevent_isbase) {
             kdatepickerpopup_contextmenuevent_isbase = false;
             KDatePickerPopup::contextMenuEvent(event);
-        } else if (kdatepickerpopup_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kdatepickerpopup_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kdatepickerpopup_contextmenuevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +889,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_tabletevent_isbase) {
             kdatepickerpopup_tabletevent_isbase = false;
             KDatePickerPopup::tabletEvent(event);
-        } else if (kdatepickerpopup_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kdatepickerpopup_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kdatepickerpopup_tabletevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +906,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_dragenterevent_isbase) {
             kdatepickerpopup_dragenterevent_isbase = false;
             KDatePickerPopup::dragEnterEvent(event);
-        } else if (kdatepickerpopup_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kdatepickerpopup_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kdatepickerpopup_dragenterevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +923,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_dragmoveevent_isbase) {
             kdatepickerpopup_dragmoveevent_isbase = false;
             KDatePickerPopup::dragMoveEvent(event);
-        } else if (kdatepickerpopup_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kdatepickerpopup_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kdatepickerpopup_dragmoveevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,13 +940,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_dragleaveevent_isbase) {
             kdatepickerpopup_dragleaveevent_isbase = false;
             KDatePickerPopup::dragLeaveEvent(event);
-        } else if (kdatepickerpopup_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kdatepickerpopup_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kdatepickerpopup_dragleaveevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +957,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_dropevent_isbase) {
             kdatepickerpopup_dropevent_isbase = false;
             KDatePickerPopup::dropEvent(event);
-        } else if (kdatepickerpopup_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kdatepickerpopup_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kdatepickerpopup_dropevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +974,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_showevent_isbase) {
             kdatepickerpopup_showevent_isbase = false;
             KDatePickerPopup::showEvent(event);
-        } else if (kdatepickerpopup_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kdatepickerpopup_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kdatepickerpopup_showevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,7 +991,9 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_nativeevent_isbase) {
             kdatepickerpopup_nativeevent_isbase = false;
             return KDatePickerPopup::nativeEvent(eventType, message, result);
-        } else if (kdatepickerpopup_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kdatepickerpopup_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -972,12 +1004,11 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kdatepickerpopup_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KDatePickerPopup::nativeEvent(eventType, message, result);
         }
+        return KDatePickerPopup::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -985,14 +1016,15 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_metric_isbase) {
             kdatepickerpopup_metric_isbase = false;
             return KDatePickerPopup::metric(param1);
-        } else if (kdatepickerpopup_metric_callback != nullptr) {
+        }
+        auto metric_cb = kdatepickerpopup_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kdatepickerpopup_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDatePickerPopup::metric(param1);
         }
+        return KDatePickerPopup::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,13 +1032,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_initpainter_isbase) {
             kdatepickerpopup_initpainter_isbase = false;
             KDatePickerPopup::initPainter(painter);
-        } else if (kdatepickerpopup_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kdatepickerpopup_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kdatepickerpopup_initpainter_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,14 +1049,15 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_redirected_isbase) {
             kdatepickerpopup_redirected_isbase = false;
             return KDatePickerPopup::redirected(offset);
-        } else if (kdatepickerpopup_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kdatepickerpopup_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kdatepickerpopup_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDatePickerPopup::redirected(offset);
         }
+        return KDatePickerPopup::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,12 +1065,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_sharedpainter_isbase) {
             kdatepickerpopup_sharedpainter_isbase = false;
             return KDatePickerPopup::sharedPainter();
-        } else if (kdatepickerpopup_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kdatepickerpopup_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KDatePickerPopup::sharedPainter();
         }
+        auto sharedpainter_cb = kdatepickerpopup_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KDatePickerPopup::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1042,13 +1079,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_inputmethodevent_isbase) {
             kdatepickerpopup_inputmethodevent_isbase = false;
             KDatePickerPopup::inputMethodEvent(param1);
-        } else if (kdatepickerpopup_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kdatepickerpopup_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kdatepickerpopup_inputmethodevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,14 +1096,15 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_inputmethodquery_isbase) {
             kdatepickerpopup_inputmethodquery_isbase = false;
             return KDatePickerPopup::inputMethodQuery(param1);
-        } else if (kdatepickerpopup_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kdatepickerpopup_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kdatepickerpopup_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KDatePickerPopup::inputMethodQuery(param1);
         }
+        return KDatePickerPopup::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1071,15 +1112,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_eventfilter_isbase) {
             kdatepickerpopup_eventfilter_isbase = false;
             return KDatePickerPopup::eventFilter(watched, event);
-        } else if (kdatepickerpopup_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kdatepickerpopup_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kdatepickerpopup_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KDatePickerPopup::eventFilter(watched, event);
         }
+        return KDatePickerPopup::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1087,13 +1129,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_childevent_isbase) {
             kdatepickerpopup_childevent_isbase = false;
             KDatePickerPopup::childEvent(event);
-        } else if (kdatepickerpopup_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kdatepickerpopup_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kdatepickerpopup_childevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1146,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_customevent_isbase) {
             kdatepickerpopup_customevent_isbase = false;
             KDatePickerPopup::customEvent(event);
-        } else if (kdatepickerpopup_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kdatepickerpopup_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kdatepickerpopup_customevent_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,15 +1163,18 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_connectnotify_isbase) {
             kdatepickerpopup_connectnotify_isbase = false;
             KDatePickerPopup::connectNotify(signal);
-        } else if (kdatepickerpopup_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kdatepickerpopup_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdatepickerpopup_connectnotify_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1131,15 +1182,18 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_disconnectnotify_isbase) {
             kdatepickerpopup_disconnectnotify_isbase = false;
             KDatePickerPopup::disconnectNotify(signal);
-        } else if (kdatepickerpopup_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kdatepickerpopup_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdatepickerpopup_disconnectnotify_callback(this, cbval1);
-        } else {
-            KDatePickerPopup::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KDatePickerPopup::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1147,12 +1201,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_columncount_isbase) {
             kdatepickerpopup_columncount_isbase = false;
             return KDatePickerPopup::columnCount();
-        } else if (kdatepickerpopup_columncount_callback != nullptr) {
-            int callback_ret = kdatepickerpopup_columncount_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDatePickerPopup::columnCount();
         }
+        auto columncount_cb = kdatepickerpopup_columncount_callback;
+        if (columncount_cb) {
+            int callback_ret = columncount_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDatePickerPopup::columnCount();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1160,11 +1215,14 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_updatemicrofocus_isbase) {
             kdatepickerpopup_updatemicrofocus_isbase = false;
             KDatePickerPopup::updateMicroFocus();
-        } else if (kdatepickerpopup_updatemicrofocus_callback != nullptr) {
-            kdatepickerpopup_updatemicrofocus_callback();
-        } else {
-            KDatePickerPopup::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kdatepickerpopup_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KDatePickerPopup::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,11 +1230,14 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_create_isbase) {
             kdatepickerpopup_create_isbase = false;
             KDatePickerPopup::create();
-        } else if (kdatepickerpopup_create_callback != nullptr) {
-            kdatepickerpopup_create_callback();
-        } else {
-            KDatePickerPopup::create();
+            return;
         }
+        auto create_cb = kdatepickerpopup_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KDatePickerPopup::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,11 +1245,14 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_destroy_isbase) {
             kdatepickerpopup_destroy_isbase = false;
             KDatePickerPopup::destroy();
-        } else if (kdatepickerpopup_destroy_callback != nullptr) {
-            kdatepickerpopup_destroy_callback();
-        } else {
-            KDatePickerPopup::destroy();
+            return;
         }
+        auto destroy_cb = kdatepickerpopup_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KDatePickerPopup::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1196,12 +1260,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_focusnextchild_isbase) {
             kdatepickerpopup_focusnextchild_isbase = false;
             return KDatePickerPopup::focusNextChild();
-        } else if (kdatepickerpopup_focusnextchild_callback != nullptr) {
-            bool callback_ret = kdatepickerpopup_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KDatePickerPopup::focusNextChild();
         }
+        auto focusnextchild_cb = kdatepickerpopup_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KDatePickerPopup::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1209,12 +1274,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_focuspreviouschild_isbase) {
             kdatepickerpopup_focuspreviouschild_isbase = false;
             return KDatePickerPopup::focusPreviousChild();
-        } else if (kdatepickerpopup_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kdatepickerpopup_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KDatePickerPopup::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kdatepickerpopup_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KDatePickerPopup::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,12 +1288,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_sender_isbase) {
             kdatepickerpopup_sender_isbase = false;
             return KDatePickerPopup::sender();
-        } else if (kdatepickerpopup_sender_callback != nullptr) {
-            QObject* callback_ret = kdatepickerpopup_sender_callback();
-            return callback_ret;
-        } else {
-            return KDatePickerPopup::sender();
         }
+        auto sender_cb = kdatepickerpopup_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KDatePickerPopup::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,12 +1302,13 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_sendersignalindex_isbase) {
             kdatepickerpopup_sendersignalindex_isbase = false;
             return KDatePickerPopup::senderSignalIndex();
-        } else if (kdatepickerpopup_sendersignalindex_callback != nullptr) {
-            int callback_ret = kdatepickerpopup_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDatePickerPopup::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kdatepickerpopup_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDatePickerPopup::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1248,14 +1316,15 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_receivers_isbase) {
             kdatepickerpopup_receivers_isbase = false;
             return KDatePickerPopup::receivers(signal);
-        } else if (kdatepickerpopup_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kdatepickerpopup_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kdatepickerpopup_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDatePickerPopup::receivers(signal);
         }
+        return KDatePickerPopup::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1263,16 +1332,17 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_issignalconnected_isbase) {
             kdatepickerpopup_issignalconnected_isbase = false;
             return KDatePickerPopup::isSignalConnected(signal);
-        } else if (kdatepickerpopup_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kdatepickerpopup_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kdatepickerpopup_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDatePickerPopup::isSignalConnected(signal);
         }
+        return KDatePickerPopup::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1280,15 +1350,16 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (kdatepickerpopup_getdecodedmetricf_isbase) {
             kdatepickerpopup_getdecodedmetricf_isbase = false;
             return KDatePickerPopup::getDecodedMetricF(metricA, metricB);
-        } else if (kdatepickerpopup_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kdatepickerpopup_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kdatepickerpopup_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KDatePickerPopup::getDecodedMetricF(metricA, metricB);
         }
+        return KDatePickerPopup::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

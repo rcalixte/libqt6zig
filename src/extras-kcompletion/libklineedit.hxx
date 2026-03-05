@@ -275,91 +275,6 @@ class VirtualKLineEdit final : public KLineEdit {
     VirtualKLineEdit() : KLineEdit() {};
     VirtualKLineEdit(const QString& stringVal, QWidget* parent) : KLineEdit(stringVal, parent) {};
 
-    ~VirtualKLineEdit() {
-        klineedit_metaobject_callback = nullptr;
-        klineedit_metacast_callback = nullptr;
-        klineedit_metacall_callback = nullptr;
-        klineedit_setcompletionmode_callback = nullptr;
-        klineedit_completionbox_callback = nullptr;
-        klineedit_setcompletionobject_callback = nullptr;
-        klineedit_copy_callback = nullptr;
-        klineedit_setreadonly_callback = nullptr;
-        klineedit_setcompletedtext_callback = nullptr;
-        klineedit_setcompleteditems_callback = nullptr;
-        klineedit_settext_callback = nullptr;
-        klineedit_makecompletion_callback = nullptr;
-        klineedit_event_callback = nullptr;
-        klineedit_resizeevent_callback = nullptr;
-        klineedit_keypressevent_callback = nullptr;
-        klineedit_mousepressevent_callback = nullptr;
-        klineedit_mousereleaseevent_callback = nullptr;
-        klineedit_mousedoubleclickevent_callback = nullptr;
-        klineedit_contextmenuevent_callback = nullptr;
-        klineedit_setcompletedtext2_callback = nullptr;
-        klineedit_paintevent_callback = nullptr;
-        klineedit_sizehint_callback = nullptr;
-        klineedit_minimumsizehint_callback = nullptr;
-        klineedit_mousemoveevent_callback = nullptr;
-        klineedit_keyreleaseevent_callback = nullptr;
-        klineedit_focusinevent_callback = nullptr;
-        klineedit_focusoutevent_callback = nullptr;
-        klineedit_dragenterevent_callback = nullptr;
-        klineedit_dragmoveevent_callback = nullptr;
-        klineedit_dragleaveevent_callback = nullptr;
-        klineedit_dropevent_callback = nullptr;
-        klineedit_changeevent_callback = nullptr;
-        klineedit_inputmethodevent_callback = nullptr;
-        klineedit_initstyleoption_callback = nullptr;
-        klineedit_inputmethodquery_callback = nullptr;
-        klineedit_timerevent_callback = nullptr;
-        klineedit_devtype_callback = nullptr;
-        klineedit_setvisible_callback = nullptr;
-        klineedit_heightforwidth_callback = nullptr;
-        klineedit_hasheightforwidth_callback = nullptr;
-        klineedit_paintengine_callback = nullptr;
-        klineedit_wheelevent_callback = nullptr;
-        klineedit_enterevent_callback = nullptr;
-        klineedit_leaveevent_callback = nullptr;
-        klineedit_moveevent_callback = nullptr;
-        klineedit_closeevent_callback = nullptr;
-        klineedit_tabletevent_callback = nullptr;
-        klineedit_actionevent_callback = nullptr;
-        klineedit_showevent_callback = nullptr;
-        klineedit_hideevent_callback = nullptr;
-        klineedit_nativeevent_callback = nullptr;
-        klineedit_metric_callback = nullptr;
-        klineedit_initpainter_callback = nullptr;
-        klineedit_redirected_callback = nullptr;
-        klineedit_sharedpainter_callback = nullptr;
-        klineedit_focusnextprevchild_callback = nullptr;
-        klineedit_eventfilter_callback = nullptr;
-        klineedit_childevent_callback = nullptr;
-        klineedit_customevent_callback = nullptr;
-        klineedit_connectnotify_callback = nullptr;
-        klineedit_disconnectnotify_callback = nullptr;
-        klineedit_sethandlesignals_callback = nullptr;
-        klineedit_virtualhook_callback = nullptr;
-        klineedit_usercancelled_callback = nullptr;
-        klineedit_createstandardcontextmenu_callback = nullptr;
-        klineedit_setuserselection_callback = nullptr;
-        klineedit_autosuggest_callback = nullptr;
-        klineedit_cursorrect_callback = nullptr;
-        klineedit_updatemicrofocus_callback = nullptr;
-        klineedit_create_callback = nullptr;
-        klineedit_destroy_callback = nullptr;
-        klineedit_focusnextchild_callback = nullptr;
-        klineedit_focuspreviouschild_callback = nullptr;
-        klineedit_sender_callback = nullptr;
-        klineedit_sendersignalindex_callback = nullptr;
-        klineedit_receivers_callback = nullptr;
-        klineedit_issignalconnected_callback = nullptr;
-        klineedit_getdecodedmetricf_callback = nullptr;
-        klineedit_keybindingmap_callback = nullptr;
-        klineedit_setkeybindingmap_callback = nullptr;
-        klineedit_setdelegate_callback = nullptr;
-        klineedit_delegate_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKLineEdit_MetaObject_Callback(KLineEdit_MetaObject_Callback cb) { klineedit_metaobject_callback = cb; }
     inline void setKLineEdit_Metacast_Callback(KLineEdit_Metacast_Callback cb) { klineedit_metacast_callback = cb; }
@@ -533,12 +448,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_metaobject_isbase) {
             klineedit_metaobject_isbase = false;
             return KLineEdit::metaObject();
-        } else if (klineedit_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = klineedit_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KLineEdit::metaObject();
         }
+        auto metaobject_cb = klineedit_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KLineEdit::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,14 +462,15 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_metacast_isbase) {
             klineedit_metacast_isbase = false;
             return KLineEdit::qt_metacast(param1);
-        } else if (klineedit_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = klineedit_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = klineedit_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLineEdit::qt_metacast(param1);
         }
+        return KLineEdit::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,16 +478,17 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_metacall_isbase) {
             klineedit_metacall_isbase = false;
             return KLineEdit::qt_metacall(param1, param2, param3);
-        } else if (klineedit_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = klineedit_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = klineedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLineEdit::qt_metacall(param1, param2, param3);
         }
+        return KLineEdit::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,13 +496,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_setcompletionmode_isbase) {
             klineedit_setcompletionmode_isbase = false;
             KLineEdit::setCompletionMode(mode);
-        } else if (klineedit_setcompletionmode_callback != nullptr) {
+            return;
+        }
+        auto setcompletionmode_cb = klineedit_setcompletionmode_callback;
+        if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            klineedit_setcompletionmode_callback(this, cbval1);
-        } else {
-            KLineEdit::setCompletionMode(mode);
+            setcompletionmode_cb(this, cbval1);
+            return;
         }
+        KLineEdit::setCompletionMode(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,14 +513,15 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_completionbox_isbase) {
             klineedit_completionbox_isbase = false;
             return KLineEdit::completionBox(create);
-        } else if (klineedit_completionbox_callback != nullptr) {
+        }
+        auto completionbox_cb = klineedit_completionbox_callback;
+        if (completionbox_cb) {
             bool cbval1 = create;
 
-            KCompletionBox* callback_ret = klineedit_completionbox_callback(this, cbval1);
+            KCompletionBox* callback_ret = completionbox_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLineEdit::completionBox(create);
         }
+        return KLineEdit::completionBox(create);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,14 +529,17 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_setcompletionobject_isbase) {
             klineedit_setcompletionobject_isbase = false;
             KLineEdit::setCompletionObject(param1, handle);
-        } else if (klineedit_setcompletionobject_callback != nullptr) {
+            return;
+        }
+        auto setcompletionobject_cb = klineedit_setcompletionobject_callback;
+        if (setcompletionobject_cb) {
             KCompletion* cbval1 = param1;
             bool cbval2 = handle;
 
-            klineedit_setcompletionobject_callback(this, cbval1, cbval2);
-        } else {
-            KLineEdit::setCompletionObject(param1, handle);
+            setcompletionobject_cb(this, cbval1, cbval2);
+            return;
         }
+        KLineEdit::setCompletionObject(param1, handle);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,11 +547,14 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_copy_isbase) {
             klineedit_copy_isbase = false;
             KLineEdit::copy();
-        } else if (klineedit_copy_callback != nullptr) {
-            klineedit_copy_callback();
-        } else {
-            KLineEdit::copy();
+            return;
         }
+        auto copy_cb = klineedit_copy_callback;
+        if (copy_cb) {
+            copy_cb();
+            return;
+        }
+        KLineEdit::copy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,13 +562,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_setreadonly_isbase) {
             klineedit_setreadonly_isbase = false;
             KLineEdit::setReadOnly(readOnly);
-        } else if (klineedit_setreadonly_callback != nullptr) {
+            return;
+        }
+        auto setreadonly_cb = klineedit_setreadonly_callback;
+        if (setreadonly_cb) {
             bool cbval1 = readOnly;
 
-            klineedit_setreadonly_callback(this, cbval1);
-        } else {
-            KLineEdit::setReadOnly(readOnly);
+            setreadonly_cb(this, cbval1);
+            return;
         }
+        KLineEdit::setReadOnly(readOnly);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -648,7 +579,10 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_setcompletedtext_isbase) {
             klineedit_setcompletedtext_isbase = false;
             KLineEdit::setCompletedText(completedText);
-        } else if (klineedit_setcompletedtext_callback != nullptr) {
+            return;
+        }
+        auto setcompletedtext_cb = klineedit_setcompletedtext_callback;
+        if (setcompletedtext_cb) {
             const QString completedText_ret = completedText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray completedText_b = completedText_ret.toUtf8();
@@ -658,11 +592,11 @@ class VirtualKLineEdit final : public KLineEdit {
             ((char*)completedText_str)[completedText_str_len] = '\0';
             const char* cbval1 = completedText_str;
 
-            klineedit_setcompletedtext_callback(this, cbval1);
+            setcompletedtext_cb(this, cbval1);
             libqt_free(completedText_str);
-        } else {
-            KLineEdit::setCompletedText(completedText);
+            return;
         }
+        KLineEdit::setCompletedText(completedText);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -670,7 +604,10 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_setcompleteditems_isbase) {
             klineedit_setcompleteditems_isbase = false;
             KLineEdit::setCompletedItems(items, autoSuggest);
-        } else if (klineedit_setcompleteditems_callback != nullptr) {
+            return;
+        }
+        auto setcompleteditems_cb = klineedit_setcompleteditems_callback;
+        if (setcompleteditems_cb) {
             const QList<QString>& items_ret = items;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** items_arr = static_cast<const char**>(malloc(sizeof(const char*) * (items_ret.size() + 1)));
@@ -687,11 +624,11 @@ class VirtualKLineEdit final : public KLineEdit {
             const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
 
-            klineedit_setcompleteditems_callback(this, cbval1, cbval2);
+            setcompleteditems_cb(this, cbval1, cbval2);
             libqt_free(items_arr);
-        } else {
-            KLineEdit::setCompletedItems(items, autoSuggest);
+            return;
         }
+        KLineEdit::setCompletedItems(items, autoSuggest);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -699,7 +636,10 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_settext_isbase) {
             klineedit_settext_isbase = false;
             KLineEdit::setText(text);
-        } else if (klineedit_settext_callback != nullptr) {
+            return;
+        }
+        auto settext_cb = klineedit_settext_callback;
+        if (settext_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -709,11 +649,11 @@ class VirtualKLineEdit final : public KLineEdit {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            klineedit_settext_callback(this, cbval1);
+            settext_cb(this, cbval1);
             libqt_free(text_str);
-        } else {
-            KLineEdit::setText(text);
+            return;
         }
+        KLineEdit::setText(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,7 +661,10 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_makecompletion_isbase) {
             klineedit_makecompletion_isbase = false;
             KLineEdit::makeCompletion(param1);
-        } else if (klineedit_makecompletion_callback != nullptr) {
+            return;
+        }
+        auto makecompletion_cb = klineedit_makecompletion_callback;
+        if (makecompletion_cb) {
             const QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -731,11 +674,11 @@ class VirtualKLineEdit final : public KLineEdit {
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
 
-            klineedit_makecompletion_callback(this, cbval1);
+            makecompletion_cb(this, cbval1);
             libqt_free(param1_str);
-        } else {
-            KLineEdit::makeCompletion(param1);
+            return;
         }
+        KLineEdit::makeCompletion(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -743,14 +686,15 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_event_isbase) {
             klineedit_event_isbase = false;
             return KLineEdit::event(param1);
-        } else if (klineedit_event_callback != nullptr) {
+        }
+        auto event_cb = klineedit_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = klineedit_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLineEdit::event(param1);
         }
+        return KLineEdit::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,13 +702,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_resizeevent_isbase) {
             klineedit_resizeevent_isbase = false;
             KLineEdit::resizeEvent(param1);
-        } else if (klineedit_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = klineedit_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            klineedit_resizeevent_callback(this, cbval1);
-        } else {
-            KLineEdit::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -772,13 +719,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_keypressevent_isbase) {
             klineedit_keypressevent_isbase = false;
             KLineEdit::keyPressEvent(param1);
-        } else if (klineedit_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = klineedit_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            klineedit_keypressevent_callback(this, cbval1);
-        } else {
-            KLineEdit::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,13 +736,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_mousepressevent_isbase) {
             klineedit_mousepressevent_isbase = false;
             KLineEdit::mousePressEvent(param1);
-        } else if (klineedit_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = klineedit_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            klineedit_mousepressevent_callback(this, cbval1);
-        } else {
-            KLineEdit::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -800,13 +753,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_mousereleaseevent_isbase) {
             klineedit_mousereleaseevent_isbase = false;
             KLineEdit::mouseReleaseEvent(param1);
-        } else if (klineedit_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = klineedit_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            klineedit_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KLineEdit::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,13 +770,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_mousedoubleclickevent_isbase) {
             klineedit_mousedoubleclickevent_isbase = false;
             KLineEdit::mouseDoubleClickEvent(param1);
-        } else if (klineedit_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = klineedit_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            klineedit_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KLineEdit::mouseDoubleClickEvent(param1);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::mouseDoubleClickEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,13 +787,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_contextmenuevent_isbase) {
             klineedit_contextmenuevent_isbase = false;
             KLineEdit::contextMenuEvent(param1);
-        } else if (klineedit_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = klineedit_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            klineedit_contextmenuevent_callback(this, cbval1);
-        } else {
-            KLineEdit::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -842,7 +804,10 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_setcompletedtext2_isbase) {
             klineedit_setcompletedtext2_isbase = false;
             KLineEdit::setCompletedText(param1, param2);
-        } else if (klineedit_setcompletedtext2_callback != nullptr) {
+            return;
+        }
+        auto setcompletedtext2_cb = klineedit_setcompletedtext2_callback;
+        if (setcompletedtext2_cb) {
             const QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -853,11 +818,11 @@ class VirtualKLineEdit final : public KLineEdit {
             const char* cbval1 = param1_str;
             bool cbval2 = param2;
 
-            klineedit_setcompletedtext2_callback(this, cbval1, cbval2);
+            setcompletedtext2_cb(this, cbval1, cbval2);
             libqt_free(param1_str);
-        } else {
-            KLineEdit::setCompletedText(param1, param2);
+            return;
         }
+        KLineEdit::setCompletedText(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -865,13 +830,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_paintevent_isbase) {
             klineedit_paintevent_isbase = false;
             KLineEdit::paintEvent(ev);
-        } else if (klineedit_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = klineedit_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = ev;
 
-            klineedit_paintevent_callback(this, cbval1);
-        } else {
-            KLineEdit::paintEvent(ev);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::paintEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -879,12 +847,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_sizehint_isbase) {
             klineedit_sizehint_isbase = false;
             return KLineEdit::sizeHint();
-        } else if (klineedit_sizehint_callback != nullptr) {
-            QSize* callback_ret = klineedit_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KLineEdit::sizeHint();
         }
+        auto sizehint_cb = klineedit_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KLineEdit::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -892,12 +861,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_minimumsizehint_isbase) {
             klineedit_minimumsizehint_isbase = false;
             return KLineEdit::minimumSizeHint();
-        } else if (klineedit_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = klineedit_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KLineEdit::minimumSizeHint();
         }
+        auto minimumsizehint_cb = klineedit_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KLineEdit::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +875,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_mousemoveevent_isbase) {
             klineedit_mousemoveevent_isbase = false;
             KLineEdit::mouseMoveEvent(param1);
-        } else if (klineedit_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = klineedit_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            klineedit_mousemoveevent_callback(this, cbval1);
-        } else {
-            KLineEdit::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,13 +892,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_keyreleaseevent_isbase) {
             klineedit_keyreleaseevent_isbase = false;
             KLineEdit::keyReleaseEvent(param1);
-        } else if (klineedit_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = klineedit_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            klineedit_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KLineEdit::keyReleaseEvent(param1);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::keyReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +909,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_focusinevent_isbase) {
             klineedit_focusinevent_isbase = false;
             KLineEdit::focusInEvent(param1);
-        } else if (klineedit_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = klineedit_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            klineedit_focusinevent_callback(this, cbval1);
-        } else {
-            KLineEdit::focusInEvent(param1);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::focusInEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +926,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_focusoutevent_isbase) {
             klineedit_focusoutevent_isbase = false;
             KLineEdit::focusOutEvent(param1);
-        } else if (klineedit_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = klineedit_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            klineedit_focusoutevent_callback(this, cbval1);
-        } else {
-            KLineEdit::focusOutEvent(param1);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::focusOutEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,13 +943,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_dragenterevent_isbase) {
             klineedit_dragenterevent_isbase = false;
             KLineEdit::dragEnterEvent(param1);
-        } else if (klineedit_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = klineedit_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
 
-            klineedit_dragenterevent_callback(this, cbval1);
-        } else {
-            KLineEdit::dragEnterEvent(param1);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::dragEnterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -975,13 +960,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_dragmoveevent_isbase) {
             klineedit_dragmoveevent_isbase = false;
             KLineEdit::dragMoveEvent(e);
-        } else if (klineedit_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = klineedit_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
 
-            klineedit_dragmoveevent_callback(this, cbval1);
-        } else {
-            KLineEdit::dragMoveEvent(e);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::dragMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -989,13 +977,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_dragleaveevent_isbase) {
             klineedit_dragleaveevent_isbase = false;
             KLineEdit::dragLeaveEvent(e);
-        } else if (klineedit_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = klineedit_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
 
-            klineedit_dragleaveevent_callback(this, cbval1);
-        } else {
-            KLineEdit::dragLeaveEvent(e);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::dragLeaveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,13 +994,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_dropevent_isbase) {
             klineedit_dropevent_isbase = false;
             KLineEdit::dropEvent(param1);
-        } else if (klineedit_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = klineedit_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
 
-            klineedit_dropevent_callback(this, cbval1);
-        } else {
-            KLineEdit::dropEvent(param1);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::dropEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1017,13 +1011,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_changeevent_isbase) {
             klineedit_changeevent_isbase = false;
             KLineEdit::changeEvent(param1);
-        } else if (klineedit_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = klineedit_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            klineedit_changeevent_callback(this, cbval1);
-        } else {
-            KLineEdit::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1031,13 +1028,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_inputmethodevent_isbase) {
             klineedit_inputmethodevent_isbase = false;
             KLineEdit::inputMethodEvent(param1);
-        } else if (klineedit_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = klineedit_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            klineedit_inputmethodevent_callback(this, cbval1);
-        } else {
-            KLineEdit::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1045,13 +1045,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_initstyleoption_isbase) {
             klineedit_initstyleoption_isbase = false;
             KLineEdit::initStyleOption(option);
-        } else if (klineedit_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = klineedit_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            klineedit_initstyleoption_callback(this, cbval1);
-        } else {
-            KLineEdit::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KLineEdit::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,14 +1062,15 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_inputmethodquery_isbase) {
             klineedit_inputmethodquery_isbase = false;
             return KLineEdit::inputMethodQuery(param1);
-        } else if (klineedit_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = klineedit_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = klineedit_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KLineEdit::inputMethodQuery(param1);
         }
+        return KLineEdit::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1074,13 +1078,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_timerevent_isbase) {
             klineedit_timerevent_isbase = false;
             KLineEdit::timerEvent(param1);
-        } else if (klineedit_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = klineedit_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            klineedit_timerevent_callback(this, cbval1);
-        } else {
-            KLineEdit::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,12 +1095,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_devtype_isbase) {
             klineedit_devtype_isbase = false;
             return KLineEdit::devType();
-        } else if (klineedit_devtype_callback != nullptr) {
-            int callback_ret = klineedit_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KLineEdit::devType();
         }
+        auto devtype_cb = klineedit_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KLineEdit::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1109,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_setvisible_isbase) {
             klineedit_setvisible_isbase = false;
             KLineEdit::setVisible(visible);
-        } else if (klineedit_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = klineedit_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            klineedit_setvisible_callback(this, cbval1);
-        } else {
-            KLineEdit::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KLineEdit::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,14 +1126,15 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_heightforwidth_isbase) {
             klineedit_heightforwidth_isbase = false;
             return KLineEdit::heightForWidth(param1);
-        } else if (klineedit_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = klineedit_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = klineedit_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLineEdit::heightForWidth(param1);
         }
+        return KLineEdit::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,12 +1142,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_hasheightforwidth_isbase) {
             klineedit_hasheightforwidth_isbase = false;
             return KLineEdit::hasHeightForWidth();
-        } else if (klineedit_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = klineedit_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KLineEdit::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = klineedit_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KLineEdit::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1143,12 +1156,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_paintengine_isbase) {
             klineedit_paintengine_isbase = false;
             return KLineEdit::paintEngine();
-        } else if (klineedit_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = klineedit_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KLineEdit::paintEngine();
         }
+        auto paintengine_cb = klineedit_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KLineEdit::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1156,13 +1170,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_wheelevent_isbase) {
             klineedit_wheelevent_isbase = false;
             KLineEdit::wheelEvent(event);
-        } else if (klineedit_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = klineedit_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            klineedit_wheelevent_callback(this, cbval1);
-        } else {
-            KLineEdit::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1170,13 +1187,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_enterevent_isbase) {
             klineedit_enterevent_isbase = false;
             KLineEdit::enterEvent(event);
-        } else if (klineedit_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = klineedit_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            klineedit_enterevent_callback(this, cbval1);
-        } else {
-            KLineEdit::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,13 +1204,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_leaveevent_isbase) {
             klineedit_leaveevent_isbase = false;
             KLineEdit::leaveEvent(event);
-        } else if (klineedit_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = klineedit_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            klineedit_leaveevent_callback(this, cbval1);
-        } else {
-            KLineEdit::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1198,13 +1221,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_moveevent_isbase) {
             klineedit_moveevent_isbase = false;
             KLineEdit::moveEvent(event);
-        } else if (klineedit_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = klineedit_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            klineedit_moveevent_callback(this, cbval1);
-        } else {
-            KLineEdit::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1212,13 +1238,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_closeevent_isbase) {
             klineedit_closeevent_isbase = false;
             KLineEdit::closeEvent(event);
-        } else if (klineedit_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = klineedit_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            klineedit_closeevent_callback(this, cbval1);
-        } else {
-            KLineEdit::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1226,13 +1255,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_tabletevent_isbase) {
             klineedit_tabletevent_isbase = false;
             KLineEdit::tabletEvent(event);
-        } else if (klineedit_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = klineedit_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            klineedit_tabletevent_callback(this, cbval1);
-        } else {
-            KLineEdit::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1240,13 +1272,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_actionevent_isbase) {
             klineedit_actionevent_isbase = false;
             KLineEdit::actionEvent(event);
-        } else if (klineedit_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = klineedit_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            klineedit_actionevent_callback(this, cbval1);
-        } else {
-            KLineEdit::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1254,13 +1289,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_showevent_isbase) {
             klineedit_showevent_isbase = false;
             KLineEdit::showEvent(event);
-        } else if (klineedit_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = klineedit_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            klineedit_showevent_callback(this, cbval1);
-        } else {
-            KLineEdit::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1268,13 +1306,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_hideevent_isbase) {
             klineedit_hideevent_isbase = false;
             KLineEdit::hideEvent(event);
-        } else if (klineedit_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = klineedit_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            klineedit_hideevent_callback(this, cbval1);
-        } else {
-            KLineEdit::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,7 +1323,9 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_nativeevent_isbase) {
             klineedit_nativeevent_isbase = false;
             return KLineEdit::nativeEvent(eventType, message, result);
-        } else if (klineedit_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = klineedit_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1293,12 +1336,11 @@ class VirtualKLineEdit final : public KLineEdit {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = klineedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KLineEdit::nativeEvent(eventType, message, result);
         }
+        return KLineEdit::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1306,14 +1348,15 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_metric_isbase) {
             klineedit_metric_isbase = false;
             return KLineEdit::metric(param1);
-        } else if (klineedit_metric_callback != nullptr) {
+        }
+        auto metric_cb = klineedit_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = klineedit_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLineEdit::metric(param1);
         }
+        return KLineEdit::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,13 +1364,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_initpainter_isbase) {
             klineedit_initpainter_isbase = false;
             KLineEdit::initPainter(painter);
-        } else if (klineedit_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = klineedit_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            klineedit_initpainter_callback(this, cbval1);
-        } else {
-            KLineEdit::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KLineEdit::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1335,14 +1381,15 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_redirected_isbase) {
             klineedit_redirected_isbase = false;
             return KLineEdit::redirected(offset);
-        } else if (klineedit_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = klineedit_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = klineedit_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLineEdit::redirected(offset);
         }
+        return KLineEdit::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1350,12 +1397,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_sharedpainter_isbase) {
             klineedit_sharedpainter_isbase = false;
             return KLineEdit::sharedPainter();
-        } else if (klineedit_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = klineedit_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KLineEdit::sharedPainter();
         }
+        auto sharedpainter_cb = klineedit_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KLineEdit::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1363,14 +1411,15 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_focusnextprevchild_isbase) {
             klineedit_focusnextprevchild_isbase = false;
             return KLineEdit::focusNextPrevChild(next);
-        } else if (klineedit_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = klineedit_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = klineedit_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLineEdit::focusNextPrevChild(next);
         }
+        return KLineEdit::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1378,15 +1427,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_eventfilter_isbase) {
             klineedit_eventfilter_isbase = false;
             return KLineEdit::eventFilter(watched, event);
-        } else if (klineedit_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = klineedit_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = klineedit_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KLineEdit::eventFilter(watched, event);
         }
+        return KLineEdit::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1394,13 +1444,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_childevent_isbase) {
             klineedit_childevent_isbase = false;
             KLineEdit::childEvent(event);
-        } else if (klineedit_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = klineedit_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            klineedit_childevent_callback(this, cbval1);
-        } else {
-            KLineEdit::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1408,13 +1461,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_customevent_isbase) {
             klineedit_customevent_isbase = false;
             KLineEdit::customEvent(event);
-        } else if (klineedit_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = klineedit_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            klineedit_customevent_callback(this, cbval1);
-        } else {
-            KLineEdit::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KLineEdit::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1422,15 +1478,18 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_connectnotify_isbase) {
             klineedit_connectnotify_isbase = false;
             KLineEdit::connectNotify(signal);
-        } else if (klineedit_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = klineedit_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klineedit_connectnotify_callback(this, cbval1);
-        } else {
-            KLineEdit::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KLineEdit::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1438,15 +1497,18 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_disconnectnotify_isbase) {
             klineedit_disconnectnotify_isbase = false;
             KLineEdit::disconnectNotify(signal);
-        } else if (klineedit_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = klineedit_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klineedit_disconnectnotify_callback(this, cbval1);
-        } else {
-            KLineEdit::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KLineEdit::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1454,13 +1516,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_sethandlesignals_isbase) {
             klineedit_sethandlesignals_isbase = false;
             KLineEdit::setHandleSignals(handle);
-        } else if (klineedit_sethandlesignals_callback != nullptr) {
+            return;
+        }
+        auto sethandlesignals_cb = klineedit_sethandlesignals_callback;
+        if (sethandlesignals_cb) {
             bool cbval1 = handle;
 
-            klineedit_sethandlesignals_callback(this, cbval1);
-        } else {
-            KLineEdit::setHandleSignals(handle);
+            sethandlesignals_cb(this, cbval1);
+            return;
         }
+        KLineEdit::setHandleSignals(handle);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1468,14 +1533,17 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_virtualhook_isbase) {
             klineedit_virtualhook_isbase = false;
             KLineEdit::virtual_hook(id, data);
-        } else if (klineedit_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = klineedit_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            klineedit_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KLineEdit::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KLineEdit::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1483,7 +1551,10 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_usercancelled_isbase) {
             klineedit_usercancelled_isbase = false;
             KLineEdit::userCancelled(cancelText);
-        } else if (klineedit_usercancelled_callback != nullptr) {
+            return;
+        }
+        auto usercancelled_cb = klineedit_usercancelled_callback;
+        if (usercancelled_cb) {
             const QString cancelText_ret = cancelText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cancelText_b = cancelText_ret.toUtf8();
@@ -1493,11 +1564,11 @@ class VirtualKLineEdit final : public KLineEdit {
             ((char*)cancelText_str)[cancelText_str_len] = '\0';
             const char* cbval1 = cancelText_str;
 
-            klineedit_usercancelled_callback(this, cbval1);
+            usercancelled_cb(this, cbval1);
             libqt_free(cancelText_str);
-        } else {
-            KLineEdit::userCancelled(cancelText);
+            return;
         }
+        KLineEdit::userCancelled(cancelText);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1505,12 +1576,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_createstandardcontextmenu_isbase) {
             klineedit_createstandardcontextmenu_isbase = false;
             return KLineEdit::createStandardContextMenu();
-        } else if (klineedit_createstandardcontextmenu_callback != nullptr) {
-            QMenu* callback_ret = klineedit_createstandardcontextmenu_callback();
-            return callback_ret;
-        } else {
-            return KLineEdit::createStandardContextMenu();
         }
+        auto createstandardcontextmenu_cb = klineedit_createstandardcontextmenu_callback;
+        if (createstandardcontextmenu_cb) {
+            QMenu* callback_ret = createstandardcontextmenu_cb();
+            return callback_ret;
+        }
+        return KLineEdit::createStandardContextMenu();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1518,13 +1590,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_setuserselection_isbase) {
             klineedit_setuserselection_isbase = false;
             KLineEdit::setUserSelection(userSelection);
-        } else if (klineedit_setuserselection_callback != nullptr) {
+            return;
+        }
+        auto setuserselection_cb = klineedit_setuserselection_callback;
+        if (setuserselection_cb) {
             bool cbval1 = userSelection;
 
-            klineedit_setuserselection_callback(this, cbval1);
-        } else {
-            KLineEdit::setUserSelection(userSelection);
+            setuserselection_cb(this, cbval1);
+            return;
         }
+        KLineEdit::setUserSelection(userSelection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1532,12 +1607,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_autosuggest_isbase) {
             klineedit_autosuggest_isbase = false;
             return KLineEdit::autoSuggest();
-        } else if (klineedit_autosuggest_callback != nullptr) {
-            bool callback_ret = klineedit_autosuggest_callback();
-            return callback_ret;
-        } else {
-            return KLineEdit::autoSuggest();
         }
+        auto autosuggest_cb = klineedit_autosuggest_callback;
+        if (autosuggest_cb) {
+            bool callback_ret = autosuggest_cb();
+            return callback_ret;
+        }
+        return KLineEdit::autoSuggest();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1545,12 +1621,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_cursorrect_isbase) {
             klineedit_cursorrect_isbase = false;
             return KLineEdit::cursorRect();
-        } else if (klineedit_cursorrect_callback != nullptr) {
-            QRect* callback_ret = klineedit_cursorrect_callback();
-            return *callback_ret;
-        } else {
-            return KLineEdit::cursorRect();
         }
+        auto cursorrect_cb = klineedit_cursorrect_callback;
+        if (cursorrect_cb) {
+            QRect* callback_ret = cursorrect_cb();
+            return *callback_ret;
+        }
+        return KLineEdit::cursorRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1558,11 +1635,14 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_updatemicrofocus_isbase) {
             klineedit_updatemicrofocus_isbase = false;
             KLineEdit::updateMicroFocus();
-        } else if (klineedit_updatemicrofocus_callback != nullptr) {
-            klineedit_updatemicrofocus_callback();
-        } else {
-            KLineEdit::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = klineedit_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KLineEdit::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1570,11 +1650,14 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_create_isbase) {
             klineedit_create_isbase = false;
             KLineEdit::create();
-        } else if (klineedit_create_callback != nullptr) {
-            klineedit_create_callback();
-        } else {
-            KLineEdit::create();
+            return;
         }
+        auto create_cb = klineedit_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KLineEdit::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1582,11 +1665,14 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_destroy_isbase) {
             klineedit_destroy_isbase = false;
             KLineEdit::destroy();
-        } else if (klineedit_destroy_callback != nullptr) {
-            klineedit_destroy_callback();
-        } else {
-            KLineEdit::destroy();
+            return;
         }
+        auto destroy_cb = klineedit_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KLineEdit::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1594,12 +1680,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_focusnextchild_isbase) {
             klineedit_focusnextchild_isbase = false;
             return KLineEdit::focusNextChild();
-        } else if (klineedit_focusnextchild_callback != nullptr) {
-            bool callback_ret = klineedit_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KLineEdit::focusNextChild();
         }
+        auto focusnextchild_cb = klineedit_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KLineEdit::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1607,12 +1694,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_focuspreviouschild_isbase) {
             klineedit_focuspreviouschild_isbase = false;
             return KLineEdit::focusPreviousChild();
-        } else if (klineedit_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = klineedit_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KLineEdit::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = klineedit_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KLineEdit::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1620,12 +1708,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_sender_isbase) {
             klineedit_sender_isbase = false;
             return KLineEdit::sender();
-        } else if (klineedit_sender_callback != nullptr) {
-            QObject* callback_ret = klineedit_sender_callback();
-            return callback_ret;
-        } else {
-            return KLineEdit::sender();
         }
+        auto sender_cb = klineedit_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KLineEdit::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1633,12 +1722,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_sendersignalindex_isbase) {
             klineedit_sendersignalindex_isbase = false;
             return KLineEdit::senderSignalIndex();
-        } else if (klineedit_sendersignalindex_callback != nullptr) {
-            int callback_ret = klineedit_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KLineEdit::senderSignalIndex();
         }
+        auto sendersignalindex_cb = klineedit_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KLineEdit::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1646,14 +1736,15 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_receivers_isbase) {
             klineedit_receivers_isbase = false;
             return KLineEdit::receivers(signal);
-        } else if (klineedit_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = klineedit_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = klineedit_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLineEdit::receivers(signal);
         }
+        return KLineEdit::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1661,16 +1752,17 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_issignalconnected_isbase) {
             klineedit_issignalconnected_isbase = false;
             return KLineEdit::isSignalConnected(signal);
-        } else if (klineedit_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = klineedit_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = klineedit_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLineEdit::isSignalConnected(signal);
         }
+        return KLineEdit::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1678,15 +1770,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_getdecodedmetricf_isbase) {
             klineedit_getdecodedmetricf_isbase = false;
             return KLineEdit::getDecodedMetricF(metricA, metricB);
-        } else if (klineedit_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = klineedit_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = klineedit_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KLineEdit::getDecodedMetricF(metricA, metricB);
         }
+        return KLineEdit::getDecodedMetricF(metricA, metricB);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1694,8 +1787,10 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_keybindingmap_isbase) {
             klineedit_keybindingmap_isbase = false;
             return KLineEdit::keyBindingMap();
-        } else if (klineedit_keybindingmap_callback != nullptr) {
-            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = klineedit_keybindingmap_callback();
+        }
+        auto keybindingmap_cb = klineedit_keybindingmap_callback;
+        if (keybindingmap_cb) {
+            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = keybindingmap_cb();
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
@@ -1709,9 +1804,8 @@ class VirtualKLineEdit final : public KLineEdit {
                 callback_ret_QMap[static_cast<KCompletionBase::KeyBindingType>(callback_ret_karr[i])] = callback_ret_varr_i_QList;
             }
             return callback_ret_QMap;
-        } else {
-            return KLineEdit::keyBindingMap();
         }
+        return KLineEdit::keyBindingMap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1719,7 +1813,10 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_setkeybindingmap_isbase) {
             klineedit_setkeybindingmap_isbase = false;
             KLineEdit::setKeyBindingMap(keyBindingMap);
-        } else if (klineedit_setkeybindingmap_callback != nullptr) {
+            return;
+        }
+        auto setkeybindingmap_cb = klineedit_setkeybindingmap_callback;
+        if (setkeybindingmap_cb) {
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_ret = keyBindingMap;
             // Convert QMap<> from C++ memory to manually-managed C memory
             int* keyBindingMap_karr = static_cast<int*>(malloc(sizeof(int) * keyBindingMap_ret.size()));
@@ -1745,10 +1842,10 @@ class VirtualKLineEdit final : public KLineEdit {
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
             libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
 
-            klineedit_setkeybindingmap_callback(this, cbval1);
-        } else {
-            KLineEdit::setKeyBindingMap(keyBindingMap);
+            setkeybindingmap_cb(this, cbval1);
+            return;
         }
+        KLineEdit::setKeyBindingMap(keyBindingMap);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1756,13 +1853,16 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_setdelegate_isbase) {
             klineedit_setdelegate_isbase = false;
             KLineEdit::setDelegate(delegate);
-        } else if (klineedit_setdelegate_callback != nullptr) {
+            return;
+        }
+        auto setdelegate_cb = klineedit_setdelegate_callback;
+        if (setdelegate_cb) {
             KCompletionBase* cbval1 = delegate;
 
-            klineedit_setdelegate_callback(this, cbval1);
-        } else {
-            KLineEdit::setDelegate(delegate);
+            setdelegate_cb(this, cbval1);
+            return;
         }
+        KLineEdit::setDelegate(delegate);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1770,12 +1870,13 @@ class VirtualKLineEdit final : public KLineEdit {
         if (klineedit_delegate_isbase) {
             klineedit_delegate_isbase = false;
             return KLineEdit::delegate();
-        } else if (klineedit_delegate_callback != nullptr) {
-            KCompletionBase* callback_ret = klineedit_delegate_callback();
-            return callback_ret;
-        } else {
-            return KLineEdit::delegate();
         }
+        auto delegate_cb = klineedit_delegate_callback;
+        if (delegate_cb) {
+            KCompletionBase* callback_ret = delegate_cb();
+            return callback_ret;
+        }
+        return KLineEdit::delegate();
     }
 
     // Friend functions

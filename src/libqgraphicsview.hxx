@@ -242,80 +242,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
     VirtualQGraphicsView(QGraphicsScene* scene) : QGraphicsView(scene) {};
     VirtualQGraphicsView(QGraphicsScene* scene, QWidget* parent) : QGraphicsView(scene, parent) {};
 
-    ~VirtualQGraphicsView() {
-        qgraphicsview_metaobject_callback = nullptr;
-        qgraphicsview_metacast_callback = nullptr;
-        qgraphicsview_metacall_callback = nullptr;
-        qgraphicsview_sizehint_callback = nullptr;
-        qgraphicsview_inputmethodquery_callback = nullptr;
-        qgraphicsview_setupviewport_callback = nullptr;
-        qgraphicsview_event_callback = nullptr;
-        qgraphicsview_viewportevent_callback = nullptr;
-        qgraphicsview_contextmenuevent_callback = nullptr;
-        qgraphicsview_dragenterevent_callback = nullptr;
-        qgraphicsview_dragleaveevent_callback = nullptr;
-        qgraphicsview_dragmoveevent_callback = nullptr;
-        qgraphicsview_dropevent_callback = nullptr;
-        qgraphicsview_focusinevent_callback = nullptr;
-        qgraphicsview_focusnextprevchild_callback = nullptr;
-        qgraphicsview_focusoutevent_callback = nullptr;
-        qgraphicsview_keypressevent_callback = nullptr;
-        qgraphicsview_keyreleaseevent_callback = nullptr;
-        qgraphicsview_mousedoubleclickevent_callback = nullptr;
-        qgraphicsview_mousepressevent_callback = nullptr;
-        qgraphicsview_mousemoveevent_callback = nullptr;
-        qgraphicsview_mousereleaseevent_callback = nullptr;
-        qgraphicsview_wheelevent_callback = nullptr;
-        qgraphicsview_paintevent_callback = nullptr;
-        qgraphicsview_resizeevent_callback = nullptr;
-        qgraphicsview_scrollcontentsby_callback = nullptr;
-        qgraphicsview_showevent_callback = nullptr;
-        qgraphicsview_inputmethodevent_callback = nullptr;
-        qgraphicsview_drawbackground_callback = nullptr;
-        qgraphicsview_drawforeground_callback = nullptr;
-        qgraphicsview_drawitems_callback = nullptr;
-        qgraphicsview_minimumsizehint_callback = nullptr;
-        qgraphicsview_eventfilter_callback = nullptr;
-        qgraphicsview_viewportsizehint_callback = nullptr;
-        qgraphicsview_changeevent_callback = nullptr;
-        qgraphicsview_initstyleoption_callback = nullptr;
-        qgraphicsview_devtype_callback = nullptr;
-        qgraphicsview_setvisible_callback = nullptr;
-        qgraphicsview_heightforwidth_callback = nullptr;
-        qgraphicsview_hasheightforwidth_callback = nullptr;
-        qgraphicsview_paintengine_callback = nullptr;
-        qgraphicsview_enterevent_callback = nullptr;
-        qgraphicsview_leaveevent_callback = nullptr;
-        qgraphicsview_moveevent_callback = nullptr;
-        qgraphicsview_closeevent_callback = nullptr;
-        qgraphicsview_tabletevent_callback = nullptr;
-        qgraphicsview_actionevent_callback = nullptr;
-        qgraphicsview_hideevent_callback = nullptr;
-        qgraphicsview_nativeevent_callback = nullptr;
-        qgraphicsview_metric_callback = nullptr;
-        qgraphicsview_initpainter_callback = nullptr;
-        qgraphicsview_redirected_callback = nullptr;
-        qgraphicsview_sharedpainter_callback = nullptr;
-        qgraphicsview_timerevent_callback = nullptr;
-        qgraphicsview_childevent_callback = nullptr;
-        qgraphicsview_customevent_callback = nullptr;
-        qgraphicsview_connectnotify_callback = nullptr;
-        qgraphicsview_disconnectnotify_callback = nullptr;
-        qgraphicsview_setviewportmargins_callback = nullptr;
-        qgraphicsview_viewportmargins_callback = nullptr;
-        qgraphicsview_drawframe_callback = nullptr;
-        qgraphicsview_updatemicrofocus_callback = nullptr;
-        qgraphicsview_create_callback = nullptr;
-        qgraphicsview_destroy_callback = nullptr;
-        qgraphicsview_focusnextchild_callback = nullptr;
-        qgraphicsview_focuspreviouschild_callback = nullptr;
-        qgraphicsview_sender_callback = nullptr;
-        qgraphicsview_sendersignalindex_callback = nullptr;
-        qgraphicsview_receivers_callback = nullptr;
-        qgraphicsview_issignalconnected_callback = nullptr;
-        qgraphicsview_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsView_MetaObject_Callback(QGraphicsView_MetaObject_Callback cb) { qgraphicsview_metaobject_callback = cb; }
     inline void setQGraphicsView_Metacast_Callback(QGraphicsView_Metacast_Callback cb) { qgraphicsview_metacast_callback = cb; }
@@ -467,12 +393,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_metaobject_isbase) {
             qgraphicsview_metaobject_isbase = false;
             return QGraphicsView::metaObject();
-        } else if (qgraphicsview_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicsview_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsView::metaObject();
         }
+        auto metaobject_cb = qgraphicsview_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsView::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,14 +407,15 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_metacast_isbase) {
             qgraphicsview_metacast_isbase = false;
             return QGraphicsView::qt_metacast(param1);
-        } else if (qgraphicsview_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicsview_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicsview_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsView::qt_metacast(param1);
         }
+        return QGraphicsView::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,16 +423,17 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_metacall_isbase) {
             qgraphicsview_metacall_isbase = false;
             return QGraphicsView::qt_metacall(param1, param2, param3);
-        } else if (qgraphicsview_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicsview_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicsview_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsView::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsView::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,12 +441,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_sizehint_isbase) {
             qgraphicsview_sizehint_isbase = false;
             return QGraphicsView::sizeHint();
-        } else if (qgraphicsview_sizehint_callback != nullptr) {
-            QSize* callback_ret = qgraphicsview_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsView::sizeHint();
         }
+        auto sizehint_cb = qgraphicsview_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QGraphicsView::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,14 +455,15 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_inputmethodquery_isbase) {
             qgraphicsview_inputmethodquery_isbase = false;
             return QGraphicsView::inputMethodQuery(query);
-        } else if (qgraphicsview_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicsview_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicsview_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsView::inputMethodQuery(query);
         }
+        return QGraphicsView::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,13 +471,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_setupviewport_isbase) {
             qgraphicsview_setupviewport_isbase = false;
             QGraphicsView::setupViewport(widget);
-        } else if (qgraphicsview_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = qgraphicsview_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = widget;
 
-            qgraphicsview_setupviewport_callback(this, cbval1);
-        } else {
-            QGraphicsView::setupViewport(widget);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::setupViewport(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,14 +488,15 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_event_isbase) {
             qgraphicsview_event_isbase = false;
             return QGraphicsView::event(event);
-        } else if (qgraphicsview_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicsview_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsview_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsView::event(event);
         }
+        return QGraphicsView::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,14 +504,15 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_viewportevent_isbase) {
             qgraphicsview_viewportevent_isbase = false;
             return QGraphicsView::viewportEvent(event);
-        } else if (qgraphicsview_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = qgraphicsview_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsview_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsView::viewportEvent(event);
         }
+        return QGraphicsView::viewportEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,13 +520,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_contextmenuevent_isbase) {
             qgraphicsview_contextmenuevent_isbase = false;
             QGraphicsView::contextMenuEvent(event);
-        } else if (qgraphicsview_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicsview_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qgraphicsview_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,13 +537,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_dragenterevent_isbase) {
             qgraphicsview_dragenterevent_isbase = false;
             QGraphicsView::dragEnterEvent(event);
-        } else if (qgraphicsview_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicsview_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qgraphicsview_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,13 +554,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_dragleaveevent_isbase) {
             qgraphicsview_dragleaveevent_isbase = false;
             QGraphicsView::dragLeaveEvent(event);
-        } else if (qgraphicsview_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicsview_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qgraphicsview_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,13 +571,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_dragmoveevent_isbase) {
             qgraphicsview_dragmoveevent_isbase = false;
             QGraphicsView::dragMoveEvent(event);
-        } else if (qgraphicsview_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicsview_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qgraphicsview_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,13 +588,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_dropevent_isbase) {
             qgraphicsview_dropevent_isbase = false;
             QGraphicsView::dropEvent(event);
-        } else if (qgraphicsview_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicsview_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qgraphicsview_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,13 +605,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_focusinevent_isbase) {
             qgraphicsview_focusinevent_isbase = false;
             QGraphicsView::focusInEvent(event);
-        } else if (qgraphicsview_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicsview_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsview_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,14 +622,15 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_focusnextprevchild_isbase) {
             qgraphicsview_focusnextprevchild_isbase = false;
             return QGraphicsView::focusNextPrevChild(next);
-        } else if (qgraphicsview_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qgraphicsview_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qgraphicsview_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsView::focusNextPrevChild(next);
         }
+        return QGraphicsView::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,13 +638,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_focusoutevent_isbase) {
             qgraphicsview_focusoutevent_isbase = false;
             QGraphicsView::focusOutEvent(event);
-        } else if (qgraphicsview_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicsview_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsview_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -697,13 +655,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_keypressevent_isbase) {
             qgraphicsview_keypressevent_isbase = false;
             QGraphicsView::keyPressEvent(event);
-        } else if (qgraphicsview_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicsview_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsview_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,13 +672,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_keyreleaseevent_isbase) {
             qgraphicsview_keyreleaseevent_isbase = false;
             QGraphicsView::keyReleaseEvent(event);
-        } else if (qgraphicsview_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicsview_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsview_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -725,13 +689,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_mousedoubleclickevent_isbase) {
             qgraphicsview_mousedoubleclickevent_isbase = false;
             QGraphicsView::mouseDoubleClickEvent(event);
-        } else if (qgraphicsview_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicsview_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qgraphicsview_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,13 +706,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_mousepressevent_isbase) {
             qgraphicsview_mousepressevent_isbase = false;
             QGraphicsView::mousePressEvent(event);
-        } else if (qgraphicsview_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicsview_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qgraphicsview_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -753,13 +723,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_mousemoveevent_isbase) {
             qgraphicsview_mousemoveevent_isbase = false;
             QGraphicsView::mouseMoveEvent(event);
-        } else if (qgraphicsview_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicsview_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qgraphicsview_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -767,13 +740,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_mousereleaseevent_isbase) {
             qgraphicsview_mousereleaseevent_isbase = false;
             QGraphicsView::mouseReleaseEvent(event);
-        } else if (qgraphicsview_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicsview_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qgraphicsview_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,13 +757,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_wheelevent_isbase) {
             qgraphicsview_wheelevent_isbase = false;
             QGraphicsView::wheelEvent(event);
-        } else if (qgraphicsview_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicsview_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qgraphicsview_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,13 +774,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_paintevent_isbase) {
             qgraphicsview_paintevent_isbase = false;
             QGraphicsView::paintEvent(event);
-        } else if (qgraphicsview_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qgraphicsview_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qgraphicsview_paintevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,13 +791,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_resizeevent_isbase) {
             qgraphicsview_resizeevent_isbase = false;
             QGraphicsView::resizeEvent(event);
-        } else if (qgraphicsview_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qgraphicsview_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qgraphicsview_resizeevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,14 +808,17 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_scrollcontentsby_isbase) {
             qgraphicsview_scrollcontentsby_isbase = false;
             QGraphicsView::scrollContentsBy(dx, dy);
-        } else if (qgraphicsview_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = qgraphicsview_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qgraphicsview_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsView::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsView::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,13 +826,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_showevent_isbase) {
             qgraphicsview_showevent_isbase = false;
             QGraphicsView::showEvent(event);
-        } else if (qgraphicsview_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qgraphicsview_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qgraphicsview_showevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,13 +843,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_inputmethodevent_isbase) {
             qgraphicsview_inputmethodevent_isbase = false;
             QGraphicsView::inputMethodEvent(event);
-        } else if (qgraphicsview_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicsview_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicsview_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,16 +860,19 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_drawbackground_isbase) {
             qgraphicsview_drawbackground_isbase = false;
             QGraphicsView::drawBackground(painter, rect);
-        } else if (qgraphicsview_drawbackground_callback != nullptr) {
+            return;
+        }
+        auto drawbackground_cb = qgraphicsview_drawbackground_callback;
+        if (drawbackground_cb) {
             QPainter* cbval1 = painter;
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
 
-            qgraphicsview_drawbackground_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsView::drawBackground(painter, rect);
+            drawbackground_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsView::drawBackground(painter, rect);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -883,16 +880,19 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_drawforeground_isbase) {
             qgraphicsview_drawforeground_isbase = false;
             QGraphicsView::drawForeground(painter, rect);
-        } else if (qgraphicsview_drawforeground_callback != nullptr) {
+            return;
+        }
+        auto drawforeground_cb = qgraphicsview_drawforeground_callback;
+        if (drawforeground_cb) {
             QPainter* cbval1 = painter;
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
 
-            qgraphicsview_drawforeground_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsView::drawForeground(painter, rect);
+            drawforeground_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsView::drawForeground(painter, rect);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -900,16 +900,19 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_drawitems_isbase) {
             qgraphicsview_drawitems_isbase = false;
             QGraphicsView::drawItems(painter, numItems, items, options);
-        } else if (qgraphicsview_drawitems_callback != nullptr) {
+            return;
+        }
+        auto drawitems_cb = qgraphicsview_drawitems_callback;
+        if (drawitems_cb) {
             QPainter* cbval1 = painter;
             int cbval2 = numItems;
             QGraphicsItem** cbval3 = items;
             QStyleOptionGraphicsItem* cbval4 = (QStyleOptionGraphicsItem*)options;
 
-            qgraphicsview_drawitems_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QGraphicsView::drawItems(painter, numItems, items, options);
+            drawitems_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QGraphicsView::drawItems(painter, numItems, items, options);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -917,12 +920,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_minimumsizehint_isbase) {
             qgraphicsview_minimumsizehint_isbase = false;
             return QGraphicsView::minimumSizeHint();
-        } else if (qgraphicsview_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qgraphicsview_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsView::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qgraphicsview_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QGraphicsView::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,15 +934,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_eventfilter_isbase) {
             qgraphicsview_eventfilter_isbase = false;
             return QGraphicsView::eventFilter(param1, param2);
-        } else if (qgraphicsview_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicsview_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qgraphicsview_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsView::eventFilter(param1, param2);
         }
+        return QGraphicsView::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -946,12 +951,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_viewportsizehint_isbase) {
             qgraphicsview_viewportsizehint_isbase = false;
             return QGraphicsView::viewportSizeHint();
-        } else if (qgraphicsview_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = qgraphicsview_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsView::viewportSizeHint();
         }
+        auto viewportsizehint_cb = qgraphicsview_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return QGraphicsView::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -959,13 +965,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_changeevent_isbase) {
             qgraphicsview_changeevent_isbase = false;
             QGraphicsView::changeEvent(param1);
-        } else if (qgraphicsview_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qgraphicsview_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qgraphicsview_changeevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -973,13 +982,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_initstyleoption_isbase) {
             qgraphicsview_initstyleoption_isbase = false;
             QGraphicsView::initStyleOption(option);
-        } else if (qgraphicsview_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qgraphicsview_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qgraphicsview_initstyleoption_callback(this, cbval1);
-        } else {
-            QGraphicsView::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -987,12 +999,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_devtype_isbase) {
             qgraphicsview_devtype_isbase = false;
             return QGraphicsView::devType();
-        } else if (qgraphicsview_devtype_callback != nullptr) {
-            int callback_ret = qgraphicsview_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsView::devType();
         }
+        auto devtype_cb = qgraphicsview_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsView::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,13 +1013,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_setvisible_isbase) {
             qgraphicsview_setvisible_isbase = false;
             QGraphicsView::setVisible(visible);
-        } else if (qgraphicsview_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qgraphicsview_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qgraphicsview_setvisible_callback(this, cbval1);
-        } else {
-            QGraphicsView::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,14 +1030,15 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_heightforwidth_isbase) {
             qgraphicsview_heightforwidth_isbase = false;
             return QGraphicsView::heightForWidth(param1);
-        } else if (qgraphicsview_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qgraphicsview_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qgraphicsview_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsView::heightForWidth(param1);
         }
+        return QGraphicsView::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,12 +1046,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_hasheightforwidth_isbase) {
             qgraphicsview_hasheightforwidth_isbase = false;
             return QGraphicsView::hasHeightForWidth();
-        } else if (qgraphicsview_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qgraphicsview_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsView::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qgraphicsview_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QGraphicsView::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1042,12 +1060,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_paintengine_isbase) {
             qgraphicsview_paintengine_isbase = false;
             return QGraphicsView::paintEngine();
-        } else if (qgraphicsview_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qgraphicsview_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsView::paintEngine();
         }
+        auto paintengine_cb = qgraphicsview_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QGraphicsView::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,13 +1074,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_enterevent_isbase) {
             qgraphicsview_enterevent_isbase = false;
             QGraphicsView::enterEvent(event);
-        } else if (qgraphicsview_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qgraphicsview_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qgraphicsview_enterevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1069,13 +1091,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_leaveevent_isbase) {
             qgraphicsview_leaveevent_isbase = false;
             QGraphicsView::leaveEvent(event);
-        } else if (qgraphicsview_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qgraphicsview_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicsview_leaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1083,13 +1108,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_moveevent_isbase) {
             qgraphicsview_moveevent_isbase = false;
             QGraphicsView::moveEvent(event);
-        } else if (qgraphicsview_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qgraphicsview_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qgraphicsview_moveevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1097,13 +1125,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_closeevent_isbase) {
             qgraphicsview_closeevent_isbase = false;
             QGraphicsView::closeEvent(event);
-        } else if (qgraphicsview_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qgraphicsview_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qgraphicsview_closeevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1111,13 +1142,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_tabletevent_isbase) {
             qgraphicsview_tabletevent_isbase = false;
             QGraphicsView::tabletEvent(event);
-        } else if (qgraphicsview_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qgraphicsview_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qgraphicsview_tabletevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1125,13 +1159,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_actionevent_isbase) {
             qgraphicsview_actionevent_isbase = false;
             QGraphicsView::actionEvent(event);
-        } else if (qgraphicsview_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qgraphicsview_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qgraphicsview_actionevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1139,13 +1176,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_hideevent_isbase) {
             qgraphicsview_hideevent_isbase = false;
             QGraphicsView::hideEvent(event);
-        } else if (qgraphicsview_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qgraphicsview_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qgraphicsview_hideevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,7 +1193,9 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_nativeevent_isbase) {
             qgraphicsview_nativeevent_isbase = false;
             return QGraphicsView::nativeEvent(eventType, message, result);
-        } else if (qgraphicsview_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qgraphicsview_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1164,12 +1206,11 @@ class VirtualQGraphicsView final : public QGraphicsView {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qgraphicsview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QGraphicsView::nativeEvent(eventType, message, result);
         }
+        return QGraphicsView::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1177,14 +1218,15 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_metric_isbase) {
             qgraphicsview_metric_isbase = false;
             return QGraphicsView::metric(param1);
-        } else if (qgraphicsview_metric_callback != nullptr) {
+        }
+        auto metric_cb = qgraphicsview_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qgraphicsview_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsView::metric(param1);
         }
+        return QGraphicsView::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1192,13 +1234,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_initpainter_isbase) {
             qgraphicsview_initpainter_isbase = false;
             QGraphicsView::initPainter(painter);
-        } else if (qgraphicsview_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qgraphicsview_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicsview_initpainter_callback(this, cbval1);
-        } else {
-            QGraphicsView::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,14 +1251,15 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_redirected_isbase) {
             qgraphicsview_redirected_isbase = false;
             return QGraphicsView::redirected(offset);
-        } else if (qgraphicsview_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qgraphicsview_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qgraphicsview_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsView::redirected(offset);
         }
+        return QGraphicsView::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,12 +1267,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_sharedpainter_isbase) {
             qgraphicsview_sharedpainter_isbase = false;
             return QGraphicsView::sharedPainter();
-        } else if (qgraphicsview_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qgraphicsview_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsView::sharedPainter();
         }
+        auto sharedpainter_cb = qgraphicsview_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QGraphicsView::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,13 +1281,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_timerevent_isbase) {
             qgraphicsview_timerevent_isbase = false;
             QGraphicsView::timerEvent(event);
-        } else if (qgraphicsview_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicsview_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicsview_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1248,13 +1298,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_childevent_isbase) {
             qgraphicsview_childevent_isbase = false;
             QGraphicsView::childEvent(event);
-        } else if (qgraphicsview_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicsview_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicsview_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1262,13 +1315,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_customevent_isbase) {
             qgraphicsview_customevent_isbase = false;
             QGraphicsView::customEvent(event);
-        } else if (qgraphicsview_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicsview_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicsview_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsView::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1276,15 +1332,18 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_connectnotify_isbase) {
             qgraphicsview_connectnotify_isbase = false;
             QGraphicsView::connectNotify(signal);
-        } else if (qgraphicsview_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicsview_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsview_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsView::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1292,15 +1351,18 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_disconnectnotify_isbase) {
             qgraphicsview_disconnectnotify_isbase = false;
             QGraphicsView::disconnectNotify(signal);
-        } else if (qgraphicsview_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicsview_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsview_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsView::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,16 +1370,19 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_setviewportmargins_isbase) {
             qgraphicsview_setviewportmargins_isbase = false;
             QGraphicsView::setViewportMargins(left, top, right, bottom);
-        } else if (qgraphicsview_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = qgraphicsview_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            qgraphicsview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QGraphicsView::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QGraphicsView::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1325,12 +1390,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_viewportmargins_isbase) {
             qgraphicsview_viewportmargins_isbase = false;
             return QGraphicsView::viewportMargins();
-        } else if (qgraphicsview_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = qgraphicsview_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsView::viewportMargins();
         }
+        auto viewportmargins_cb = qgraphicsview_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return QGraphicsView::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1338,13 +1404,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_drawframe_isbase) {
             qgraphicsview_drawframe_isbase = false;
             QGraphicsView::drawFrame(param1);
-        } else if (qgraphicsview_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qgraphicsview_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qgraphicsview_drawframe_callback(this, cbval1);
-        } else {
-            QGraphicsView::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QGraphicsView::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1352,11 +1421,14 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_updatemicrofocus_isbase) {
             qgraphicsview_updatemicrofocus_isbase = false;
             QGraphicsView::updateMicroFocus();
-        } else if (qgraphicsview_updatemicrofocus_callback != nullptr) {
-            qgraphicsview_updatemicrofocus_callback();
-        } else {
-            QGraphicsView::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicsview_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsView::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1364,11 +1436,14 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_create_isbase) {
             qgraphicsview_create_isbase = false;
             QGraphicsView::create();
-        } else if (qgraphicsview_create_callback != nullptr) {
-            qgraphicsview_create_callback();
-        } else {
-            QGraphicsView::create();
+            return;
         }
+        auto create_cb = qgraphicsview_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QGraphicsView::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1376,11 +1451,14 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_destroy_isbase) {
             qgraphicsview_destroy_isbase = false;
             QGraphicsView::destroy();
-        } else if (qgraphicsview_destroy_callback != nullptr) {
-            qgraphicsview_destroy_callback();
-        } else {
-            QGraphicsView::destroy();
+            return;
         }
+        auto destroy_cb = qgraphicsview_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QGraphicsView::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1388,12 +1466,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_focusnextchild_isbase) {
             qgraphicsview_focusnextchild_isbase = false;
             return QGraphicsView::focusNextChild();
-        } else if (qgraphicsview_focusnextchild_callback != nullptr) {
-            bool callback_ret = qgraphicsview_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsView::focusNextChild();
         }
+        auto focusnextchild_cb = qgraphicsview_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QGraphicsView::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1401,12 +1480,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_focuspreviouschild_isbase) {
             qgraphicsview_focuspreviouschild_isbase = false;
             return QGraphicsView::focusPreviousChild();
-        } else if (qgraphicsview_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qgraphicsview_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsView::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qgraphicsview_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QGraphicsView::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1414,12 +1494,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_sender_isbase) {
             qgraphicsview_sender_isbase = false;
             return QGraphicsView::sender();
-        } else if (qgraphicsview_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicsview_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsView::sender();
         }
+        auto sender_cb = qgraphicsview_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsView::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1427,12 +1508,13 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_sendersignalindex_isbase) {
             qgraphicsview_sendersignalindex_isbase = false;
             return QGraphicsView::senderSignalIndex();
-        } else if (qgraphicsview_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicsview_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsView::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicsview_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsView::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1440,14 +1522,15 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_receivers_isbase) {
             qgraphicsview_receivers_isbase = false;
             return QGraphicsView::receivers(signal);
-        } else if (qgraphicsview_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicsview_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicsview_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsView::receivers(signal);
         }
+        return QGraphicsView::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1455,16 +1538,17 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_issignalconnected_isbase) {
             qgraphicsview_issignalconnected_isbase = false;
             return QGraphicsView::isSignalConnected(signal);
-        } else if (qgraphicsview_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicsview_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicsview_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsView::isSignalConnected(signal);
         }
+        return QGraphicsView::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1472,15 +1556,16 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (qgraphicsview_getdecodedmetricf_isbase) {
             qgraphicsview_getdecodedmetricf_isbase = false;
             return QGraphicsView::getDecodedMetricF(metricA, metricB);
-        } else if (qgraphicsview_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qgraphicsview_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qgraphicsview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QGraphicsView::getDecodedMetricF(metricA, metricB);
         }
+        return QGraphicsView::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

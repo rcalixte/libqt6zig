@@ -83,27 +83,6 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
     VirtualQPauseAnimation(QObject* parent) : QPauseAnimation(parent) {};
     VirtualQPauseAnimation(int msecs, QObject* parent) : QPauseAnimation(msecs, parent) {};
 
-    ~VirtualQPauseAnimation() {
-        qpauseanimation_metaobject_callback = nullptr;
-        qpauseanimation_metacast_callback = nullptr;
-        qpauseanimation_metacall_callback = nullptr;
-        qpauseanimation_duration_callback = nullptr;
-        qpauseanimation_event_callback = nullptr;
-        qpauseanimation_updatecurrenttime_callback = nullptr;
-        qpauseanimation_updatestate_callback = nullptr;
-        qpauseanimation_updatedirection_callback = nullptr;
-        qpauseanimation_eventfilter_callback = nullptr;
-        qpauseanimation_timerevent_callback = nullptr;
-        qpauseanimation_childevent_callback = nullptr;
-        qpauseanimation_customevent_callback = nullptr;
-        qpauseanimation_connectnotify_callback = nullptr;
-        qpauseanimation_disconnectnotify_callback = nullptr;
-        qpauseanimation_sender_callback = nullptr;
-        qpauseanimation_sendersignalindex_callback = nullptr;
-        qpauseanimation_receivers_callback = nullptr;
-        qpauseanimation_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPauseAnimation_MetaObject_Callback(QPauseAnimation_MetaObject_Callback cb) { qpauseanimation_metaobject_callback = cb; }
     inline void setQPauseAnimation_Metacast_Callback(QPauseAnimation_Metacast_Callback cb) { qpauseanimation_metacast_callback = cb; }
@@ -149,12 +128,13 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_metaobject_isbase) {
             qpauseanimation_metaobject_isbase = false;
             return QPauseAnimation::metaObject();
-        } else if (qpauseanimation_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qpauseanimation_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPauseAnimation::metaObject();
         }
+        auto metaobject_cb = qpauseanimation_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPauseAnimation::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -162,14 +142,15 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_metacast_isbase) {
             qpauseanimation_metacast_isbase = false;
             return QPauseAnimation::qt_metacast(param1);
-        } else if (qpauseanimation_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qpauseanimation_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qpauseanimation_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPauseAnimation::qt_metacast(param1);
         }
+        return QPauseAnimation::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -177,16 +158,17 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_metacall_isbase) {
             qpauseanimation_metacall_isbase = false;
             return QPauseAnimation::qt_metacall(param1, param2, param3);
-        } else if (qpauseanimation_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qpauseanimation_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qpauseanimation_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPauseAnimation::qt_metacall(param1, param2, param3);
         }
+        return QPauseAnimation::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,12 +176,13 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_duration_isbase) {
             qpauseanimation_duration_isbase = false;
             return QPauseAnimation::duration();
-        } else if (qpauseanimation_duration_callback != nullptr) {
-            int callback_ret = qpauseanimation_duration_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPauseAnimation::duration();
         }
+        auto duration_cb = qpauseanimation_duration_callback;
+        if (duration_cb) {
+            int callback_ret = duration_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPauseAnimation::duration();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -207,14 +190,15 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_event_isbase) {
             qpauseanimation_event_isbase = false;
             return QPauseAnimation::event(e);
-        } else if (qpauseanimation_event_callback != nullptr) {
+        }
+        auto event_cb = qpauseanimation_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qpauseanimation_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPauseAnimation::event(e);
         }
+        return QPauseAnimation::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -222,13 +206,16 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_updatecurrenttime_isbase) {
             qpauseanimation_updatecurrenttime_isbase = false;
             QPauseAnimation::updateCurrentTime(param1);
-        } else if (qpauseanimation_updatecurrenttime_callback != nullptr) {
+            return;
+        }
+        auto updatecurrenttime_cb = qpauseanimation_updatecurrenttime_callback;
+        if (updatecurrenttime_cb) {
             int cbval1 = param1;
 
-            qpauseanimation_updatecurrenttime_callback(this, cbval1);
-        } else {
-            QPauseAnimation::updateCurrentTime(param1);
+            updatecurrenttime_cb(this, cbval1);
+            return;
         }
+        QPauseAnimation::updateCurrentTime(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -236,14 +223,17 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_updatestate_isbase) {
             qpauseanimation_updatestate_isbase = false;
             QPauseAnimation::updateState(newState, oldState);
-        } else if (qpauseanimation_updatestate_callback != nullptr) {
+            return;
+        }
+        auto updatestate_cb = qpauseanimation_updatestate_callback;
+        if (updatestate_cb) {
             int cbval1 = static_cast<int>(newState);
             int cbval2 = static_cast<int>(oldState);
 
-            qpauseanimation_updatestate_callback(this, cbval1, cbval2);
-        } else {
-            QPauseAnimation::updateState(newState, oldState);
+            updatestate_cb(this, cbval1, cbval2);
+            return;
         }
+        QPauseAnimation::updateState(newState, oldState);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -251,13 +241,16 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_updatedirection_isbase) {
             qpauseanimation_updatedirection_isbase = false;
             QPauseAnimation::updateDirection(direction);
-        } else if (qpauseanimation_updatedirection_callback != nullptr) {
+            return;
+        }
+        auto updatedirection_cb = qpauseanimation_updatedirection_callback;
+        if (updatedirection_cb) {
             int cbval1 = static_cast<int>(direction);
 
-            qpauseanimation_updatedirection_callback(this, cbval1);
-        } else {
-            QPauseAnimation::updateDirection(direction);
+            updatedirection_cb(this, cbval1);
+            return;
         }
+        QPauseAnimation::updateDirection(direction);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,15 +258,16 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_eventfilter_isbase) {
             qpauseanimation_eventfilter_isbase = false;
             return QPauseAnimation::eventFilter(watched, event);
-        } else if (qpauseanimation_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qpauseanimation_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qpauseanimation_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPauseAnimation::eventFilter(watched, event);
         }
+        return QPauseAnimation::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -281,13 +275,16 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_timerevent_isbase) {
             qpauseanimation_timerevent_isbase = false;
             QPauseAnimation::timerEvent(event);
-        } else if (qpauseanimation_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qpauseanimation_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qpauseanimation_timerevent_callback(this, cbval1);
-        } else {
-            QPauseAnimation::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPauseAnimation::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,13 +292,16 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_childevent_isbase) {
             qpauseanimation_childevent_isbase = false;
             QPauseAnimation::childEvent(event);
-        } else if (qpauseanimation_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qpauseanimation_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qpauseanimation_childevent_callback(this, cbval1);
-        } else {
-            QPauseAnimation::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPauseAnimation::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -309,13 +309,16 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_customevent_isbase) {
             qpauseanimation_customevent_isbase = false;
             QPauseAnimation::customEvent(event);
-        } else if (qpauseanimation_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qpauseanimation_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qpauseanimation_customevent_callback(this, cbval1);
-        } else {
-            QPauseAnimation::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPauseAnimation::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -323,15 +326,18 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_connectnotify_isbase) {
             qpauseanimation_connectnotify_isbase = false;
             QPauseAnimation::connectNotify(signal);
-        } else if (qpauseanimation_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qpauseanimation_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpauseanimation_connectnotify_callback(this, cbval1);
-        } else {
-            QPauseAnimation::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPauseAnimation::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,15 +345,18 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_disconnectnotify_isbase) {
             qpauseanimation_disconnectnotify_isbase = false;
             QPauseAnimation::disconnectNotify(signal);
-        } else if (qpauseanimation_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qpauseanimation_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpauseanimation_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPauseAnimation::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPauseAnimation::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -355,12 +364,13 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_sender_isbase) {
             qpauseanimation_sender_isbase = false;
             return QPauseAnimation::sender();
-        } else if (qpauseanimation_sender_callback != nullptr) {
-            QObject* callback_ret = qpauseanimation_sender_callback();
-            return callback_ret;
-        } else {
-            return QPauseAnimation::sender();
         }
+        auto sender_cb = qpauseanimation_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPauseAnimation::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -368,12 +378,13 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_sendersignalindex_isbase) {
             qpauseanimation_sendersignalindex_isbase = false;
             return QPauseAnimation::senderSignalIndex();
-        } else if (qpauseanimation_sendersignalindex_callback != nullptr) {
-            int callback_ret = qpauseanimation_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPauseAnimation::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qpauseanimation_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPauseAnimation::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -381,14 +392,15 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_receivers_isbase) {
             qpauseanimation_receivers_isbase = false;
             return QPauseAnimation::receivers(signal);
-        } else if (qpauseanimation_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qpauseanimation_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qpauseanimation_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPauseAnimation::receivers(signal);
         }
+        return QPauseAnimation::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -396,16 +408,17 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
         if (qpauseanimation_issignalconnected_isbase) {
             qpauseanimation_issignalconnected_isbase = false;
             return QPauseAnimation::isSignalConnected(signal);
-        } else if (qpauseanimation_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qpauseanimation_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qpauseanimation_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPauseAnimation::isSignalConnected(signal);
         }
+        return QPauseAnimation::isSignalConnected(signal);
     }
 
     // Friend functions

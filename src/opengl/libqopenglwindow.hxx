@@ -181,59 +181,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
     VirtualQOpenGLWindow(QOpenGLContext* shareContext, QOpenGLWindow::UpdateBehavior updateBehavior) : QOpenGLWindow(shareContext, updateBehavior) {};
     VirtualQOpenGLWindow(QOpenGLContext* shareContext, QOpenGLWindow::UpdateBehavior updateBehavior, QWindow* parent) : QOpenGLWindow(shareContext, updateBehavior, parent) {};
 
-    ~VirtualQOpenGLWindow() {
-        qopenglwindow_metaobject_callback = nullptr;
-        qopenglwindow_metacast_callback = nullptr;
-        qopenglwindow_metacall_callback = nullptr;
-        qopenglwindow_initializegl_callback = nullptr;
-        qopenglwindow_resizegl_callback = nullptr;
-        qopenglwindow_paintgl_callback = nullptr;
-        qopenglwindow_paintundergl_callback = nullptr;
-        qopenglwindow_paintovergl_callback = nullptr;
-        qopenglwindow_paintevent_callback = nullptr;
-        qopenglwindow_resizeevent_callback = nullptr;
-        qopenglwindow_metric_callback = nullptr;
-        qopenglwindow_redirected_callback = nullptr;
-        qopenglwindow_exposeevent_callback = nullptr;
-        qopenglwindow_event_callback = nullptr;
-        qopenglwindow_surfacetype_callback = nullptr;
-        qopenglwindow_format_callback = nullptr;
-        qopenglwindow_size_callback = nullptr;
-        qopenglwindow_accessibleroot_callback = nullptr;
-        qopenglwindow_focusobject_callback = nullptr;
-        qopenglwindow_moveevent_callback = nullptr;
-        qopenglwindow_focusinevent_callback = nullptr;
-        qopenglwindow_focusoutevent_callback = nullptr;
-        qopenglwindow_showevent_callback = nullptr;
-        qopenglwindow_hideevent_callback = nullptr;
-        qopenglwindow_closeevent_callback = nullptr;
-        qopenglwindow_keypressevent_callback = nullptr;
-        qopenglwindow_keyreleaseevent_callback = nullptr;
-        qopenglwindow_mousepressevent_callback = nullptr;
-        qopenglwindow_mousereleaseevent_callback = nullptr;
-        qopenglwindow_mousedoubleclickevent_callback = nullptr;
-        qopenglwindow_mousemoveevent_callback = nullptr;
-        qopenglwindow_wheelevent_callback = nullptr;
-        qopenglwindow_touchevent_callback = nullptr;
-        qopenglwindow_tabletevent_callback = nullptr;
-        qopenglwindow_nativeevent_callback = nullptr;
-        qopenglwindow_eventfilter_callback = nullptr;
-        qopenglwindow_timerevent_callback = nullptr;
-        qopenglwindow_childevent_callback = nullptr;
-        qopenglwindow_customevent_callback = nullptr;
-        qopenglwindow_connectnotify_callback = nullptr;
-        qopenglwindow_disconnectnotify_callback = nullptr;
-        qopenglwindow_devtype_callback = nullptr;
-        qopenglwindow_initpainter_callback = nullptr;
-        qopenglwindow_sharedpainter_callback = nullptr;
-        qopenglwindow_resolveinterface_callback = nullptr;
-        qopenglwindow_sender_callback = nullptr;
-        qopenglwindow_sendersignalindex_callback = nullptr;
-        qopenglwindow_receivers_callback = nullptr;
-        qopenglwindow_issignalconnected_callback = nullptr;
-        qopenglwindow_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQOpenGLWindow_MetaObject_Callback(QOpenGLWindow_MetaObject_Callback cb) { qopenglwindow_metaobject_callback = cb; }
     inline void setQOpenGLWindow_Metacast_Callback(QOpenGLWindow_Metacast_Callback cb) { qopenglwindow_metacast_callback = cb; }
@@ -343,12 +290,13 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_metaobject_isbase) {
             qopenglwindow_metaobject_isbase = false;
             return QOpenGLWindow::metaObject();
-        } else if (qopenglwindow_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qopenglwindow_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLWindow::metaObject();
         }
+        auto metaobject_cb = qopenglwindow_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QOpenGLWindow::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -356,14 +304,15 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_metacast_isbase) {
             qopenglwindow_metacast_isbase = false;
             return QOpenGLWindow::qt_metacast(param1);
-        } else if (qopenglwindow_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qopenglwindow_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qopenglwindow_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLWindow::qt_metacast(param1);
         }
+        return QOpenGLWindow::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -371,16 +320,17 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_metacall_isbase) {
             qopenglwindow_metacall_isbase = false;
             return QOpenGLWindow::qt_metacall(param1, param2, param3);
-        } else if (qopenglwindow_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qopenglwindow_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qopenglwindow_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLWindow::qt_metacall(param1, param2, param3);
         }
+        return QOpenGLWindow::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -388,11 +338,14 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_initializegl_isbase) {
             qopenglwindow_initializegl_isbase = false;
             QOpenGLWindow::initializeGL();
-        } else if (qopenglwindow_initializegl_callback != nullptr) {
-            qopenglwindow_initializegl_callback();
-        } else {
-            QOpenGLWindow::initializeGL();
+            return;
         }
+        auto initializegl_cb = qopenglwindow_initializegl_callback;
+        if (initializegl_cb) {
+            initializegl_cb();
+            return;
+        }
+        QOpenGLWindow::initializeGL();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -400,14 +353,17 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_resizegl_isbase) {
             qopenglwindow_resizegl_isbase = false;
             QOpenGLWindow::resizeGL(w, h);
-        } else if (qopenglwindow_resizegl_callback != nullptr) {
+            return;
+        }
+        auto resizegl_cb = qopenglwindow_resizegl_callback;
+        if (resizegl_cb) {
             int cbval1 = w;
             int cbval2 = h;
 
-            qopenglwindow_resizegl_callback(this, cbval1, cbval2);
-        } else {
-            QOpenGLWindow::resizeGL(w, h);
+            resizegl_cb(this, cbval1, cbval2);
+            return;
         }
+        QOpenGLWindow::resizeGL(w, h);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -415,11 +371,14 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_paintgl_isbase) {
             qopenglwindow_paintgl_isbase = false;
             QOpenGLWindow::paintGL();
-        } else if (qopenglwindow_paintgl_callback != nullptr) {
-            qopenglwindow_paintgl_callback();
-        } else {
-            QOpenGLWindow::paintGL();
+            return;
         }
+        auto paintgl_cb = qopenglwindow_paintgl_callback;
+        if (paintgl_cb) {
+            paintgl_cb();
+            return;
+        }
+        QOpenGLWindow::paintGL();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,11 +386,14 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_paintundergl_isbase) {
             qopenglwindow_paintundergl_isbase = false;
             QOpenGLWindow::paintUnderGL();
-        } else if (qopenglwindow_paintundergl_callback != nullptr) {
-            qopenglwindow_paintundergl_callback();
-        } else {
-            QOpenGLWindow::paintUnderGL();
+            return;
         }
+        auto paintundergl_cb = qopenglwindow_paintundergl_callback;
+        if (paintundergl_cb) {
+            paintundergl_cb();
+            return;
+        }
+        QOpenGLWindow::paintUnderGL();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,11 +401,14 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_paintovergl_isbase) {
             qopenglwindow_paintovergl_isbase = false;
             QOpenGLWindow::paintOverGL();
-        } else if (qopenglwindow_paintovergl_callback != nullptr) {
-            qopenglwindow_paintovergl_callback();
-        } else {
-            QOpenGLWindow::paintOverGL();
+            return;
         }
+        auto paintovergl_cb = qopenglwindow_paintovergl_callback;
+        if (paintovergl_cb) {
+            paintovergl_cb();
+            return;
+        }
+        QOpenGLWindow::paintOverGL();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,13 +416,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_paintevent_isbase) {
             qopenglwindow_paintevent_isbase = false;
             QOpenGLWindow::paintEvent(event);
-        } else if (qopenglwindow_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qopenglwindow_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qopenglwindow_paintevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,13 +433,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_resizeevent_isbase) {
             qopenglwindow_resizeevent_isbase = false;
             QOpenGLWindow::resizeEvent(event);
-        } else if (qopenglwindow_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qopenglwindow_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qopenglwindow_resizeevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -479,14 +450,15 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_metric_isbase) {
             qopenglwindow_metric_isbase = false;
             return QOpenGLWindow::metric(metric);
-        } else if (qopenglwindow_metric_callback != nullptr) {
+        }
+        auto metric_cb = qopenglwindow_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(metric);
 
-            int callback_ret = qopenglwindow_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLWindow::metric(metric);
         }
+        return QOpenGLWindow::metric(metric);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,14 +466,15 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_redirected_isbase) {
             qopenglwindow_redirected_isbase = false;
             return QOpenGLWindow::redirected(param1);
-        } else if (qopenglwindow_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qopenglwindow_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = param1;
 
-            QPaintDevice* callback_ret = qopenglwindow_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLWindow::redirected(param1);
         }
+        return QOpenGLWindow::redirected(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,13 +482,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_exposeevent_isbase) {
             qopenglwindow_exposeevent_isbase = false;
             QOpenGLWindow::exposeEvent(param1);
-        } else if (qopenglwindow_exposeevent_callback != nullptr) {
+            return;
+        }
+        auto exposeevent_cb = qopenglwindow_exposeevent_callback;
+        if (exposeevent_cb) {
             QExposeEvent* cbval1 = param1;
 
-            qopenglwindow_exposeevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::exposeEvent(param1);
+            exposeevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::exposeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,14 +499,15 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_event_isbase) {
             qopenglwindow_event_isbase = false;
             return QOpenGLWindow::event(event);
-        } else if (qopenglwindow_event_callback != nullptr) {
+        }
+        auto event_cb = qopenglwindow_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qopenglwindow_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLWindow::event(event);
         }
+        return QOpenGLWindow::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,12 +515,13 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_surfacetype_isbase) {
             qopenglwindow_surfacetype_isbase = false;
             return QOpenGLWindow::surfaceType();
-        } else if (qopenglwindow_surfacetype_callback != nullptr) {
-            int callback_ret = qopenglwindow_surfacetype_callback();
-            return static_cast<QSurface::SurfaceType>(callback_ret);
-        } else {
-            return QOpenGLWindow::surfaceType();
         }
+        auto surfacetype_cb = qopenglwindow_surfacetype_callback;
+        if (surfacetype_cb) {
+            int callback_ret = surfacetype_cb();
+            return static_cast<QSurface::SurfaceType>(callback_ret);
+        }
+        return QOpenGLWindow::surfaceType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,12 +529,13 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_format_isbase) {
             qopenglwindow_format_isbase = false;
             return QOpenGLWindow::format();
-        } else if (qopenglwindow_format_callback != nullptr) {
-            QSurfaceFormat* callback_ret = qopenglwindow_format_callback();
-            return *callback_ret;
-        } else {
-            return QOpenGLWindow::format();
         }
+        auto format_cb = qopenglwindow_format_callback;
+        if (format_cb) {
+            QSurfaceFormat* callback_ret = format_cb();
+            return *callback_ret;
+        }
+        return QOpenGLWindow::format();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,12 +543,13 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_size_isbase) {
             qopenglwindow_size_isbase = false;
             return QOpenGLWindow::size();
-        } else if (qopenglwindow_size_callback != nullptr) {
-            QSize* callback_ret = qopenglwindow_size_callback();
-            return *callback_ret;
-        } else {
-            return QOpenGLWindow::size();
         }
+        auto size_cb = qopenglwindow_size_callback;
+        if (size_cb) {
+            QSize* callback_ret = size_cb();
+            return *callback_ret;
+        }
+        return QOpenGLWindow::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,12 +557,13 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_accessibleroot_isbase) {
             qopenglwindow_accessibleroot_isbase = false;
             return QOpenGLWindow::accessibleRoot();
-        } else if (qopenglwindow_accessibleroot_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qopenglwindow_accessibleroot_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLWindow::accessibleRoot();
         }
+        auto accessibleroot_cb = qopenglwindow_accessibleroot_callback;
+        if (accessibleroot_cb) {
+            QAccessibleInterface* callback_ret = accessibleroot_cb();
+            return callback_ret;
+        }
+        return QOpenGLWindow::accessibleRoot();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -590,12 +571,13 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_focusobject_isbase) {
             qopenglwindow_focusobject_isbase = false;
             return QOpenGLWindow::focusObject();
-        } else if (qopenglwindow_focusobject_callback != nullptr) {
-            QObject* callback_ret = qopenglwindow_focusobject_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLWindow::focusObject();
         }
+        auto focusobject_cb = qopenglwindow_focusobject_callback;
+        if (focusobject_cb) {
+            QObject* callback_ret = focusobject_cb();
+            return callback_ret;
+        }
+        return QOpenGLWindow::focusObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -603,13 +585,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_moveevent_isbase) {
             qopenglwindow_moveevent_isbase = false;
             QOpenGLWindow::moveEvent(param1);
-        } else if (qopenglwindow_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qopenglwindow_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = param1;
 
-            qopenglwindow_moveevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::moveEvent(param1);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::moveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,13 +602,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_focusinevent_isbase) {
             qopenglwindow_focusinevent_isbase = false;
             QOpenGLWindow::focusInEvent(param1);
-        } else if (qopenglwindow_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qopenglwindow_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            qopenglwindow_focusinevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::focusInEvent(param1);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::focusInEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,13 +619,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_focusoutevent_isbase) {
             qopenglwindow_focusoutevent_isbase = false;
             QOpenGLWindow::focusOutEvent(param1);
-        } else if (qopenglwindow_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qopenglwindow_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            qopenglwindow_focusoutevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::focusOutEvent(param1);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::focusOutEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,13 +636,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_showevent_isbase) {
             qopenglwindow_showevent_isbase = false;
             QOpenGLWindow::showEvent(param1);
-        } else if (qopenglwindow_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qopenglwindow_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qopenglwindow_showevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -659,13 +653,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_hideevent_isbase) {
             qopenglwindow_hideevent_isbase = false;
             QOpenGLWindow::hideEvent(param1);
-        } else if (qopenglwindow_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qopenglwindow_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
 
-            qopenglwindow_hideevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::hideEvent(param1);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::hideEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -673,13 +670,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_closeevent_isbase) {
             qopenglwindow_closeevent_isbase = false;
             QOpenGLWindow::closeEvent(param1);
-        } else if (qopenglwindow_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qopenglwindow_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            qopenglwindow_closeevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -687,13 +687,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_keypressevent_isbase) {
             qopenglwindow_keypressevent_isbase = false;
             QOpenGLWindow::keyPressEvent(param1);
-        } else if (qopenglwindow_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qopenglwindow_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qopenglwindow_keypressevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -701,13 +704,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_keyreleaseevent_isbase) {
             qopenglwindow_keyreleaseevent_isbase = false;
             QOpenGLWindow::keyReleaseEvent(param1);
-        } else if (qopenglwindow_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qopenglwindow_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qopenglwindow_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::keyReleaseEvent(param1);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::keyReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -715,13 +721,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_mousepressevent_isbase) {
             qopenglwindow_mousepressevent_isbase = false;
             QOpenGLWindow::mousePressEvent(param1);
-        } else if (qopenglwindow_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qopenglwindow_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qopenglwindow_mousepressevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -729,13 +738,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_mousereleaseevent_isbase) {
             qopenglwindow_mousereleaseevent_isbase = false;
             QOpenGLWindow::mouseReleaseEvent(param1);
-        } else if (qopenglwindow_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qopenglwindow_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qopenglwindow_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -743,13 +755,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_mousedoubleclickevent_isbase) {
             qopenglwindow_mousedoubleclickevent_isbase = false;
             QOpenGLWindow::mouseDoubleClickEvent(param1);
-        } else if (qopenglwindow_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qopenglwindow_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qopenglwindow_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::mouseDoubleClickEvent(param1);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::mouseDoubleClickEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -757,13 +772,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_mousemoveevent_isbase) {
             qopenglwindow_mousemoveevent_isbase = false;
             QOpenGLWindow::mouseMoveEvent(param1);
-        } else if (qopenglwindow_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qopenglwindow_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qopenglwindow_mousemoveevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -771,13 +789,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_wheelevent_isbase) {
             qopenglwindow_wheelevent_isbase = false;
             QOpenGLWindow::wheelEvent(param1);
-        } else if (qopenglwindow_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qopenglwindow_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            qopenglwindow_wheelevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -785,13 +806,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_touchevent_isbase) {
             qopenglwindow_touchevent_isbase = false;
             QOpenGLWindow::touchEvent(param1);
-        } else if (qopenglwindow_touchevent_callback != nullptr) {
+            return;
+        }
+        auto touchevent_cb = qopenglwindow_touchevent_callback;
+        if (touchevent_cb) {
             QTouchEvent* cbval1 = param1;
 
-            qopenglwindow_touchevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::touchEvent(param1);
+            touchevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::touchEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,13 +823,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_tabletevent_isbase) {
             qopenglwindow_tabletevent_isbase = false;
             QOpenGLWindow::tabletEvent(param1);
-        } else if (qopenglwindow_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qopenglwindow_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = param1;
 
-            qopenglwindow_tabletevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::tabletEvent(param1);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::tabletEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -813,7 +840,9 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_nativeevent_isbase) {
             qopenglwindow_nativeevent_isbase = false;
             return QOpenGLWindow::nativeEvent(eventType, message, result);
-        } else if (qopenglwindow_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qopenglwindow_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -824,12 +853,11 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qopenglwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QOpenGLWindow::nativeEvent(eventType, message, result);
         }
+        return QOpenGLWindow::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -837,15 +865,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_eventfilter_isbase) {
             qopenglwindow_eventfilter_isbase = false;
             return QOpenGLWindow::eventFilter(watched, event);
-        } else if (qopenglwindow_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qopenglwindow_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qopenglwindow_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QOpenGLWindow::eventFilter(watched, event);
         }
+        return QOpenGLWindow::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -853,13 +882,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_timerevent_isbase) {
             qopenglwindow_timerevent_isbase = false;
             QOpenGLWindow::timerEvent(event);
-        } else if (qopenglwindow_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qopenglwindow_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qopenglwindow_timerevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,13 +899,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_childevent_isbase) {
             qopenglwindow_childevent_isbase = false;
             QOpenGLWindow::childEvent(event);
-        } else if (qopenglwindow_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qopenglwindow_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qopenglwindow_childevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -881,13 +916,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_customevent_isbase) {
             qopenglwindow_customevent_isbase = false;
             QOpenGLWindow::customEvent(event);
-        } else if (qopenglwindow_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qopenglwindow_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qopenglwindow_customevent_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -895,15 +933,18 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_connectnotify_isbase) {
             qopenglwindow_connectnotify_isbase = false;
             QOpenGLWindow::connectNotify(signal);
-        } else if (qopenglwindow_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qopenglwindow_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qopenglwindow_connectnotify_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -911,15 +952,18 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_disconnectnotify_isbase) {
             qopenglwindow_disconnectnotify_isbase = false;
             QOpenGLWindow::disconnectNotify(signal);
-        } else if (qopenglwindow_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qopenglwindow_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qopenglwindow_disconnectnotify_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,12 +971,13 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_devtype_isbase) {
             qopenglwindow_devtype_isbase = false;
             return QOpenGLWindow::devType();
-        } else if (qopenglwindow_devtype_callback != nullptr) {
-            int callback_ret = qopenglwindow_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLWindow::devType();
         }
+        auto devtype_cb = qopenglwindow_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QOpenGLWindow::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +985,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_initpainter_isbase) {
             qopenglwindow_initpainter_isbase = false;
             QOpenGLWindow::initPainter(painter);
-        } else if (qopenglwindow_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qopenglwindow_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qopenglwindow_initpainter_callback(this, cbval1);
-        } else {
-            QOpenGLWindow::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QOpenGLWindow::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,12 +1002,13 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_sharedpainter_isbase) {
             qopenglwindow_sharedpainter_isbase = false;
             return QOpenGLWindow::sharedPainter();
-        } else if (qopenglwindow_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qopenglwindow_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLWindow::sharedPainter();
         }
+        auto sharedpainter_cb = qopenglwindow_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QOpenGLWindow::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,15 +1016,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_resolveinterface_isbase) {
             qopenglwindow_resolveinterface_isbase = false;
             return QOpenGLWindow::resolveInterface(name, revision);
-        } else if (qopenglwindow_resolveinterface_callback != nullptr) {
+        }
+        auto resolveinterface_cb = qopenglwindow_resolveinterface_callback;
+        if (resolveinterface_cb) {
             const char* cbval1 = (const char*)name;
             int cbval2 = revision;
 
-            void* callback_ret = qopenglwindow_resolveinterface_callback(this, cbval1, cbval2);
+            void* callback_ret = resolveinterface_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QOpenGLWindow::resolveInterface(name, revision);
         }
+        return QOpenGLWindow::resolveInterface(name, revision);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,12 +1033,13 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_sender_isbase) {
             qopenglwindow_sender_isbase = false;
             return QOpenGLWindow::sender();
-        } else if (qopenglwindow_sender_callback != nullptr) {
-            QObject* callback_ret = qopenglwindow_sender_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLWindow::sender();
         }
+        auto sender_cb = qopenglwindow_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QOpenGLWindow::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,12 +1047,13 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_sendersignalindex_isbase) {
             qopenglwindow_sendersignalindex_isbase = false;
             return QOpenGLWindow::senderSignalIndex();
-        } else if (qopenglwindow_sendersignalindex_callback != nullptr) {
-            int callback_ret = qopenglwindow_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLWindow::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qopenglwindow_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QOpenGLWindow::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,14 +1061,15 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_receivers_isbase) {
             qopenglwindow_receivers_isbase = false;
             return QOpenGLWindow::receivers(signal);
-        } else if (qopenglwindow_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qopenglwindow_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qopenglwindow_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLWindow::receivers(signal);
         }
+        return QOpenGLWindow::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,16 +1077,17 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_issignalconnected_isbase) {
             qopenglwindow_issignalconnected_isbase = false;
             return QOpenGLWindow::isSignalConnected(signal);
-        } else if (qopenglwindow_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qopenglwindow_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qopenglwindow_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLWindow::isSignalConnected(signal);
         }
+        return QOpenGLWindow::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1041,15 +1095,16 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (qopenglwindow_getdecodedmetricf_isbase) {
             qopenglwindow_getdecodedmetricf_isbase = false;
             return QOpenGLWindow::getDecodedMetricF(metricA, metricB);
-        } else if (qopenglwindow_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qopenglwindow_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qopenglwindow_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QOpenGLWindow::getDecodedMetricF(metricA, metricB);
         }
+        return QOpenGLWindow::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

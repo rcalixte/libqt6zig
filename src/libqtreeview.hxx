@@ -414,137 +414,6 @@ class VirtualQTreeView final : public QTreeView {
     VirtualQTreeView(QWidget* parent) : QTreeView(parent) {};
     VirtualQTreeView() : QTreeView() {};
 
-    ~VirtualQTreeView() {
-        qtreeview_metaobject_callback = nullptr;
-        qtreeview_metacast_callback = nullptr;
-        qtreeview_metacall_callback = nullptr;
-        qtreeview_setmodel_callback = nullptr;
-        qtreeview_setrootindex_callback = nullptr;
-        qtreeview_setselectionmodel_callback = nullptr;
-        qtreeview_keyboardsearch_callback = nullptr;
-        qtreeview_visualrect_callback = nullptr;
-        qtreeview_scrollto_callback = nullptr;
-        qtreeview_indexat_callback = nullptr;
-        qtreeview_doitemslayout_callback = nullptr;
-        qtreeview_reset_callback = nullptr;
-        qtreeview_datachanged_callback = nullptr;
-        qtreeview_selectall_callback = nullptr;
-        qtreeview_verticalscrollbarvaluechanged_callback = nullptr;
-        qtreeview_scrollcontentsby_callback = nullptr;
-        qtreeview_rowsinserted_callback = nullptr;
-        qtreeview_rowsabouttoberemoved_callback = nullptr;
-        qtreeview_movecursor_callback = nullptr;
-        qtreeview_horizontaloffset_callback = nullptr;
-        qtreeview_verticaloffset_callback = nullptr;
-        qtreeview_setselection_callback = nullptr;
-        qtreeview_visualregionforselection_callback = nullptr;
-        qtreeview_selectedindexes_callback = nullptr;
-        qtreeview_changeevent_callback = nullptr;
-        qtreeview_timerevent_callback = nullptr;
-        qtreeview_paintevent_callback = nullptr;
-        qtreeview_drawrow_callback = nullptr;
-        qtreeview_drawbranches_callback = nullptr;
-        qtreeview_mousepressevent_callback = nullptr;
-        qtreeview_mousereleaseevent_callback = nullptr;
-        qtreeview_mousedoubleclickevent_callback = nullptr;
-        qtreeview_mousemoveevent_callback = nullptr;
-        qtreeview_keypressevent_callback = nullptr;
-        qtreeview_dragmoveevent_callback = nullptr;
-        qtreeview_viewportevent_callback = nullptr;
-        qtreeview_updategeometries_callback = nullptr;
-        qtreeview_viewportsizehint_callback = nullptr;
-        qtreeview_sizehintforcolumn_callback = nullptr;
-        qtreeview_horizontalscrollbaraction_callback = nullptr;
-        qtreeview_isindexhidden_callback = nullptr;
-        qtreeview_selectionchanged_callback = nullptr;
-        qtreeview_currentchanged_callback = nullptr;
-        qtreeview_sizehintforrow_callback = nullptr;
-        qtreeview_itemdelegateforindex_callback = nullptr;
-        qtreeview_inputmethodquery_callback = nullptr;
-        qtreeview_updateeditordata_callback = nullptr;
-        qtreeview_updateeditorgeometries_callback = nullptr;
-        qtreeview_verticalscrollbaraction_callback = nullptr;
-        qtreeview_horizontalscrollbarvaluechanged_callback = nullptr;
-        qtreeview_closeeditor_callback = nullptr;
-        qtreeview_commitdata_callback = nullptr;
-        qtreeview_editordestroyed_callback = nullptr;
-        qtreeview_edit2_callback = nullptr;
-        qtreeview_selectioncommand_callback = nullptr;
-        qtreeview_startdrag_callback = nullptr;
-        qtreeview_initviewitemoption_callback = nullptr;
-        qtreeview_focusnextprevchild_callback = nullptr;
-        qtreeview_event_callback = nullptr;
-        qtreeview_dragenterevent_callback = nullptr;
-        qtreeview_dragleaveevent_callback = nullptr;
-        qtreeview_dropevent_callback = nullptr;
-        qtreeview_focusinevent_callback = nullptr;
-        qtreeview_focusoutevent_callback = nullptr;
-        qtreeview_resizeevent_callback = nullptr;
-        qtreeview_inputmethodevent_callback = nullptr;
-        qtreeview_eventfilter_callback = nullptr;
-        qtreeview_minimumsizehint_callback = nullptr;
-        qtreeview_sizehint_callback = nullptr;
-        qtreeview_setupviewport_callback = nullptr;
-        qtreeview_wheelevent_callback = nullptr;
-        qtreeview_contextmenuevent_callback = nullptr;
-        qtreeview_initstyleoption_callback = nullptr;
-        qtreeview_devtype_callback = nullptr;
-        qtreeview_setvisible_callback = nullptr;
-        qtreeview_heightforwidth_callback = nullptr;
-        qtreeview_hasheightforwidth_callback = nullptr;
-        qtreeview_paintengine_callback = nullptr;
-        qtreeview_keyreleaseevent_callback = nullptr;
-        qtreeview_enterevent_callback = nullptr;
-        qtreeview_leaveevent_callback = nullptr;
-        qtreeview_moveevent_callback = nullptr;
-        qtreeview_closeevent_callback = nullptr;
-        qtreeview_tabletevent_callback = nullptr;
-        qtreeview_actionevent_callback = nullptr;
-        qtreeview_showevent_callback = nullptr;
-        qtreeview_hideevent_callback = nullptr;
-        qtreeview_nativeevent_callback = nullptr;
-        qtreeview_metric_callback = nullptr;
-        qtreeview_initpainter_callback = nullptr;
-        qtreeview_redirected_callback = nullptr;
-        qtreeview_sharedpainter_callback = nullptr;
-        qtreeview_childevent_callback = nullptr;
-        qtreeview_customevent_callback = nullptr;
-        qtreeview_connectnotify_callback = nullptr;
-        qtreeview_disconnectnotify_callback = nullptr;
-        qtreeview_columnresized_callback = nullptr;
-        qtreeview_columncountchanged_callback = nullptr;
-        qtreeview_columnmoved_callback = nullptr;
-        qtreeview_reexpand_callback = nullptr;
-        qtreeview_rowsremoved_callback = nullptr;
-        qtreeview_drawtree_callback = nullptr;
-        qtreeview_indexrowsizehint_callback = nullptr;
-        qtreeview_rowheight_callback = nullptr;
-        qtreeview_state_callback = nullptr;
-        qtreeview_setstate_callback = nullptr;
-        qtreeview_scheduledelayeditemslayout_callback = nullptr;
-        qtreeview_executedelayeditemslayout_callback = nullptr;
-        qtreeview_setdirtyregion_callback = nullptr;
-        qtreeview_scrolldirtyregion_callback = nullptr;
-        qtreeview_dirtyregionoffset_callback = nullptr;
-        qtreeview_startautoscroll_callback = nullptr;
-        qtreeview_stopautoscroll_callback = nullptr;
-        qtreeview_doautoscroll_callback = nullptr;
-        qtreeview_dropindicatorposition_callback = nullptr;
-        qtreeview_setviewportmargins_callback = nullptr;
-        qtreeview_viewportmargins_callback = nullptr;
-        qtreeview_drawframe_callback = nullptr;
-        qtreeview_updatemicrofocus_callback = nullptr;
-        qtreeview_create_callback = nullptr;
-        qtreeview_destroy_callback = nullptr;
-        qtreeview_focusnextchild_callback = nullptr;
-        qtreeview_focuspreviouschild_callback = nullptr;
-        qtreeview_sender_callback = nullptr;
-        qtreeview_sendersignalindex_callback = nullptr;
-        qtreeview_receivers_callback = nullptr;
-        qtreeview_issignalconnected_callback = nullptr;
-        qtreeview_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTreeView_MetaObject_Callback(QTreeView_MetaObject_Callback cb) { qtreeview_metaobject_callback = cb; }
     inline void setQTreeView_Metacast_Callback(QTreeView_Metacast_Callback cb) { qtreeview_metacast_callback = cb; }
@@ -810,12 +679,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_metaobject_isbase) {
             qtreeview_metaobject_isbase = false;
             return QTreeView::metaObject();
-        } else if (qtreeview_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtreeview_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTreeView::metaObject();
         }
+        auto metaobject_cb = qtreeview_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTreeView::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,14 +693,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_metacast_isbase) {
             qtreeview_metacast_isbase = false;
             return QTreeView::qt_metacast(param1);
-        } else if (qtreeview_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtreeview_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtreeview_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTreeView::qt_metacast(param1);
         }
+        return QTreeView::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,16 +709,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_metacall_isbase) {
             qtreeview_metacall_isbase = false;
             return QTreeView::qt_metacall(param1, param2, param3);
-        } else if (qtreeview_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtreeview_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtreeview_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::qt_metacall(param1, param2, param3);
         }
+        return QTreeView::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -855,13 +727,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_setmodel_isbase) {
             qtreeview_setmodel_isbase = false;
             QTreeView::setModel(model);
-        } else if (qtreeview_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = qtreeview_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            qtreeview_setmodel_callback(this, cbval1);
-        } else {
-            QTreeView::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        QTreeView::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -869,15 +744,18 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_setrootindex_isbase) {
             qtreeview_setrootindex_isbase = false;
             QTreeView::setRootIndex(index);
-        } else if (qtreeview_setrootindex_callback != nullptr) {
+            return;
+        }
+        auto setrootindex_cb = qtreeview_setrootindex_callback;
+        if (setrootindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            qtreeview_setrootindex_callback(this, cbval1);
-        } else {
-            QTreeView::setRootIndex(index);
+            setrootindex_cb(this, cbval1);
+            return;
         }
+        QTreeView::setRootIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +763,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_setselectionmodel_isbase) {
             qtreeview_setselectionmodel_isbase = false;
             QTreeView::setSelectionModel(selectionModel);
-        } else if (qtreeview_setselectionmodel_callback != nullptr) {
+            return;
+        }
+        auto setselectionmodel_cb = qtreeview_setselectionmodel_callback;
+        if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
 
-            qtreeview_setselectionmodel_callback(this, cbval1);
-        } else {
-            QTreeView::setSelectionModel(selectionModel);
+            setselectionmodel_cb(this, cbval1);
+            return;
         }
+        QTreeView::setSelectionModel(selectionModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,7 +780,10 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_keyboardsearch_isbase) {
             qtreeview_keyboardsearch_isbase = false;
             QTreeView::keyboardSearch(search);
-        } else if (qtreeview_keyboardsearch_callback != nullptr) {
+            return;
+        }
+        auto keyboardsearch_cb = qtreeview_keyboardsearch_callback;
+        if (keyboardsearch_cb) {
             const QString search_ret = search;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
@@ -909,11 +793,11 @@ class VirtualQTreeView final : public QTreeView {
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
 
-            qtreeview_keyboardsearch_callback(this, cbval1);
+            keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
-        } else {
-            QTreeView::keyboardSearch(search);
+            return;
         }
+        QTreeView::keyboardSearch(search);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -921,16 +805,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_visualrect_isbase) {
             qtreeview_visualrect_isbase = false;
             return QTreeView::visualRect(index);
-        } else if (qtreeview_visualrect_callback != nullptr) {
+        }
+        auto visualrect_cb = qtreeview_visualrect_callback;
+        if (visualrect_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = qtreeview_visualrect_callback(this, cbval1);
+            QRect* callback_ret = visualrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTreeView::visualRect(index);
         }
+        return QTreeView::visualRect(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -938,16 +823,19 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_scrollto_isbase) {
             qtreeview_scrollto_isbase = false;
             QTreeView::scrollTo(index, hint);
-        } else if (qtreeview_scrollto_callback != nullptr) {
+            return;
+        }
+        auto scrollto_cb = qtreeview_scrollto_callback;
+        if (scrollto_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
 
-            qtreeview_scrollto_callback(this, cbval1, cbval2);
-        } else {
-            QTreeView::scrollTo(index, hint);
+            scrollto_cb(this, cbval1, cbval2);
+            return;
         }
+        QTreeView::scrollTo(index, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,16 +843,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_indexat_isbase) {
             qtreeview_indexat_isbase = false;
             return QTreeView::indexAt(p);
-        } else if (qtreeview_indexat_callback != nullptr) {
+        }
+        auto indexat_cb = qtreeview_indexat_callback;
+        if (indexat_cb) {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
 
-            QModelIndex* callback_ret = qtreeview_indexat_callback(this, cbval1);
+            QModelIndex* callback_ret = indexat_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTreeView::indexAt(p);
         }
+        return QTreeView::indexAt(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,11 +861,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_doitemslayout_isbase) {
             qtreeview_doitemslayout_isbase = false;
             QTreeView::doItemsLayout();
-        } else if (qtreeview_doitemslayout_callback != nullptr) {
-            qtreeview_doitemslayout_callback();
-        } else {
-            QTreeView::doItemsLayout();
+            return;
         }
+        auto doitemslayout_cb = qtreeview_doitemslayout_callback;
+        if (doitemslayout_cb) {
+            doitemslayout_cb();
+            return;
+        }
+        QTreeView::doItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,11 +876,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_reset_isbase) {
             qtreeview_reset_isbase = false;
             QTreeView::reset();
-        } else if (qtreeview_reset_callback != nullptr) {
-            qtreeview_reset_callback();
-        } else {
-            QTreeView::reset();
+            return;
         }
+        auto reset_cb = qtreeview_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        QTreeView::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,7 +891,10 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_datachanged_isbase) {
             qtreeview_datachanged_isbase = false;
             QTreeView::dataChanged(topLeft, bottomRight, roles);
-        } else if (qtreeview_datachanged_callback != nullptr) {
+            return;
+        }
+        auto datachanged_cb = qtreeview_datachanged_callback;
+        if (datachanged_cb) {
             const QModelIndex& topLeft_ret = topLeft;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
@@ -1014,11 +912,11 @@ class VirtualQTreeView final : public QTreeView {
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
-            qtreeview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
-        } else {
-            QTreeView::dataChanged(topLeft, bottomRight, roles);
+            return;
         }
+        QTreeView::dataChanged(topLeft, bottomRight, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1026,11 +924,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_selectall_isbase) {
             qtreeview_selectall_isbase = false;
             QTreeView::selectAll();
-        } else if (qtreeview_selectall_callback != nullptr) {
-            qtreeview_selectall_callback();
-        } else {
-            QTreeView::selectAll();
+            return;
         }
+        auto selectall_cb = qtreeview_selectall_callback;
+        if (selectall_cb) {
+            selectall_cb();
+            return;
+        }
+        QTreeView::selectAll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1038,13 +939,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_verticalscrollbarvaluechanged_isbase) {
             qtreeview_verticalscrollbarvaluechanged_isbase = false;
             QTreeView::verticalScrollbarValueChanged(value);
-        } else if (qtreeview_verticalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbarvaluechanged_cb = qtreeview_verticalscrollbarvaluechanged_callback;
+        if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            qtreeview_verticalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            QTreeView::verticalScrollbarValueChanged(value);
+            verticalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        QTreeView::verticalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1052,14 +956,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_scrollcontentsby_isbase) {
             qtreeview_scrollcontentsby_isbase = false;
             QTreeView::scrollContentsBy(dx, dy);
-        } else if (qtreeview_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = qtreeview_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qtreeview_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            QTreeView::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        QTreeView::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1067,17 +974,20 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_rowsinserted_isbase) {
             qtreeview_rowsinserted_isbase = false;
             QTreeView::rowsInserted(parent, start, end);
-        } else if (qtreeview_rowsinserted_callback != nullptr) {
+            return;
+        }
+        auto rowsinserted_cb = qtreeview_rowsinserted_callback;
+        if (rowsinserted_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            qtreeview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTreeView::rowsInserted(parent, start, end);
+            rowsinserted_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTreeView::rowsInserted(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1085,17 +995,20 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_rowsabouttoberemoved_isbase) {
             qtreeview_rowsabouttoberemoved_isbase = false;
             QTreeView::rowsAboutToBeRemoved(parent, start, end);
-        } else if (qtreeview_rowsabouttoberemoved_callback != nullptr) {
+            return;
+        }
+        auto rowsabouttoberemoved_cb = qtreeview_rowsabouttoberemoved_callback;
+        if (rowsabouttoberemoved_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            qtreeview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTreeView::rowsAboutToBeRemoved(parent, start, end);
+            rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTreeView::rowsAboutToBeRemoved(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,15 +1016,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_movecursor_isbase) {
             qtreeview_movecursor_isbase = false;
             return QTreeView::moveCursor(cursorAction, modifiers);
-        } else if (qtreeview_movecursor_callback != nullptr) {
+        }
+        auto movecursor_cb = qtreeview_movecursor_callback;
+        if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
 
-            QModelIndex* callback_ret = qtreeview_movecursor_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QTreeView::moveCursor(cursorAction, modifiers);
         }
+        return QTreeView::moveCursor(cursorAction, modifiers);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1119,12 +1033,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_horizontaloffset_isbase) {
             qtreeview_horizontaloffset_isbase = false;
             return QTreeView::horizontalOffset();
-        } else if (qtreeview_horizontaloffset_callback != nullptr) {
-            int callback_ret = qtreeview_horizontaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::horizontalOffset();
         }
+        auto horizontaloffset_cb = qtreeview_horizontaloffset_callback;
+        if (horizontaloffset_cb) {
+            int callback_ret = horizontaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTreeView::horizontalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1132,12 +1047,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_verticaloffset_isbase) {
             qtreeview_verticaloffset_isbase = false;
             return QTreeView::verticalOffset();
-        } else if (qtreeview_verticaloffset_callback != nullptr) {
-            int callback_ret = qtreeview_verticaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::verticalOffset();
         }
+        auto verticaloffset_cb = qtreeview_verticaloffset_callback;
+        if (verticaloffset_cb) {
+            int callback_ret = verticaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTreeView::verticalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1145,16 +1061,19 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_setselection_isbase) {
             qtreeview_setselection_isbase = false;
             QTreeView::setSelection(rect, command);
-        } else if (qtreeview_setselection_callback != nullptr) {
+            return;
+        }
+        auto setselection_cb = qtreeview_setselection_callback;
+        if (setselection_cb) {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
 
-            qtreeview_setselection_callback(this, cbval1, cbval2);
-        } else {
-            QTreeView::setSelection(rect, command);
+            setselection_cb(this, cbval1, cbval2);
+            return;
         }
+        QTreeView::setSelection(rect, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1162,16 +1081,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_visualregionforselection_isbase) {
             qtreeview_visualregionforselection_isbase = false;
             return QTreeView::visualRegionForSelection(selection);
-        } else if (qtreeview_visualregionforselection_callback != nullptr) {
+        }
+        auto visualregionforselection_cb = qtreeview_visualregionforselection_callback;
+        if (visualregionforselection_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QRegion* callback_ret = qtreeview_visualregionforselection_callback(this, cbval1);
+            QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTreeView::visualRegionForSelection(selection);
         }
+        return QTreeView::visualRegionForSelection(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1179,8 +1099,10 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_selectedindexes_isbase) {
             qtreeview_selectedindexes_isbase = false;
             return QTreeView::selectedIndexes();
-        } else if (qtreeview_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qtreeview_selectedindexes_callback();
+        }
+        auto selectedindexes_cb = qtreeview_selectedindexes_callback;
+        if (selectedindexes_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = selectedindexes_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1189,9 +1111,8 @@ class VirtualQTreeView final : public QTreeView {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QTreeView::selectedIndexes();
         }
+        return QTreeView::selectedIndexes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1199,13 +1120,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_changeevent_isbase) {
             qtreeview_changeevent_isbase = false;
             QTreeView::changeEvent(event);
-        } else if (qtreeview_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qtreeview_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qtreeview_changeevent_callback(this, cbval1);
-        } else {
-            QTreeView::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1213,13 +1137,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_timerevent_isbase) {
             qtreeview_timerevent_isbase = false;
             QTreeView::timerEvent(event);
-        } else if (qtreeview_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtreeview_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtreeview_timerevent_callback(this, cbval1);
-        } else {
-            QTreeView::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1227,13 +1154,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_paintevent_isbase) {
             qtreeview_paintevent_isbase = false;
             QTreeView::paintEvent(event);
-        } else if (qtreeview_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qtreeview_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qtreeview_paintevent_callback(this, cbval1);
-        } else {
-            QTreeView::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,7 +1171,10 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_drawrow_isbase) {
             qtreeview_drawrow_isbase = false;
             QTreeView::drawRow(painter, options, index);
-        } else if (qtreeview_drawrow_callback != nullptr) {
+            return;
+        }
+        auto drawrow_cb = qtreeview_drawrow_callback;
+        if (drawrow_cb) {
             QPainter* cbval1 = painter;
             const QStyleOptionViewItem& options_ret = options;
             // Cast returned reference into pointer
@@ -1250,10 +1183,10 @@ class VirtualQTreeView final : public QTreeView {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            qtreeview_drawrow_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTreeView::drawRow(painter, options, index);
+            drawrow_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTreeView::drawRow(painter, options, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,7 +1194,10 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_drawbranches_isbase) {
             qtreeview_drawbranches_isbase = false;
             QTreeView::drawBranches(painter, rect, index);
-        } else if (qtreeview_drawbranches_callback != nullptr) {
+            return;
+        }
+        auto drawbranches_cb = qtreeview_drawbranches_callback;
+        if (drawbranches_cb) {
             QPainter* cbval1 = painter;
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
@@ -1270,10 +1206,10 @@ class VirtualQTreeView final : public QTreeView {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            qtreeview_drawbranches_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTreeView::drawBranches(painter, rect, index);
+            drawbranches_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTreeView::drawBranches(painter, rect, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1281,13 +1217,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_mousepressevent_isbase) {
             qtreeview_mousepressevent_isbase = false;
             QTreeView::mousePressEvent(event);
-        } else if (qtreeview_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qtreeview_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtreeview_mousepressevent_callback(this, cbval1);
-        } else {
-            QTreeView::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,13 +1234,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_mousereleaseevent_isbase) {
             qtreeview_mousereleaseevent_isbase = false;
             QTreeView::mouseReleaseEvent(event);
-        } else if (qtreeview_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qtreeview_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtreeview_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QTreeView::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1309,13 +1251,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_mousedoubleclickevent_isbase) {
             qtreeview_mousedoubleclickevent_isbase = false;
             QTreeView::mouseDoubleClickEvent(event);
-        } else if (qtreeview_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qtreeview_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtreeview_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QTreeView::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1323,13 +1268,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_mousemoveevent_isbase) {
             qtreeview_mousemoveevent_isbase = false;
             QTreeView::mouseMoveEvent(event);
-        } else if (qtreeview_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qtreeview_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtreeview_mousemoveevent_callback(this, cbval1);
-        } else {
-            QTreeView::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1337,13 +1285,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_keypressevent_isbase) {
             qtreeview_keypressevent_isbase = false;
             QTreeView::keyPressEvent(event);
-        } else if (qtreeview_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qtreeview_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qtreeview_keypressevent_callback(this, cbval1);
-        } else {
-            QTreeView::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1351,13 +1302,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_dragmoveevent_isbase) {
             qtreeview_dragmoveevent_isbase = false;
             QTreeView::dragMoveEvent(event);
-        } else if (qtreeview_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qtreeview_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qtreeview_dragmoveevent_callback(this, cbval1);
-        } else {
-            QTreeView::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1365,14 +1319,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_viewportevent_isbase) {
             qtreeview_viewportevent_isbase = false;
             return QTreeView::viewportEvent(event);
-        } else if (qtreeview_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = qtreeview_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtreeview_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTreeView::viewportEvent(event);
         }
+        return QTreeView::viewportEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1380,11 +1335,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_updategeometries_isbase) {
             qtreeview_updategeometries_isbase = false;
             QTreeView::updateGeometries();
-        } else if (qtreeview_updategeometries_callback != nullptr) {
-            qtreeview_updategeometries_callback();
-        } else {
-            QTreeView::updateGeometries();
+            return;
         }
+        auto updategeometries_cb = qtreeview_updategeometries_callback;
+        if (updategeometries_cb) {
+            updategeometries_cb();
+            return;
+        }
+        QTreeView::updateGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1392,12 +1350,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_viewportsizehint_isbase) {
             qtreeview_viewportsizehint_isbase = false;
             return QTreeView::viewportSizeHint();
-        } else if (qtreeview_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = qtreeview_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTreeView::viewportSizeHint();
         }
+        auto viewportsizehint_cb = qtreeview_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return QTreeView::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1405,14 +1364,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_sizehintforcolumn_isbase) {
             qtreeview_sizehintforcolumn_isbase = false;
             return QTreeView::sizeHintForColumn(column);
-        } else if (qtreeview_sizehintforcolumn_callback != nullptr) {
+        }
+        auto sizehintforcolumn_cb = qtreeview_sizehintforcolumn_callback;
+        if (sizehintforcolumn_cb) {
             int cbval1 = column;
 
-            int callback_ret = qtreeview_sizehintforcolumn_callback(this, cbval1);
+            int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::sizeHintForColumn(column);
         }
+        return QTreeView::sizeHintForColumn(column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1420,13 +1380,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_horizontalscrollbaraction_isbase) {
             qtreeview_horizontalscrollbaraction_isbase = false;
             QTreeView::horizontalScrollbarAction(action);
-        } else if (qtreeview_horizontalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbaraction_cb = qtreeview_horizontalscrollbaraction_callback;
+        if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
 
-            qtreeview_horizontalscrollbaraction_callback(this, cbval1);
-        } else {
-            QTreeView::horizontalScrollbarAction(action);
+            horizontalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        QTreeView::horizontalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1434,16 +1397,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_isindexhidden_isbase) {
             qtreeview_isindexhidden_isbase = false;
             return QTreeView::isIndexHidden(index);
-        } else if (qtreeview_isindexhidden_callback != nullptr) {
+        }
+        auto isindexhidden_cb = qtreeview_isindexhidden_callback;
+        if (isindexhidden_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qtreeview_isindexhidden_callback(this, cbval1);
+            bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTreeView::isIndexHidden(index);
         }
+        return QTreeView::isIndexHidden(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1451,7 +1415,10 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_selectionchanged_isbase) {
             qtreeview_selectionchanged_isbase = false;
             QTreeView::selectionChanged(selected, deselected);
-        } else if (qtreeview_selectionchanged_callback != nullptr) {
+            return;
+        }
+        auto selectionchanged_cb = qtreeview_selectionchanged_callback;
+        if (selectionchanged_cb) {
             const QItemSelection& selected_ret = selected;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
@@ -1459,10 +1426,10 @@ class VirtualQTreeView final : public QTreeView {
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
 
-            qtreeview_selectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            QTreeView::selectionChanged(selected, deselected);
+            selectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QTreeView::selectionChanged(selected, deselected);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1470,7 +1437,10 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_currentchanged_isbase) {
             qtreeview_currentchanged_isbase = false;
             QTreeView::currentChanged(current, previous);
-        } else if (qtreeview_currentchanged_callback != nullptr) {
+            return;
+        }
+        auto currentchanged_cb = qtreeview_currentchanged_callback;
+        if (currentchanged_cb) {
             const QModelIndex& current_ret = current;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
@@ -1478,10 +1448,10 @@ class VirtualQTreeView final : public QTreeView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
 
-            qtreeview_currentchanged_callback(this, cbval1, cbval2);
-        } else {
-            QTreeView::currentChanged(current, previous);
+            currentchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QTreeView::currentChanged(current, previous);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1489,14 +1459,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_sizehintforrow_isbase) {
             qtreeview_sizehintforrow_isbase = false;
             return QTreeView::sizeHintForRow(row);
-        } else if (qtreeview_sizehintforrow_callback != nullptr) {
+        }
+        auto sizehintforrow_cb = qtreeview_sizehintforrow_callback;
+        if (sizehintforrow_cb) {
             int cbval1 = row;
 
-            int callback_ret = qtreeview_sizehintforrow_callback(this, cbval1);
+            int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::sizeHintForRow(row);
         }
+        return QTreeView::sizeHintForRow(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1504,16 +1475,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_itemdelegateforindex_isbase) {
             qtreeview_itemdelegateforindex_isbase = false;
             return QTreeView::itemDelegateForIndex(index);
-        } else if (qtreeview_itemdelegateforindex_callback != nullptr) {
+        }
+        auto itemdelegateforindex_cb = qtreeview_itemdelegateforindex_callback;
+        if (itemdelegateforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QAbstractItemDelegate* callback_ret = qtreeview_itemdelegateforindex_callback(this, cbval1);
+            QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTreeView::itemDelegateForIndex(index);
         }
+        return QTreeView::itemDelegateForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1521,14 +1493,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_inputmethodquery_isbase) {
             qtreeview_inputmethodquery_isbase = false;
             return QTreeView::inputMethodQuery(query);
-        } else if (qtreeview_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qtreeview_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qtreeview_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTreeView::inputMethodQuery(query);
         }
+        return QTreeView::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1536,11 +1509,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_updateeditordata_isbase) {
             qtreeview_updateeditordata_isbase = false;
             QTreeView::updateEditorData();
-        } else if (qtreeview_updateeditordata_callback != nullptr) {
-            qtreeview_updateeditordata_callback();
-        } else {
-            QTreeView::updateEditorData();
+            return;
         }
+        auto updateeditordata_cb = qtreeview_updateeditordata_callback;
+        if (updateeditordata_cb) {
+            updateeditordata_cb();
+            return;
+        }
+        QTreeView::updateEditorData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1548,11 +1524,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_updateeditorgeometries_isbase) {
             qtreeview_updateeditorgeometries_isbase = false;
             QTreeView::updateEditorGeometries();
-        } else if (qtreeview_updateeditorgeometries_callback != nullptr) {
-            qtreeview_updateeditorgeometries_callback();
-        } else {
-            QTreeView::updateEditorGeometries();
+            return;
         }
+        auto updateeditorgeometries_cb = qtreeview_updateeditorgeometries_callback;
+        if (updateeditorgeometries_cb) {
+            updateeditorgeometries_cb();
+            return;
+        }
+        QTreeView::updateEditorGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1560,13 +1539,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_verticalscrollbaraction_isbase) {
             qtreeview_verticalscrollbaraction_isbase = false;
             QTreeView::verticalScrollbarAction(action);
-        } else if (qtreeview_verticalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbaraction_cb = qtreeview_verticalscrollbaraction_callback;
+        if (verticalscrollbaraction_cb) {
             int cbval1 = action;
 
-            qtreeview_verticalscrollbaraction_callback(this, cbval1);
-        } else {
-            QTreeView::verticalScrollbarAction(action);
+            verticalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        QTreeView::verticalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1574,13 +1556,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_horizontalscrollbarvaluechanged_isbase) {
             qtreeview_horizontalscrollbarvaluechanged_isbase = false;
             QTreeView::horizontalScrollbarValueChanged(value);
-        } else if (qtreeview_horizontalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbarvaluechanged_cb = qtreeview_horizontalscrollbarvaluechanged_callback;
+        if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            qtreeview_horizontalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            QTreeView::horizontalScrollbarValueChanged(value);
+            horizontalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        QTreeView::horizontalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1588,14 +1573,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_closeeditor_isbase) {
             qtreeview_closeeditor_isbase = false;
             QTreeView::closeEditor(editor, hint);
-        } else if (qtreeview_closeeditor_callback != nullptr) {
+            return;
+        }
+        auto closeeditor_cb = qtreeview_closeeditor_callback;
+        if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
 
-            qtreeview_closeeditor_callback(this, cbval1, cbval2);
-        } else {
-            QTreeView::closeEditor(editor, hint);
+            closeeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        QTreeView::closeEditor(editor, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1603,13 +1591,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_commitdata_isbase) {
             qtreeview_commitdata_isbase = false;
             QTreeView::commitData(editor);
-        } else if (qtreeview_commitdata_callback != nullptr) {
+            return;
+        }
+        auto commitdata_cb = qtreeview_commitdata_callback;
+        if (commitdata_cb) {
             QWidget* cbval1 = editor;
 
-            qtreeview_commitdata_callback(this, cbval1);
-        } else {
-            QTreeView::commitData(editor);
+            commitdata_cb(this, cbval1);
+            return;
         }
+        QTreeView::commitData(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1617,13 +1608,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_editordestroyed_isbase) {
             qtreeview_editordestroyed_isbase = false;
             QTreeView::editorDestroyed(editor);
-        } else if (qtreeview_editordestroyed_callback != nullptr) {
+            return;
+        }
+        auto editordestroyed_cb = qtreeview_editordestroyed_callback;
+        if (editordestroyed_cb) {
             QObject* cbval1 = editor;
 
-            qtreeview_editordestroyed_callback(this, cbval1);
-        } else {
-            QTreeView::editorDestroyed(editor);
+            editordestroyed_cb(this, cbval1);
+            return;
         }
+        QTreeView::editorDestroyed(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1631,18 +1625,19 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_edit2_isbase) {
             qtreeview_edit2_isbase = false;
             return QTreeView::edit(index, trigger, event);
-        } else if (qtreeview_edit2_callback != nullptr) {
+        }
+        auto edit2_cb = qtreeview_edit2_callback;
+        if (edit2_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
 
-            bool callback_ret = qtreeview_edit2_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QTreeView::edit(index, trigger, event);
         }
+        return QTreeView::edit(index, trigger, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1650,17 +1645,18 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_selectioncommand_isbase) {
             qtreeview_selectioncommand_isbase = false;
             return QTreeView::selectionCommand(index, event);
-        } else if (qtreeview_selectioncommand_callback != nullptr) {
+        }
+        auto selectioncommand_cb = qtreeview_selectioncommand_callback;
+        if (selectioncommand_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
 
-            int callback_ret = qtreeview_selectioncommand_callback(this, cbval1, cbval2);
+            int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
-        } else {
-            return QTreeView::selectionCommand(index, event);
         }
+        return QTreeView::selectionCommand(index, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1668,13 +1664,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_startdrag_isbase) {
             qtreeview_startdrag_isbase = false;
             QTreeView::startDrag(supportedActions);
-        } else if (qtreeview_startdrag_callback != nullptr) {
+            return;
+        }
+        auto startdrag_cb = qtreeview_startdrag_callback;
+        if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
 
-            qtreeview_startdrag_callback(this, cbval1);
-        } else {
-            QTreeView::startDrag(supportedActions);
+            startdrag_cb(this, cbval1);
+            return;
         }
+        QTreeView::startDrag(supportedActions);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1682,13 +1681,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_initviewitemoption_isbase) {
             qtreeview_initviewitemoption_isbase = false;
             QTreeView::initViewItemOption(option);
-        } else if (qtreeview_initviewitemoption_callback != nullptr) {
+            return;
+        }
+        auto initviewitemoption_cb = qtreeview_initviewitemoption_callback;
+        if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
 
-            qtreeview_initviewitemoption_callback(this, cbval1);
-        } else {
-            QTreeView::initViewItemOption(option);
+            initviewitemoption_cb(this, cbval1);
+            return;
         }
+        QTreeView::initViewItemOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1696,14 +1698,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_focusnextprevchild_isbase) {
             qtreeview_focusnextprevchild_isbase = false;
             return QTreeView::focusNextPrevChild(next);
-        } else if (qtreeview_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qtreeview_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qtreeview_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTreeView::focusNextPrevChild(next);
         }
+        return QTreeView::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1711,14 +1714,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_event_isbase) {
             qtreeview_event_isbase = false;
             return QTreeView::event(event);
-        } else if (qtreeview_event_callback != nullptr) {
+        }
+        auto event_cb = qtreeview_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtreeview_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTreeView::event(event);
         }
+        return QTreeView::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1726,13 +1730,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_dragenterevent_isbase) {
             qtreeview_dragenterevent_isbase = false;
             QTreeView::dragEnterEvent(event);
-        } else if (qtreeview_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qtreeview_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qtreeview_dragenterevent_callback(this, cbval1);
-        } else {
-            QTreeView::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1740,13 +1747,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_dragleaveevent_isbase) {
             qtreeview_dragleaveevent_isbase = false;
             QTreeView::dragLeaveEvent(event);
-        } else if (qtreeview_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qtreeview_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qtreeview_dragleaveevent_callback(this, cbval1);
-        } else {
-            QTreeView::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1754,13 +1764,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_dropevent_isbase) {
             qtreeview_dropevent_isbase = false;
             QTreeView::dropEvent(event);
-        } else if (qtreeview_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qtreeview_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qtreeview_dropevent_callback(this, cbval1);
-        } else {
-            QTreeView::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1768,13 +1781,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_focusinevent_isbase) {
             qtreeview_focusinevent_isbase = false;
             QTreeView::focusInEvent(event);
-        } else if (qtreeview_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qtreeview_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qtreeview_focusinevent_callback(this, cbval1);
-        } else {
-            QTreeView::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1782,13 +1798,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_focusoutevent_isbase) {
             qtreeview_focusoutevent_isbase = false;
             QTreeView::focusOutEvent(event);
-        } else if (qtreeview_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qtreeview_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qtreeview_focusoutevent_callback(this, cbval1);
-        } else {
-            QTreeView::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1796,13 +1815,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_resizeevent_isbase) {
             qtreeview_resizeevent_isbase = false;
             QTreeView::resizeEvent(event);
-        } else if (qtreeview_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qtreeview_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qtreeview_resizeevent_callback(this, cbval1);
-        } else {
-            QTreeView::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1810,13 +1832,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_inputmethodevent_isbase) {
             qtreeview_inputmethodevent_isbase = false;
             QTreeView::inputMethodEvent(event);
-        } else if (qtreeview_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qtreeview_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qtreeview_inputmethodevent_callback(this, cbval1);
-        } else {
-            QTreeView::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1824,15 +1849,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_eventfilter_isbase) {
             qtreeview_eventfilter_isbase = false;
             return QTreeView::eventFilter(object, event);
-        } else if (qtreeview_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtreeview_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtreeview_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTreeView::eventFilter(object, event);
         }
+        return QTreeView::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1840,12 +1866,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_minimumsizehint_isbase) {
             qtreeview_minimumsizehint_isbase = false;
             return QTreeView::minimumSizeHint();
-        } else if (qtreeview_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qtreeview_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTreeView::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qtreeview_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QTreeView::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1853,12 +1880,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_sizehint_isbase) {
             qtreeview_sizehint_isbase = false;
             return QTreeView::sizeHint();
-        } else if (qtreeview_sizehint_callback != nullptr) {
-            QSize* callback_ret = qtreeview_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTreeView::sizeHint();
         }
+        auto sizehint_cb = qtreeview_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QTreeView::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1866,13 +1894,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_setupviewport_isbase) {
             qtreeview_setupviewport_isbase = false;
             QTreeView::setupViewport(viewport);
-        } else if (qtreeview_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = qtreeview_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            qtreeview_setupviewport_callback(this, cbval1);
-        } else {
-            QTreeView::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        QTreeView::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1880,13 +1911,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_wheelevent_isbase) {
             qtreeview_wheelevent_isbase = false;
             QTreeView::wheelEvent(param1);
-        } else if (qtreeview_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qtreeview_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            qtreeview_wheelevent_callback(this, cbval1);
-        } else {
-            QTreeView::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1894,13 +1928,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_contextmenuevent_isbase) {
             qtreeview_contextmenuevent_isbase = false;
             QTreeView::contextMenuEvent(param1);
-        } else if (qtreeview_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qtreeview_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qtreeview_contextmenuevent_callback(this, cbval1);
-        } else {
-            QTreeView::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1908,13 +1945,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_initstyleoption_isbase) {
             qtreeview_initstyleoption_isbase = false;
             QTreeView::initStyleOption(option);
-        } else if (qtreeview_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qtreeview_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qtreeview_initstyleoption_callback(this, cbval1);
-        } else {
-            QTreeView::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QTreeView::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1922,12 +1962,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_devtype_isbase) {
             qtreeview_devtype_isbase = false;
             return QTreeView::devType();
-        } else if (qtreeview_devtype_callback != nullptr) {
-            int callback_ret = qtreeview_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::devType();
         }
+        auto devtype_cb = qtreeview_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTreeView::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1935,13 +1976,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_setvisible_isbase) {
             qtreeview_setvisible_isbase = false;
             QTreeView::setVisible(visible);
-        } else if (qtreeview_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qtreeview_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qtreeview_setvisible_callback(this, cbval1);
-        } else {
-            QTreeView::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QTreeView::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1949,14 +1993,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_heightforwidth_isbase) {
             qtreeview_heightforwidth_isbase = false;
             return QTreeView::heightForWidth(param1);
-        } else if (qtreeview_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qtreeview_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qtreeview_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::heightForWidth(param1);
         }
+        return QTreeView::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1964,12 +2009,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_hasheightforwidth_isbase) {
             qtreeview_hasheightforwidth_isbase = false;
             return QTreeView::hasHeightForWidth();
-        } else if (qtreeview_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qtreeview_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QTreeView::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qtreeview_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QTreeView::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1977,12 +2023,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_paintengine_isbase) {
             qtreeview_paintengine_isbase = false;
             return QTreeView::paintEngine();
-        } else if (qtreeview_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qtreeview_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QTreeView::paintEngine();
         }
+        auto paintengine_cb = qtreeview_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QTreeView::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1990,13 +2037,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_keyreleaseevent_isbase) {
             qtreeview_keyreleaseevent_isbase = false;
             QTreeView::keyReleaseEvent(event);
-        } else if (qtreeview_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qtreeview_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qtreeview_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QTreeView::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2004,13 +2054,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_enterevent_isbase) {
             qtreeview_enterevent_isbase = false;
             QTreeView::enterEvent(event);
-        } else if (qtreeview_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qtreeview_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qtreeview_enterevent_callback(this, cbval1);
-        } else {
-            QTreeView::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2018,13 +2071,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_leaveevent_isbase) {
             qtreeview_leaveevent_isbase = false;
             QTreeView::leaveEvent(event);
-        } else if (qtreeview_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qtreeview_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qtreeview_leaveevent_callback(this, cbval1);
-        } else {
-            QTreeView::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2032,13 +2088,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_moveevent_isbase) {
             qtreeview_moveevent_isbase = false;
             QTreeView::moveEvent(event);
-        } else if (qtreeview_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qtreeview_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qtreeview_moveevent_callback(this, cbval1);
-        } else {
-            QTreeView::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2046,13 +2105,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_closeevent_isbase) {
             qtreeview_closeevent_isbase = false;
             QTreeView::closeEvent(event);
-        } else if (qtreeview_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qtreeview_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qtreeview_closeevent_callback(this, cbval1);
-        } else {
-            QTreeView::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2060,13 +2122,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_tabletevent_isbase) {
             qtreeview_tabletevent_isbase = false;
             QTreeView::tabletEvent(event);
-        } else if (qtreeview_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qtreeview_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qtreeview_tabletevent_callback(this, cbval1);
-        } else {
-            QTreeView::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2074,13 +2139,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_actionevent_isbase) {
             qtreeview_actionevent_isbase = false;
             QTreeView::actionEvent(event);
-        } else if (qtreeview_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qtreeview_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qtreeview_actionevent_callback(this, cbval1);
-        } else {
-            QTreeView::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2088,13 +2156,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_showevent_isbase) {
             qtreeview_showevent_isbase = false;
             QTreeView::showEvent(event);
-        } else if (qtreeview_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qtreeview_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qtreeview_showevent_callback(this, cbval1);
-        } else {
-            QTreeView::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2102,13 +2173,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_hideevent_isbase) {
             qtreeview_hideevent_isbase = false;
             QTreeView::hideEvent(event);
-        } else if (qtreeview_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qtreeview_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qtreeview_hideevent_callback(this, cbval1);
-        } else {
-            QTreeView::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2116,7 +2190,9 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_nativeevent_isbase) {
             qtreeview_nativeevent_isbase = false;
             return QTreeView::nativeEvent(eventType, message, result);
-        } else if (qtreeview_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qtreeview_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2127,12 +2203,11 @@ class VirtualQTreeView final : public QTreeView {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qtreeview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QTreeView::nativeEvent(eventType, message, result);
         }
+        return QTreeView::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2140,14 +2215,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_metric_isbase) {
             qtreeview_metric_isbase = false;
             return QTreeView::metric(param1);
-        } else if (qtreeview_metric_callback != nullptr) {
+        }
+        auto metric_cb = qtreeview_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qtreeview_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::metric(param1);
         }
+        return QTreeView::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2155,13 +2231,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_initpainter_isbase) {
             qtreeview_initpainter_isbase = false;
             QTreeView::initPainter(painter);
-        } else if (qtreeview_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qtreeview_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qtreeview_initpainter_callback(this, cbval1);
-        } else {
-            QTreeView::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QTreeView::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2169,14 +2248,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_redirected_isbase) {
             qtreeview_redirected_isbase = false;
             return QTreeView::redirected(offset);
-        } else if (qtreeview_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qtreeview_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qtreeview_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTreeView::redirected(offset);
         }
+        return QTreeView::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2184,12 +2264,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_sharedpainter_isbase) {
             qtreeview_sharedpainter_isbase = false;
             return QTreeView::sharedPainter();
-        } else if (qtreeview_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qtreeview_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QTreeView::sharedPainter();
         }
+        auto sharedpainter_cb = qtreeview_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QTreeView::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2197,13 +2278,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_childevent_isbase) {
             qtreeview_childevent_isbase = false;
             QTreeView::childEvent(event);
-        } else if (qtreeview_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtreeview_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtreeview_childevent_callback(this, cbval1);
-        } else {
-            QTreeView::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2211,13 +2295,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_customevent_isbase) {
             qtreeview_customevent_isbase = false;
             QTreeView::customEvent(event);
-        } else if (qtreeview_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtreeview_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtreeview_customevent_callback(this, cbval1);
-        } else {
-            QTreeView::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTreeView::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2225,15 +2312,18 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_connectnotify_isbase) {
             qtreeview_connectnotify_isbase = false;
             QTreeView::connectNotify(signal);
-        } else if (qtreeview_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtreeview_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtreeview_connectnotify_callback(this, cbval1);
-        } else {
-            QTreeView::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTreeView::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2241,15 +2331,18 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_disconnectnotify_isbase) {
             qtreeview_disconnectnotify_isbase = false;
             QTreeView::disconnectNotify(signal);
-        } else if (qtreeview_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtreeview_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtreeview_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTreeView::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTreeView::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2257,15 +2350,18 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_columnresized_isbase) {
             qtreeview_columnresized_isbase = false;
             QTreeView::columnResized(column, oldSize, newSize);
-        } else if (qtreeview_columnresized_callback != nullptr) {
+            return;
+        }
+        auto columnresized_cb = qtreeview_columnresized_callback;
+        if (columnresized_cb) {
             int cbval1 = column;
             int cbval2 = oldSize;
             int cbval3 = newSize;
 
-            qtreeview_columnresized_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTreeView::columnResized(column, oldSize, newSize);
+            columnresized_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTreeView::columnResized(column, oldSize, newSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2273,14 +2369,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_columncountchanged_isbase) {
             qtreeview_columncountchanged_isbase = false;
             QTreeView::columnCountChanged(oldCount, newCount);
-        } else if (qtreeview_columncountchanged_callback != nullptr) {
+            return;
+        }
+        auto columncountchanged_cb = qtreeview_columncountchanged_callback;
+        if (columncountchanged_cb) {
             int cbval1 = oldCount;
             int cbval2 = newCount;
 
-            qtreeview_columncountchanged_callback(this, cbval1, cbval2);
-        } else {
-            QTreeView::columnCountChanged(oldCount, newCount);
+            columncountchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QTreeView::columnCountChanged(oldCount, newCount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2288,11 +2387,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_columnmoved_isbase) {
             qtreeview_columnmoved_isbase = false;
             QTreeView::columnMoved();
-        } else if (qtreeview_columnmoved_callback != nullptr) {
-            qtreeview_columnmoved_callback();
-        } else {
-            QTreeView::columnMoved();
+            return;
         }
+        auto columnmoved_cb = qtreeview_columnmoved_callback;
+        if (columnmoved_cb) {
+            columnmoved_cb();
+            return;
+        }
+        QTreeView::columnMoved();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2300,11 +2402,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_reexpand_isbase) {
             qtreeview_reexpand_isbase = false;
             QTreeView::reexpand();
-        } else if (qtreeview_reexpand_callback != nullptr) {
-            qtreeview_reexpand_callback();
-        } else {
-            QTreeView::reexpand();
+            return;
         }
+        auto reexpand_cb = qtreeview_reexpand_callback;
+        if (reexpand_cb) {
+            reexpand_cb();
+            return;
+        }
+        QTreeView::reexpand();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2312,17 +2417,20 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_rowsremoved_isbase) {
             qtreeview_rowsremoved_isbase = false;
             QTreeView::rowsRemoved(parent, first, last);
-        } else if (qtreeview_rowsremoved_callback != nullptr) {
+            return;
+        }
+        auto rowsremoved_cb = qtreeview_rowsremoved_callback;
+        if (rowsremoved_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qtreeview_rowsremoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTreeView::rowsRemoved(parent, first, last);
+            rowsremoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTreeView::rowsRemoved(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2330,16 +2438,19 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_drawtree_isbase) {
             qtreeview_drawtree_isbase = false;
             QTreeView::drawTree(painter, region);
-        } else if (qtreeview_drawtree_callback != nullptr) {
+            return;
+        }
+        auto drawtree_cb = qtreeview_drawtree_callback;
+        if (drawtree_cb) {
             QPainter* cbval1 = painter;
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval2 = const_cast<QRegion*>(&region_ret);
 
-            qtreeview_drawtree_callback(this, cbval1, cbval2);
-        } else {
-            QTreeView::drawTree(painter, region);
+            drawtree_cb(this, cbval1, cbval2);
+            return;
         }
+        QTreeView::drawTree(painter, region);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2347,16 +2458,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_indexrowsizehint_isbase) {
             qtreeview_indexrowsizehint_isbase = false;
             return QTreeView::indexRowSizeHint(index);
-        } else if (qtreeview_indexrowsizehint_callback != nullptr) {
+        }
+        auto indexrowsizehint_cb = qtreeview_indexrowsizehint_callback;
+        if (indexrowsizehint_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qtreeview_indexrowsizehint_callback(this, cbval1);
+            int callback_ret = indexrowsizehint_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::indexRowSizeHint(index);
         }
+        return QTreeView::indexRowSizeHint(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2364,16 +2476,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_rowheight_isbase) {
             qtreeview_rowheight_isbase = false;
             return QTreeView::rowHeight(index);
-        } else if (qtreeview_rowheight_callback != nullptr) {
+        }
+        auto rowheight_cb = qtreeview_rowheight_callback;
+        if (rowheight_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qtreeview_rowheight_callback(this, cbval1);
+            int callback_ret = rowheight_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::rowHeight(index);
         }
+        return QTreeView::rowHeight(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2381,12 +2494,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_state_isbase) {
             qtreeview_state_isbase = false;
             return QTreeView::state();
-        } else if (qtreeview_state_callback != nullptr) {
-            int callback_ret = qtreeview_state_callback();
-            return static_cast<VirtualQTreeView::State>(callback_ret);
-        } else {
-            return QTreeView::state();
         }
+        auto state_cb = qtreeview_state_callback;
+        if (state_cb) {
+            int callback_ret = state_cb();
+            return static_cast<VirtualQTreeView::State>(callback_ret);
+        }
+        return QTreeView::state();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2394,13 +2508,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_setstate_isbase) {
             qtreeview_setstate_isbase = false;
             QTreeView::setState(state);
-        } else if (qtreeview_setstate_callback != nullptr) {
+            return;
+        }
+        auto setstate_cb = qtreeview_setstate_callback;
+        if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            qtreeview_setstate_callback(this, cbval1);
-        } else {
-            QTreeView::setState(state);
+            setstate_cb(this, cbval1);
+            return;
         }
+        QTreeView::setState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2408,11 +2525,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_scheduledelayeditemslayout_isbase) {
             qtreeview_scheduledelayeditemslayout_isbase = false;
             QTreeView::scheduleDelayedItemsLayout();
-        } else if (qtreeview_scheduledelayeditemslayout_callback != nullptr) {
-            qtreeview_scheduledelayeditemslayout_callback();
-        } else {
-            QTreeView::scheduleDelayedItemsLayout();
+            return;
         }
+        auto scheduledelayeditemslayout_cb = qtreeview_scheduledelayeditemslayout_callback;
+        if (scheduledelayeditemslayout_cb) {
+            scheduledelayeditemslayout_cb();
+            return;
+        }
+        QTreeView::scheduleDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2420,11 +2540,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_executedelayeditemslayout_isbase) {
             qtreeview_executedelayeditemslayout_isbase = false;
             QTreeView::executeDelayedItemsLayout();
-        } else if (qtreeview_executedelayeditemslayout_callback != nullptr) {
-            qtreeview_executedelayeditemslayout_callback();
-        } else {
-            QTreeView::executeDelayedItemsLayout();
+            return;
         }
+        auto executedelayeditemslayout_cb = qtreeview_executedelayeditemslayout_callback;
+        if (executedelayeditemslayout_cb) {
+            executedelayeditemslayout_cb();
+            return;
+        }
+        QTreeView::executeDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2432,15 +2555,18 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_setdirtyregion_isbase) {
             qtreeview_setdirtyregion_isbase = false;
             QTreeView::setDirtyRegion(region);
-        } else if (qtreeview_setdirtyregion_callback != nullptr) {
+            return;
+        }
+        auto setdirtyregion_cb = qtreeview_setdirtyregion_callback;
+        if (setdirtyregion_cb) {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
 
-            qtreeview_setdirtyregion_callback(this, cbval1);
-        } else {
-            QTreeView::setDirtyRegion(region);
+            setdirtyregion_cb(this, cbval1);
+            return;
         }
+        QTreeView::setDirtyRegion(region);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2448,14 +2574,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_scrolldirtyregion_isbase) {
             qtreeview_scrolldirtyregion_isbase = false;
             QTreeView::scrollDirtyRegion(dx, dy);
-        } else if (qtreeview_scrolldirtyregion_callback != nullptr) {
+            return;
+        }
+        auto scrolldirtyregion_cb = qtreeview_scrolldirtyregion_callback;
+        if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qtreeview_scrolldirtyregion_callback(this, cbval1, cbval2);
-        } else {
-            QTreeView::scrollDirtyRegion(dx, dy);
+            scrolldirtyregion_cb(this, cbval1, cbval2);
+            return;
         }
+        QTreeView::scrollDirtyRegion(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2463,12 +2592,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_dirtyregionoffset_isbase) {
             qtreeview_dirtyregionoffset_isbase = false;
             return QTreeView::dirtyRegionOffset();
-        } else if (qtreeview_dirtyregionoffset_callback != nullptr) {
-            QPoint* callback_ret = qtreeview_dirtyregionoffset_callback();
-            return *callback_ret;
-        } else {
-            return QTreeView::dirtyRegionOffset();
         }
+        auto dirtyregionoffset_cb = qtreeview_dirtyregionoffset_callback;
+        if (dirtyregionoffset_cb) {
+            QPoint* callback_ret = dirtyregionoffset_cb();
+            return *callback_ret;
+        }
+        return QTreeView::dirtyRegionOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2476,11 +2606,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_startautoscroll_isbase) {
             qtreeview_startautoscroll_isbase = false;
             QTreeView::startAutoScroll();
-        } else if (qtreeview_startautoscroll_callback != nullptr) {
-            qtreeview_startautoscroll_callback();
-        } else {
-            QTreeView::startAutoScroll();
+            return;
         }
+        auto startautoscroll_cb = qtreeview_startautoscroll_callback;
+        if (startautoscroll_cb) {
+            startautoscroll_cb();
+            return;
+        }
+        QTreeView::startAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2488,11 +2621,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_stopautoscroll_isbase) {
             qtreeview_stopautoscroll_isbase = false;
             QTreeView::stopAutoScroll();
-        } else if (qtreeview_stopautoscroll_callback != nullptr) {
-            qtreeview_stopautoscroll_callback();
-        } else {
-            QTreeView::stopAutoScroll();
+            return;
         }
+        auto stopautoscroll_cb = qtreeview_stopautoscroll_callback;
+        if (stopautoscroll_cb) {
+            stopautoscroll_cb();
+            return;
+        }
+        QTreeView::stopAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2500,11 +2636,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_doautoscroll_isbase) {
             qtreeview_doautoscroll_isbase = false;
             QTreeView::doAutoScroll();
-        } else if (qtreeview_doautoscroll_callback != nullptr) {
-            qtreeview_doautoscroll_callback();
-        } else {
-            QTreeView::doAutoScroll();
+            return;
         }
+        auto doautoscroll_cb = qtreeview_doautoscroll_callback;
+        if (doautoscroll_cb) {
+            doautoscroll_cb();
+            return;
+        }
+        QTreeView::doAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2512,12 +2651,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_dropindicatorposition_isbase) {
             qtreeview_dropindicatorposition_isbase = false;
             return QTreeView::dropIndicatorPosition();
-        } else if (qtreeview_dropindicatorposition_callback != nullptr) {
-            int callback_ret = qtreeview_dropindicatorposition_callback();
-            return static_cast<VirtualQTreeView::DropIndicatorPosition>(callback_ret);
-        } else {
-            return QTreeView::dropIndicatorPosition();
         }
+        auto dropindicatorposition_cb = qtreeview_dropindicatorposition_callback;
+        if (dropindicatorposition_cb) {
+            int callback_ret = dropindicatorposition_cb();
+            return static_cast<VirtualQTreeView::DropIndicatorPosition>(callback_ret);
+        }
+        return QTreeView::dropIndicatorPosition();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2525,16 +2665,19 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_setviewportmargins_isbase) {
             qtreeview_setviewportmargins_isbase = false;
             QTreeView::setViewportMargins(left, top, right, bottom);
-        } else if (qtreeview_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = qtreeview_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            qtreeview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QTreeView::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QTreeView::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2542,12 +2685,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_viewportmargins_isbase) {
             qtreeview_viewportmargins_isbase = false;
             return QTreeView::viewportMargins();
-        } else if (qtreeview_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = qtreeview_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return QTreeView::viewportMargins();
         }
+        auto viewportmargins_cb = qtreeview_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return QTreeView::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2555,13 +2699,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_drawframe_isbase) {
             qtreeview_drawframe_isbase = false;
             QTreeView::drawFrame(param1);
-        } else if (qtreeview_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qtreeview_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qtreeview_drawframe_callback(this, cbval1);
-        } else {
-            QTreeView::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QTreeView::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2569,11 +2716,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_updatemicrofocus_isbase) {
             qtreeview_updatemicrofocus_isbase = false;
             QTreeView::updateMicroFocus();
-        } else if (qtreeview_updatemicrofocus_callback != nullptr) {
-            qtreeview_updatemicrofocus_callback();
-        } else {
-            QTreeView::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qtreeview_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QTreeView::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2581,11 +2731,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_create_isbase) {
             qtreeview_create_isbase = false;
             QTreeView::create();
-        } else if (qtreeview_create_callback != nullptr) {
-            qtreeview_create_callback();
-        } else {
-            QTreeView::create();
+            return;
         }
+        auto create_cb = qtreeview_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QTreeView::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2593,11 +2746,14 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_destroy_isbase) {
             qtreeview_destroy_isbase = false;
             QTreeView::destroy();
-        } else if (qtreeview_destroy_callback != nullptr) {
-            qtreeview_destroy_callback();
-        } else {
-            QTreeView::destroy();
+            return;
         }
+        auto destroy_cb = qtreeview_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QTreeView::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2605,12 +2761,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_focusnextchild_isbase) {
             qtreeview_focusnextchild_isbase = false;
             return QTreeView::focusNextChild();
-        } else if (qtreeview_focusnextchild_callback != nullptr) {
-            bool callback_ret = qtreeview_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QTreeView::focusNextChild();
         }
+        auto focusnextchild_cb = qtreeview_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QTreeView::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2618,12 +2775,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_focuspreviouschild_isbase) {
             qtreeview_focuspreviouschild_isbase = false;
             return QTreeView::focusPreviousChild();
-        } else if (qtreeview_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qtreeview_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QTreeView::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qtreeview_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QTreeView::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2631,12 +2789,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_sender_isbase) {
             qtreeview_sender_isbase = false;
             return QTreeView::sender();
-        } else if (qtreeview_sender_callback != nullptr) {
-            QObject* callback_ret = qtreeview_sender_callback();
-            return callback_ret;
-        } else {
-            return QTreeView::sender();
         }
+        auto sender_cb = qtreeview_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTreeView::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2644,12 +2803,13 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_sendersignalindex_isbase) {
             qtreeview_sendersignalindex_isbase = false;
             return QTreeView::senderSignalIndex();
-        } else if (qtreeview_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtreeview_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtreeview_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTreeView::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2657,14 +2817,15 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_receivers_isbase) {
             qtreeview_receivers_isbase = false;
             return QTreeView::receivers(signal);
-        } else if (qtreeview_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtreeview_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtreeview_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTreeView::receivers(signal);
         }
+        return QTreeView::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2672,16 +2833,17 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_issignalconnected_isbase) {
             qtreeview_issignalconnected_isbase = false;
             return QTreeView::isSignalConnected(signal);
-        } else if (qtreeview_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtreeview_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtreeview_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTreeView::isSignalConnected(signal);
         }
+        return QTreeView::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2689,15 +2851,16 @@ class VirtualQTreeView final : public QTreeView {
         if (qtreeview_getdecodedmetricf_isbase) {
             qtreeview_getdecodedmetricf_isbase = false;
             return QTreeView::getDecodedMetricF(metricA, metricB);
-        } else if (qtreeview_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qtreeview_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qtreeview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QTreeView::getDecodedMetricF(metricA, metricB);
         }
+        return QTreeView::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

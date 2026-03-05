@@ -72,24 +72,6 @@ class VirtualQGenericPlugin : public QGenericPlugin {
     VirtualQGenericPlugin() : QGenericPlugin() {};
     VirtualQGenericPlugin(QObject* parent) : QGenericPlugin(parent) {};
 
-    ~VirtualQGenericPlugin() {
-        qgenericplugin_metaobject_callback = nullptr;
-        qgenericplugin_metacast_callback = nullptr;
-        qgenericplugin_metacall_callback = nullptr;
-        qgenericplugin_create_callback = nullptr;
-        qgenericplugin_event_callback = nullptr;
-        qgenericplugin_eventfilter_callback = nullptr;
-        qgenericplugin_timerevent_callback = nullptr;
-        qgenericplugin_childevent_callback = nullptr;
-        qgenericplugin_customevent_callback = nullptr;
-        qgenericplugin_connectnotify_callback = nullptr;
-        qgenericplugin_disconnectnotify_callback = nullptr;
-        qgenericplugin_sender_callback = nullptr;
-        qgenericplugin_sendersignalindex_callback = nullptr;
-        qgenericplugin_receivers_callback = nullptr;
-        qgenericplugin_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGenericPlugin_MetaObject_Callback(QGenericPlugin_MetaObject_Callback cb) { qgenericplugin_metaobject_callback = cb; }
     inline void setQGenericPlugin_Metacast_Callback(QGenericPlugin_Metacast_Callback cb) { qgenericplugin_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_metaobject_isbase) {
             qgenericplugin_metaobject_isbase = false;
             return QGenericPlugin::metaObject();
-        } else if (qgenericplugin_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgenericplugin_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGenericPlugin::metaObject();
         }
+        auto metaobject_cb = qgenericplugin_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGenericPlugin::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_metacast_isbase) {
             qgenericplugin_metacast_isbase = false;
             return QGenericPlugin::qt_metacast(param1);
-        } else if (qgenericplugin_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgenericplugin_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgenericplugin_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGenericPlugin::qt_metacast(param1);
         }
+        return QGenericPlugin::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,21 +141,23 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_metacall_isbase) {
             qgenericplugin_metacall_isbase = false;
             return QGenericPlugin::qt_metacall(param1, param2, param3);
-        } else if (qgenericplugin_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgenericplugin_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgenericplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGenericPlugin::qt_metacall(param1, param2, param3);
         }
+        return QGenericPlugin::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QObject* create(const QString& name, const QString& spec) override {
-        if (qgenericplugin_create_callback != nullptr) {
+        auto create_cb = qgenericplugin_create_callback;
+        if (create_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -189,13 +175,12 @@ class VirtualQGenericPlugin : public QGenericPlugin {
             ((char*)spec_str)[spec_str_len] = '\0';
             const char* cbval2 = spec_str;
 
-            QObject* callback_ret = qgenericplugin_create_callback(this, cbval1, cbval2);
+            QObject* callback_ret = create_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             libqt_free(spec_str);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -203,14 +188,15 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_event_isbase) {
             qgenericplugin_event_isbase = false;
             return QGenericPlugin::event(event);
-        } else if (qgenericplugin_event_callback != nullptr) {
+        }
+        auto event_cb = qgenericplugin_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgenericplugin_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGenericPlugin::event(event);
         }
+        return QGenericPlugin::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,15 +204,16 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_eventfilter_isbase) {
             qgenericplugin_eventfilter_isbase = false;
             return QGenericPlugin::eventFilter(watched, event);
-        } else if (qgenericplugin_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgenericplugin_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgenericplugin_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGenericPlugin::eventFilter(watched, event);
         }
+        return QGenericPlugin::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -234,13 +221,16 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_timerevent_isbase) {
             qgenericplugin_timerevent_isbase = false;
             QGenericPlugin::timerEvent(event);
-        } else if (qgenericplugin_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgenericplugin_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgenericplugin_timerevent_callback(this, cbval1);
-        } else {
-            QGenericPlugin::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGenericPlugin::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -248,13 +238,16 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_childevent_isbase) {
             qgenericplugin_childevent_isbase = false;
             QGenericPlugin::childEvent(event);
-        } else if (qgenericplugin_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgenericplugin_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgenericplugin_childevent_callback(this, cbval1);
-        } else {
-            QGenericPlugin::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGenericPlugin::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -262,13 +255,16 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_customevent_isbase) {
             qgenericplugin_customevent_isbase = false;
             QGenericPlugin::customEvent(event);
-        } else if (qgenericplugin_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgenericplugin_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgenericplugin_customevent_callback(this, cbval1);
-        } else {
-            QGenericPlugin::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGenericPlugin::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,15 +272,18 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_connectnotify_isbase) {
             qgenericplugin_connectnotify_isbase = false;
             QGenericPlugin::connectNotify(signal);
-        } else if (qgenericplugin_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgenericplugin_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgenericplugin_connectnotify_callback(this, cbval1);
-        } else {
-            QGenericPlugin::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGenericPlugin::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,15 +291,18 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_disconnectnotify_isbase) {
             qgenericplugin_disconnectnotify_isbase = false;
             QGenericPlugin::disconnectNotify(signal);
-        } else if (qgenericplugin_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgenericplugin_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgenericplugin_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGenericPlugin::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGenericPlugin::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,12 +310,13 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_sender_isbase) {
             qgenericplugin_sender_isbase = false;
             return QGenericPlugin::sender();
-        } else if (qgenericplugin_sender_callback != nullptr) {
-            QObject* callback_ret = qgenericplugin_sender_callback();
-            return callback_ret;
-        } else {
-            return QGenericPlugin::sender();
         }
+        auto sender_cb = qgenericplugin_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGenericPlugin::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,12 +324,13 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_sendersignalindex_isbase) {
             qgenericplugin_sendersignalindex_isbase = false;
             return QGenericPlugin::senderSignalIndex();
-        } else if (qgenericplugin_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgenericplugin_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGenericPlugin::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgenericplugin_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGenericPlugin::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -334,14 +338,15 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_receivers_isbase) {
             qgenericplugin_receivers_isbase = false;
             return QGenericPlugin::receivers(signal);
-        } else if (qgenericplugin_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgenericplugin_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgenericplugin_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGenericPlugin::receivers(signal);
         }
+        return QGenericPlugin::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -349,16 +354,17 @@ class VirtualQGenericPlugin : public QGenericPlugin {
         if (qgenericplugin_issignalconnected_isbase) {
             qgenericplugin_issignalconnected_isbase = false;
             return QGenericPlugin::isSignalConnected(signal);
-        } else if (qgenericplugin_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgenericplugin_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgenericplugin_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGenericPlugin::isSignalConnected(signal);
         }
+        return QGenericPlugin::isSignalConnected(signal);
     }
 
     // Friend functions

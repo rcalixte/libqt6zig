@@ -95,32 +95,6 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
   public:
     VirtualKCategoryDrawer(KCategorizedView* view) : KCategoryDrawer(view) {};
 
-    ~VirtualKCategoryDrawer() {
-        kcategorydrawer_metaobject_callback = nullptr;
-        kcategorydrawer_metacast_callback = nullptr;
-        kcategorydrawer_metacall_callback = nullptr;
-        kcategorydrawer_drawcategory_callback = nullptr;
-        kcategorydrawer_categoryheight_callback = nullptr;
-        kcategorydrawer_leftmargin_callback = nullptr;
-        kcategorydrawer_rightmargin_callback = nullptr;
-        kcategorydrawer_mousebuttonpressed_callback = nullptr;
-        kcategorydrawer_mousebuttonreleased_callback = nullptr;
-        kcategorydrawer_mousemoved_callback = nullptr;
-        kcategorydrawer_mousebuttondoubleclicked_callback = nullptr;
-        kcategorydrawer_mouseleft_callback = nullptr;
-        kcategorydrawer_event_callback = nullptr;
-        kcategorydrawer_eventfilter_callback = nullptr;
-        kcategorydrawer_timerevent_callback = nullptr;
-        kcategorydrawer_childevent_callback = nullptr;
-        kcategorydrawer_customevent_callback = nullptr;
-        kcategorydrawer_connectnotify_callback = nullptr;
-        kcategorydrawer_disconnectnotify_callback = nullptr;
-        kcategorydrawer_sender_callback = nullptr;
-        kcategorydrawer_sendersignalindex_callback = nullptr;
-        kcategorydrawer_receivers_callback = nullptr;
-        kcategorydrawer_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCategoryDrawer_MetaObject_Callback(KCategoryDrawer_MetaObject_Callback cb) { kcategorydrawer_metaobject_callback = cb; }
     inline void setKCategoryDrawer_Metacast_Callback(KCategoryDrawer_Metacast_Callback cb) { kcategorydrawer_metacast_callback = cb; }
@@ -176,12 +150,13 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_metaobject_isbase) {
             kcategorydrawer_metaobject_isbase = false;
             return KCategoryDrawer::metaObject();
-        } else if (kcategorydrawer_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcategorydrawer_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCategoryDrawer::metaObject();
         }
+        auto metaobject_cb = kcategorydrawer_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCategoryDrawer::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -189,14 +164,15 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_metacast_isbase) {
             kcategorydrawer_metacast_isbase = false;
             return KCategoryDrawer::qt_metacast(param1);
-        } else if (kcategorydrawer_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcategorydrawer_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcategorydrawer_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategoryDrawer::qt_metacast(param1);
         }
+        return KCategoryDrawer::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,16 +180,17 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_metacall_isbase) {
             kcategorydrawer_metacall_isbase = false;
             return KCategoryDrawer::qt_metacall(param1, param2, param3);
-        } else if (kcategorydrawer_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcategorydrawer_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcategorydrawer_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategoryDrawer::qt_metacall(param1, param2, param3);
         }
+        return KCategoryDrawer::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -221,7 +198,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_drawcategory_isbase) {
             kcategorydrawer_drawcategory_isbase = false;
             KCategoryDrawer::drawCategory(index, sortRole, option, painter);
-        } else if (kcategorydrawer_drawcategory_callback != nullptr) {
+            return;
+        }
+        auto drawcategory_cb = kcategorydrawer_drawcategory_callback;
+        if (drawcategory_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -231,10 +211,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
             QStyleOption* cbval3 = const_cast<QStyleOption*>(&option_ret);
             QPainter* cbval4 = painter;
 
-            kcategorydrawer_drawcategory_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KCategoryDrawer::drawCategory(index, sortRole, option, painter);
+            drawcategory_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KCategoryDrawer::drawCategory(index, sortRole, option, painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,7 +222,9 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_categoryheight_isbase) {
             kcategorydrawer_categoryheight_isbase = false;
             return KCategoryDrawer::categoryHeight(index, option);
-        } else if (kcategorydrawer_categoryheight_callback != nullptr) {
+        }
+        auto categoryheight_cb = kcategorydrawer_categoryheight_callback;
+        if (categoryheight_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -250,11 +232,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
             // Cast returned reference into pointer
             QStyleOption* cbval2 = const_cast<QStyleOption*>(&option_ret);
 
-            int callback_ret = kcategorydrawer_categoryheight_callback(this, cbval1, cbval2);
+            int callback_ret = categoryheight_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategoryDrawer::categoryHeight(index, option);
         }
+        return KCategoryDrawer::categoryHeight(index, option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -262,12 +243,13 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_leftmargin_isbase) {
             kcategorydrawer_leftmargin_isbase = false;
             return KCategoryDrawer::leftMargin();
-        } else if (kcategorydrawer_leftmargin_callback != nullptr) {
-            int callback_ret = kcategorydrawer_leftmargin_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCategoryDrawer::leftMargin();
         }
+        auto leftmargin_cb = kcategorydrawer_leftmargin_callback;
+        if (leftmargin_cb) {
+            int callback_ret = leftmargin_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCategoryDrawer::leftMargin();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,12 +257,13 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_rightmargin_isbase) {
             kcategorydrawer_rightmargin_isbase = false;
             return KCategoryDrawer::rightMargin();
-        } else if (kcategorydrawer_rightmargin_callback != nullptr) {
-            int callback_ret = kcategorydrawer_rightmargin_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCategoryDrawer::rightMargin();
         }
+        auto rightmargin_cb = kcategorydrawer_rightmargin_callback;
+        if (rightmargin_cb) {
+            int callback_ret = rightmargin_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCategoryDrawer::rightMargin();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,7 +271,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_mousebuttonpressed_isbase) {
             kcategorydrawer_mousebuttonpressed_isbase = false;
             KCategoryDrawer::mouseButtonPressed(index, blockRect, event);
-        } else if (kcategorydrawer_mousebuttonpressed_callback != nullptr) {
+            return;
+        }
+        auto mousebuttonpressed_cb = kcategorydrawer_mousebuttonpressed_callback;
+        if (mousebuttonpressed_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -297,10 +283,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
             QRect* cbval2 = const_cast<QRect*>(&blockRect_ret);
             QMouseEvent* cbval3 = event;
 
-            kcategorydrawer_mousebuttonpressed_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCategoryDrawer::mouseButtonPressed(index, blockRect, event);
+            mousebuttonpressed_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCategoryDrawer::mouseButtonPressed(index, blockRect, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,7 +294,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_mousebuttonreleased_isbase) {
             kcategorydrawer_mousebuttonreleased_isbase = false;
             KCategoryDrawer::mouseButtonReleased(index, blockRect, event);
-        } else if (kcategorydrawer_mousebuttonreleased_callback != nullptr) {
+            return;
+        }
+        auto mousebuttonreleased_cb = kcategorydrawer_mousebuttonreleased_callback;
+        if (mousebuttonreleased_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -317,10 +306,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
             QRect* cbval2 = const_cast<QRect*>(&blockRect_ret);
             QMouseEvent* cbval3 = event;
 
-            kcategorydrawer_mousebuttonreleased_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCategoryDrawer::mouseButtonReleased(index, blockRect, event);
+            mousebuttonreleased_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCategoryDrawer::mouseButtonReleased(index, blockRect, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -328,7 +317,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_mousemoved_isbase) {
             kcategorydrawer_mousemoved_isbase = false;
             KCategoryDrawer::mouseMoved(index, blockRect, event);
-        } else if (kcategorydrawer_mousemoved_callback != nullptr) {
+            return;
+        }
+        auto mousemoved_cb = kcategorydrawer_mousemoved_callback;
+        if (mousemoved_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -337,10 +329,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
             QRect* cbval2 = const_cast<QRect*>(&blockRect_ret);
             QMouseEvent* cbval3 = event;
 
-            kcategorydrawer_mousemoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCategoryDrawer::mouseMoved(index, blockRect, event);
+            mousemoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCategoryDrawer::mouseMoved(index, blockRect, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -348,7 +340,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_mousebuttondoubleclicked_isbase) {
             kcategorydrawer_mousebuttondoubleclicked_isbase = false;
             KCategoryDrawer::mouseButtonDoubleClicked(index, blockRect, event);
-        } else if (kcategorydrawer_mousebuttondoubleclicked_callback != nullptr) {
+            return;
+        }
+        auto mousebuttondoubleclicked_cb = kcategorydrawer_mousebuttondoubleclicked_callback;
+        if (mousebuttondoubleclicked_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -357,10 +352,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
             QRect* cbval2 = const_cast<QRect*>(&blockRect_ret);
             QMouseEvent* cbval3 = event;
 
-            kcategorydrawer_mousebuttondoubleclicked_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCategoryDrawer::mouseButtonDoubleClicked(index, blockRect, event);
+            mousebuttondoubleclicked_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCategoryDrawer::mouseButtonDoubleClicked(index, blockRect, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -368,7 +363,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_mouseleft_isbase) {
             kcategorydrawer_mouseleft_isbase = false;
             KCategoryDrawer::mouseLeft(index, blockRect);
-        } else if (kcategorydrawer_mouseleft_callback != nullptr) {
+            return;
+        }
+        auto mouseleft_cb = kcategorydrawer_mouseleft_callback;
+        if (mouseleft_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -376,10 +374,10 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
             // Cast returned reference into pointer
             QRect* cbval2 = const_cast<QRect*>(&blockRect_ret);
 
-            kcategorydrawer_mouseleft_callback(this, cbval1, cbval2);
-        } else {
-            KCategoryDrawer::mouseLeft(index, blockRect);
+            mouseleft_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategoryDrawer::mouseLeft(index, blockRect);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,14 +385,15 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_event_isbase) {
             kcategorydrawer_event_isbase = false;
             return KCategoryDrawer::event(event);
-        } else if (kcategorydrawer_event_callback != nullptr) {
+        }
+        auto event_cb = kcategorydrawer_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcategorydrawer_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategoryDrawer::event(event);
         }
+        return KCategoryDrawer::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -402,15 +401,16 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_eventfilter_isbase) {
             kcategorydrawer_eventfilter_isbase = false;
             return KCategoryDrawer::eventFilter(watched, event);
-        } else if (kcategorydrawer_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcategorydrawer_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcategorydrawer_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCategoryDrawer::eventFilter(watched, event);
         }
+        return KCategoryDrawer::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -418,13 +418,16 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_timerevent_isbase) {
             kcategorydrawer_timerevent_isbase = false;
             KCategoryDrawer::timerEvent(event);
-        } else if (kcategorydrawer_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcategorydrawer_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcategorydrawer_timerevent_callback(this, cbval1);
-        } else {
-            KCategoryDrawer::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCategoryDrawer::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -432,13 +435,16 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_childevent_isbase) {
             kcategorydrawer_childevent_isbase = false;
             KCategoryDrawer::childEvent(event);
-        } else if (kcategorydrawer_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcategorydrawer_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcategorydrawer_childevent_callback(this, cbval1);
-        } else {
-            KCategoryDrawer::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCategoryDrawer::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -446,13 +452,16 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_customevent_isbase) {
             kcategorydrawer_customevent_isbase = false;
             KCategoryDrawer::customEvent(event);
-        } else if (kcategorydrawer_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcategorydrawer_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcategorydrawer_customevent_callback(this, cbval1);
-        } else {
-            KCategoryDrawer::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCategoryDrawer::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -460,15 +469,18 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_connectnotify_isbase) {
             kcategorydrawer_connectnotify_isbase = false;
             KCategoryDrawer::connectNotify(signal);
-        } else if (kcategorydrawer_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcategorydrawer_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcategorydrawer_connectnotify_callback(this, cbval1);
-        } else {
-            KCategoryDrawer::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCategoryDrawer::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -476,15 +488,18 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_disconnectnotify_isbase) {
             kcategorydrawer_disconnectnotify_isbase = false;
             KCategoryDrawer::disconnectNotify(signal);
-        } else if (kcategorydrawer_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcategorydrawer_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcategorydrawer_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCategoryDrawer::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCategoryDrawer::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,12 +507,13 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_sender_isbase) {
             kcategorydrawer_sender_isbase = false;
             return KCategoryDrawer::sender();
-        } else if (kcategorydrawer_sender_callback != nullptr) {
-            QObject* callback_ret = kcategorydrawer_sender_callback();
-            return callback_ret;
-        } else {
-            return KCategoryDrawer::sender();
         }
+        auto sender_cb = kcategorydrawer_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCategoryDrawer::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -505,12 +521,13 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_sendersignalindex_isbase) {
             kcategorydrawer_sendersignalindex_isbase = false;
             return KCategoryDrawer::senderSignalIndex();
-        } else if (kcategorydrawer_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcategorydrawer_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCategoryDrawer::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcategorydrawer_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCategoryDrawer::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,14 +535,15 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_receivers_isbase) {
             kcategorydrawer_receivers_isbase = false;
             return KCategoryDrawer::receivers(signal);
-        } else if (kcategorydrawer_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcategorydrawer_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcategorydrawer_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategoryDrawer::receivers(signal);
         }
+        return KCategoryDrawer::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -533,16 +551,17 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
         if (kcategorydrawer_issignalconnected_isbase) {
             kcategorydrawer_issignalconnected_isbase = false;
             return KCategoryDrawer::isSignalConnected(signal);
-        } else if (kcategorydrawer_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcategorydrawer_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcategorydrawer_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategoryDrawer::isSignalConnected(signal);
         }
+        return KCategoryDrawer::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -228,76 +228,6 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
     VirtualKImageFilePreview(QWidget* parent) : KImageFilePreview(parent) {};
     VirtualKImageFilePreview() : KImageFilePreview() {};
 
-    ~VirtualKImageFilePreview() {
-        kimagefilepreview_metaobject_callback = nullptr;
-        kimagefilepreview_metacast_callback = nullptr;
-        kimagefilepreview_metacall_callback = nullptr;
-        kimagefilepreview_sizehint_callback = nullptr;
-        kimagefilepreview_showpreview_callback = nullptr;
-        kimagefilepreview_clearpreview_callback = nullptr;
-        kimagefilepreview_gotpreview_callback = nullptr;
-        kimagefilepreview_resizeevent_callback = nullptr;
-        kimagefilepreview_createjob_callback = nullptr;
-        kimagefilepreview_devtype_callback = nullptr;
-        kimagefilepreview_setvisible_callback = nullptr;
-        kimagefilepreview_minimumsizehint_callback = nullptr;
-        kimagefilepreview_heightforwidth_callback = nullptr;
-        kimagefilepreview_hasheightforwidth_callback = nullptr;
-        kimagefilepreview_paintengine_callback = nullptr;
-        kimagefilepreview_event_callback = nullptr;
-        kimagefilepreview_mousepressevent_callback = nullptr;
-        kimagefilepreview_mousereleaseevent_callback = nullptr;
-        kimagefilepreview_mousedoubleclickevent_callback = nullptr;
-        kimagefilepreview_mousemoveevent_callback = nullptr;
-        kimagefilepreview_wheelevent_callback = nullptr;
-        kimagefilepreview_keypressevent_callback = nullptr;
-        kimagefilepreview_keyreleaseevent_callback = nullptr;
-        kimagefilepreview_focusinevent_callback = nullptr;
-        kimagefilepreview_focusoutevent_callback = nullptr;
-        kimagefilepreview_enterevent_callback = nullptr;
-        kimagefilepreview_leaveevent_callback = nullptr;
-        kimagefilepreview_paintevent_callback = nullptr;
-        kimagefilepreview_moveevent_callback = nullptr;
-        kimagefilepreview_closeevent_callback = nullptr;
-        kimagefilepreview_contextmenuevent_callback = nullptr;
-        kimagefilepreview_tabletevent_callback = nullptr;
-        kimagefilepreview_actionevent_callback = nullptr;
-        kimagefilepreview_dragenterevent_callback = nullptr;
-        kimagefilepreview_dragmoveevent_callback = nullptr;
-        kimagefilepreview_dragleaveevent_callback = nullptr;
-        kimagefilepreview_dropevent_callback = nullptr;
-        kimagefilepreview_showevent_callback = nullptr;
-        kimagefilepreview_hideevent_callback = nullptr;
-        kimagefilepreview_nativeevent_callback = nullptr;
-        kimagefilepreview_changeevent_callback = nullptr;
-        kimagefilepreview_metric_callback = nullptr;
-        kimagefilepreview_initpainter_callback = nullptr;
-        kimagefilepreview_redirected_callback = nullptr;
-        kimagefilepreview_sharedpainter_callback = nullptr;
-        kimagefilepreview_inputmethodevent_callback = nullptr;
-        kimagefilepreview_inputmethodquery_callback = nullptr;
-        kimagefilepreview_focusnextprevchild_callback = nullptr;
-        kimagefilepreview_eventfilter_callback = nullptr;
-        kimagefilepreview_timerevent_callback = nullptr;
-        kimagefilepreview_childevent_callback = nullptr;
-        kimagefilepreview_customevent_callback = nullptr;
-        kimagefilepreview_connectnotify_callback = nullptr;
-        kimagefilepreview_disconnectnotify_callback = nullptr;
-        kimagefilepreview_showpreview2_callback = nullptr;
-        kimagefilepreview_showpreview3_callback = nullptr;
-        kimagefilepreview_setsupportedmimetypes_callback = nullptr;
-        kimagefilepreview_updatemicrofocus_callback = nullptr;
-        kimagefilepreview_create_callback = nullptr;
-        kimagefilepreview_destroy_callback = nullptr;
-        kimagefilepreview_focusnextchild_callback = nullptr;
-        kimagefilepreview_focuspreviouschild_callback = nullptr;
-        kimagefilepreview_sender_callback = nullptr;
-        kimagefilepreview_sendersignalindex_callback = nullptr;
-        kimagefilepreview_receivers_callback = nullptr;
-        kimagefilepreview_issignalconnected_callback = nullptr;
-        kimagefilepreview_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKImageFilePreview_MetaObject_Callback(KImageFilePreview_MetaObject_Callback cb) { kimagefilepreview_metaobject_callback = cb; }
     inline void setKImageFilePreview_Metacast_Callback(KImageFilePreview_Metacast_Callback cb) { kimagefilepreview_metacast_callback = cb; }
@@ -441,12 +371,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_metaobject_isbase) {
             kimagefilepreview_metaobject_isbase = false;
             return KImageFilePreview::metaObject();
-        } else if (kimagefilepreview_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kimagefilepreview_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KImageFilePreview::metaObject();
         }
+        auto metaobject_cb = kimagefilepreview_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KImageFilePreview::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,14 +385,15 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_metacast_isbase) {
             kimagefilepreview_metacast_isbase = false;
             return KImageFilePreview::qt_metacast(param1);
-        } else if (kimagefilepreview_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kimagefilepreview_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kimagefilepreview_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KImageFilePreview::qt_metacast(param1);
         }
+        return KImageFilePreview::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,16 +401,17 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_metacall_isbase) {
             kimagefilepreview_metacall_isbase = false;
             return KImageFilePreview::qt_metacall(param1, param2, param3);
-        } else if (kimagefilepreview_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kimagefilepreview_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kimagefilepreview_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KImageFilePreview::qt_metacall(param1, param2, param3);
         }
+        return KImageFilePreview::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,12 +419,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_sizehint_isbase) {
             kimagefilepreview_sizehint_isbase = false;
             return KImageFilePreview::sizeHint();
-        } else if (kimagefilepreview_sizehint_callback != nullptr) {
-            QSize* callback_ret = kimagefilepreview_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KImageFilePreview::sizeHint();
         }
+        auto sizehint_cb = kimagefilepreview_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KImageFilePreview::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,15 +433,18 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_showpreview_isbase) {
             kimagefilepreview_showpreview_isbase = false;
             KImageFilePreview::showPreview(url);
-        } else if (kimagefilepreview_showpreview_callback != nullptr) {
+            return;
+        }
+        auto showpreview_cb = kimagefilepreview_showpreview_callback;
+        if (showpreview_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            kimagefilepreview_showpreview_callback(this, cbval1);
-        } else {
-            KImageFilePreview::showPreview(url);
+            showpreview_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::showPreview(url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,11 +452,14 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_clearpreview_isbase) {
             kimagefilepreview_clearpreview_isbase = false;
             KImageFilePreview::clearPreview();
-        } else if (kimagefilepreview_clearpreview_callback != nullptr) {
-            kimagefilepreview_clearpreview_callback();
-        } else {
-            KImageFilePreview::clearPreview();
+            return;
         }
+        auto clearpreview_cb = kimagefilepreview_clearpreview_callback;
+        if (clearpreview_cb) {
+            clearpreview_cb();
+            return;
+        }
+        KImageFilePreview::clearPreview();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,7 +467,10 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_gotpreview_isbase) {
             kimagefilepreview_gotpreview_isbase = false;
             KImageFilePreview::gotPreview(param1, param2);
-        } else if (kimagefilepreview_gotpreview_callback != nullptr) {
+            return;
+        }
+        auto gotpreview_cb = kimagefilepreview_gotpreview_callback;
+        if (gotpreview_cb) {
             const KFileItem& param1_ret = param1;
             // Cast returned reference into pointer
             KFileItem* cbval1 = const_cast<KFileItem*>(&param1_ret);
@@ -535,10 +478,10 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
             // Cast returned reference into pointer
             QPixmap* cbval2 = const_cast<QPixmap*>(&param2_ret);
 
-            kimagefilepreview_gotpreview_callback(this, cbval1, cbval2);
-        } else {
-            KImageFilePreview::gotPreview(param1, param2);
+            gotpreview_cb(this, cbval1, cbval2);
+            return;
         }
+        KImageFilePreview::gotPreview(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,13 +489,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_resizeevent_isbase) {
             kimagefilepreview_resizeevent_isbase = false;
             KImageFilePreview::resizeEvent(event);
-        } else if (kimagefilepreview_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kimagefilepreview_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kimagefilepreview_resizeevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,18 +506,19 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_createjob_isbase) {
             kimagefilepreview_createjob_isbase = false;
             return KImageFilePreview::createJob(url, width, height);
-        } else if (kimagefilepreview_createjob_callback != nullptr) {
+        }
+        auto createjob_cb = kimagefilepreview_createjob_callback;
+        if (createjob_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = width;
             int cbval3 = height;
 
-            KIO__PreviewJob* callback_ret = kimagefilepreview_createjob_callback(this, cbval1, cbval2, cbval3);
+            KIO__PreviewJob* callback_ret = createjob_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KImageFilePreview::createJob(url, width, height);
         }
+        return KImageFilePreview::createJob(url, width, height);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -579,12 +526,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_devtype_isbase) {
             kimagefilepreview_devtype_isbase = false;
             return KImageFilePreview::devType();
-        } else if (kimagefilepreview_devtype_callback != nullptr) {
-            int callback_ret = kimagefilepreview_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KImageFilePreview::devType();
         }
+        auto devtype_cb = kimagefilepreview_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KImageFilePreview::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,13 +540,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_setvisible_isbase) {
             kimagefilepreview_setvisible_isbase = false;
             KImageFilePreview::setVisible(visible);
-        } else if (kimagefilepreview_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kimagefilepreview_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kimagefilepreview_setvisible_callback(this, cbval1);
-        } else {
-            KImageFilePreview::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -606,12 +557,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_minimumsizehint_isbase) {
             kimagefilepreview_minimumsizehint_isbase = false;
             return KImageFilePreview::minimumSizeHint();
-        } else if (kimagefilepreview_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kimagefilepreview_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KImageFilePreview::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kimagefilepreview_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KImageFilePreview::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,14 +571,15 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_heightforwidth_isbase) {
             kimagefilepreview_heightforwidth_isbase = false;
             return KImageFilePreview::heightForWidth(param1);
-        } else if (kimagefilepreview_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kimagefilepreview_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kimagefilepreview_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KImageFilePreview::heightForWidth(param1);
         }
+        return KImageFilePreview::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,12 +587,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_hasheightforwidth_isbase) {
             kimagefilepreview_hasheightforwidth_isbase = false;
             return KImageFilePreview::hasHeightForWidth();
-        } else if (kimagefilepreview_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kimagefilepreview_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KImageFilePreview::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kimagefilepreview_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KImageFilePreview::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -647,12 +601,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_paintengine_isbase) {
             kimagefilepreview_paintengine_isbase = false;
             return KImageFilePreview::paintEngine();
-        } else if (kimagefilepreview_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kimagefilepreview_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KImageFilePreview::paintEngine();
         }
+        auto paintengine_cb = kimagefilepreview_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KImageFilePreview::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -660,14 +615,15 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_event_isbase) {
             kimagefilepreview_event_isbase = false;
             return KImageFilePreview::event(event);
-        } else if (kimagefilepreview_event_callback != nullptr) {
+        }
+        auto event_cb = kimagefilepreview_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kimagefilepreview_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KImageFilePreview::event(event);
         }
+        return KImageFilePreview::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,13 +631,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_mousepressevent_isbase) {
             kimagefilepreview_mousepressevent_isbase = false;
             KImageFilePreview::mousePressEvent(event);
-        } else if (kimagefilepreview_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kimagefilepreview_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kimagefilepreview_mousepressevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,13 +648,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_mousereleaseevent_isbase) {
             kimagefilepreview_mousereleaseevent_isbase = false;
             KImageFilePreview::mouseReleaseEvent(event);
-        } else if (kimagefilepreview_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kimagefilepreview_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kimagefilepreview_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,13 +665,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_mousedoubleclickevent_isbase) {
             kimagefilepreview_mousedoubleclickevent_isbase = false;
             KImageFilePreview::mouseDoubleClickEvent(event);
-        } else if (kimagefilepreview_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kimagefilepreview_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kimagefilepreview_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -717,13 +682,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_mousemoveevent_isbase) {
             kimagefilepreview_mousemoveevent_isbase = false;
             KImageFilePreview::mouseMoveEvent(event);
-        } else if (kimagefilepreview_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kimagefilepreview_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kimagefilepreview_mousemoveevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -731,13 +699,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_wheelevent_isbase) {
             kimagefilepreview_wheelevent_isbase = false;
             KImageFilePreview::wheelEvent(event);
-        } else if (kimagefilepreview_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kimagefilepreview_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kimagefilepreview_wheelevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,13 +716,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_keypressevent_isbase) {
             kimagefilepreview_keypressevent_isbase = false;
             KImageFilePreview::keyPressEvent(event);
-        } else if (kimagefilepreview_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kimagefilepreview_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kimagefilepreview_keypressevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,13 +733,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_keyreleaseevent_isbase) {
             kimagefilepreview_keyreleaseevent_isbase = false;
             KImageFilePreview::keyReleaseEvent(event);
-        } else if (kimagefilepreview_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kimagefilepreview_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kimagefilepreview_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,13 +750,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_focusinevent_isbase) {
             kimagefilepreview_focusinevent_isbase = false;
             KImageFilePreview::focusInEvent(event);
-        } else if (kimagefilepreview_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kimagefilepreview_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kimagefilepreview_focusinevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,13 +767,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_focusoutevent_isbase) {
             kimagefilepreview_focusoutevent_isbase = false;
             KImageFilePreview::focusOutEvent(event);
-        } else if (kimagefilepreview_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kimagefilepreview_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kimagefilepreview_focusoutevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,13 +784,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_enterevent_isbase) {
             kimagefilepreview_enterevent_isbase = false;
             KImageFilePreview::enterEvent(event);
-        } else if (kimagefilepreview_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kimagefilepreview_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kimagefilepreview_enterevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,13 +801,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_leaveevent_isbase) {
             kimagefilepreview_leaveevent_isbase = false;
             KImageFilePreview::leaveEvent(event);
-        } else if (kimagefilepreview_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kimagefilepreview_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kimagefilepreview_leaveevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +818,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_paintevent_isbase) {
             kimagefilepreview_paintevent_isbase = false;
             KImageFilePreview::paintEvent(event);
-        } else if (kimagefilepreview_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kimagefilepreview_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kimagefilepreview_paintevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +835,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_moveevent_isbase) {
             kimagefilepreview_moveevent_isbase = false;
             KImageFilePreview::moveEvent(event);
-        } else if (kimagefilepreview_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kimagefilepreview_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kimagefilepreview_moveevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +852,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_closeevent_isbase) {
             kimagefilepreview_closeevent_isbase = false;
             KImageFilePreview::closeEvent(event);
-        } else if (kimagefilepreview_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kimagefilepreview_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kimagefilepreview_closeevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +869,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_contextmenuevent_isbase) {
             kimagefilepreview_contextmenuevent_isbase = false;
             KImageFilePreview::contextMenuEvent(event);
-        } else if (kimagefilepreview_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kimagefilepreview_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kimagefilepreview_contextmenuevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +886,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_tabletevent_isbase) {
             kimagefilepreview_tabletevent_isbase = false;
             KImageFilePreview::tabletEvent(event);
-        } else if (kimagefilepreview_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kimagefilepreview_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kimagefilepreview_tabletevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +903,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_actionevent_isbase) {
             kimagefilepreview_actionevent_isbase = false;
             KImageFilePreview::actionEvent(event);
-        } else if (kimagefilepreview_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kimagefilepreview_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kimagefilepreview_actionevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +920,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_dragenterevent_isbase) {
             kimagefilepreview_dragenterevent_isbase = false;
             KImageFilePreview::dragEnterEvent(event);
-        } else if (kimagefilepreview_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kimagefilepreview_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kimagefilepreview_dragenterevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +937,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_dragmoveevent_isbase) {
             kimagefilepreview_dragmoveevent_isbase = false;
             KImageFilePreview::dragMoveEvent(event);
-        } else if (kimagefilepreview_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kimagefilepreview_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kimagefilepreview_dragmoveevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +954,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_dragleaveevent_isbase) {
             kimagefilepreview_dragleaveevent_isbase = false;
             KImageFilePreview::dragLeaveEvent(event);
-        } else if (kimagefilepreview_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kimagefilepreview_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kimagefilepreview_dragleaveevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,13 +971,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_dropevent_isbase) {
             kimagefilepreview_dropevent_isbase = false;
             KImageFilePreview::dropEvent(event);
-        } else if (kimagefilepreview_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kimagefilepreview_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kimagefilepreview_dropevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,13 +988,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_showevent_isbase) {
             kimagefilepreview_showevent_isbase = false;
             KImageFilePreview::showEvent(event);
-        } else if (kimagefilepreview_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kimagefilepreview_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kimagefilepreview_showevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,13 +1005,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_hideevent_isbase) {
             kimagefilepreview_hideevent_isbase = false;
             KImageFilePreview::hideEvent(event);
-        } else if (kimagefilepreview_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kimagefilepreview_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kimagefilepreview_hideevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,7 +1022,9 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_nativeevent_isbase) {
             kimagefilepreview_nativeevent_isbase = false;
             return KImageFilePreview::nativeEvent(eventType, message, result);
-        } else if (kimagefilepreview_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kimagefilepreview_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1008,12 +1035,11 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kimagefilepreview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KImageFilePreview::nativeEvent(eventType, message, result);
         }
+        return KImageFilePreview::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1021,13 +1047,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_changeevent_isbase) {
             kimagefilepreview_changeevent_isbase = false;
             KImageFilePreview::changeEvent(param1);
-        } else if (kimagefilepreview_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kimagefilepreview_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kimagefilepreview_changeevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,14 +1064,15 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_metric_isbase) {
             kimagefilepreview_metric_isbase = false;
             return KImageFilePreview::metric(param1);
-        } else if (kimagefilepreview_metric_callback != nullptr) {
+        }
+        auto metric_cb = kimagefilepreview_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kimagefilepreview_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KImageFilePreview::metric(param1);
         }
+        return KImageFilePreview::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,13 +1080,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_initpainter_isbase) {
             kimagefilepreview_initpainter_isbase = false;
             KImageFilePreview::initPainter(painter);
-        } else if (kimagefilepreview_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kimagefilepreview_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kimagefilepreview_initpainter_callback(this, cbval1);
-        } else {
-            KImageFilePreview::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,14 +1097,15 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_redirected_isbase) {
             kimagefilepreview_redirected_isbase = false;
             return KImageFilePreview::redirected(offset);
-        } else if (kimagefilepreview_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kimagefilepreview_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kimagefilepreview_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KImageFilePreview::redirected(offset);
         }
+        return KImageFilePreview::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1079,12 +1113,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_sharedpainter_isbase) {
             kimagefilepreview_sharedpainter_isbase = false;
             return KImageFilePreview::sharedPainter();
-        } else if (kimagefilepreview_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kimagefilepreview_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KImageFilePreview::sharedPainter();
         }
+        auto sharedpainter_cb = kimagefilepreview_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KImageFilePreview::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,13 +1127,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_inputmethodevent_isbase) {
             kimagefilepreview_inputmethodevent_isbase = false;
             KImageFilePreview::inputMethodEvent(param1);
-        } else if (kimagefilepreview_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kimagefilepreview_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kimagefilepreview_inputmethodevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,14 +1144,15 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_inputmethodquery_isbase) {
             kimagefilepreview_inputmethodquery_isbase = false;
             return KImageFilePreview::inputMethodQuery(param1);
-        } else if (kimagefilepreview_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kimagefilepreview_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kimagefilepreview_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KImageFilePreview::inputMethodQuery(param1);
         }
+        return KImageFilePreview::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1121,14 +1160,15 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_focusnextprevchild_isbase) {
             kimagefilepreview_focusnextprevchild_isbase = false;
             return KImageFilePreview::focusNextPrevChild(next);
-        } else if (kimagefilepreview_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kimagefilepreview_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kimagefilepreview_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KImageFilePreview::focusNextPrevChild(next);
         }
+        return KImageFilePreview::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1136,15 +1176,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_eventfilter_isbase) {
             kimagefilepreview_eventfilter_isbase = false;
             return KImageFilePreview::eventFilter(watched, event);
-        } else if (kimagefilepreview_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kimagefilepreview_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kimagefilepreview_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KImageFilePreview::eventFilter(watched, event);
         }
+        return KImageFilePreview::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1152,13 +1193,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_timerevent_isbase) {
             kimagefilepreview_timerevent_isbase = false;
             KImageFilePreview::timerEvent(event);
-        } else if (kimagefilepreview_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kimagefilepreview_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kimagefilepreview_timerevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,13 +1210,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_childevent_isbase) {
             kimagefilepreview_childevent_isbase = false;
             KImageFilePreview::childEvent(event);
-        } else if (kimagefilepreview_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kimagefilepreview_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kimagefilepreview_childevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,13 +1227,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_customevent_isbase) {
             kimagefilepreview_customevent_isbase = false;
             KImageFilePreview::customEvent(event);
-        } else if (kimagefilepreview_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kimagefilepreview_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kimagefilepreview_customevent_callback(this, cbval1);
-        } else {
-            KImageFilePreview::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,15 +1244,18 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_connectnotify_isbase) {
             kimagefilepreview_connectnotify_isbase = false;
             KImageFilePreview::connectNotify(signal);
-        } else if (kimagefilepreview_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kimagefilepreview_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kimagefilepreview_connectnotify_callback(this, cbval1);
-        } else {
-            KImageFilePreview::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,15 +1263,18 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_disconnectnotify_isbase) {
             kimagefilepreview_disconnectnotify_isbase = false;
             KImageFilePreview::disconnectNotify(signal);
-        } else if (kimagefilepreview_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kimagefilepreview_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kimagefilepreview_disconnectnotify_callback(this, cbval1);
-        } else {
-            KImageFilePreview::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KImageFilePreview::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1226,11 +1282,14 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_showpreview2_isbase) {
             kimagefilepreview_showpreview2_isbase = false;
             KImageFilePreview::showPreview();
-        } else if (kimagefilepreview_showpreview2_callback != nullptr) {
-            kimagefilepreview_showpreview2_callback();
-        } else {
-            KImageFilePreview::showPreview();
+            return;
         }
+        auto showpreview2_cb = kimagefilepreview_showpreview2_callback;
+        if (showpreview2_cb) {
+            showpreview2_cb();
+            return;
+        }
+        KImageFilePreview::showPreview();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,16 +1297,19 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_showpreview3_isbase) {
             kimagefilepreview_showpreview3_isbase = false;
             KImageFilePreview::showPreview(url, force);
-        } else if (kimagefilepreview_showpreview3_callback != nullptr) {
+            return;
+        }
+        auto showpreview3_cb = kimagefilepreview_showpreview3_callback;
+        if (showpreview3_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             bool cbval2 = force;
 
-            kimagefilepreview_showpreview3_callback(this, cbval1, cbval2);
-        } else {
-            KImageFilePreview::showPreview(url, force);
+            showpreview3_cb(this, cbval1, cbval2);
+            return;
         }
+        KImageFilePreview::showPreview(url, force);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1255,7 +1317,10 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_setsupportedmimetypes_isbase) {
             kimagefilepreview_setsupportedmimetypes_isbase = false;
             KImageFilePreview::setSupportedMimeTypes(mimeTypes);
-        } else if (kimagefilepreview_setsupportedmimetypes_callback != nullptr) {
+            return;
+        }
+        auto setsupportedmimetypes_cb = kimagefilepreview_setsupportedmimetypes_callback;
+        if (setsupportedmimetypes_cb) {
             const QList<QString>& mimeTypes_ret = mimeTypes;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** mimeTypes_arr = static_cast<const char**>(malloc(sizeof(const char*) * (mimeTypes_ret.size() + 1)));
@@ -1271,11 +1336,11 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
             mimeTypes_arr[mimeTypes_ret.size()] = nullptr;
             const char** cbval1 = mimeTypes_arr;
 
-            kimagefilepreview_setsupportedmimetypes_callback(this, cbval1);
+            setsupportedmimetypes_cb(this, cbval1);
             libqt_free(mimeTypes_arr);
-        } else {
-            KImageFilePreview::setSupportedMimeTypes(mimeTypes);
+            return;
         }
+        KImageFilePreview::setSupportedMimeTypes(mimeTypes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1283,11 +1348,14 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_updatemicrofocus_isbase) {
             kimagefilepreview_updatemicrofocus_isbase = false;
             KImageFilePreview::updateMicroFocus();
-        } else if (kimagefilepreview_updatemicrofocus_callback != nullptr) {
-            kimagefilepreview_updatemicrofocus_callback();
-        } else {
-            KImageFilePreview::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kimagefilepreview_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KImageFilePreview::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,11 +1363,14 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_create_isbase) {
             kimagefilepreview_create_isbase = false;
             KImageFilePreview::create();
-        } else if (kimagefilepreview_create_callback != nullptr) {
-            kimagefilepreview_create_callback();
-        } else {
-            KImageFilePreview::create();
+            return;
         }
+        auto create_cb = kimagefilepreview_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KImageFilePreview::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1307,11 +1378,14 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_destroy_isbase) {
             kimagefilepreview_destroy_isbase = false;
             KImageFilePreview::destroy();
-        } else if (kimagefilepreview_destroy_callback != nullptr) {
-            kimagefilepreview_destroy_callback();
-        } else {
-            KImageFilePreview::destroy();
+            return;
         }
+        auto destroy_cb = kimagefilepreview_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KImageFilePreview::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1319,12 +1393,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_focusnextchild_isbase) {
             kimagefilepreview_focusnextchild_isbase = false;
             return KImageFilePreview::focusNextChild();
-        } else if (kimagefilepreview_focusnextchild_callback != nullptr) {
-            bool callback_ret = kimagefilepreview_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KImageFilePreview::focusNextChild();
         }
+        auto focusnextchild_cb = kimagefilepreview_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KImageFilePreview::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1332,12 +1407,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_focuspreviouschild_isbase) {
             kimagefilepreview_focuspreviouschild_isbase = false;
             return KImageFilePreview::focusPreviousChild();
-        } else if (kimagefilepreview_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kimagefilepreview_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KImageFilePreview::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kimagefilepreview_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KImageFilePreview::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1345,12 +1421,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_sender_isbase) {
             kimagefilepreview_sender_isbase = false;
             return KImageFilePreview::sender();
-        } else if (kimagefilepreview_sender_callback != nullptr) {
-            QObject* callback_ret = kimagefilepreview_sender_callback();
-            return callback_ret;
-        } else {
-            return KImageFilePreview::sender();
         }
+        auto sender_cb = kimagefilepreview_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KImageFilePreview::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1358,12 +1435,13 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_sendersignalindex_isbase) {
             kimagefilepreview_sendersignalindex_isbase = false;
             return KImageFilePreview::senderSignalIndex();
-        } else if (kimagefilepreview_sendersignalindex_callback != nullptr) {
-            int callback_ret = kimagefilepreview_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KImageFilePreview::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kimagefilepreview_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KImageFilePreview::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1371,14 +1449,15 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_receivers_isbase) {
             kimagefilepreview_receivers_isbase = false;
             return KImageFilePreview::receivers(signal);
-        } else if (kimagefilepreview_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kimagefilepreview_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kimagefilepreview_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KImageFilePreview::receivers(signal);
         }
+        return KImageFilePreview::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1386,16 +1465,17 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_issignalconnected_isbase) {
             kimagefilepreview_issignalconnected_isbase = false;
             return KImageFilePreview::isSignalConnected(signal);
-        } else if (kimagefilepreview_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kimagefilepreview_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kimagefilepreview_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KImageFilePreview::isSignalConnected(signal);
         }
+        return KImageFilePreview::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1403,15 +1483,16 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         if (kimagefilepreview_getdecodedmetricf_isbase) {
             kimagefilepreview_getdecodedmetricf_isbase = false;
             return KImageFilePreview::getDecodedMetricF(metricA, metricB);
-        } else if (kimagefilepreview_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kimagefilepreview_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kimagefilepreview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KImageFilePreview::getDecodedMetricF(metricA, metricB);
         }
+        return KImageFilePreview::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -227,75 +227,6 @@ class VirtualQFontDialog final : public QFontDialog {
     VirtualQFontDialog(const QFont& initial) : QFontDialog(initial) {};
     VirtualQFontDialog(const QFont& initial, QWidget* parent) : QFontDialog(initial, parent) {};
 
-    ~VirtualQFontDialog() {
-        qfontdialog_metaobject_callback = nullptr;
-        qfontdialog_metacast_callback = nullptr;
-        qfontdialog_metacall_callback = nullptr;
-        qfontdialog_setvisible_callback = nullptr;
-        qfontdialog_changeevent_callback = nullptr;
-        qfontdialog_done_callback = nullptr;
-        qfontdialog_eventfilter_callback = nullptr;
-        qfontdialog_sizehint_callback = nullptr;
-        qfontdialog_minimumsizehint_callback = nullptr;
-        qfontdialog_open_callback = nullptr;
-        qfontdialog_exec_callback = nullptr;
-        qfontdialog_accept_callback = nullptr;
-        qfontdialog_reject_callback = nullptr;
-        qfontdialog_keypressevent_callback = nullptr;
-        qfontdialog_closeevent_callback = nullptr;
-        qfontdialog_showevent_callback = nullptr;
-        qfontdialog_resizeevent_callback = nullptr;
-        qfontdialog_contextmenuevent_callback = nullptr;
-        qfontdialog_devtype_callback = nullptr;
-        qfontdialog_heightforwidth_callback = nullptr;
-        qfontdialog_hasheightforwidth_callback = nullptr;
-        qfontdialog_paintengine_callback = nullptr;
-        qfontdialog_event_callback = nullptr;
-        qfontdialog_mousepressevent_callback = nullptr;
-        qfontdialog_mousereleaseevent_callback = nullptr;
-        qfontdialog_mousedoubleclickevent_callback = nullptr;
-        qfontdialog_mousemoveevent_callback = nullptr;
-        qfontdialog_wheelevent_callback = nullptr;
-        qfontdialog_keyreleaseevent_callback = nullptr;
-        qfontdialog_focusinevent_callback = nullptr;
-        qfontdialog_focusoutevent_callback = nullptr;
-        qfontdialog_enterevent_callback = nullptr;
-        qfontdialog_leaveevent_callback = nullptr;
-        qfontdialog_paintevent_callback = nullptr;
-        qfontdialog_moveevent_callback = nullptr;
-        qfontdialog_tabletevent_callback = nullptr;
-        qfontdialog_actionevent_callback = nullptr;
-        qfontdialog_dragenterevent_callback = nullptr;
-        qfontdialog_dragmoveevent_callback = nullptr;
-        qfontdialog_dragleaveevent_callback = nullptr;
-        qfontdialog_dropevent_callback = nullptr;
-        qfontdialog_hideevent_callback = nullptr;
-        qfontdialog_nativeevent_callback = nullptr;
-        qfontdialog_metric_callback = nullptr;
-        qfontdialog_initpainter_callback = nullptr;
-        qfontdialog_redirected_callback = nullptr;
-        qfontdialog_sharedpainter_callback = nullptr;
-        qfontdialog_inputmethodevent_callback = nullptr;
-        qfontdialog_inputmethodquery_callback = nullptr;
-        qfontdialog_focusnextprevchild_callback = nullptr;
-        qfontdialog_timerevent_callback = nullptr;
-        qfontdialog_childevent_callback = nullptr;
-        qfontdialog_customevent_callback = nullptr;
-        qfontdialog_connectnotify_callback = nullptr;
-        qfontdialog_disconnectnotify_callback = nullptr;
-        qfontdialog_adjustposition_callback = nullptr;
-        qfontdialog_updatemicrofocus_callback = nullptr;
-        qfontdialog_create_callback = nullptr;
-        qfontdialog_destroy_callback = nullptr;
-        qfontdialog_focusnextchild_callback = nullptr;
-        qfontdialog_focuspreviouschild_callback = nullptr;
-        qfontdialog_sender_callback = nullptr;
-        qfontdialog_sendersignalindex_callback = nullptr;
-        qfontdialog_receivers_callback = nullptr;
-        qfontdialog_issignalconnected_callback = nullptr;
-        qfontdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQFontDialog_MetaObject_Callback(QFontDialog_MetaObject_Callback cb) { qfontdialog_metaobject_callback = cb; }
     inline void setQFontDialog_Metacast_Callback(QFontDialog_Metacast_Callback cb) { qfontdialog_metacast_callback = cb; }
@@ -437,12 +368,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_metaobject_isbase) {
             qfontdialog_metaobject_isbase = false;
             return QFontDialog::metaObject();
-        } else if (qfontdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qfontdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QFontDialog::metaObject();
         }
+        auto metaobject_cb = qfontdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QFontDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +382,15 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_metacast_isbase) {
             qfontdialog_metacast_isbase = false;
             return QFontDialog::qt_metacast(param1);
-        } else if (qfontdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qfontdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qfontdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFontDialog::qt_metacast(param1);
         }
+        return QFontDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,16 +398,17 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_metacall_isbase) {
             qfontdialog_metacall_isbase = false;
             return QFontDialog::qt_metacall(param1, param2, param3);
-        } else if (qfontdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qfontdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qfontdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFontDialog::qt_metacall(param1, param2, param3);
         }
+        return QFontDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,13 +416,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_setvisible_isbase) {
             qfontdialog_setvisible_isbase = false;
             QFontDialog::setVisible(visible);
-        } else if (qfontdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qfontdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qfontdialog_setvisible_callback(this, cbval1);
-        } else {
-            QFontDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QFontDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,13 +433,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_changeevent_isbase) {
             qfontdialog_changeevent_isbase = false;
             QFontDialog::changeEvent(event);
-        } else if (qfontdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qfontdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qfontdialog_changeevent_callback(this, cbval1);
-        } else {
-            QFontDialog::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,13 +450,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_done_isbase) {
             qfontdialog_done_isbase = false;
             QFontDialog::done(result);
-        } else if (qfontdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = qfontdialog_done_callback;
+        if (done_cb) {
             int cbval1 = result;
 
-            qfontdialog_done_callback(this, cbval1);
-        } else {
-            QFontDialog::done(result);
+            done_cb(this, cbval1);
+            return;
         }
+        QFontDialog::done(result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,15 +467,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_eventfilter_isbase) {
             qfontdialog_eventfilter_isbase = false;
             return QFontDialog::eventFilter(object, event);
-        } else if (qfontdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qfontdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qfontdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QFontDialog::eventFilter(object, event);
         }
+        return QFontDialog::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,12 +484,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_sizehint_isbase) {
             qfontdialog_sizehint_isbase = false;
             return QFontDialog::sizeHint();
-        } else if (qfontdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = qfontdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QFontDialog::sizeHint();
         }
+        auto sizehint_cb = qfontdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QFontDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,12 +498,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_minimumsizehint_isbase) {
             qfontdialog_minimumsizehint_isbase = false;
             return QFontDialog::minimumSizeHint();
-        } else if (qfontdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qfontdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QFontDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qfontdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QFontDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -566,11 +512,14 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_open_isbase) {
             qfontdialog_open_isbase = false;
             QFontDialog::open();
-        } else if (qfontdialog_open_callback != nullptr) {
-            qfontdialog_open_callback();
-        } else {
-            QFontDialog::open();
+            return;
         }
+        auto open_cb = qfontdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        QFontDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,12 +527,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_exec_isbase) {
             qfontdialog_exec_isbase = false;
             return QFontDialog::exec();
-        } else if (qfontdialog_exec_callback != nullptr) {
-            int callback_ret = qfontdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFontDialog::exec();
         }
+        auto exec_cb = qfontdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFontDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -591,11 +541,14 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_accept_isbase) {
             qfontdialog_accept_isbase = false;
             QFontDialog::accept();
-        } else if (qfontdialog_accept_callback != nullptr) {
-            qfontdialog_accept_callback();
-        } else {
-            QFontDialog::accept();
+            return;
         }
+        auto accept_cb = qfontdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        QFontDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -603,11 +556,14 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_reject_isbase) {
             qfontdialog_reject_isbase = false;
             QFontDialog::reject();
-        } else if (qfontdialog_reject_callback != nullptr) {
-            qfontdialog_reject_callback();
-        } else {
-            QFontDialog::reject();
+            return;
         }
+        auto reject_cb = qfontdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        QFontDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -615,13 +571,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_keypressevent_isbase) {
             qfontdialog_keypressevent_isbase = false;
             QFontDialog::keyPressEvent(param1);
-        } else if (qfontdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qfontdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qfontdialog_keypressevent_callback(this, cbval1);
-        } else {
-            QFontDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -629,13 +588,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_closeevent_isbase) {
             qfontdialog_closeevent_isbase = false;
             QFontDialog::closeEvent(param1);
-        } else if (qfontdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qfontdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            qfontdialog_closeevent_callback(this, cbval1);
-        } else {
-            QFontDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -643,13 +605,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_showevent_isbase) {
             qfontdialog_showevent_isbase = false;
             QFontDialog::showEvent(param1);
-        } else if (qfontdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qfontdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qfontdialog_showevent_callback(this, cbval1);
-        } else {
-            QFontDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -657,13 +622,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_resizeevent_isbase) {
             qfontdialog_resizeevent_isbase = false;
             QFontDialog::resizeEvent(param1);
-        } else if (qfontdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qfontdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qfontdialog_resizeevent_callback(this, cbval1);
-        } else {
-            QFontDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,13 +639,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_contextmenuevent_isbase) {
             qfontdialog_contextmenuevent_isbase = false;
             QFontDialog::contextMenuEvent(param1);
-        } else if (qfontdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qfontdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qfontdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            QFontDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -685,12 +656,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_devtype_isbase) {
             qfontdialog_devtype_isbase = false;
             return QFontDialog::devType();
-        } else if (qfontdialog_devtype_callback != nullptr) {
-            int callback_ret = qfontdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFontDialog::devType();
         }
+        auto devtype_cb = qfontdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFontDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,14 +670,15 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_heightforwidth_isbase) {
             qfontdialog_heightforwidth_isbase = false;
             return QFontDialog::heightForWidth(param1);
-        } else if (qfontdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qfontdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qfontdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFontDialog::heightForWidth(param1);
         }
+        return QFontDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -713,12 +686,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_hasheightforwidth_isbase) {
             qfontdialog_hasheightforwidth_isbase = false;
             return QFontDialog::hasHeightForWidth();
-        } else if (qfontdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qfontdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QFontDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qfontdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QFontDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -726,12 +700,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_paintengine_isbase) {
             qfontdialog_paintengine_isbase = false;
             return QFontDialog::paintEngine();
-        } else if (qfontdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qfontdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QFontDialog::paintEngine();
         }
+        auto paintengine_cb = qfontdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QFontDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,14 +714,15 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_event_isbase) {
             qfontdialog_event_isbase = false;
             return QFontDialog::event(event);
-        } else if (qfontdialog_event_callback != nullptr) {
+        }
+        auto event_cb = qfontdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qfontdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFontDialog::event(event);
         }
+        return QFontDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,13 +730,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_mousepressevent_isbase) {
             qfontdialog_mousepressevent_isbase = false;
             QFontDialog::mousePressEvent(event);
-        } else if (qfontdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qfontdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfontdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            QFontDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,13 +747,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_mousereleaseevent_isbase) {
             qfontdialog_mousereleaseevent_isbase = false;
             QFontDialog::mouseReleaseEvent(event);
-        } else if (qfontdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qfontdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfontdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QFontDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,13 +764,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_mousedoubleclickevent_isbase) {
             qfontdialog_mousedoubleclickevent_isbase = false;
             QFontDialog::mouseDoubleClickEvent(event);
-        } else if (qfontdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qfontdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfontdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QFontDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,13 +781,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_mousemoveevent_isbase) {
             qfontdialog_mousemoveevent_isbase = false;
             QFontDialog::mouseMoveEvent(event);
-        } else if (qfontdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qfontdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfontdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            QFontDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -810,13 +798,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_wheelevent_isbase) {
             qfontdialog_wheelevent_isbase = false;
             QFontDialog::wheelEvent(event);
-        } else if (qfontdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qfontdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qfontdialog_wheelevent_callback(this, cbval1);
-        } else {
-            QFontDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -824,13 +815,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_keyreleaseevent_isbase) {
             qfontdialog_keyreleaseevent_isbase = false;
             QFontDialog::keyReleaseEvent(event);
-        } else if (qfontdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qfontdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qfontdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QFontDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,13 +832,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_focusinevent_isbase) {
             qfontdialog_focusinevent_isbase = false;
             QFontDialog::focusInEvent(event);
-        } else if (qfontdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qfontdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qfontdialog_focusinevent_callback(this, cbval1);
-        } else {
-            QFontDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,13 +849,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_focusoutevent_isbase) {
             qfontdialog_focusoutevent_isbase = false;
             QFontDialog::focusOutEvent(event);
-        } else if (qfontdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qfontdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qfontdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            QFontDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,13 +866,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_enterevent_isbase) {
             qfontdialog_enterevent_isbase = false;
             QFontDialog::enterEvent(event);
-        } else if (qfontdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qfontdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qfontdialog_enterevent_callback(this, cbval1);
-        } else {
-            QFontDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -880,13 +883,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_leaveevent_isbase) {
             qfontdialog_leaveevent_isbase = false;
             QFontDialog::leaveEvent(event);
-        } else if (qfontdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qfontdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qfontdialog_leaveevent_callback(this, cbval1);
-        } else {
-            QFontDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -894,13 +900,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_paintevent_isbase) {
             qfontdialog_paintevent_isbase = false;
             QFontDialog::paintEvent(event);
-        } else if (qfontdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qfontdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qfontdialog_paintevent_callback(this, cbval1);
-        } else {
-            QFontDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -908,13 +917,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_moveevent_isbase) {
             qfontdialog_moveevent_isbase = false;
             QFontDialog::moveEvent(event);
-        } else if (qfontdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qfontdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qfontdialog_moveevent_callback(this, cbval1);
-        } else {
-            QFontDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -922,13 +934,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_tabletevent_isbase) {
             qfontdialog_tabletevent_isbase = false;
             QFontDialog::tabletEvent(event);
-        } else if (qfontdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qfontdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qfontdialog_tabletevent_callback(this, cbval1);
-        } else {
-            QFontDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -936,13 +951,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_actionevent_isbase) {
             qfontdialog_actionevent_isbase = false;
             QFontDialog::actionEvent(event);
-        } else if (qfontdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qfontdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qfontdialog_actionevent_callback(this, cbval1);
-        } else {
-            QFontDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -950,13 +968,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_dragenterevent_isbase) {
             qfontdialog_dragenterevent_isbase = false;
             QFontDialog::dragEnterEvent(event);
-        } else if (qfontdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qfontdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qfontdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            QFontDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -964,13 +985,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_dragmoveevent_isbase) {
             qfontdialog_dragmoveevent_isbase = false;
             QFontDialog::dragMoveEvent(event);
-        } else if (qfontdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qfontdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qfontdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            QFontDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -978,13 +1002,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_dragleaveevent_isbase) {
             qfontdialog_dragleaveevent_isbase = false;
             QFontDialog::dragLeaveEvent(event);
-        } else if (qfontdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qfontdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qfontdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            QFontDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,13 +1019,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_dropevent_isbase) {
             qfontdialog_dropevent_isbase = false;
             QFontDialog::dropEvent(event);
-        } else if (qfontdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qfontdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qfontdialog_dropevent_callback(this, cbval1);
-        } else {
-            QFontDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,13 +1036,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_hideevent_isbase) {
             qfontdialog_hideevent_isbase = false;
             QFontDialog::hideEvent(event);
-        } else if (qfontdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qfontdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qfontdialog_hideevent_callback(this, cbval1);
-        } else {
-            QFontDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1020,7 +1053,9 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_nativeevent_isbase) {
             qfontdialog_nativeevent_isbase = false;
             return QFontDialog::nativeEvent(eventType, message, result);
-        } else if (qfontdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qfontdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1031,12 +1066,11 @@ class VirtualQFontDialog final : public QFontDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qfontdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QFontDialog::nativeEvent(eventType, message, result);
         }
+        return QFontDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,14 +1078,15 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_metric_isbase) {
             qfontdialog_metric_isbase = false;
             return QFontDialog::metric(param1);
-        } else if (qfontdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = qfontdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qfontdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFontDialog::metric(param1);
         }
+        return QFontDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,13 +1094,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_initpainter_isbase) {
             qfontdialog_initpainter_isbase = false;
             QFontDialog::initPainter(painter);
-        } else if (qfontdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qfontdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qfontdialog_initpainter_callback(this, cbval1);
-        } else {
-            QFontDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QFontDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1073,14 +1111,15 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_redirected_isbase) {
             qfontdialog_redirected_isbase = false;
             return QFontDialog::redirected(offset);
-        } else if (qfontdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qfontdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qfontdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFontDialog::redirected(offset);
         }
+        return QFontDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,12 +1127,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_sharedpainter_isbase) {
             qfontdialog_sharedpainter_isbase = false;
             return QFontDialog::sharedPainter();
-        } else if (qfontdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qfontdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QFontDialog::sharedPainter();
         }
+        auto sharedpainter_cb = qfontdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QFontDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1141,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_inputmethodevent_isbase) {
             qfontdialog_inputmethodevent_isbase = false;
             QFontDialog::inputMethodEvent(param1);
-        } else if (qfontdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qfontdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qfontdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            QFontDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,14 +1158,15 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_inputmethodquery_isbase) {
             qfontdialog_inputmethodquery_isbase = false;
             return QFontDialog::inputMethodQuery(param1);
-        } else if (qfontdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qfontdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qfontdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QFontDialog::inputMethodQuery(param1);
         }
+        return QFontDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,14 +1174,15 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_focusnextprevchild_isbase) {
             qfontdialog_focusnextprevchild_isbase = false;
             return QFontDialog::focusNextPrevChild(next);
-        } else if (qfontdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qfontdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qfontdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFontDialog::focusNextPrevChild(next);
         }
+        return QFontDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1145,13 +1190,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_timerevent_isbase) {
             qfontdialog_timerevent_isbase = false;
             QFontDialog::timerEvent(event);
-        } else if (qfontdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qfontdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qfontdialog_timerevent_callback(this, cbval1);
-        } else {
-            QFontDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,13 +1207,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_childevent_isbase) {
             qfontdialog_childevent_isbase = false;
             QFontDialog::childEvent(event);
-        } else if (qfontdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qfontdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qfontdialog_childevent_callback(this, cbval1);
-        } else {
-            QFontDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1173,13 +1224,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_customevent_isbase) {
             qfontdialog_customevent_isbase = false;
             QFontDialog::customEvent(event);
-        } else if (qfontdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qfontdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qfontdialog_customevent_callback(this, cbval1);
-        } else {
-            QFontDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QFontDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,15 +1241,18 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_connectnotify_isbase) {
             qfontdialog_connectnotify_isbase = false;
             QFontDialog::connectNotify(signal);
-        } else if (qfontdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qfontdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfontdialog_connectnotify_callback(this, cbval1);
-        } else {
-            QFontDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QFontDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,15 +1260,18 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_disconnectnotify_isbase) {
             qfontdialog_disconnectnotify_isbase = false;
             QFontDialog::disconnectNotify(signal);
-        } else if (qfontdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qfontdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfontdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            QFontDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QFontDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,13 +1279,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_adjustposition_isbase) {
             qfontdialog_adjustposition_isbase = false;
             QFontDialog::adjustPosition(param1);
-        } else if (qfontdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = qfontdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            qfontdialog_adjustposition_callback(this, cbval1);
-        } else {
-            QFontDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        QFontDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,11 +1296,14 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_updatemicrofocus_isbase) {
             qfontdialog_updatemicrofocus_isbase = false;
             QFontDialog::updateMicroFocus();
-        } else if (qfontdialog_updatemicrofocus_callback != nullptr) {
-            qfontdialog_updatemicrofocus_callback();
-        } else {
-            QFontDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qfontdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QFontDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,11 +1311,14 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_create_isbase) {
             qfontdialog_create_isbase = false;
             QFontDialog::create();
-        } else if (qfontdialog_create_callback != nullptr) {
-            qfontdialog_create_callback();
-        } else {
-            QFontDialog::create();
+            return;
         }
+        auto create_cb = qfontdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QFontDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,11 +1326,14 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_destroy_isbase) {
             qfontdialog_destroy_isbase = false;
             QFontDialog::destroy();
-        } else if (qfontdialog_destroy_callback != nullptr) {
-            qfontdialog_destroy_callback();
-        } else {
-            QFontDialog::destroy();
+            return;
         }
+        auto destroy_cb = qfontdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QFontDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,12 +1341,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_focusnextchild_isbase) {
             qfontdialog_focusnextchild_isbase = false;
             return QFontDialog::focusNextChild();
-        } else if (qfontdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = qfontdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QFontDialog::focusNextChild();
         }
+        auto focusnextchild_cb = qfontdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QFontDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,12 +1355,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_focuspreviouschild_isbase) {
             qfontdialog_focuspreviouschild_isbase = false;
             return QFontDialog::focusPreviousChild();
-        } else if (qfontdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qfontdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QFontDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qfontdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QFontDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,12 +1369,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_sender_isbase) {
             qfontdialog_sender_isbase = false;
             return QFontDialog::sender();
-        } else if (qfontdialog_sender_callback != nullptr) {
-            QObject* callback_ret = qfontdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return QFontDialog::sender();
         }
+        auto sender_cb = qfontdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QFontDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,12 +1383,13 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_sendersignalindex_isbase) {
             qfontdialog_sendersignalindex_isbase = false;
             return QFontDialog::senderSignalIndex();
-        } else if (qfontdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = qfontdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFontDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qfontdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFontDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,14 +1397,15 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_receivers_isbase) {
             qfontdialog_receivers_isbase = false;
             return QFontDialog::receivers(signal);
-        } else if (qfontdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qfontdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qfontdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFontDialog::receivers(signal);
         }
+        return QFontDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,16 +1413,17 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_issignalconnected_isbase) {
             qfontdialog_issignalconnected_isbase = false;
             return QFontDialog::isSignalConnected(signal);
-        } else if (qfontdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qfontdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qfontdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFontDialog::isSignalConnected(signal);
         }
+        return QFontDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,15 +1431,16 @@ class VirtualQFontDialog final : public QFontDialog {
         if (qfontdialog_getdecodedmetricf_isbase) {
             qfontdialog_getdecodedmetricf_isbase = false;
             return QFontDialog::getDecodedMetricF(metricA, metricB);
-        } else if (qfontdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qfontdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qfontdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QFontDialog::getDecodedMetricF(metricA, metricB);
         }
+        return QFontDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

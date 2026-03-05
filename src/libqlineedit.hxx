@@ -215,71 +215,6 @@ class VirtualQLineEdit final : public QLineEdit {
     VirtualQLineEdit(const QString& param1) : QLineEdit(param1) {};
     VirtualQLineEdit(const QString& param1, QWidget* parent) : QLineEdit(param1, parent) {};
 
-    ~VirtualQLineEdit() {
-        qlineedit_metaobject_callback = nullptr;
-        qlineedit_metacast_callback = nullptr;
-        qlineedit_metacall_callback = nullptr;
-        qlineedit_sizehint_callback = nullptr;
-        qlineedit_minimumsizehint_callback = nullptr;
-        qlineedit_mousepressevent_callback = nullptr;
-        qlineedit_mousemoveevent_callback = nullptr;
-        qlineedit_mousereleaseevent_callback = nullptr;
-        qlineedit_mousedoubleclickevent_callback = nullptr;
-        qlineedit_keypressevent_callback = nullptr;
-        qlineedit_keyreleaseevent_callback = nullptr;
-        qlineedit_focusinevent_callback = nullptr;
-        qlineedit_focusoutevent_callback = nullptr;
-        qlineedit_paintevent_callback = nullptr;
-        qlineedit_dragenterevent_callback = nullptr;
-        qlineedit_dragmoveevent_callback = nullptr;
-        qlineedit_dragleaveevent_callback = nullptr;
-        qlineedit_dropevent_callback = nullptr;
-        qlineedit_changeevent_callback = nullptr;
-        qlineedit_contextmenuevent_callback = nullptr;
-        qlineedit_inputmethodevent_callback = nullptr;
-        qlineedit_initstyleoption_callback = nullptr;
-        qlineedit_inputmethodquery_callback = nullptr;
-        qlineedit_timerevent_callback = nullptr;
-        qlineedit_event_callback = nullptr;
-        qlineedit_devtype_callback = nullptr;
-        qlineedit_setvisible_callback = nullptr;
-        qlineedit_heightforwidth_callback = nullptr;
-        qlineedit_hasheightforwidth_callback = nullptr;
-        qlineedit_paintengine_callback = nullptr;
-        qlineedit_wheelevent_callback = nullptr;
-        qlineedit_enterevent_callback = nullptr;
-        qlineedit_leaveevent_callback = nullptr;
-        qlineedit_moveevent_callback = nullptr;
-        qlineedit_resizeevent_callback = nullptr;
-        qlineedit_closeevent_callback = nullptr;
-        qlineedit_tabletevent_callback = nullptr;
-        qlineedit_actionevent_callback = nullptr;
-        qlineedit_showevent_callback = nullptr;
-        qlineedit_hideevent_callback = nullptr;
-        qlineedit_nativeevent_callback = nullptr;
-        qlineedit_metric_callback = nullptr;
-        qlineedit_initpainter_callback = nullptr;
-        qlineedit_redirected_callback = nullptr;
-        qlineedit_sharedpainter_callback = nullptr;
-        qlineedit_focusnextprevchild_callback = nullptr;
-        qlineedit_eventfilter_callback = nullptr;
-        qlineedit_childevent_callback = nullptr;
-        qlineedit_customevent_callback = nullptr;
-        qlineedit_connectnotify_callback = nullptr;
-        qlineedit_disconnectnotify_callback = nullptr;
-        qlineedit_cursorrect_callback = nullptr;
-        qlineedit_updatemicrofocus_callback = nullptr;
-        qlineedit_create_callback = nullptr;
-        qlineedit_destroy_callback = nullptr;
-        qlineedit_focusnextchild_callback = nullptr;
-        qlineedit_focuspreviouschild_callback = nullptr;
-        qlineedit_sender_callback = nullptr;
-        qlineedit_sendersignalindex_callback = nullptr;
-        qlineedit_receivers_callback = nullptr;
-        qlineedit_issignalconnected_callback = nullptr;
-        qlineedit_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQLineEdit_MetaObject_Callback(QLineEdit_MetaObject_Callback cb) { qlineedit_metaobject_callback = cb; }
     inline void setQLineEdit_Metacast_Callback(QLineEdit_Metacast_Callback cb) { qlineedit_metacast_callback = cb; }
@@ -413,12 +348,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_metaobject_isbase) {
             qlineedit_metaobject_isbase = false;
             return QLineEdit::metaObject();
-        } else if (qlineedit_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qlineedit_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QLineEdit::metaObject();
         }
+        auto metaobject_cb = qlineedit_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QLineEdit::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,14 +362,15 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_metacast_isbase) {
             qlineedit_metacast_isbase = false;
             return QLineEdit::qt_metacast(param1);
-        } else if (qlineedit_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qlineedit_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qlineedit_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLineEdit::qt_metacast(param1);
         }
+        return QLineEdit::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,16 +378,17 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_metacall_isbase) {
             qlineedit_metacall_isbase = false;
             return QLineEdit::qt_metacall(param1, param2, param3);
-        } else if (qlineedit_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qlineedit_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qlineedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLineEdit::qt_metacall(param1, param2, param3);
         }
+        return QLineEdit::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,12 +396,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_sizehint_isbase) {
             qlineedit_sizehint_isbase = false;
             return QLineEdit::sizeHint();
-        } else if (qlineedit_sizehint_callback != nullptr) {
-            QSize* callback_ret = qlineedit_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QLineEdit::sizeHint();
         }
+        auto sizehint_cb = qlineedit_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QLineEdit::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,12 +410,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_minimumsizehint_isbase) {
             qlineedit_minimumsizehint_isbase = false;
             return QLineEdit::minimumSizeHint();
-        } else if (qlineedit_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qlineedit_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QLineEdit::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qlineedit_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QLineEdit::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,13 +424,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_mousepressevent_isbase) {
             qlineedit_mousepressevent_isbase = false;
             QLineEdit::mousePressEvent(param1);
-        } else if (qlineedit_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qlineedit_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qlineedit_mousepressevent_callback(this, cbval1);
-        } else {
-            QLineEdit::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,13 +441,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_mousemoveevent_isbase) {
             qlineedit_mousemoveevent_isbase = false;
             QLineEdit::mouseMoveEvent(param1);
-        } else if (qlineedit_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qlineedit_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qlineedit_mousemoveevent_callback(this, cbval1);
-        } else {
-            QLineEdit::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,13 +458,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_mousereleaseevent_isbase) {
             qlineedit_mousereleaseevent_isbase = false;
             QLineEdit::mouseReleaseEvent(param1);
-        } else if (qlineedit_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qlineedit_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qlineedit_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QLineEdit::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,13 +475,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_mousedoubleclickevent_isbase) {
             qlineedit_mousedoubleclickevent_isbase = false;
             QLineEdit::mouseDoubleClickEvent(param1);
-        } else if (qlineedit_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qlineedit_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qlineedit_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QLineEdit::mouseDoubleClickEvent(param1);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::mouseDoubleClickEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,13 +492,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_keypressevent_isbase) {
             qlineedit_keypressevent_isbase = false;
             QLineEdit::keyPressEvent(param1);
-        } else if (qlineedit_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qlineedit_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qlineedit_keypressevent_callback(this, cbval1);
-        } else {
-            QLineEdit::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,13 +509,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_keyreleaseevent_isbase) {
             qlineedit_keyreleaseevent_isbase = false;
             QLineEdit::keyReleaseEvent(param1);
-        } else if (qlineedit_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qlineedit_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qlineedit_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QLineEdit::keyReleaseEvent(param1);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::keyReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,13 +526,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_focusinevent_isbase) {
             qlineedit_focusinevent_isbase = false;
             QLineEdit::focusInEvent(param1);
-        } else if (qlineedit_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qlineedit_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            qlineedit_focusinevent_callback(this, cbval1);
-        } else {
-            QLineEdit::focusInEvent(param1);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::focusInEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,13 +543,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_focusoutevent_isbase) {
             qlineedit_focusoutevent_isbase = false;
             QLineEdit::focusOutEvent(param1);
-        } else if (qlineedit_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qlineedit_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            qlineedit_focusoutevent_callback(this, cbval1);
-        } else {
-            QLineEdit::focusOutEvent(param1);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::focusOutEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -596,13 +560,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_paintevent_isbase) {
             qlineedit_paintevent_isbase = false;
             QLineEdit::paintEvent(param1);
-        } else if (qlineedit_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qlineedit_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qlineedit_paintevent_callback(this, cbval1);
-        } else {
-            QLineEdit::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -610,13 +577,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_dragenterevent_isbase) {
             qlineedit_dragenterevent_isbase = false;
             QLineEdit::dragEnterEvent(param1);
-        } else if (qlineedit_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qlineedit_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
 
-            qlineedit_dragenterevent_callback(this, cbval1);
-        } else {
-            QLineEdit::dragEnterEvent(param1);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::dragEnterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,13 +594,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_dragmoveevent_isbase) {
             qlineedit_dragmoveevent_isbase = false;
             QLineEdit::dragMoveEvent(e);
-        } else if (qlineedit_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qlineedit_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
 
-            qlineedit_dragmoveevent_callback(this, cbval1);
-        } else {
-            QLineEdit::dragMoveEvent(e);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::dragMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -638,13 +611,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_dragleaveevent_isbase) {
             qlineedit_dragleaveevent_isbase = false;
             QLineEdit::dragLeaveEvent(e);
-        } else if (qlineedit_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qlineedit_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
 
-            qlineedit_dragleaveevent_callback(this, cbval1);
-        } else {
-            QLineEdit::dragLeaveEvent(e);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::dragLeaveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -652,13 +628,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_dropevent_isbase) {
             qlineedit_dropevent_isbase = false;
             QLineEdit::dropEvent(param1);
-        } else if (qlineedit_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qlineedit_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
 
-            qlineedit_dropevent_callback(this, cbval1);
-        } else {
-            QLineEdit::dropEvent(param1);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::dropEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -666,13 +645,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_changeevent_isbase) {
             qlineedit_changeevent_isbase = false;
             QLineEdit::changeEvent(param1);
-        } else if (qlineedit_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qlineedit_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qlineedit_changeevent_callback(this, cbval1);
-        } else {
-            QLineEdit::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,13 +662,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_contextmenuevent_isbase) {
             qlineedit_contextmenuevent_isbase = false;
             QLineEdit::contextMenuEvent(param1);
-        } else if (qlineedit_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qlineedit_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qlineedit_contextmenuevent_callback(this, cbval1);
-        } else {
-            QLineEdit::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -694,13 +679,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_inputmethodevent_isbase) {
             qlineedit_inputmethodevent_isbase = false;
             QLineEdit::inputMethodEvent(param1);
-        } else if (qlineedit_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qlineedit_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qlineedit_inputmethodevent_callback(this, cbval1);
-        } else {
-            QLineEdit::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -708,13 +696,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_initstyleoption_isbase) {
             qlineedit_initstyleoption_isbase = false;
             QLineEdit::initStyleOption(option);
-        } else if (qlineedit_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qlineedit_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qlineedit_initstyleoption_callback(this, cbval1);
-        } else {
-            QLineEdit::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QLineEdit::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -722,14 +713,15 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_inputmethodquery_isbase) {
             qlineedit_inputmethodquery_isbase = false;
             return QLineEdit::inputMethodQuery(param1);
-        } else if (qlineedit_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qlineedit_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qlineedit_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QLineEdit::inputMethodQuery(param1);
         }
+        return QLineEdit::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,13 +729,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_timerevent_isbase) {
             qlineedit_timerevent_isbase = false;
             QLineEdit::timerEvent(param1);
-        } else if (qlineedit_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qlineedit_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            qlineedit_timerevent_callback(this, cbval1);
-        } else {
-            QLineEdit::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,14 +746,15 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_event_isbase) {
             qlineedit_event_isbase = false;
             return QLineEdit::event(param1);
-        } else if (qlineedit_event_callback != nullptr) {
+        }
+        auto event_cb = qlineedit_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qlineedit_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLineEdit::event(param1);
         }
+        return QLineEdit::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -766,12 +762,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_devtype_isbase) {
             qlineedit_devtype_isbase = false;
             return QLineEdit::devType();
-        } else if (qlineedit_devtype_callback != nullptr) {
-            int callback_ret = qlineedit_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QLineEdit::devType();
         }
+        auto devtype_cb = qlineedit_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QLineEdit::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +776,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_setvisible_isbase) {
             qlineedit_setvisible_isbase = false;
             QLineEdit::setVisible(visible);
-        } else if (qlineedit_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qlineedit_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qlineedit_setvisible_callback(this, cbval1);
-        } else {
-            QLineEdit::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QLineEdit::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,14 +793,15 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_heightforwidth_isbase) {
             qlineedit_heightforwidth_isbase = false;
             return QLineEdit::heightForWidth(param1);
-        } else if (qlineedit_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qlineedit_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qlineedit_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLineEdit::heightForWidth(param1);
         }
+        return QLineEdit::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -808,12 +809,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_hasheightforwidth_isbase) {
             qlineedit_hasheightforwidth_isbase = false;
             return QLineEdit::hasHeightForWidth();
-        } else if (qlineedit_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qlineedit_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QLineEdit::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qlineedit_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QLineEdit::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,12 +823,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_paintengine_isbase) {
             qlineedit_paintengine_isbase = false;
             return QLineEdit::paintEngine();
-        } else if (qlineedit_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qlineedit_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QLineEdit::paintEngine();
         }
+        auto paintengine_cb = qlineedit_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QLineEdit::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -834,13 +837,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_wheelevent_isbase) {
             qlineedit_wheelevent_isbase = false;
             QLineEdit::wheelEvent(event);
-        } else if (qlineedit_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qlineedit_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qlineedit_wheelevent_callback(this, cbval1);
-        } else {
-            QLineEdit::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -848,13 +854,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_enterevent_isbase) {
             qlineedit_enterevent_isbase = false;
             QLineEdit::enterEvent(event);
-        } else if (qlineedit_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qlineedit_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qlineedit_enterevent_callback(this, cbval1);
-        } else {
-            QLineEdit::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -862,13 +871,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_leaveevent_isbase) {
             qlineedit_leaveevent_isbase = false;
             QLineEdit::leaveEvent(event);
-        } else if (qlineedit_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qlineedit_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qlineedit_leaveevent_callback(this, cbval1);
-        } else {
-            QLineEdit::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -876,13 +888,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_moveevent_isbase) {
             qlineedit_moveevent_isbase = false;
             QLineEdit::moveEvent(event);
-        } else if (qlineedit_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qlineedit_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qlineedit_moveevent_callback(this, cbval1);
-        } else {
-            QLineEdit::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -890,13 +905,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_resizeevent_isbase) {
             qlineedit_resizeevent_isbase = false;
             QLineEdit::resizeEvent(event);
-        } else if (qlineedit_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qlineedit_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qlineedit_resizeevent_callback(this, cbval1);
-        } else {
-            QLineEdit::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -904,13 +922,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_closeevent_isbase) {
             qlineedit_closeevent_isbase = false;
             QLineEdit::closeEvent(event);
-        } else if (qlineedit_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qlineedit_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qlineedit_closeevent_callback(this, cbval1);
-        } else {
-            QLineEdit::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -918,13 +939,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_tabletevent_isbase) {
             qlineedit_tabletevent_isbase = false;
             QLineEdit::tabletEvent(event);
-        } else if (qlineedit_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qlineedit_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qlineedit_tabletevent_callback(this, cbval1);
-        } else {
-            QLineEdit::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -932,13 +956,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_actionevent_isbase) {
             qlineedit_actionevent_isbase = false;
             QLineEdit::actionEvent(event);
-        } else if (qlineedit_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qlineedit_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qlineedit_actionevent_callback(this, cbval1);
-        } else {
-            QLineEdit::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -946,13 +973,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_showevent_isbase) {
             qlineedit_showevent_isbase = false;
             QLineEdit::showEvent(event);
-        } else if (qlineedit_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qlineedit_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qlineedit_showevent_callback(this, cbval1);
-        } else {
-            QLineEdit::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -960,13 +990,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_hideevent_isbase) {
             qlineedit_hideevent_isbase = false;
             QLineEdit::hideEvent(event);
-        } else if (qlineedit_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qlineedit_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qlineedit_hideevent_callback(this, cbval1);
-        } else {
-            QLineEdit::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -974,7 +1007,9 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_nativeevent_isbase) {
             qlineedit_nativeevent_isbase = false;
             return QLineEdit::nativeEvent(eventType, message, result);
-        } else if (qlineedit_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qlineedit_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -985,12 +1020,11 @@ class VirtualQLineEdit final : public QLineEdit {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qlineedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QLineEdit::nativeEvent(eventType, message, result);
         }
+        return QLineEdit::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -998,14 +1032,15 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_metric_isbase) {
             qlineedit_metric_isbase = false;
             return QLineEdit::metric(param1);
-        } else if (qlineedit_metric_callback != nullptr) {
+        }
+        auto metric_cb = qlineedit_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qlineedit_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLineEdit::metric(param1);
         }
+        return QLineEdit::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1013,13 +1048,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_initpainter_isbase) {
             qlineedit_initpainter_isbase = false;
             QLineEdit::initPainter(painter);
-        } else if (qlineedit_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qlineedit_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qlineedit_initpainter_callback(this, cbval1);
-        } else {
-            QLineEdit::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QLineEdit::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1027,14 +1065,15 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_redirected_isbase) {
             qlineedit_redirected_isbase = false;
             return QLineEdit::redirected(offset);
-        } else if (qlineedit_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qlineedit_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qlineedit_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLineEdit::redirected(offset);
         }
+        return QLineEdit::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1042,12 +1081,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_sharedpainter_isbase) {
             qlineedit_sharedpainter_isbase = false;
             return QLineEdit::sharedPainter();
-        } else if (qlineedit_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qlineedit_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QLineEdit::sharedPainter();
         }
+        auto sharedpainter_cb = qlineedit_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QLineEdit::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,14 +1095,15 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_focusnextprevchild_isbase) {
             qlineedit_focusnextprevchild_isbase = false;
             return QLineEdit::focusNextPrevChild(next);
-        } else if (qlineedit_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qlineedit_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qlineedit_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLineEdit::focusNextPrevChild(next);
         }
+        return QLineEdit::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,15 +1111,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_eventfilter_isbase) {
             qlineedit_eventfilter_isbase = false;
             return QLineEdit::eventFilter(watched, event);
-        } else if (qlineedit_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qlineedit_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qlineedit_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QLineEdit::eventFilter(watched, event);
         }
+        return QLineEdit::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,13 +1128,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_childevent_isbase) {
             qlineedit_childevent_isbase = false;
             QLineEdit::childEvent(event);
-        } else if (qlineedit_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qlineedit_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qlineedit_childevent_callback(this, cbval1);
-        } else {
-            QLineEdit::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1100,13 +1145,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_customevent_isbase) {
             qlineedit_customevent_isbase = false;
             QLineEdit::customEvent(event);
-        } else if (qlineedit_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qlineedit_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qlineedit_customevent_callback(this, cbval1);
-        } else {
-            QLineEdit::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QLineEdit::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1114,15 +1162,18 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_connectnotify_isbase) {
             qlineedit_connectnotify_isbase = false;
             QLineEdit::connectNotify(signal);
-        } else if (qlineedit_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qlineedit_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlineedit_connectnotify_callback(this, cbval1);
-        } else {
-            QLineEdit::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QLineEdit::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,15 +1181,18 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_disconnectnotify_isbase) {
             qlineedit_disconnectnotify_isbase = false;
             QLineEdit::disconnectNotify(signal);
-        } else if (qlineedit_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qlineedit_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlineedit_disconnectnotify_callback(this, cbval1);
-        } else {
-            QLineEdit::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QLineEdit::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1146,12 +1200,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_cursorrect_isbase) {
             qlineedit_cursorrect_isbase = false;
             return QLineEdit::cursorRect();
-        } else if (qlineedit_cursorrect_callback != nullptr) {
-            QRect* callback_ret = qlineedit_cursorrect_callback();
-            return *callback_ret;
-        } else {
-            return QLineEdit::cursorRect();
         }
+        auto cursorrect_cb = qlineedit_cursorrect_callback;
+        if (cursorrect_cb) {
+            QRect* callback_ret = cursorrect_cb();
+            return *callback_ret;
+        }
+        return QLineEdit::cursorRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,11 +1214,14 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_updatemicrofocus_isbase) {
             qlineedit_updatemicrofocus_isbase = false;
             QLineEdit::updateMicroFocus();
-        } else if (qlineedit_updatemicrofocus_callback != nullptr) {
-            qlineedit_updatemicrofocus_callback();
-        } else {
-            QLineEdit::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qlineedit_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QLineEdit::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1171,11 +1229,14 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_create_isbase) {
             qlineedit_create_isbase = false;
             QLineEdit::create();
-        } else if (qlineedit_create_callback != nullptr) {
-            qlineedit_create_callback();
-        } else {
-            QLineEdit::create();
+            return;
         }
+        auto create_cb = qlineedit_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QLineEdit::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,11 +1244,14 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_destroy_isbase) {
             qlineedit_destroy_isbase = false;
             QLineEdit::destroy();
-        } else if (qlineedit_destroy_callback != nullptr) {
-            qlineedit_destroy_callback();
-        } else {
-            QLineEdit::destroy();
+            return;
         }
+        auto destroy_cb = qlineedit_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QLineEdit::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,12 +1259,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_focusnextchild_isbase) {
             qlineedit_focusnextchild_isbase = false;
             return QLineEdit::focusNextChild();
-        } else if (qlineedit_focusnextchild_callback != nullptr) {
-            bool callback_ret = qlineedit_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QLineEdit::focusNextChild();
         }
+        auto focusnextchild_cb = qlineedit_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QLineEdit::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1208,12 +1273,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_focuspreviouschild_isbase) {
             qlineedit_focuspreviouschild_isbase = false;
             return QLineEdit::focusPreviousChild();
-        } else if (qlineedit_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qlineedit_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QLineEdit::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qlineedit_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QLineEdit::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,12 +1287,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_sender_isbase) {
             qlineedit_sender_isbase = false;
             return QLineEdit::sender();
-        } else if (qlineedit_sender_callback != nullptr) {
-            QObject* callback_ret = qlineedit_sender_callback();
-            return callback_ret;
-        } else {
-            return QLineEdit::sender();
         }
+        auto sender_cb = qlineedit_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QLineEdit::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,12 +1301,13 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_sendersignalindex_isbase) {
             qlineedit_sendersignalindex_isbase = false;
             return QLineEdit::senderSignalIndex();
-        } else if (qlineedit_sendersignalindex_callback != nullptr) {
-            int callback_ret = qlineedit_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QLineEdit::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qlineedit_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QLineEdit::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,14 +1315,15 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_receivers_isbase) {
             qlineedit_receivers_isbase = false;
             return QLineEdit::receivers(signal);
-        } else if (qlineedit_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qlineedit_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qlineedit_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLineEdit::receivers(signal);
         }
+        return QLineEdit::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1262,16 +1331,17 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_issignalconnected_isbase) {
             qlineedit_issignalconnected_isbase = false;
             return QLineEdit::isSignalConnected(signal);
-        } else if (qlineedit_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qlineedit_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qlineedit_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLineEdit::isSignalConnected(signal);
         }
+        return QLineEdit::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1279,15 +1349,16 @@ class VirtualQLineEdit final : public QLineEdit {
         if (qlineedit_getdecodedmetricf_isbase) {
             qlineedit_getdecodedmetricf_isbase = false;
             return QLineEdit::getDecodedMetricF(metricA, metricB);
-        } else if (qlineedit_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qlineedit_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qlineedit_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QLineEdit::getDecodedMetricF(metricA, metricB);
         }
+        return QLineEdit::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

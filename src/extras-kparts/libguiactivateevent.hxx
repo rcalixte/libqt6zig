@@ -32,11 +32,6 @@ class VirtualKPartsGUIActivateEvent final : public KParts::GUIActivateEvent {
   public:
     VirtualKPartsGUIActivateEvent(bool activated) : KParts::GUIActivateEvent(activated) {};
 
-    ~VirtualKPartsGUIActivateEvent() {
-        kparts__guiactivateevent_setaccepted_callback = nullptr;
-        kparts__guiactivateevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKParts__GUIActivateEvent_SetAccepted_Callback(KParts__GUIActivateEvent_SetAccepted_Callback cb) { kparts__guiactivateevent_setaccepted_callback = cb; }
     inline void setKParts__GUIActivateEvent_Clone_Callback(KParts__GUIActivateEvent_Clone_Callback cb) { kparts__guiactivateevent_clone_callback = cb; }
@@ -50,13 +45,16 @@ class VirtualKPartsGUIActivateEvent final : public KParts::GUIActivateEvent {
         if (kparts__guiactivateevent_setaccepted_isbase) {
             kparts__guiactivateevent_setaccepted_isbase = false;
             KParts__GUIActivateEvent::setAccepted(accepted);
-        } else if (kparts__guiactivateevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = kparts__guiactivateevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            kparts__guiactivateevent_setaccepted_callback(this, cbval1);
-        } else {
-            KParts__GUIActivateEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        KParts__GUIActivateEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -64,12 +62,13 @@ class VirtualKPartsGUIActivateEvent final : public KParts::GUIActivateEvent {
         if (kparts__guiactivateevent_clone_isbase) {
             kparts__guiactivateevent_clone_isbase = false;
             return KParts__GUIActivateEvent::clone();
-        } else if (kparts__guiactivateevent_clone_callback != nullptr) {
-            QEvent* callback_ret = kparts__guiactivateevent_clone_callback();
-            return callback_ret;
-        } else {
-            return KParts__GUIActivateEvent::clone();
         }
+        auto clone_cb = kparts__guiactivateevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return KParts__GUIActivateEvent::clone();
     }
 };
 

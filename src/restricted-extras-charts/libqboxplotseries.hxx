@@ -72,24 +72,6 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
     VirtualQBoxPlotSeries() : QBoxPlotSeries() {};
     VirtualQBoxPlotSeries(QObject* parent) : QBoxPlotSeries(parent) {};
 
-    ~VirtualQBoxPlotSeries() {
-        qboxplotseries_metaobject_callback = nullptr;
-        qboxplotseries_metacast_callback = nullptr;
-        qboxplotseries_metacall_callback = nullptr;
-        qboxplotseries_type_callback = nullptr;
-        qboxplotseries_event_callback = nullptr;
-        qboxplotseries_eventfilter_callback = nullptr;
-        qboxplotseries_timerevent_callback = nullptr;
-        qboxplotseries_childevent_callback = nullptr;
-        qboxplotseries_customevent_callback = nullptr;
-        qboxplotseries_connectnotify_callback = nullptr;
-        qboxplotseries_disconnectnotify_callback = nullptr;
-        qboxplotseries_sender_callback = nullptr;
-        qboxplotseries_sendersignalindex_callback = nullptr;
-        qboxplotseries_receivers_callback = nullptr;
-        qboxplotseries_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQBoxPlotSeries_MetaObject_Callback(QBoxPlotSeries_MetaObject_Callback cb) { qboxplotseries_metaobject_callback = cb; }
     inline void setQBoxPlotSeries_Metacast_Callback(QBoxPlotSeries_Metacast_Callback cb) { qboxplotseries_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_metaobject_isbase) {
             qboxplotseries_metaobject_isbase = false;
             return QBoxPlotSeries::metaObject();
-        } else if (qboxplotseries_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qboxplotseries_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QBoxPlotSeries::metaObject();
         }
+        auto metaobject_cb = qboxplotseries_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QBoxPlotSeries::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_metacast_isbase) {
             qboxplotseries_metacast_isbase = false;
             return QBoxPlotSeries::qt_metacast(param1);
-        } else if (qboxplotseries_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qboxplotseries_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qboxplotseries_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBoxPlotSeries::qt_metacast(param1);
         }
+        return QBoxPlotSeries::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_metacall_isbase) {
             qboxplotseries_metacall_isbase = false;
             return QBoxPlotSeries::qt_metacall(param1, param2, param3);
-        } else if (qboxplotseries_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qboxplotseries_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qboxplotseries_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QBoxPlotSeries::qt_metacall(param1, param2, param3);
         }
+        return QBoxPlotSeries::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,12 +159,13 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_type_isbase) {
             qboxplotseries_type_isbase = false;
             return QBoxPlotSeries::type();
-        } else if (qboxplotseries_type_callback != nullptr) {
-            int callback_ret = qboxplotseries_type_callback();
-            return static_cast<QAbstractSeries::SeriesType>(callback_ret);
-        } else {
-            return QBoxPlotSeries::type();
         }
+        auto type_cb = qboxplotseries_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QAbstractSeries::SeriesType>(callback_ret);
+        }
+        return QBoxPlotSeries::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +173,15 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_event_isbase) {
             qboxplotseries_event_isbase = false;
             return QBoxPlotSeries::event(event);
-        } else if (qboxplotseries_event_callback != nullptr) {
+        }
+        auto event_cb = qboxplotseries_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qboxplotseries_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBoxPlotSeries::event(event);
         }
+        return QBoxPlotSeries::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,15 +189,16 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_eventfilter_isbase) {
             qboxplotseries_eventfilter_isbase = false;
             return QBoxPlotSeries::eventFilter(watched, event);
-        } else if (qboxplotseries_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qboxplotseries_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qboxplotseries_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QBoxPlotSeries::eventFilter(watched, event);
         }
+        return QBoxPlotSeries::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,13 +206,16 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_timerevent_isbase) {
             qboxplotseries_timerevent_isbase = false;
             QBoxPlotSeries::timerEvent(event);
-        } else if (qboxplotseries_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qboxplotseries_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qboxplotseries_timerevent_callback(this, cbval1);
-        } else {
-            QBoxPlotSeries::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QBoxPlotSeries::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +223,16 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_childevent_isbase) {
             qboxplotseries_childevent_isbase = false;
             QBoxPlotSeries::childEvent(event);
-        } else if (qboxplotseries_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qboxplotseries_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qboxplotseries_childevent_callback(this, cbval1);
-        } else {
-            QBoxPlotSeries::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QBoxPlotSeries::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,13 +240,16 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_customevent_isbase) {
             qboxplotseries_customevent_isbase = false;
             QBoxPlotSeries::customEvent(event);
-        } else if (qboxplotseries_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qboxplotseries_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qboxplotseries_customevent_callback(this, cbval1);
-        } else {
-            QBoxPlotSeries::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QBoxPlotSeries::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,15 +257,18 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_connectnotify_isbase) {
             qboxplotseries_connectnotify_isbase = false;
             QBoxPlotSeries::connectNotify(signal);
-        } else if (qboxplotseries_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qboxplotseries_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qboxplotseries_connectnotify_callback(this, cbval1);
-        } else {
-            QBoxPlotSeries::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QBoxPlotSeries::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,15 +276,18 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_disconnectnotify_isbase) {
             qboxplotseries_disconnectnotify_isbase = false;
             QBoxPlotSeries::disconnectNotify(signal);
-        } else if (qboxplotseries_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qboxplotseries_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qboxplotseries_disconnectnotify_callback(this, cbval1);
-        } else {
-            QBoxPlotSeries::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QBoxPlotSeries::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +295,13 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_sender_isbase) {
             qboxplotseries_sender_isbase = false;
             return QBoxPlotSeries::sender();
-        } else if (qboxplotseries_sender_callback != nullptr) {
-            QObject* callback_ret = qboxplotseries_sender_callback();
-            return callback_ret;
-        } else {
-            return QBoxPlotSeries::sender();
         }
+        auto sender_cb = qboxplotseries_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QBoxPlotSeries::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,12 +309,13 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_sendersignalindex_isbase) {
             qboxplotseries_sendersignalindex_isbase = false;
             return QBoxPlotSeries::senderSignalIndex();
-        } else if (qboxplotseries_sendersignalindex_callback != nullptr) {
-            int callback_ret = qboxplotseries_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QBoxPlotSeries::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qboxplotseries_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QBoxPlotSeries::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,14 +323,15 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_receivers_isbase) {
             qboxplotseries_receivers_isbase = false;
             return QBoxPlotSeries::receivers(signal);
-        } else if (qboxplotseries_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qboxplotseries_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qboxplotseries_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QBoxPlotSeries::receivers(signal);
         }
+        return QBoxPlotSeries::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,16 +339,17 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
         if (qboxplotseries_issignalconnected_isbase) {
             qboxplotseries_issignalconnected_isbase = false;
             return QBoxPlotSeries::isSignalConnected(signal);
-        } else if (qboxplotseries_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qboxplotseries_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qboxplotseries_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBoxPlotSeries::isSignalConnected(signal);
         }
+        return QBoxPlotSeries::isSignalConnected(signal);
     }
 
     // Friend functions

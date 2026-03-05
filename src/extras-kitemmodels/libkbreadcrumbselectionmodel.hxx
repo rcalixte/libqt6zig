@@ -92,30 +92,6 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
     VirtualKBreadcrumbSelectionModel(QItemSelectionModel* selectionModel, QObject* parent) : KBreadcrumbSelectionModel(selectionModel, parent) {};
     VirtualKBreadcrumbSelectionModel(QItemSelectionModel* selectionModel, KBreadcrumbSelectionModel::BreadcrumbTarget target, QObject* parent) : KBreadcrumbSelectionModel(selectionModel, target, parent) {};
 
-    ~VirtualKBreadcrumbSelectionModel() {
-        kbreadcrumbselectionmodel_metaobject_callback = nullptr;
-        kbreadcrumbselectionmodel_metacast_callback = nullptr;
-        kbreadcrumbselectionmodel_metacall_callback = nullptr;
-        kbreadcrumbselectionmodel_select_callback = nullptr;
-        kbreadcrumbselectionmodel_select2_callback = nullptr;
-        kbreadcrumbselectionmodel_setcurrentindex_callback = nullptr;
-        kbreadcrumbselectionmodel_clear_callback = nullptr;
-        kbreadcrumbselectionmodel_reset_callback = nullptr;
-        kbreadcrumbselectionmodel_clearcurrentindex_callback = nullptr;
-        kbreadcrumbselectionmodel_event_callback = nullptr;
-        kbreadcrumbselectionmodel_eventfilter_callback = nullptr;
-        kbreadcrumbselectionmodel_timerevent_callback = nullptr;
-        kbreadcrumbselectionmodel_childevent_callback = nullptr;
-        kbreadcrumbselectionmodel_customevent_callback = nullptr;
-        kbreadcrumbselectionmodel_connectnotify_callback = nullptr;
-        kbreadcrumbselectionmodel_disconnectnotify_callback = nullptr;
-        kbreadcrumbselectionmodel_emitselectionchanged_callback = nullptr;
-        kbreadcrumbselectionmodel_sender_callback = nullptr;
-        kbreadcrumbselectionmodel_sendersignalindex_callback = nullptr;
-        kbreadcrumbselectionmodel_receivers_callback = nullptr;
-        kbreadcrumbselectionmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKBreadcrumbSelectionModel_MetaObject_Callback(KBreadcrumbSelectionModel_MetaObject_Callback cb) { kbreadcrumbselectionmodel_metaobject_callback = cb; }
     inline void setKBreadcrumbSelectionModel_Metacast_Callback(KBreadcrumbSelectionModel_Metacast_Callback cb) { kbreadcrumbselectionmodel_metacast_callback = cb; }
@@ -167,12 +143,13 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_metaobject_isbase) {
             kbreadcrumbselectionmodel_metaobject_isbase = false;
             return KBreadcrumbSelectionModel::metaObject();
-        } else if (kbreadcrumbselectionmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kbreadcrumbselectionmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KBreadcrumbSelectionModel::metaObject();
         }
+        auto metaobject_cb = kbreadcrumbselectionmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KBreadcrumbSelectionModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,14 +157,15 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_metacast_isbase) {
             kbreadcrumbselectionmodel_metacast_isbase = false;
             return KBreadcrumbSelectionModel::qt_metacast(param1);
-        } else if (kbreadcrumbselectionmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kbreadcrumbselectionmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kbreadcrumbselectionmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBreadcrumbSelectionModel::qt_metacast(param1);
         }
+        return KBreadcrumbSelectionModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -195,16 +173,17 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_metacall_isbase) {
             kbreadcrumbselectionmodel_metacall_isbase = false;
             return KBreadcrumbSelectionModel::qt_metacall(param1, param2, param3);
-        } else if (kbreadcrumbselectionmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kbreadcrumbselectionmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kbreadcrumbselectionmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBreadcrumbSelectionModel::qt_metacall(param1, param2, param3);
         }
+        return KBreadcrumbSelectionModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,16 +191,19 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_select_isbase) {
             kbreadcrumbselectionmodel_select_isbase = false;
             KBreadcrumbSelectionModel::select(index, command);
-        } else if (kbreadcrumbselectionmodel_select_callback != nullptr) {
+            return;
+        }
+        auto select_cb = kbreadcrumbselectionmodel_select_callback;
+        if (select_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(command);
 
-            kbreadcrumbselectionmodel_select_callback(this, cbval1, cbval2);
-        } else {
-            KBreadcrumbSelectionModel::select(index, command);
+            select_cb(this, cbval1, cbval2);
+            return;
         }
+        KBreadcrumbSelectionModel::select(index, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,16 +211,19 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_select2_isbase) {
             kbreadcrumbselectionmodel_select2_isbase = false;
             KBreadcrumbSelectionModel::select(selection, command);
-        } else if (kbreadcrumbselectionmodel_select2_callback != nullptr) {
+            return;
+        }
+        auto select2_cb = kbreadcrumbselectionmodel_select2_callback;
+        if (select2_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
             int cbval2 = static_cast<int>(command);
 
-            kbreadcrumbselectionmodel_select2_callback(this, cbval1, cbval2);
-        } else {
-            KBreadcrumbSelectionModel::select(selection, command);
+            select2_cb(this, cbval1, cbval2);
+            return;
         }
+        KBreadcrumbSelectionModel::select(selection, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,16 +231,19 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_setcurrentindex_isbase) {
             kbreadcrumbselectionmodel_setcurrentindex_isbase = false;
             KBreadcrumbSelectionModel::setCurrentIndex(index, command);
-        } else if (kbreadcrumbselectionmodel_setcurrentindex_callback != nullptr) {
+            return;
+        }
+        auto setcurrentindex_cb = kbreadcrumbselectionmodel_setcurrentindex_callback;
+        if (setcurrentindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(command);
 
-            kbreadcrumbselectionmodel_setcurrentindex_callback(this, cbval1, cbval2);
-        } else {
-            KBreadcrumbSelectionModel::setCurrentIndex(index, command);
+            setcurrentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KBreadcrumbSelectionModel::setCurrentIndex(index, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,11 +251,14 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_clear_isbase) {
             kbreadcrumbselectionmodel_clear_isbase = false;
             KBreadcrumbSelectionModel::clear();
-        } else if (kbreadcrumbselectionmodel_clear_callback != nullptr) {
-            kbreadcrumbselectionmodel_clear_callback();
-        } else {
-            KBreadcrumbSelectionModel::clear();
+            return;
         }
+        auto clear_cb = kbreadcrumbselectionmodel_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        KBreadcrumbSelectionModel::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,11 +266,14 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_reset_isbase) {
             kbreadcrumbselectionmodel_reset_isbase = false;
             KBreadcrumbSelectionModel::reset();
-        } else if (kbreadcrumbselectionmodel_reset_callback != nullptr) {
-            kbreadcrumbselectionmodel_reset_callback();
-        } else {
-            KBreadcrumbSelectionModel::reset();
+            return;
         }
+        auto reset_cb = kbreadcrumbselectionmodel_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        KBreadcrumbSelectionModel::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,11 +281,14 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_clearcurrentindex_isbase) {
             kbreadcrumbselectionmodel_clearcurrentindex_isbase = false;
             KBreadcrumbSelectionModel::clearCurrentIndex();
-        } else if (kbreadcrumbselectionmodel_clearcurrentindex_callback != nullptr) {
-            kbreadcrumbselectionmodel_clearcurrentindex_callback();
-        } else {
-            KBreadcrumbSelectionModel::clearCurrentIndex();
+            return;
         }
+        auto clearcurrentindex_cb = kbreadcrumbselectionmodel_clearcurrentindex_callback;
+        if (clearcurrentindex_cb) {
+            clearcurrentindex_cb();
+            return;
+        }
+        KBreadcrumbSelectionModel::clearCurrentIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +296,15 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_event_isbase) {
             kbreadcrumbselectionmodel_event_isbase = false;
             return KBreadcrumbSelectionModel::event(event);
-        } else if (kbreadcrumbselectionmodel_event_callback != nullptr) {
+        }
+        auto event_cb = kbreadcrumbselectionmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kbreadcrumbselectionmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBreadcrumbSelectionModel::event(event);
         }
+        return KBreadcrumbSelectionModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,15 +312,16 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_eventfilter_isbase) {
             kbreadcrumbselectionmodel_eventfilter_isbase = false;
             return KBreadcrumbSelectionModel::eventFilter(watched, event);
-        } else if (kbreadcrumbselectionmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kbreadcrumbselectionmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kbreadcrumbselectionmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KBreadcrumbSelectionModel::eventFilter(watched, event);
         }
+        return KBreadcrumbSelectionModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -330,13 +329,16 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_timerevent_isbase) {
             kbreadcrumbselectionmodel_timerevent_isbase = false;
             KBreadcrumbSelectionModel::timerEvent(event);
-        } else if (kbreadcrumbselectionmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kbreadcrumbselectionmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kbreadcrumbselectionmodel_timerevent_callback(this, cbval1);
-        } else {
-            KBreadcrumbSelectionModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KBreadcrumbSelectionModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -344,13 +346,16 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_childevent_isbase) {
             kbreadcrumbselectionmodel_childevent_isbase = false;
             KBreadcrumbSelectionModel::childEvent(event);
-        } else if (kbreadcrumbselectionmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kbreadcrumbselectionmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kbreadcrumbselectionmodel_childevent_callback(this, cbval1);
-        } else {
-            KBreadcrumbSelectionModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KBreadcrumbSelectionModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,13 +363,16 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_customevent_isbase) {
             kbreadcrumbselectionmodel_customevent_isbase = false;
             KBreadcrumbSelectionModel::customEvent(event);
-        } else if (kbreadcrumbselectionmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kbreadcrumbselectionmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kbreadcrumbselectionmodel_customevent_callback(this, cbval1);
-        } else {
-            KBreadcrumbSelectionModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KBreadcrumbSelectionModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -372,15 +380,18 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_connectnotify_isbase) {
             kbreadcrumbselectionmodel_connectnotify_isbase = false;
             KBreadcrumbSelectionModel::connectNotify(signal);
-        } else if (kbreadcrumbselectionmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kbreadcrumbselectionmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kbreadcrumbselectionmodel_connectnotify_callback(this, cbval1);
-        } else {
-            KBreadcrumbSelectionModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KBreadcrumbSelectionModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -388,15 +399,18 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_disconnectnotify_isbase) {
             kbreadcrumbselectionmodel_disconnectnotify_isbase = false;
             KBreadcrumbSelectionModel::disconnectNotify(signal);
-        } else if (kbreadcrumbselectionmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kbreadcrumbselectionmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kbreadcrumbselectionmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KBreadcrumbSelectionModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KBreadcrumbSelectionModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -404,7 +418,10 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_emitselectionchanged_isbase) {
             kbreadcrumbselectionmodel_emitselectionchanged_isbase = false;
             KBreadcrumbSelectionModel::emitSelectionChanged(newSelection, oldSelection);
-        } else if (kbreadcrumbselectionmodel_emitselectionchanged_callback != nullptr) {
+            return;
+        }
+        auto emitselectionchanged_cb = kbreadcrumbselectionmodel_emitselectionchanged_callback;
+        if (emitselectionchanged_cb) {
             const QItemSelection& newSelection_ret = newSelection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&newSelection_ret);
@@ -412,10 +429,10 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&oldSelection_ret);
 
-            kbreadcrumbselectionmodel_emitselectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            KBreadcrumbSelectionModel::emitSelectionChanged(newSelection, oldSelection);
+            emitselectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        KBreadcrumbSelectionModel::emitSelectionChanged(newSelection, oldSelection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,12 +440,13 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_sender_isbase) {
             kbreadcrumbselectionmodel_sender_isbase = false;
             return KBreadcrumbSelectionModel::sender();
-        } else if (kbreadcrumbselectionmodel_sender_callback != nullptr) {
-            QObject* callback_ret = kbreadcrumbselectionmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return KBreadcrumbSelectionModel::sender();
         }
+        auto sender_cb = kbreadcrumbselectionmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KBreadcrumbSelectionModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,12 +454,13 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_sendersignalindex_isbase) {
             kbreadcrumbselectionmodel_sendersignalindex_isbase = false;
             return KBreadcrumbSelectionModel::senderSignalIndex();
-        } else if (kbreadcrumbselectionmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = kbreadcrumbselectionmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBreadcrumbSelectionModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kbreadcrumbselectionmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBreadcrumbSelectionModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -449,14 +468,15 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_receivers_isbase) {
             kbreadcrumbselectionmodel_receivers_isbase = false;
             return KBreadcrumbSelectionModel::receivers(signal);
-        } else if (kbreadcrumbselectionmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kbreadcrumbselectionmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kbreadcrumbselectionmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBreadcrumbSelectionModel::receivers(signal);
         }
+        return KBreadcrumbSelectionModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,16 +484,17 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
         if (kbreadcrumbselectionmodel_issignalconnected_isbase) {
             kbreadcrumbselectionmodel_issignalconnected_isbase = false;
             return KBreadcrumbSelectionModel::isSignalConnected(signal);
-        } else if (kbreadcrumbselectionmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kbreadcrumbselectionmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kbreadcrumbselectionmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBreadcrumbSelectionModel::isSignalConnected(signal);
         }
+        return KBreadcrumbSelectionModel::isSignalConnected(signal);
     }
 
     // Friend functions

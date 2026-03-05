@@ -390,129 +390,6 @@ class VirtualQColumnView final : public QColumnView {
     VirtualQColumnView(QWidget* parent) : QColumnView(parent) {};
     VirtualQColumnView() : QColumnView() {};
 
-    ~VirtualQColumnView() {
-        qcolumnview_metaobject_callback = nullptr;
-        qcolumnview_metacast_callback = nullptr;
-        qcolumnview_metacall_callback = nullptr;
-        qcolumnview_indexat_callback = nullptr;
-        qcolumnview_scrollto_callback = nullptr;
-        qcolumnview_sizehint_callback = nullptr;
-        qcolumnview_visualrect_callback = nullptr;
-        qcolumnview_setmodel_callback = nullptr;
-        qcolumnview_setselectionmodel_callback = nullptr;
-        qcolumnview_setrootindex_callback = nullptr;
-        qcolumnview_selectall_callback = nullptr;
-        qcolumnview_isindexhidden_callback = nullptr;
-        qcolumnview_movecursor_callback = nullptr;
-        qcolumnview_resizeevent_callback = nullptr;
-        qcolumnview_setselection_callback = nullptr;
-        qcolumnview_visualregionforselection_callback = nullptr;
-        qcolumnview_horizontaloffset_callback = nullptr;
-        qcolumnview_verticaloffset_callback = nullptr;
-        qcolumnview_rowsinserted_callback = nullptr;
-        qcolumnview_currentchanged_callback = nullptr;
-        qcolumnview_scrollcontentsby_callback = nullptr;
-        qcolumnview_createcolumn_callback = nullptr;
-        qcolumnview_keyboardsearch_callback = nullptr;
-        qcolumnview_sizehintforrow_callback = nullptr;
-        qcolumnview_sizehintforcolumn_callback = nullptr;
-        qcolumnview_itemdelegateforindex_callback = nullptr;
-        qcolumnview_inputmethodquery_callback = nullptr;
-        qcolumnview_reset_callback = nullptr;
-        qcolumnview_doitemslayout_callback = nullptr;
-        qcolumnview_datachanged_callback = nullptr;
-        qcolumnview_rowsabouttoberemoved_callback = nullptr;
-        qcolumnview_selectionchanged_callback = nullptr;
-        qcolumnview_updateeditordata_callback = nullptr;
-        qcolumnview_updateeditorgeometries_callback = nullptr;
-        qcolumnview_updategeometries_callback = nullptr;
-        qcolumnview_verticalscrollbaraction_callback = nullptr;
-        qcolumnview_horizontalscrollbaraction_callback = nullptr;
-        qcolumnview_verticalscrollbarvaluechanged_callback = nullptr;
-        qcolumnview_horizontalscrollbarvaluechanged_callback = nullptr;
-        qcolumnview_closeeditor_callback = nullptr;
-        qcolumnview_commitdata_callback = nullptr;
-        qcolumnview_editordestroyed_callback = nullptr;
-        qcolumnview_selectedindexes_callback = nullptr;
-        qcolumnview_edit2_callback = nullptr;
-        qcolumnview_selectioncommand_callback = nullptr;
-        qcolumnview_startdrag_callback = nullptr;
-        qcolumnview_initviewitemoption_callback = nullptr;
-        qcolumnview_focusnextprevchild_callback = nullptr;
-        qcolumnview_event_callback = nullptr;
-        qcolumnview_viewportevent_callback = nullptr;
-        qcolumnview_mousepressevent_callback = nullptr;
-        qcolumnview_mousemoveevent_callback = nullptr;
-        qcolumnview_mousereleaseevent_callback = nullptr;
-        qcolumnview_mousedoubleclickevent_callback = nullptr;
-        qcolumnview_dragenterevent_callback = nullptr;
-        qcolumnview_dragmoveevent_callback = nullptr;
-        qcolumnview_dragleaveevent_callback = nullptr;
-        qcolumnview_dropevent_callback = nullptr;
-        qcolumnview_focusinevent_callback = nullptr;
-        qcolumnview_focusoutevent_callback = nullptr;
-        qcolumnview_keypressevent_callback = nullptr;
-        qcolumnview_timerevent_callback = nullptr;
-        qcolumnview_inputmethodevent_callback = nullptr;
-        qcolumnview_eventfilter_callback = nullptr;
-        qcolumnview_viewportsizehint_callback = nullptr;
-        qcolumnview_minimumsizehint_callback = nullptr;
-        qcolumnview_setupviewport_callback = nullptr;
-        qcolumnview_paintevent_callback = nullptr;
-        qcolumnview_wheelevent_callback = nullptr;
-        qcolumnview_contextmenuevent_callback = nullptr;
-        qcolumnview_changeevent_callback = nullptr;
-        qcolumnview_initstyleoption_callback = nullptr;
-        qcolumnview_devtype_callback = nullptr;
-        qcolumnview_setvisible_callback = nullptr;
-        qcolumnview_heightforwidth_callback = nullptr;
-        qcolumnview_hasheightforwidth_callback = nullptr;
-        qcolumnview_paintengine_callback = nullptr;
-        qcolumnview_keyreleaseevent_callback = nullptr;
-        qcolumnview_enterevent_callback = nullptr;
-        qcolumnview_leaveevent_callback = nullptr;
-        qcolumnview_moveevent_callback = nullptr;
-        qcolumnview_closeevent_callback = nullptr;
-        qcolumnview_tabletevent_callback = nullptr;
-        qcolumnview_actionevent_callback = nullptr;
-        qcolumnview_showevent_callback = nullptr;
-        qcolumnview_hideevent_callback = nullptr;
-        qcolumnview_nativeevent_callback = nullptr;
-        qcolumnview_metric_callback = nullptr;
-        qcolumnview_initpainter_callback = nullptr;
-        qcolumnview_redirected_callback = nullptr;
-        qcolumnview_sharedpainter_callback = nullptr;
-        qcolumnview_childevent_callback = nullptr;
-        qcolumnview_customevent_callback = nullptr;
-        qcolumnview_connectnotify_callback = nullptr;
-        qcolumnview_disconnectnotify_callback = nullptr;
-        qcolumnview_initializecolumn_callback = nullptr;
-        qcolumnview_state_callback = nullptr;
-        qcolumnview_setstate_callback = nullptr;
-        qcolumnview_scheduledelayeditemslayout_callback = nullptr;
-        qcolumnview_executedelayeditemslayout_callback = nullptr;
-        qcolumnview_setdirtyregion_callback = nullptr;
-        qcolumnview_scrolldirtyregion_callback = nullptr;
-        qcolumnview_dirtyregionoffset_callback = nullptr;
-        qcolumnview_startautoscroll_callback = nullptr;
-        qcolumnview_stopautoscroll_callback = nullptr;
-        qcolumnview_doautoscroll_callback = nullptr;
-        qcolumnview_dropindicatorposition_callback = nullptr;
-        qcolumnview_setviewportmargins_callback = nullptr;
-        qcolumnview_viewportmargins_callback = nullptr;
-        qcolumnview_drawframe_callback = nullptr;
-        qcolumnview_updatemicrofocus_callback = nullptr;
-        qcolumnview_create_callback = nullptr;
-        qcolumnview_destroy_callback = nullptr;
-        qcolumnview_focusnextchild_callback = nullptr;
-        qcolumnview_focuspreviouschild_callback = nullptr;
-        qcolumnview_sender_callback = nullptr;
-        qcolumnview_sendersignalindex_callback = nullptr;
-        qcolumnview_receivers_callback = nullptr;
-        qcolumnview_issignalconnected_callback = nullptr;
-        qcolumnview_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQColumnView_MetaObject_Callback(QColumnView_MetaObject_Callback cb) { qcolumnview_metaobject_callback = cb; }
     inline void setQColumnView_Metacast_Callback(QColumnView_Metacast_Callback cb) { qcolumnview_metacast_callback = cb; }
@@ -762,12 +639,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_metaobject_isbase) {
             qcolumnview_metaobject_isbase = false;
             return QColumnView::metaObject();
-        } else if (qcolumnview_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qcolumnview_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QColumnView::metaObject();
         }
+        auto metaobject_cb = qcolumnview_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QColumnView::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,14 +653,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_metacast_isbase) {
             qcolumnview_metacast_isbase = false;
             return QColumnView::qt_metacast(param1);
-        } else if (qcolumnview_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qcolumnview_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qcolumnview_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColumnView::qt_metacast(param1);
         }
+        return QColumnView::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -790,16 +669,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_metacall_isbase) {
             qcolumnview_metacall_isbase = false;
             return QColumnView::qt_metacall(param1, param2, param3);
-        } else if (qcolumnview_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qcolumnview_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qcolumnview_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QColumnView::qt_metacall(param1, param2, param3);
         }
+        return QColumnView::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,16 +687,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_indexat_isbase) {
             qcolumnview_indexat_isbase = false;
             return QColumnView::indexAt(point);
-        } else if (qcolumnview_indexat_callback != nullptr) {
+        }
+        auto indexat_cb = qcolumnview_indexat_callback;
+        if (indexat_cb) {
             const QPoint& point_ret = point;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&point_ret);
 
-            QModelIndex* callback_ret = qcolumnview_indexat_callback(this, cbval1);
+            QModelIndex* callback_ret = indexat_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QColumnView::indexAt(point);
         }
+        return QColumnView::indexAt(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -824,16 +705,19 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_scrollto_isbase) {
             qcolumnview_scrollto_isbase = false;
             QColumnView::scrollTo(index, hint);
-        } else if (qcolumnview_scrollto_callback != nullptr) {
+            return;
+        }
+        auto scrollto_cb = qcolumnview_scrollto_callback;
+        if (scrollto_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
 
-            qcolumnview_scrollto_callback(this, cbval1, cbval2);
-        } else {
-            QColumnView::scrollTo(index, hint);
+            scrollto_cb(this, cbval1, cbval2);
+            return;
         }
+        QColumnView::scrollTo(index, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -841,12 +725,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_sizehint_isbase) {
             qcolumnview_sizehint_isbase = false;
             return QColumnView::sizeHint();
-        } else if (qcolumnview_sizehint_callback != nullptr) {
-            QSize* callback_ret = qcolumnview_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QColumnView::sizeHint();
         }
+        auto sizehint_cb = qcolumnview_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QColumnView::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,16 +739,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_visualrect_isbase) {
             qcolumnview_visualrect_isbase = false;
             return QColumnView::visualRect(index);
-        } else if (qcolumnview_visualrect_callback != nullptr) {
+        }
+        auto visualrect_cb = qcolumnview_visualrect_callback;
+        if (visualrect_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = qcolumnview_visualrect_callback(this, cbval1);
+            QRect* callback_ret = visualrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QColumnView::visualRect(index);
         }
+        return QColumnView::visualRect(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +757,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_setmodel_isbase) {
             qcolumnview_setmodel_isbase = false;
             QColumnView::setModel(model);
-        } else if (qcolumnview_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = qcolumnview_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            qcolumnview_setmodel_callback(this, cbval1);
-        } else {
-            QColumnView::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        QColumnView::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +774,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_setselectionmodel_isbase) {
             qcolumnview_setselectionmodel_isbase = false;
             QColumnView::setSelectionModel(selectionModel);
-        } else if (qcolumnview_setselectionmodel_callback != nullptr) {
+            return;
+        }
+        auto setselectionmodel_cb = qcolumnview_setselectionmodel_callback;
+        if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
 
-            qcolumnview_setselectionmodel_callback(this, cbval1);
-        } else {
-            QColumnView::setSelectionModel(selectionModel);
+            setselectionmodel_cb(this, cbval1);
+            return;
         }
+        QColumnView::setSelectionModel(selectionModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,15 +791,18 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_setrootindex_isbase) {
             qcolumnview_setrootindex_isbase = false;
             QColumnView::setRootIndex(index);
-        } else if (qcolumnview_setrootindex_callback != nullptr) {
+            return;
+        }
+        auto setrootindex_cb = qcolumnview_setrootindex_callback;
+        if (setrootindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            qcolumnview_setrootindex_callback(this, cbval1);
-        } else {
-            QColumnView::setRootIndex(index);
+            setrootindex_cb(this, cbval1);
+            return;
         }
+        QColumnView::setRootIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -915,11 +810,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_selectall_isbase) {
             qcolumnview_selectall_isbase = false;
             QColumnView::selectAll();
-        } else if (qcolumnview_selectall_callback != nullptr) {
-            qcolumnview_selectall_callback();
-        } else {
-            QColumnView::selectAll();
+            return;
         }
+        auto selectall_cb = qcolumnview_selectall_callback;
+        if (selectall_cb) {
+            selectall_cb();
+            return;
+        }
+        QColumnView::selectAll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,16 +825,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_isindexhidden_isbase) {
             qcolumnview_isindexhidden_isbase = false;
             return QColumnView::isIndexHidden(index);
-        } else if (qcolumnview_isindexhidden_callback != nullptr) {
+        }
+        auto isindexhidden_cb = qcolumnview_isindexhidden_callback;
+        if (isindexhidden_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qcolumnview_isindexhidden_callback(this, cbval1);
+            bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColumnView::isIndexHidden(index);
         }
+        return QColumnView::isIndexHidden(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,15 +843,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_movecursor_isbase) {
             qcolumnview_movecursor_isbase = false;
             return QColumnView::moveCursor(cursorAction, modifiers);
-        } else if (qcolumnview_movecursor_callback != nullptr) {
+        }
+        auto movecursor_cb = qcolumnview_movecursor_callback;
+        if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
 
-            QModelIndex* callback_ret = qcolumnview_movecursor_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QColumnView::moveCursor(cursorAction, modifiers);
         }
+        return QColumnView::moveCursor(cursorAction, modifiers);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -960,13 +860,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_resizeevent_isbase) {
             qcolumnview_resizeevent_isbase = false;
             QColumnView::resizeEvent(event);
-        } else if (qcolumnview_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qcolumnview_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qcolumnview_resizeevent_callback(this, cbval1);
-        } else {
-            QColumnView::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -974,16 +877,19 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_setselection_isbase) {
             qcolumnview_setselection_isbase = false;
             QColumnView::setSelection(rect, command);
-        } else if (qcolumnview_setselection_callback != nullptr) {
+            return;
+        }
+        auto setselection_cb = qcolumnview_setselection_callback;
+        if (setselection_cb) {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
 
-            qcolumnview_setselection_callback(this, cbval1, cbval2);
-        } else {
-            QColumnView::setSelection(rect, command);
+            setselection_cb(this, cbval1, cbval2);
+            return;
         }
+        QColumnView::setSelection(rect, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,16 +897,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_visualregionforselection_isbase) {
             qcolumnview_visualregionforselection_isbase = false;
             return QColumnView::visualRegionForSelection(selection);
-        } else if (qcolumnview_visualregionforselection_callback != nullptr) {
+        }
+        auto visualregionforselection_cb = qcolumnview_visualregionforselection_callback;
+        if (visualregionforselection_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QRegion* callback_ret = qcolumnview_visualregionforselection_callback(this, cbval1);
+            QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QColumnView::visualRegionForSelection(selection);
         }
+        return QColumnView::visualRegionForSelection(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,12 +915,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_horizontaloffset_isbase) {
             qcolumnview_horizontaloffset_isbase = false;
             return QColumnView::horizontalOffset();
-        } else if (qcolumnview_horizontaloffset_callback != nullptr) {
-            int callback_ret = qcolumnview_horizontaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QColumnView::horizontalOffset();
         }
+        auto horizontaloffset_cb = qcolumnview_horizontaloffset_callback;
+        if (horizontaloffset_cb) {
+            int callback_ret = horizontaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QColumnView::horizontalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1021,12 +929,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_verticaloffset_isbase) {
             qcolumnview_verticaloffset_isbase = false;
             return QColumnView::verticalOffset();
-        } else if (qcolumnview_verticaloffset_callback != nullptr) {
-            int callback_ret = qcolumnview_verticaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QColumnView::verticalOffset();
         }
+        auto verticaloffset_cb = qcolumnview_verticaloffset_callback;
+        if (verticaloffset_cb) {
+            int callback_ret = verticaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QColumnView::verticalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,17 +943,20 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_rowsinserted_isbase) {
             qcolumnview_rowsinserted_isbase = false;
             QColumnView::rowsInserted(parent, start, end);
-        } else if (qcolumnview_rowsinserted_callback != nullptr) {
+            return;
+        }
+        auto rowsinserted_cb = qcolumnview_rowsinserted_callback;
+        if (rowsinserted_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            qcolumnview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QColumnView::rowsInserted(parent, start, end);
+            rowsinserted_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QColumnView::rowsInserted(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1052,7 +964,10 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_currentchanged_isbase) {
             qcolumnview_currentchanged_isbase = false;
             QColumnView::currentChanged(current, previous);
-        } else if (qcolumnview_currentchanged_callback != nullptr) {
+            return;
+        }
+        auto currentchanged_cb = qcolumnview_currentchanged_callback;
+        if (currentchanged_cb) {
             const QModelIndex& current_ret = current;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
@@ -1060,10 +975,10 @@ class VirtualQColumnView final : public QColumnView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
 
-            qcolumnview_currentchanged_callback(this, cbval1, cbval2);
-        } else {
-            QColumnView::currentChanged(current, previous);
+            currentchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QColumnView::currentChanged(current, previous);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1071,14 +986,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_scrollcontentsby_isbase) {
             qcolumnview_scrollcontentsby_isbase = false;
             QColumnView::scrollContentsBy(dx, dy);
-        } else if (qcolumnview_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = qcolumnview_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qcolumnview_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            QColumnView::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        QColumnView::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,16 +1004,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_createcolumn_isbase) {
             qcolumnview_createcolumn_isbase = false;
             return QColumnView::createColumn(rootIndex);
-        } else if (qcolumnview_createcolumn_callback != nullptr) {
+        }
+        auto createcolumn_cb = qcolumnview_createcolumn_callback;
+        if (createcolumn_cb) {
             const QModelIndex& rootIndex_ret = rootIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&rootIndex_ret);
 
-            QAbstractItemView* callback_ret = qcolumnview_createcolumn_callback(this, cbval1);
+            QAbstractItemView* callback_ret = createcolumn_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColumnView::createColumn(rootIndex);
         }
+        return QColumnView::createColumn(rootIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,7 +1022,10 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_keyboardsearch_isbase) {
             qcolumnview_keyboardsearch_isbase = false;
             QColumnView::keyboardSearch(search);
-        } else if (qcolumnview_keyboardsearch_callback != nullptr) {
+            return;
+        }
+        auto keyboardsearch_cb = qcolumnview_keyboardsearch_callback;
+        if (keyboardsearch_cb) {
             const QString search_ret = search;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
@@ -1113,11 +1035,11 @@ class VirtualQColumnView final : public QColumnView {
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
 
-            qcolumnview_keyboardsearch_callback(this, cbval1);
+            keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
-        } else {
-            QColumnView::keyboardSearch(search);
+            return;
         }
+        QColumnView::keyboardSearch(search);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1125,14 +1047,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_sizehintforrow_isbase) {
             qcolumnview_sizehintforrow_isbase = false;
             return QColumnView::sizeHintForRow(row);
-        } else if (qcolumnview_sizehintforrow_callback != nullptr) {
+        }
+        auto sizehintforrow_cb = qcolumnview_sizehintforrow_callback;
+        if (sizehintforrow_cb) {
             int cbval1 = row;
 
-            int callback_ret = qcolumnview_sizehintforrow_callback(this, cbval1);
+            int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QColumnView::sizeHintForRow(row);
         }
+        return QColumnView::sizeHintForRow(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1140,14 +1063,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_sizehintforcolumn_isbase) {
             qcolumnview_sizehintforcolumn_isbase = false;
             return QColumnView::sizeHintForColumn(column);
-        } else if (qcolumnview_sizehintforcolumn_callback != nullptr) {
+        }
+        auto sizehintforcolumn_cb = qcolumnview_sizehintforcolumn_callback;
+        if (sizehintforcolumn_cb) {
             int cbval1 = column;
 
-            int callback_ret = qcolumnview_sizehintforcolumn_callback(this, cbval1);
+            int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QColumnView::sizeHintForColumn(column);
         }
+        return QColumnView::sizeHintForColumn(column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1155,16 +1079,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_itemdelegateforindex_isbase) {
             qcolumnview_itemdelegateforindex_isbase = false;
             return QColumnView::itemDelegateForIndex(index);
-        } else if (qcolumnview_itemdelegateforindex_callback != nullptr) {
+        }
+        auto itemdelegateforindex_cb = qcolumnview_itemdelegateforindex_callback;
+        if (itemdelegateforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QAbstractItemDelegate* callback_ret = qcolumnview_itemdelegateforindex_callback(this, cbval1);
+            QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColumnView::itemDelegateForIndex(index);
         }
+        return QColumnView::itemDelegateForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,14 +1097,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_inputmethodquery_isbase) {
             qcolumnview_inputmethodquery_isbase = false;
             return QColumnView::inputMethodQuery(query);
-        } else if (qcolumnview_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qcolumnview_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qcolumnview_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QColumnView::inputMethodQuery(query);
         }
+        return QColumnView::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,11 +1113,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_reset_isbase) {
             qcolumnview_reset_isbase = false;
             QColumnView::reset();
-        } else if (qcolumnview_reset_callback != nullptr) {
-            qcolumnview_reset_callback();
-        } else {
-            QColumnView::reset();
+            return;
         }
+        auto reset_cb = qcolumnview_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        QColumnView::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1199,11 +1128,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_doitemslayout_isbase) {
             qcolumnview_doitemslayout_isbase = false;
             QColumnView::doItemsLayout();
-        } else if (qcolumnview_doitemslayout_callback != nullptr) {
-            qcolumnview_doitemslayout_callback();
-        } else {
-            QColumnView::doItemsLayout();
+            return;
         }
+        auto doitemslayout_cb = qcolumnview_doitemslayout_callback;
+        if (doitemslayout_cb) {
+            doitemslayout_cb();
+            return;
+        }
+        QColumnView::doItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1211,7 +1143,10 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_datachanged_isbase) {
             qcolumnview_datachanged_isbase = false;
             QColumnView::dataChanged(topLeft, bottomRight, roles);
-        } else if (qcolumnview_datachanged_callback != nullptr) {
+            return;
+        }
+        auto datachanged_cb = qcolumnview_datachanged_callback;
+        if (datachanged_cb) {
             const QModelIndex& topLeft_ret = topLeft;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
@@ -1229,11 +1164,11 @@ class VirtualQColumnView final : public QColumnView {
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
-            qcolumnview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
-        } else {
-            QColumnView::dataChanged(topLeft, bottomRight, roles);
+            return;
         }
+        QColumnView::dataChanged(topLeft, bottomRight, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,17 +1176,20 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_rowsabouttoberemoved_isbase) {
             qcolumnview_rowsabouttoberemoved_isbase = false;
             QColumnView::rowsAboutToBeRemoved(parent, start, end);
-        } else if (qcolumnview_rowsabouttoberemoved_callback != nullptr) {
+            return;
+        }
+        auto rowsabouttoberemoved_cb = qcolumnview_rowsabouttoberemoved_callback;
+        if (rowsabouttoberemoved_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            qcolumnview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QColumnView::rowsAboutToBeRemoved(parent, start, end);
+            rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QColumnView::rowsAboutToBeRemoved(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,7 +1197,10 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_selectionchanged_isbase) {
             qcolumnview_selectionchanged_isbase = false;
             QColumnView::selectionChanged(selected, deselected);
-        } else if (qcolumnview_selectionchanged_callback != nullptr) {
+            return;
+        }
+        auto selectionchanged_cb = qcolumnview_selectionchanged_callback;
+        if (selectionchanged_cb) {
             const QItemSelection& selected_ret = selected;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
@@ -1267,10 +1208,10 @@ class VirtualQColumnView final : public QColumnView {
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
 
-            qcolumnview_selectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            QColumnView::selectionChanged(selected, deselected);
+            selectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QColumnView::selectionChanged(selected, deselected);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,11 +1219,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_updateeditordata_isbase) {
             qcolumnview_updateeditordata_isbase = false;
             QColumnView::updateEditorData();
-        } else if (qcolumnview_updateeditordata_callback != nullptr) {
-            qcolumnview_updateeditordata_callback();
-        } else {
-            QColumnView::updateEditorData();
+            return;
         }
+        auto updateeditordata_cb = qcolumnview_updateeditordata_callback;
+        if (updateeditordata_cb) {
+            updateeditordata_cb();
+            return;
+        }
+        QColumnView::updateEditorData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1290,11 +1234,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_updateeditorgeometries_isbase) {
             qcolumnview_updateeditorgeometries_isbase = false;
             QColumnView::updateEditorGeometries();
-        } else if (qcolumnview_updateeditorgeometries_callback != nullptr) {
-            qcolumnview_updateeditorgeometries_callback();
-        } else {
-            QColumnView::updateEditorGeometries();
+            return;
         }
+        auto updateeditorgeometries_cb = qcolumnview_updateeditorgeometries_callback;
+        if (updateeditorgeometries_cb) {
+            updateeditorgeometries_cb();
+            return;
+        }
+        QColumnView::updateEditorGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1302,11 +1249,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_updategeometries_isbase) {
             qcolumnview_updategeometries_isbase = false;
             QColumnView::updateGeometries();
-        } else if (qcolumnview_updategeometries_callback != nullptr) {
-            qcolumnview_updategeometries_callback();
-        } else {
-            QColumnView::updateGeometries();
+            return;
         }
+        auto updategeometries_cb = qcolumnview_updategeometries_callback;
+        if (updategeometries_cb) {
+            updategeometries_cb();
+            return;
+        }
+        QColumnView::updateGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1314,13 +1264,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_verticalscrollbaraction_isbase) {
             qcolumnview_verticalscrollbaraction_isbase = false;
             QColumnView::verticalScrollbarAction(action);
-        } else if (qcolumnview_verticalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbaraction_cb = qcolumnview_verticalscrollbaraction_callback;
+        if (verticalscrollbaraction_cb) {
             int cbval1 = action;
 
-            qcolumnview_verticalscrollbaraction_callback(this, cbval1);
-        } else {
-            QColumnView::verticalScrollbarAction(action);
+            verticalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        QColumnView::verticalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1328,13 +1281,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_horizontalscrollbaraction_isbase) {
             qcolumnview_horizontalscrollbaraction_isbase = false;
             QColumnView::horizontalScrollbarAction(action);
-        } else if (qcolumnview_horizontalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbaraction_cb = qcolumnview_horizontalscrollbaraction_callback;
+        if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
 
-            qcolumnview_horizontalscrollbaraction_callback(this, cbval1);
-        } else {
-            QColumnView::horizontalScrollbarAction(action);
+            horizontalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        QColumnView::horizontalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1342,13 +1298,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_verticalscrollbarvaluechanged_isbase) {
             qcolumnview_verticalscrollbarvaluechanged_isbase = false;
             QColumnView::verticalScrollbarValueChanged(value);
-        } else if (qcolumnview_verticalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbarvaluechanged_cb = qcolumnview_verticalscrollbarvaluechanged_callback;
+        if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            qcolumnview_verticalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            QColumnView::verticalScrollbarValueChanged(value);
+            verticalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        QColumnView::verticalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1356,13 +1315,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_horizontalscrollbarvaluechanged_isbase) {
             qcolumnview_horizontalscrollbarvaluechanged_isbase = false;
             QColumnView::horizontalScrollbarValueChanged(value);
-        } else if (qcolumnview_horizontalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbarvaluechanged_cb = qcolumnview_horizontalscrollbarvaluechanged_callback;
+        if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            qcolumnview_horizontalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            QColumnView::horizontalScrollbarValueChanged(value);
+            horizontalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        QColumnView::horizontalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1370,14 +1332,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_closeeditor_isbase) {
             qcolumnview_closeeditor_isbase = false;
             QColumnView::closeEditor(editor, hint);
-        } else if (qcolumnview_closeeditor_callback != nullptr) {
+            return;
+        }
+        auto closeeditor_cb = qcolumnview_closeeditor_callback;
+        if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
 
-            qcolumnview_closeeditor_callback(this, cbval1, cbval2);
-        } else {
-            QColumnView::closeEditor(editor, hint);
+            closeeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        QColumnView::closeEditor(editor, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1385,13 +1350,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_commitdata_isbase) {
             qcolumnview_commitdata_isbase = false;
             QColumnView::commitData(editor);
-        } else if (qcolumnview_commitdata_callback != nullptr) {
+            return;
+        }
+        auto commitdata_cb = qcolumnview_commitdata_callback;
+        if (commitdata_cb) {
             QWidget* cbval1 = editor;
 
-            qcolumnview_commitdata_callback(this, cbval1);
-        } else {
-            QColumnView::commitData(editor);
+            commitdata_cb(this, cbval1);
+            return;
         }
+        QColumnView::commitData(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1399,13 +1367,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_editordestroyed_isbase) {
             qcolumnview_editordestroyed_isbase = false;
             QColumnView::editorDestroyed(editor);
-        } else if (qcolumnview_editordestroyed_callback != nullptr) {
+            return;
+        }
+        auto editordestroyed_cb = qcolumnview_editordestroyed_callback;
+        if (editordestroyed_cb) {
             QObject* cbval1 = editor;
 
-            qcolumnview_editordestroyed_callback(this, cbval1);
-        } else {
-            QColumnView::editorDestroyed(editor);
+            editordestroyed_cb(this, cbval1);
+            return;
         }
+        QColumnView::editorDestroyed(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1413,8 +1384,10 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_selectedindexes_isbase) {
             qcolumnview_selectedindexes_isbase = false;
             return QColumnView::selectedIndexes();
-        } else if (qcolumnview_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qcolumnview_selectedindexes_callback();
+        }
+        auto selectedindexes_cb = qcolumnview_selectedindexes_callback;
+        if (selectedindexes_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = selectedindexes_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1423,9 +1396,8 @@ class VirtualQColumnView final : public QColumnView {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QColumnView::selectedIndexes();
         }
+        return QColumnView::selectedIndexes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1433,18 +1405,19 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_edit2_isbase) {
             qcolumnview_edit2_isbase = false;
             return QColumnView::edit(index, trigger, event);
-        } else if (qcolumnview_edit2_callback != nullptr) {
+        }
+        auto edit2_cb = qcolumnview_edit2_callback;
+        if (edit2_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
 
-            bool callback_ret = qcolumnview_edit2_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QColumnView::edit(index, trigger, event);
         }
+        return QColumnView::edit(index, trigger, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1452,17 +1425,18 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_selectioncommand_isbase) {
             qcolumnview_selectioncommand_isbase = false;
             return QColumnView::selectionCommand(index, event);
-        } else if (qcolumnview_selectioncommand_callback != nullptr) {
+        }
+        auto selectioncommand_cb = qcolumnview_selectioncommand_callback;
+        if (selectioncommand_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
 
-            int callback_ret = qcolumnview_selectioncommand_callback(this, cbval1, cbval2);
+            int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
-        } else {
-            return QColumnView::selectionCommand(index, event);
         }
+        return QColumnView::selectionCommand(index, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1470,13 +1444,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_startdrag_isbase) {
             qcolumnview_startdrag_isbase = false;
             QColumnView::startDrag(supportedActions);
-        } else if (qcolumnview_startdrag_callback != nullptr) {
+            return;
+        }
+        auto startdrag_cb = qcolumnview_startdrag_callback;
+        if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
 
-            qcolumnview_startdrag_callback(this, cbval1);
-        } else {
-            QColumnView::startDrag(supportedActions);
+            startdrag_cb(this, cbval1);
+            return;
         }
+        QColumnView::startDrag(supportedActions);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1484,13 +1461,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_initviewitemoption_isbase) {
             qcolumnview_initviewitemoption_isbase = false;
             QColumnView::initViewItemOption(option);
-        } else if (qcolumnview_initviewitemoption_callback != nullptr) {
+            return;
+        }
+        auto initviewitemoption_cb = qcolumnview_initviewitemoption_callback;
+        if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
 
-            qcolumnview_initviewitemoption_callback(this, cbval1);
-        } else {
-            QColumnView::initViewItemOption(option);
+            initviewitemoption_cb(this, cbval1);
+            return;
         }
+        QColumnView::initViewItemOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1498,14 +1478,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_focusnextprevchild_isbase) {
             qcolumnview_focusnextprevchild_isbase = false;
             return QColumnView::focusNextPrevChild(next);
-        } else if (qcolumnview_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qcolumnview_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qcolumnview_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColumnView::focusNextPrevChild(next);
         }
+        return QColumnView::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1513,14 +1494,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_event_isbase) {
             qcolumnview_event_isbase = false;
             return QColumnView::event(event);
-        } else if (qcolumnview_event_callback != nullptr) {
+        }
+        auto event_cb = qcolumnview_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qcolumnview_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColumnView::event(event);
         }
+        return QColumnView::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1528,14 +1510,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_viewportevent_isbase) {
             qcolumnview_viewportevent_isbase = false;
             return QColumnView::viewportEvent(event);
-        } else if (qcolumnview_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = qcolumnview_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qcolumnview_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColumnView::viewportEvent(event);
         }
+        return QColumnView::viewportEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1543,13 +1526,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_mousepressevent_isbase) {
             qcolumnview_mousepressevent_isbase = false;
             QColumnView::mousePressEvent(event);
-        } else if (qcolumnview_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qcolumnview_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcolumnview_mousepressevent_callback(this, cbval1);
-        } else {
-            QColumnView::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1557,13 +1543,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_mousemoveevent_isbase) {
             qcolumnview_mousemoveevent_isbase = false;
             QColumnView::mouseMoveEvent(event);
-        } else if (qcolumnview_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qcolumnview_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcolumnview_mousemoveevent_callback(this, cbval1);
-        } else {
-            QColumnView::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1571,13 +1560,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_mousereleaseevent_isbase) {
             qcolumnview_mousereleaseevent_isbase = false;
             QColumnView::mouseReleaseEvent(event);
-        } else if (qcolumnview_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qcolumnview_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcolumnview_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QColumnView::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1585,13 +1577,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_mousedoubleclickevent_isbase) {
             qcolumnview_mousedoubleclickevent_isbase = false;
             QColumnView::mouseDoubleClickEvent(event);
-        } else if (qcolumnview_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qcolumnview_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcolumnview_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QColumnView::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1599,13 +1594,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_dragenterevent_isbase) {
             qcolumnview_dragenterevent_isbase = false;
             QColumnView::dragEnterEvent(event);
-        } else if (qcolumnview_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qcolumnview_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qcolumnview_dragenterevent_callback(this, cbval1);
-        } else {
-            QColumnView::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1613,13 +1611,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_dragmoveevent_isbase) {
             qcolumnview_dragmoveevent_isbase = false;
             QColumnView::dragMoveEvent(event);
-        } else if (qcolumnview_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qcolumnview_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qcolumnview_dragmoveevent_callback(this, cbval1);
-        } else {
-            QColumnView::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1627,13 +1628,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_dragleaveevent_isbase) {
             qcolumnview_dragleaveevent_isbase = false;
             QColumnView::dragLeaveEvent(event);
-        } else if (qcolumnview_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qcolumnview_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qcolumnview_dragleaveevent_callback(this, cbval1);
-        } else {
-            QColumnView::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1641,13 +1645,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_dropevent_isbase) {
             qcolumnview_dropevent_isbase = false;
             QColumnView::dropEvent(event);
-        } else if (qcolumnview_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qcolumnview_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qcolumnview_dropevent_callback(this, cbval1);
-        } else {
-            QColumnView::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1655,13 +1662,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_focusinevent_isbase) {
             qcolumnview_focusinevent_isbase = false;
             QColumnView::focusInEvent(event);
-        } else if (qcolumnview_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qcolumnview_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qcolumnview_focusinevent_callback(this, cbval1);
-        } else {
-            QColumnView::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1669,13 +1679,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_focusoutevent_isbase) {
             qcolumnview_focusoutevent_isbase = false;
             QColumnView::focusOutEvent(event);
-        } else if (qcolumnview_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qcolumnview_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qcolumnview_focusoutevent_callback(this, cbval1);
-        } else {
-            QColumnView::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1683,13 +1696,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_keypressevent_isbase) {
             qcolumnview_keypressevent_isbase = false;
             QColumnView::keyPressEvent(event);
-        } else if (qcolumnview_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qcolumnview_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qcolumnview_keypressevent_callback(this, cbval1);
-        } else {
-            QColumnView::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1697,13 +1713,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_timerevent_isbase) {
             qcolumnview_timerevent_isbase = false;
             QColumnView::timerEvent(event);
-        } else if (qcolumnview_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qcolumnview_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qcolumnview_timerevent_callback(this, cbval1);
-        } else {
-            QColumnView::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1711,13 +1730,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_inputmethodevent_isbase) {
             qcolumnview_inputmethodevent_isbase = false;
             QColumnView::inputMethodEvent(event);
-        } else if (qcolumnview_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qcolumnview_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qcolumnview_inputmethodevent_callback(this, cbval1);
-        } else {
-            QColumnView::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1725,15 +1747,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_eventfilter_isbase) {
             qcolumnview_eventfilter_isbase = false;
             return QColumnView::eventFilter(object, event);
-        } else if (qcolumnview_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qcolumnview_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qcolumnview_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QColumnView::eventFilter(object, event);
         }
+        return QColumnView::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1741,12 +1764,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_viewportsizehint_isbase) {
             qcolumnview_viewportsizehint_isbase = false;
             return QColumnView::viewportSizeHint();
-        } else if (qcolumnview_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = qcolumnview_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QColumnView::viewportSizeHint();
         }
+        auto viewportsizehint_cb = qcolumnview_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return QColumnView::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1754,12 +1778,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_minimumsizehint_isbase) {
             qcolumnview_minimumsizehint_isbase = false;
             return QColumnView::minimumSizeHint();
-        } else if (qcolumnview_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qcolumnview_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QColumnView::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qcolumnview_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QColumnView::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1767,13 +1792,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_setupviewport_isbase) {
             qcolumnview_setupviewport_isbase = false;
             QColumnView::setupViewport(viewport);
-        } else if (qcolumnview_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = qcolumnview_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            qcolumnview_setupviewport_callback(this, cbval1);
-        } else {
-            QColumnView::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        QColumnView::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1781,13 +1809,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_paintevent_isbase) {
             qcolumnview_paintevent_isbase = false;
             QColumnView::paintEvent(param1);
-        } else if (qcolumnview_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qcolumnview_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qcolumnview_paintevent_callback(this, cbval1);
-        } else {
-            QColumnView::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1795,13 +1826,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_wheelevent_isbase) {
             qcolumnview_wheelevent_isbase = false;
             QColumnView::wheelEvent(param1);
-        } else if (qcolumnview_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qcolumnview_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            qcolumnview_wheelevent_callback(this, cbval1);
-        } else {
-            QColumnView::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1809,13 +1843,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_contextmenuevent_isbase) {
             qcolumnview_contextmenuevent_isbase = false;
             QColumnView::contextMenuEvent(param1);
-        } else if (qcolumnview_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qcolumnview_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qcolumnview_contextmenuevent_callback(this, cbval1);
-        } else {
-            QColumnView::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1823,13 +1860,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_changeevent_isbase) {
             qcolumnview_changeevent_isbase = false;
             QColumnView::changeEvent(param1);
-        } else if (qcolumnview_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qcolumnview_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qcolumnview_changeevent_callback(this, cbval1);
-        } else {
-            QColumnView::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1837,13 +1877,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_initstyleoption_isbase) {
             qcolumnview_initstyleoption_isbase = false;
             QColumnView::initStyleOption(option);
-        } else if (qcolumnview_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qcolumnview_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qcolumnview_initstyleoption_callback(this, cbval1);
-        } else {
-            QColumnView::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QColumnView::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1851,12 +1894,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_devtype_isbase) {
             qcolumnview_devtype_isbase = false;
             return QColumnView::devType();
-        } else if (qcolumnview_devtype_callback != nullptr) {
-            int callback_ret = qcolumnview_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QColumnView::devType();
         }
+        auto devtype_cb = qcolumnview_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QColumnView::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1864,13 +1908,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_setvisible_isbase) {
             qcolumnview_setvisible_isbase = false;
             QColumnView::setVisible(visible);
-        } else if (qcolumnview_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qcolumnview_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qcolumnview_setvisible_callback(this, cbval1);
-        } else {
-            QColumnView::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QColumnView::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1878,14 +1925,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_heightforwidth_isbase) {
             qcolumnview_heightforwidth_isbase = false;
             return QColumnView::heightForWidth(param1);
-        } else if (qcolumnview_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qcolumnview_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qcolumnview_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QColumnView::heightForWidth(param1);
         }
+        return QColumnView::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1893,12 +1941,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_hasheightforwidth_isbase) {
             qcolumnview_hasheightforwidth_isbase = false;
             return QColumnView::hasHeightForWidth();
-        } else if (qcolumnview_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qcolumnview_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QColumnView::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qcolumnview_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QColumnView::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1906,12 +1955,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_paintengine_isbase) {
             qcolumnview_paintengine_isbase = false;
             return QColumnView::paintEngine();
-        } else if (qcolumnview_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qcolumnview_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QColumnView::paintEngine();
         }
+        auto paintengine_cb = qcolumnview_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QColumnView::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1919,13 +1969,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_keyreleaseevent_isbase) {
             qcolumnview_keyreleaseevent_isbase = false;
             QColumnView::keyReleaseEvent(event);
-        } else if (qcolumnview_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qcolumnview_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qcolumnview_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QColumnView::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1933,13 +1986,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_enterevent_isbase) {
             qcolumnview_enterevent_isbase = false;
             QColumnView::enterEvent(event);
-        } else if (qcolumnview_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qcolumnview_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qcolumnview_enterevent_callback(this, cbval1);
-        } else {
-            QColumnView::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1947,13 +2003,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_leaveevent_isbase) {
             qcolumnview_leaveevent_isbase = false;
             QColumnView::leaveEvent(event);
-        } else if (qcolumnview_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qcolumnview_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qcolumnview_leaveevent_callback(this, cbval1);
-        } else {
-            QColumnView::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1961,13 +2020,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_moveevent_isbase) {
             qcolumnview_moveevent_isbase = false;
             QColumnView::moveEvent(event);
-        } else if (qcolumnview_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qcolumnview_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qcolumnview_moveevent_callback(this, cbval1);
-        } else {
-            QColumnView::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1975,13 +2037,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_closeevent_isbase) {
             qcolumnview_closeevent_isbase = false;
             QColumnView::closeEvent(event);
-        } else if (qcolumnview_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qcolumnview_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qcolumnview_closeevent_callback(this, cbval1);
-        } else {
-            QColumnView::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1989,13 +2054,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_tabletevent_isbase) {
             qcolumnview_tabletevent_isbase = false;
             QColumnView::tabletEvent(event);
-        } else if (qcolumnview_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qcolumnview_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qcolumnview_tabletevent_callback(this, cbval1);
-        } else {
-            QColumnView::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2003,13 +2071,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_actionevent_isbase) {
             qcolumnview_actionevent_isbase = false;
             QColumnView::actionEvent(event);
-        } else if (qcolumnview_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qcolumnview_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qcolumnview_actionevent_callback(this, cbval1);
-        } else {
-            QColumnView::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2017,13 +2088,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_showevent_isbase) {
             qcolumnview_showevent_isbase = false;
             QColumnView::showEvent(event);
-        } else if (qcolumnview_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qcolumnview_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qcolumnview_showevent_callback(this, cbval1);
-        } else {
-            QColumnView::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2031,13 +2105,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_hideevent_isbase) {
             qcolumnview_hideevent_isbase = false;
             QColumnView::hideEvent(event);
-        } else if (qcolumnview_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qcolumnview_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qcolumnview_hideevent_callback(this, cbval1);
-        } else {
-            QColumnView::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2045,7 +2122,9 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_nativeevent_isbase) {
             qcolumnview_nativeevent_isbase = false;
             return QColumnView::nativeEvent(eventType, message, result);
-        } else if (qcolumnview_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qcolumnview_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2056,12 +2135,11 @@ class VirtualQColumnView final : public QColumnView {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qcolumnview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QColumnView::nativeEvent(eventType, message, result);
         }
+        return QColumnView::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2069,14 +2147,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_metric_isbase) {
             qcolumnview_metric_isbase = false;
             return QColumnView::metric(param1);
-        } else if (qcolumnview_metric_callback != nullptr) {
+        }
+        auto metric_cb = qcolumnview_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qcolumnview_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QColumnView::metric(param1);
         }
+        return QColumnView::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2084,13 +2163,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_initpainter_isbase) {
             qcolumnview_initpainter_isbase = false;
             QColumnView::initPainter(painter);
-        } else if (qcolumnview_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qcolumnview_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qcolumnview_initpainter_callback(this, cbval1);
-        } else {
-            QColumnView::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QColumnView::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2098,14 +2180,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_redirected_isbase) {
             qcolumnview_redirected_isbase = false;
             return QColumnView::redirected(offset);
-        } else if (qcolumnview_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qcolumnview_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qcolumnview_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColumnView::redirected(offset);
         }
+        return QColumnView::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2113,12 +2196,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_sharedpainter_isbase) {
             qcolumnview_sharedpainter_isbase = false;
             return QColumnView::sharedPainter();
-        } else if (qcolumnview_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qcolumnview_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QColumnView::sharedPainter();
         }
+        auto sharedpainter_cb = qcolumnview_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QColumnView::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2126,13 +2210,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_childevent_isbase) {
             qcolumnview_childevent_isbase = false;
             QColumnView::childEvent(event);
-        } else if (qcolumnview_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qcolumnview_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qcolumnview_childevent_callback(this, cbval1);
-        } else {
-            QColumnView::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2140,13 +2227,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_customevent_isbase) {
             qcolumnview_customevent_isbase = false;
             QColumnView::customEvent(event);
-        } else if (qcolumnview_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qcolumnview_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qcolumnview_customevent_callback(this, cbval1);
-        } else {
-            QColumnView::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QColumnView::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2154,15 +2244,18 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_connectnotify_isbase) {
             qcolumnview_connectnotify_isbase = false;
             QColumnView::connectNotify(signal);
-        } else if (qcolumnview_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qcolumnview_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcolumnview_connectnotify_callback(this, cbval1);
-        } else {
-            QColumnView::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QColumnView::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2170,15 +2263,18 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_disconnectnotify_isbase) {
             qcolumnview_disconnectnotify_isbase = false;
             QColumnView::disconnectNotify(signal);
-        } else if (qcolumnview_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qcolumnview_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcolumnview_disconnectnotify_callback(this, cbval1);
-        } else {
-            QColumnView::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QColumnView::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2186,13 +2282,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_initializecolumn_isbase) {
             qcolumnview_initializecolumn_isbase = false;
             QColumnView::initializeColumn(column);
-        } else if (qcolumnview_initializecolumn_callback != nullptr) {
+            return;
+        }
+        auto initializecolumn_cb = qcolumnview_initializecolumn_callback;
+        if (initializecolumn_cb) {
             QAbstractItemView* cbval1 = column;
 
-            qcolumnview_initializecolumn_callback(this, cbval1);
-        } else {
-            QColumnView::initializeColumn(column);
+            initializecolumn_cb(this, cbval1);
+            return;
         }
+        QColumnView::initializeColumn(column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2200,12 +2299,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_state_isbase) {
             qcolumnview_state_isbase = false;
             return QColumnView::state();
-        } else if (qcolumnview_state_callback != nullptr) {
-            int callback_ret = qcolumnview_state_callback();
-            return static_cast<VirtualQColumnView::State>(callback_ret);
-        } else {
-            return QColumnView::state();
         }
+        auto state_cb = qcolumnview_state_callback;
+        if (state_cb) {
+            int callback_ret = state_cb();
+            return static_cast<VirtualQColumnView::State>(callback_ret);
+        }
+        return QColumnView::state();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2213,13 +2313,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_setstate_isbase) {
             qcolumnview_setstate_isbase = false;
             QColumnView::setState(state);
-        } else if (qcolumnview_setstate_callback != nullptr) {
+            return;
+        }
+        auto setstate_cb = qcolumnview_setstate_callback;
+        if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            qcolumnview_setstate_callback(this, cbval1);
-        } else {
-            QColumnView::setState(state);
+            setstate_cb(this, cbval1);
+            return;
         }
+        QColumnView::setState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2227,11 +2330,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_scheduledelayeditemslayout_isbase) {
             qcolumnview_scheduledelayeditemslayout_isbase = false;
             QColumnView::scheduleDelayedItemsLayout();
-        } else if (qcolumnview_scheduledelayeditemslayout_callback != nullptr) {
-            qcolumnview_scheduledelayeditemslayout_callback();
-        } else {
-            QColumnView::scheduleDelayedItemsLayout();
+            return;
         }
+        auto scheduledelayeditemslayout_cb = qcolumnview_scheduledelayeditemslayout_callback;
+        if (scheduledelayeditemslayout_cb) {
+            scheduledelayeditemslayout_cb();
+            return;
+        }
+        QColumnView::scheduleDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2239,11 +2345,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_executedelayeditemslayout_isbase) {
             qcolumnview_executedelayeditemslayout_isbase = false;
             QColumnView::executeDelayedItemsLayout();
-        } else if (qcolumnview_executedelayeditemslayout_callback != nullptr) {
-            qcolumnview_executedelayeditemslayout_callback();
-        } else {
-            QColumnView::executeDelayedItemsLayout();
+            return;
         }
+        auto executedelayeditemslayout_cb = qcolumnview_executedelayeditemslayout_callback;
+        if (executedelayeditemslayout_cb) {
+            executedelayeditemslayout_cb();
+            return;
+        }
+        QColumnView::executeDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2251,15 +2360,18 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_setdirtyregion_isbase) {
             qcolumnview_setdirtyregion_isbase = false;
             QColumnView::setDirtyRegion(region);
-        } else if (qcolumnview_setdirtyregion_callback != nullptr) {
+            return;
+        }
+        auto setdirtyregion_cb = qcolumnview_setdirtyregion_callback;
+        if (setdirtyregion_cb) {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
 
-            qcolumnview_setdirtyregion_callback(this, cbval1);
-        } else {
-            QColumnView::setDirtyRegion(region);
+            setdirtyregion_cb(this, cbval1);
+            return;
         }
+        QColumnView::setDirtyRegion(region);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2267,14 +2379,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_scrolldirtyregion_isbase) {
             qcolumnview_scrolldirtyregion_isbase = false;
             QColumnView::scrollDirtyRegion(dx, dy);
-        } else if (qcolumnview_scrolldirtyregion_callback != nullptr) {
+            return;
+        }
+        auto scrolldirtyregion_cb = qcolumnview_scrolldirtyregion_callback;
+        if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qcolumnview_scrolldirtyregion_callback(this, cbval1, cbval2);
-        } else {
-            QColumnView::scrollDirtyRegion(dx, dy);
+            scrolldirtyregion_cb(this, cbval1, cbval2);
+            return;
         }
+        QColumnView::scrollDirtyRegion(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2282,12 +2397,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_dirtyregionoffset_isbase) {
             qcolumnview_dirtyregionoffset_isbase = false;
             return QColumnView::dirtyRegionOffset();
-        } else if (qcolumnview_dirtyregionoffset_callback != nullptr) {
-            QPoint* callback_ret = qcolumnview_dirtyregionoffset_callback();
-            return *callback_ret;
-        } else {
-            return QColumnView::dirtyRegionOffset();
         }
+        auto dirtyregionoffset_cb = qcolumnview_dirtyregionoffset_callback;
+        if (dirtyregionoffset_cb) {
+            QPoint* callback_ret = dirtyregionoffset_cb();
+            return *callback_ret;
+        }
+        return QColumnView::dirtyRegionOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2295,11 +2411,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_startautoscroll_isbase) {
             qcolumnview_startautoscroll_isbase = false;
             QColumnView::startAutoScroll();
-        } else if (qcolumnview_startautoscroll_callback != nullptr) {
-            qcolumnview_startautoscroll_callback();
-        } else {
-            QColumnView::startAutoScroll();
+            return;
         }
+        auto startautoscroll_cb = qcolumnview_startautoscroll_callback;
+        if (startautoscroll_cb) {
+            startautoscroll_cb();
+            return;
+        }
+        QColumnView::startAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2307,11 +2426,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_stopautoscroll_isbase) {
             qcolumnview_stopautoscroll_isbase = false;
             QColumnView::stopAutoScroll();
-        } else if (qcolumnview_stopautoscroll_callback != nullptr) {
-            qcolumnview_stopautoscroll_callback();
-        } else {
-            QColumnView::stopAutoScroll();
+            return;
         }
+        auto stopautoscroll_cb = qcolumnview_stopautoscroll_callback;
+        if (stopautoscroll_cb) {
+            stopautoscroll_cb();
+            return;
+        }
+        QColumnView::stopAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2319,11 +2441,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_doautoscroll_isbase) {
             qcolumnview_doautoscroll_isbase = false;
             QColumnView::doAutoScroll();
-        } else if (qcolumnview_doautoscroll_callback != nullptr) {
-            qcolumnview_doautoscroll_callback();
-        } else {
-            QColumnView::doAutoScroll();
+            return;
         }
+        auto doautoscroll_cb = qcolumnview_doautoscroll_callback;
+        if (doautoscroll_cb) {
+            doautoscroll_cb();
+            return;
+        }
+        QColumnView::doAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2331,12 +2456,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_dropindicatorposition_isbase) {
             qcolumnview_dropindicatorposition_isbase = false;
             return QColumnView::dropIndicatorPosition();
-        } else if (qcolumnview_dropindicatorposition_callback != nullptr) {
-            int callback_ret = qcolumnview_dropindicatorposition_callback();
-            return static_cast<VirtualQColumnView::DropIndicatorPosition>(callback_ret);
-        } else {
-            return QColumnView::dropIndicatorPosition();
         }
+        auto dropindicatorposition_cb = qcolumnview_dropindicatorposition_callback;
+        if (dropindicatorposition_cb) {
+            int callback_ret = dropindicatorposition_cb();
+            return static_cast<VirtualQColumnView::DropIndicatorPosition>(callback_ret);
+        }
+        return QColumnView::dropIndicatorPosition();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2344,16 +2470,19 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_setviewportmargins_isbase) {
             qcolumnview_setviewportmargins_isbase = false;
             QColumnView::setViewportMargins(left, top, right, bottom);
-        } else if (qcolumnview_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = qcolumnview_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            qcolumnview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QColumnView::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QColumnView::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2361,12 +2490,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_viewportmargins_isbase) {
             qcolumnview_viewportmargins_isbase = false;
             return QColumnView::viewportMargins();
-        } else if (qcolumnview_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = qcolumnview_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return QColumnView::viewportMargins();
         }
+        auto viewportmargins_cb = qcolumnview_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return QColumnView::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2374,13 +2504,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_drawframe_isbase) {
             qcolumnview_drawframe_isbase = false;
             QColumnView::drawFrame(param1);
-        } else if (qcolumnview_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qcolumnview_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qcolumnview_drawframe_callback(this, cbval1);
-        } else {
-            QColumnView::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QColumnView::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2388,11 +2521,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_updatemicrofocus_isbase) {
             qcolumnview_updatemicrofocus_isbase = false;
             QColumnView::updateMicroFocus();
-        } else if (qcolumnview_updatemicrofocus_callback != nullptr) {
-            qcolumnview_updatemicrofocus_callback();
-        } else {
-            QColumnView::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qcolumnview_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QColumnView::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2400,11 +2536,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_create_isbase) {
             qcolumnview_create_isbase = false;
             QColumnView::create();
-        } else if (qcolumnview_create_callback != nullptr) {
-            qcolumnview_create_callback();
-        } else {
-            QColumnView::create();
+            return;
         }
+        auto create_cb = qcolumnview_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QColumnView::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2412,11 +2551,14 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_destroy_isbase) {
             qcolumnview_destroy_isbase = false;
             QColumnView::destroy();
-        } else if (qcolumnview_destroy_callback != nullptr) {
-            qcolumnview_destroy_callback();
-        } else {
-            QColumnView::destroy();
+            return;
         }
+        auto destroy_cb = qcolumnview_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QColumnView::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2424,12 +2566,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_focusnextchild_isbase) {
             qcolumnview_focusnextchild_isbase = false;
             return QColumnView::focusNextChild();
-        } else if (qcolumnview_focusnextchild_callback != nullptr) {
-            bool callback_ret = qcolumnview_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QColumnView::focusNextChild();
         }
+        auto focusnextchild_cb = qcolumnview_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QColumnView::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2437,12 +2580,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_focuspreviouschild_isbase) {
             qcolumnview_focuspreviouschild_isbase = false;
             return QColumnView::focusPreviousChild();
-        } else if (qcolumnview_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qcolumnview_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QColumnView::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qcolumnview_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QColumnView::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2450,12 +2594,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_sender_isbase) {
             qcolumnview_sender_isbase = false;
             return QColumnView::sender();
-        } else if (qcolumnview_sender_callback != nullptr) {
-            QObject* callback_ret = qcolumnview_sender_callback();
-            return callback_ret;
-        } else {
-            return QColumnView::sender();
         }
+        auto sender_cb = qcolumnview_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QColumnView::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2463,12 +2608,13 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_sendersignalindex_isbase) {
             qcolumnview_sendersignalindex_isbase = false;
             return QColumnView::senderSignalIndex();
-        } else if (qcolumnview_sendersignalindex_callback != nullptr) {
-            int callback_ret = qcolumnview_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QColumnView::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qcolumnview_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QColumnView::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2476,14 +2622,15 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_receivers_isbase) {
             qcolumnview_receivers_isbase = false;
             return QColumnView::receivers(signal);
-        } else if (qcolumnview_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qcolumnview_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qcolumnview_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QColumnView::receivers(signal);
         }
+        return QColumnView::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2491,16 +2638,17 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_issignalconnected_isbase) {
             qcolumnview_issignalconnected_isbase = false;
             return QColumnView::isSignalConnected(signal);
-        } else if (qcolumnview_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qcolumnview_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qcolumnview_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColumnView::isSignalConnected(signal);
         }
+        return QColumnView::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2508,15 +2656,16 @@ class VirtualQColumnView final : public QColumnView {
         if (qcolumnview_getdecodedmetricf_isbase) {
             qcolumnview_getdecodedmetricf_isbase = false;
             return QColumnView::getDecodedMetricF(metricA, metricB);
-        } else if (qcolumnview_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qcolumnview_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qcolumnview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QColumnView::getDecodedMetricF(metricA, metricB);
         }
+        return QColumnView::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

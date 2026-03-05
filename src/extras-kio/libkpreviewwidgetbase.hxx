@@ -215,72 +215,6 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
   public:
     VirtualKPreviewWidgetBase(QWidget* parent) : KPreviewWidgetBase(parent) {};
 
-    ~VirtualKPreviewWidgetBase() {
-        kpreviewwidgetbase_metaobject_callback = nullptr;
-        kpreviewwidgetbase_metacast_callback = nullptr;
-        kpreviewwidgetbase_metacall_callback = nullptr;
-        kpreviewwidgetbase_showpreview_callback = nullptr;
-        kpreviewwidgetbase_clearpreview_callback = nullptr;
-        kpreviewwidgetbase_devtype_callback = nullptr;
-        kpreviewwidgetbase_setvisible_callback = nullptr;
-        kpreviewwidgetbase_sizehint_callback = nullptr;
-        kpreviewwidgetbase_minimumsizehint_callback = nullptr;
-        kpreviewwidgetbase_heightforwidth_callback = nullptr;
-        kpreviewwidgetbase_hasheightforwidth_callback = nullptr;
-        kpreviewwidgetbase_paintengine_callback = nullptr;
-        kpreviewwidgetbase_event_callback = nullptr;
-        kpreviewwidgetbase_mousepressevent_callback = nullptr;
-        kpreviewwidgetbase_mousereleaseevent_callback = nullptr;
-        kpreviewwidgetbase_mousedoubleclickevent_callback = nullptr;
-        kpreviewwidgetbase_mousemoveevent_callback = nullptr;
-        kpreviewwidgetbase_wheelevent_callback = nullptr;
-        kpreviewwidgetbase_keypressevent_callback = nullptr;
-        kpreviewwidgetbase_keyreleaseevent_callback = nullptr;
-        kpreviewwidgetbase_focusinevent_callback = nullptr;
-        kpreviewwidgetbase_focusoutevent_callback = nullptr;
-        kpreviewwidgetbase_enterevent_callback = nullptr;
-        kpreviewwidgetbase_leaveevent_callback = nullptr;
-        kpreviewwidgetbase_paintevent_callback = nullptr;
-        kpreviewwidgetbase_moveevent_callback = nullptr;
-        kpreviewwidgetbase_resizeevent_callback = nullptr;
-        kpreviewwidgetbase_closeevent_callback = nullptr;
-        kpreviewwidgetbase_contextmenuevent_callback = nullptr;
-        kpreviewwidgetbase_tabletevent_callback = nullptr;
-        kpreviewwidgetbase_actionevent_callback = nullptr;
-        kpreviewwidgetbase_dragenterevent_callback = nullptr;
-        kpreviewwidgetbase_dragmoveevent_callback = nullptr;
-        kpreviewwidgetbase_dragleaveevent_callback = nullptr;
-        kpreviewwidgetbase_dropevent_callback = nullptr;
-        kpreviewwidgetbase_showevent_callback = nullptr;
-        kpreviewwidgetbase_hideevent_callback = nullptr;
-        kpreviewwidgetbase_nativeevent_callback = nullptr;
-        kpreviewwidgetbase_changeevent_callback = nullptr;
-        kpreviewwidgetbase_metric_callback = nullptr;
-        kpreviewwidgetbase_initpainter_callback = nullptr;
-        kpreviewwidgetbase_redirected_callback = nullptr;
-        kpreviewwidgetbase_sharedpainter_callback = nullptr;
-        kpreviewwidgetbase_inputmethodevent_callback = nullptr;
-        kpreviewwidgetbase_inputmethodquery_callback = nullptr;
-        kpreviewwidgetbase_focusnextprevchild_callback = nullptr;
-        kpreviewwidgetbase_eventfilter_callback = nullptr;
-        kpreviewwidgetbase_timerevent_callback = nullptr;
-        kpreviewwidgetbase_childevent_callback = nullptr;
-        kpreviewwidgetbase_customevent_callback = nullptr;
-        kpreviewwidgetbase_connectnotify_callback = nullptr;
-        kpreviewwidgetbase_disconnectnotify_callback = nullptr;
-        kpreviewwidgetbase_setsupportedmimetypes_callback = nullptr;
-        kpreviewwidgetbase_updatemicrofocus_callback = nullptr;
-        kpreviewwidgetbase_create_callback = nullptr;
-        kpreviewwidgetbase_destroy_callback = nullptr;
-        kpreviewwidgetbase_focusnextchild_callback = nullptr;
-        kpreviewwidgetbase_focuspreviouschild_callback = nullptr;
-        kpreviewwidgetbase_sender_callback = nullptr;
-        kpreviewwidgetbase_sendersignalindex_callback = nullptr;
-        kpreviewwidgetbase_receivers_callback = nullptr;
-        kpreviewwidgetbase_issignalconnected_callback = nullptr;
-        kpreviewwidgetbase_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPreviewWidgetBase_MetaObject_Callback(KPreviewWidgetBase_MetaObject_Callback cb) { kpreviewwidgetbase_metaobject_callback = cb; }
     inline void setKPreviewWidgetBase_Metacast_Callback(KPreviewWidgetBase_Metacast_Callback cb) { kpreviewwidgetbase_metacast_callback = cb; }
@@ -416,12 +350,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_metaobject_isbase) {
             kpreviewwidgetbase_metaobject_isbase = false;
             return KPreviewWidgetBase::metaObject();
-        } else if (kpreviewwidgetbase_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpreviewwidgetbase_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPreviewWidgetBase::metaObject();
         }
+        auto metaobject_cb = kpreviewwidgetbase_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPreviewWidgetBase::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -429,14 +364,15 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_metacast_isbase) {
             kpreviewwidgetbase_metacast_isbase = false;
             return KPreviewWidgetBase::qt_metacast(param1);
-        } else if (kpreviewwidgetbase_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpreviewwidgetbase_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpreviewwidgetbase_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPreviewWidgetBase::qt_metacast(param1);
         }
+        return KPreviewWidgetBase::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,33 +380,36 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_metacall_isbase) {
             kpreviewwidgetbase_metacall_isbase = false;
             return KPreviewWidgetBase::qt_metacall(param1, param2, param3);
-        } else if (kpreviewwidgetbase_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpreviewwidgetbase_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpreviewwidgetbase_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPreviewWidgetBase::qt_metacall(param1, param2, param3);
         }
+        return KPreviewWidgetBase::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void showPreview(const QUrl& url) override {
-        if (kpreviewwidgetbase_showpreview_callback != nullptr) {
+        auto showpreview_cb = kpreviewwidgetbase_showpreview_callback;
+        if (showpreview_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            kpreviewwidgetbase_showpreview_callback(this, cbval1);
+            showpreview_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void clearPreview() override {
-        if (kpreviewwidgetbase_clearpreview_callback != nullptr) {
-            kpreviewwidgetbase_clearpreview_callback();
+        auto clearpreview_cb = kpreviewwidgetbase_clearpreview_callback;
+        if (clearpreview_cb) {
+            clearpreview_cb();
         }
     }
 
@@ -479,12 +418,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_devtype_isbase) {
             kpreviewwidgetbase_devtype_isbase = false;
             return KPreviewWidgetBase::devType();
-        } else if (kpreviewwidgetbase_devtype_callback != nullptr) {
-            int callback_ret = kpreviewwidgetbase_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPreviewWidgetBase::devType();
         }
+        auto devtype_cb = kpreviewwidgetbase_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPreviewWidgetBase::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,13 +432,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_setvisible_isbase) {
             kpreviewwidgetbase_setvisible_isbase = false;
             KPreviewWidgetBase::setVisible(visible);
-        } else if (kpreviewwidgetbase_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kpreviewwidgetbase_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kpreviewwidgetbase_setvisible_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -506,12 +449,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_sizehint_isbase) {
             kpreviewwidgetbase_sizehint_isbase = false;
             return KPreviewWidgetBase::sizeHint();
-        } else if (kpreviewwidgetbase_sizehint_callback != nullptr) {
-            QSize* callback_ret = kpreviewwidgetbase_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPreviewWidgetBase::sizeHint();
         }
+        auto sizehint_cb = kpreviewwidgetbase_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KPreviewWidgetBase::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -519,12 +463,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_minimumsizehint_isbase) {
             kpreviewwidgetbase_minimumsizehint_isbase = false;
             return KPreviewWidgetBase::minimumSizeHint();
-        } else if (kpreviewwidgetbase_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kpreviewwidgetbase_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPreviewWidgetBase::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kpreviewwidgetbase_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KPreviewWidgetBase::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -532,14 +477,15 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_heightforwidth_isbase) {
             kpreviewwidgetbase_heightforwidth_isbase = false;
             return KPreviewWidgetBase::heightForWidth(param1);
-        } else if (kpreviewwidgetbase_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kpreviewwidgetbase_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kpreviewwidgetbase_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPreviewWidgetBase::heightForWidth(param1);
         }
+        return KPreviewWidgetBase::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,12 +493,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_hasheightforwidth_isbase) {
             kpreviewwidgetbase_hasheightforwidth_isbase = false;
             return KPreviewWidgetBase::hasHeightForWidth();
-        } else if (kpreviewwidgetbase_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kpreviewwidgetbase_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KPreviewWidgetBase::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kpreviewwidgetbase_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KPreviewWidgetBase::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,12 +507,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_paintengine_isbase) {
             kpreviewwidgetbase_paintengine_isbase = false;
             return KPreviewWidgetBase::paintEngine();
-        } else if (kpreviewwidgetbase_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kpreviewwidgetbase_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KPreviewWidgetBase::paintEngine();
         }
+        auto paintengine_cb = kpreviewwidgetbase_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KPreviewWidgetBase::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,14 +521,15 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_event_isbase) {
             kpreviewwidgetbase_event_isbase = false;
             return KPreviewWidgetBase::event(event);
-        } else if (kpreviewwidgetbase_event_callback != nullptr) {
+        }
+        auto event_cb = kpreviewwidgetbase_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kpreviewwidgetbase_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPreviewWidgetBase::event(event);
         }
+        return KPreviewWidgetBase::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -588,13 +537,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_mousepressevent_isbase) {
             kpreviewwidgetbase_mousepressevent_isbase = false;
             KPreviewWidgetBase::mousePressEvent(event);
-        } else if (kpreviewwidgetbase_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kpreviewwidgetbase_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpreviewwidgetbase_mousepressevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,13 +554,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_mousereleaseevent_isbase) {
             kpreviewwidgetbase_mousereleaseevent_isbase = false;
             KPreviewWidgetBase::mouseReleaseEvent(event);
-        } else if (kpreviewwidgetbase_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kpreviewwidgetbase_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpreviewwidgetbase_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -616,13 +571,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_mousedoubleclickevent_isbase) {
             kpreviewwidgetbase_mousedoubleclickevent_isbase = false;
             KPreviewWidgetBase::mouseDoubleClickEvent(event);
-        } else if (kpreviewwidgetbase_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kpreviewwidgetbase_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpreviewwidgetbase_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -630,13 +588,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_mousemoveevent_isbase) {
             kpreviewwidgetbase_mousemoveevent_isbase = false;
             KPreviewWidgetBase::mouseMoveEvent(event);
-        } else if (kpreviewwidgetbase_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kpreviewwidgetbase_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpreviewwidgetbase_mousemoveevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -644,13 +605,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_wheelevent_isbase) {
             kpreviewwidgetbase_wheelevent_isbase = false;
             KPreviewWidgetBase::wheelEvent(event);
-        } else if (kpreviewwidgetbase_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kpreviewwidgetbase_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kpreviewwidgetbase_wheelevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -658,13 +622,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_keypressevent_isbase) {
             kpreviewwidgetbase_keypressevent_isbase = false;
             KPreviewWidgetBase::keyPressEvent(event);
-        } else if (kpreviewwidgetbase_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kpreviewwidgetbase_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kpreviewwidgetbase_keypressevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -672,13 +639,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_keyreleaseevent_isbase) {
             kpreviewwidgetbase_keyreleaseevent_isbase = false;
             KPreviewWidgetBase::keyReleaseEvent(event);
-        } else if (kpreviewwidgetbase_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kpreviewwidgetbase_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kpreviewwidgetbase_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -686,13 +656,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_focusinevent_isbase) {
             kpreviewwidgetbase_focusinevent_isbase = false;
             KPreviewWidgetBase::focusInEvent(event);
-        } else if (kpreviewwidgetbase_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kpreviewwidgetbase_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpreviewwidgetbase_focusinevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -700,13 +673,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_focusoutevent_isbase) {
             kpreviewwidgetbase_focusoutevent_isbase = false;
             KPreviewWidgetBase::focusOutEvent(event);
-        } else if (kpreviewwidgetbase_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kpreviewwidgetbase_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpreviewwidgetbase_focusoutevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,13 +690,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_enterevent_isbase) {
             kpreviewwidgetbase_enterevent_isbase = false;
             KPreviewWidgetBase::enterEvent(event);
-        } else if (kpreviewwidgetbase_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kpreviewwidgetbase_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kpreviewwidgetbase_enterevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -728,13 +707,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_leaveevent_isbase) {
             kpreviewwidgetbase_leaveevent_isbase = false;
             KPreviewWidgetBase::leaveEvent(event);
-        } else if (kpreviewwidgetbase_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kpreviewwidgetbase_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kpreviewwidgetbase_leaveevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -742,13 +724,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_paintevent_isbase) {
             kpreviewwidgetbase_paintevent_isbase = false;
             KPreviewWidgetBase::paintEvent(event);
-        } else if (kpreviewwidgetbase_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kpreviewwidgetbase_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kpreviewwidgetbase_paintevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,13 +741,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_moveevent_isbase) {
             kpreviewwidgetbase_moveevent_isbase = false;
             KPreviewWidgetBase::moveEvent(event);
-        } else if (kpreviewwidgetbase_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kpreviewwidgetbase_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kpreviewwidgetbase_moveevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,13 +758,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_resizeevent_isbase) {
             kpreviewwidgetbase_resizeevent_isbase = false;
             KPreviewWidgetBase::resizeEvent(event);
-        } else if (kpreviewwidgetbase_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kpreviewwidgetbase_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kpreviewwidgetbase_resizeevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,13 +775,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_closeevent_isbase) {
             kpreviewwidgetbase_closeevent_isbase = false;
             KPreviewWidgetBase::closeEvent(event);
-        } else if (kpreviewwidgetbase_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kpreviewwidgetbase_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kpreviewwidgetbase_closeevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -798,13 +792,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_contextmenuevent_isbase) {
             kpreviewwidgetbase_contextmenuevent_isbase = false;
             KPreviewWidgetBase::contextMenuEvent(event);
-        } else if (kpreviewwidgetbase_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kpreviewwidgetbase_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kpreviewwidgetbase_contextmenuevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -812,13 +809,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_tabletevent_isbase) {
             kpreviewwidgetbase_tabletevent_isbase = false;
             KPreviewWidgetBase::tabletEvent(event);
-        } else if (kpreviewwidgetbase_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kpreviewwidgetbase_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kpreviewwidgetbase_tabletevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -826,13 +826,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_actionevent_isbase) {
             kpreviewwidgetbase_actionevent_isbase = false;
             KPreviewWidgetBase::actionEvent(event);
-        } else if (kpreviewwidgetbase_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kpreviewwidgetbase_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kpreviewwidgetbase_actionevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -840,13 +843,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_dragenterevent_isbase) {
             kpreviewwidgetbase_dragenterevent_isbase = false;
             KPreviewWidgetBase::dragEnterEvent(event);
-        } else if (kpreviewwidgetbase_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kpreviewwidgetbase_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kpreviewwidgetbase_dragenterevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,13 +860,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_dragmoveevent_isbase) {
             kpreviewwidgetbase_dragmoveevent_isbase = false;
             KPreviewWidgetBase::dragMoveEvent(event);
-        } else if (kpreviewwidgetbase_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kpreviewwidgetbase_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kpreviewwidgetbase_dragmoveevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,13 +877,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_dragleaveevent_isbase) {
             kpreviewwidgetbase_dragleaveevent_isbase = false;
             KPreviewWidgetBase::dragLeaveEvent(event);
-        } else if (kpreviewwidgetbase_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kpreviewwidgetbase_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kpreviewwidgetbase_dragleaveevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,13 +894,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_dropevent_isbase) {
             kpreviewwidgetbase_dropevent_isbase = false;
             KPreviewWidgetBase::dropEvent(event);
-        } else if (kpreviewwidgetbase_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kpreviewwidgetbase_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kpreviewwidgetbase_dropevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -896,13 +911,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_showevent_isbase) {
             kpreviewwidgetbase_showevent_isbase = false;
             KPreviewWidgetBase::showEvent(event);
-        } else if (kpreviewwidgetbase_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kpreviewwidgetbase_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kpreviewwidgetbase_showevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -910,13 +928,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_hideevent_isbase) {
             kpreviewwidgetbase_hideevent_isbase = false;
             KPreviewWidgetBase::hideEvent(event);
-        } else if (kpreviewwidgetbase_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kpreviewwidgetbase_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kpreviewwidgetbase_hideevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,7 +945,9 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_nativeevent_isbase) {
             kpreviewwidgetbase_nativeevent_isbase = false;
             return KPreviewWidgetBase::nativeEvent(eventType, message, result);
-        } else if (kpreviewwidgetbase_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kpreviewwidgetbase_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -935,12 +958,11 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kpreviewwidgetbase_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KPreviewWidgetBase::nativeEvent(eventType, message, result);
         }
+        return KPreviewWidgetBase::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -948,13 +970,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_changeevent_isbase) {
             kpreviewwidgetbase_changeevent_isbase = false;
             KPreviewWidgetBase::changeEvent(param1);
-        } else if (kpreviewwidgetbase_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kpreviewwidgetbase_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kpreviewwidgetbase_changeevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -962,14 +987,15 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_metric_isbase) {
             kpreviewwidgetbase_metric_isbase = false;
             return KPreviewWidgetBase::metric(param1);
-        } else if (kpreviewwidgetbase_metric_callback != nullptr) {
+        }
+        auto metric_cb = kpreviewwidgetbase_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kpreviewwidgetbase_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPreviewWidgetBase::metric(param1);
         }
+        return KPreviewWidgetBase::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -977,13 +1003,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_initpainter_isbase) {
             kpreviewwidgetbase_initpainter_isbase = false;
             KPreviewWidgetBase::initPainter(painter);
-        } else if (kpreviewwidgetbase_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kpreviewwidgetbase_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kpreviewwidgetbase_initpainter_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,14 +1020,15 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_redirected_isbase) {
             kpreviewwidgetbase_redirected_isbase = false;
             return KPreviewWidgetBase::redirected(offset);
-        } else if (kpreviewwidgetbase_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kpreviewwidgetbase_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kpreviewwidgetbase_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPreviewWidgetBase::redirected(offset);
         }
+        return KPreviewWidgetBase::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,12 +1036,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_sharedpainter_isbase) {
             kpreviewwidgetbase_sharedpainter_isbase = false;
             return KPreviewWidgetBase::sharedPainter();
-        } else if (kpreviewwidgetbase_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kpreviewwidgetbase_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KPreviewWidgetBase::sharedPainter();
         }
+        auto sharedpainter_cb = kpreviewwidgetbase_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KPreviewWidgetBase::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1019,13 +1050,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_inputmethodevent_isbase) {
             kpreviewwidgetbase_inputmethodevent_isbase = false;
             KPreviewWidgetBase::inputMethodEvent(param1);
-        } else if (kpreviewwidgetbase_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kpreviewwidgetbase_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kpreviewwidgetbase_inputmethodevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1033,14 +1067,15 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_inputmethodquery_isbase) {
             kpreviewwidgetbase_inputmethodquery_isbase = false;
             return KPreviewWidgetBase::inputMethodQuery(param1);
-        } else if (kpreviewwidgetbase_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kpreviewwidgetbase_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kpreviewwidgetbase_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KPreviewWidgetBase::inputMethodQuery(param1);
         }
+        return KPreviewWidgetBase::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,14 +1083,15 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_focusnextprevchild_isbase) {
             kpreviewwidgetbase_focusnextprevchild_isbase = false;
             return KPreviewWidgetBase::focusNextPrevChild(next);
-        } else if (kpreviewwidgetbase_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kpreviewwidgetbase_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kpreviewwidgetbase_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPreviewWidgetBase::focusNextPrevChild(next);
         }
+        return KPreviewWidgetBase::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,15 +1099,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_eventfilter_isbase) {
             kpreviewwidgetbase_eventfilter_isbase = false;
             return KPreviewWidgetBase::eventFilter(watched, event);
-        } else if (kpreviewwidgetbase_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpreviewwidgetbase_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kpreviewwidgetbase_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPreviewWidgetBase::eventFilter(watched, event);
         }
+        return KPreviewWidgetBase::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1079,13 +1116,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_timerevent_isbase) {
             kpreviewwidgetbase_timerevent_isbase = false;
             KPreviewWidgetBase::timerEvent(event);
-        } else if (kpreviewwidgetbase_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpreviewwidgetbase_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpreviewwidgetbase_timerevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1093,13 +1133,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_childevent_isbase) {
             kpreviewwidgetbase_childevent_isbase = false;
             KPreviewWidgetBase::childEvent(event);
-        } else if (kpreviewwidgetbase_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpreviewwidgetbase_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpreviewwidgetbase_childevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1107,13 +1150,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_customevent_isbase) {
             kpreviewwidgetbase_customevent_isbase = false;
             KPreviewWidgetBase::customEvent(event);
-        } else if (kpreviewwidgetbase_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpreviewwidgetbase_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpreviewwidgetbase_customevent_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1121,15 +1167,18 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_connectnotify_isbase) {
             kpreviewwidgetbase_connectnotify_isbase = false;
             KPreviewWidgetBase::connectNotify(signal);
-        } else if (kpreviewwidgetbase_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpreviewwidgetbase_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpreviewwidgetbase_connectnotify_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,15 +1186,18 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_disconnectnotify_isbase) {
             kpreviewwidgetbase_disconnectnotify_isbase = false;
             KPreviewWidgetBase::disconnectNotify(signal);
-        } else if (kpreviewwidgetbase_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpreviewwidgetbase_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpreviewwidgetbase_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPreviewWidgetBase::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPreviewWidgetBase::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,7 +1205,10 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_setsupportedmimetypes_isbase) {
             kpreviewwidgetbase_setsupportedmimetypes_isbase = false;
             KPreviewWidgetBase::setSupportedMimeTypes(mimeTypes);
-        } else if (kpreviewwidgetbase_setsupportedmimetypes_callback != nullptr) {
+            return;
+        }
+        auto setsupportedmimetypes_cb = kpreviewwidgetbase_setsupportedmimetypes_callback;
+        if (setsupportedmimetypes_cb) {
             const QList<QString>& mimeTypes_ret = mimeTypes;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** mimeTypes_arr = static_cast<const char**>(malloc(sizeof(const char*) * (mimeTypes_ret.size() + 1)));
@@ -1169,11 +1224,11 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
             mimeTypes_arr[mimeTypes_ret.size()] = nullptr;
             const char** cbval1 = mimeTypes_arr;
 
-            kpreviewwidgetbase_setsupportedmimetypes_callback(this, cbval1);
+            setsupportedmimetypes_cb(this, cbval1);
             libqt_free(mimeTypes_arr);
-        } else {
-            KPreviewWidgetBase::setSupportedMimeTypes(mimeTypes);
+            return;
         }
+        KPreviewWidgetBase::setSupportedMimeTypes(mimeTypes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,11 +1236,14 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_updatemicrofocus_isbase) {
             kpreviewwidgetbase_updatemicrofocus_isbase = false;
             KPreviewWidgetBase::updateMicroFocus();
-        } else if (kpreviewwidgetbase_updatemicrofocus_callback != nullptr) {
-            kpreviewwidgetbase_updatemicrofocus_callback();
-        } else {
-            KPreviewWidgetBase::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kpreviewwidgetbase_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KPreviewWidgetBase::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,11 +1251,14 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_create_isbase) {
             kpreviewwidgetbase_create_isbase = false;
             KPreviewWidgetBase::create();
-        } else if (kpreviewwidgetbase_create_callback != nullptr) {
-            kpreviewwidgetbase_create_callback();
-        } else {
-            KPreviewWidgetBase::create();
+            return;
         }
+        auto create_cb = kpreviewwidgetbase_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KPreviewWidgetBase::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,11 +1266,14 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_destroy_isbase) {
             kpreviewwidgetbase_destroy_isbase = false;
             KPreviewWidgetBase::destroy();
-        } else if (kpreviewwidgetbase_destroy_callback != nullptr) {
-            kpreviewwidgetbase_destroy_callback();
-        } else {
-            KPreviewWidgetBase::destroy();
+            return;
         }
+        auto destroy_cb = kpreviewwidgetbase_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KPreviewWidgetBase::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1217,12 +1281,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_focusnextchild_isbase) {
             kpreviewwidgetbase_focusnextchild_isbase = false;
             return KPreviewWidgetBase::focusNextChild();
-        } else if (kpreviewwidgetbase_focusnextchild_callback != nullptr) {
-            bool callback_ret = kpreviewwidgetbase_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KPreviewWidgetBase::focusNextChild();
         }
+        auto focusnextchild_cb = kpreviewwidgetbase_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KPreviewWidgetBase::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1230,12 +1295,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_focuspreviouschild_isbase) {
             kpreviewwidgetbase_focuspreviouschild_isbase = false;
             return KPreviewWidgetBase::focusPreviousChild();
-        } else if (kpreviewwidgetbase_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kpreviewwidgetbase_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KPreviewWidgetBase::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kpreviewwidgetbase_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KPreviewWidgetBase::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,12 +1309,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_sender_isbase) {
             kpreviewwidgetbase_sender_isbase = false;
             return KPreviewWidgetBase::sender();
-        } else if (kpreviewwidgetbase_sender_callback != nullptr) {
-            QObject* callback_ret = kpreviewwidgetbase_sender_callback();
-            return callback_ret;
-        } else {
-            return KPreviewWidgetBase::sender();
         }
+        auto sender_cb = kpreviewwidgetbase_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPreviewWidgetBase::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,12 +1323,13 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_sendersignalindex_isbase) {
             kpreviewwidgetbase_sendersignalindex_isbase = false;
             return KPreviewWidgetBase::senderSignalIndex();
-        } else if (kpreviewwidgetbase_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpreviewwidgetbase_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPreviewWidgetBase::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpreviewwidgetbase_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPreviewWidgetBase::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,14 +1337,15 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_receivers_isbase) {
             kpreviewwidgetbase_receivers_isbase = false;
             return KPreviewWidgetBase::receivers(signal);
-        } else if (kpreviewwidgetbase_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpreviewwidgetbase_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpreviewwidgetbase_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPreviewWidgetBase::receivers(signal);
         }
+        return KPreviewWidgetBase::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,16 +1353,17 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_issignalconnected_isbase) {
             kpreviewwidgetbase_issignalconnected_isbase = false;
             return KPreviewWidgetBase::isSignalConnected(signal);
-        } else if (kpreviewwidgetbase_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpreviewwidgetbase_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpreviewwidgetbase_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPreviewWidgetBase::isSignalConnected(signal);
         }
+        return KPreviewWidgetBase::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1301,15 +1371,16 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
         if (kpreviewwidgetbase_getdecodedmetricf_isbase) {
             kpreviewwidgetbase_getdecodedmetricf_isbase = false;
             return KPreviewWidgetBase::getDecodedMetricF(metricA, metricB);
-        } else if (kpreviewwidgetbase_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kpreviewwidgetbase_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kpreviewwidgetbase_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KPreviewWidgetBase::getDecodedMetricF(metricA, metricB);
         }
+        return KPreviewWidgetBase::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

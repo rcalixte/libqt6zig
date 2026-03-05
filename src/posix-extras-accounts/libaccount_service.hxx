@@ -69,23 +69,6 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
     VirtualAccountsAccountService(Accounts::Account* account, const Accounts::Service& service) : Accounts::AccountService(account, service) {};
     VirtualAccountsAccountService(Accounts::Account* account, const Accounts::Service& service, QObject* parent) : Accounts::AccountService(account, service, parent) {};
 
-    ~VirtualAccountsAccountService() {
-        accounts__accountservice_metaobject_callback = nullptr;
-        accounts__accountservice_metacast_callback = nullptr;
-        accounts__accountservice_metacall_callback = nullptr;
-        accounts__accountservice_event_callback = nullptr;
-        accounts__accountservice_eventfilter_callback = nullptr;
-        accounts__accountservice_timerevent_callback = nullptr;
-        accounts__accountservice_childevent_callback = nullptr;
-        accounts__accountservice_customevent_callback = nullptr;
-        accounts__accountservice_connectnotify_callback = nullptr;
-        accounts__accountservice_disconnectnotify_callback = nullptr;
-        accounts__accountservice_sender_callback = nullptr;
-        accounts__accountservice_sendersignalindex_callback = nullptr;
-        accounts__accountservice_receivers_callback = nullptr;
-        accounts__accountservice_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setAccounts__AccountService_MetaObject_Callback(Accounts__AccountService_MetaObject_Callback cb) { accounts__accountservice_metaobject_callback = cb; }
     inline void setAccounts__AccountService_Metacast_Callback(Accounts__AccountService_Metacast_Callback cb) { accounts__accountservice_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_metaobject_isbase) {
             accounts__accountservice_metaobject_isbase = false;
             return Accounts__AccountService::metaObject();
-        } else if (accounts__accountservice_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = accounts__accountservice_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Accounts__AccountService::metaObject();
         }
+        auto metaobject_cb = accounts__accountservice_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Accounts__AccountService::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_metacast_isbase) {
             accounts__accountservice_metacast_isbase = false;
             return Accounts__AccountService::qt_metacast(param1);
-        } else if (accounts__accountservice_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = accounts__accountservice_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = accounts__accountservice_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Accounts__AccountService::qt_metacast(param1);
         }
+        return Accounts__AccountService::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_metacall_isbase) {
             accounts__accountservice_metacall_isbase = false;
             return Accounts__AccountService::qt_metacall(param1, param2, param3);
-        } else if (accounts__accountservice_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = accounts__accountservice_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = accounts__accountservice_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Accounts__AccountService::qt_metacall(param1, param2, param3);
         }
+        return Accounts__AccountService::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_event_isbase) {
             accounts__accountservice_event_isbase = false;
             return Accounts__AccountService::event(event);
-        } else if (accounts__accountservice_event_callback != nullptr) {
+        }
+        auto event_cb = accounts__accountservice_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = accounts__accountservice_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Accounts__AccountService::event(event);
         }
+        return Accounts__AccountService::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_eventfilter_isbase) {
             accounts__accountservice_eventfilter_isbase = false;
             return Accounts__AccountService::eventFilter(watched, event);
-        } else if (accounts__accountservice_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = accounts__accountservice_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = accounts__accountservice_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Accounts__AccountService::eventFilter(watched, event);
         }
+        return Accounts__AccountService::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_timerevent_isbase) {
             accounts__accountservice_timerevent_isbase = false;
             Accounts__AccountService::timerEvent(event);
-        } else if (accounts__accountservice_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = accounts__accountservice_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            accounts__accountservice_timerevent_callback(this, cbval1);
-        } else {
-            Accounts__AccountService::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Accounts__AccountService::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_childevent_isbase) {
             accounts__accountservice_childevent_isbase = false;
             Accounts__AccountService::childEvent(event);
-        } else if (accounts__accountservice_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = accounts__accountservice_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            accounts__accountservice_childevent_callback(this, cbval1);
-        } else {
-            Accounts__AccountService::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Accounts__AccountService::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_customevent_isbase) {
             accounts__accountservice_customevent_isbase = false;
             Accounts__AccountService::customEvent(event);
-        } else if (accounts__accountservice_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = accounts__accountservice_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            accounts__accountservice_customevent_callback(this, cbval1);
-        } else {
-            Accounts__AccountService::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Accounts__AccountService::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_connectnotify_isbase) {
             accounts__accountservice_connectnotify_isbase = false;
             Accounts__AccountService::connectNotify(signal);
-        } else if (accounts__accountservice_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = accounts__accountservice_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            accounts__accountservice_connectnotify_callback(this, cbval1);
-        } else {
-            Accounts__AccountService::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Accounts__AccountService::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_disconnectnotify_isbase) {
             accounts__accountservice_disconnectnotify_isbase = false;
             Accounts__AccountService::disconnectNotify(signal);
-        } else if (accounts__accountservice_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = accounts__accountservice_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            accounts__accountservice_disconnectnotify_callback(this, cbval1);
-        } else {
-            Accounts__AccountService::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Accounts__AccountService::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_sender_isbase) {
             accounts__accountservice_sender_isbase = false;
             return Accounts__AccountService::sender();
-        } else if (accounts__accountservice_sender_callback != nullptr) {
-            QObject* callback_ret = accounts__accountservice_sender_callback();
-            return callback_ret;
-        } else {
-            return Accounts__AccountService::sender();
         }
+        auto sender_cb = accounts__accountservice_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Accounts__AccountService::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_sendersignalindex_isbase) {
             accounts__accountservice_sendersignalindex_isbase = false;
             return Accounts__AccountService::senderSignalIndex();
-        } else if (accounts__accountservice_sendersignalindex_callback != nullptr) {
-            int callback_ret = accounts__accountservice_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Accounts__AccountService::senderSignalIndex();
         }
+        auto sendersignalindex_cb = accounts__accountservice_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Accounts__AccountService::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_receivers_isbase) {
             accounts__accountservice_receivers_isbase = false;
             return Accounts__AccountService::receivers(signal);
-        } else if (accounts__accountservice_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = accounts__accountservice_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = accounts__accountservice_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Accounts__AccountService::receivers(signal);
         }
+        return Accounts__AccountService::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
         if (accounts__accountservice_issignalconnected_isbase) {
             accounts__accountservice_issignalconnected_isbase = false;
             return Accounts__AccountService::isSignalConnected(signal);
-        } else if (accounts__accountservice_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = accounts__accountservice_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = accounts__accountservice_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Accounts__AccountService::isSignalConnected(signal);
         }
+        return Accounts__AccountService::isSignalConnected(signal);
     }
 
     // Friend functions

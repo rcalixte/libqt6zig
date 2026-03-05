@@ -75,25 +75,6 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
     VirtualQExtensionFactory() : QExtensionFactory() {};
     VirtualQExtensionFactory(QExtensionManager* parent) : QExtensionFactory(parent) {};
 
-    ~VirtualQExtensionFactory() {
-        qextensionfactory_metaobject_callback = nullptr;
-        qextensionfactory_metacast_callback = nullptr;
-        qextensionfactory_metacall_callback = nullptr;
-        qextensionfactory_extension_callback = nullptr;
-        qextensionfactory_createextension_callback = nullptr;
-        qextensionfactory_event_callback = nullptr;
-        qextensionfactory_eventfilter_callback = nullptr;
-        qextensionfactory_timerevent_callback = nullptr;
-        qextensionfactory_childevent_callback = nullptr;
-        qextensionfactory_customevent_callback = nullptr;
-        qextensionfactory_connectnotify_callback = nullptr;
-        qextensionfactory_disconnectnotify_callback = nullptr;
-        qextensionfactory_sender_callback = nullptr;
-        qextensionfactory_sendersignalindex_callback = nullptr;
-        qextensionfactory_receivers_callback = nullptr;
-        qextensionfactory_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQExtensionFactory_MetaObject_Callback(QExtensionFactory_MetaObject_Callback cb) { qextensionfactory_metaobject_callback = cb; }
     inline void setQExtensionFactory_Metacast_Callback(QExtensionFactory_Metacast_Callback cb) { qextensionfactory_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_metaobject_isbase) {
             qextensionfactory_metaobject_isbase = false;
             return QExtensionFactory::metaObject();
-        } else if (qextensionfactory_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qextensionfactory_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QExtensionFactory::metaObject();
         }
+        auto metaobject_cb = qextensionfactory_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QExtensionFactory::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_metacast_isbase) {
             qextensionfactory_metacast_isbase = false;
             return QExtensionFactory::qt_metacast(param1);
-        } else if (qextensionfactory_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qextensionfactory_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qextensionfactory_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QExtensionFactory::qt_metacast(param1);
         }
+        return QExtensionFactory::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,16 +146,17 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_metacall_isbase) {
             qextensionfactory_metacall_isbase = false;
             return QExtensionFactory::qt_metacall(param1, param2, param3);
-        } else if (qextensionfactory_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qextensionfactory_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qextensionfactory_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QExtensionFactory::qt_metacall(param1, param2, param3);
         }
+        return QExtensionFactory::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,7 +164,9 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_extension_isbase) {
             qextensionfactory_extension_isbase = false;
             return QExtensionFactory::extension(object, iid);
-        } else if (qextensionfactory_extension_callback != nullptr) {
+        }
+        auto extension_cb = qextensionfactory_extension_callback;
+        if (extension_cb) {
             QObject* cbval1 = object;
             const QString iid_ret = iid;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -191,12 +177,11 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
             ((char*)iid_str)[iid_str_len] = '\0';
             const char* cbval2 = iid_str;
 
-            QObject* callback_ret = qextensionfactory_extension_callback(this, cbval1, cbval2);
+            QObject* callback_ret = extension_cb(this, cbval1, cbval2);
             libqt_free(iid_str);
             return callback_ret;
-        } else {
-            return QExtensionFactory::extension(object, iid);
         }
+        return QExtensionFactory::extension(object, iid);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,7 +189,9 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_createextension_isbase) {
             qextensionfactory_createextension_isbase = false;
             return QExtensionFactory::createExtension(object, iid, parent);
-        } else if (qextensionfactory_createextension_callback != nullptr) {
+        }
+        auto createextension_cb = qextensionfactory_createextension_callback;
+        if (createextension_cb) {
             QObject* cbval1 = object;
             const QString iid_ret = iid;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -216,12 +203,11 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
             const char* cbval2 = iid_str;
             QObject* cbval3 = parent;
 
-            QObject* callback_ret = qextensionfactory_createextension_callback(this, cbval1, cbval2, cbval3);
+            QObject* callback_ret = createextension_cb(this, cbval1, cbval2, cbval3);
             libqt_free(iid_str);
             return callback_ret;
-        } else {
-            return QExtensionFactory::createExtension(object, iid, parent);
         }
+        return QExtensionFactory::createExtension(object, iid, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,14 +215,15 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_event_isbase) {
             qextensionfactory_event_isbase = false;
             return QExtensionFactory::event(event);
-        } else if (qextensionfactory_event_callback != nullptr) {
+        }
+        auto event_cb = qextensionfactory_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qextensionfactory_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QExtensionFactory::event(event);
         }
+        return QExtensionFactory::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -244,15 +231,16 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_eventfilter_isbase) {
             qextensionfactory_eventfilter_isbase = false;
             return QExtensionFactory::eventFilter(watched, event);
-        } else if (qextensionfactory_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qextensionfactory_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qextensionfactory_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QExtensionFactory::eventFilter(watched, event);
         }
+        return QExtensionFactory::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,13 +248,16 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_timerevent_isbase) {
             qextensionfactory_timerevent_isbase = false;
             QExtensionFactory::timerEvent(event);
-        } else if (qextensionfactory_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qextensionfactory_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qextensionfactory_timerevent_callback(this, cbval1);
-        } else {
-            QExtensionFactory::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QExtensionFactory::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -274,13 +265,16 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_childevent_isbase) {
             qextensionfactory_childevent_isbase = false;
             QExtensionFactory::childEvent(event);
-        } else if (qextensionfactory_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qextensionfactory_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qextensionfactory_childevent_callback(this, cbval1);
-        } else {
-            QExtensionFactory::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QExtensionFactory::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,13 +282,16 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_customevent_isbase) {
             qextensionfactory_customevent_isbase = false;
             QExtensionFactory::customEvent(event);
-        } else if (qextensionfactory_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qextensionfactory_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qextensionfactory_customevent_callback(this, cbval1);
-        } else {
-            QExtensionFactory::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QExtensionFactory::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,15 +299,18 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_connectnotify_isbase) {
             qextensionfactory_connectnotify_isbase = false;
             QExtensionFactory::connectNotify(signal);
-        } else if (qextensionfactory_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qextensionfactory_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qextensionfactory_connectnotify_callback(this, cbval1);
-        } else {
-            QExtensionFactory::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QExtensionFactory::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,15 +318,18 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_disconnectnotify_isbase) {
             qextensionfactory_disconnectnotify_isbase = false;
             QExtensionFactory::disconnectNotify(signal);
-        } else if (qextensionfactory_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qextensionfactory_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qextensionfactory_disconnectnotify_callback(this, cbval1);
-        } else {
-            QExtensionFactory::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QExtensionFactory::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -334,12 +337,13 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_sender_isbase) {
             qextensionfactory_sender_isbase = false;
             return QExtensionFactory::sender();
-        } else if (qextensionfactory_sender_callback != nullptr) {
-            QObject* callback_ret = qextensionfactory_sender_callback();
-            return callback_ret;
-        } else {
-            return QExtensionFactory::sender();
         }
+        auto sender_cb = qextensionfactory_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QExtensionFactory::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -347,12 +351,13 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_sendersignalindex_isbase) {
             qextensionfactory_sendersignalindex_isbase = false;
             return QExtensionFactory::senderSignalIndex();
-        } else if (qextensionfactory_sendersignalindex_callback != nullptr) {
-            int callback_ret = qextensionfactory_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QExtensionFactory::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qextensionfactory_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QExtensionFactory::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,14 +365,15 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_receivers_isbase) {
             qextensionfactory_receivers_isbase = false;
             return QExtensionFactory::receivers(signal);
-        } else if (qextensionfactory_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qextensionfactory_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qextensionfactory_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QExtensionFactory::receivers(signal);
         }
+        return QExtensionFactory::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -375,16 +381,17 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         if (qextensionfactory_issignalconnected_isbase) {
             qextensionfactory_issignalconnected_isbase = false;
             return QExtensionFactory::isSignalConnected(signal);
-        } else if (qextensionfactory_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qextensionfactory_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qextensionfactory_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QExtensionFactory::isSignalConnected(signal);
         }
+        return QExtensionFactory::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -80,27 +80,6 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
   public:
     VirtualKNewFileMenu(QObject* parent) : KNewFileMenu(parent) {};
 
-    ~VirtualKNewFileMenu() {
-        knewfilemenu_metaobject_callback = nullptr;
-        knewfilemenu_metacast_callback = nullptr;
-        knewfilemenu_metacall_callback = nullptr;
-        knewfilemenu_slotresult_callback = nullptr;
-        knewfilemenu_createwidget_callback = nullptr;
-        knewfilemenu_event_callback = nullptr;
-        knewfilemenu_eventfilter_callback = nullptr;
-        knewfilemenu_deletewidget_callback = nullptr;
-        knewfilemenu_timerevent_callback = nullptr;
-        knewfilemenu_childevent_callback = nullptr;
-        knewfilemenu_customevent_callback = nullptr;
-        knewfilemenu_connectnotify_callback = nullptr;
-        knewfilemenu_disconnectnotify_callback = nullptr;
-        knewfilemenu_createdwidgets_callback = nullptr;
-        knewfilemenu_sender_callback = nullptr;
-        knewfilemenu_sendersignalindex_callback = nullptr;
-        knewfilemenu_receivers_callback = nullptr;
-        knewfilemenu_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKNewFileMenu_MetaObject_Callback(KNewFileMenu_MetaObject_Callback cb) { knewfilemenu_metaobject_callback = cb; }
     inline void setKNewFileMenu_Metacast_Callback(KNewFileMenu_Metacast_Callback cb) { knewfilemenu_metacast_callback = cb; }
@@ -146,12 +125,13 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_metaobject_isbase) {
             knewfilemenu_metaobject_isbase = false;
             return KNewFileMenu::metaObject();
-        } else if (knewfilemenu_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = knewfilemenu_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KNewFileMenu::metaObject();
         }
+        auto metaobject_cb = knewfilemenu_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KNewFileMenu::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -159,14 +139,15 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_metacast_isbase) {
             knewfilemenu_metacast_isbase = false;
             return KNewFileMenu::qt_metacast(param1);
-        } else if (knewfilemenu_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = knewfilemenu_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = knewfilemenu_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewFileMenu::qt_metacast(param1);
         }
+        return KNewFileMenu::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,16 +155,17 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_metacall_isbase) {
             knewfilemenu_metacall_isbase = false;
             return KNewFileMenu::qt_metacall(param1, param2, param3);
-        } else if (knewfilemenu_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = knewfilemenu_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = knewfilemenu_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNewFileMenu::qt_metacall(param1, param2, param3);
         }
+        return KNewFileMenu::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -191,13 +173,16 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_slotresult_isbase) {
             knewfilemenu_slotresult_isbase = false;
             KNewFileMenu::slotResult(job);
-        } else if (knewfilemenu_slotresult_callback != nullptr) {
+            return;
+        }
+        auto slotresult_cb = knewfilemenu_slotresult_callback;
+        if (slotresult_cb) {
             KJob* cbval1 = job;
 
-            knewfilemenu_slotresult_callback(this, cbval1);
-        } else {
-            KNewFileMenu::slotResult(job);
+            slotresult_cb(this, cbval1);
+            return;
         }
+        KNewFileMenu::slotResult(job);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,14 +190,15 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_createwidget_isbase) {
             knewfilemenu_createwidget_isbase = false;
             return KNewFileMenu::createWidget(parent);
-        } else if (knewfilemenu_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = knewfilemenu_createwidget_callback;
+        if (createwidget_cb) {
             QWidget* cbval1 = parent;
 
-            QWidget* callback_ret = knewfilemenu_createwidget_callback(this, cbval1);
+            QWidget* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewFileMenu::createWidget(parent);
         }
+        return KNewFileMenu::createWidget(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -220,14 +206,15 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_event_isbase) {
             knewfilemenu_event_isbase = false;
             return KNewFileMenu::event(param1);
-        } else if (knewfilemenu_event_callback != nullptr) {
+        }
+        auto event_cb = knewfilemenu_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = knewfilemenu_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewFileMenu::event(param1);
         }
+        return KNewFileMenu::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -235,15 +222,16 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_eventfilter_isbase) {
             knewfilemenu_eventfilter_isbase = false;
             return KNewFileMenu::eventFilter(param1, param2);
-        } else if (knewfilemenu_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = knewfilemenu_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = knewfilemenu_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KNewFileMenu::eventFilter(param1, param2);
         }
+        return KNewFileMenu::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -251,13 +239,16 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_deletewidget_isbase) {
             knewfilemenu_deletewidget_isbase = false;
             KNewFileMenu::deleteWidget(widget);
-        } else if (knewfilemenu_deletewidget_callback != nullptr) {
+            return;
+        }
+        auto deletewidget_cb = knewfilemenu_deletewidget_callback;
+        if (deletewidget_cb) {
             QWidget* cbval1 = widget;
 
-            knewfilemenu_deletewidget_callback(this, cbval1);
-        } else {
-            KNewFileMenu::deleteWidget(widget);
+            deletewidget_cb(this, cbval1);
+            return;
         }
+        KNewFileMenu::deleteWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,13 +256,16 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_timerevent_isbase) {
             knewfilemenu_timerevent_isbase = false;
             KNewFileMenu::timerEvent(event);
-        } else if (knewfilemenu_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = knewfilemenu_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            knewfilemenu_timerevent_callback(this, cbval1);
-        } else {
-            KNewFileMenu::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KNewFileMenu::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,13 +273,16 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_childevent_isbase) {
             knewfilemenu_childevent_isbase = false;
             KNewFileMenu::childEvent(event);
-        } else if (knewfilemenu_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = knewfilemenu_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            knewfilemenu_childevent_callback(this, cbval1);
-        } else {
-            KNewFileMenu::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KNewFileMenu::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -293,13 +290,16 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_customevent_isbase) {
             knewfilemenu_customevent_isbase = false;
             KNewFileMenu::customEvent(event);
-        } else if (knewfilemenu_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = knewfilemenu_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            knewfilemenu_customevent_callback(this, cbval1);
-        } else {
-            KNewFileMenu::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KNewFileMenu::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -307,15 +307,18 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_connectnotify_isbase) {
             knewfilemenu_connectnotify_isbase = false;
             KNewFileMenu::connectNotify(signal);
-        } else if (knewfilemenu_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = knewfilemenu_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knewfilemenu_connectnotify_callback(this, cbval1);
-        } else {
-            KNewFileMenu::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KNewFileMenu::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -323,15 +326,18 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_disconnectnotify_isbase) {
             knewfilemenu_disconnectnotify_isbase = false;
             KNewFileMenu::disconnectNotify(signal);
-        } else if (knewfilemenu_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = knewfilemenu_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knewfilemenu_disconnectnotify_callback(this, cbval1);
-        } else {
-            KNewFileMenu::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KNewFileMenu::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,8 +345,10 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_createdwidgets_isbase) {
             knewfilemenu_createdwidgets_isbase = false;
             return KNewFileMenu::createdWidgets();
-        } else if (knewfilemenu_createdwidgets_callback != nullptr) {
-            libqt_list /* of QWidget* */ callback_ret = knewfilemenu_createdwidgets_callback();
+        }
+        auto createdwidgets_cb = knewfilemenu_createdwidgets_callback;
+        if (createdwidgets_cb) {
+            libqt_list /* of QWidget* */ callback_ret = createdwidgets_cb();
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
@@ -349,9 +357,8 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KNewFileMenu::createdWidgets();
         }
+        return KNewFileMenu::createdWidgets();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -359,12 +366,13 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_sender_isbase) {
             knewfilemenu_sender_isbase = false;
             return KNewFileMenu::sender();
-        } else if (knewfilemenu_sender_callback != nullptr) {
-            QObject* callback_ret = knewfilemenu_sender_callback();
-            return callback_ret;
-        } else {
-            return KNewFileMenu::sender();
         }
+        auto sender_cb = knewfilemenu_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KNewFileMenu::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -372,12 +380,13 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_sendersignalindex_isbase) {
             knewfilemenu_sendersignalindex_isbase = false;
             return KNewFileMenu::senderSignalIndex();
-        } else if (knewfilemenu_sendersignalindex_callback != nullptr) {
-            int callback_ret = knewfilemenu_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNewFileMenu::senderSignalIndex();
         }
+        auto sendersignalindex_cb = knewfilemenu_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNewFileMenu::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -385,14 +394,15 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_receivers_isbase) {
             knewfilemenu_receivers_isbase = false;
             return KNewFileMenu::receivers(signal);
-        } else if (knewfilemenu_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = knewfilemenu_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = knewfilemenu_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNewFileMenu::receivers(signal);
         }
+        return KNewFileMenu::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -400,16 +410,17 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
         if (knewfilemenu_issignalconnected_isbase) {
             knewfilemenu_issignalconnected_isbase = false;
             return KNewFileMenu::isSignalConnected(signal);
-        } else if (knewfilemenu_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = knewfilemenu_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = knewfilemenu_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewFileMenu::isSignalConnected(signal);
         }
+        return KNewFileMenu::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -71,23 +71,6 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
     VirtualQSystemTrayIcon(QObject* parent) : QSystemTrayIcon(parent) {};
     VirtualQSystemTrayIcon(const QIcon& icon, QObject* parent) : QSystemTrayIcon(icon, parent) {};
 
-    ~VirtualQSystemTrayIcon() {
-        qsystemtrayicon_metaobject_callback = nullptr;
-        qsystemtrayicon_metacast_callback = nullptr;
-        qsystemtrayicon_metacall_callback = nullptr;
-        qsystemtrayicon_event_callback = nullptr;
-        qsystemtrayicon_eventfilter_callback = nullptr;
-        qsystemtrayicon_timerevent_callback = nullptr;
-        qsystemtrayicon_childevent_callback = nullptr;
-        qsystemtrayicon_customevent_callback = nullptr;
-        qsystemtrayicon_connectnotify_callback = nullptr;
-        qsystemtrayicon_disconnectnotify_callback = nullptr;
-        qsystemtrayicon_sender_callback = nullptr;
-        qsystemtrayicon_sendersignalindex_callback = nullptr;
-        qsystemtrayicon_receivers_callback = nullptr;
-        qsystemtrayicon_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSystemTrayIcon_MetaObject_Callback(QSystemTrayIcon_MetaObject_Callback cb) { qsystemtrayicon_metaobject_callback = cb; }
     inline void setQSystemTrayIcon_Metacast_Callback(QSystemTrayIcon_Metacast_Callback cb) { qsystemtrayicon_metacast_callback = cb; }
@@ -125,12 +108,13 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_metaobject_isbase) {
             qsystemtrayicon_metaobject_isbase = false;
             return QSystemTrayIcon::metaObject();
-        } else if (qsystemtrayicon_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsystemtrayicon_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSystemTrayIcon::metaObject();
         }
+        auto metaobject_cb = qsystemtrayicon_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSystemTrayIcon::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,14 +122,15 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_metacast_isbase) {
             qsystemtrayicon_metacast_isbase = false;
             return QSystemTrayIcon::qt_metacast(param1);
-        } else if (qsystemtrayicon_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsystemtrayicon_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsystemtrayicon_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSystemTrayIcon::qt_metacast(param1);
         }
+        return QSystemTrayIcon::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,16 +138,17 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_metacall_isbase) {
             qsystemtrayicon_metacall_isbase = false;
             return QSystemTrayIcon::qt_metacall(param1, param2, param3);
-        } else if (qsystemtrayicon_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsystemtrayicon_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsystemtrayicon_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSystemTrayIcon::qt_metacall(param1, param2, param3);
         }
+        return QSystemTrayIcon::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,14 +156,15 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_event_isbase) {
             qsystemtrayicon_event_isbase = false;
             return QSystemTrayIcon::event(event);
-        } else if (qsystemtrayicon_event_callback != nullptr) {
+        }
+        auto event_cb = qsystemtrayicon_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsystemtrayicon_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSystemTrayIcon::event(event);
         }
+        return QSystemTrayIcon::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,15 +172,16 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_eventfilter_isbase) {
             qsystemtrayicon_eventfilter_isbase = false;
             return QSystemTrayIcon::eventFilter(watched, event);
-        } else if (qsystemtrayicon_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsystemtrayicon_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsystemtrayicon_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSystemTrayIcon::eventFilter(watched, event);
         }
+        return QSystemTrayIcon::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,13 +189,16 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_timerevent_isbase) {
             qsystemtrayicon_timerevent_isbase = false;
             QSystemTrayIcon::timerEvent(event);
-        } else if (qsystemtrayicon_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsystemtrayicon_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsystemtrayicon_timerevent_callback(this, cbval1);
-        } else {
-            QSystemTrayIcon::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSystemTrayIcon::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,13 +206,16 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_childevent_isbase) {
             qsystemtrayicon_childevent_isbase = false;
             QSystemTrayIcon::childEvent(event);
-        } else if (qsystemtrayicon_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsystemtrayicon_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsystemtrayicon_childevent_callback(this, cbval1);
-        } else {
-            QSystemTrayIcon::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSystemTrayIcon::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,13 +223,16 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_customevent_isbase) {
             qsystemtrayicon_customevent_isbase = false;
             QSystemTrayIcon::customEvent(event);
-        } else if (qsystemtrayicon_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsystemtrayicon_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsystemtrayicon_customevent_callback(this, cbval1);
-        } else {
-            QSystemTrayIcon::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSystemTrayIcon::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +240,18 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_connectnotify_isbase) {
             qsystemtrayicon_connectnotify_isbase = false;
             QSystemTrayIcon::connectNotify(signal);
-        } else if (qsystemtrayicon_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsystemtrayicon_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsystemtrayicon_connectnotify_callback(this, cbval1);
-        } else {
-            QSystemTrayIcon::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSystemTrayIcon::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,15 +259,18 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_disconnectnotify_isbase) {
             qsystemtrayicon_disconnectnotify_isbase = false;
             QSystemTrayIcon::disconnectNotify(signal);
-        } else if (qsystemtrayicon_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsystemtrayicon_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsystemtrayicon_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSystemTrayIcon::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSystemTrayIcon::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,12 +278,13 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_sender_isbase) {
             qsystemtrayicon_sender_isbase = false;
             return QSystemTrayIcon::sender();
-        } else if (qsystemtrayicon_sender_callback != nullptr) {
-            QObject* callback_ret = qsystemtrayicon_sender_callback();
-            return callback_ret;
-        } else {
-            return QSystemTrayIcon::sender();
         }
+        auto sender_cb = qsystemtrayicon_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSystemTrayIcon::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,12 +292,13 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_sendersignalindex_isbase) {
             qsystemtrayicon_sendersignalindex_isbase = false;
             return QSystemTrayIcon::senderSignalIndex();
-        } else if (qsystemtrayicon_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsystemtrayicon_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSystemTrayIcon::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsystemtrayicon_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSystemTrayIcon::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,14 +306,15 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_receivers_isbase) {
             qsystemtrayicon_receivers_isbase = false;
             return QSystemTrayIcon::receivers(signal);
-        } else if (qsystemtrayicon_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsystemtrayicon_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsystemtrayicon_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSystemTrayIcon::receivers(signal);
         }
+        return QSystemTrayIcon::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,16 +322,17 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
         if (qsystemtrayicon_issignalconnected_isbase) {
             qsystemtrayicon_issignalconnected_isbase = false;
             return QSystemTrayIcon::isSignalConnected(signal);
-        } else if (qsystemtrayicon_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsystemtrayicon_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsystemtrayicon_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSystemTrayIcon::isSignalConnected(signal);
         }
+        return QSystemTrayIcon::isSignalConnected(signal);
     }
 
     // Friend functions

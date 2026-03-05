@@ -153,51 +153,6 @@ class VirtualQGridLayout final : public QGridLayout {
     VirtualQGridLayout(QWidget* parent) : QGridLayout(parent) {};
     VirtualQGridLayout() : QGridLayout() {};
 
-    ~VirtualQGridLayout() {
-        qgridlayout_metaobject_callback = nullptr;
-        qgridlayout_metacast_callback = nullptr;
-        qgridlayout_metacall_callback = nullptr;
-        qgridlayout_sizehint_callback = nullptr;
-        qgridlayout_minimumsize_callback = nullptr;
-        qgridlayout_maximumsize_callback = nullptr;
-        qgridlayout_setspacing_callback = nullptr;
-        qgridlayout_spacing_callback = nullptr;
-        qgridlayout_hasheightforwidth_callback = nullptr;
-        qgridlayout_heightforwidth_callback = nullptr;
-        qgridlayout_minimumheightforwidth_callback = nullptr;
-        qgridlayout_expandingdirections_callback = nullptr;
-        qgridlayout_invalidate_callback = nullptr;
-        qgridlayout_itemat_callback = nullptr;
-        qgridlayout_takeat_callback = nullptr;
-        qgridlayout_count_callback = nullptr;
-        qgridlayout_setgeometry_callback = nullptr;
-        qgridlayout_additem2_callback = nullptr;
-        qgridlayout_geometry_callback = nullptr;
-        qgridlayout_indexof_callback = nullptr;
-        qgridlayout_isempty_callback = nullptr;
-        qgridlayout_controltypes_callback = nullptr;
-        qgridlayout_replacewidget_callback = nullptr;
-        qgridlayout_layout_callback = nullptr;
-        qgridlayout_childevent_callback = nullptr;
-        qgridlayout_event_callback = nullptr;
-        qgridlayout_eventfilter_callback = nullptr;
-        qgridlayout_timerevent_callback = nullptr;
-        qgridlayout_customevent_callback = nullptr;
-        qgridlayout_connectnotify_callback = nullptr;
-        qgridlayout_disconnectnotify_callback = nullptr;
-        qgridlayout_widget_callback = nullptr;
-        qgridlayout_spaceritem_callback = nullptr;
-        qgridlayout_widgetevent_callback = nullptr;
-        qgridlayout_addchildlayout_callback = nullptr;
-        qgridlayout_addchildwidget_callback = nullptr;
-        qgridlayout_adoptlayout_callback = nullptr;
-        qgridlayout_alignmentrect_callback = nullptr;
-        qgridlayout_sender_callback = nullptr;
-        qgridlayout_sendersignalindex_callback = nullptr;
-        qgridlayout_receivers_callback = nullptr;
-        qgridlayout_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGridLayout_MetaObject_Callback(QGridLayout_MetaObject_Callback cb) { qgridlayout_metaobject_callback = cb; }
     inline void setQGridLayout_Metacast_Callback(QGridLayout_Metacast_Callback cb) { qgridlayout_metacast_callback = cb; }
@@ -291,12 +246,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_metaobject_isbase) {
             qgridlayout_metaobject_isbase = false;
             return QGridLayout::metaObject();
-        } else if (qgridlayout_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgridlayout_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGridLayout::metaObject();
         }
+        auto metaobject_cb = qgridlayout_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGridLayout::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -304,14 +260,15 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_metacast_isbase) {
             qgridlayout_metacast_isbase = false;
             return QGridLayout::qt_metacast(param1);
-        } else if (qgridlayout_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgridlayout_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgridlayout_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGridLayout::qt_metacast(param1);
         }
+        return QGridLayout::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,16 +276,17 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_metacall_isbase) {
             qgridlayout_metacall_isbase = false;
             return QGridLayout::qt_metacall(param1, param2, param3);
-        } else if (qgridlayout_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgridlayout_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgridlayout_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGridLayout::qt_metacall(param1, param2, param3);
         }
+        return QGridLayout::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -336,12 +294,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_sizehint_isbase) {
             qgridlayout_sizehint_isbase = false;
             return QGridLayout::sizeHint();
-        } else if (qgridlayout_sizehint_callback != nullptr) {
-            QSize* callback_ret = qgridlayout_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QGridLayout::sizeHint();
         }
+        auto sizehint_cb = qgridlayout_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QGridLayout::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -349,12 +308,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_minimumsize_isbase) {
             qgridlayout_minimumsize_isbase = false;
             return QGridLayout::minimumSize();
-        } else if (qgridlayout_minimumsize_callback != nullptr) {
-            QSize* callback_ret = qgridlayout_minimumsize_callback();
-            return *callback_ret;
-        } else {
-            return QGridLayout::minimumSize();
         }
+        auto minimumsize_cb = qgridlayout_minimumsize_callback;
+        if (minimumsize_cb) {
+            QSize* callback_ret = minimumsize_cb();
+            return *callback_ret;
+        }
+        return QGridLayout::minimumSize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -362,12 +322,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_maximumsize_isbase) {
             qgridlayout_maximumsize_isbase = false;
             return QGridLayout::maximumSize();
-        } else if (qgridlayout_maximumsize_callback != nullptr) {
-            QSize* callback_ret = qgridlayout_maximumsize_callback();
-            return *callback_ret;
-        } else {
-            return QGridLayout::maximumSize();
         }
+        auto maximumsize_cb = qgridlayout_maximumsize_callback;
+        if (maximumsize_cb) {
+            QSize* callback_ret = maximumsize_cb();
+            return *callback_ret;
+        }
+        return QGridLayout::maximumSize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -375,13 +336,16 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_setspacing_isbase) {
             qgridlayout_setspacing_isbase = false;
             QGridLayout::setSpacing(spacing);
-        } else if (qgridlayout_setspacing_callback != nullptr) {
+            return;
+        }
+        auto setspacing_cb = qgridlayout_setspacing_callback;
+        if (setspacing_cb) {
             int cbval1 = spacing;
 
-            qgridlayout_setspacing_callback(this, cbval1);
-        } else {
-            QGridLayout::setSpacing(spacing);
+            setspacing_cb(this, cbval1);
+            return;
         }
+        QGridLayout::setSpacing(spacing);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -389,12 +353,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_spacing_isbase) {
             qgridlayout_spacing_isbase = false;
             return QGridLayout::spacing();
-        } else if (qgridlayout_spacing_callback != nullptr) {
-            int callback_ret = qgridlayout_spacing_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGridLayout::spacing();
         }
+        auto spacing_cb = qgridlayout_spacing_callback;
+        if (spacing_cb) {
+            int callback_ret = spacing_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGridLayout::spacing();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -402,12 +367,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_hasheightforwidth_isbase) {
             qgridlayout_hasheightforwidth_isbase = false;
             return QGridLayout::hasHeightForWidth();
-        } else if (qgridlayout_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qgridlayout_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QGridLayout::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qgridlayout_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QGridLayout::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -415,14 +381,15 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_heightforwidth_isbase) {
             qgridlayout_heightforwidth_isbase = false;
             return QGridLayout::heightForWidth(param1);
-        } else if (qgridlayout_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qgridlayout_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qgridlayout_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGridLayout::heightForWidth(param1);
         }
+        return QGridLayout::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -430,14 +397,15 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_minimumheightforwidth_isbase) {
             qgridlayout_minimumheightforwidth_isbase = false;
             return QGridLayout::minimumHeightForWidth(param1);
-        } else if (qgridlayout_minimumheightforwidth_callback != nullptr) {
+        }
+        auto minimumheightforwidth_cb = qgridlayout_minimumheightforwidth_callback;
+        if (minimumheightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qgridlayout_minimumheightforwidth_callback(this, cbval1);
+            int callback_ret = minimumheightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGridLayout::minimumHeightForWidth(param1);
         }
+        return QGridLayout::minimumHeightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -445,12 +413,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_expandingdirections_isbase) {
             qgridlayout_expandingdirections_isbase = false;
             return QGridLayout::expandingDirections();
-        } else if (qgridlayout_expandingdirections_callback != nullptr) {
-            int callback_ret = qgridlayout_expandingdirections_callback();
-            return static_cast<Qt::Orientations>(callback_ret);
-        } else {
-            return QGridLayout::expandingDirections();
         }
+        auto expandingdirections_cb = qgridlayout_expandingdirections_callback;
+        if (expandingdirections_cb) {
+            int callback_ret = expandingdirections_cb();
+            return static_cast<Qt::Orientations>(callback_ret);
+        }
+        return QGridLayout::expandingDirections();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,11 +427,14 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_invalidate_isbase) {
             qgridlayout_invalidate_isbase = false;
             QGridLayout::invalidate();
-        } else if (qgridlayout_invalidate_callback != nullptr) {
-            qgridlayout_invalidate_callback();
-        } else {
-            QGridLayout::invalidate();
+            return;
         }
+        auto invalidate_cb = qgridlayout_invalidate_callback;
+        if (invalidate_cb) {
+            invalidate_cb();
+            return;
+        }
+        QGridLayout::invalidate();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,14 +442,15 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_itemat_isbase) {
             qgridlayout_itemat_isbase = false;
             return QGridLayout::itemAt(index);
-        } else if (qgridlayout_itemat_callback != nullptr) {
+        }
+        auto itemat_cb = qgridlayout_itemat_callback;
+        if (itemat_cb) {
             int cbval1 = index;
 
-            QLayoutItem* callback_ret = qgridlayout_itemat_callback(this, cbval1);
+            QLayoutItem* callback_ret = itemat_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGridLayout::itemAt(index);
         }
+        return QGridLayout::itemAt(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -485,14 +458,15 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_takeat_isbase) {
             qgridlayout_takeat_isbase = false;
             return QGridLayout::takeAt(index);
-        } else if (qgridlayout_takeat_callback != nullptr) {
+        }
+        auto takeat_cb = qgridlayout_takeat_callback;
+        if (takeat_cb) {
             int cbval1 = index;
 
-            QLayoutItem* callback_ret = qgridlayout_takeat_callback(this, cbval1);
+            QLayoutItem* callback_ret = takeat_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGridLayout::takeAt(index);
         }
+        return QGridLayout::takeAt(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -500,12 +474,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_count_isbase) {
             qgridlayout_count_isbase = false;
             return QGridLayout::count();
-        } else if (qgridlayout_count_callback != nullptr) {
-            int callback_ret = qgridlayout_count_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGridLayout::count();
         }
+        auto count_cb = qgridlayout_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGridLayout::count();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,15 +488,18 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_setgeometry_isbase) {
             qgridlayout_setgeometry_isbase = false;
             QGridLayout::setGeometry(geometry);
-        } else if (qgridlayout_setgeometry_callback != nullptr) {
+            return;
+        }
+        auto setgeometry_cb = qgridlayout_setgeometry_callback;
+        if (setgeometry_cb) {
             const QRect& geometry_ret = geometry;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
 
-            qgridlayout_setgeometry_callback(this, cbval1);
-        } else {
-            QGridLayout::setGeometry(geometry);
+            setgeometry_cb(this, cbval1);
+            return;
         }
+        QGridLayout::setGeometry(geometry);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,13 +507,16 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_additem2_isbase) {
             qgridlayout_additem2_isbase = false;
             QGridLayout::addItem(param1);
-        } else if (qgridlayout_additem2_callback != nullptr) {
+            return;
+        }
+        auto additem2_cb = qgridlayout_additem2_callback;
+        if (additem2_cb) {
             QLayoutItem* cbval1 = param1;
 
-            qgridlayout_additem2_callback(this, cbval1);
-        } else {
-            QGridLayout::addItem(param1);
+            additem2_cb(this, cbval1);
+            return;
         }
+        QGridLayout::addItem(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,12 +524,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_geometry_isbase) {
             qgridlayout_geometry_isbase = false;
             return QGridLayout::geometry();
-        } else if (qgridlayout_geometry_callback != nullptr) {
-            QRect* callback_ret = qgridlayout_geometry_callback();
-            return *callback_ret;
-        } else {
-            return QGridLayout::geometry();
         }
+        auto geometry_cb = qgridlayout_geometry_callback;
+        if (geometry_cb) {
+            QRect* callback_ret = geometry_cb();
+            return *callback_ret;
+        }
+        return QGridLayout::geometry();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,14 +538,15 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_indexof_isbase) {
             qgridlayout_indexof_isbase = false;
             return QGridLayout::indexOf(param1);
-        } else if (qgridlayout_indexof_callback != nullptr) {
+        }
+        auto indexof_cb = qgridlayout_indexof_callback;
+        if (indexof_cb) {
             QWidget* cbval1 = (QWidget*)param1;
 
-            int callback_ret = qgridlayout_indexof_callback(this, cbval1);
+            int callback_ret = indexof_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGridLayout::indexOf(param1);
         }
+        return QGridLayout::indexOf(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -571,12 +554,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_isempty_isbase) {
             qgridlayout_isempty_isbase = false;
             return QGridLayout::isEmpty();
-        } else if (qgridlayout_isempty_callback != nullptr) {
-            bool callback_ret = qgridlayout_isempty_callback();
-            return callback_ret;
-        } else {
-            return QGridLayout::isEmpty();
         }
+        auto isempty_cb = qgridlayout_isempty_callback;
+        if (isempty_cb) {
+            bool callback_ret = isempty_cb();
+            return callback_ret;
+        }
+        return QGridLayout::isEmpty();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,12 +568,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_controltypes_isbase) {
             qgridlayout_controltypes_isbase = false;
             return QGridLayout::controlTypes();
-        } else if (qgridlayout_controltypes_callback != nullptr) {
-            int callback_ret = qgridlayout_controltypes_callback();
-            return static_cast<QSizePolicy::ControlTypes>(callback_ret);
-        } else {
-            return QGridLayout::controlTypes();
         }
+        auto controltypes_cb = qgridlayout_controltypes_callback;
+        if (controltypes_cb) {
+            int callback_ret = controltypes_cb();
+            return static_cast<QSizePolicy::ControlTypes>(callback_ret);
+        }
+        return QGridLayout::controlTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,16 +582,17 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_replacewidget_isbase) {
             qgridlayout_replacewidget_isbase = false;
             return QGridLayout::replaceWidget(from, to, options);
-        } else if (qgridlayout_replacewidget_callback != nullptr) {
+        }
+        auto replacewidget_cb = qgridlayout_replacewidget_callback;
+        if (replacewidget_cb) {
             QWidget* cbval1 = from;
             QWidget* cbval2 = to;
             int cbval3 = static_cast<int>(options);
 
-            QLayoutItem* callback_ret = qgridlayout_replacewidget_callback(this, cbval1, cbval2, cbval3);
+            QLayoutItem* callback_ret = replacewidget_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QGridLayout::replaceWidget(from, to, options);
         }
+        return QGridLayout::replaceWidget(from, to, options);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -614,12 +600,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_layout_isbase) {
             qgridlayout_layout_isbase = false;
             return QGridLayout::layout();
-        } else if (qgridlayout_layout_callback != nullptr) {
-            QLayout* callback_ret = qgridlayout_layout_callback();
-            return callback_ret;
-        } else {
-            return QGridLayout::layout();
         }
+        auto layout_cb = qgridlayout_layout_callback;
+        if (layout_cb) {
+            QLayout* callback_ret = layout_cb();
+            return callback_ret;
+        }
+        return QGridLayout::layout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +614,16 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_childevent_isbase) {
             qgridlayout_childevent_isbase = false;
             QGridLayout::childEvent(e);
-        } else if (qgridlayout_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgridlayout_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = e;
 
-            qgridlayout_childevent_callback(this, cbval1);
-        } else {
-            QGridLayout::childEvent(e);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGridLayout::childEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,14 +631,15 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_event_isbase) {
             qgridlayout_event_isbase = false;
             return QGridLayout::event(event);
-        } else if (qgridlayout_event_callback != nullptr) {
+        }
+        auto event_cb = qgridlayout_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgridlayout_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGridLayout::event(event);
         }
+        return QGridLayout::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -656,15 +647,16 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_eventfilter_isbase) {
             qgridlayout_eventfilter_isbase = false;
             return QGridLayout::eventFilter(watched, event);
-        } else if (qgridlayout_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgridlayout_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgridlayout_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGridLayout::eventFilter(watched, event);
         }
+        return QGridLayout::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -672,13 +664,16 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_timerevent_isbase) {
             qgridlayout_timerevent_isbase = false;
             QGridLayout::timerEvent(event);
-        } else if (qgridlayout_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgridlayout_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgridlayout_timerevent_callback(this, cbval1);
-        } else {
-            QGridLayout::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGridLayout::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -686,13 +681,16 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_customevent_isbase) {
             qgridlayout_customevent_isbase = false;
             QGridLayout::customEvent(event);
-        } else if (qgridlayout_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgridlayout_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgridlayout_customevent_callback(this, cbval1);
-        } else {
-            QGridLayout::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGridLayout::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -700,15 +698,18 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_connectnotify_isbase) {
             qgridlayout_connectnotify_isbase = false;
             QGridLayout::connectNotify(signal);
-        } else if (qgridlayout_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgridlayout_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgridlayout_connectnotify_callback(this, cbval1);
-        } else {
-            QGridLayout::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGridLayout::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,15 +717,18 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_disconnectnotify_isbase) {
             qgridlayout_disconnectnotify_isbase = false;
             QGridLayout::disconnectNotify(signal);
-        } else if (qgridlayout_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgridlayout_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgridlayout_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGridLayout::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGridLayout::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -732,12 +736,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_widget_isbase) {
             qgridlayout_widget_isbase = false;
             return QGridLayout::widget();
-        } else if (qgridlayout_widget_callback != nullptr) {
-            QWidget* callback_ret = qgridlayout_widget_callback();
-            return callback_ret;
-        } else {
-            return QGridLayout::widget();
         }
+        auto widget_cb = qgridlayout_widget_callback;
+        if (widget_cb) {
+            QWidget* callback_ret = widget_cb();
+            return callback_ret;
+        }
+        return QGridLayout::widget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,12 +750,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_spaceritem_isbase) {
             qgridlayout_spaceritem_isbase = false;
             return QGridLayout::spacerItem();
-        } else if (qgridlayout_spaceritem_callback != nullptr) {
-            QSpacerItem* callback_ret = qgridlayout_spaceritem_callback();
-            return callback_ret;
-        } else {
-            return QGridLayout::spacerItem();
         }
+        auto spaceritem_cb = qgridlayout_spaceritem_callback;
+        if (spaceritem_cb) {
+            QSpacerItem* callback_ret = spaceritem_cb();
+            return callback_ret;
+        }
+        return QGridLayout::spacerItem();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,13 +764,16 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_widgetevent_isbase) {
             qgridlayout_widgetevent_isbase = false;
             QGridLayout::widgetEvent(param1);
-        } else if (qgridlayout_widgetevent_callback != nullptr) {
+            return;
+        }
+        auto widgetevent_cb = qgridlayout_widgetevent_callback;
+        if (widgetevent_cb) {
             QEvent* cbval1 = param1;
 
-            qgridlayout_widgetevent_callback(this, cbval1);
-        } else {
-            QGridLayout::widgetEvent(param1);
+            widgetevent_cb(this, cbval1);
+            return;
         }
+        QGridLayout::widgetEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -772,13 +781,16 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_addchildlayout_isbase) {
             qgridlayout_addchildlayout_isbase = false;
             QGridLayout::addChildLayout(l);
-        } else if (qgridlayout_addchildlayout_callback != nullptr) {
+            return;
+        }
+        auto addchildlayout_cb = qgridlayout_addchildlayout_callback;
+        if (addchildlayout_cb) {
             QLayout* cbval1 = l;
 
-            qgridlayout_addchildlayout_callback(this, cbval1);
-        } else {
-            QGridLayout::addChildLayout(l);
+            addchildlayout_cb(this, cbval1);
+            return;
         }
+        QGridLayout::addChildLayout(l);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,13 +798,16 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_addchildwidget_isbase) {
             qgridlayout_addchildwidget_isbase = false;
             QGridLayout::addChildWidget(w);
-        } else if (qgridlayout_addchildwidget_callback != nullptr) {
+            return;
+        }
+        auto addchildwidget_cb = qgridlayout_addchildwidget_callback;
+        if (addchildwidget_cb) {
             QWidget* cbval1 = w;
 
-            qgridlayout_addchildwidget_callback(this, cbval1);
-        } else {
-            QGridLayout::addChildWidget(w);
+            addchildwidget_cb(this, cbval1);
+            return;
         }
+        QGridLayout::addChildWidget(w);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -800,14 +815,15 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_adoptlayout_isbase) {
             qgridlayout_adoptlayout_isbase = false;
             return QGridLayout::adoptLayout(layout);
-        } else if (qgridlayout_adoptlayout_callback != nullptr) {
+        }
+        auto adoptlayout_cb = qgridlayout_adoptlayout_callback;
+        if (adoptlayout_cb) {
             QLayout* cbval1 = layout;
 
-            bool callback_ret = qgridlayout_adoptlayout_callback(this, cbval1);
+            bool callback_ret = adoptlayout_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGridLayout::adoptLayout(layout);
         }
+        return QGridLayout::adoptLayout(layout);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,16 +831,17 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_alignmentrect_isbase) {
             qgridlayout_alignmentrect_isbase = false;
             return QGridLayout::alignmentRect(param1);
-        } else if (qgridlayout_alignmentrect_callback != nullptr) {
+        }
+        auto alignmentrect_cb = qgridlayout_alignmentrect_callback;
+        if (alignmentrect_cb) {
             const QRect& param1_ret = param1;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&param1_ret);
 
-            QRect* callback_ret = qgridlayout_alignmentrect_callback(this, cbval1);
+            QRect* callback_ret = alignmentrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGridLayout::alignmentRect(param1);
         }
+        return QGridLayout::alignmentRect(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -832,12 +849,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_sender_isbase) {
             qgridlayout_sender_isbase = false;
             return QGridLayout::sender();
-        } else if (qgridlayout_sender_callback != nullptr) {
-            QObject* callback_ret = qgridlayout_sender_callback();
-            return callback_ret;
-        } else {
-            return QGridLayout::sender();
         }
+        auto sender_cb = qgridlayout_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGridLayout::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,12 +863,13 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_sendersignalindex_isbase) {
             qgridlayout_sendersignalindex_isbase = false;
             return QGridLayout::senderSignalIndex();
-        } else if (qgridlayout_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgridlayout_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGridLayout::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgridlayout_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGridLayout::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -858,14 +877,15 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_receivers_isbase) {
             qgridlayout_receivers_isbase = false;
             return QGridLayout::receivers(signal);
-        } else if (qgridlayout_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgridlayout_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgridlayout_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGridLayout::receivers(signal);
         }
+        return QGridLayout::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,16 +893,17 @@ class VirtualQGridLayout final : public QGridLayout {
         if (qgridlayout_issignalconnected_isbase) {
             qgridlayout_issignalconnected_isbase = false;
             return QGridLayout::isSignalConnected(signal);
-        } else if (qgridlayout_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgridlayout_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgridlayout_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGridLayout::isSignalConnected(signal);
         }
+        return QGridLayout::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -89,29 +89,6 @@ class VirtualQStateMachine final : public QStateMachine {
     VirtualQStateMachine(QObject* parent) : QStateMachine(parent) {};
     VirtualQStateMachine(QState::ChildMode childMode, QObject* parent) : QStateMachine(childMode, parent) {};
 
-    ~VirtualQStateMachine() {
-        qstatemachine_metaobject_callback = nullptr;
-        qstatemachine_metacast_callback = nullptr;
-        qstatemachine_metacall_callback = nullptr;
-        qstatemachine_eventfilter_callback = nullptr;
-        qstatemachine_onentry_callback = nullptr;
-        qstatemachine_onexit_callback = nullptr;
-        qstatemachine_beginselecttransitions_callback = nullptr;
-        qstatemachine_endselecttransitions_callback = nullptr;
-        qstatemachine_beginmicrostep_callback = nullptr;
-        qstatemachine_endmicrostep_callback = nullptr;
-        qstatemachine_event_callback = nullptr;
-        qstatemachine_timerevent_callback = nullptr;
-        qstatemachine_childevent_callback = nullptr;
-        qstatemachine_customevent_callback = nullptr;
-        qstatemachine_connectnotify_callback = nullptr;
-        qstatemachine_disconnectnotify_callback = nullptr;
-        qstatemachine_sender_callback = nullptr;
-        qstatemachine_sendersignalindex_callback = nullptr;
-        qstatemachine_receivers_callback = nullptr;
-        qstatemachine_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQStateMachine_MetaObject_Callback(QStateMachine_MetaObject_Callback cb) { qstatemachine_metaobject_callback = cb; }
     inline void setQStateMachine_Metacast_Callback(QStateMachine_Metacast_Callback cb) { qstatemachine_metacast_callback = cb; }
@@ -161,12 +138,13 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_metaobject_isbase) {
             qstatemachine_metaobject_isbase = false;
             return QStateMachine::metaObject();
-        } else if (qstatemachine_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qstatemachine_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QStateMachine::metaObject();
         }
+        auto metaobject_cb = qstatemachine_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QStateMachine::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,14 +152,15 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_metacast_isbase) {
             qstatemachine_metacast_isbase = false;
             return QStateMachine::qt_metacast(param1);
-        } else if (qstatemachine_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qstatemachine_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qstatemachine_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStateMachine::qt_metacast(param1);
         }
+        return QStateMachine::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -189,16 +168,17 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_metacall_isbase) {
             qstatemachine_metacall_isbase = false;
             return QStateMachine::qt_metacall(param1, param2, param3);
-        } else if (qstatemachine_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qstatemachine_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qstatemachine_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QStateMachine::qt_metacall(param1, param2, param3);
         }
+        return QStateMachine::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -206,15 +186,16 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_eventfilter_isbase) {
             qstatemachine_eventfilter_isbase = false;
             return QStateMachine::eventFilter(watched, event);
-        } else if (qstatemachine_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qstatemachine_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qstatemachine_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QStateMachine::eventFilter(watched, event);
         }
+        return QStateMachine::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -222,13 +203,16 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_onentry_isbase) {
             qstatemachine_onentry_isbase = false;
             QStateMachine::onEntry(event);
-        } else if (qstatemachine_onentry_callback != nullptr) {
+            return;
+        }
+        auto onentry_cb = qstatemachine_onentry_callback;
+        if (onentry_cb) {
             QEvent* cbval1 = event;
 
-            qstatemachine_onentry_callback(this, cbval1);
-        } else {
-            QStateMachine::onEntry(event);
+            onentry_cb(this, cbval1);
+            return;
         }
+        QStateMachine::onEntry(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -236,13 +220,16 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_onexit_isbase) {
             qstatemachine_onexit_isbase = false;
             QStateMachine::onExit(event);
-        } else if (qstatemachine_onexit_callback != nullptr) {
+            return;
+        }
+        auto onexit_cb = qstatemachine_onexit_callback;
+        if (onexit_cb) {
             QEvent* cbval1 = event;
 
-            qstatemachine_onexit_callback(this, cbval1);
-        } else {
-            QStateMachine::onExit(event);
+            onexit_cb(this, cbval1);
+            return;
         }
+        QStateMachine::onExit(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,13 +237,16 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_beginselecttransitions_isbase) {
             qstatemachine_beginselecttransitions_isbase = false;
             QStateMachine::beginSelectTransitions(event);
-        } else if (qstatemachine_beginselecttransitions_callback != nullptr) {
+            return;
+        }
+        auto beginselecttransitions_cb = qstatemachine_beginselecttransitions_callback;
+        if (beginselecttransitions_cb) {
             QEvent* cbval1 = event;
 
-            qstatemachine_beginselecttransitions_callback(this, cbval1);
-        } else {
-            QStateMachine::beginSelectTransitions(event);
+            beginselecttransitions_cb(this, cbval1);
+            return;
         }
+        QStateMachine::beginSelectTransitions(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -264,13 +254,16 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_endselecttransitions_isbase) {
             qstatemachine_endselecttransitions_isbase = false;
             QStateMachine::endSelectTransitions(event);
-        } else if (qstatemachine_endselecttransitions_callback != nullptr) {
+            return;
+        }
+        auto endselecttransitions_cb = qstatemachine_endselecttransitions_callback;
+        if (endselecttransitions_cb) {
             QEvent* cbval1 = event;
 
-            qstatemachine_endselecttransitions_callback(this, cbval1);
-        } else {
-            QStateMachine::endSelectTransitions(event);
+            endselecttransitions_cb(this, cbval1);
+            return;
         }
+        QStateMachine::endSelectTransitions(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -278,13 +271,16 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_beginmicrostep_isbase) {
             qstatemachine_beginmicrostep_isbase = false;
             QStateMachine::beginMicrostep(event);
-        } else if (qstatemachine_beginmicrostep_callback != nullptr) {
+            return;
+        }
+        auto beginmicrostep_cb = qstatemachine_beginmicrostep_callback;
+        if (beginmicrostep_cb) {
             QEvent* cbval1 = event;
 
-            qstatemachine_beginmicrostep_callback(this, cbval1);
-        } else {
-            QStateMachine::beginMicrostep(event);
+            beginmicrostep_cb(this, cbval1);
+            return;
         }
+        QStateMachine::beginMicrostep(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,13 +288,16 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_endmicrostep_isbase) {
             qstatemachine_endmicrostep_isbase = false;
             QStateMachine::endMicrostep(event);
-        } else if (qstatemachine_endmicrostep_callback != nullptr) {
+            return;
+        }
+        auto endmicrostep_cb = qstatemachine_endmicrostep_callback;
+        if (endmicrostep_cb) {
             QEvent* cbval1 = event;
 
-            qstatemachine_endmicrostep_callback(this, cbval1);
-        } else {
-            QStateMachine::endMicrostep(event);
+            endmicrostep_cb(this, cbval1);
+            return;
         }
+        QStateMachine::endMicrostep(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -306,14 +305,15 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_event_isbase) {
             qstatemachine_event_isbase = false;
             return QStateMachine::event(e);
-        } else if (qstatemachine_event_callback != nullptr) {
+        }
+        auto event_cb = qstatemachine_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qstatemachine_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStateMachine::event(e);
         }
+        return QStateMachine::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,13 +321,16 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_timerevent_isbase) {
             qstatemachine_timerevent_isbase = false;
             QStateMachine::timerEvent(event);
-        } else if (qstatemachine_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qstatemachine_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qstatemachine_timerevent_callback(this, cbval1);
-        } else {
-            QStateMachine::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QStateMachine::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,13 +338,16 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_childevent_isbase) {
             qstatemachine_childevent_isbase = false;
             QStateMachine::childEvent(event);
-        } else if (qstatemachine_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qstatemachine_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qstatemachine_childevent_callback(this, cbval1);
-        } else {
-            QStateMachine::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QStateMachine::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -349,13 +355,16 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_customevent_isbase) {
             qstatemachine_customevent_isbase = false;
             QStateMachine::customEvent(event);
-        } else if (qstatemachine_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qstatemachine_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qstatemachine_customevent_callback(this, cbval1);
-        } else {
-            QStateMachine::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QStateMachine::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -363,15 +372,18 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_connectnotify_isbase) {
             qstatemachine_connectnotify_isbase = false;
             QStateMachine::connectNotify(signal);
-        } else if (qstatemachine_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qstatemachine_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qstatemachine_connectnotify_callback(this, cbval1);
-        } else {
-            QStateMachine::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QStateMachine::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -379,15 +391,18 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_disconnectnotify_isbase) {
             qstatemachine_disconnectnotify_isbase = false;
             QStateMachine::disconnectNotify(signal);
-        } else if (qstatemachine_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qstatemachine_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qstatemachine_disconnectnotify_callback(this, cbval1);
-        } else {
-            QStateMachine::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QStateMachine::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -395,12 +410,13 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_sender_isbase) {
             qstatemachine_sender_isbase = false;
             return QStateMachine::sender();
-        } else if (qstatemachine_sender_callback != nullptr) {
-            QObject* callback_ret = qstatemachine_sender_callback();
-            return callback_ret;
-        } else {
-            return QStateMachine::sender();
         }
+        auto sender_cb = qstatemachine_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QStateMachine::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -408,12 +424,13 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_sendersignalindex_isbase) {
             qstatemachine_sendersignalindex_isbase = false;
             return QStateMachine::senderSignalIndex();
-        } else if (qstatemachine_sendersignalindex_callback != nullptr) {
-            int callback_ret = qstatemachine_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QStateMachine::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qstatemachine_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QStateMachine::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -421,14 +438,15 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_receivers_isbase) {
             qstatemachine_receivers_isbase = false;
             return QStateMachine::receivers(signal);
-        } else if (qstatemachine_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qstatemachine_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qstatemachine_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QStateMachine::receivers(signal);
         }
+        return QStateMachine::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,16 +454,17 @@ class VirtualQStateMachine final : public QStateMachine {
         if (qstatemachine_issignalconnected_isbase) {
             qstatemachine_issignalconnected_isbase = false;
             return QStateMachine::isSignalConnected(signal);
-        } else if (qstatemachine_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qstatemachine_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qstatemachine_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStateMachine::isSignalConnected(signal);
         }
+        return QStateMachine::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -507,11 +526,6 @@ class VirtualQStateMachineSignalEvent final : public QStateMachine::SignalEvent 
     VirtualQStateMachineSignalEvent(QObject* sender, int signalIndex, const QList<QVariant>& arguments) : QStateMachine::SignalEvent(sender, signalIndex, arguments) {};
     VirtualQStateMachineSignalEvent(const QStateMachine::SignalEvent& param1) : QStateMachine::SignalEvent(param1) {};
 
-    ~VirtualQStateMachineSignalEvent() {
-        qstatemachine__signalevent_setaccepted_callback = nullptr;
-        qstatemachine__signalevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQStateMachine__SignalEvent_SetAccepted_Callback(QStateMachine__SignalEvent_SetAccepted_Callback cb) { qstatemachine__signalevent_setaccepted_callback = cb; }
     inline void setQStateMachine__SignalEvent_Clone_Callback(QStateMachine__SignalEvent_Clone_Callback cb) { qstatemachine__signalevent_clone_callback = cb; }
@@ -525,13 +539,16 @@ class VirtualQStateMachineSignalEvent final : public QStateMachine::SignalEvent 
         if (qstatemachine__signalevent_setaccepted_isbase) {
             qstatemachine__signalevent_setaccepted_isbase = false;
             QStateMachine__SignalEvent::setAccepted(accepted);
-        } else if (qstatemachine__signalevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qstatemachine__signalevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qstatemachine__signalevent_setaccepted_callback(this, cbval1);
-        } else {
-            QStateMachine__SignalEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QStateMachine__SignalEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -539,12 +556,13 @@ class VirtualQStateMachineSignalEvent final : public QStateMachine::SignalEvent 
         if (qstatemachine__signalevent_clone_isbase) {
             qstatemachine__signalevent_clone_isbase = false;
             return QStateMachine__SignalEvent::clone();
-        } else if (qstatemachine__signalevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qstatemachine__signalevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QStateMachine__SignalEvent::clone();
         }
+        auto clone_cb = qstatemachine__signalevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QStateMachine__SignalEvent::clone();
     }
 };
 
@@ -572,11 +590,6 @@ class VirtualQStateMachineWrappedEvent final : public QStateMachine::WrappedEven
     VirtualQStateMachineWrappedEvent(QObject* object, QEvent* event) : QStateMachine::WrappedEvent(object, event) {};
     VirtualQStateMachineWrappedEvent(const QStateMachine::WrappedEvent& param1) : QStateMachine::WrappedEvent(param1) {};
 
-    ~VirtualQStateMachineWrappedEvent() {
-        qstatemachine__wrappedevent_setaccepted_callback = nullptr;
-        qstatemachine__wrappedevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQStateMachine__WrappedEvent_SetAccepted_Callback(QStateMachine__WrappedEvent_SetAccepted_Callback cb) { qstatemachine__wrappedevent_setaccepted_callback = cb; }
     inline void setQStateMachine__WrappedEvent_Clone_Callback(QStateMachine__WrappedEvent_Clone_Callback cb) { qstatemachine__wrappedevent_clone_callback = cb; }
@@ -590,13 +603,16 @@ class VirtualQStateMachineWrappedEvent final : public QStateMachine::WrappedEven
         if (qstatemachine__wrappedevent_setaccepted_isbase) {
             qstatemachine__wrappedevent_setaccepted_isbase = false;
             QStateMachine__WrappedEvent::setAccepted(accepted);
-        } else if (qstatemachine__wrappedevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qstatemachine__wrappedevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qstatemachine__wrappedevent_setaccepted_callback(this, cbval1);
-        } else {
-            QStateMachine__WrappedEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QStateMachine__WrappedEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -604,12 +620,13 @@ class VirtualQStateMachineWrappedEvent final : public QStateMachine::WrappedEven
         if (qstatemachine__wrappedevent_clone_isbase) {
             qstatemachine__wrappedevent_clone_isbase = false;
             return QStateMachine__WrappedEvent::clone();
-        } else if (qstatemachine__wrappedevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qstatemachine__wrappedevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QStateMachine__WrappedEvent::clone();
         }
+        auto clone_cb = qstatemachine__wrappedevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QStateMachine__WrappedEvent::clone();
     }
 };
 

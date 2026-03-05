@@ -75,25 +75,6 @@ class VirtualQValidator : public QValidator {
     VirtualQValidator() : QValidator() {};
     VirtualQValidator(QObject* parent) : QValidator(parent) {};
 
-    ~VirtualQValidator() {
-        qvalidator_metaobject_callback = nullptr;
-        qvalidator_metacast_callback = nullptr;
-        qvalidator_metacall_callback = nullptr;
-        qvalidator_validate_callback = nullptr;
-        qvalidator_fixup_callback = nullptr;
-        qvalidator_event_callback = nullptr;
-        qvalidator_eventfilter_callback = nullptr;
-        qvalidator_timerevent_callback = nullptr;
-        qvalidator_childevent_callback = nullptr;
-        qvalidator_customevent_callback = nullptr;
-        qvalidator_connectnotify_callback = nullptr;
-        qvalidator_disconnectnotify_callback = nullptr;
-        qvalidator_sender_callback = nullptr;
-        qvalidator_sendersignalindex_callback = nullptr;
-        qvalidator_receivers_callback = nullptr;
-        qvalidator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQValidator_MetaObject_Callback(QValidator_MetaObject_Callback cb) { qvalidator_metaobject_callback = cb; }
     inline void setQValidator_Metacast_Callback(QValidator_Metacast_Callback cb) { qvalidator_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_metaobject_isbase) {
             qvalidator_metaobject_isbase = false;
             return QValidator::metaObject();
-        } else if (qvalidator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qvalidator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QValidator::metaObject();
         }
+        auto metaobject_cb = qvalidator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QValidator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_metacast_isbase) {
             qvalidator_metacast_isbase = false;
             return QValidator::qt_metacast(param1);
-        } else if (qvalidator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qvalidator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qvalidator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QValidator::qt_metacast(param1);
         }
+        return QValidator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,21 +146,23 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_metacall_isbase) {
             qvalidator_metacall_isbase = false;
             return QValidator::qt_metacall(param1, param2, param3);
-        } else if (qvalidator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qvalidator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qvalidator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QValidator::qt_metacall(param1, param2, param3);
         }
+        return QValidator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QValidator::State validate(QString& param1, int& param2) const override {
-        if (qvalidator_validate_callback != nullptr) {
+        auto validate_cb = qvalidator_validate_callback;
+        if (validate_cb) {
             QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -188,12 +173,11 @@ class VirtualQValidator : public QValidator {
             const char* cbval1 = param1_str;
             int* cbval2 = &param2;
 
-            int callback_ret = qvalidator_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(param1_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,7 +185,10 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_fixup_isbase) {
             qvalidator_fixup_isbase = false;
             QValidator::fixup(param1);
-        } else if (qvalidator_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = qvalidator_fixup_callback;
+        if (fixup_cb) {
             QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -211,11 +198,11 @@ class VirtualQValidator : public QValidator {
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
 
-            qvalidator_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(param1_str);
-        } else {
-            QValidator::fixup(param1);
+            return;
         }
+        QValidator::fixup(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -223,14 +210,15 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_event_isbase) {
             qvalidator_event_isbase = false;
             return QValidator::event(event);
-        } else if (qvalidator_event_callback != nullptr) {
+        }
+        auto event_cb = qvalidator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qvalidator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QValidator::event(event);
         }
+        return QValidator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -238,15 +226,16 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_eventfilter_isbase) {
             qvalidator_eventfilter_isbase = false;
             return QValidator::eventFilter(watched, event);
-        } else if (qvalidator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qvalidator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qvalidator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QValidator::eventFilter(watched, event);
         }
+        return QValidator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -254,13 +243,16 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_timerevent_isbase) {
             qvalidator_timerevent_isbase = false;
             QValidator::timerEvent(event);
-        } else if (qvalidator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qvalidator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qvalidator_timerevent_callback(this, cbval1);
-        } else {
-            QValidator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QValidator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -268,13 +260,16 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_childevent_isbase) {
             qvalidator_childevent_isbase = false;
             QValidator::childEvent(event);
-        } else if (qvalidator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qvalidator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qvalidator_childevent_callback(this, cbval1);
-        } else {
-            QValidator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QValidator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,13 +277,16 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_customevent_isbase) {
             qvalidator_customevent_isbase = false;
             QValidator::customEvent(event);
-        } else if (qvalidator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qvalidator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qvalidator_customevent_callback(this, cbval1);
-        } else {
-            QValidator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QValidator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -296,15 +294,18 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_connectnotify_isbase) {
             qvalidator_connectnotify_isbase = false;
             QValidator::connectNotify(signal);
-        } else if (qvalidator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qvalidator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvalidator_connectnotify_callback(this, cbval1);
-        } else {
-            QValidator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QValidator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,15 +313,18 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_disconnectnotify_isbase) {
             qvalidator_disconnectnotify_isbase = false;
             QValidator::disconnectNotify(signal);
-        } else if (qvalidator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qvalidator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvalidator_disconnectnotify_callback(this, cbval1);
-        } else {
-            QValidator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QValidator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -328,12 +332,13 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_sender_isbase) {
             qvalidator_sender_isbase = false;
             return QValidator::sender();
-        } else if (qvalidator_sender_callback != nullptr) {
-            QObject* callback_ret = qvalidator_sender_callback();
-            return callback_ret;
-        } else {
-            return QValidator::sender();
         }
+        auto sender_cb = qvalidator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QValidator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -341,12 +346,13 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_sendersignalindex_isbase) {
             qvalidator_sendersignalindex_isbase = false;
             return QValidator::senderSignalIndex();
-        } else if (qvalidator_sendersignalindex_callback != nullptr) {
-            int callback_ret = qvalidator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QValidator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qvalidator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QValidator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -354,14 +360,15 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_receivers_isbase) {
             qvalidator_receivers_isbase = false;
             return QValidator::receivers(signal);
-        } else if (qvalidator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qvalidator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qvalidator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QValidator::receivers(signal);
         }
+        return QValidator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -369,16 +376,17 @@ class VirtualQValidator : public QValidator {
         if (qvalidator_issignalconnected_isbase) {
             qvalidator_issignalconnected_isbase = false;
             return QValidator::isSignalConnected(signal);
-        } else if (qvalidator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qvalidator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qvalidator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QValidator::isSignalConnected(signal);
         }
+        return QValidator::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -470,25 +478,6 @@ class VirtualQIntValidator final : public QIntValidator {
     VirtualQIntValidator(QObject* parent) : QIntValidator(parent) {};
     VirtualQIntValidator(int bottom, int top, QObject* parent) : QIntValidator(bottom, top, parent) {};
 
-    ~VirtualQIntValidator() {
-        qintvalidator_metaobject_callback = nullptr;
-        qintvalidator_metacast_callback = nullptr;
-        qintvalidator_metacall_callback = nullptr;
-        qintvalidator_validate_callback = nullptr;
-        qintvalidator_fixup_callback = nullptr;
-        qintvalidator_event_callback = nullptr;
-        qintvalidator_eventfilter_callback = nullptr;
-        qintvalidator_timerevent_callback = nullptr;
-        qintvalidator_childevent_callback = nullptr;
-        qintvalidator_customevent_callback = nullptr;
-        qintvalidator_connectnotify_callback = nullptr;
-        qintvalidator_disconnectnotify_callback = nullptr;
-        qintvalidator_sender_callback = nullptr;
-        qintvalidator_sendersignalindex_callback = nullptr;
-        qintvalidator_receivers_callback = nullptr;
-        qintvalidator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQIntValidator_MetaObject_Callback(QIntValidator_MetaObject_Callback cb) { qintvalidator_metaobject_callback = cb; }
     inline void setQIntValidator_Metacast_Callback(QIntValidator_Metacast_Callback cb) { qintvalidator_metacast_callback = cb; }
@@ -530,12 +519,13 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_metaobject_isbase) {
             qintvalidator_metaobject_isbase = false;
             return QIntValidator::metaObject();
-        } else if (qintvalidator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qintvalidator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QIntValidator::metaObject();
         }
+        auto metaobject_cb = qintvalidator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QIntValidator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,14 +533,15 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_metacast_isbase) {
             qintvalidator_metacast_isbase = false;
             return QIntValidator::qt_metacast(param1);
-        } else if (qintvalidator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qintvalidator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qintvalidator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIntValidator::qt_metacast(param1);
         }
+        return QIntValidator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -558,16 +549,17 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_metacall_isbase) {
             qintvalidator_metacall_isbase = false;
             return QIntValidator::qt_metacall(param1, param2, param3);
-        } else if (qintvalidator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qintvalidator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qintvalidator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QIntValidator::qt_metacall(param1, param2, param3);
         }
+        return QIntValidator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -575,7 +567,9 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_validate_isbase) {
             qintvalidator_validate_isbase = false;
             return QIntValidator::validate(param1, param2);
-        } else if (qintvalidator_validate_callback != nullptr) {
+        }
+        auto validate_cb = qintvalidator_validate_callback;
+        if (validate_cb) {
             QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -586,12 +580,11 @@ class VirtualQIntValidator final : public QIntValidator {
             const char* cbval1 = param1_str;
             int* cbval2 = &param2;
 
-            int callback_ret = qintvalidator_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(param1_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return QIntValidator::validate(param1, param2);
         }
+        return QIntValidator::validate(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,7 +592,10 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_fixup_isbase) {
             qintvalidator_fixup_isbase = false;
             QIntValidator::fixup(input);
-        } else if (qintvalidator_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = qintvalidator_fixup_callback;
+        if (fixup_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -609,11 +605,11 @@ class VirtualQIntValidator final : public QIntValidator {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
 
-            qintvalidator_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(input_str);
-        } else {
-            QIntValidator::fixup(input);
+            return;
         }
+        QIntValidator::fixup(input);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,14 +617,15 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_event_isbase) {
             qintvalidator_event_isbase = false;
             return QIntValidator::event(event);
-        } else if (qintvalidator_event_callback != nullptr) {
+        }
+        auto event_cb = qintvalidator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qintvalidator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIntValidator::event(event);
         }
+        return QIntValidator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,15 +633,16 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_eventfilter_isbase) {
             qintvalidator_eventfilter_isbase = false;
             return QIntValidator::eventFilter(watched, event);
-        } else if (qintvalidator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qintvalidator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qintvalidator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QIntValidator::eventFilter(watched, event);
         }
+        return QIntValidator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -652,13 +650,16 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_timerevent_isbase) {
             qintvalidator_timerevent_isbase = false;
             QIntValidator::timerEvent(event);
-        } else if (qintvalidator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qintvalidator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qintvalidator_timerevent_callback(this, cbval1);
-        } else {
-            QIntValidator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QIntValidator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -666,13 +667,16 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_childevent_isbase) {
             qintvalidator_childevent_isbase = false;
             QIntValidator::childEvent(event);
-        } else if (qintvalidator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qintvalidator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qintvalidator_childevent_callback(this, cbval1);
-        } else {
-            QIntValidator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QIntValidator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,13 +684,16 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_customevent_isbase) {
             qintvalidator_customevent_isbase = false;
             QIntValidator::customEvent(event);
-        } else if (qintvalidator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qintvalidator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qintvalidator_customevent_callback(this, cbval1);
-        } else {
-            QIntValidator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QIntValidator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -694,15 +701,18 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_connectnotify_isbase) {
             qintvalidator_connectnotify_isbase = false;
             QIntValidator::connectNotify(signal);
-        } else if (qintvalidator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qintvalidator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qintvalidator_connectnotify_callback(this, cbval1);
-        } else {
-            QIntValidator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QIntValidator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -710,15 +720,18 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_disconnectnotify_isbase) {
             qintvalidator_disconnectnotify_isbase = false;
             QIntValidator::disconnectNotify(signal);
-        } else if (qintvalidator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qintvalidator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qintvalidator_disconnectnotify_callback(this, cbval1);
-        } else {
-            QIntValidator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QIntValidator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -726,12 +739,13 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_sender_isbase) {
             qintvalidator_sender_isbase = false;
             return QIntValidator::sender();
-        } else if (qintvalidator_sender_callback != nullptr) {
-            QObject* callback_ret = qintvalidator_sender_callback();
-            return callback_ret;
-        } else {
-            return QIntValidator::sender();
         }
+        auto sender_cb = qintvalidator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QIntValidator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,12 +753,13 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_sendersignalindex_isbase) {
             qintvalidator_sendersignalindex_isbase = false;
             return QIntValidator::senderSignalIndex();
-        } else if (qintvalidator_sendersignalindex_callback != nullptr) {
-            int callback_ret = qintvalidator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QIntValidator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qintvalidator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QIntValidator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,14 +767,15 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_receivers_isbase) {
             qintvalidator_receivers_isbase = false;
             return QIntValidator::receivers(signal);
-        } else if (qintvalidator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qintvalidator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qintvalidator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QIntValidator::receivers(signal);
         }
+        return QIntValidator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -767,16 +783,17 @@ class VirtualQIntValidator final : public QIntValidator {
         if (qintvalidator_issignalconnected_isbase) {
             qintvalidator_issignalconnected_isbase = false;
             return QIntValidator::isSignalConnected(signal);
-        } else if (qintvalidator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qintvalidator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qintvalidator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIntValidator::isSignalConnected(signal);
         }
+        return QIntValidator::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -868,25 +885,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
     VirtualQDoubleValidator(QObject* parent) : QDoubleValidator(parent) {};
     VirtualQDoubleValidator(double bottom, double top, int decimals, QObject* parent) : QDoubleValidator(bottom, top, decimals, parent) {};
 
-    ~VirtualQDoubleValidator() {
-        qdoublevalidator_metaobject_callback = nullptr;
-        qdoublevalidator_metacast_callback = nullptr;
-        qdoublevalidator_metacall_callback = nullptr;
-        qdoublevalidator_validate_callback = nullptr;
-        qdoublevalidator_fixup_callback = nullptr;
-        qdoublevalidator_event_callback = nullptr;
-        qdoublevalidator_eventfilter_callback = nullptr;
-        qdoublevalidator_timerevent_callback = nullptr;
-        qdoublevalidator_childevent_callback = nullptr;
-        qdoublevalidator_customevent_callback = nullptr;
-        qdoublevalidator_connectnotify_callback = nullptr;
-        qdoublevalidator_disconnectnotify_callback = nullptr;
-        qdoublevalidator_sender_callback = nullptr;
-        qdoublevalidator_sendersignalindex_callback = nullptr;
-        qdoublevalidator_receivers_callback = nullptr;
-        qdoublevalidator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDoubleValidator_MetaObject_Callback(QDoubleValidator_MetaObject_Callback cb) { qdoublevalidator_metaobject_callback = cb; }
     inline void setQDoubleValidator_Metacast_Callback(QDoubleValidator_Metacast_Callback cb) { qdoublevalidator_metacast_callback = cb; }
@@ -928,12 +926,13 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_metaobject_isbase) {
             qdoublevalidator_metaobject_isbase = false;
             return QDoubleValidator::metaObject();
-        } else if (qdoublevalidator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdoublevalidator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDoubleValidator::metaObject();
         }
+        auto metaobject_cb = qdoublevalidator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDoubleValidator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,14 +940,15 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_metacast_isbase) {
             qdoublevalidator_metacast_isbase = false;
             return QDoubleValidator::qt_metacast(param1);
-        } else if (qdoublevalidator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdoublevalidator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdoublevalidator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDoubleValidator::qt_metacast(param1);
         }
+        return QDoubleValidator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,16 +956,17 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_metacall_isbase) {
             qdoublevalidator_metacall_isbase = false;
             return QDoubleValidator::qt_metacall(param1, param2, param3);
-        } else if (qdoublevalidator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdoublevalidator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdoublevalidator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDoubleValidator::qt_metacall(param1, param2, param3);
         }
+        return QDoubleValidator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -973,7 +974,9 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_validate_isbase) {
             qdoublevalidator_validate_isbase = false;
             return QDoubleValidator::validate(param1, param2);
-        } else if (qdoublevalidator_validate_callback != nullptr) {
+        }
+        auto validate_cb = qdoublevalidator_validate_callback;
+        if (validate_cb) {
             QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -984,12 +987,11 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             const char* cbval1 = param1_str;
             int* cbval2 = &param2;
 
-            int callback_ret = qdoublevalidator_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(param1_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return QDoubleValidator::validate(param1, param2);
         }
+        return QDoubleValidator::validate(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,7 +999,10 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_fixup_isbase) {
             qdoublevalidator_fixup_isbase = false;
             QDoubleValidator::fixup(input);
-        } else if (qdoublevalidator_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = qdoublevalidator_fixup_callback;
+        if (fixup_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -1007,11 +1012,11 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
 
-            qdoublevalidator_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(input_str);
-        } else {
-            QDoubleValidator::fixup(input);
+            return;
         }
+        QDoubleValidator::fixup(input);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1019,14 +1024,15 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_event_isbase) {
             qdoublevalidator_event_isbase = false;
             return QDoubleValidator::event(event);
-        } else if (qdoublevalidator_event_callback != nullptr) {
+        }
+        auto event_cb = qdoublevalidator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdoublevalidator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDoubleValidator::event(event);
         }
+        return QDoubleValidator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,15 +1040,16 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_eventfilter_isbase) {
             qdoublevalidator_eventfilter_isbase = false;
             return QDoubleValidator::eventFilter(watched, event);
-        } else if (qdoublevalidator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdoublevalidator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdoublevalidator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDoubleValidator::eventFilter(watched, event);
         }
+        return QDoubleValidator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,13 +1057,16 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_timerevent_isbase) {
             qdoublevalidator_timerevent_isbase = false;
             QDoubleValidator::timerEvent(event);
-        } else if (qdoublevalidator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdoublevalidator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdoublevalidator_timerevent_callback(this, cbval1);
-        } else {
-            QDoubleValidator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDoubleValidator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,13 +1074,16 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_childevent_isbase) {
             qdoublevalidator_childevent_isbase = false;
             QDoubleValidator::childEvent(event);
-        } else if (qdoublevalidator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdoublevalidator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdoublevalidator_childevent_callback(this, cbval1);
-        } else {
-            QDoubleValidator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDoubleValidator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1078,13 +1091,16 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_customevent_isbase) {
             qdoublevalidator_customevent_isbase = false;
             QDoubleValidator::customEvent(event);
-        } else if (qdoublevalidator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdoublevalidator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdoublevalidator_customevent_callback(this, cbval1);
-        } else {
-            QDoubleValidator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDoubleValidator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,15 +1108,18 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_connectnotify_isbase) {
             qdoublevalidator_connectnotify_isbase = false;
             QDoubleValidator::connectNotify(signal);
-        } else if (qdoublevalidator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdoublevalidator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdoublevalidator_connectnotify_callback(this, cbval1);
-        } else {
-            QDoubleValidator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDoubleValidator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1108,15 +1127,18 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_disconnectnotify_isbase) {
             qdoublevalidator_disconnectnotify_isbase = false;
             QDoubleValidator::disconnectNotify(signal);
-        } else if (qdoublevalidator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdoublevalidator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdoublevalidator_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDoubleValidator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDoubleValidator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1124,12 +1146,13 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_sender_isbase) {
             qdoublevalidator_sender_isbase = false;
             return QDoubleValidator::sender();
-        } else if (qdoublevalidator_sender_callback != nullptr) {
-            QObject* callback_ret = qdoublevalidator_sender_callback();
-            return callback_ret;
-        } else {
-            return QDoubleValidator::sender();
         }
+        auto sender_cb = qdoublevalidator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDoubleValidator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,12 +1160,13 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_sendersignalindex_isbase) {
             qdoublevalidator_sendersignalindex_isbase = false;
             return QDoubleValidator::senderSignalIndex();
-        } else if (qdoublevalidator_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdoublevalidator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDoubleValidator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdoublevalidator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDoubleValidator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,14 +1174,15 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_receivers_isbase) {
             qdoublevalidator_receivers_isbase = false;
             return QDoubleValidator::receivers(signal);
-        } else if (qdoublevalidator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdoublevalidator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdoublevalidator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDoubleValidator::receivers(signal);
         }
+        return QDoubleValidator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1165,16 +1190,17 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (qdoublevalidator_issignalconnected_isbase) {
             qdoublevalidator_issignalconnected_isbase = false;
             return QDoubleValidator::isSignalConnected(signal);
-        } else if (qdoublevalidator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdoublevalidator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdoublevalidator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDoubleValidator::isSignalConnected(signal);
         }
+        return QDoubleValidator::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -1266,25 +1292,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
     VirtualQRegularExpressionValidator(QObject* parent) : QRegularExpressionValidator(parent) {};
     VirtualQRegularExpressionValidator(const QRegularExpression& re, QObject* parent) : QRegularExpressionValidator(re, parent) {};
 
-    ~VirtualQRegularExpressionValidator() {
-        qregularexpressionvalidator_metaobject_callback = nullptr;
-        qregularexpressionvalidator_metacast_callback = nullptr;
-        qregularexpressionvalidator_metacall_callback = nullptr;
-        qregularexpressionvalidator_validate_callback = nullptr;
-        qregularexpressionvalidator_fixup_callback = nullptr;
-        qregularexpressionvalidator_event_callback = nullptr;
-        qregularexpressionvalidator_eventfilter_callback = nullptr;
-        qregularexpressionvalidator_timerevent_callback = nullptr;
-        qregularexpressionvalidator_childevent_callback = nullptr;
-        qregularexpressionvalidator_customevent_callback = nullptr;
-        qregularexpressionvalidator_connectnotify_callback = nullptr;
-        qregularexpressionvalidator_disconnectnotify_callback = nullptr;
-        qregularexpressionvalidator_sender_callback = nullptr;
-        qregularexpressionvalidator_sendersignalindex_callback = nullptr;
-        qregularexpressionvalidator_receivers_callback = nullptr;
-        qregularexpressionvalidator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQRegularExpressionValidator_MetaObject_Callback(QRegularExpressionValidator_MetaObject_Callback cb) { qregularexpressionvalidator_metaobject_callback = cb; }
     inline void setQRegularExpressionValidator_Metacast_Callback(QRegularExpressionValidator_Metacast_Callback cb) { qregularexpressionvalidator_metacast_callback = cb; }
@@ -1326,12 +1333,13 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_metaobject_isbase) {
             qregularexpressionvalidator_metaobject_isbase = false;
             return QRegularExpressionValidator::metaObject();
-        } else if (qregularexpressionvalidator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qregularexpressionvalidator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QRegularExpressionValidator::metaObject();
         }
+        auto metaobject_cb = qregularexpressionvalidator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QRegularExpressionValidator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1339,14 +1347,15 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_metacast_isbase) {
             qregularexpressionvalidator_metacast_isbase = false;
             return QRegularExpressionValidator::qt_metacast(param1);
-        } else if (qregularexpressionvalidator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qregularexpressionvalidator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qregularexpressionvalidator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRegularExpressionValidator::qt_metacast(param1);
         }
+        return QRegularExpressionValidator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1354,16 +1363,17 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_metacall_isbase) {
             qregularexpressionvalidator_metacall_isbase = false;
             return QRegularExpressionValidator::qt_metacall(param1, param2, param3);
-        } else if (qregularexpressionvalidator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qregularexpressionvalidator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qregularexpressionvalidator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRegularExpressionValidator::qt_metacall(param1, param2, param3);
         }
+        return QRegularExpressionValidator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1371,7 +1381,9 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_validate_isbase) {
             qregularexpressionvalidator_validate_isbase = false;
             return QRegularExpressionValidator::validate(input, pos);
-        } else if (qregularexpressionvalidator_validate_callback != nullptr) {
+        }
+        auto validate_cb = qregularexpressionvalidator_validate_callback;
+        if (validate_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -1382,12 +1394,11 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
-            int callback_ret = qregularexpressionvalidator_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return QRegularExpressionValidator::validate(input, pos);
         }
+        return QRegularExpressionValidator::validate(input, pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1395,7 +1406,10 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_fixup_isbase) {
             qregularexpressionvalidator_fixup_isbase = false;
             QRegularExpressionValidator::fixup(param1);
-        } else if (qregularexpressionvalidator_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = qregularexpressionvalidator_fixup_callback;
+        if (fixup_cb) {
             QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -1405,11 +1419,11 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
 
-            qregularexpressionvalidator_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(param1_str);
-        } else {
-            QRegularExpressionValidator::fixup(param1);
+            return;
         }
+        QRegularExpressionValidator::fixup(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1417,14 +1431,15 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_event_isbase) {
             qregularexpressionvalidator_event_isbase = false;
             return QRegularExpressionValidator::event(event);
-        } else if (qregularexpressionvalidator_event_callback != nullptr) {
+        }
+        auto event_cb = qregularexpressionvalidator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qregularexpressionvalidator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRegularExpressionValidator::event(event);
         }
+        return QRegularExpressionValidator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1432,15 +1447,16 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_eventfilter_isbase) {
             qregularexpressionvalidator_eventfilter_isbase = false;
             return QRegularExpressionValidator::eventFilter(watched, event);
-        } else if (qregularexpressionvalidator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qregularexpressionvalidator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qregularexpressionvalidator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QRegularExpressionValidator::eventFilter(watched, event);
         }
+        return QRegularExpressionValidator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1448,13 +1464,16 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_timerevent_isbase) {
             qregularexpressionvalidator_timerevent_isbase = false;
             QRegularExpressionValidator::timerEvent(event);
-        } else if (qregularexpressionvalidator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qregularexpressionvalidator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qregularexpressionvalidator_timerevent_callback(this, cbval1);
-        } else {
-            QRegularExpressionValidator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QRegularExpressionValidator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1462,13 +1481,16 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_childevent_isbase) {
             qregularexpressionvalidator_childevent_isbase = false;
             QRegularExpressionValidator::childEvent(event);
-        } else if (qregularexpressionvalidator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qregularexpressionvalidator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qregularexpressionvalidator_childevent_callback(this, cbval1);
-        } else {
-            QRegularExpressionValidator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QRegularExpressionValidator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1476,13 +1498,16 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_customevent_isbase) {
             qregularexpressionvalidator_customevent_isbase = false;
             QRegularExpressionValidator::customEvent(event);
-        } else if (qregularexpressionvalidator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qregularexpressionvalidator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qregularexpressionvalidator_customevent_callback(this, cbval1);
-        } else {
-            QRegularExpressionValidator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QRegularExpressionValidator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1490,15 +1515,18 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_connectnotify_isbase) {
             qregularexpressionvalidator_connectnotify_isbase = false;
             QRegularExpressionValidator::connectNotify(signal);
-        } else if (qregularexpressionvalidator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qregularexpressionvalidator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qregularexpressionvalidator_connectnotify_callback(this, cbval1);
-        } else {
-            QRegularExpressionValidator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QRegularExpressionValidator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1506,15 +1534,18 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_disconnectnotify_isbase) {
             qregularexpressionvalidator_disconnectnotify_isbase = false;
             QRegularExpressionValidator::disconnectNotify(signal);
-        } else if (qregularexpressionvalidator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qregularexpressionvalidator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qregularexpressionvalidator_disconnectnotify_callback(this, cbval1);
-        } else {
-            QRegularExpressionValidator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QRegularExpressionValidator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1522,12 +1553,13 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_sender_isbase) {
             qregularexpressionvalidator_sender_isbase = false;
             return QRegularExpressionValidator::sender();
-        } else if (qregularexpressionvalidator_sender_callback != nullptr) {
-            QObject* callback_ret = qregularexpressionvalidator_sender_callback();
-            return callback_ret;
-        } else {
-            return QRegularExpressionValidator::sender();
         }
+        auto sender_cb = qregularexpressionvalidator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QRegularExpressionValidator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1535,12 +1567,13 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_sendersignalindex_isbase) {
             qregularexpressionvalidator_sendersignalindex_isbase = false;
             return QRegularExpressionValidator::senderSignalIndex();
-        } else if (qregularexpressionvalidator_sendersignalindex_callback != nullptr) {
-            int callback_ret = qregularexpressionvalidator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QRegularExpressionValidator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qregularexpressionvalidator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QRegularExpressionValidator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1548,14 +1581,15 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_receivers_isbase) {
             qregularexpressionvalidator_receivers_isbase = false;
             return QRegularExpressionValidator::receivers(signal);
-        } else if (qregularexpressionvalidator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qregularexpressionvalidator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qregularexpressionvalidator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRegularExpressionValidator::receivers(signal);
         }
+        return QRegularExpressionValidator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1563,16 +1597,17 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (qregularexpressionvalidator_issignalconnected_isbase) {
             qregularexpressionvalidator_issignalconnected_isbase = false;
             return QRegularExpressionValidator::isSignalConnected(signal);
-        } else if (qregularexpressionvalidator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qregularexpressionvalidator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qregularexpressionvalidator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRegularExpressionValidator::isSignalConnected(signal);
         }
+        return QRegularExpressionValidator::isSignalConnected(signal);
     }
 
     // Friend functions

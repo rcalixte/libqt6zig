@@ -137,45 +137,6 @@ class VirtualQSaveFile final : public QSaveFile {
     VirtualQSaveFile(const QString& name, QObject* parent) : QSaveFile(name, parent) {};
     VirtualQSaveFile(QObject* parent) : QSaveFile(parent) {};
 
-    ~VirtualQSaveFile() {
-        qsavefile_metaobject_callback = nullptr;
-        qsavefile_metacast_callback = nullptr;
-        qsavefile_metacall_callback = nullptr;
-        qsavefile_filename_callback = nullptr;
-        qsavefile_open_callback = nullptr;
-        qsavefile_writedata_callback = nullptr;
-        qsavefile_issequential_callback = nullptr;
-        qsavefile_pos_callback = nullptr;
-        qsavefile_seek_callback = nullptr;
-        qsavefile_atend_callback = nullptr;
-        qsavefile_size_callback = nullptr;
-        qsavefile_resize_callback = nullptr;
-        qsavefile_permissions_callback = nullptr;
-        qsavefile_setpermissions_callback = nullptr;
-        qsavefile_readdata_callback = nullptr;
-        qsavefile_readlinedata_callback = nullptr;
-        qsavefile_reset_callback = nullptr;
-        qsavefile_bytesavailable_callback = nullptr;
-        qsavefile_bytestowrite_callback = nullptr;
-        qsavefile_canreadline_callback = nullptr;
-        qsavefile_waitforreadyread_callback = nullptr;
-        qsavefile_waitforbyteswritten_callback = nullptr;
-        qsavefile_skipdata_callback = nullptr;
-        qsavefile_event_callback = nullptr;
-        qsavefile_eventfilter_callback = nullptr;
-        qsavefile_timerevent_callback = nullptr;
-        qsavefile_childevent_callback = nullptr;
-        qsavefile_customevent_callback = nullptr;
-        qsavefile_connectnotify_callback = nullptr;
-        qsavefile_disconnectnotify_callback = nullptr;
-        qsavefile_setopenmode_callback = nullptr;
-        qsavefile_seterrorstring_callback = nullptr;
-        qsavefile_sender_callback = nullptr;
-        qsavefile_sendersignalindex_callback = nullptr;
-        qsavefile_receivers_callback = nullptr;
-        qsavefile_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSaveFile_MetaObject_Callback(QSaveFile_MetaObject_Callback cb) { qsavefile_metaobject_callback = cb; }
     inline void setQSaveFile_Metacast_Callback(QSaveFile_Metacast_Callback cb) { qsavefile_metacast_callback = cb; }
@@ -257,12 +218,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_metaobject_isbase) {
             qsavefile_metaobject_isbase = false;
             return QSaveFile::metaObject();
-        } else if (qsavefile_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsavefile_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSaveFile::metaObject();
         }
+        auto metaobject_cb = qsavefile_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSaveFile::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,14 +232,15 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_metacast_isbase) {
             qsavefile_metacast_isbase = false;
             return QSaveFile::qt_metacast(param1);
-        } else if (qsavefile_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsavefile_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsavefile_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSaveFile::qt_metacast(param1);
         }
+        return QSaveFile::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,16 +248,17 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_metacall_isbase) {
             qsavefile_metacall_isbase = false;
             return QSaveFile::qt_metacall(param1, param2, param3);
-        } else if (qsavefile_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsavefile_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsavefile_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSaveFile::qt_metacall(param1, param2, param3);
         }
+        return QSaveFile::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,13 +266,14 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_filename_isbase) {
             qsavefile_filename_isbase = false;
             return QSaveFile::fileName();
-        } else if (qsavefile_filename_callback != nullptr) {
-            const char* callback_ret = qsavefile_filename_callback();
+        }
+        auto filename_cb = qsavefile_filename_callback;
+        if (filename_cb) {
+            const char* callback_ret = filename_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QSaveFile::fileName();
         }
+        return QSaveFile::fileName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,14 +281,15 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_open_isbase) {
             qsavefile_open_isbase = false;
             return QSaveFile::open(flags);
-        } else if (qsavefile_open_callback != nullptr) {
+        }
+        auto open_cb = qsavefile_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(flags);
 
-            bool callback_ret = qsavefile_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSaveFile::open(flags);
         }
+        return QSaveFile::open(flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,15 +297,16 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_writedata_isbase) {
             qsavefile_writedata_isbase = false;
             return QSaveFile::writeData(data, lenVal);
-        } else if (qsavefile_writedata_callback != nullptr) {
+        }
+        auto writedata_cb = qsavefile_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = qsavefile_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSaveFile::writeData(data, lenVal);
         }
+        return QSaveFile::writeData(data, lenVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -347,12 +314,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_issequential_isbase) {
             qsavefile_issequential_isbase = false;
             return QSaveFile::isSequential();
-        } else if (qsavefile_issequential_callback != nullptr) {
-            bool callback_ret = qsavefile_issequential_callback();
-            return callback_ret;
-        } else {
-            return QSaveFile::isSequential();
         }
+        auto issequential_cb = qsavefile_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return QSaveFile::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,12 +328,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_pos_isbase) {
             qsavefile_pos_isbase = false;
             return QSaveFile::pos();
-        } else if (qsavefile_pos_callback != nullptr) {
-            long long callback_ret = qsavefile_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSaveFile::pos();
         }
+        auto pos_cb = qsavefile_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSaveFile::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,14 +342,15 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_seek_isbase) {
             qsavefile_seek_isbase = false;
             return QSaveFile::seek(offset);
-        } else if (qsavefile_seek_callback != nullptr) {
+        }
+        auto seek_cb = qsavefile_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(offset);
 
-            bool callback_ret = qsavefile_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSaveFile::seek(offset);
         }
+        return QSaveFile::seek(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -388,12 +358,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_atend_isbase) {
             qsavefile_atend_isbase = false;
             return QSaveFile::atEnd();
-        } else if (qsavefile_atend_callback != nullptr) {
-            bool callback_ret = qsavefile_atend_callback();
-            return callback_ret;
-        } else {
-            return QSaveFile::atEnd();
         }
+        auto atend_cb = qsavefile_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return QSaveFile::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -401,12 +372,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_size_isbase) {
             qsavefile_size_isbase = false;
             return QSaveFile::size();
-        } else if (qsavefile_size_callback != nullptr) {
-            long long callback_ret = qsavefile_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSaveFile::size();
         }
+        auto size_cb = qsavefile_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSaveFile::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,14 +386,15 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_resize_isbase) {
             qsavefile_resize_isbase = false;
             return QSaveFile::resize(sz);
-        } else if (qsavefile_resize_callback != nullptr) {
+        }
+        auto resize_cb = qsavefile_resize_callback;
+        if (resize_cb) {
             long long cbval1 = static_cast<long long>(sz);
 
-            bool callback_ret = qsavefile_resize_callback(this, cbval1);
+            bool callback_ret = resize_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSaveFile::resize(sz);
         }
+        return QSaveFile::resize(sz);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -429,12 +402,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_permissions_isbase) {
             qsavefile_permissions_isbase = false;
             return QSaveFile::permissions();
-        } else if (qsavefile_permissions_callback != nullptr) {
-            int callback_ret = qsavefile_permissions_callback();
-            return static_cast<QFileDevice::Permissions>(callback_ret);
-        } else {
-            return QSaveFile::permissions();
         }
+        auto permissions_cb = qsavefile_permissions_callback;
+        if (permissions_cb) {
+            int callback_ret = permissions_cb();
+            return static_cast<QFileDevice::Permissions>(callback_ret);
+        }
+        return QSaveFile::permissions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -442,14 +416,15 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_setpermissions_isbase) {
             qsavefile_setpermissions_isbase = false;
             return QSaveFile::setPermissions(permissionSpec);
-        } else if (qsavefile_setpermissions_callback != nullptr) {
+        }
+        auto setpermissions_cb = qsavefile_setpermissions_callback;
+        if (setpermissions_cb) {
             int cbval1 = static_cast<int>(permissionSpec);
 
-            bool callback_ret = qsavefile_setpermissions_callback(this, cbval1);
+            bool callback_ret = setpermissions_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSaveFile::setPermissions(permissionSpec);
         }
+        return QSaveFile::setPermissions(permissionSpec);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,15 +432,16 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_readdata_isbase) {
             qsavefile_readdata_isbase = false;
             return QSaveFile::readData(data, maxlen);
-        } else if (qsavefile_readdata_callback != nullptr) {
+        }
+        auto readdata_cb = qsavefile_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qsavefile_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSaveFile::readData(data, maxlen);
         }
+        return QSaveFile::readData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -473,15 +449,16 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_readlinedata_isbase) {
             qsavefile_readlinedata_isbase = false;
             return QSaveFile::readLineData(data, maxlen);
-        } else if (qsavefile_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = qsavefile_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qsavefile_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSaveFile::readLineData(data, maxlen);
         }
+        return QSaveFile::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -489,12 +466,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_reset_isbase) {
             qsavefile_reset_isbase = false;
             return QSaveFile::reset();
-        } else if (qsavefile_reset_callback != nullptr) {
-            bool callback_ret = qsavefile_reset_callback();
-            return callback_ret;
-        } else {
-            return QSaveFile::reset();
         }
+        auto reset_cb = qsavefile_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return QSaveFile::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,12 +480,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_bytesavailable_isbase) {
             qsavefile_bytesavailable_isbase = false;
             return QSaveFile::bytesAvailable();
-        } else if (qsavefile_bytesavailable_callback != nullptr) {
-            long long callback_ret = qsavefile_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSaveFile::bytesAvailable();
         }
+        auto bytesavailable_cb = qsavefile_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSaveFile::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,12 +494,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_bytestowrite_isbase) {
             qsavefile_bytestowrite_isbase = false;
             return QSaveFile::bytesToWrite();
-        } else if (qsavefile_bytestowrite_callback != nullptr) {
-            long long callback_ret = qsavefile_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSaveFile::bytesToWrite();
         }
+        auto bytestowrite_cb = qsavefile_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSaveFile::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,12 +508,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_canreadline_isbase) {
             qsavefile_canreadline_isbase = false;
             return QSaveFile::canReadLine();
-        } else if (qsavefile_canreadline_callback != nullptr) {
-            bool callback_ret = qsavefile_canreadline_callback();
-            return callback_ret;
-        } else {
-            return QSaveFile::canReadLine();
         }
+        auto canreadline_cb = qsavefile_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return QSaveFile::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,14 +522,15 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_waitforreadyread_isbase) {
             qsavefile_waitforreadyread_isbase = false;
             return QSaveFile::waitForReadyRead(msecs);
-        } else if (qsavefile_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = qsavefile_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qsavefile_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSaveFile::waitForReadyRead(msecs);
         }
+        return QSaveFile::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,14 +538,15 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_waitforbyteswritten_isbase) {
             qsavefile_waitforbyteswritten_isbase = false;
             return QSaveFile::waitForBytesWritten(msecs);
-        } else if (qsavefile_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = qsavefile_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qsavefile_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSaveFile::waitForBytesWritten(msecs);
         }
+        return QSaveFile::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -571,14 +554,15 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_skipdata_isbase) {
             qsavefile_skipdata_isbase = false;
             return QSaveFile::skipData(maxSize);
-        } else if (qsavefile_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = qsavefile_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = qsavefile_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSaveFile::skipData(maxSize);
         }
+        return QSaveFile::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,14 +570,15 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_event_isbase) {
             qsavefile_event_isbase = false;
             return QSaveFile::event(event);
-        } else if (qsavefile_event_callback != nullptr) {
+        }
+        auto event_cb = qsavefile_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsavefile_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSaveFile::event(event);
         }
+        return QSaveFile::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -601,15 +586,16 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_eventfilter_isbase) {
             qsavefile_eventfilter_isbase = false;
             return QSaveFile::eventFilter(watched, event);
-        } else if (qsavefile_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsavefile_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsavefile_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSaveFile::eventFilter(watched, event);
         }
+        return QSaveFile::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,13 +603,16 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_timerevent_isbase) {
             qsavefile_timerevent_isbase = false;
             QSaveFile::timerEvent(event);
-        } else if (qsavefile_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsavefile_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsavefile_timerevent_callback(this, cbval1);
-        } else {
-            QSaveFile::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSaveFile::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,13 +620,16 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_childevent_isbase) {
             qsavefile_childevent_isbase = false;
             QSaveFile::childEvent(event);
-        } else if (qsavefile_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsavefile_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsavefile_childevent_callback(this, cbval1);
-        } else {
-            QSaveFile::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSaveFile::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,13 +637,16 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_customevent_isbase) {
             qsavefile_customevent_isbase = false;
             QSaveFile::customEvent(event);
-        } else if (qsavefile_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsavefile_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsavefile_customevent_callback(this, cbval1);
-        } else {
-            QSaveFile::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSaveFile::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -659,15 +654,18 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_connectnotify_isbase) {
             qsavefile_connectnotify_isbase = false;
             QSaveFile::connectNotify(signal);
-        } else if (qsavefile_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsavefile_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsavefile_connectnotify_callback(this, cbval1);
-        } else {
-            QSaveFile::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSaveFile::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,15 +673,18 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_disconnectnotify_isbase) {
             qsavefile_disconnectnotify_isbase = false;
             QSaveFile::disconnectNotify(signal);
-        } else if (qsavefile_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsavefile_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsavefile_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSaveFile::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSaveFile::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,13 +692,16 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_setopenmode_isbase) {
             qsavefile_setopenmode_isbase = false;
             QSaveFile::setOpenMode(openMode);
-        } else if (qsavefile_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = qsavefile_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            qsavefile_setopenmode_callback(this, cbval1);
-        } else {
-            QSaveFile::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        QSaveFile::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,7 +709,10 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_seterrorstring_isbase) {
             qsavefile_seterrorstring_isbase = false;
             QSaveFile::setErrorString(errorString);
-        } else if (qsavefile_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = qsavefile_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -715,11 +722,11 @@ class VirtualQSaveFile final : public QSaveFile {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            qsavefile_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            QSaveFile::setErrorString(errorString);
+            return;
         }
+        QSaveFile::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,12 +734,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_sender_isbase) {
             qsavefile_sender_isbase = false;
             return QSaveFile::sender();
-        } else if (qsavefile_sender_callback != nullptr) {
-            QObject* callback_ret = qsavefile_sender_callback();
-            return callback_ret;
-        } else {
-            return QSaveFile::sender();
         }
+        auto sender_cb = qsavefile_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSaveFile::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,12 +748,13 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_sendersignalindex_isbase) {
             qsavefile_sendersignalindex_isbase = false;
             return QSaveFile::senderSignalIndex();
-        } else if (qsavefile_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsavefile_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSaveFile::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsavefile_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSaveFile::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -753,14 +762,15 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_receivers_isbase) {
             qsavefile_receivers_isbase = false;
             return QSaveFile::receivers(signal);
-        } else if (qsavefile_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsavefile_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsavefile_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSaveFile::receivers(signal);
         }
+        return QSaveFile::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,16 +778,17 @@ class VirtualQSaveFile final : public QSaveFile {
         if (qsavefile_issignalconnected_isbase) {
             qsavefile_issignalconnected_isbase = false;
             return QSaveFile::isSignalConnected(signal);
-        } else if (qsavefile_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsavefile_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsavefile_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSaveFile::isSignalConnected(signal);
         }
+        return QSaveFile::isSignalConnected(signal);
     }
 
     // Friend functions

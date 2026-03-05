@@ -227,75 +227,6 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
     VirtualKAboutPluginDialog(const KPluginMetaData& pluginMetaData, KAboutPluginDialog::Options options, QWidget* parent) : KAboutPluginDialog(pluginMetaData, options, parent) {};
     VirtualKAboutPluginDialog(const KPluginMetaData& pluginMetaData, QWidget* parent) : KAboutPluginDialog(pluginMetaData, parent) {};
 
-    ~VirtualKAboutPluginDialog() {
-        kaboutplugindialog_metaobject_callback = nullptr;
-        kaboutplugindialog_metacast_callback = nullptr;
-        kaboutplugindialog_metacall_callback = nullptr;
-        kaboutplugindialog_setvisible_callback = nullptr;
-        kaboutplugindialog_sizehint_callback = nullptr;
-        kaboutplugindialog_minimumsizehint_callback = nullptr;
-        kaboutplugindialog_open_callback = nullptr;
-        kaboutplugindialog_exec_callback = nullptr;
-        kaboutplugindialog_done_callback = nullptr;
-        kaboutplugindialog_accept_callback = nullptr;
-        kaboutplugindialog_reject_callback = nullptr;
-        kaboutplugindialog_keypressevent_callback = nullptr;
-        kaboutplugindialog_closeevent_callback = nullptr;
-        kaboutplugindialog_showevent_callback = nullptr;
-        kaboutplugindialog_resizeevent_callback = nullptr;
-        kaboutplugindialog_contextmenuevent_callback = nullptr;
-        kaboutplugindialog_eventfilter_callback = nullptr;
-        kaboutplugindialog_devtype_callback = nullptr;
-        kaboutplugindialog_heightforwidth_callback = nullptr;
-        kaboutplugindialog_hasheightforwidth_callback = nullptr;
-        kaboutplugindialog_paintengine_callback = nullptr;
-        kaboutplugindialog_event_callback = nullptr;
-        kaboutplugindialog_mousepressevent_callback = nullptr;
-        kaboutplugindialog_mousereleaseevent_callback = nullptr;
-        kaboutplugindialog_mousedoubleclickevent_callback = nullptr;
-        kaboutplugindialog_mousemoveevent_callback = nullptr;
-        kaboutplugindialog_wheelevent_callback = nullptr;
-        kaboutplugindialog_keyreleaseevent_callback = nullptr;
-        kaboutplugindialog_focusinevent_callback = nullptr;
-        kaboutplugindialog_focusoutevent_callback = nullptr;
-        kaboutplugindialog_enterevent_callback = nullptr;
-        kaboutplugindialog_leaveevent_callback = nullptr;
-        kaboutplugindialog_paintevent_callback = nullptr;
-        kaboutplugindialog_moveevent_callback = nullptr;
-        kaboutplugindialog_tabletevent_callback = nullptr;
-        kaboutplugindialog_actionevent_callback = nullptr;
-        kaboutplugindialog_dragenterevent_callback = nullptr;
-        kaboutplugindialog_dragmoveevent_callback = nullptr;
-        kaboutplugindialog_dragleaveevent_callback = nullptr;
-        kaboutplugindialog_dropevent_callback = nullptr;
-        kaboutplugindialog_hideevent_callback = nullptr;
-        kaboutplugindialog_nativeevent_callback = nullptr;
-        kaboutplugindialog_changeevent_callback = nullptr;
-        kaboutplugindialog_metric_callback = nullptr;
-        kaboutplugindialog_initpainter_callback = nullptr;
-        kaboutplugindialog_redirected_callback = nullptr;
-        kaboutplugindialog_sharedpainter_callback = nullptr;
-        kaboutplugindialog_inputmethodevent_callback = nullptr;
-        kaboutplugindialog_inputmethodquery_callback = nullptr;
-        kaboutplugindialog_focusnextprevchild_callback = nullptr;
-        kaboutplugindialog_timerevent_callback = nullptr;
-        kaboutplugindialog_childevent_callback = nullptr;
-        kaboutplugindialog_customevent_callback = nullptr;
-        kaboutplugindialog_connectnotify_callback = nullptr;
-        kaboutplugindialog_disconnectnotify_callback = nullptr;
-        kaboutplugindialog_adjustposition_callback = nullptr;
-        kaboutplugindialog_updatemicrofocus_callback = nullptr;
-        kaboutplugindialog_create_callback = nullptr;
-        kaboutplugindialog_destroy_callback = nullptr;
-        kaboutplugindialog_focusnextchild_callback = nullptr;
-        kaboutplugindialog_focuspreviouschild_callback = nullptr;
-        kaboutplugindialog_sender_callback = nullptr;
-        kaboutplugindialog_sendersignalindex_callback = nullptr;
-        kaboutplugindialog_receivers_callback = nullptr;
-        kaboutplugindialog_issignalconnected_callback = nullptr;
-        kaboutplugindialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKAboutPluginDialog_MetaObject_Callback(KAboutPluginDialog_MetaObject_Callback cb) { kaboutplugindialog_metaobject_callback = cb; }
     inline void setKAboutPluginDialog_Metacast_Callback(KAboutPluginDialog_Metacast_Callback cb) { kaboutplugindialog_metacast_callback = cb; }
@@ -437,12 +368,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_metaobject_isbase) {
             kaboutplugindialog_metaobject_isbase = false;
             return KAboutPluginDialog::metaObject();
-        } else if (kaboutplugindialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kaboutplugindialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KAboutPluginDialog::metaObject();
         }
+        auto metaobject_cb = kaboutplugindialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KAboutPluginDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +382,15 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_metacast_isbase) {
             kaboutplugindialog_metacast_isbase = false;
             return KAboutPluginDialog::qt_metacast(param1);
-        } else if (kaboutplugindialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kaboutplugindialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kaboutplugindialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAboutPluginDialog::qt_metacast(param1);
         }
+        return KAboutPluginDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,16 +398,17 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_metacall_isbase) {
             kaboutplugindialog_metacall_isbase = false;
             return KAboutPluginDialog::qt_metacall(param1, param2, param3);
-        } else if (kaboutplugindialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kaboutplugindialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kaboutplugindialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAboutPluginDialog::qt_metacall(param1, param2, param3);
         }
+        return KAboutPluginDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,13 +416,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_setvisible_isbase) {
             kaboutplugindialog_setvisible_isbase = false;
             KAboutPluginDialog::setVisible(visible);
-        } else if (kaboutplugindialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kaboutplugindialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kaboutplugindialog_setvisible_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,12 +433,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_sizehint_isbase) {
             kaboutplugindialog_sizehint_isbase = false;
             return KAboutPluginDialog::sizeHint();
-        } else if (kaboutplugindialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kaboutplugindialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAboutPluginDialog::sizeHint();
         }
+        auto sizehint_cb = kaboutplugindialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KAboutPluginDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,12 +447,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_minimumsizehint_isbase) {
             kaboutplugindialog_minimumsizehint_isbase = false;
             return KAboutPluginDialog::minimumSizeHint();
-        } else if (kaboutplugindialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kaboutplugindialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAboutPluginDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kaboutplugindialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KAboutPluginDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,11 +461,14 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_open_isbase) {
             kaboutplugindialog_open_isbase = false;
             KAboutPluginDialog::open();
-        } else if (kaboutplugindialog_open_callback != nullptr) {
-            kaboutplugindialog_open_callback();
-        } else {
-            KAboutPluginDialog::open();
+            return;
         }
+        auto open_cb = kaboutplugindialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KAboutPluginDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -534,12 +476,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_exec_isbase) {
             kaboutplugindialog_exec_isbase = false;
             return KAboutPluginDialog::exec();
-        } else if (kaboutplugindialog_exec_callback != nullptr) {
-            int callback_ret = kaboutplugindialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAboutPluginDialog::exec();
         }
+        auto exec_cb = kaboutplugindialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAboutPluginDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,13 +490,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_done_isbase) {
             kaboutplugindialog_done_isbase = false;
             KAboutPluginDialog::done(param1);
-        } else if (kaboutplugindialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kaboutplugindialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kaboutplugindialog_done_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,11 +507,14 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_accept_isbase) {
             kaboutplugindialog_accept_isbase = false;
             KAboutPluginDialog::accept();
-        } else if (kaboutplugindialog_accept_callback != nullptr) {
-            kaboutplugindialog_accept_callback();
-        } else {
-            KAboutPluginDialog::accept();
+            return;
         }
+        auto accept_cb = kaboutplugindialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KAboutPluginDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,11 +522,14 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_reject_isbase) {
             kaboutplugindialog_reject_isbase = false;
             KAboutPluginDialog::reject();
-        } else if (kaboutplugindialog_reject_callback != nullptr) {
-            kaboutplugindialog_reject_callback();
-        } else {
-            KAboutPluginDialog::reject();
+            return;
         }
+        auto reject_cb = kaboutplugindialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KAboutPluginDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -585,13 +537,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_keypressevent_isbase) {
             kaboutplugindialog_keypressevent_isbase = false;
             KAboutPluginDialog::keyPressEvent(param1);
-        } else if (kaboutplugindialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kaboutplugindialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kaboutplugindialog_keypressevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,13 +554,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_closeevent_isbase) {
             kaboutplugindialog_closeevent_isbase = false;
             KAboutPluginDialog::closeEvent(param1);
-        } else if (kaboutplugindialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kaboutplugindialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kaboutplugindialog_closeevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,13 +571,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_showevent_isbase) {
             kaboutplugindialog_showevent_isbase = false;
             KAboutPluginDialog::showEvent(param1);
-        } else if (kaboutplugindialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kaboutplugindialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            kaboutplugindialog_showevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +588,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_resizeevent_isbase) {
             kaboutplugindialog_resizeevent_isbase = false;
             KAboutPluginDialog::resizeEvent(param1);
-        } else if (kaboutplugindialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kaboutplugindialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kaboutplugindialog_resizeevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +605,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_contextmenuevent_isbase) {
             kaboutplugindialog_contextmenuevent_isbase = false;
             KAboutPluginDialog::contextMenuEvent(param1);
-        } else if (kaboutplugindialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kaboutplugindialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kaboutplugindialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,15 +622,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_eventfilter_isbase) {
             kaboutplugindialog_eventfilter_isbase = false;
             return KAboutPluginDialog::eventFilter(param1, param2);
-        } else if (kaboutplugindialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kaboutplugindialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kaboutplugindialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KAboutPluginDialog::eventFilter(param1, param2);
         }
+        return KAboutPluginDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,12 +639,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_devtype_isbase) {
             kaboutplugindialog_devtype_isbase = false;
             return KAboutPluginDialog::devType();
-        } else if (kaboutplugindialog_devtype_callback != nullptr) {
-            int callback_ret = kaboutplugindialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAboutPluginDialog::devType();
         }
+        auto devtype_cb = kaboutplugindialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAboutPluginDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,14 +653,15 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_heightforwidth_isbase) {
             kaboutplugindialog_heightforwidth_isbase = false;
             return KAboutPluginDialog::heightForWidth(param1);
-        } else if (kaboutplugindialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kaboutplugindialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kaboutplugindialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAboutPluginDialog::heightForWidth(param1);
         }
+        return KAboutPluginDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -699,12 +669,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_hasheightforwidth_isbase) {
             kaboutplugindialog_hasheightforwidth_isbase = false;
             return KAboutPluginDialog::hasHeightForWidth();
-        } else if (kaboutplugindialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kaboutplugindialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KAboutPluginDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kaboutplugindialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KAboutPluginDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -712,12 +683,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_paintengine_isbase) {
             kaboutplugindialog_paintengine_isbase = false;
             return KAboutPluginDialog::paintEngine();
-        } else if (kaboutplugindialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kaboutplugindialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KAboutPluginDialog::paintEngine();
         }
+        auto paintengine_cb = kaboutplugindialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KAboutPluginDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -725,14 +697,15 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_event_isbase) {
             kaboutplugindialog_event_isbase = false;
             return KAboutPluginDialog::event(event);
-        } else if (kaboutplugindialog_event_callback != nullptr) {
+        }
+        auto event_cb = kaboutplugindialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kaboutplugindialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAboutPluginDialog::event(event);
         }
+        return KAboutPluginDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,13 +713,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_mousepressevent_isbase) {
             kaboutplugindialog_mousepressevent_isbase = false;
             KAboutPluginDialog::mousePressEvent(event);
-        } else if (kaboutplugindialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kaboutplugindialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kaboutplugindialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,13 +730,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_mousereleaseevent_isbase) {
             kaboutplugindialog_mousereleaseevent_isbase = false;
             KAboutPluginDialog::mouseReleaseEvent(event);
-        } else if (kaboutplugindialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kaboutplugindialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kaboutplugindialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,13 +747,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_mousedoubleclickevent_isbase) {
             kaboutplugindialog_mousedoubleclickevent_isbase = false;
             KAboutPluginDialog::mouseDoubleClickEvent(event);
-        } else if (kaboutplugindialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kaboutplugindialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kaboutplugindialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,13 +764,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_mousemoveevent_isbase) {
             kaboutplugindialog_mousemoveevent_isbase = false;
             KAboutPluginDialog::mouseMoveEvent(event);
-        } else if (kaboutplugindialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kaboutplugindialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kaboutplugindialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,13 +781,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_wheelevent_isbase) {
             kaboutplugindialog_wheelevent_isbase = false;
             KAboutPluginDialog::wheelEvent(event);
-        } else if (kaboutplugindialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kaboutplugindialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kaboutplugindialog_wheelevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -810,13 +798,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_keyreleaseevent_isbase) {
             kaboutplugindialog_keyreleaseevent_isbase = false;
             KAboutPluginDialog::keyReleaseEvent(event);
-        } else if (kaboutplugindialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kaboutplugindialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kaboutplugindialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -824,13 +815,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_focusinevent_isbase) {
             kaboutplugindialog_focusinevent_isbase = false;
             KAboutPluginDialog::focusInEvent(event);
-        } else if (kaboutplugindialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kaboutplugindialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kaboutplugindialog_focusinevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,13 +832,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_focusoutevent_isbase) {
             kaboutplugindialog_focusoutevent_isbase = false;
             KAboutPluginDialog::focusOutEvent(event);
-        } else if (kaboutplugindialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kaboutplugindialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kaboutplugindialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,13 +849,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_enterevent_isbase) {
             kaboutplugindialog_enterevent_isbase = false;
             KAboutPluginDialog::enterEvent(event);
-        } else if (kaboutplugindialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kaboutplugindialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kaboutplugindialog_enterevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,13 +866,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_leaveevent_isbase) {
             kaboutplugindialog_leaveevent_isbase = false;
             KAboutPluginDialog::leaveEvent(event);
-        } else if (kaboutplugindialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kaboutplugindialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kaboutplugindialog_leaveevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -880,13 +883,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_paintevent_isbase) {
             kaboutplugindialog_paintevent_isbase = false;
             KAboutPluginDialog::paintEvent(event);
-        } else if (kaboutplugindialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kaboutplugindialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kaboutplugindialog_paintevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -894,13 +900,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_moveevent_isbase) {
             kaboutplugindialog_moveevent_isbase = false;
             KAboutPluginDialog::moveEvent(event);
-        } else if (kaboutplugindialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kaboutplugindialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kaboutplugindialog_moveevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -908,13 +917,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_tabletevent_isbase) {
             kaboutplugindialog_tabletevent_isbase = false;
             KAboutPluginDialog::tabletEvent(event);
-        } else if (kaboutplugindialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kaboutplugindialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kaboutplugindialog_tabletevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -922,13 +934,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_actionevent_isbase) {
             kaboutplugindialog_actionevent_isbase = false;
             KAboutPluginDialog::actionEvent(event);
-        } else if (kaboutplugindialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kaboutplugindialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kaboutplugindialog_actionevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -936,13 +951,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_dragenterevent_isbase) {
             kaboutplugindialog_dragenterevent_isbase = false;
             KAboutPluginDialog::dragEnterEvent(event);
-        } else if (kaboutplugindialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kaboutplugindialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kaboutplugindialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -950,13 +968,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_dragmoveevent_isbase) {
             kaboutplugindialog_dragmoveevent_isbase = false;
             KAboutPluginDialog::dragMoveEvent(event);
-        } else if (kaboutplugindialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kaboutplugindialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kaboutplugindialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -964,13 +985,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_dragleaveevent_isbase) {
             kaboutplugindialog_dragleaveevent_isbase = false;
             KAboutPluginDialog::dragLeaveEvent(event);
-        } else if (kaboutplugindialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kaboutplugindialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kaboutplugindialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -978,13 +1002,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_dropevent_isbase) {
             kaboutplugindialog_dropevent_isbase = false;
             KAboutPluginDialog::dropEvent(event);
-        } else if (kaboutplugindialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kaboutplugindialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kaboutplugindialog_dropevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,13 +1019,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_hideevent_isbase) {
             kaboutplugindialog_hideevent_isbase = false;
             KAboutPluginDialog::hideEvent(event);
-        } else if (kaboutplugindialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kaboutplugindialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kaboutplugindialog_hideevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,7 +1036,9 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_nativeevent_isbase) {
             kaboutplugindialog_nativeevent_isbase = false;
             return KAboutPluginDialog::nativeEvent(eventType, message, result);
-        } else if (kaboutplugindialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kaboutplugindialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1017,12 +1049,11 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kaboutplugindialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KAboutPluginDialog::nativeEvent(eventType, message, result);
         }
+        return KAboutPluginDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1030,13 +1061,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_changeevent_isbase) {
             kaboutplugindialog_changeevent_isbase = false;
             KAboutPluginDialog::changeEvent(param1);
-        } else if (kaboutplugindialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kaboutplugindialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kaboutplugindialog_changeevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,14 +1078,15 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_metric_isbase) {
             kaboutplugindialog_metric_isbase = false;
             return KAboutPluginDialog::metric(param1);
-        } else if (kaboutplugindialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kaboutplugindialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kaboutplugindialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAboutPluginDialog::metric(param1);
         }
+        return KAboutPluginDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,13 +1094,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_initpainter_isbase) {
             kaboutplugindialog_initpainter_isbase = false;
             KAboutPluginDialog::initPainter(painter);
-        } else if (kaboutplugindialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kaboutplugindialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kaboutplugindialog_initpainter_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1073,14 +1111,15 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_redirected_isbase) {
             kaboutplugindialog_redirected_isbase = false;
             return KAboutPluginDialog::redirected(offset);
-        } else if (kaboutplugindialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kaboutplugindialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kaboutplugindialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAboutPluginDialog::redirected(offset);
         }
+        return KAboutPluginDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,12 +1127,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_sharedpainter_isbase) {
             kaboutplugindialog_sharedpainter_isbase = false;
             return KAboutPluginDialog::sharedPainter();
-        } else if (kaboutplugindialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kaboutplugindialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KAboutPluginDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kaboutplugindialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KAboutPluginDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1141,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_inputmethodevent_isbase) {
             kaboutplugindialog_inputmethodevent_isbase = false;
             KAboutPluginDialog::inputMethodEvent(param1);
-        } else if (kaboutplugindialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kaboutplugindialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kaboutplugindialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,14 +1158,15 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_inputmethodquery_isbase) {
             kaboutplugindialog_inputmethodquery_isbase = false;
             return KAboutPluginDialog::inputMethodQuery(param1);
-        } else if (kaboutplugindialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kaboutplugindialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kaboutplugindialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KAboutPluginDialog::inputMethodQuery(param1);
         }
+        return KAboutPluginDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,14 +1174,15 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_focusnextprevchild_isbase) {
             kaboutplugindialog_focusnextprevchild_isbase = false;
             return KAboutPluginDialog::focusNextPrevChild(next);
-        } else if (kaboutplugindialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kaboutplugindialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kaboutplugindialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAboutPluginDialog::focusNextPrevChild(next);
         }
+        return KAboutPluginDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1145,13 +1190,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_timerevent_isbase) {
             kaboutplugindialog_timerevent_isbase = false;
             KAboutPluginDialog::timerEvent(event);
-        } else if (kaboutplugindialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kaboutplugindialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kaboutplugindialog_timerevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,13 +1207,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_childevent_isbase) {
             kaboutplugindialog_childevent_isbase = false;
             KAboutPluginDialog::childEvent(event);
-        } else if (kaboutplugindialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kaboutplugindialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kaboutplugindialog_childevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1173,13 +1224,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_customevent_isbase) {
             kaboutplugindialog_customevent_isbase = false;
             KAboutPluginDialog::customEvent(event);
-        } else if (kaboutplugindialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kaboutplugindialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kaboutplugindialog_customevent_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,15 +1241,18 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_connectnotify_isbase) {
             kaboutplugindialog_connectnotify_isbase = false;
             KAboutPluginDialog::connectNotify(signal);
-        } else if (kaboutplugindialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kaboutplugindialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kaboutplugindialog_connectnotify_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,15 +1260,18 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_disconnectnotify_isbase) {
             kaboutplugindialog_disconnectnotify_isbase = false;
             KAboutPluginDialog::disconnectNotify(signal);
-        } else if (kaboutplugindialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kaboutplugindialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kaboutplugindialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,13 +1279,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_adjustposition_isbase) {
             kaboutplugindialog_adjustposition_isbase = false;
             KAboutPluginDialog::adjustPosition(param1);
-        } else if (kaboutplugindialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kaboutplugindialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kaboutplugindialog_adjustposition_callback(this, cbval1);
-        } else {
-            KAboutPluginDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KAboutPluginDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,11 +1296,14 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_updatemicrofocus_isbase) {
             kaboutplugindialog_updatemicrofocus_isbase = false;
             KAboutPluginDialog::updateMicroFocus();
-        } else if (kaboutplugindialog_updatemicrofocus_callback != nullptr) {
-            kaboutplugindialog_updatemicrofocus_callback();
-        } else {
-            KAboutPluginDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kaboutplugindialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KAboutPluginDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,11 +1311,14 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_create_isbase) {
             kaboutplugindialog_create_isbase = false;
             KAboutPluginDialog::create();
-        } else if (kaboutplugindialog_create_callback != nullptr) {
-            kaboutplugindialog_create_callback();
-        } else {
-            KAboutPluginDialog::create();
+            return;
         }
+        auto create_cb = kaboutplugindialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KAboutPluginDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,11 +1326,14 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_destroy_isbase) {
             kaboutplugindialog_destroy_isbase = false;
             KAboutPluginDialog::destroy();
-        } else if (kaboutplugindialog_destroy_callback != nullptr) {
-            kaboutplugindialog_destroy_callback();
-        } else {
-            KAboutPluginDialog::destroy();
+            return;
         }
+        auto destroy_cb = kaboutplugindialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KAboutPluginDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,12 +1341,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_focusnextchild_isbase) {
             kaboutplugindialog_focusnextchild_isbase = false;
             return KAboutPluginDialog::focusNextChild();
-        } else if (kaboutplugindialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kaboutplugindialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KAboutPluginDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kaboutplugindialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KAboutPluginDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,12 +1355,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_focuspreviouschild_isbase) {
             kaboutplugindialog_focuspreviouschild_isbase = false;
             return KAboutPluginDialog::focusPreviousChild();
-        } else if (kaboutplugindialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kaboutplugindialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KAboutPluginDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kaboutplugindialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KAboutPluginDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,12 +1369,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_sender_isbase) {
             kaboutplugindialog_sender_isbase = false;
             return KAboutPluginDialog::sender();
-        } else if (kaboutplugindialog_sender_callback != nullptr) {
-            QObject* callback_ret = kaboutplugindialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KAboutPluginDialog::sender();
         }
+        auto sender_cb = kaboutplugindialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KAboutPluginDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,12 +1383,13 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_sendersignalindex_isbase) {
             kaboutplugindialog_sendersignalindex_isbase = false;
             return KAboutPluginDialog::senderSignalIndex();
-        } else if (kaboutplugindialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kaboutplugindialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAboutPluginDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kaboutplugindialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAboutPluginDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,14 +1397,15 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_receivers_isbase) {
             kaboutplugindialog_receivers_isbase = false;
             return KAboutPluginDialog::receivers(signal);
-        } else if (kaboutplugindialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kaboutplugindialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kaboutplugindialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAboutPluginDialog::receivers(signal);
         }
+        return KAboutPluginDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,16 +1413,17 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_issignalconnected_isbase) {
             kaboutplugindialog_issignalconnected_isbase = false;
             return KAboutPluginDialog::isSignalConnected(signal);
-        } else if (kaboutplugindialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kaboutplugindialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kaboutplugindialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAboutPluginDialog::isSignalConnected(signal);
         }
+        return KAboutPluginDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,15 +1431,16 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
         if (kaboutplugindialog_getdecodedmetricf_isbase) {
             kaboutplugindialog_getdecodedmetricf_isbase = false;
             return KAboutPluginDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kaboutplugindialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kaboutplugindialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kaboutplugindialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KAboutPluginDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KAboutPluginDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

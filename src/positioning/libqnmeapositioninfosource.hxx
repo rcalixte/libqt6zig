@@ -111,37 +111,6 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
     VirtualQNmeaPositionInfoSource(QNmeaPositionInfoSource::UpdateMode updateMode) : QNmeaPositionInfoSource(updateMode) {};
     VirtualQNmeaPositionInfoSource(QNmeaPositionInfoSource::UpdateMode updateMode, QObject* parent) : QNmeaPositionInfoSource(updateMode, parent) {};
 
-    ~VirtualQNmeaPositionInfoSource() {
-        qnmeapositioninfosource_metaobject_callback = nullptr;
-        qnmeapositioninfosource_metacast_callback = nullptr;
-        qnmeapositioninfosource_metacall_callback = nullptr;
-        qnmeapositioninfosource_setupdateinterval_callback = nullptr;
-        qnmeapositioninfosource_lastknownposition_callback = nullptr;
-        qnmeapositioninfosource_supportedpositioningmethods_callback = nullptr;
-        qnmeapositioninfosource_minimumupdateinterval_callback = nullptr;
-        qnmeapositioninfosource_error_callback = nullptr;
-        qnmeapositioninfosource_startupdates_callback = nullptr;
-        qnmeapositioninfosource_stopupdates_callback = nullptr;
-        qnmeapositioninfosource_requestupdate_callback = nullptr;
-        qnmeapositioninfosource_parseposinfofromnmeadata_callback = nullptr;
-        qnmeapositioninfosource_setpreferredpositioningmethods_callback = nullptr;
-        qnmeapositioninfosource_setbackendproperty_callback = nullptr;
-        qnmeapositioninfosource_backendproperty_callback = nullptr;
-        qnmeapositioninfosource_event_callback = nullptr;
-        qnmeapositioninfosource_eventfilter_callback = nullptr;
-        qnmeapositioninfosource_timerevent_callback = nullptr;
-        qnmeapositioninfosource_childevent_callback = nullptr;
-        qnmeapositioninfosource_customevent_callback = nullptr;
-        qnmeapositioninfosource_connectnotify_callback = nullptr;
-        qnmeapositioninfosource_disconnectnotify_callback = nullptr;
-        qnmeapositioninfosource_parseposinfofromnmeadata2_callback = nullptr;
-        qnmeapositioninfosource_seterror_callback = nullptr;
-        qnmeapositioninfosource_sender_callback = nullptr;
-        qnmeapositioninfosource_sendersignalindex_callback = nullptr;
-        qnmeapositioninfosource_receivers_callback = nullptr;
-        qnmeapositioninfosource_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQNmeaPositionInfoSource_MetaObject_Callback(QNmeaPositionInfoSource_MetaObject_Callback cb) { qnmeapositioninfosource_metaobject_callback = cb; }
     inline void setQNmeaPositionInfoSource_Metacast_Callback(QNmeaPositionInfoSource_Metacast_Callback cb) { qnmeapositioninfosource_metacast_callback = cb; }
@@ -207,12 +176,13 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_metaobject_isbase) {
             qnmeapositioninfosource_metaobject_isbase = false;
             return QNmeaPositionInfoSource::metaObject();
-        } else if (qnmeapositioninfosource_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qnmeapositioninfosource_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::metaObject();
         }
+        auto metaobject_cb = qnmeapositioninfosource_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QNmeaPositionInfoSource::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -220,14 +190,15 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_metacast_isbase) {
             qnmeapositioninfosource_metacast_isbase = false;
             return QNmeaPositionInfoSource::qt_metacast(param1);
-        } else if (qnmeapositioninfosource_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qnmeapositioninfosource_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qnmeapositioninfosource_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::qt_metacast(param1);
         }
+        return QNmeaPositionInfoSource::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -235,16 +206,17 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_metacall_isbase) {
             qnmeapositioninfosource_metacall_isbase = false;
             return QNmeaPositionInfoSource::qt_metacall(param1, param2, param3);
-        } else if (qnmeapositioninfosource_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qnmeapositioninfosource_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qnmeapositioninfosource_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QNmeaPositionInfoSource::qt_metacall(param1, param2, param3);
         }
+        return QNmeaPositionInfoSource::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -252,13 +224,16 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_setupdateinterval_isbase) {
             qnmeapositioninfosource_setupdateinterval_isbase = false;
             QNmeaPositionInfoSource::setUpdateInterval(msec);
-        } else if (qnmeapositioninfosource_setupdateinterval_callback != nullptr) {
+            return;
+        }
+        auto setupdateinterval_cb = qnmeapositioninfosource_setupdateinterval_callback;
+        if (setupdateinterval_cb) {
             int cbval1 = msec;
 
-            qnmeapositioninfosource_setupdateinterval_callback(this, cbval1);
-        } else {
-            QNmeaPositionInfoSource::setUpdateInterval(msec);
+            setupdateinterval_cb(this, cbval1);
+            return;
         }
+        QNmeaPositionInfoSource::setUpdateInterval(msec);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -266,14 +241,15 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_lastknownposition_isbase) {
             qnmeapositioninfosource_lastknownposition_isbase = false;
             return QNmeaPositionInfoSource::lastKnownPosition(fromSatellitePositioningMethodsOnly);
-        } else if (qnmeapositioninfosource_lastknownposition_callback != nullptr) {
+        }
+        auto lastknownposition_cb = qnmeapositioninfosource_lastknownposition_callback;
+        if (lastknownposition_cb) {
             bool cbval1 = fromSatellitePositioningMethodsOnly;
 
-            QGeoPositionInfo* callback_ret = qnmeapositioninfosource_lastknownposition_callback(this, cbval1);
+            QGeoPositionInfo* callback_ret = lastknownposition_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::lastKnownPosition(fromSatellitePositioningMethodsOnly);
         }
+        return QNmeaPositionInfoSource::lastKnownPosition(fromSatellitePositioningMethodsOnly);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -281,12 +257,13 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_supportedpositioningmethods_isbase) {
             qnmeapositioninfosource_supportedpositioningmethods_isbase = false;
             return QNmeaPositionInfoSource::supportedPositioningMethods();
-        } else if (qnmeapositioninfosource_supportedpositioningmethods_callback != nullptr) {
-            int callback_ret = qnmeapositioninfosource_supportedpositioningmethods_callback();
-            return static_cast<QGeoPositionInfoSource::PositioningMethods>(callback_ret);
-        } else {
-            return QNmeaPositionInfoSource::supportedPositioningMethods();
         }
+        auto supportedpositioningmethods_cb = qnmeapositioninfosource_supportedpositioningmethods_callback;
+        if (supportedpositioningmethods_cb) {
+            int callback_ret = supportedpositioningmethods_cb();
+            return static_cast<QGeoPositionInfoSource::PositioningMethods>(callback_ret);
+        }
+        return QNmeaPositionInfoSource::supportedPositioningMethods();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -294,12 +271,13 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_minimumupdateinterval_isbase) {
             qnmeapositioninfosource_minimumupdateinterval_isbase = false;
             return QNmeaPositionInfoSource::minimumUpdateInterval();
-        } else if (qnmeapositioninfosource_minimumupdateinterval_callback != nullptr) {
-            int callback_ret = qnmeapositioninfosource_minimumupdateinterval_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QNmeaPositionInfoSource::minimumUpdateInterval();
         }
+        auto minimumupdateinterval_cb = qnmeapositioninfosource_minimumupdateinterval_callback;
+        if (minimumupdateinterval_cb) {
+            int callback_ret = minimumupdateinterval_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QNmeaPositionInfoSource::minimumUpdateInterval();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -307,12 +285,13 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_error_isbase) {
             qnmeapositioninfosource_error_isbase = false;
             return QNmeaPositionInfoSource::error();
-        } else if (qnmeapositioninfosource_error_callback != nullptr) {
-            int callback_ret = qnmeapositioninfosource_error_callback();
-            return static_cast<QGeoPositionInfoSource::Error>(callback_ret);
-        } else {
-            return QNmeaPositionInfoSource::error();
         }
+        auto error_cb = qnmeapositioninfosource_error_callback;
+        if (error_cb) {
+            int callback_ret = error_cb();
+            return static_cast<QGeoPositionInfoSource::Error>(callback_ret);
+        }
+        return QNmeaPositionInfoSource::error();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,11 +299,14 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_startupdates_isbase) {
             qnmeapositioninfosource_startupdates_isbase = false;
             QNmeaPositionInfoSource::startUpdates();
-        } else if (qnmeapositioninfosource_startupdates_callback != nullptr) {
-            qnmeapositioninfosource_startupdates_callback();
-        } else {
-            QNmeaPositionInfoSource::startUpdates();
+            return;
         }
+        auto startupdates_cb = qnmeapositioninfosource_startupdates_callback;
+        if (startupdates_cb) {
+            startupdates_cb();
+            return;
+        }
+        QNmeaPositionInfoSource::startUpdates();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,11 +314,14 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_stopupdates_isbase) {
             qnmeapositioninfosource_stopupdates_isbase = false;
             QNmeaPositionInfoSource::stopUpdates();
-        } else if (qnmeapositioninfosource_stopupdates_callback != nullptr) {
-            qnmeapositioninfosource_stopupdates_callback();
-        } else {
-            QNmeaPositionInfoSource::stopUpdates();
+            return;
         }
+        auto stopupdates_cb = qnmeapositioninfosource_stopupdates_callback;
+        if (stopupdates_cb) {
+            stopupdates_cb();
+            return;
+        }
+        QNmeaPositionInfoSource::stopUpdates();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -344,13 +329,16 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_requestupdate_isbase) {
             qnmeapositioninfosource_requestupdate_isbase = false;
             QNmeaPositionInfoSource::requestUpdate(timeout);
-        } else if (qnmeapositioninfosource_requestupdate_callback != nullptr) {
+            return;
+        }
+        auto requestupdate_cb = qnmeapositioninfosource_requestupdate_callback;
+        if (requestupdate_cb) {
             int cbval1 = timeout;
 
-            qnmeapositioninfosource_requestupdate_callback(this, cbval1);
-        } else {
-            QNmeaPositionInfoSource::requestUpdate(timeout);
+            requestupdate_cb(this, cbval1);
+            return;
         }
+        QNmeaPositionInfoSource::requestUpdate(timeout);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,17 +346,18 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_parseposinfofromnmeadata_isbase) {
             qnmeapositioninfosource_parseposinfofromnmeadata_isbase = false;
             return QNmeaPositionInfoSource::parsePosInfoFromNmeaData(data, size, posInfo, hasFix);
-        } else if (qnmeapositioninfosource_parseposinfofromnmeadata_callback != nullptr) {
+        }
+        auto parseposinfofromnmeadata_cb = qnmeapositioninfosource_parseposinfofromnmeadata_callback;
+        if (parseposinfofromnmeadata_cb) {
             const char* cbval1 = (const char*)data;
             int cbval2 = size;
             QGeoPositionInfo* cbval3 = posInfo;
             bool* cbval4 = hasFix;
 
-            bool callback_ret = qnmeapositioninfosource_parseposinfofromnmeadata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = parseposinfofromnmeadata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::parsePosInfoFromNmeaData(data, size, posInfo, hasFix);
         }
+        return QNmeaPositionInfoSource::parsePosInfoFromNmeaData(data, size, posInfo, hasFix);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -376,13 +365,16 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_setpreferredpositioningmethods_isbase) {
             qnmeapositioninfosource_setpreferredpositioningmethods_isbase = false;
             QNmeaPositionInfoSource::setPreferredPositioningMethods(methods);
-        } else if (qnmeapositioninfosource_setpreferredpositioningmethods_callback != nullptr) {
+            return;
+        }
+        auto setpreferredpositioningmethods_cb = qnmeapositioninfosource_setpreferredpositioningmethods_callback;
+        if (setpreferredpositioningmethods_cb) {
             int cbval1 = static_cast<int>(methods);
 
-            qnmeapositioninfosource_setpreferredpositioningmethods_callback(this, cbval1);
-        } else {
-            QNmeaPositionInfoSource::setPreferredPositioningMethods(methods);
+            setpreferredpositioningmethods_cb(this, cbval1);
+            return;
         }
+        QNmeaPositionInfoSource::setPreferredPositioningMethods(methods);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,7 +382,9 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_setbackendproperty_isbase) {
             qnmeapositioninfosource_setbackendproperty_isbase = false;
             return QNmeaPositionInfoSource::setBackendProperty(name, value);
-        } else if (qnmeapositioninfosource_setbackendproperty_callback != nullptr) {
+        }
+        auto setbackendproperty_cb = qnmeapositioninfosource_setbackendproperty_callback;
+        if (setbackendproperty_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -403,12 +397,11 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            bool callback_ret = qnmeapositioninfosource_setbackendproperty_callback(this, cbval1, cbval2);
+            bool callback_ret = setbackendproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::setBackendProperty(name, value);
         }
+        return QNmeaPositionInfoSource::setBackendProperty(name, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -416,7 +409,9 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_backendproperty_isbase) {
             qnmeapositioninfosource_backendproperty_isbase = false;
             return QNmeaPositionInfoSource::backendProperty(name);
-        } else if (qnmeapositioninfosource_backendproperty_callback != nullptr) {
+        }
+        auto backendproperty_cb = qnmeapositioninfosource_backendproperty_callback;
+        if (backendproperty_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -426,12 +421,11 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            QVariant* callback_ret = qnmeapositioninfosource_backendproperty_callback(this, cbval1);
+            QVariant* callback_ret = backendproperty_cb(this, cbval1);
             libqt_free(name_str);
             return *callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::backendProperty(name);
         }
+        return QNmeaPositionInfoSource::backendProperty(name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,14 +433,15 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_event_isbase) {
             qnmeapositioninfosource_event_isbase = false;
             return QNmeaPositionInfoSource::event(event);
-        } else if (qnmeapositioninfosource_event_callback != nullptr) {
+        }
+        auto event_cb = qnmeapositioninfosource_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qnmeapositioninfosource_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::event(event);
         }
+        return QNmeaPositionInfoSource::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,15 +449,16 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_eventfilter_isbase) {
             qnmeapositioninfosource_eventfilter_isbase = false;
             return QNmeaPositionInfoSource::eventFilter(watched, event);
-        } else if (qnmeapositioninfosource_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qnmeapositioninfosource_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qnmeapositioninfosource_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::eventFilter(watched, event);
         }
+        return QNmeaPositionInfoSource::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,13 +466,16 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_timerevent_isbase) {
             qnmeapositioninfosource_timerevent_isbase = false;
             QNmeaPositionInfoSource::timerEvent(event);
-        } else if (qnmeapositioninfosource_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qnmeapositioninfosource_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qnmeapositioninfosource_timerevent_callback(this, cbval1);
-        } else {
-            QNmeaPositionInfoSource::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QNmeaPositionInfoSource::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,13 +483,16 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_childevent_isbase) {
             qnmeapositioninfosource_childevent_isbase = false;
             QNmeaPositionInfoSource::childEvent(event);
-        } else if (qnmeapositioninfosource_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qnmeapositioninfosource_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qnmeapositioninfosource_childevent_callback(this, cbval1);
-        } else {
-            QNmeaPositionInfoSource::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QNmeaPositionInfoSource::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,13 +500,16 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_customevent_isbase) {
             qnmeapositioninfosource_customevent_isbase = false;
             QNmeaPositionInfoSource::customEvent(event);
-        } else if (qnmeapositioninfosource_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qnmeapositioninfosource_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qnmeapositioninfosource_customevent_callback(this, cbval1);
-        } else {
-            QNmeaPositionInfoSource::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QNmeaPositionInfoSource::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,15 +517,18 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_connectnotify_isbase) {
             qnmeapositioninfosource_connectnotify_isbase = false;
             QNmeaPositionInfoSource::connectNotify(signal);
-        } else if (qnmeapositioninfosource_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qnmeapositioninfosource_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qnmeapositioninfosource_connectnotify_callback(this, cbval1);
-        } else {
-            QNmeaPositionInfoSource::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QNmeaPositionInfoSource::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,15 +536,18 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_disconnectnotify_isbase) {
             qnmeapositioninfosource_disconnectnotify_isbase = false;
             QNmeaPositionInfoSource::disconnectNotify(signal);
-        } else if (qnmeapositioninfosource_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qnmeapositioninfosource_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qnmeapositioninfosource_disconnectnotify_callback(this, cbval1);
-        } else {
-            QNmeaPositionInfoSource::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QNmeaPositionInfoSource::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -544,7 +555,9 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_parseposinfofromnmeadata2_isbase) {
             qnmeapositioninfosource_parseposinfofromnmeadata2_isbase = false;
             return QNmeaPositionInfoSource::parsePosInfoFromNmeaData(data, posInfo, hasFix);
-        } else if (qnmeapositioninfosource_parseposinfofromnmeadata2_callback != nullptr) {
+        }
+        auto parseposinfofromnmeadata2_cb = qnmeapositioninfosource_parseposinfofromnmeadata2_callback;
+        if (parseposinfofromnmeadata2_cb) {
             QByteArrayView data_qb = data;
             libqt_string data_str;
             data_str.len = data_qb.length();
@@ -554,12 +567,11 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
             QGeoPositionInfo* cbval2 = posInfo;
             bool* cbval3 = hasFix;
 
-            bool callback_ret = qnmeapositioninfosource_parseposinfofromnmeadata2_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = parseposinfofromnmeadata2_cb(this, cbval1, cbval2, cbval3);
             libqt_free(data_str.data);
             return callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::parsePosInfoFromNmeaData(data, posInfo, hasFix);
         }
+        return QNmeaPositionInfoSource::parsePosInfoFromNmeaData(data, posInfo, hasFix);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,13 +579,16 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_seterror_isbase) {
             qnmeapositioninfosource_seterror_isbase = false;
             QNmeaPositionInfoSource::setError(positionError);
-        } else if (qnmeapositioninfosource_seterror_callback != nullptr) {
+            return;
+        }
+        auto seterror_cb = qnmeapositioninfosource_seterror_callback;
+        if (seterror_cb) {
             int cbval1 = static_cast<int>(positionError);
 
-            qnmeapositioninfosource_seterror_callback(this, cbval1);
-        } else {
-            QNmeaPositionInfoSource::setError(positionError);
+            seterror_cb(this, cbval1);
+            return;
         }
+        QNmeaPositionInfoSource::setError(positionError);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,12 +596,13 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_sender_isbase) {
             qnmeapositioninfosource_sender_isbase = false;
             return QNmeaPositionInfoSource::sender();
-        } else if (qnmeapositioninfosource_sender_callback != nullptr) {
-            QObject* callback_ret = qnmeapositioninfosource_sender_callback();
-            return callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::sender();
         }
+        auto sender_cb = qnmeapositioninfosource_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QNmeaPositionInfoSource::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,12 +610,13 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_sendersignalindex_isbase) {
             qnmeapositioninfosource_sendersignalindex_isbase = false;
             return QNmeaPositionInfoSource::senderSignalIndex();
-        } else if (qnmeapositioninfosource_sendersignalindex_callback != nullptr) {
-            int callback_ret = qnmeapositioninfosource_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QNmeaPositionInfoSource::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qnmeapositioninfosource_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QNmeaPositionInfoSource::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,14 +624,15 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_receivers_isbase) {
             qnmeapositioninfosource_receivers_isbase = false;
             return QNmeaPositionInfoSource::receivers(signal);
-        } else if (qnmeapositioninfosource_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qnmeapositioninfosource_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qnmeapositioninfosource_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QNmeaPositionInfoSource::receivers(signal);
         }
+        return QNmeaPositionInfoSource::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,16 +640,17 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
         if (qnmeapositioninfosource_issignalconnected_isbase) {
             qnmeapositioninfosource_issignalconnected_isbase = false;
             return QNmeaPositionInfoSource::isSignalConnected(signal);
-        } else if (qnmeapositioninfosource_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qnmeapositioninfosource_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qnmeapositioninfosource_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNmeaPositionInfoSource::isSignalConnected(signal);
         }
+        return QNmeaPositionInfoSource::isSignalConnected(signal);
     }
 
     // Friend functions

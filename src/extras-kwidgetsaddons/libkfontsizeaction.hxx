@@ -91,30 +91,6 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
     VirtualKFontSizeAction(const QString& text, QObject* parent) : KFontSizeAction(text, parent) {};
     VirtualKFontSizeAction(const QIcon& icon, const QString& text, QObject* parent) : KFontSizeAction(icon, text, parent) {};
 
-    ~VirtualKFontSizeAction() {
-        kfontsizeaction_metaobject_callback = nullptr;
-        kfontsizeaction_metacast_callback = nullptr;
-        kfontsizeaction_metacall_callback = nullptr;
-        kfontsizeaction_slotactiontriggered_callback = nullptr;
-        kfontsizeaction_removeaction_callback = nullptr;
-        kfontsizeaction_insertaction_callback = nullptr;
-        kfontsizeaction_createwidget_callback = nullptr;
-        kfontsizeaction_deletewidget_callback = nullptr;
-        kfontsizeaction_event_callback = nullptr;
-        kfontsizeaction_eventfilter_callback = nullptr;
-        kfontsizeaction_timerevent_callback = nullptr;
-        kfontsizeaction_childevent_callback = nullptr;
-        kfontsizeaction_customevent_callback = nullptr;
-        kfontsizeaction_connectnotify_callback = nullptr;
-        kfontsizeaction_disconnectnotify_callback = nullptr;
-        kfontsizeaction_slottoggled_callback = nullptr;
-        kfontsizeaction_createdwidgets_callback = nullptr;
-        kfontsizeaction_sender_callback = nullptr;
-        kfontsizeaction_sendersignalindex_callback = nullptr;
-        kfontsizeaction_receivers_callback = nullptr;
-        kfontsizeaction_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFontSizeAction_MetaObject_Callback(KFontSizeAction_MetaObject_Callback cb) { kfontsizeaction_metaobject_callback = cb; }
     inline void setKFontSizeAction_Metacast_Callback(KFontSizeAction_Metacast_Callback cb) { kfontsizeaction_metacast_callback = cb; }
@@ -166,12 +142,13 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_metaobject_isbase) {
             kfontsizeaction_metaobject_isbase = false;
             return KFontSizeAction::metaObject();
-        } else if (kfontsizeaction_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfontsizeaction_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFontSizeAction::metaObject();
         }
+        auto metaobject_cb = kfontsizeaction_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFontSizeAction::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -179,14 +156,15 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_metacast_isbase) {
             kfontsizeaction_metacast_isbase = false;
             return KFontSizeAction::qt_metacast(param1);
-        } else if (kfontsizeaction_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfontsizeaction_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfontsizeaction_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFontSizeAction::qt_metacast(param1);
         }
+        return KFontSizeAction::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,16 +172,17 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_metacall_isbase) {
             kfontsizeaction_metacall_isbase = false;
             return KFontSizeAction::qt_metacall(param1, param2, param3);
-        } else if (kfontsizeaction_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfontsizeaction_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfontsizeaction_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFontSizeAction::qt_metacall(param1, param2, param3);
         }
+        return KFontSizeAction::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,13 +190,16 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_slotactiontriggered_isbase) {
             kfontsizeaction_slotactiontriggered_isbase = false;
             KFontSizeAction::slotActionTriggered(action);
-        } else if (kfontsizeaction_slotactiontriggered_callback != nullptr) {
+            return;
+        }
+        auto slotactiontriggered_cb = kfontsizeaction_slotactiontriggered_callback;
+        if (slotactiontriggered_cb) {
             QAction* cbval1 = action;
 
-            kfontsizeaction_slotactiontriggered_callback(this, cbval1);
-        } else {
-            KFontSizeAction::slotActionTriggered(action);
+            slotactiontriggered_cb(this, cbval1);
+            return;
         }
+        KFontSizeAction::slotActionTriggered(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -225,14 +207,15 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_removeaction_isbase) {
             kfontsizeaction_removeaction_isbase = false;
             return KFontSizeAction::removeAction(action);
-        } else if (kfontsizeaction_removeaction_callback != nullptr) {
+        }
+        auto removeaction_cb = kfontsizeaction_removeaction_callback;
+        if (removeaction_cb) {
             QAction* cbval1 = action;
 
-            QAction* callback_ret = kfontsizeaction_removeaction_callback(this, cbval1);
+            QAction* callback_ret = removeaction_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFontSizeAction::removeAction(action);
         }
+        return KFontSizeAction::removeAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,14 +223,17 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_insertaction_isbase) {
             kfontsizeaction_insertaction_isbase = false;
             KFontSizeAction::insertAction(before, action);
-        } else if (kfontsizeaction_insertaction_callback != nullptr) {
+            return;
+        }
+        auto insertaction_cb = kfontsizeaction_insertaction_callback;
+        if (insertaction_cb) {
             QAction* cbval1 = before;
             QAction* cbval2 = action;
 
-            kfontsizeaction_insertaction_callback(this, cbval1, cbval2);
-        } else {
-            KFontSizeAction::insertAction(before, action);
+            insertaction_cb(this, cbval1, cbval2);
+            return;
         }
+        KFontSizeAction::insertAction(before, action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -255,14 +241,15 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_createwidget_isbase) {
             kfontsizeaction_createwidget_isbase = false;
             return KFontSizeAction::createWidget(parent);
-        } else if (kfontsizeaction_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = kfontsizeaction_createwidget_callback;
+        if (createwidget_cb) {
             QWidget* cbval1 = parent;
 
-            QWidget* callback_ret = kfontsizeaction_createwidget_callback(this, cbval1);
+            QWidget* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFontSizeAction::createWidget(parent);
         }
+        return KFontSizeAction::createWidget(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,13 +257,16 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_deletewidget_isbase) {
             kfontsizeaction_deletewidget_isbase = false;
             KFontSizeAction::deleteWidget(widget);
-        } else if (kfontsizeaction_deletewidget_callback != nullptr) {
+            return;
+        }
+        auto deletewidget_cb = kfontsizeaction_deletewidget_callback;
+        if (deletewidget_cb) {
             QWidget* cbval1 = widget;
 
-            kfontsizeaction_deletewidget_callback(this, cbval1);
-        } else {
-            KFontSizeAction::deleteWidget(widget);
+            deletewidget_cb(this, cbval1);
+            return;
         }
+        KFontSizeAction::deleteWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -284,14 +274,15 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_event_isbase) {
             kfontsizeaction_event_isbase = false;
             return KFontSizeAction::event(event);
-        } else if (kfontsizeaction_event_callback != nullptr) {
+        }
+        auto event_cb = kfontsizeaction_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfontsizeaction_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFontSizeAction::event(event);
         }
+        return KFontSizeAction::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,15 +290,16 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_eventfilter_isbase) {
             kfontsizeaction_eventfilter_isbase = false;
             return KFontSizeAction::eventFilter(watched, event);
-        } else if (kfontsizeaction_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfontsizeaction_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kfontsizeaction_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFontSizeAction::eventFilter(watched, event);
         }
+        return KFontSizeAction::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,13 +307,16 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_timerevent_isbase) {
             kfontsizeaction_timerevent_isbase = false;
             KFontSizeAction::timerEvent(event);
-        } else if (kfontsizeaction_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfontsizeaction_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfontsizeaction_timerevent_callback(this, cbval1);
-        } else {
-            KFontSizeAction::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFontSizeAction::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,13 +324,16 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_childevent_isbase) {
             kfontsizeaction_childevent_isbase = false;
             KFontSizeAction::childEvent(event);
-        } else if (kfontsizeaction_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfontsizeaction_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfontsizeaction_childevent_callback(this, cbval1);
-        } else {
-            KFontSizeAction::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFontSizeAction::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,13 +341,16 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_customevent_isbase) {
             kfontsizeaction_customevent_isbase = false;
             KFontSizeAction::customEvent(event);
-        } else if (kfontsizeaction_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfontsizeaction_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfontsizeaction_customevent_callback(this, cbval1);
-        } else {
-            KFontSizeAction::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFontSizeAction::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,15 +358,18 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_connectnotify_isbase) {
             kfontsizeaction_connectnotify_isbase = false;
             KFontSizeAction::connectNotify(signal);
-        } else if (kfontsizeaction_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfontsizeaction_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfontsizeaction_connectnotify_callback(this, cbval1);
-        } else {
-            KFontSizeAction::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFontSizeAction::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,15 +377,18 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_disconnectnotify_isbase) {
             kfontsizeaction_disconnectnotify_isbase = false;
             KFontSizeAction::disconnectNotify(signal);
-        } else if (kfontsizeaction_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfontsizeaction_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfontsizeaction_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFontSizeAction::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFontSizeAction::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -389,13 +396,16 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_slottoggled_isbase) {
             kfontsizeaction_slottoggled_isbase = false;
             KFontSizeAction::slotToggled(param1);
-        } else if (kfontsizeaction_slottoggled_callback != nullptr) {
+            return;
+        }
+        auto slottoggled_cb = kfontsizeaction_slottoggled_callback;
+        if (slottoggled_cb) {
             bool cbval1 = param1;
 
-            kfontsizeaction_slottoggled_callback(this, cbval1);
-        } else {
-            KFontSizeAction::slotToggled(param1);
+            slottoggled_cb(this, cbval1);
+            return;
         }
+        KFontSizeAction::slotToggled(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -403,8 +413,10 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_createdwidgets_isbase) {
             kfontsizeaction_createdwidgets_isbase = false;
             return KFontSizeAction::createdWidgets();
-        } else if (kfontsizeaction_createdwidgets_callback != nullptr) {
-            libqt_list /* of QWidget* */ callback_ret = kfontsizeaction_createdwidgets_callback();
+        }
+        auto createdwidgets_cb = kfontsizeaction_createdwidgets_callback;
+        if (createdwidgets_cb) {
+            libqt_list /* of QWidget* */ callback_ret = createdwidgets_cb();
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
@@ -413,9 +425,8 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KFontSizeAction::createdWidgets();
         }
+        return KFontSizeAction::createdWidgets();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,12 +434,13 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_sender_isbase) {
             kfontsizeaction_sender_isbase = false;
             return KFontSizeAction::sender();
-        } else if (kfontsizeaction_sender_callback != nullptr) {
-            QObject* callback_ret = kfontsizeaction_sender_callback();
-            return callback_ret;
-        } else {
-            return KFontSizeAction::sender();
         }
+        auto sender_cb = kfontsizeaction_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFontSizeAction::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,12 +448,13 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_sendersignalindex_isbase) {
             kfontsizeaction_sendersignalindex_isbase = false;
             return KFontSizeAction::senderSignalIndex();
-        } else if (kfontsizeaction_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfontsizeaction_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFontSizeAction::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfontsizeaction_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFontSizeAction::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -449,14 +462,15 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_receivers_isbase) {
             kfontsizeaction_receivers_isbase = false;
             return KFontSizeAction::receivers(signal);
-        } else if (kfontsizeaction_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfontsizeaction_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfontsizeaction_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFontSizeAction::receivers(signal);
         }
+        return KFontSizeAction::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,16 +478,17 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
         if (kfontsizeaction_issignalconnected_isbase) {
             kfontsizeaction_issignalconnected_isbase = false;
             return KFontSizeAction::isSignalConnected(signal);
-        } else if (kfontsizeaction_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfontsizeaction_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfontsizeaction_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFontSizeAction::isSignalConnected(signal);
         }
+        return KFontSizeAction::isSignalConnected(signal);
     }
 
     // Friend functions

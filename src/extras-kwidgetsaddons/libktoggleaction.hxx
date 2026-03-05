@@ -73,24 +73,6 @@ class VirtualKToggleAction final : public KToggleAction {
     VirtualKToggleAction(const QString& text, QObject* parent) : KToggleAction(text, parent) {};
     VirtualKToggleAction(const QIcon& icon, const QString& text, QObject* parent) : KToggleAction(icon, text, parent) {};
 
-    ~VirtualKToggleAction() {
-        ktoggleaction_metaobject_callback = nullptr;
-        ktoggleaction_metacast_callback = nullptr;
-        ktoggleaction_metacall_callback = nullptr;
-        ktoggleaction_slottoggled_callback = nullptr;
-        ktoggleaction_event_callback = nullptr;
-        ktoggleaction_eventfilter_callback = nullptr;
-        ktoggleaction_timerevent_callback = nullptr;
-        ktoggleaction_childevent_callback = nullptr;
-        ktoggleaction_customevent_callback = nullptr;
-        ktoggleaction_connectnotify_callback = nullptr;
-        ktoggleaction_disconnectnotify_callback = nullptr;
-        ktoggleaction_sender_callback = nullptr;
-        ktoggleaction_sendersignalindex_callback = nullptr;
-        ktoggleaction_receivers_callback = nullptr;
-        ktoggleaction_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKToggleAction_MetaObject_Callback(KToggleAction_MetaObject_Callback cb) { ktoggleaction_metaobject_callback = cb; }
     inline void setKToggleAction_Metacast_Callback(KToggleAction_Metacast_Callback cb) { ktoggleaction_metacast_callback = cb; }
@@ -130,12 +112,13 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_metaobject_isbase) {
             ktoggleaction_metaobject_isbase = false;
             return KToggleAction::metaObject();
-        } else if (ktoggleaction_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktoggleaction_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KToggleAction::metaObject();
         }
+        auto metaobject_cb = ktoggleaction_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KToggleAction::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -143,14 +126,15 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_metacast_isbase) {
             ktoggleaction_metacast_isbase = false;
             return KToggleAction::qt_metacast(param1);
-        } else if (ktoggleaction_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktoggleaction_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktoggleaction_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToggleAction::qt_metacast(param1);
         }
+        return KToggleAction::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -158,16 +142,17 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_metacall_isbase) {
             ktoggleaction_metacall_isbase = false;
             return KToggleAction::qt_metacall(param1, param2, param3);
-        } else if (ktoggleaction_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktoggleaction_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktoggleaction_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToggleAction::qt_metacall(param1, param2, param3);
         }
+        return KToggleAction::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -175,13 +160,16 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_slottoggled_isbase) {
             ktoggleaction_slottoggled_isbase = false;
             KToggleAction::slotToggled(checked);
-        } else if (ktoggleaction_slottoggled_callback != nullptr) {
+            return;
+        }
+        auto slottoggled_cb = ktoggleaction_slottoggled_callback;
+        if (slottoggled_cb) {
             bool cbval1 = checked;
 
-            ktoggleaction_slottoggled_callback(this, cbval1);
-        } else {
-            KToggleAction::slotToggled(checked);
+            slottoggled_cb(this, cbval1);
+            return;
         }
+        KToggleAction::slotToggled(checked);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -189,14 +177,15 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_event_isbase) {
             ktoggleaction_event_isbase = false;
             return KToggleAction::event(param1);
-        } else if (ktoggleaction_event_callback != nullptr) {
+        }
+        auto event_cb = ktoggleaction_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = ktoggleaction_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToggleAction::event(param1);
         }
+        return KToggleAction::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,15 +193,16 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_eventfilter_isbase) {
             ktoggleaction_eventfilter_isbase = false;
             return KToggleAction::eventFilter(watched, event);
-        } else if (ktoggleaction_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktoggleaction_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ktoggleaction_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KToggleAction::eventFilter(watched, event);
         }
+        return KToggleAction::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -220,13 +210,16 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_timerevent_isbase) {
             ktoggleaction_timerevent_isbase = false;
             KToggleAction::timerEvent(event);
-        } else if (ktoggleaction_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktoggleaction_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktoggleaction_timerevent_callback(this, cbval1);
-        } else {
-            KToggleAction::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KToggleAction::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -234,13 +227,16 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_childevent_isbase) {
             ktoggleaction_childevent_isbase = false;
             KToggleAction::childEvent(event);
-        } else if (ktoggleaction_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktoggleaction_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktoggleaction_childevent_callback(this, cbval1);
-        } else {
-            KToggleAction::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KToggleAction::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -248,13 +244,16 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_customevent_isbase) {
             ktoggleaction_customevent_isbase = false;
             KToggleAction::customEvent(event);
-        } else if (ktoggleaction_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktoggleaction_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktoggleaction_customevent_callback(this, cbval1);
-        } else {
-            KToggleAction::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KToggleAction::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -262,15 +261,18 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_connectnotify_isbase) {
             ktoggleaction_connectnotify_isbase = false;
             KToggleAction::connectNotify(signal);
-        } else if (ktoggleaction_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktoggleaction_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktoggleaction_connectnotify_callback(this, cbval1);
-        } else {
-            KToggleAction::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KToggleAction::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -278,15 +280,18 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_disconnectnotify_isbase) {
             ktoggleaction_disconnectnotify_isbase = false;
             KToggleAction::disconnectNotify(signal);
-        } else if (ktoggleaction_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktoggleaction_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktoggleaction_disconnectnotify_callback(this, cbval1);
-        } else {
-            KToggleAction::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KToggleAction::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -294,12 +299,13 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_sender_isbase) {
             ktoggleaction_sender_isbase = false;
             return KToggleAction::sender();
-        } else if (ktoggleaction_sender_callback != nullptr) {
-            QObject* callback_ret = ktoggleaction_sender_callback();
-            return callback_ret;
-        } else {
-            return KToggleAction::sender();
         }
+        auto sender_cb = ktoggleaction_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KToggleAction::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -307,12 +313,13 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_sendersignalindex_isbase) {
             ktoggleaction_sendersignalindex_isbase = false;
             return KToggleAction::senderSignalIndex();
-        } else if (ktoggleaction_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktoggleaction_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KToggleAction::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktoggleaction_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KToggleAction::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,14 +327,15 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_receivers_isbase) {
             ktoggleaction_receivers_isbase = false;
             return KToggleAction::receivers(signal);
-        } else if (ktoggleaction_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktoggleaction_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktoggleaction_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToggleAction::receivers(signal);
         }
+        return KToggleAction::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,16 +343,17 @@ class VirtualKToggleAction final : public KToggleAction {
         if (ktoggleaction_issignalconnected_isbase) {
             ktoggleaction_issignalconnected_isbase = false;
             return KToggleAction::isSignalConnected(signal);
-        } else if (ktoggleaction_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktoggleaction_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktoggleaction_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToggleAction::isSignalConnected(signal);
         }
+        return KToggleAction::isSignalConnected(signal);
     }
 
     // Friend functions

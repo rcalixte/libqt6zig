@@ -139,46 +139,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
     VirtualQProxyStyle(const QString& key) : QProxyStyle(key) {};
     VirtualQProxyStyle(QStyle* style) : QProxyStyle(style) {};
 
-    ~VirtualQProxyStyle() {
-        qproxystyle_metaobject_callback = nullptr;
-        qproxystyle_metacast_callback = nullptr;
-        qproxystyle_metacall_callback = nullptr;
-        qproxystyle_drawprimitive_callback = nullptr;
-        qproxystyle_drawcontrol_callback = nullptr;
-        qproxystyle_drawcomplexcontrol_callback = nullptr;
-        qproxystyle_drawitemtext_callback = nullptr;
-        qproxystyle_drawitempixmap_callback = nullptr;
-        qproxystyle_sizefromcontents_callback = nullptr;
-        qproxystyle_subelementrect_callback = nullptr;
-        qproxystyle_subcontrolrect_callback = nullptr;
-        qproxystyle_itemtextrect_callback = nullptr;
-        qproxystyle_itempixmaprect_callback = nullptr;
-        qproxystyle_hittestcomplexcontrol_callback = nullptr;
-        qproxystyle_stylehint_callback = nullptr;
-        qproxystyle_pixelmetric_callback = nullptr;
-        qproxystyle_layoutspacing_callback = nullptr;
-        qproxystyle_standardicon_callback = nullptr;
-        qproxystyle_standardpixmap_callback = nullptr;
-        qproxystyle_generatediconpixmap_callback = nullptr;
-        qproxystyle_standardpalette_callback = nullptr;
-        qproxystyle_polish_callback = nullptr;
-        qproxystyle_polish2_callback = nullptr;
-        qproxystyle_polish3_callback = nullptr;
-        qproxystyle_unpolish_callback = nullptr;
-        qproxystyle_unpolish2_callback = nullptr;
-        qproxystyle_event_callback = nullptr;
-        qproxystyle_eventfilter_callback = nullptr;
-        qproxystyle_timerevent_callback = nullptr;
-        qproxystyle_childevent_callback = nullptr;
-        qproxystyle_customevent_callback = nullptr;
-        qproxystyle_connectnotify_callback = nullptr;
-        qproxystyle_disconnectnotify_callback = nullptr;
-        qproxystyle_sender_callback = nullptr;
-        qproxystyle_sendersignalindex_callback = nullptr;
-        qproxystyle_receivers_callback = nullptr;
-        qproxystyle_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQProxyStyle_MetaObject_Callback(QProxyStyle_MetaObject_Callback cb) { qproxystyle_metaobject_callback = cb; }
     inline void setQProxyStyle_Metacast_Callback(QProxyStyle_Metacast_Callback cb) { qproxystyle_metacast_callback = cb; }
@@ -262,12 +222,13 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_metaobject_isbase) {
             qproxystyle_metaobject_isbase = false;
             return QProxyStyle::metaObject();
-        } else if (qproxystyle_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qproxystyle_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QProxyStyle::metaObject();
         }
+        auto metaobject_cb = qproxystyle_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QProxyStyle::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,14 +236,15 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_metacast_isbase) {
             qproxystyle_metacast_isbase = false;
             return QProxyStyle::qt_metacast(param1);
-        } else if (qproxystyle_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qproxystyle_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qproxystyle_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProxyStyle::qt_metacast(param1);
         }
+        return QProxyStyle::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -290,16 +252,17 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_metacall_isbase) {
             qproxystyle_metacall_isbase = false;
             return QProxyStyle::qt_metacall(param1, param2, param3);
-        } else if (qproxystyle_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qproxystyle_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qproxystyle_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProxyStyle::qt_metacall(param1, param2, param3);
         }
+        return QProxyStyle::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -307,16 +270,19 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_drawprimitive_isbase) {
             qproxystyle_drawprimitive_isbase = false;
             QProxyStyle::drawPrimitive(element, option, painter, widget);
-        } else if (qproxystyle_drawprimitive_callback != nullptr) {
+            return;
+        }
+        auto drawprimitive_cb = qproxystyle_drawprimitive_callback;
+        if (drawprimitive_cb) {
             int cbval1 = static_cast<int>(element);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QPainter* cbval3 = painter;
             QWidget* cbval4 = (QWidget*)widget;
 
-            qproxystyle_drawprimitive_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QProxyStyle::drawPrimitive(element, option, painter, widget);
+            drawprimitive_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QProxyStyle::drawPrimitive(element, option, painter, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -324,16 +290,19 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_drawcontrol_isbase) {
             qproxystyle_drawcontrol_isbase = false;
             QProxyStyle::drawControl(element, option, painter, widget);
-        } else if (qproxystyle_drawcontrol_callback != nullptr) {
+            return;
+        }
+        auto drawcontrol_cb = qproxystyle_drawcontrol_callback;
+        if (drawcontrol_cb) {
             int cbval1 = static_cast<int>(element);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QPainter* cbval3 = painter;
             QWidget* cbval4 = (QWidget*)widget;
 
-            qproxystyle_drawcontrol_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QProxyStyle::drawControl(element, option, painter, widget);
+            drawcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QProxyStyle::drawControl(element, option, painter, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -341,16 +310,19 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_drawcomplexcontrol_isbase) {
             qproxystyle_drawcomplexcontrol_isbase = false;
             QProxyStyle::drawComplexControl(control, option, painter, widget);
-        } else if (qproxystyle_drawcomplexcontrol_callback != nullptr) {
+            return;
+        }
+        auto drawcomplexcontrol_cb = qproxystyle_drawcomplexcontrol_callback;
+        if (drawcomplexcontrol_cb) {
             int cbval1 = static_cast<int>(control);
             QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)option;
             QPainter* cbval3 = painter;
             QWidget* cbval4 = (QWidget*)widget;
 
-            qproxystyle_drawcomplexcontrol_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QProxyStyle::drawComplexControl(control, option, painter, widget);
+            drawcomplexcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QProxyStyle::drawComplexControl(control, option, painter, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,7 +330,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_drawitemtext_isbase) {
             qproxystyle_drawitemtext_isbase = false;
             QProxyStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
-        } else if (qproxystyle_drawitemtext_callback != nullptr) {
+            return;
+        }
+        auto drawitemtext_cb = qproxystyle_drawitemtext_callback;
+        if (drawitemtext_cb) {
             QPainter* cbval1 = painter;
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
@@ -378,11 +353,11 @@ class VirtualQProxyStyle final : public QProxyStyle {
             const char* cbval6 = text_str;
             int cbval7 = static_cast<int>(textRole);
 
-            qproxystyle_drawitemtext_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            drawitemtext_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             libqt_free(text_str);
-        } else {
-            QProxyStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
+            return;
         }
+        QProxyStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,7 +365,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_drawitempixmap_isbase) {
             qproxystyle_drawitempixmap_isbase = false;
             QProxyStyle::drawItemPixmap(painter, rect, alignment, pixmap);
-        } else if (qproxystyle_drawitempixmap_callback != nullptr) {
+            return;
+        }
+        auto drawitempixmap_cb = qproxystyle_drawitempixmap_callback;
+        if (drawitempixmap_cb) {
             QPainter* cbval1 = painter;
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
@@ -400,10 +378,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             // Cast returned reference into pointer
             QPixmap* cbval4 = const_cast<QPixmap*>(&pixmap_ret);
 
-            qproxystyle_drawitempixmap_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QProxyStyle::drawItemPixmap(painter, rect, alignment, pixmap);
+            drawitempixmap_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QProxyStyle::drawItemPixmap(painter, rect, alignment, pixmap);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -411,7 +389,9 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_sizefromcontents_isbase) {
             qproxystyle_sizefromcontents_isbase = false;
             return QProxyStyle::sizeFromContents(typeVal, option, size, widget);
-        } else if (qproxystyle_sizefromcontents_callback != nullptr) {
+        }
+        auto sizefromcontents_cb = qproxystyle_sizefromcontents_callback;
+        if (sizefromcontents_cb) {
             int cbval1 = static_cast<int>(typeVal);
             QStyleOption* cbval2 = (QStyleOption*)option;
             const QSize& size_ret = size;
@@ -419,11 +399,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             QSize* cbval3 = const_cast<QSize*>(&size_ret);
             QWidget* cbval4 = (QWidget*)widget;
 
-            QSize* callback_ret = qproxystyle_sizefromcontents_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QSize* callback_ret = sizefromcontents_cb(this, cbval1, cbval2, cbval3, cbval4);
             return *callback_ret;
-        } else {
-            return QProxyStyle::sizeFromContents(typeVal, option, size, widget);
         }
+        return QProxyStyle::sizeFromContents(typeVal, option, size, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -431,16 +410,17 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_subelementrect_isbase) {
             qproxystyle_subelementrect_isbase = false;
             return QProxyStyle::subElementRect(element, option, widget);
-        } else if (qproxystyle_subelementrect_callback != nullptr) {
+        }
+        auto subelementrect_cb = qproxystyle_subelementrect_callback;
+        if (subelementrect_cb) {
             int cbval1 = static_cast<int>(element);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
 
-            QRect* callback_ret = qproxystyle_subelementrect_callback(this, cbval1, cbval2, cbval3);
+            QRect* callback_ret = subelementrect_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QProxyStyle::subElementRect(element, option, widget);
         }
+        return QProxyStyle::subElementRect(element, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -448,17 +428,18 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_subcontrolrect_isbase) {
             qproxystyle_subcontrolrect_isbase = false;
             return QProxyStyle::subControlRect(cc, opt, sc, widget);
-        } else if (qproxystyle_subcontrolrect_callback != nullptr) {
+        }
+        auto subcontrolrect_cb = qproxystyle_subcontrolrect_callback;
+        if (subcontrolrect_cb) {
             int cbval1 = static_cast<int>(cc);
             QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)opt;
             int cbval3 = static_cast<int>(sc);
             QWidget* cbval4 = (QWidget*)widget;
 
-            QRect* callback_ret = qproxystyle_subcontrolrect_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QRect* callback_ret = subcontrolrect_cb(this, cbval1, cbval2, cbval3, cbval4);
             return *callback_ret;
-        } else {
-            return QProxyStyle::subControlRect(cc, opt, sc, widget);
         }
+        return QProxyStyle::subControlRect(cc, opt, sc, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -466,7 +447,9 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_itemtextrect_isbase) {
             qproxystyle_itemtextrect_isbase = false;
             return QProxyStyle::itemTextRect(fm, r, flags, enabled, text);
-        } else if (qproxystyle_itemtextrect_callback != nullptr) {
+        }
+        auto itemtextrect_cb = qproxystyle_itemtextrect_callback;
+        if (itemtextrect_cb) {
             const QFontMetrics& fm_ret = fm;
             // Cast returned reference into pointer
             QFontMetrics* cbval1 = const_cast<QFontMetrics*>(&fm_ret);
@@ -484,12 +467,11 @@ class VirtualQProxyStyle final : public QProxyStyle {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval5 = text_str;
 
-            QRect* callback_ret = qproxystyle_itemtextrect_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QRect* callback_ret = itemtextrect_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             libqt_free(text_str);
             return *callback_ret;
-        } else {
-            return QProxyStyle::itemTextRect(fm, r, flags, enabled, text);
         }
+        return QProxyStyle::itemTextRect(fm, r, flags, enabled, text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,7 +479,9 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_itempixmaprect_isbase) {
             qproxystyle_itempixmaprect_isbase = false;
             return QProxyStyle::itemPixmapRect(r, flags, pixmap);
-        } else if (qproxystyle_itempixmaprect_callback != nullptr) {
+        }
+        auto itempixmaprect_cb = qproxystyle_itempixmaprect_callback;
+        if (itempixmaprect_cb) {
             const QRect& r_ret = r;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&r_ret);
@@ -506,11 +490,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             // Cast returned reference into pointer
             QPixmap* cbval3 = const_cast<QPixmap*>(&pixmap_ret);
 
-            QRect* callback_ret = qproxystyle_itempixmaprect_callback(this, cbval1, cbval2, cbval3);
+            QRect* callback_ret = itempixmaprect_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QProxyStyle::itemPixmapRect(r, flags, pixmap);
         }
+        return QProxyStyle::itemPixmapRect(r, flags, pixmap);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,7 +501,9 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_hittestcomplexcontrol_isbase) {
             qproxystyle_hittestcomplexcontrol_isbase = false;
             return QProxyStyle::hitTestComplexControl(control, option, pos, widget);
-        } else if (qproxystyle_hittestcomplexcontrol_callback != nullptr) {
+        }
+        auto hittestcomplexcontrol_cb = qproxystyle_hittestcomplexcontrol_callback;
+        if (hittestcomplexcontrol_cb) {
             int cbval1 = static_cast<int>(control);
             QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)option;
             const QPoint& pos_ret = pos;
@@ -526,11 +511,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             QPoint* cbval3 = const_cast<QPoint*>(&pos_ret);
             QWidget* cbval4 = (QWidget*)widget;
 
-            int callback_ret = qproxystyle_hittestcomplexcontrol_callback(this, cbval1, cbval2, cbval3, cbval4);
+            int callback_ret = hittestcomplexcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
             return static_cast<QStyle::SubControl>(callback_ret);
-        } else {
-            return QProxyStyle::hitTestComplexControl(control, option, pos, widget);
         }
+        return QProxyStyle::hitTestComplexControl(control, option, pos, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,17 +522,18 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_stylehint_isbase) {
             qproxystyle_stylehint_isbase = false;
             return QProxyStyle::styleHint(hint, option, widget, returnData);
-        } else if (qproxystyle_stylehint_callback != nullptr) {
+        }
+        auto stylehint_cb = qproxystyle_stylehint_callback;
+        if (stylehint_cb) {
             int cbval1 = static_cast<int>(hint);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
             QStyleHintReturn* cbval4 = returnData;
 
-            int callback_ret = qproxystyle_stylehint_callback(this, cbval1, cbval2, cbval3, cbval4);
+            int callback_ret = stylehint_cb(this, cbval1, cbval2, cbval3, cbval4);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProxyStyle::styleHint(hint, option, widget, returnData);
         }
+        return QProxyStyle::styleHint(hint, option, widget, returnData);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,16 +541,17 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_pixelmetric_isbase) {
             qproxystyle_pixelmetric_isbase = false;
             return QProxyStyle::pixelMetric(metric, option, widget);
-        } else if (qproxystyle_pixelmetric_callback != nullptr) {
+        }
+        auto pixelmetric_cb = qproxystyle_pixelmetric_callback;
+        if (pixelmetric_cb) {
             int cbval1 = static_cast<int>(metric);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
 
-            int callback_ret = qproxystyle_pixelmetric_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = pixelmetric_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProxyStyle::pixelMetric(metric, option, widget);
         }
+        return QProxyStyle::pixelMetric(metric, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,18 +559,19 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_layoutspacing_isbase) {
             qproxystyle_layoutspacing_isbase = false;
             return QProxyStyle::layoutSpacing(control1, control2, orientation, option, widget);
-        } else if (qproxystyle_layoutspacing_callback != nullptr) {
+        }
+        auto layoutspacing_cb = qproxystyle_layoutspacing_callback;
+        if (layoutspacing_cb) {
             int cbval1 = static_cast<int>(control1);
             int cbval2 = static_cast<int>(control2);
             int cbval3 = static_cast<int>(orientation);
             QStyleOption* cbval4 = (QStyleOption*)option;
             QWidget* cbval5 = (QWidget*)widget;
 
-            int callback_ret = qproxystyle_layoutspacing_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            int callback_ret = layoutspacing_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProxyStyle::layoutSpacing(control1, control2, orientation, option, widget);
         }
+        return QProxyStyle::layoutSpacing(control1, control2, orientation, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,16 +579,17 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_standardicon_isbase) {
             qproxystyle_standardicon_isbase = false;
             return QProxyStyle::standardIcon(standardIcon, option, widget);
-        } else if (qproxystyle_standardicon_callback != nullptr) {
+        }
+        auto standardicon_cb = qproxystyle_standardicon_callback;
+        if (standardicon_cb) {
             int cbval1 = static_cast<int>(standardIcon);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
 
-            QIcon* callback_ret = qproxystyle_standardicon_callback(this, cbval1, cbval2, cbval3);
+            QIcon* callback_ret = standardicon_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QProxyStyle::standardIcon(standardIcon, option, widget);
         }
+        return QProxyStyle::standardIcon(standardIcon, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,16 +597,17 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_standardpixmap_isbase) {
             qproxystyle_standardpixmap_isbase = false;
             return QProxyStyle::standardPixmap(standardPixmap, opt, widget);
-        } else if (qproxystyle_standardpixmap_callback != nullptr) {
+        }
+        auto standardpixmap_cb = qproxystyle_standardpixmap_callback;
+        if (standardpixmap_cb) {
             int cbval1 = static_cast<int>(standardPixmap);
             QStyleOption* cbval2 = (QStyleOption*)opt;
             QWidget* cbval3 = (QWidget*)widget;
 
-            QPixmap* callback_ret = qproxystyle_standardpixmap_callback(this, cbval1, cbval2, cbval3);
+            QPixmap* callback_ret = standardpixmap_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QProxyStyle::standardPixmap(standardPixmap, opt, widget);
         }
+        return QProxyStyle::standardPixmap(standardPixmap, opt, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,18 +615,19 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_generatediconpixmap_isbase) {
             qproxystyle_generatediconpixmap_isbase = false;
             return QProxyStyle::generatedIconPixmap(iconMode, pixmap, opt);
-        } else if (qproxystyle_generatediconpixmap_callback != nullptr) {
+        }
+        auto generatediconpixmap_cb = qproxystyle_generatediconpixmap_callback;
+        if (generatediconpixmap_cb) {
             int cbval1 = static_cast<int>(iconMode);
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval2 = const_cast<QPixmap*>(&pixmap_ret);
             QStyleOption* cbval3 = (QStyleOption*)opt;
 
-            QPixmap* callback_ret = qproxystyle_generatediconpixmap_callback(this, cbval1, cbval2, cbval3);
+            QPixmap* callback_ret = generatediconpixmap_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QProxyStyle::generatedIconPixmap(iconMode, pixmap, opt);
         }
+        return QProxyStyle::generatedIconPixmap(iconMode, pixmap, opt);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,12 +635,13 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_standardpalette_isbase) {
             qproxystyle_standardpalette_isbase = false;
             return QProxyStyle::standardPalette();
-        } else if (qproxystyle_standardpalette_callback != nullptr) {
-            QPalette* callback_ret = qproxystyle_standardpalette_callback();
-            return *callback_ret;
-        } else {
-            return QProxyStyle::standardPalette();
         }
+        auto standardpalette_cb = qproxystyle_standardpalette_callback;
+        if (standardpalette_cb) {
+            QPalette* callback_ret = standardpalette_cb();
+            return *callback_ret;
+        }
+        return QProxyStyle::standardPalette();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -658,13 +649,16 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_polish_isbase) {
             qproxystyle_polish_isbase = false;
             QProxyStyle::polish(widget);
-        } else if (qproxystyle_polish_callback != nullptr) {
+            return;
+        }
+        auto polish_cb = qproxystyle_polish_callback;
+        if (polish_cb) {
             QWidget* cbval1 = widget;
 
-            qproxystyle_polish_callback(this, cbval1);
-        } else {
-            QProxyStyle::polish(widget);
+            polish_cb(this, cbval1);
+            return;
         }
+        QProxyStyle::polish(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -672,15 +666,18 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_polish2_isbase) {
             qproxystyle_polish2_isbase = false;
             QProxyStyle::polish(pal);
-        } else if (qproxystyle_polish2_callback != nullptr) {
+            return;
+        }
+        auto polish2_cb = qproxystyle_polish2_callback;
+        if (polish2_cb) {
             QPalette& pal_ret = pal;
             // Cast returned reference into pointer
             QPalette* cbval1 = &pal_ret;
 
-            qproxystyle_polish2_callback(this, cbval1);
-        } else {
-            QProxyStyle::polish(pal);
+            polish2_cb(this, cbval1);
+            return;
         }
+        QProxyStyle::polish(pal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,13 +685,16 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_polish3_isbase) {
             qproxystyle_polish3_isbase = false;
             QProxyStyle::polish(app);
-        } else if (qproxystyle_polish3_callback != nullptr) {
+            return;
+        }
+        auto polish3_cb = qproxystyle_polish3_callback;
+        if (polish3_cb) {
             QApplication* cbval1 = app;
 
-            qproxystyle_polish3_callback(this, cbval1);
-        } else {
-            QProxyStyle::polish(app);
+            polish3_cb(this, cbval1);
+            return;
         }
+        QProxyStyle::polish(app);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -702,13 +702,16 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_unpolish_isbase) {
             qproxystyle_unpolish_isbase = false;
             QProxyStyle::unpolish(widget);
-        } else if (qproxystyle_unpolish_callback != nullptr) {
+            return;
+        }
+        auto unpolish_cb = qproxystyle_unpolish_callback;
+        if (unpolish_cb) {
             QWidget* cbval1 = widget;
 
-            qproxystyle_unpolish_callback(this, cbval1);
-        } else {
-            QProxyStyle::unpolish(widget);
+            unpolish_cb(this, cbval1);
+            return;
         }
+        QProxyStyle::unpolish(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,13 +719,16 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_unpolish2_isbase) {
             qproxystyle_unpolish2_isbase = false;
             QProxyStyle::unpolish(app);
-        } else if (qproxystyle_unpolish2_callback != nullptr) {
+            return;
+        }
+        auto unpolish2_cb = qproxystyle_unpolish2_callback;
+        if (unpolish2_cb) {
             QApplication* cbval1 = app;
 
-            qproxystyle_unpolish2_callback(this, cbval1);
-        } else {
-            QProxyStyle::unpolish(app);
+            unpolish2_cb(this, cbval1);
+            return;
         }
+        QProxyStyle::unpolish(app);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -730,14 +736,15 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_event_isbase) {
             qproxystyle_event_isbase = false;
             return QProxyStyle::event(e);
-        } else if (qproxystyle_event_callback != nullptr) {
+        }
+        auto event_cb = qproxystyle_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qproxystyle_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProxyStyle::event(e);
         }
+        return QProxyStyle::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,15 +752,16 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_eventfilter_isbase) {
             qproxystyle_eventfilter_isbase = false;
             return QProxyStyle::eventFilter(watched, event);
-        } else if (qproxystyle_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qproxystyle_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qproxystyle_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QProxyStyle::eventFilter(watched, event);
         }
+        return QProxyStyle::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,13 +769,16 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_timerevent_isbase) {
             qproxystyle_timerevent_isbase = false;
             QProxyStyle::timerEvent(event);
-        } else if (qproxystyle_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qproxystyle_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qproxystyle_timerevent_callback(this, cbval1);
-        } else {
-            QProxyStyle::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QProxyStyle::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,13 +786,16 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_childevent_isbase) {
             qproxystyle_childevent_isbase = false;
             QProxyStyle::childEvent(event);
-        } else if (qproxystyle_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qproxystyle_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qproxystyle_childevent_callback(this, cbval1);
-        } else {
-            QProxyStyle::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QProxyStyle::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,13 +803,16 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_customevent_isbase) {
             qproxystyle_customevent_isbase = false;
             QProxyStyle::customEvent(event);
-        } else if (qproxystyle_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qproxystyle_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qproxystyle_customevent_callback(this, cbval1);
-        } else {
-            QProxyStyle::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QProxyStyle::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,15 +820,18 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_connectnotify_isbase) {
             qproxystyle_connectnotify_isbase = false;
             QProxyStyle::connectNotify(signal);
-        } else if (qproxystyle_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qproxystyle_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qproxystyle_connectnotify_callback(this, cbval1);
-        } else {
-            QProxyStyle::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QProxyStyle::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,15 +839,18 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_disconnectnotify_isbase) {
             qproxystyle_disconnectnotify_isbase = false;
             QProxyStyle::disconnectNotify(signal);
-        } else if (qproxystyle_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qproxystyle_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qproxystyle_disconnectnotify_callback(this, cbval1);
-        } else {
-            QProxyStyle::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QProxyStyle::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,12 +858,13 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_sender_isbase) {
             qproxystyle_sender_isbase = false;
             return QProxyStyle::sender();
-        } else if (qproxystyle_sender_callback != nullptr) {
-            QObject* callback_ret = qproxystyle_sender_callback();
-            return callback_ret;
-        } else {
-            return QProxyStyle::sender();
         }
+        auto sender_cb = qproxystyle_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QProxyStyle::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -848,12 +872,13 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_sendersignalindex_isbase) {
             qproxystyle_sendersignalindex_isbase = false;
             return QProxyStyle::senderSignalIndex();
-        } else if (qproxystyle_sendersignalindex_callback != nullptr) {
-            int callback_ret = qproxystyle_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QProxyStyle::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qproxystyle_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QProxyStyle::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,14 +886,15 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_receivers_isbase) {
             qproxystyle_receivers_isbase = false;
             return QProxyStyle::receivers(signal);
-        } else if (qproxystyle_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qproxystyle_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qproxystyle_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProxyStyle::receivers(signal);
         }
+        return QProxyStyle::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -876,16 +902,17 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (qproxystyle_issignalconnected_isbase) {
             qproxystyle_issignalconnected_isbase = false;
             return QProxyStyle::isSignalConnected(signal);
-        } else if (qproxystyle_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qproxystyle_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qproxystyle_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProxyStyle::isSignalConnected(signal);
         }
+        return QProxyStyle::isSignalConnected(signal);
     }
 
     // Friend functions

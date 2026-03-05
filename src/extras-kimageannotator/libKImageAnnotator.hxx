@@ -206,69 +206,6 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
   public:
     VirtualkImageAnnotatorKImageAnnotator() : kImageAnnotator::KImageAnnotator() {};
 
-    ~VirtualkImageAnnotatorKImageAnnotator() {
-        kimageannotator__kimageannotator_metaobject_callback = nullptr;
-        kimageannotator__kimageannotator_metacast_callback = nullptr;
-        kimageannotator__kimageannotator_metacall_callback = nullptr;
-        kimageannotator__kimageannotator_sizehint_callback = nullptr;
-        kimageannotator__kimageannotator_devtype_callback = nullptr;
-        kimageannotator__kimageannotator_setvisible_callback = nullptr;
-        kimageannotator__kimageannotator_minimumsizehint_callback = nullptr;
-        kimageannotator__kimageannotator_heightforwidth_callback = nullptr;
-        kimageannotator__kimageannotator_hasheightforwidth_callback = nullptr;
-        kimageannotator__kimageannotator_paintengine_callback = nullptr;
-        kimageannotator__kimageannotator_event_callback = nullptr;
-        kimageannotator__kimageannotator_mousepressevent_callback = nullptr;
-        kimageannotator__kimageannotator_mousereleaseevent_callback = nullptr;
-        kimageannotator__kimageannotator_mousedoubleclickevent_callback = nullptr;
-        kimageannotator__kimageannotator_mousemoveevent_callback = nullptr;
-        kimageannotator__kimageannotator_wheelevent_callback = nullptr;
-        kimageannotator__kimageannotator_keypressevent_callback = nullptr;
-        kimageannotator__kimageannotator_keyreleaseevent_callback = nullptr;
-        kimageannotator__kimageannotator_focusinevent_callback = nullptr;
-        kimageannotator__kimageannotator_focusoutevent_callback = nullptr;
-        kimageannotator__kimageannotator_enterevent_callback = nullptr;
-        kimageannotator__kimageannotator_leaveevent_callback = nullptr;
-        kimageannotator__kimageannotator_paintevent_callback = nullptr;
-        kimageannotator__kimageannotator_moveevent_callback = nullptr;
-        kimageannotator__kimageannotator_resizeevent_callback = nullptr;
-        kimageannotator__kimageannotator_closeevent_callback = nullptr;
-        kimageannotator__kimageannotator_contextmenuevent_callback = nullptr;
-        kimageannotator__kimageannotator_tabletevent_callback = nullptr;
-        kimageannotator__kimageannotator_actionevent_callback = nullptr;
-        kimageannotator__kimageannotator_dragenterevent_callback = nullptr;
-        kimageannotator__kimageannotator_dragmoveevent_callback = nullptr;
-        kimageannotator__kimageannotator_dragleaveevent_callback = nullptr;
-        kimageannotator__kimageannotator_dropevent_callback = nullptr;
-        kimageannotator__kimageannotator_showevent_callback = nullptr;
-        kimageannotator__kimageannotator_hideevent_callback = nullptr;
-        kimageannotator__kimageannotator_nativeevent_callback = nullptr;
-        kimageannotator__kimageannotator_changeevent_callback = nullptr;
-        kimageannotator__kimageannotator_metric_callback = nullptr;
-        kimageannotator__kimageannotator_initpainter_callback = nullptr;
-        kimageannotator__kimageannotator_redirected_callback = nullptr;
-        kimageannotator__kimageannotator_sharedpainter_callback = nullptr;
-        kimageannotator__kimageannotator_inputmethodevent_callback = nullptr;
-        kimageannotator__kimageannotator_inputmethodquery_callback = nullptr;
-        kimageannotator__kimageannotator_focusnextprevchild_callback = nullptr;
-        kimageannotator__kimageannotator_eventfilter_callback = nullptr;
-        kimageannotator__kimageannotator_timerevent_callback = nullptr;
-        kimageannotator__kimageannotator_childevent_callback = nullptr;
-        kimageannotator__kimageannotator_customevent_callback = nullptr;
-        kimageannotator__kimageannotator_connectnotify_callback = nullptr;
-        kimageannotator__kimageannotator_disconnectnotify_callback = nullptr;
-        kimageannotator__kimageannotator_updatemicrofocus_callback = nullptr;
-        kimageannotator__kimageannotator_create_callback = nullptr;
-        kimageannotator__kimageannotator_destroy_callback = nullptr;
-        kimageannotator__kimageannotator_focusnextchild_callback = nullptr;
-        kimageannotator__kimageannotator_focuspreviouschild_callback = nullptr;
-        kimageannotator__kimageannotator_sender_callback = nullptr;
-        kimageannotator__kimageannotator_sendersignalindex_callback = nullptr;
-        kimageannotator__kimageannotator_receivers_callback = nullptr;
-        kimageannotator__kimageannotator_issignalconnected_callback = nullptr;
-        kimageannotator__kimageannotator_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setkImageAnnotator__KImageAnnotator_MetaObject_Callback(kImageAnnotator__KImageAnnotator_MetaObject_Callback cb) { kimageannotator__kimageannotator_metaobject_callback = cb; }
     inline void setkImageAnnotator__KImageAnnotator_Metacast_Callback(kImageAnnotator__KImageAnnotator_Metacast_Callback cb) { kimageannotator__kimageannotator_metacast_callback = cb; }
@@ -398,12 +335,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_metaobject_isbase) {
             kimageannotator__kimageannotator_metaobject_isbase = false;
             return kImageAnnotator__KImageAnnotator::metaObject();
-        } else if (kimageannotator__kimageannotator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kimageannotator__kimageannotator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::metaObject();
         }
+        auto metaobject_cb = kimageannotator__kimageannotator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return kImageAnnotator__KImageAnnotator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -411,14 +349,15 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_metacast_isbase) {
             kimageannotator__kimageannotator_metacast_isbase = false;
             return kImageAnnotator__KImageAnnotator::qt_metacast(param1);
-        } else if (kimageannotator__kimageannotator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kimageannotator__kimageannotator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kimageannotator__kimageannotator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::qt_metacast(param1);
         }
+        return kImageAnnotator__KImageAnnotator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,16 +365,17 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_metacall_isbase) {
             kimageannotator__kimageannotator_metacall_isbase = false;
             return kImageAnnotator__KImageAnnotator::qt_metacall(param1, param2, param3);
-        } else if (kimageannotator__kimageannotator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kimageannotator__kimageannotator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kimageannotator__kimageannotator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return kImageAnnotator__KImageAnnotator::qt_metacall(param1, param2, param3);
         }
+        return kImageAnnotator__KImageAnnotator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -443,12 +383,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_sizehint_isbase) {
             kimageannotator__kimageannotator_sizehint_isbase = false;
             return kImageAnnotator__KImageAnnotator::sizeHint();
-        } else if (kimageannotator__kimageannotator_sizehint_callback != nullptr) {
-            QSize* callback_ret = kimageannotator__kimageannotator_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::sizeHint();
         }
+        auto sizehint_cb = kimageannotator__kimageannotator_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return kImageAnnotator__KImageAnnotator::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -456,12 +397,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_devtype_isbase) {
             kimageannotator__kimageannotator_devtype_isbase = false;
             return kImageAnnotator__KImageAnnotator::devType();
-        } else if (kimageannotator__kimageannotator_devtype_callback != nullptr) {
-            int callback_ret = kimageannotator__kimageannotator_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return kImageAnnotator__KImageAnnotator::devType();
         }
+        auto devtype_cb = kimageannotator__kimageannotator_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return kImageAnnotator__KImageAnnotator::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,13 +411,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_setvisible_isbase) {
             kimageannotator__kimageannotator_setvisible_isbase = false;
             kImageAnnotator__KImageAnnotator::setVisible(visible);
-        } else if (kimageannotator__kimageannotator_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kimageannotator__kimageannotator_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kimageannotator__kimageannotator_setvisible_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,12 +428,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_minimumsizehint_isbase) {
             kimageannotator__kimageannotator_minimumsizehint_isbase = false;
             return kImageAnnotator__KImageAnnotator::minimumSizeHint();
-        } else if (kimageannotator__kimageannotator_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kimageannotator__kimageannotator_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kimageannotator__kimageannotator_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return kImageAnnotator__KImageAnnotator::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,14 +442,15 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_heightforwidth_isbase) {
             kimageannotator__kimageannotator_heightforwidth_isbase = false;
             return kImageAnnotator__KImageAnnotator::heightForWidth(param1);
-        } else if (kimageannotator__kimageannotator_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kimageannotator__kimageannotator_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kimageannotator__kimageannotator_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return kImageAnnotator__KImageAnnotator::heightForWidth(param1);
         }
+        return kImageAnnotator__KImageAnnotator::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,12 +458,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_hasheightforwidth_isbase) {
             kimageannotator__kimageannotator_hasheightforwidth_isbase = false;
             return kImageAnnotator__KImageAnnotator::hasHeightForWidth();
-        } else if (kimageannotator__kimageannotator_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kimageannotator__kimageannotator_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kimageannotator__kimageannotator_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return kImageAnnotator__KImageAnnotator::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,12 +472,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_paintengine_isbase) {
             kimageannotator__kimageannotator_paintengine_isbase = false;
             return kImageAnnotator__KImageAnnotator::paintEngine();
-        } else if (kimageannotator__kimageannotator_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kimageannotator__kimageannotator_paintengine_callback();
-            return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::paintEngine();
         }
+        auto paintengine_cb = kimageannotator__kimageannotator_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return kImageAnnotator__KImageAnnotator::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,14 +486,15 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_event_isbase) {
             kimageannotator__kimageannotator_event_isbase = false;
             return kImageAnnotator__KImageAnnotator::event(event);
-        } else if (kimageannotator__kimageannotator_event_callback != nullptr) {
+        }
+        auto event_cb = kimageannotator__kimageannotator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kimageannotator__kimageannotator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::event(event);
         }
+        return kImageAnnotator__KImageAnnotator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,13 +502,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_mousepressevent_isbase) {
             kimageannotator__kimageannotator_mousepressevent_isbase = false;
             kImageAnnotator__KImageAnnotator::mousePressEvent(event);
-        } else if (kimageannotator__kimageannotator_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kimageannotator__kimageannotator_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_mousepressevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -566,13 +519,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_mousereleaseevent_isbase) {
             kimageannotator__kimageannotator_mousereleaseevent_isbase = false;
             kImageAnnotator__KImageAnnotator::mouseReleaseEvent(event);
-        } else if (kimageannotator__kimageannotator_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kimageannotator__kimageannotator_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_mousereleaseevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -580,13 +536,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_mousedoubleclickevent_isbase) {
             kimageannotator__kimageannotator_mousedoubleclickevent_isbase = false;
             kImageAnnotator__KImageAnnotator::mouseDoubleClickEvent(event);
-        } else if (kimageannotator__kimageannotator_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kimageannotator__kimageannotator_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,13 +553,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_mousemoveevent_isbase) {
             kimageannotator__kimageannotator_mousemoveevent_isbase = false;
             kImageAnnotator__KImageAnnotator::mouseMoveEvent(event);
-        } else if (kimageannotator__kimageannotator_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kimageannotator__kimageannotator_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_mousemoveevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -608,13 +570,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_wheelevent_isbase) {
             kimageannotator__kimageannotator_wheelevent_isbase = false;
             kImageAnnotator__KImageAnnotator::wheelEvent(event);
-        } else if (kimageannotator__kimageannotator_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kimageannotator__kimageannotator_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_wheelevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,13 +587,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_keypressevent_isbase) {
             kimageannotator__kimageannotator_keypressevent_isbase = false;
             kImageAnnotator__KImageAnnotator::keyPressEvent(event);
-        } else if (kimageannotator__kimageannotator_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kimageannotator__kimageannotator_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_keypressevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,13 +604,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_keyreleaseevent_isbase) {
             kimageannotator__kimageannotator_keyreleaseevent_isbase = false;
             kImageAnnotator__KImageAnnotator::keyReleaseEvent(event);
-        } else if (kimageannotator__kimageannotator_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kimageannotator__kimageannotator_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_keyreleaseevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -650,13 +621,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_focusinevent_isbase) {
             kimageannotator__kimageannotator_focusinevent_isbase = false;
             kImageAnnotator__KImageAnnotator::focusInEvent(event);
-        } else if (kimageannotator__kimageannotator_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kimageannotator__kimageannotator_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_focusinevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -664,13 +638,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_focusoutevent_isbase) {
             kimageannotator__kimageannotator_focusoutevent_isbase = false;
             kImageAnnotator__KImageAnnotator::focusOutEvent(event);
-        } else if (kimageannotator__kimageannotator_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kimageannotator__kimageannotator_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_focusoutevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -678,13 +655,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_enterevent_isbase) {
             kimageannotator__kimageannotator_enterevent_isbase = false;
             kImageAnnotator__KImageAnnotator::enterEvent(event);
-        } else if (kimageannotator__kimageannotator_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kimageannotator__kimageannotator_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_enterevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -692,13 +672,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_leaveevent_isbase) {
             kimageannotator__kimageannotator_leaveevent_isbase = false;
             kImageAnnotator__KImageAnnotator::leaveEvent(event);
-        } else if (kimageannotator__kimageannotator_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kimageannotator__kimageannotator_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_leaveevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -706,13 +689,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_paintevent_isbase) {
             kimageannotator__kimageannotator_paintevent_isbase = false;
             kImageAnnotator__KImageAnnotator::paintEvent(event);
-        } else if (kimageannotator__kimageannotator_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kimageannotator__kimageannotator_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_paintevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -720,13 +706,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_moveevent_isbase) {
             kimageannotator__kimageannotator_moveevent_isbase = false;
             kImageAnnotator__KImageAnnotator::moveEvent(event);
-        } else if (kimageannotator__kimageannotator_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kimageannotator__kimageannotator_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_moveevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -734,13 +723,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_resizeevent_isbase) {
             kimageannotator__kimageannotator_resizeevent_isbase = false;
             kImageAnnotator__KImageAnnotator::resizeEvent(event);
-        } else if (kimageannotator__kimageannotator_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kimageannotator__kimageannotator_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_resizeevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -748,13 +740,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_closeevent_isbase) {
             kimageannotator__kimageannotator_closeevent_isbase = false;
             kImageAnnotator__KImageAnnotator::closeEvent(event);
-        } else if (kimageannotator__kimageannotator_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kimageannotator__kimageannotator_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_closeevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -762,13 +757,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_contextmenuevent_isbase) {
             kimageannotator__kimageannotator_contextmenuevent_isbase = false;
             kImageAnnotator__KImageAnnotator::contextMenuEvent(event);
-        } else if (kimageannotator__kimageannotator_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kimageannotator__kimageannotator_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_contextmenuevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,13 +774,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_tabletevent_isbase) {
             kimageannotator__kimageannotator_tabletevent_isbase = false;
             kImageAnnotator__KImageAnnotator::tabletEvent(event);
-        } else if (kimageannotator__kimageannotator_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kimageannotator__kimageannotator_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_tabletevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -790,13 +791,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_actionevent_isbase) {
             kimageannotator__kimageannotator_actionevent_isbase = false;
             kImageAnnotator__KImageAnnotator::actionEvent(event);
-        } else if (kimageannotator__kimageannotator_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kimageannotator__kimageannotator_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_actionevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,13 +808,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_dragenterevent_isbase) {
             kimageannotator__kimageannotator_dragenterevent_isbase = false;
             kImageAnnotator__KImageAnnotator::dragEnterEvent(event);
-        } else if (kimageannotator__kimageannotator_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kimageannotator__kimageannotator_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_dragenterevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -818,13 +825,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_dragmoveevent_isbase) {
             kimageannotator__kimageannotator_dragmoveevent_isbase = false;
             kImageAnnotator__KImageAnnotator::dragMoveEvent(event);
-        } else if (kimageannotator__kimageannotator_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kimageannotator__kimageannotator_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_dragmoveevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -832,13 +842,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_dragleaveevent_isbase) {
             kimageannotator__kimageannotator_dragleaveevent_isbase = false;
             kImageAnnotator__KImageAnnotator::dragLeaveEvent(event);
-        } else if (kimageannotator__kimageannotator_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kimageannotator__kimageannotator_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_dragleaveevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -846,13 +859,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_dropevent_isbase) {
             kimageannotator__kimageannotator_dropevent_isbase = false;
             kImageAnnotator__KImageAnnotator::dropEvent(event);
-        } else if (kimageannotator__kimageannotator_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kimageannotator__kimageannotator_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_dropevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -860,13 +876,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_showevent_isbase) {
             kimageannotator__kimageannotator_showevent_isbase = false;
             kImageAnnotator__KImageAnnotator::showEvent(event);
-        } else if (kimageannotator__kimageannotator_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kimageannotator__kimageannotator_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_showevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -874,13 +893,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_hideevent_isbase) {
             kimageannotator__kimageannotator_hideevent_isbase = false;
             kImageAnnotator__KImageAnnotator::hideEvent(event);
-        } else if (kimageannotator__kimageannotator_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kimageannotator__kimageannotator_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_hideevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -888,7 +910,9 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_nativeevent_isbase) {
             kimageannotator__kimageannotator_nativeevent_isbase = false;
             return kImageAnnotator__KImageAnnotator::nativeEvent(eventType, message, result);
-        } else if (kimageannotator__kimageannotator_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kimageannotator__kimageannotator_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -899,12 +923,11 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kimageannotator__kimageannotator_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::nativeEvent(eventType, message, result);
         }
+        return kImageAnnotator__KImageAnnotator::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,13 +935,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_changeevent_isbase) {
             kimageannotator__kimageannotator_changeevent_isbase = false;
             kImageAnnotator__KImageAnnotator::changeEvent(param1);
-        } else if (kimageannotator__kimageannotator_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kimageannotator__kimageannotator_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kimageannotator__kimageannotator_changeevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,14 +952,15 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_metric_isbase) {
             kimageannotator__kimageannotator_metric_isbase = false;
             return kImageAnnotator__KImageAnnotator::metric(param1);
-        } else if (kimageannotator__kimageannotator_metric_callback != nullptr) {
+        }
+        auto metric_cb = kimageannotator__kimageannotator_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kimageannotator__kimageannotator_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return kImageAnnotator__KImageAnnotator::metric(param1);
         }
+        return kImageAnnotator__KImageAnnotator::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +968,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_initpainter_isbase) {
             kimageannotator__kimageannotator_initpainter_isbase = false;
             kImageAnnotator__KImageAnnotator::initPainter(painter);
-        } else if (kimageannotator__kimageannotator_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kimageannotator__kimageannotator_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kimageannotator__kimageannotator_initpainter_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,14 +985,15 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_redirected_isbase) {
             kimageannotator__kimageannotator_redirected_isbase = false;
             return kImageAnnotator__KImageAnnotator::redirected(offset);
-        } else if (kimageannotator__kimageannotator_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kimageannotator__kimageannotator_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kimageannotator__kimageannotator_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::redirected(offset);
         }
+        return kImageAnnotator__KImageAnnotator::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -970,12 +1001,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_sharedpainter_isbase) {
             kimageannotator__kimageannotator_sharedpainter_isbase = false;
             return kImageAnnotator__KImageAnnotator::sharedPainter();
-        } else if (kimageannotator__kimageannotator_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kimageannotator__kimageannotator_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::sharedPainter();
         }
+        auto sharedpainter_cb = kimageannotator__kimageannotator_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return kImageAnnotator__KImageAnnotator::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,13 +1015,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_inputmethodevent_isbase) {
             kimageannotator__kimageannotator_inputmethodevent_isbase = false;
             kImageAnnotator__KImageAnnotator::inputMethodEvent(param1);
-        } else if (kimageannotator__kimageannotator_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kimageannotator__kimageannotator_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kimageannotator__kimageannotator_inputmethodevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,14 +1032,15 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_inputmethodquery_isbase) {
             kimageannotator__kimageannotator_inputmethodquery_isbase = false;
             return kImageAnnotator__KImageAnnotator::inputMethodQuery(param1);
-        } else if (kimageannotator__kimageannotator_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kimageannotator__kimageannotator_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kimageannotator__kimageannotator_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::inputMethodQuery(param1);
         }
+        return kImageAnnotator__KImageAnnotator::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1012,14 +1048,15 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_focusnextprevchild_isbase) {
             kimageannotator__kimageannotator_focusnextprevchild_isbase = false;
             return kImageAnnotator__KImageAnnotator::focusNextPrevChild(next);
-        } else if (kimageannotator__kimageannotator_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kimageannotator__kimageannotator_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kimageannotator__kimageannotator_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::focusNextPrevChild(next);
         }
+        return kImageAnnotator__KImageAnnotator::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1027,15 +1064,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_eventfilter_isbase) {
             kimageannotator__kimageannotator_eventfilter_isbase = false;
             return kImageAnnotator__KImageAnnotator::eventFilter(watched, event);
-        } else if (kimageannotator__kimageannotator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kimageannotator__kimageannotator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kimageannotator__kimageannotator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::eventFilter(watched, event);
         }
+        return kImageAnnotator__KImageAnnotator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,13 +1081,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_timerevent_isbase) {
             kimageannotator__kimageannotator_timerevent_isbase = false;
             kImageAnnotator__KImageAnnotator::timerEvent(event);
-        } else if (kimageannotator__kimageannotator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kimageannotator__kimageannotator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_timerevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1057,13 +1098,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_childevent_isbase) {
             kimageannotator__kimageannotator_childevent_isbase = false;
             kImageAnnotator__KImageAnnotator::childEvent(event);
-        } else if (kimageannotator__kimageannotator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kimageannotator__kimageannotator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_childevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1071,13 +1115,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_customevent_isbase) {
             kimageannotator__kimageannotator_customevent_isbase = false;
             kImageAnnotator__KImageAnnotator::customEvent(event);
-        } else if (kimageannotator__kimageannotator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kimageannotator__kimageannotator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kimageannotator__kimageannotator_customevent_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1085,15 +1132,18 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_connectnotify_isbase) {
             kimageannotator__kimageannotator_connectnotify_isbase = false;
             kImageAnnotator__KImageAnnotator::connectNotify(signal);
-        } else if (kimageannotator__kimageannotator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kimageannotator__kimageannotator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kimageannotator__kimageannotator_connectnotify_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,15 +1151,18 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_disconnectnotify_isbase) {
             kimageannotator__kimageannotator_disconnectnotify_isbase = false;
             kImageAnnotator__KImageAnnotator::disconnectNotify(signal);
-        } else if (kimageannotator__kimageannotator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kimageannotator__kimageannotator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kimageannotator__kimageannotator_disconnectnotify_callback(this, cbval1);
-        } else {
-            kImageAnnotator__KImageAnnotator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        kImageAnnotator__KImageAnnotator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1117,11 +1170,14 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_updatemicrofocus_isbase) {
             kimageannotator__kimageannotator_updatemicrofocus_isbase = false;
             kImageAnnotator__KImageAnnotator::updateMicroFocus();
-        } else if (kimageannotator__kimageannotator_updatemicrofocus_callback != nullptr) {
-            kimageannotator__kimageannotator_updatemicrofocus_callback();
-        } else {
-            kImageAnnotator__KImageAnnotator::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kimageannotator__kimageannotator_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        kImageAnnotator__KImageAnnotator::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1129,11 +1185,14 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_create_isbase) {
             kimageannotator__kimageannotator_create_isbase = false;
             kImageAnnotator__KImageAnnotator::create();
-        } else if (kimageannotator__kimageannotator_create_callback != nullptr) {
-            kimageannotator__kimageannotator_create_callback();
-        } else {
-            kImageAnnotator__KImageAnnotator::create();
+            return;
         }
+        auto create_cb = kimageannotator__kimageannotator_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        kImageAnnotator__KImageAnnotator::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1141,11 +1200,14 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_destroy_isbase) {
             kimageannotator__kimageannotator_destroy_isbase = false;
             kImageAnnotator__KImageAnnotator::destroy();
-        } else if (kimageannotator__kimageannotator_destroy_callback != nullptr) {
-            kimageannotator__kimageannotator_destroy_callback();
-        } else {
-            kImageAnnotator__KImageAnnotator::destroy();
+            return;
         }
+        auto destroy_cb = kimageannotator__kimageannotator_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        kImageAnnotator__KImageAnnotator::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,12 +1215,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_focusnextchild_isbase) {
             kimageannotator__kimageannotator_focusnextchild_isbase = false;
             return kImageAnnotator__KImageAnnotator::focusNextChild();
-        } else if (kimageannotator__kimageannotator_focusnextchild_callback != nullptr) {
-            bool callback_ret = kimageannotator__kimageannotator_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::focusNextChild();
         }
+        auto focusnextchild_cb = kimageannotator__kimageannotator_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return kImageAnnotator__KImageAnnotator::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,12 +1229,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_focuspreviouschild_isbase) {
             kimageannotator__kimageannotator_focuspreviouschild_isbase = false;
             return kImageAnnotator__KImageAnnotator::focusPreviousChild();
-        } else if (kimageannotator__kimageannotator_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kimageannotator__kimageannotator_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kimageannotator__kimageannotator_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return kImageAnnotator__KImageAnnotator::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1179,12 +1243,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_sender_isbase) {
             kimageannotator__kimageannotator_sender_isbase = false;
             return kImageAnnotator__KImageAnnotator::sender();
-        } else if (kimageannotator__kimageannotator_sender_callback != nullptr) {
-            QObject* callback_ret = kimageannotator__kimageannotator_sender_callback();
-            return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::sender();
         }
+        auto sender_cb = kimageannotator__kimageannotator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return kImageAnnotator__KImageAnnotator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1192,12 +1257,13 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_sendersignalindex_isbase) {
             kimageannotator__kimageannotator_sendersignalindex_isbase = false;
             return kImageAnnotator__KImageAnnotator::senderSignalIndex();
-        } else if (kimageannotator__kimageannotator_sendersignalindex_callback != nullptr) {
-            int callback_ret = kimageannotator__kimageannotator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return kImageAnnotator__KImageAnnotator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kimageannotator__kimageannotator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return kImageAnnotator__KImageAnnotator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,14 +1271,15 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_receivers_isbase) {
             kimageannotator__kimageannotator_receivers_isbase = false;
             return kImageAnnotator__KImageAnnotator::receivers(signal);
-        } else if (kimageannotator__kimageannotator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kimageannotator__kimageannotator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kimageannotator__kimageannotator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return kImageAnnotator__KImageAnnotator::receivers(signal);
         }
+        return kImageAnnotator__KImageAnnotator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1220,16 +1287,17 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_issignalconnected_isbase) {
             kimageannotator__kimageannotator_issignalconnected_isbase = false;
             return kImageAnnotator__KImageAnnotator::isSignalConnected(signal);
-        } else if (kimageannotator__kimageannotator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kimageannotator__kimageannotator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kimageannotator__kimageannotator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return kImageAnnotator__KImageAnnotator::isSignalConnected(signal);
         }
+        return kImageAnnotator__KImageAnnotator::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1237,15 +1305,16 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
         if (kimageannotator__kimageannotator_getdecodedmetricf_isbase) {
             kimageannotator__kimageannotator_getdecodedmetricf_isbase = false;
             return kImageAnnotator__KImageAnnotator::getDecodedMetricF(metricA, metricB);
-        } else if (kimageannotator__kimageannotator_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kimageannotator__kimageannotator_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kimageannotator__kimageannotator_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return kImageAnnotator__KImageAnnotator::getDecodedMetricF(metricA, metricB);
         }
+        return kImageAnnotator__KImageAnnotator::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

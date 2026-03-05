@@ -220,73 +220,6 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
     VirtualKContextualHelpButton(const QString& contextualHelpText, const QWidget* heightHintWidget, QWidget* parent) : KContextualHelpButton(contextualHelpText, heightHintWidget, parent) {};
     VirtualKContextualHelpButton() : KContextualHelpButton() {};
 
-    ~VirtualKContextualHelpButton() {
-        kcontextualhelpbutton_metaobject_callback = nullptr;
-        kcontextualhelpbutton_metacast_callback = nullptr;
-        kcontextualhelpbutton_metacall_callback = nullptr;
-        kcontextualhelpbutton_sizehint_callback = nullptr;
-        kcontextualhelpbutton_minimumsizehint_callback = nullptr;
-        kcontextualhelpbutton_event_callback = nullptr;
-        kcontextualhelpbutton_mousepressevent_callback = nullptr;
-        kcontextualhelpbutton_mousereleaseevent_callback = nullptr;
-        kcontextualhelpbutton_paintevent_callback = nullptr;
-        kcontextualhelpbutton_actionevent_callback = nullptr;
-        kcontextualhelpbutton_enterevent_callback = nullptr;
-        kcontextualhelpbutton_leaveevent_callback = nullptr;
-        kcontextualhelpbutton_timerevent_callback = nullptr;
-        kcontextualhelpbutton_changeevent_callback = nullptr;
-        kcontextualhelpbutton_hitbutton_callback = nullptr;
-        kcontextualhelpbutton_checkstateset_callback = nullptr;
-        kcontextualhelpbutton_nextcheckstate_callback = nullptr;
-        kcontextualhelpbutton_initstyleoption_callback = nullptr;
-        kcontextualhelpbutton_keypressevent_callback = nullptr;
-        kcontextualhelpbutton_keyreleaseevent_callback = nullptr;
-        kcontextualhelpbutton_mousemoveevent_callback = nullptr;
-        kcontextualhelpbutton_focusinevent_callback = nullptr;
-        kcontextualhelpbutton_focusoutevent_callback = nullptr;
-        kcontextualhelpbutton_devtype_callback = nullptr;
-        kcontextualhelpbutton_setvisible_callback = nullptr;
-        kcontextualhelpbutton_heightforwidth_callback = nullptr;
-        kcontextualhelpbutton_hasheightforwidth_callback = nullptr;
-        kcontextualhelpbutton_paintengine_callback = nullptr;
-        kcontextualhelpbutton_mousedoubleclickevent_callback = nullptr;
-        kcontextualhelpbutton_wheelevent_callback = nullptr;
-        kcontextualhelpbutton_moveevent_callback = nullptr;
-        kcontextualhelpbutton_resizeevent_callback = nullptr;
-        kcontextualhelpbutton_closeevent_callback = nullptr;
-        kcontextualhelpbutton_contextmenuevent_callback = nullptr;
-        kcontextualhelpbutton_tabletevent_callback = nullptr;
-        kcontextualhelpbutton_dragenterevent_callback = nullptr;
-        kcontextualhelpbutton_dragmoveevent_callback = nullptr;
-        kcontextualhelpbutton_dragleaveevent_callback = nullptr;
-        kcontextualhelpbutton_dropevent_callback = nullptr;
-        kcontextualhelpbutton_showevent_callback = nullptr;
-        kcontextualhelpbutton_hideevent_callback = nullptr;
-        kcontextualhelpbutton_nativeevent_callback = nullptr;
-        kcontextualhelpbutton_metric_callback = nullptr;
-        kcontextualhelpbutton_initpainter_callback = nullptr;
-        kcontextualhelpbutton_redirected_callback = nullptr;
-        kcontextualhelpbutton_sharedpainter_callback = nullptr;
-        kcontextualhelpbutton_inputmethodevent_callback = nullptr;
-        kcontextualhelpbutton_inputmethodquery_callback = nullptr;
-        kcontextualhelpbutton_focusnextprevchild_callback = nullptr;
-        kcontextualhelpbutton_eventfilter_callback = nullptr;
-        kcontextualhelpbutton_childevent_callback = nullptr;
-        kcontextualhelpbutton_customevent_callback = nullptr;
-        kcontextualhelpbutton_connectnotify_callback = nullptr;
-        kcontextualhelpbutton_disconnectnotify_callback = nullptr;
-        kcontextualhelpbutton_updatemicrofocus_callback = nullptr;
-        kcontextualhelpbutton_create_callback = nullptr;
-        kcontextualhelpbutton_destroy_callback = nullptr;
-        kcontextualhelpbutton_focusnextchild_callback = nullptr;
-        kcontextualhelpbutton_focuspreviouschild_callback = nullptr;
-        kcontextualhelpbutton_sender_callback = nullptr;
-        kcontextualhelpbutton_sendersignalindex_callback = nullptr;
-        kcontextualhelpbutton_receivers_callback = nullptr;
-        kcontextualhelpbutton_issignalconnected_callback = nullptr;
-        kcontextualhelpbutton_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKContextualHelpButton_MetaObject_Callback(KContextualHelpButton_MetaObject_Callback cb) { kcontextualhelpbutton_metaobject_callback = cb; }
     inline void setKContextualHelpButton_Metacast_Callback(KContextualHelpButton_Metacast_Callback cb) { kcontextualhelpbutton_metacast_callback = cb; }
@@ -424,12 +357,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_metaobject_isbase) {
             kcontextualhelpbutton_metaobject_isbase = false;
             return KContextualHelpButton::metaObject();
-        } else if (kcontextualhelpbutton_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcontextualhelpbutton_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KContextualHelpButton::metaObject();
         }
+        auto metaobject_cb = kcontextualhelpbutton_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KContextualHelpButton::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -437,14 +371,15 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_metacast_isbase) {
             kcontextualhelpbutton_metacast_isbase = false;
             return KContextualHelpButton::qt_metacast(param1);
-        } else if (kcontextualhelpbutton_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcontextualhelpbutton_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcontextualhelpbutton_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KContextualHelpButton::qt_metacast(param1);
         }
+        return KContextualHelpButton::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -452,16 +387,17 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_metacall_isbase) {
             kcontextualhelpbutton_metacall_isbase = false;
             return KContextualHelpButton::qt_metacall(param1, param2, param3);
-        } else if (kcontextualhelpbutton_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcontextualhelpbutton_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcontextualhelpbutton_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KContextualHelpButton::qt_metacall(param1, param2, param3);
         }
+        return KContextualHelpButton::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,12 +405,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_sizehint_isbase) {
             kcontextualhelpbutton_sizehint_isbase = false;
             return KContextualHelpButton::sizeHint();
-        } else if (kcontextualhelpbutton_sizehint_callback != nullptr) {
-            QSize* callback_ret = kcontextualhelpbutton_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KContextualHelpButton::sizeHint();
         }
+        auto sizehint_cb = kcontextualhelpbutton_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KContextualHelpButton::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,12 +419,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_minimumsizehint_isbase) {
             kcontextualhelpbutton_minimumsizehint_isbase = false;
             return KContextualHelpButton::minimumSizeHint();
-        } else if (kcontextualhelpbutton_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kcontextualhelpbutton_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KContextualHelpButton::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kcontextualhelpbutton_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KContextualHelpButton::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,14 +433,15 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_event_isbase) {
             kcontextualhelpbutton_event_isbase = false;
             return KContextualHelpButton::event(e);
-        } else if (kcontextualhelpbutton_event_callback != nullptr) {
+        }
+        auto event_cb = kcontextualhelpbutton_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kcontextualhelpbutton_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KContextualHelpButton::event(e);
         }
+        return KContextualHelpButton::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,13 +449,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_mousepressevent_isbase) {
             kcontextualhelpbutton_mousepressevent_isbase = false;
             KContextualHelpButton::mousePressEvent(param1);
-        } else if (kcontextualhelpbutton_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kcontextualhelpbutton_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kcontextualhelpbutton_mousepressevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,13 +466,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_mousereleaseevent_isbase) {
             kcontextualhelpbutton_mousereleaseevent_isbase = false;
             KContextualHelpButton::mouseReleaseEvent(param1);
-        } else if (kcontextualhelpbutton_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kcontextualhelpbutton_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kcontextualhelpbutton_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,13 +483,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_paintevent_isbase) {
             kcontextualhelpbutton_paintevent_isbase = false;
             KContextualHelpButton::paintEvent(param1);
-        } else if (kcontextualhelpbutton_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kcontextualhelpbutton_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kcontextualhelpbutton_paintevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,13 +500,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_actionevent_isbase) {
             kcontextualhelpbutton_actionevent_isbase = false;
             KContextualHelpButton::actionEvent(param1);
-        } else if (kcontextualhelpbutton_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kcontextualhelpbutton_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
 
-            kcontextualhelpbutton_actionevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::actionEvent(param1);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::actionEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -566,13 +517,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_enterevent_isbase) {
             kcontextualhelpbutton_enterevent_isbase = false;
             KContextualHelpButton::enterEvent(param1);
-        } else if (kcontextualhelpbutton_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kcontextualhelpbutton_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = param1;
 
-            kcontextualhelpbutton_enterevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::enterEvent(param1);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::enterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -580,13 +534,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_leaveevent_isbase) {
             kcontextualhelpbutton_leaveevent_isbase = false;
             KContextualHelpButton::leaveEvent(param1);
-        } else if (kcontextualhelpbutton_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kcontextualhelpbutton_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = param1;
 
-            kcontextualhelpbutton_leaveevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::leaveEvent(param1);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::leaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,13 +551,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_timerevent_isbase) {
             kcontextualhelpbutton_timerevent_isbase = false;
             KContextualHelpButton::timerEvent(param1);
-        } else if (kcontextualhelpbutton_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcontextualhelpbutton_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            kcontextualhelpbutton_timerevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -608,13 +568,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_changeevent_isbase) {
             kcontextualhelpbutton_changeevent_isbase = false;
             KContextualHelpButton::changeEvent(param1);
-        } else if (kcontextualhelpbutton_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kcontextualhelpbutton_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kcontextualhelpbutton_changeevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,16 +585,17 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_hitbutton_isbase) {
             kcontextualhelpbutton_hitbutton_isbase = false;
             return KContextualHelpButton::hitButton(pos);
-        } else if (kcontextualhelpbutton_hitbutton_callback != nullptr) {
+        }
+        auto hitbutton_cb = kcontextualhelpbutton_hitbutton_callback;
+        if (hitbutton_cb) {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
 
-            bool callback_ret = kcontextualhelpbutton_hitbutton_callback(this, cbval1);
+            bool callback_ret = hitbutton_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KContextualHelpButton::hitButton(pos);
         }
+        return KContextualHelpButton::hitButton(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,11 +603,14 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_checkstateset_isbase) {
             kcontextualhelpbutton_checkstateset_isbase = false;
             KContextualHelpButton::checkStateSet();
-        } else if (kcontextualhelpbutton_checkstateset_callback != nullptr) {
-            kcontextualhelpbutton_checkstateset_callback();
-        } else {
-            KContextualHelpButton::checkStateSet();
+            return;
         }
+        auto checkstateset_cb = kcontextualhelpbutton_checkstateset_callback;
+        if (checkstateset_cb) {
+            checkstateset_cb();
+            return;
+        }
+        KContextualHelpButton::checkStateSet();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,11 +618,14 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_nextcheckstate_isbase) {
             kcontextualhelpbutton_nextcheckstate_isbase = false;
             KContextualHelpButton::nextCheckState();
-        } else if (kcontextualhelpbutton_nextcheckstate_callback != nullptr) {
-            kcontextualhelpbutton_nextcheckstate_callback();
-        } else {
-            KContextualHelpButton::nextCheckState();
+            return;
         }
+        auto nextcheckstate_cb = kcontextualhelpbutton_nextcheckstate_callback;
+        if (nextcheckstate_cb) {
+            nextcheckstate_cb();
+            return;
+        }
+        KContextualHelpButton::nextCheckState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +633,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_initstyleoption_isbase) {
             kcontextualhelpbutton_initstyleoption_isbase = false;
             KContextualHelpButton::initStyleOption(option);
-        } else if (kcontextualhelpbutton_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kcontextualhelpbutton_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionToolButton* cbval1 = option;
 
-            kcontextualhelpbutton_initstyleoption_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,13 +650,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_keypressevent_isbase) {
             kcontextualhelpbutton_keypressevent_isbase = false;
             KContextualHelpButton::keyPressEvent(e);
-        } else if (kcontextualhelpbutton_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kcontextualhelpbutton_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kcontextualhelpbutton_keypressevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,13 +667,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_keyreleaseevent_isbase) {
             kcontextualhelpbutton_keyreleaseevent_isbase = false;
             KContextualHelpButton::keyReleaseEvent(e);
-        } else if (kcontextualhelpbutton_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kcontextualhelpbutton_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kcontextualhelpbutton_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,13 +684,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_mousemoveevent_isbase) {
             kcontextualhelpbutton_mousemoveevent_isbase = false;
             KContextualHelpButton::mouseMoveEvent(e);
-        } else if (kcontextualhelpbutton_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kcontextualhelpbutton_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kcontextualhelpbutton_mousemoveevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,13 +701,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_focusinevent_isbase) {
             kcontextualhelpbutton_focusinevent_isbase = false;
             KContextualHelpButton::focusInEvent(e);
-        } else if (kcontextualhelpbutton_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kcontextualhelpbutton_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            kcontextualhelpbutton_focusinevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::focusInEvent(e);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::focusInEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,13 +718,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_focusoutevent_isbase) {
             kcontextualhelpbutton_focusoutevent_isbase = false;
             KContextualHelpButton::focusOutEvent(e);
-        } else if (kcontextualhelpbutton_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kcontextualhelpbutton_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            kcontextualhelpbutton_focusoutevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::focusOutEvent(e);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::focusOutEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,12 +735,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_devtype_isbase) {
             kcontextualhelpbutton_devtype_isbase = false;
             return KContextualHelpButton::devType();
-        } else if (kcontextualhelpbutton_devtype_callback != nullptr) {
-            int callback_ret = kcontextualhelpbutton_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KContextualHelpButton::devType();
         }
+        auto devtype_cb = kcontextualhelpbutton_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KContextualHelpButton::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -760,13 +749,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_setvisible_isbase) {
             kcontextualhelpbutton_setvisible_isbase = false;
             KContextualHelpButton::setVisible(visible);
-        } else if (kcontextualhelpbutton_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kcontextualhelpbutton_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kcontextualhelpbutton_setvisible_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -774,14 +766,15 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_heightforwidth_isbase) {
             kcontextualhelpbutton_heightforwidth_isbase = false;
             return KContextualHelpButton::heightForWidth(param1);
-        } else if (kcontextualhelpbutton_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kcontextualhelpbutton_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kcontextualhelpbutton_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KContextualHelpButton::heightForWidth(param1);
         }
+        return KContextualHelpButton::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,12 +782,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_hasheightforwidth_isbase) {
             kcontextualhelpbutton_hasheightforwidth_isbase = false;
             return KContextualHelpButton::hasHeightForWidth();
-        } else if (kcontextualhelpbutton_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kcontextualhelpbutton_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KContextualHelpButton::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kcontextualhelpbutton_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KContextualHelpButton::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,12 +796,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_paintengine_isbase) {
             kcontextualhelpbutton_paintengine_isbase = false;
             return KContextualHelpButton::paintEngine();
-        } else if (kcontextualhelpbutton_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kcontextualhelpbutton_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KContextualHelpButton::paintEngine();
         }
+        auto paintengine_cb = kcontextualhelpbutton_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KContextualHelpButton::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,13 +810,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_mousedoubleclickevent_isbase) {
             kcontextualhelpbutton_mousedoubleclickevent_isbase = false;
             KContextualHelpButton::mouseDoubleClickEvent(event);
-        } else if (kcontextualhelpbutton_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kcontextualhelpbutton_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcontextualhelpbutton_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +827,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_wheelevent_isbase) {
             kcontextualhelpbutton_wheelevent_isbase = false;
             KContextualHelpButton::wheelEvent(event);
-        } else if (kcontextualhelpbutton_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kcontextualhelpbutton_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kcontextualhelpbutton_wheelevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +844,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_moveevent_isbase) {
             kcontextualhelpbutton_moveevent_isbase = false;
             KContextualHelpButton::moveEvent(event);
-        } else if (kcontextualhelpbutton_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kcontextualhelpbutton_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kcontextualhelpbutton_moveevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +861,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_resizeevent_isbase) {
             kcontextualhelpbutton_resizeevent_isbase = false;
             KContextualHelpButton::resizeEvent(event);
-        } else if (kcontextualhelpbutton_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kcontextualhelpbutton_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kcontextualhelpbutton_resizeevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +878,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_closeevent_isbase) {
             kcontextualhelpbutton_closeevent_isbase = false;
             KContextualHelpButton::closeEvent(event);
-        } else if (kcontextualhelpbutton_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kcontextualhelpbutton_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kcontextualhelpbutton_closeevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +895,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_contextmenuevent_isbase) {
             kcontextualhelpbutton_contextmenuevent_isbase = false;
             KContextualHelpButton::contextMenuEvent(event);
-        } else if (kcontextualhelpbutton_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kcontextualhelpbutton_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kcontextualhelpbutton_contextmenuevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +912,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_tabletevent_isbase) {
             kcontextualhelpbutton_tabletevent_isbase = false;
             KContextualHelpButton::tabletEvent(event);
-        } else if (kcontextualhelpbutton_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kcontextualhelpbutton_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kcontextualhelpbutton_tabletevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +929,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_dragenterevent_isbase) {
             kcontextualhelpbutton_dragenterevent_isbase = false;
             KContextualHelpButton::dragEnterEvent(event);
-        } else if (kcontextualhelpbutton_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kcontextualhelpbutton_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kcontextualhelpbutton_dragenterevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +946,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_dragmoveevent_isbase) {
             kcontextualhelpbutton_dragmoveevent_isbase = false;
             KContextualHelpButton::dragMoveEvent(event);
-        } else if (kcontextualhelpbutton_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kcontextualhelpbutton_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kcontextualhelpbutton_dragmoveevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +963,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_dragleaveevent_isbase) {
             kcontextualhelpbutton_dragleaveevent_isbase = false;
             KContextualHelpButton::dragLeaveEvent(event);
-        } else if (kcontextualhelpbutton_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kcontextualhelpbutton_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kcontextualhelpbutton_dragleaveevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,13 +980,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_dropevent_isbase) {
             kcontextualhelpbutton_dropevent_isbase = false;
             KContextualHelpButton::dropEvent(event);
-        } else if (kcontextualhelpbutton_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kcontextualhelpbutton_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kcontextualhelpbutton_dropevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,13 +997,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_showevent_isbase) {
             kcontextualhelpbutton_showevent_isbase = false;
             KContextualHelpButton::showEvent(event);
-        } else if (kcontextualhelpbutton_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kcontextualhelpbutton_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kcontextualhelpbutton_showevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,13 +1014,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_hideevent_isbase) {
             kcontextualhelpbutton_hideevent_isbase = false;
             KContextualHelpButton::hideEvent(event);
-        } else if (kcontextualhelpbutton_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kcontextualhelpbutton_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kcontextualhelpbutton_hideevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,7 +1031,9 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_nativeevent_isbase) {
             kcontextualhelpbutton_nativeevent_isbase = false;
             return KContextualHelpButton::nativeEvent(eventType, message, result);
-        } else if (kcontextualhelpbutton_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kcontextualhelpbutton_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1008,12 +1044,11 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kcontextualhelpbutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KContextualHelpButton::nativeEvent(eventType, message, result);
         }
+        return KContextualHelpButton::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1021,14 +1056,15 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_metric_isbase) {
             kcontextualhelpbutton_metric_isbase = false;
             return KContextualHelpButton::metric(param1);
-        } else if (kcontextualhelpbutton_metric_callback != nullptr) {
+        }
+        auto metric_cb = kcontextualhelpbutton_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kcontextualhelpbutton_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KContextualHelpButton::metric(param1);
         }
+        return KContextualHelpButton::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1036,13 +1072,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_initpainter_isbase) {
             kcontextualhelpbutton_initpainter_isbase = false;
             KContextualHelpButton::initPainter(painter);
-        } else if (kcontextualhelpbutton_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kcontextualhelpbutton_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kcontextualhelpbutton_initpainter_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,14 +1089,15 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_redirected_isbase) {
             kcontextualhelpbutton_redirected_isbase = false;
             return KContextualHelpButton::redirected(offset);
-        } else if (kcontextualhelpbutton_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kcontextualhelpbutton_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kcontextualhelpbutton_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KContextualHelpButton::redirected(offset);
         }
+        return KContextualHelpButton::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,12 +1105,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_sharedpainter_isbase) {
             kcontextualhelpbutton_sharedpainter_isbase = false;
             return KContextualHelpButton::sharedPainter();
-        } else if (kcontextualhelpbutton_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kcontextualhelpbutton_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KContextualHelpButton::sharedPainter();
         }
+        auto sharedpainter_cb = kcontextualhelpbutton_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KContextualHelpButton::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1078,13 +1119,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_inputmethodevent_isbase) {
             kcontextualhelpbutton_inputmethodevent_isbase = false;
             KContextualHelpButton::inputMethodEvent(param1);
-        } else if (kcontextualhelpbutton_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kcontextualhelpbutton_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kcontextualhelpbutton_inputmethodevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,14 +1136,15 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_inputmethodquery_isbase) {
             kcontextualhelpbutton_inputmethodquery_isbase = false;
             return KContextualHelpButton::inputMethodQuery(param1);
-        } else if (kcontextualhelpbutton_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kcontextualhelpbutton_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kcontextualhelpbutton_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KContextualHelpButton::inputMethodQuery(param1);
         }
+        return KContextualHelpButton::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1107,14 +1152,15 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_focusnextprevchild_isbase) {
             kcontextualhelpbutton_focusnextprevchild_isbase = false;
             return KContextualHelpButton::focusNextPrevChild(next);
-        } else if (kcontextualhelpbutton_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kcontextualhelpbutton_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kcontextualhelpbutton_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KContextualHelpButton::focusNextPrevChild(next);
         }
+        return KContextualHelpButton::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1122,15 +1168,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_eventfilter_isbase) {
             kcontextualhelpbutton_eventfilter_isbase = false;
             return KContextualHelpButton::eventFilter(watched, event);
-        } else if (kcontextualhelpbutton_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcontextualhelpbutton_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcontextualhelpbutton_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KContextualHelpButton::eventFilter(watched, event);
         }
+        return KContextualHelpButton::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1138,13 +1185,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_childevent_isbase) {
             kcontextualhelpbutton_childevent_isbase = false;
             KContextualHelpButton::childEvent(event);
-        } else if (kcontextualhelpbutton_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcontextualhelpbutton_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcontextualhelpbutton_childevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1152,13 +1202,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_customevent_isbase) {
             kcontextualhelpbutton_customevent_isbase = false;
             KContextualHelpButton::customEvent(event);
-        } else if (kcontextualhelpbutton_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcontextualhelpbutton_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcontextualhelpbutton_customevent_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,15 +1219,18 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_connectnotify_isbase) {
             kcontextualhelpbutton_connectnotify_isbase = false;
             KContextualHelpButton::connectNotify(signal);
-        } else if (kcontextualhelpbutton_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcontextualhelpbutton_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcontextualhelpbutton_connectnotify_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1182,15 +1238,18 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_disconnectnotify_isbase) {
             kcontextualhelpbutton_disconnectnotify_isbase = false;
             KContextualHelpButton::disconnectNotify(signal);
-        } else if (kcontextualhelpbutton_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcontextualhelpbutton_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcontextualhelpbutton_disconnectnotify_callback(this, cbval1);
-        } else {
-            KContextualHelpButton::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KContextualHelpButton::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1198,11 +1257,14 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_updatemicrofocus_isbase) {
             kcontextualhelpbutton_updatemicrofocus_isbase = false;
             KContextualHelpButton::updateMicroFocus();
-        } else if (kcontextualhelpbutton_updatemicrofocus_callback != nullptr) {
-            kcontextualhelpbutton_updatemicrofocus_callback();
-        } else {
-            KContextualHelpButton::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kcontextualhelpbutton_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KContextualHelpButton::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,11 +1272,14 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_create_isbase) {
             kcontextualhelpbutton_create_isbase = false;
             KContextualHelpButton::create();
-        } else if (kcontextualhelpbutton_create_callback != nullptr) {
-            kcontextualhelpbutton_create_callback();
-        } else {
-            KContextualHelpButton::create();
+            return;
         }
+        auto create_cb = kcontextualhelpbutton_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KContextualHelpButton::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,11 +1287,14 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_destroy_isbase) {
             kcontextualhelpbutton_destroy_isbase = false;
             KContextualHelpButton::destroy();
-        } else if (kcontextualhelpbutton_destroy_callback != nullptr) {
-            kcontextualhelpbutton_destroy_callback();
-        } else {
-            KContextualHelpButton::destroy();
+            return;
         }
+        auto destroy_cb = kcontextualhelpbutton_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KContextualHelpButton::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,12 +1302,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_focusnextchild_isbase) {
             kcontextualhelpbutton_focusnextchild_isbase = false;
             return KContextualHelpButton::focusNextChild();
-        } else if (kcontextualhelpbutton_focusnextchild_callback != nullptr) {
-            bool callback_ret = kcontextualhelpbutton_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KContextualHelpButton::focusNextChild();
         }
+        auto focusnextchild_cb = kcontextualhelpbutton_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KContextualHelpButton::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,12 +1316,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_focuspreviouschild_isbase) {
             kcontextualhelpbutton_focuspreviouschild_isbase = false;
             return KContextualHelpButton::focusPreviousChild();
-        } else if (kcontextualhelpbutton_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kcontextualhelpbutton_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KContextualHelpButton::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kcontextualhelpbutton_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KContextualHelpButton::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1260,12 +1330,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_sender_isbase) {
             kcontextualhelpbutton_sender_isbase = false;
             return KContextualHelpButton::sender();
-        } else if (kcontextualhelpbutton_sender_callback != nullptr) {
-            QObject* callback_ret = kcontextualhelpbutton_sender_callback();
-            return callback_ret;
-        } else {
-            return KContextualHelpButton::sender();
         }
+        auto sender_cb = kcontextualhelpbutton_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KContextualHelpButton::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1273,12 +1344,13 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_sendersignalindex_isbase) {
             kcontextualhelpbutton_sendersignalindex_isbase = false;
             return KContextualHelpButton::senderSignalIndex();
-        } else if (kcontextualhelpbutton_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcontextualhelpbutton_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KContextualHelpButton::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcontextualhelpbutton_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KContextualHelpButton::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1286,14 +1358,15 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_receivers_isbase) {
             kcontextualhelpbutton_receivers_isbase = false;
             return KContextualHelpButton::receivers(signal);
-        } else if (kcontextualhelpbutton_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcontextualhelpbutton_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcontextualhelpbutton_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KContextualHelpButton::receivers(signal);
         }
+        return KContextualHelpButton::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1301,16 +1374,17 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_issignalconnected_isbase) {
             kcontextualhelpbutton_issignalconnected_isbase = false;
             return KContextualHelpButton::isSignalConnected(signal);
-        } else if (kcontextualhelpbutton_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcontextualhelpbutton_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcontextualhelpbutton_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KContextualHelpButton::isSignalConnected(signal);
         }
+        return KContextualHelpButton::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1318,15 +1392,16 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
         if (kcontextualhelpbutton_getdecodedmetricf_isbase) {
             kcontextualhelpbutton_getdecodedmetricf_isbase = false;
             return KContextualHelpButton::getDecodedMetricF(metricA, metricB);
-        } else if (kcontextualhelpbutton_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kcontextualhelpbutton_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kcontextualhelpbutton_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KContextualHelpButton::getDecodedMetricF(metricA, metricB);
         }
+        return KContextualHelpButton::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

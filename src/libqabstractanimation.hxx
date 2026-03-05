@@ -81,27 +81,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
     VirtualQAbstractAnimation() : QAbstractAnimation() {};
     VirtualQAbstractAnimation(QObject* parent) : QAbstractAnimation(parent) {};
 
-    ~VirtualQAbstractAnimation() {
-        qabstractanimation_metaobject_callback = nullptr;
-        qabstractanimation_metacast_callback = nullptr;
-        qabstractanimation_metacall_callback = nullptr;
-        qabstractanimation_duration_callback = nullptr;
-        qabstractanimation_event_callback = nullptr;
-        qabstractanimation_updatecurrenttime_callback = nullptr;
-        qabstractanimation_updatestate_callback = nullptr;
-        qabstractanimation_updatedirection_callback = nullptr;
-        qabstractanimation_eventfilter_callback = nullptr;
-        qabstractanimation_timerevent_callback = nullptr;
-        qabstractanimation_childevent_callback = nullptr;
-        qabstractanimation_customevent_callback = nullptr;
-        qabstractanimation_connectnotify_callback = nullptr;
-        qabstractanimation_disconnectnotify_callback = nullptr;
-        qabstractanimation_sender_callback = nullptr;
-        qabstractanimation_sendersignalindex_callback = nullptr;
-        qabstractanimation_receivers_callback = nullptr;
-        qabstractanimation_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractAnimation_MetaObject_Callback(QAbstractAnimation_MetaObject_Callback cb) { qabstractanimation_metaobject_callback = cb; }
     inline void setQAbstractAnimation_Metacast_Callback(QAbstractAnimation_Metacast_Callback cb) { qabstractanimation_metacast_callback = cb; }
@@ -147,12 +126,13 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_metaobject_isbase) {
             qabstractanimation_metaobject_isbase = false;
             return QAbstractAnimation::metaObject();
-        } else if (qabstractanimation_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qabstractanimation_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAbstractAnimation::metaObject();
         }
+        auto metaobject_cb = qabstractanimation_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAbstractAnimation::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -160,14 +140,15 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_metacast_isbase) {
             qabstractanimation_metacast_isbase = false;
             return QAbstractAnimation::qt_metacast(param1);
-        } else if (qabstractanimation_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qabstractanimation_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qabstractanimation_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractAnimation::qt_metacast(param1);
         }
+        return QAbstractAnimation::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -175,26 +156,27 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_metacall_isbase) {
             qabstractanimation_metacall_isbase = false;
             return QAbstractAnimation::qt_metacall(param1, param2, param3);
-        } else if (qabstractanimation_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qabstractanimation_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qabstractanimation_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractAnimation::qt_metacall(param1, param2, param3);
         }
+        return QAbstractAnimation::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int duration() const override {
-        if (qabstractanimation_duration_callback != nullptr) {
-            int callback_ret = qabstractanimation_duration_callback();
+        auto duration_cb = qabstractanimation_duration_callback;
+        if (duration_cb) {
+            int callback_ret = duration_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,22 +184,24 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_event_isbase) {
             qabstractanimation_event_isbase = false;
             return QAbstractAnimation::event(event);
-        } else if (qabstractanimation_event_callback != nullptr) {
+        }
+        auto event_cb = qabstractanimation_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qabstractanimation_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractAnimation::event(event);
         }
+        return QAbstractAnimation::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void updateCurrentTime(int currentTime) override {
-        if (qabstractanimation_updatecurrenttime_callback != nullptr) {
+        auto updatecurrenttime_cb = qabstractanimation_updatecurrenttime_callback;
+        if (updatecurrenttime_cb) {
             int cbval1 = currentTime;
 
-            qabstractanimation_updatecurrenttime_callback(this, cbval1);
+            updatecurrenttime_cb(this, cbval1);
         }
     }
 
@@ -226,14 +210,17 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_updatestate_isbase) {
             qabstractanimation_updatestate_isbase = false;
             QAbstractAnimation::updateState(newState, oldState);
-        } else if (qabstractanimation_updatestate_callback != nullptr) {
+            return;
+        }
+        auto updatestate_cb = qabstractanimation_updatestate_callback;
+        if (updatestate_cb) {
             int cbval1 = static_cast<int>(newState);
             int cbval2 = static_cast<int>(oldState);
 
-            qabstractanimation_updatestate_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractAnimation::updateState(newState, oldState);
+            updatestate_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractAnimation::updateState(newState, oldState);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,13 +228,16 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_updatedirection_isbase) {
             qabstractanimation_updatedirection_isbase = false;
             QAbstractAnimation::updateDirection(direction);
-        } else if (qabstractanimation_updatedirection_callback != nullptr) {
+            return;
+        }
+        auto updatedirection_cb = qabstractanimation_updatedirection_callback;
+        if (updatedirection_cb) {
             int cbval1 = static_cast<int>(direction);
 
-            qabstractanimation_updatedirection_callback(this, cbval1);
-        } else {
-            QAbstractAnimation::updateDirection(direction);
+            updatedirection_cb(this, cbval1);
+            return;
         }
+        QAbstractAnimation::updateDirection(direction);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -255,15 +245,16 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_eventfilter_isbase) {
             qabstractanimation_eventfilter_isbase = false;
             return QAbstractAnimation::eventFilter(watched, event);
-        } else if (qabstractanimation_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qabstractanimation_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qabstractanimation_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractAnimation::eventFilter(watched, event);
         }
+        return QAbstractAnimation::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -271,13 +262,16 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_timerevent_isbase) {
             qabstractanimation_timerevent_isbase = false;
             QAbstractAnimation::timerEvent(event);
-        } else if (qabstractanimation_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qabstractanimation_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qabstractanimation_timerevent_callback(this, cbval1);
-        } else {
-            QAbstractAnimation::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAbstractAnimation::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,13 +279,16 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_childevent_isbase) {
             qabstractanimation_childevent_isbase = false;
             QAbstractAnimation::childEvent(event);
-        } else if (qabstractanimation_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qabstractanimation_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qabstractanimation_childevent_callback(this, cbval1);
-        } else {
-            QAbstractAnimation::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAbstractAnimation::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,13 +296,16 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_customevent_isbase) {
             qabstractanimation_customevent_isbase = false;
             QAbstractAnimation::customEvent(event);
-        } else if (qabstractanimation_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qabstractanimation_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractanimation_customevent_callback(this, cbval1);
-        } else {
-            QAbstractAnimation::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAbstractAnimation::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,15 +313,18 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_connectnotify_isbase) {
             qabstractanimation_connectnotify_isbase = false;
             QAbstractAnimation::connectNotify(signal);
-        } else if (qabstractanimation_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qabstractanimation_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractanimation_connectnotify_callback(this, cbval1);
-        } else {
-            QAbstractAnimation::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractAnimation::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,15 +332,18 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_disconnectnotify_isbase) {
             qabstractanimation_disconnectnotify_isbase = false;
             QAbstractAnimation::disconnectNotify(signal);
-        } else if (qabstractanimation_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qabstractanimation_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractanimation_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAbstractAnimation::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractAnimation::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -345,12 +351,13 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_sender_isbase) {
             qabstractanimation_sender_isbase = false;
             return QAbstractAnimation::sender();
-        } else if (qabstractanimation_sender_callback != nullptr) {
-            QObject* callback_ret = qabstractanimation_sender_callback();
-            return callback_ret;
-        } else {
-            return QAbstractAnimation::sender();
         }
+        auto sender_cb = qabstractanimation_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAbstractAnimation::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,12 +365,13 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_sendersignalindex_isbase) {
             qabstractanimation_sendersignalindex_isbase = false;
             return QAbstractAnimation::senderSignalIndex();
-        } else if (qabstractanimation_sendersignalindex_callback != nullptr) {
-            int callback_ret = qabstractanimation_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractAnimation::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qabstractanimation_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractAnimation::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -371,14 +379,15 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_receivers_isbase) {
             qabstractanimation_receivers_isbase = false;
             return QAbstractAnimation::receivers(signal);
-        } else if (qabstractanimation_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qabstractanimation_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qabstractanimation_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractAnimation::receivers(signal);
         }
+        return QAbstractAnimation::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -386,16 +395,17 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (qabstractanimation_issignalconnected_isbase) {
             qabstractanimation_issignalconnected_isbase = false;
             return QAbstractAnimation::isSignalConnected(signal);
-        } else if (qabstractanimation_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qabstractanimation_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qabstractanimation_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractAnimation::isSignalConnected(signal);
         }
+        return QAbstractAnimation::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -502,28 +512,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
     VirtualQAnimationDriver() : QAnimationDriver() {};
     VirtualQAnimationDriver(QObject* parent) : QAnimationDriver(parent) {};
 
-    ~VirtualQAnimationDriver() {
-        qanimationdriver_metaobject_callback = nullptr;
-        qanimationdriver_metacast_callback = nullptr;
-        qanimationdriver_metacall_callback = nullptr;
-        qanimationdriver_advance_callback = nullptr;
-        qanimationdriver_elapsed_callback = nullptr;
-        qanimationdriver_start_callback = nullptr;
-        qanimationdriver_stop_callback = nullptr;
-        qanimationdriver_event_callback = nullptr;
-        qanimationdriver_eventfilter_callback = nullptr;
-        qanimationdriver_timerevent_callback = nullptr;
-        qanimationdriver_childevent_callback = nullptr;
-        qanimationdriver_customevent_callback = nullptr;
-        qanimationdriver_connectnotify_callback = nullptr;
-        qanimationdriver_disconnectnotify_callback = nullptr;
-        qanimationdriver_advanceanimation_callback = nullptr;
-        qanimationdriver_sender_callback = nullptr;
-        qanimationdriver_sendersignalindex_callback = nullptr;
-        qanimationdriver_receivers_callback = nullptr;
-        qanimationdriver_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAnimationDriver_MetaObject_Callback(QAnimationDriver_MetaObject_Callback cb) { qanimationdriver_metaobject_callback = cb; }
     inline void setQAnimationDriver_Metacast_Callback(QAnimationDriver_Metacast_Callback cb) { qanimationdriver_metacast_callback = cb; }
@@ -571,12 +559,13 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_metaobject_isbase) {
             qanimationdriver_metaobject_isbase = false;
             return QAnimationDriver::metaObject();
-        } else if (qanimationdriver_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qanimationdriver_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAnimationDriver::metaObject();
         }
+        auto metaobject_cb = qanimationdriver_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAnimationDriver::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,14 +573,15 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_metacast_isbase) {
             qanimationdriver_metacast_isbase = false;
             return QAnimationDriver::qt_metacast(param1);
-        } else if (qanimationdriver_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qanimationdriver_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qanimationdriver_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAnimationDriver::qt_metacast(param1);
         }
+        return QAnimationDriver::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,16 +589,17 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_metacall_isbase) {
             qanimationdriver_metacall_isbase = false;
             return QAnimationDriver::qt_metacall(param1, param2, param3);
-        } else if (qanimationdriver_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qanimationdriver_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qanimationdriver_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAnimationDriver::qt_metacall(param1, param2, param3);
         }
+        return QAnimationDriver::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -616,11 +607,14 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_advance_isbase) {
             qanimationdriver_advance_isbase = false;
             QAnimationDriver::advance();
-        } else if (qanimationdriver_advance_callback != nullptr) {
-            qanimationdriver_advance_callback();
-        } else {
-            QAnimationDriver::advance();
+            return;
         }
+        auto advance_cb = qanimationdriver_advance_callback;
+        if (advance_cb) {
+            advance_cb();
+            return;
+        }
+        QAnimationDriver::advance();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -628,12 +622,13 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_elapsed_isbase) {
             qanimationdriver_elapsed_isbase = false;
             return QAnimationDriver::elapsed();
-        } else if (qanimationdriver_elapsed_callback != nullptr) {
-            long long callback_ret = qanimationdriver_elapsed_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QAnimationDriver::elapsed();
         }
+        auto elapsed_cb = qanimationdriver_elapsed_callback;
+        if (elapsed_cb) {
+            long long callback_ret = elapsed_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QAnimationDriver::elapsed();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,11 +636,14 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_start_isbase) {
             qanimationdriver_start_isbase = false;
             QAnimationDriver::start();
-        } else if (qanimationdriver_start_callback != nullptr) {
-            qanimationdriver_start_callback();
-        } else {
-            QAnimationDriver::start();
+            return;
         }
+        auto start_cb = qanimationdriver_start_callback;
+        if (start_cb) {
+            start_cb();
+            return;
+        }
+        QAnimationDriver::start();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,11 +651,14 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_stop_isbase) {
             qanimationdriver_stop_isbase = false;
             QAnimationDriver::stop();
-        } else if (qanimationdriver_stop_callback != nullptr) {
-            qanimationdriver_stop_callback();
-        } else {
-            QAnimationDriver::stop();
+            return;
         }
+        auto stop_cb = qanimationdriver_stop_callback;
+        if (stop_cb) {
+            stop_cb();
+            return;
+        }
+        QAnimationDriver::stop();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,14 +666,15 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_event_isbase) {
             qanimationdriver_event_isbase = false;
             return QAnimationDriver::event(event);
-        } else if (qanimationdriver_event_callback != nullptr) {
+        }
+        auto event_cb = qanimationdriver_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qanimationdriver_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAnimationDriver::event(event);
         }
+        return QAnimationDriver::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,15 +682,16 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_eventfilter_isbase) {
             qanimationdriver_eventfilter_isbase = false;
             return QAnimationDriver::eventFilter(watched, event);
-        } else if (qanimationdriver_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qanimationdriver_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qanimationdriver_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAnimationDriver::eventFilter(watched, event);
         }
+        return QAnimationDriver::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,13 +699,16 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_timerevent_isbase) {
             qanimationdriver_timerevent_isbase = false;
             QAnimationDriver::timerEvent(event);
-        } else if (qanimationdriver_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qanimationdriver_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qanimationdriver_timerevent_callback(this, cbval1);
-        } else {
-            QAnimationDriver::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAnimationDriver::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -710,13 +716,16 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_childevent_isbase) {
             qanimationdriver_childevent_isbase = false;
             QAnimationDriver::childEvent(event);
-        } else if (qanimationdriver_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qanimationdriver_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qanimationdriver_childevent_callback(this, cbval1);
-        } else {
-            QAnimationDriver::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAnimationDriver::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,13 +733,16 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_customevent_isbase) {
             qanimationdriver_customevent_isbase = false;
             QAnimationDriver::customEvent(event);
-        } else if (qanimationdriver_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qanimationdriver_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qanimationdriver_customevent_callback(this, cbval1);
-        } else {
-            QAnimationDriver::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAnimationDriver::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -738,15 +750,18 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_connectnotify_isbase) {
             qanimationdriver_connectnotify_isbase = false;
             QAnimationDriver::connectNotify(signal);
-        } else if (qanimationdriver_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qanimationdriver_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qanimationdriver_connectnotify_callback(this, cbval1);
-        } else {
-            QAnimationDriver::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAnimationDriver::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,15 +769,18 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_disconnectnotify_isbase) {
             qanimationdriver_disconnectnotify_isbase = false;
             QAnimationDriver::disconnectNotify(signal);
-        } else if (qanimationdriver_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qanimationdriver_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qanimationdriver_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAnimationDriver::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAnimationDriver::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,11 +788,14 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_advanceanimation_isbase) {
             qanimationdriver_advanceanimation_isbase = false;
             QAnimationDriver::advanceAnimation();
-        } else if (qanimationdriver_advanceanimation_callback != nullptr) {
-            qanimationdriver_advanceanimation_callback();
-        } else {
-            QAnimationDriver::advanceAnimation();
+            return;
         }
+        auto advanceanimation_cb = qanimationdriver_advanceanimation_callback;
+        if (advanceanimation_cb) {
+            advanceanimation_cb();
+            return;
+        }
+        QAnimationDriver::advanceAnimation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,12 +803,13 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_sender_isbase) {
             qanimationdriver_sender_isbase = false;
             return QAnimationDriver::sender();
-        } else if (qanimationdriver_sender_callback != nullptr) {
-            QObject* callback_ret = qanimationdriver_sender_callback();
-            return callback_ret;
-        } else {
-            return QAnimationDriver::sender();
         }
+        auto sender_cb = qanimationdriver_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAnimationDriver::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,12 +817,13 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_sendersignalindex_isbase) {
             qanimationdriver_sendersignalindex_isbase = false;
             return QAnimationDriver::senderSignalIndex();
-        } else if (qanimationdriver_sendersignalindex_callback != nullptr) {
-            int callback_ret = qanimationdriver_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAnimationDriver::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qanimationdriver_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAnimationDriver::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -808,14 +831,15 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_receivers_isbase) {
             qanimationdriver_receivers_isbase = false;
             return QAnimationDriver::receivers(signal);
-        } else if (qanimationdriver_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qanimationdriver_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qanimationdriver_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAnimationDriver::receivers(signal);
         }
+        return QAnimationDriver::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,16 +847,17 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (qanimationdriver_issignalconnected_isbase) {
             qanimationdriver_issignalconnected_isbase = false;
             return QAnimationDriver::isSignalConnected(signal);
-        } else if (qanimationdriver_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qanimationdriver_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qanimationdriver_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAnimationDriver::isSignalConnected(signal);
         }
+        return QAnimationDriver::isSignalConnected(signal);
     }
 
     // Friend functions

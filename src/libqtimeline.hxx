@@ -73,24 +73,6 @@ class VirtualQTimeLine final : public QTimeLine {
     VirtualQTimeLine(int duration) : QTimeLine(duration) {};
     VirtualQTimeLine(int duration, QObject* parent) : QTimeLine(duration, parent) {};
 
-    ~VirtualQTimeLine() {
-        qtimeline_metaobject_callback = nullptr;
-        qtimeline_metacast_callback = nullptr;
-        qtimeline_metacall_callback = nullptr;
-        qtimeline_valuefortime_callback = nullptr;
-        qtimeline_timerevent_callback = nullptr;
-        qtimeline_event_callback = nullptr;
-        qtimeline_eventfilter_callback = nullptr;
-        qtimeline_childevent_callback = nullptr;
-        qtimeline_customevent_callback = nullptr;
-        qtimeline_connectnotify_callback = nullptr;
-        qtimeline_disconnectnotify_callback = nullptr;
-        qtimeline_sender_callback = nullptr;
-        qtimeline_sendersignalindex_callback = nullptr;
-        qtimeline_receivers_callback = nullptr;
-        qtimeline_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTimeLine_MetaObject_Callback(QTimeLine_MetaObject_Callback cb) { qtimeline_metaobject_callback = cb; }
     inline void setQTimeLine_Metacast_Callback(QTimeLine_Metacast_Callback cb) { qtimeline_metacast_callback = cb; }
@@ -130,12 +112,13 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_metaobject_isbase) {
             qtimeline_metaobject_isbase = false;
             return QTimeLine::metaObject();
-        } else if (qtimeline_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtimeline_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTimeLine::metaObject();
         }
+        auto metaobject_cb = qtimeline_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTimeLine::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -143,14 +126,15 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_metacast_isbase) {
             qtimeline_metacast_isbase = false;
             return QTimeLine::qt_metacast(param1);
-        } else if (qtimeline_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtimeline_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtimeline_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTimeLine::qt_metacast(param1);
         }
+        return QTimeLine::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -158,16 +142,17 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_metacall_isbase) {
             qtimeline_metacall_isbase = false;
             return QTimeLine::qt_metacall(param1, param2, param3);
-        } else if (qtimeline_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtimeline_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtimeline_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTimeLine::qt_metacall(param1, param2, param3);
         }
+        return QTimeLine::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -175,14 +160,15 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_valuefortime_isbase) {
             qtimeline_valuefortime_isbase = false;
             return QTimeLine::valueForTime(msec);
-        } else if (qtimeline_valuefortime_callback != nullptr) {
+        }
+        auto valuefortime_cb = qtimeline_valuefortime_callback;
+        if (valuefortime_cb) {
             int cbval1 = msec;
 
-            double callback_ret = qtimeline_valuefortime_callback(this, cbval1);
+            double callback_ret = valuefortime_cb(this, cbval1);
             return static_cast<qreal>(callback_ret);
-        } else {
-            return QTimeLine::valueForTime(msec);
         }
+        return QTimeLine::valueForTime(msec);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -190,13 +176,16 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_timerevent_isbase) {
             qtimeline_timerevent_isbase = false;
             QTimeLine::timerEvent(event);
-        } else if (qtimeline_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtimeline_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtimeline_timerevent_callback(this, cbval1);
-        } else {
-            QTimeLine::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTimeLine::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,14 +193,15 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_event_isbase) {
             qtimeline_event_isbase = false;
             return QTimeLine::event(event);
-        } else if (qtimeline_event_callback != nullptr) {
+        }
+        auto event_cb = qtimeline_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtimeline_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTimeLine::event(event);
         }
+        return QTimeLine::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,15 +209,16 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_eventfilter_isbase) {
             qtimeline_eventfilter_isbase = false;
             return QTimeLine::eventFilter(watched, event);
-        } else if (qtimeline_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtimeline_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtimeline_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTimeLine::eventFilter(watched, event);
         }
+        return QTimeLine::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -235,13 +226,16 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_childevent_isbase) {
             qtimeline_childevent_isbase = false;
             QTimeLine::childEvent(event);
-        } else if (qtimeline_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtimeline_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtimeline_childevent_callback(this, cbval1);
-        } else {
-            QTimeLine::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTimeLine::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -249,13 +243,16 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_customevent_isbase) {
             qtimeline_customevent_isbase = false;
             QTimeLine::customEvent(event);
-        } else if (qtimeline_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtimeline_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtimeline_customevent_callback(this, cbval1);
-        } else {
-            QTimeLine::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTimeLine::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,15 +260,18 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_connectnotify_isbase) {
             qtimeline_connectnotify_isbase = false;
             QTimeLine::connectNotify(signal);
-        } else if (qtimeline_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtimeline_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtimeline_connectnotify_callback(this, cbval1);
-        } else {
-            QTimeLine::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTimeLine::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,15 +279,18 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_disconnectnotify_isbase) {
             qtimeline_disconnectnotify_isbase = false;
             QTimeLine::disconnectNotify(signal);
-        } else if (qtimeline_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtimeline_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtimeline_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTimeLine::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTimeLine::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,12 +298,13 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_sender_isbase) {
             qtimeline_sender_isbase = false;
             return QTimeLine::sender();
-        } else if (qtimeline_sender_callback != nullptr) {
-            QObject* callback_ret = qtimeline_sender_callback();
-            return callback_ret;
-        } else {
-            return QTimeLine::sender();
         }
+        auto sender_cb = qtimeline_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTimeLine::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,12 +312,13 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_sendersignalindex_isbase) {
             qtimeline_sendersignalindex_isbase = false;
             return QTimeLine::senderSignalIndex();
-        } else if (qtimeline_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtimeline_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTimeLine::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtimeline_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTimeLine::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,14 +326,15 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_receivers_isbase) {
             qtimeline_receivers_isbase = false;
             return QTimeLine::receivers(signal);
-        } else if (qtimeline_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtimeline_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtimeline_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTimeLine::receivers(signal);
         }
+        return QTimeLine::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -336,16 +342,17 @@ class VirtualQTimeLine final : public QTimeLine {
         if (qtimeline_issignalconnected_isbase) {
             qtimeline_issignalconnected_isbase = false;
             return QTimeLine::isSignalConnected(signal);
-        } else if (qtimeline_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtimeline_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtimeline_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTimeLine::isSignalConnected(signal);
         }
+        return QTimeLine::isSignalConnected(signal);
     }
 
     // Friend functions

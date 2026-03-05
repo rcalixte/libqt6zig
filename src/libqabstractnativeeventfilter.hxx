@@ -29,10 +29,6 @@ class VirtualQAbstractNativeEventFilter : public QAbstractNativeEventFilter {
   public:
     VirtualQAbstractNativeEventFilter() : QAbstractNativeEventFilter() {};
 
-    ~VirtualQAbstractNativeEventFilter() {
-        qabstractnativeeventfilter_nativeeventfilter_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractNativeEventFilter_NativeEventFilter_Callback(QAbstractNativeEventFilter_NativeEventFilter_Callback cb) { qabstractnativeeventfilter_nativeeventfilter_callback = cb; }
 
@@ -41,7 +37,8 @@ class VirtualQAbstractNativeEventFilter : public QAbstractNativeEventFilter {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEventFilter(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qabstractnativeeventfilter_nativeeventfilter_callback != nullptr) {
+        auto nativeeventfilter_cb = qabstractnativeeventfilter_nativeeventfilter_callback;
+        if (nativeeventfilter_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -52,12 +49,11 @@ class VirtualQAbstractNativeEventFilter : public QAbstractNativeEventFilter {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qabstractnativeeventfilter_nativeeventfilter_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeeventfilter_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 };
 

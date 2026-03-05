@@ -227,75 +227,6 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
     VirtualQPageSetupDialog() : QPageSetupDialog() {};
     VirtualQPageSetupDialog(QPrinter* printer, QWidget* parent) : QPageSetupDialog(printer, parent) {};
 
-    ~VirtualQPageSetupDialog() {
-        qpagesetupdialog_metaobject_callback = nullptr;
-        qpagesetupdialog_metacast_callback = nullptr;
-        qpagesetupdialog_metacall_callback = nullptr;
-        qpagesetupdialog_exec_callback = nullptr;
-        qpagesetupdialog_done_callback = nullptr;
-        qpagesetupdialog_setvisible_callback = nullptr;
-        qpagesetupdialog_sizehint_callback = nullptr;
-        qpagesetupdialog_minimumsizehint_callback = nullptr;
-        qpagesetupdialog_open_callback = nullptr;
-        qpagesetupdialog_accept_callback = nullptr;
-        qpagesetupdialog_reject_callback = nullptr;
-        qpagesetupdialog_keypressevent_callback = nullptr;
-        qpagesetupdialog_closeevent_callback = nullptr;
-        qpagesetupdialog_showevent_callback = nullptr;
-        qpagesetupdialog_resizeevent_callback = nullptr;
-        qpagesetupdialog_contextmenuevent_callback = nullptr;
-        qpagesetupdialog_eventfilter_callback = nullptr;
-        qpagesetupdialog_devtype_callback = nullptr;
-        qpagesetupdialog_heightforwidth_callback = nullptr;
-        qpagesetupdialog_hasheightforwidth_callback = nullptr;
-        qpagesetupdialog_paintengine_callback = nullptr;
-        qpagesetupdialog_event_callback = nullptr;
-        qpagesetupdialog_mousepressevent_callback = nullptr;
-        qpagesetupdialog_mousereleaseevent_callback = nullptr;
-        qpagesetupdialog_mousedoubleclickevent_callback = nullptr;
-        qpagesetupdialog_mousemoveevent_callback = nullptr;
-        qpagesetupdialog_wheelevent_callback = nullptr;
-        qpagesetupdialog_keyreleaseevent_callback = nullptr;
-        qpagesetupdialog_focusinevent_callback = nullptr;
-        qpagesetupdialog_focusoutevent_callback = nullptr;
-        qpagesetupdialog_enterevent_callback = nullptr;
-        qpagesetupdialog_leaveevent_callback = nullptr;
-        qpagesetupdialog_paintevent_callback = nullptr;
-        qpagesetupdialog_moveevent_callback = nullptr;
-        qpagesetupdialog_tabletevent_callback = nullptr;
-        qpagesetupdialog_actionevent_callback = nullptr;
-        qpagesetupdialog_dragenterevent_callback = nullptr;
-        qpagesetupdialog_dragmoveevent_callback = nullptr;
-        qpagesetupdialog_dragleaveevent_callback = nullptr;
-        qpagesetupdialog_dropevent_callback = nullptr;
-        qpagesetupdialog_hideevent_callback = nullptr;
-        qpagesetupdialog_nativeevent_callback = nullptr;
-        qpagesetupdialog_changeevent_callback = nullptr;
-        qpagesetupdialog_metric_callback = nullptr;
-        qpagesetupdialog_initpainter_callback = nullptr;
-        qpagesetupdialog_redirected_callback = nullptr;
-        qpagesetupdialog_sharedpainter_callback = nullptr;
-        qpagesetupdialog_inputmethodevent_callback = nullptr;
-        qpagesetupdialog_inputmethodquery_callback = nullptr;
-        qpagesetupdialog_focusnextprevchild_callback = nullptr;
-        qpagesetupdialog_timerevent_callback = nullptr;
-        qpagesetupdialog_childevent_callback = nullptr;
-        qpagesetupdialog_customevent_callback = nullptr;
-        qpagesetupdialog_connectnotify_callback = nullptr;
-        qpagesetupdialog_disconnectnotify_callback = nullptr;
-        qpagesetupdialog_adjustposition_callback = nullptr;
-        qpagesetupdialog_updatemicrofocus_callback = nullptr;
-        qpagesetupdialog_create_callback = nullptr;
-        qpagesetupdialog_destroy_callback = nullptr;
-        qpagesetupdialog_focusnextchild_callback = nullptr;
-        qpagesetupdialog_focuspreviouschild_callback = nullptr;
-        qpagesetupdialog_sender_callback = nullptr;
-        qpagesetupdialog_sendersignalindex_callback = nullptr;
-        qpagesetupdialog_receivers_callback = nullptr;
-        qpagesetupdialog_issignalconnected_callback = nullptr;
-        qpagesetupdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPageSetupDialog_MetaObject_Callback(QPageSetupDialog_MetaObject_Callback cb) { qpagesetupdialog_metaobject_callback = cb; }
     inline void setQPageSetupDialog_Metacast_Callback(QPageSetupDialog_Metacast_Callback cb) { qpagesetupdialog_metacast_callback = cb; }
@@ -437,12 +368,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_metaobject_isbase) {
             qpagesetupdialog_metaobject_isbase = false;
             return QPageSetupDialog::metaObject();
-        } else if (qpagesetupdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qpagesetupdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPageSetupDialog::metaObject();
         }
+        auto metaobject_cb = qpagesetupdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPageSetupDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +382,15 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_metacast_isbase) {
             qpagesetupdialog_metacast_isbase = false;
             return QPageSetupDialog::qt_metacast(param1);
-        } else if (qpagesetupdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qpagesetupdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qpagesetupdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPageSetupDialog::qt_metacast(param1);
         }
+        return QPageSetupDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,16 +398,17 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_metacall_isbase) {
             qpagesetupdialog_metacall_isbase = false;
             return QPageSetupDialog::qt_metacall(param1, param2, param3);
-        } else if (qpagesetupdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qpagesetupdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qpagesetupdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPageSetupDialog::qt_metacall(param1, param2, param3);
         }
+        return QPageSetupDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,12 +416,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_exec_isbase) {
             qpagesetupdialog_exec_isbase = false;
             return QPageSetupDialog::exec();
-        } else if (qpagesetupdialog_exec_callback != nullptr) {
-            int callback_ret = qpagesetupdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPageSetupDialog::exec();
         }
+        auto exec_cb = qpagesetupdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPageSetupDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,13 +430,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_done_isbase) {
             qpagesetupdialog_done_isbase = false;
             QPageSetupDialog::done(result);
-        } else if (qpagesetupdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = qpagesetupdialog_done_callback;
+        if (done_cb) {
             int cbval1 = result;
 
-            qpagesetupdialog_done_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::done(result);
+            done_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::done(result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,13 +447,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_setvisible_isbase) {
             qpagesetupdialog_setvisible_isbase = false;
             QPageSetupDialog::setVisible(visible);
-        } else if (qpagesetupdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qpagesetupdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qpagesetupdialog_setvisible_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,12 +464,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_sizehint_isbase) {
             qpagesetupdialog_sizehint_isbase = false;
             return QPageSetupDialog::sizeHint();
-        } else if (qpagesetupdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = qpagesetupdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QPageSetupDialog::sizeHint();
         }
+        auto sizehint_cb = qpagesetupdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QPageSetupDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -536,12 +478,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_minimumsizehint_isbase) {
             qpagesetupdialog_minimumsizehint_isbase = false;
             return QPageSetupDialog::minimumSizeHint();
-        } else if (qpagesetupdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qpagesetupdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QPageSetupDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qpagesetupdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QPageSetupDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -549,11 +492,14 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_open_isbase) {
             qpagesetupdialog_open_isbase = false;
             QPageSetupDialog::open();
-        } else if (qpagesetupdialog_open_callback != nullptr) {
-            qpagesetupdialog_open_callback();
-        } else {
-            QPageSetupDialog::open();
+            return;
         }
+        auto open_cb = qpagesetupdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        QPageSetupDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,11 +507,14 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_accept_isbase) {
             qpagesetupdialog_accept_isbase = false;
             QPageSetupDialog::accept();
-        } else if (qpagesetupdialog_accept_callback != nullptr) {
-            qpagesetupdialog_accept_callback();
-        } else {
-            QPageSetupDialog::accept();
+            return;
         }
+        auto accept_cb = qpagesetupdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        QPageSetupDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,11 +522,14 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_reject_isbase) {
             qpagesetupdialog_reject_isbase = false;
             QPageSetupDialog::reject();
-        } else if (qpagesetupdialog_reject_callback != nullptr) {
-            qpagesetupdialog_reject_callback();
-        } else {
-            QPageSetupDialog::reject();
+            return;
         }
+        auto reject_cb = qpagesetupdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        QPageSetupDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -585,13 +537,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_keypressevent_isbase) {
             qpagesetupdialog_keypressevent_isbase = false;
             QPageSetupDialog::keyPressEvent(param1);
-        } else if (qpagesetupdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qpagesetupdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qpagesetupdialog_keypressevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,13 +554,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_closeevent_isbase) {
             qpagesetupdialog_closeevent_isbase = false;
             QPageSetupDialog::closeEvent(param1);
-        } else if (qpagesetupdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qpagesetupdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            qpagesetupdialog_closeevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,13 +571,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_showevent_isbase) {
             qpagesetupdialog_showevent_isbase = false;
             QPageSetupDialog::showEvent(param1);
-        } else if (qpagesetupdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qpagesetupdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qpagesetupdialog_showevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +588,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_resizeevent_isbase) {
             qpagesetupdialog_resizeevent_isbase = false;
             QPageSetupDialog::resizeEvent(param1);
-        } else if (qpagesetupdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qpagesetupdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qpagesetupdialog_resizeevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +605,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_contextmenuevent_isbase) {
             qpagesetupdialog_contextmenuevent_isbase = false;
             QPageSetupDialog::contextMenuEvent(param1);
-        } else if (qpagesetupdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qpagesetupdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qpagesetupdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,15 +622,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_eventfilter_isbase) {
             qpagesetupdialog_eventfilter_isbase = false;
             return QPageSetupDialog::eventFilter(param1, param2);
-        } else if (qpagesetupdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qpagesetupdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qpagesetupdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPageSetupDialog::eventFilter(param1, param2);
         }
+        return QPageSetupDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,12 +639,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_devtype_isbase) {
             qpagesetupdialog_devtype_isbase = false;
             return QPageSetupDialog::devType();
-        } else if (qpagesetupdialog_devtype_callback != nullptr) {
-            int callback_ret = qpagesetupdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPageSetupDialog::devType();
         }
+        auto devtype_cb = qpagesetupdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPageSetupDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,14 +653,15 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_heightforwidth_isbase) {
             qpagesetupdialog_heightforwidth_isbase = false;
             return QPageSetupDialog::heightForWidth(param1);
-        } else if (qpagesetupdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qpagesetupdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qpagesetupdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPageSetupDialog::heightForWidth(param1);
         }
+        return QPageSetupDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -699,12 +669,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_hasheightforwidth_isbase) {
             qpagesetupdialog_hasheightforwidth_isbase = false;
             return QPageSetupDialog::hasHeightForWidth();
-        } else if (qpagesetupdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qpagesetupdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QPageSetupDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qpagesetupdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QPageSetupDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -712,12 +683,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_paintengine_isbase) {
             qpagesetupdialog_paintengine_isbase = false;
             return QPageSetupDialog::paintEngine();
-        } else if (qpagesetupdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qpagesetupdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QPageSetupDialog::paintEngine();
         }
+        auto paintengine_cb = qpagesetupdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QPageSetupDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -725,14 +697,15 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_event_isbase) {
             qpagesetupdialog_event_isbase = false;
             return QPageSetupDialog::event(event);
-        } else if (qpagesetupdialog_event_callback != nullptr) {
+        }
+        auto event_cb = qpagesetupdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qpagesetupdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPageSetupDialog::event(event);
         }
+        return QPageSetupDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,13 +713,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_mousepressevent_isbase) {
             qpagesetupdialog_mousepressevent_isbase = false;
             QPageSetupDialog::mousePressEvent(event);
-        } else if (qpagesetupdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qpagesetupdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qpagesetupdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,13 +730,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_mousereleaseevent_isbase) {
             qpagesetupdialog_mousereleaseevent_isbase = false;
             QPageSetupDialog::mouseReleaseEvent(event);
-        } else if (qpagesetupdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qpagesetupdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qpagesetupdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,13 +747,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_mousedoubleclickevent_isbase) {
             qpagesetupdialog_mousedoubleclickevent_isbase = false;
             QPageSetupDialog::mouseDoubleClickEvent(event);
-        } else if (qpagesetupdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qpagesetupdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qpagesetupdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,13 +764,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_mousemoveevent_isbase) {
             qpagesetupdialog_mousemoveevent_isbase = false;
             QPageSetupDialog::mouseMoveEvent(event);
-        } else if (qpagesetupdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qpagesetupdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qpagesetupdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,13 +781,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_wheelevent_isbase) {
             qpagesetupdialog_wheelevent_isbase = false;
             QPageSetupDialog::wheelEvent(event);
-        } else if (qpagesetupdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qpagesetupdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qpagesetupdialog_wheelevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -810,13 +798,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_keyreleaseevent_isbase) {
             qpagesetupdialog_keyreleaseevent_isbase = false;
             QPageSetupDialog::keyReleaseEvent(event);
-        } else if (qpagesetupdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qpagesetupdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qpagesetupdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -824,13 +815,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_focusinevent_isbase) {
             qpagesetupdialog_focusinevent_isbase = false;
             QPageSetupDialog::focusInEvent(event);
-        } else if (qpagesetupdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qpagesetupdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qpagesetupdialog_focusinevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,13 +832,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_focusoutevent_isbase) {
             qpagesetupdialog_focusoutevent_isbase = false;
             QPageSetupDialog::focusOutEvent(event);
-        } else if (qpagesetupdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qpagesetupdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qpagesetupdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,13 +849,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_enterevent_isbase) {
             qpagesetupdialog_enterevent_isbase = false;
             QPageSetupDialog::enterEvent(event);
-        } else if (qpagesetupdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qpagesetupdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qpagesetupdialog_enterevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,13 +866,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_leaveevent_isbase) {
             qpagesetupdialog_leaveevent_isbase = false;
             QPageSetupDialog::leaveEvent(event);
-        } else if (qpagesetupdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qpagesetupdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qpagesetupdialog_leaveevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -880,13 +883,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_paintevent_isbase) {
             qpagesetupdialog_paintevent_isbase = false;
             QPageSetupDialog::paintEvent(event);
-        } else if (qpagesetupdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qpagesetupdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qpagesetupdialog_paintevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -894,13 +900,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_moveevent_isbase) {
             qpagesetupdialog_moveevent_isbase = false;
             QPageSetupDialog::moveEvent(event);
-        } else if (qpagesetupdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qpagesetupdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qpagesetupdialog_moveevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -908,13 +917,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_tabletevent_isbase) {
             qpagesetupdialog_tabletevent_isbase = false;
             QPageSetupDialog::tabletEvent(event);
-        } else if (qpagesetupdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qpagesetupdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qpagesetupdialog_tabletevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -922,13 +934,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_actionevent_isbase) {
             qpagesetupdialog_actionevent_isbase = false;
             QPageSetupDialog::actionEvent(event);
-        } else if (qpagesetupdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qpagesetupdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qpagesetupdialog_actionevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -936,13 +951,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_dragenterevent_isbase) {
             qpagesetupdialog_dragenterevent_isbase = false;
             QPageSetupDialog::dragEnterEvent(event);
-        } else if (qpagesetupdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qpagesetupdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qpagesetupdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -950,13 +968,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_dragmoveevent_isbase) {
             qpagesetupdialog_dragmoveevent_isbase = false;
             QPageSetupDialog::dragMoveEvent(event);
-        } else if (qpagesetupdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qpagesetupdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qpagesetupdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -964,13 +985,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_dragleaveevent_isbase) {
             qpagesetupdialog_dragleaveevent_isbase = false;
             QPageSetupDialog::dragLeaveEvent(event);
-        } else if (qpagesetupdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qpagesetupdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qpagesetupdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -978,13 +1002,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_dropevent_isbase) {
             qpagesetupdialog_dropevent_isbase = false;
             QPageSetupDialog::dropEvent(event);
-        } else if (qpagesetupdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qpagesetupdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qpagesetupdialog_dropevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,13 +1019,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_hideevent_isbase) {
             qpagesetupdialog_hideevent_isbase = false;
             QPageSetupDialog::hideEvent(event);
-        } else if (qpagesetupdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qpagesetupdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qpagesetupdialog_hideevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,7 +1036,9 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_nativeevent_isbase) {
             qpagesetupdialog_nativeevent_isbase = false;
             return QPageSetupDialog::nativeEvent(eventType, message, result);
-        } else if (qpagesetupdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qpagesetupdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1017,12 +1049,11 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qpagesetupdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QPageSetupDialog::nativeEvent(eventType, message, result);
         }
+        return QPageSetupDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1030,13 +1061,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_changeevent_isbase) {
             qpagesetupdialog_changeevent_isbase = false;
             QPageSetupDialog::changeEvent(param1);
-        } else if (qpagesetupdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qpagesetupdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qpagesetupdialog_changeevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,14 +1078,15 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_metric_isbase) {
             qpagesetupdialog_metric_isbase = false;
             return QPageSetupDialog::metric(param1);
-        } else if (qpagesetupdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = qpagesetupdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qpagesetupdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPageSetupDialog::metric(param1);
         }
+        return QPageSetupDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,13 +1094,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_initpainter_isbase) {
             qpagesetupdialog_initpainter_isbase = false;
             QPageSetupDialog::initPainter(painter);
-        } else if (qpagesetupdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qpagesetupdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qpagesetupdialog_initpainter_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1073,14 +1111,15 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_redirected_isbase) {
             qpagesetupdialog_redirected_isbase = false;
             return QPageSetupDialog::redirected(offset);
-        } else if (qpagesetupdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qpagesetupdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qpagesetupdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPageSetupDialog::redirected(offset);
         }
+        return QPageSetupDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,12 +1127,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_sharedpainter_isbase) {
             qpagesetupdialog_sharedpainter_isbase = false;
             return QPageSetupDialog::sharedPainter();
-        } else if (qpagesetupdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qpagesetupdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QPageSetupDialog::sharedPainter();
         }
+        auto sharedpainter_cb = qpagesetupdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QPageSetupDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1141,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_inputmethodevent_isbase) {
             qpagesetupdialog_inputmethodevent_isbase = false;
             QPageSetupDialog::inputMethodEvent(param1);
-        } else if (qpagesetupdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qpagesetupdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qpagesetupdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,14 +1158,15 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_inputmethodquery_isbase) {
             qpagesetupdialog_inputmethodquery_isbase = false;
             return QPageSetupDialog::inputMethodQuery(param1);
-        } else if (qpagesetupdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qpagesetupdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qpagesetupdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QPageSetupDialog::inputMethodQuery(param1);
         }
+        return QPageSetupDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,14 +1174,15 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_focusnextprevchild_isbase) {
             qpagesetupdialog_focusnextprevchild_isbase = false;
             return QPageSetupDialog::focusNextPrevChild(next);
-        } else if (qpagesetupdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qpagesetupdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qpagesetupdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPageSetupDialog::focusNextPrevChild(next);
         }
+        return QPageSetupDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1145,13 +1190,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_timerevent_isbase) {
             qpagesetupdialog_timerevent_isbase = false;
             QPageSetupDialog::timerEvent(event);
-        } else if (qpagesetupdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qpagesetupdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qpagesetupdialog_timerevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,13 +1207,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_childevent_isbase) {
             qpagesetupdialog_childevent_isbase = false;
             QPageSetupDialog::childEvent(event);
-        } else if (qpagesetupdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qpagesetupdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qpagesetupdialog_childevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1173,13 +1224,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_customevent_isbase) {
             qpagesetupdialog_customevent_isbase = false;
             QPageSetupDialog::customEvent(event);
-        } else if (qpagesetupdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qpagesetupdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qpagesetupdialog_customevent_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,15 +1241,18 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_connectnotify_isbase) {
             qpagesetupdialog_connectnotify_isbase = false;
             QPageSetupDialog::connectNotify(signal);
-        } else if (qpagesetupdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qpagesetupdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpagesetupdialog_connectnotify_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,15 +1260,18 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_disconnectnotify_isbase) {
             qpagesetupdialog_disconnectnotify_isbase = false;
             QPageSetupDialog::disconnectNotify(signal);
-        } else if (qpagesetupdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qpagesetupdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpagesetupdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,13 +1279,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_adjustposition_isbase) {
             qpagesetupdialog_adjustposition_isbase = false;
             QPageSetupDialog::adjustPosition(param1);
-        } else if (qpagesetupdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = qpagesetupdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            qpagesetupdialog_adjustposition_callback(this, cbval1);
-        } else {
-            QPageSetupDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        QPageSetupDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,11 +1296,14 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_updatemicrofocus_isbase) {
             qpagesetupdialog_updatemicrofocus_isbase = false;
             QPageSetupDialog::updateMicroFocus();
-        } else if (qpagesetupdialog_updatemicrofocus_callback != nullptr) {
-            qpagesetupdialog_updatemicrofocus_callback();
-        } else {
-            QPageSetupDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qpagesetupdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QPageSetupDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,11 +1311,14 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_create_isbase) {
             qpagesetupdialog_create_isbase = false;
             QPageSetupDialog::create();
-        } else if (qpagesetupdialog_create_callback != nullptr) {
-            qpagesetupdialog_create_callback();
-        } else {
-            QPageSetupDialog::create();
+            return;
         }
+        auto create_cb = qpagesetupdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QPageSetupDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,11 +1326,14 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_destroy_isbase) {
             qpagesetupdialog_destroy_isbase = false;
             QPageSetupDialog::destroy();
-        } else if (qpagesetupdialog_destroy_callback != nullptr) {
-            qpagesetupdialog_destroy_callback();
-        } else {
-            QPageSetupDialog::destroy();
+            return;
         }
+        auto destroy_cb = qpagesetupdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QPageSetupDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,12 +1341,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_focusnextchild_isbase) {
             qpagesetupdialog_focusnextchild_isbase = false;
             return QPageSetupDialog::focusNextChild();
-        } else if (qpagesetupdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = qpagesetupdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QPageSetupDialog::focusNextChild();
         }
+        auto focusnextchild_cb = qpagesetupdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QPageSetupDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,12 +1355,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_focuspreviouschild_isbase) {
             qpagesetupdialog_focuspreviouschild_isbase = false;
             return QPageSetupDialog::focusPreviousChild();
-        } else if (qpagesetupdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qpagesetupdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QPageSetupDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qpagesetupdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QPageSetupDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,12 +1369,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_sender_isbase) {
             qpagesetupdialog_sender_isbase = false;
             return QPageSetupDialog::sender();
-        } else if (qpagesetupdialog_sender_callback != nullptr) {
-            QObject* callback_ret = qpagesetupdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return QPageSetupDialog::sender();
         }
+        auto sender_cb = qpagesetupdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPageSetupDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,12 +1383,13 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_sendersignalindex_isbase) {
             qpagesetupdialog_sendersignalindex_isbase = false;
             return QPageSetupDialog::senderSignalIndex();
-        } else if (qpagesetupdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = qpagesetupdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPageSetupDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qpagesetupdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPageSetupDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,14 +1397,15 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_receivers_isbase) {
             qpagesetupdialog_receivers_isbase = false;
             return QPageSetupDialog::receivers(signal);
-        } else if (qpagesetupdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qpagesetupdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qpagesetupdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPageSetupDialog::receivers(signal);
         }
+        return QPageSetupDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,16 +1413,17 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_issignalconnected_isbase) {
             qpagesetupdialog_issignalconnected_isbase = false;
             return QPageSetupDialog::isSignalConnected(signal);
-        } else if (qpagesetupdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qpagesetupdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qpagesetupdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPageSetupDialog::isSignalConnected(signal);
         }
+        return QPageSetupDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,15 +1431,16 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
         if (qpagesetupdialog_getdecodedmetricf_isbase) {
             qpagesetupdialog_getdecodedmetricf_isbase = false;
             return QPageSetupDialog::getDecodedMetricF(metricA, metricB);
-        } else if (qpagesetupdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qpagesetupdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qpagesetupdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QPageSetupDialog::getDecodedMetricF(metricA, metricB);
         }
+        return QPageSetupDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

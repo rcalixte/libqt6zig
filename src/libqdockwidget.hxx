@@ -214,70 +214,6 @@ class VirtualQDockWidget final : public QDockWidget {
     VirtualQDockWidget(const QString& title, QWidget* parent, Qt::WindowFlags flags) : QDockWidget(title, parent, flags) {};
     VirtualQDockWidget(QWidget* parent, Qt::WindowFlags flags) : QDockWidget(parent, flags) {};
 
-    ~VirtualQDockWidget() {
-        qdockwidget_metaobject_callback = nullptr;
-        qdockwidget_metacast_callback = nullptr;
-        qdockwidget_metacall_callback = nullptr;
-        qdockwidget_changeevent_callback = nullptr;
-        qdockwidget_closeevent_callback = nullptr;
-        qdockwidget_paintevent_callback = nullptr;
-        qdockwidget_event_callback = nullptr;
-        qdockwidget_initstyleoption_callback = nullptr;
-        qdockwidget_devtype_callback = nullptr;
-        qdockwidget_setvisible_callback = nullptr;
-        qdockwidget_sizehint_callback = nullptr;
-        qdockwidget_minimumsizehint_callback = nullptr;
-        qdockwidget_heightforwidth_callback = nullptr;
-        qdockwidget_hasheightforwidth_callback = nullptr;
-        qdockwidget_paintengine_callback = nullptr;
-        qdockwidget_mousepressevent_callback = nullptr;
-        qdockwidget_mousereleaseevent_callback = nullptr;
-        qdockwidget_mousedoubleclickevent_callback = nullptr;
-        qdockwidget_mousemoveevent_callback = nullptr;
-        qdockwidget_wheelevent_callback = nullptr;
-        qdockwidget_keypressevent_callback = nullptr;
-        qdockwidget_keyreleaseevent_callback = nullptr;
-        qdockwidget_focusinevent_callback = nullptr;
-        qdockwidget_focusoutevent_callback = nullptr;
-        qdockwidget_enterevent_callback = nullptr;
-        qdockwidget_leaveevent_callback = nullptr;
-        qdockwidget_moveevent_callback = nullptr;
-        qdockwidget_resizeevent_callback = nullptr;
-        qdockwidget_contextmenuevent_callback = nullptr;
-        qdockwidget_tabletevent_callback = nullptr;
-        qdockwidget_actionevent_callback = nullptr;
-        qdockwidget_dragenterevent_callback = nullptr;
-        qdockwidget_dragmoveevent_callback = nullptr;
-        qdockwidget_dragleaveevent_callback = nullptr;
-        qdockwidget_dropevent_callback = nullptr;
-        qdockwidget_showevent_callback = nullptr;
-        qdockwidget_hideevent_callback = nullptr;
-        qdockwidget_nativeevent_callback = nullptr;
-        qdockwidget_metric_callback = nullptr;
-        qdockwidget_initpainter_callback = nullptr;
-        qdockwidget_redirected_callback = nullptr;
-        qdockwidget_sharedpainter_callback = nullptr;
-        qdockwidget_inputmethodevent_callback = nullptr;
-        qdockwidget_inputmethodquery_callback = nullptr;
-        qdockwidget_focusnextprevchild_callback = nullptr;
-        qdockwidget_eventfilter_callback = nullptr;
-        qdockwidget_timerevent_callback = nullptr;
-        qdockwidget_childevent_callback = nullptr;
-        qdockwidget_customevent_callback = nullptr;
-        qdockwidget_connectnotify_callback = nullptr;
-        qdockwidget_disconnectnotify_callback = nullptr;
-        qdockwidget_updatemicrofocus_callback = nullptr;
-        qdockwidget_create_callback = nullptr;
-        qdockwidget_destroy_callback = nullptr;
-        qdockwidget_focusnextchild_callback = nullptr;
-        qdockwidget_focuspreviouschild_callback = nullptr;
-        qdockwidget_sender_callback = nullptr;
-        qdockwidget_sendersignalindex_callback = nullptr;
-        qdockwidget_receivers_callback = nullptr;
-        qdockwidget_issignalconnected_callback = nullptr;
-        qdockwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDockWidget_MetaObject_Callback(QDockWidget_MetaObject_Callback cb) { qdockwidget_metaobject_callback = cb; }
     inline void setQDockWidget_Metacast_Callback(QDockWidget_Metacast_Callback cb) { qdockwidget_metacast_callback = cb; }
@@ -409,12 +345,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_metaobject_isbase) {
             qdockwidget_metaobject_isbase = false;
             return QDockWidget::metaObject();
-        } else if (qdockwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdockwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDockWidget::metaObject();
         }
+        auto metaobject_cb = qdockwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDockWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -422,14 +359,15 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_metacast_isbase) {
             qdockwidget_metacast_isbase = false;
             return QDockWidget::qt_metacast(param1);
-        } else if (qdockwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdockwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdockwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDockWidget::qt_metacast(param1);
         }
+        return QDockWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -437,16 +375,17 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_metacall_isbase) {
             qdockwidget_metacall_isbase = false;
             return QDockWidget::qt_metacall(param1, param2, param3);
-        } else if (qdockwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdockwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdockwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDockWidget::qt_metacall(param1, param2, param3);
         }
+        return QDockWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,13 +393,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_changeevent_isbase) {
             qdockwidget_changeevent_isbase = false;
             QDockWidget::changeEvent(event);
-        } else if (qdockwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qdockwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qdockwidget_changeevent_callback(this, cbval1);
-        } else {
-            QDockWidget::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,13 +410,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_closeevent_isbase) {
             qdockwidget_closeevent_isbase = false;
             QDockWidget::closeEvent(event);
-        } else if (qdockwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qdockwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qdockwidget_closeevent_callback(this, cbval1);
-        } else {
-            QDockWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,13 +427,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_paintevent_isbase) {
             qdockwidget_paintevent_isbase = false;
             QDockWidget::paintEvent(event);
-        } else if (qdockwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qdockwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qdockwidget_paintevent_callback(this, cbval1);
-        } else {
-            QDockWidget::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,14 +444,15 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_event_isbase) {
             qdockwidget_event_isbase = false;
             return QDockWidget::event(event);
-        } else if (qdockwidget_event_callback != nullptr) {
+        }
+        auto event_cb = qdockwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdockwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDockWidget::event(event);
         }
+        return QDockWidget::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,13 +460,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_initstyleoption_isbase) {
             qdockwidget_initstyleoption_isbase = false;
             QDockWidget::initStyleOption(option);
-        } else if (qdockwidget_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qdockwidget_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionDockWidget* cbval1 = option;
 
-            qdockwidget_initstyleoption_callback(this, cbval1);
-        } else {
-            QDockWidget::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QDockWidget::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,12 +477,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_devtype_isbase) {
             qdockwidget_devtype_isbase = false;
             return QDockWidget::devType();
-        } else if (qdockwidget_devtype_callback != nullptr) {
-            int callback_ret = qdockwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDockWidget::devType();
         }
+        auto devtype_cb = qdockwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDockWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,13 +491,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_setvisible_isbase) {
             qdockwidget_setvisible_isbase = false;
             QDockWidget::setVisible(visible);
-        } else if (qdockwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qdockwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qdockwidget_setvisible_callback(this, cbval1);
-        } else {
-            QDockWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QDockWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,12 +508,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_sizehint_isbase) {
             qdockwidget_sizehint_isbase = false;
             return QDockWidget::sizeHint();
-        } else if (qdockwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = qdockwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDockWidget::sizeHint();
         }
+        auto sizehint_cb = qdockwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QDockWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,12 +522,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_minimumsizehint_isbase) {
             qdockwidget_minimumsizehint_isbase = false;
             return QDockWidget::minimumSizeHint();
-        } else if (qdockwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qdockwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDockWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qdockwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QDockWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,14 +536,15 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_heightforwidth_isbase) {
             qdockwidget_heightforwidth_isbase = false;
             return QDockWidget::heightForWidth(param1);
-        } else if (qdockwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qdockwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qdockwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDockWidget::heightForWidth(param1);
         }
+        return QDockWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -593,12 +552,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_hasheightforwidth_isbase) {
             qdockwidget_hasheightforwidth_isbase = false;
             return QDockWidget::hasHeightForWidth();
-        } else if (qdockwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qdockwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QDockWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qdockwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QDockWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -606,12 +566,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_paintengine_isbase) {
             qdockwidget_paintengine_isbase = false;
             return QDockWidget::paintEngine();
-        } else if (qdockwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qdockwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QDockWidget::paintEngine();
         }
+        auto paintengine_cb = qdockwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QDockWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,13 +580,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_mousepressevent_isbase) {
             qdockwidget_mousepressevent_isbase = false;
             QDockWidget::mousePressEvent(event);
-        } else if (qdockwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qdockwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdockwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            QDockWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,13 +597,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_mousereleaseevent_isbase) {
             qdockwidget_mousereleaseevent_isbase = false;
             QDockWidget::mouseReleaseEvent(event);
-        } else if (qdockwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qdockwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdockwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QDockWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -647,13 +614,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_mousedoubleclickevent_isbase) {
             qdockwidget_mousedoubleclickevent_isbase = false;
             QDockWidget::mouseDoubleClickEvent(event);
-        } else if (qdockwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qdockwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdockwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QDockWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -661,13 +631,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_mousemoveevent_isbase) {
             qdockwidget_mousemoveevent_isbase = false;
             QDockWidget::mouseMoveEvent(event);
-        } else if (qdockwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qdockwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdockwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            QDockWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,13 +648,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_wheelevent_isbase) {
             qdockwidget_wheelevent_isbase = false;
             QDockWidget::wheelEvent(event);
-        } else if (qdockwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qdockwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qdockwidget_wheelevent_callback(this, cbval1);
-        } else {
-            QDockWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,13 +665,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_keypressevent_isbase) {
             qdockwidget_keypressevent_isbase = false;
             QDockWidget::keyPressEvent(event);
-        } else if (qdockwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qdockwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdockwidget_keypressevent_callback(this, cbval1);
-        } else {
-            QDockWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,13 +682,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_keyreleaseevent_isbase) {
             qdockwidget_keyreleaseevent_isbase = false;
             QDockWidget::keyReleaseEvent(event);
-        } else if (qdockwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qdockwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdockwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QDockWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -717,13 +699,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_focusinevent_isbase) {
             qdockwidget_focusinevent_isbase = false;
             QDockWidget::focusInEvent(event);
-        } else if (qdockwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qdockwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdockwidget_focusinevent_callback(this, cbval1);
-        } else {
-            QDockWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -731,13 +716,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_focusoutevent_isbase) {
             qdockwidget_focusoutevent_isbase = false;
             QDockWidget::focusOutEvent(event);
-        } else if (qdockwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qdockwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdockwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            QDockWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,13 +733,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_enterevent_isbase) {
             qdockwidget_enterevent_isbase = false;
             QDockWidget::enterEvent(event);
-        } else if (qdockwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qdockwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qdockwidget_enterevent_callback(this, cbval1);
-        } else {
-            QDockWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,13 +750,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_leaveevent_isbase) {
             qdockwidget_leaveevent_isbase = false;
             QDockWidget::leaveEvent(event);
-        } else if (qdockwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qdockwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qdockwidget_leaveevent_callback(this, cbval1);
-        } else {
-            QDockWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,13 +767,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_moveevent_isbase) {
             qdockwidget_moveevent_isbase = false;
             QDockWidget::moveEvent(event);
-        } else if (qdockwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qdockwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qdockwidget_moveevent_callback(this, cbval1);
-        } else {
-            QDockWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,13 +784,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_resizeevent_isbase) {
             qdockwidget_resizeevent_isbase = false;
             QDockWidget::resizeEvent(event);
-        } else if (qdockwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qdockwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qdockwidget_resizeevent_callback(this, cbval1);
-        } else {
-            QDockWidget::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,13 +801,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_contextmenuevent_isbase) {
             qdockwidget_contextmenuevent_isbase = false;
             QDockWidget::contextMenuEvent(event);
-        } else if (qdockwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qdockwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qdockwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            QDockWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,13 +818,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_tabletevent_isbase) {
             qdockwidget_tabletevent_isbase = false;
             QDockWidget::tabletEvent(event);
-        } else if (qdockwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qdockwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qdockwidget_tabletevent_callback(this, cbval1);
-        } else {
-            QDockWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +835,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_actionevent_isbase) {
             qdockwidget_actionevent_isbase = false;
             QDockWidget::actionEvent(event);
-        } else if (qdockwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qdockwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qdockwidget_actionevent_callback(this, cbval1);
-        } else {
-            QDockWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +852,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_dragenterevent_isbase) {
             qdockwidget_dragenterevent_isbase = false;
             QDockWidget::dragEnterEvent(event);
-        } else if (qdockwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qdockwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qdockwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            QDockWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +869,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_dragmoveevent_isbase) {
             qdockwidget_dragmoveevent_isbase = false;
             QDockWidget::dragMoveEvent(event);
-        } else if (qdockwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qdockwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qdockwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            QDockWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +886,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_dragleaveevent_isbase) {
             qdockwidget_dragleaveevent_isbase = false;
             QDockWidget::dragLeaveEvent(event);
-        } else if (qdockwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qdockwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qdockwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            QDockWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +903,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_dropevent_isbase) {
             qdockwidget_dropevent_isbase = false;
             QDockWidget::dropEvent(event);
-        } else if (qdockwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qdockwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qdockwidget_dropevent_callback(this, cbval1);
-        } else {
-            QDockWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +920,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_showevent_isbase) {
             qdockwidget_showevent_isbase = false;
             QDockWidget::showEvent(event);
-        } else if (qdockwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qdockwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qdockwidget_showevent_callback(this, cbval1);
-        } else {
-            QDockWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +937,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_hideevent_isbase) {
             qdockwidget_hideevent_isbase = false;
             QDockWidget::hideEvent(event);
-        } else if (qdockwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qdockwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qdockwidget_hideevent_callback(this, cbval1);
-        } else {
-            QDockWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,7 +954,9 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_nativeevent_isbase) {
             qdockwidget_nativeevent_isbase = false;
             return QDockWidget::nativeEvent(eventType, message, result);
-        } else if (qdockwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qdockwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -938,12 +967,11 @@ class VirtualQDockWidget final : public QDockWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qdockwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QDockWidget::nativeEvent(eventType, message, result);
         }
+        return QDockWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -951,14 +979,15 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_metric_isbase) {
             qdockwidget_metric_isbase = false;
             return QDockWidget::metric(param1);
-        } else if (qdockwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = qdockwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qdockwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDockWidget::metric(param1);
         }
+        return QDockWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -966,13 +995,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_initpainter_isbase) {
             qdockwidget_initpainter_isbase = false;
             QDockWidget::initPainter(painter);
-        } else if (qdockwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qdockwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qdockwidget_initpainter_callback(this, cbval1);
-        } else {
-            QDockWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QDockWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -980,14 +1012,15 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_redirected_isbase) {
             qdockwidget_redirected_isbase = false;
             return QDockWidget::redirected(offset);
-        } else if (qdockwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qdockwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qdockwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDockWidget::redirected(offset);
         }
+        return QDockWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -995,12 +1028,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_sharedpainter_isbase) {
             qdockwidget_sharedpainter_isbase = false;
             return QDockWidget::sharedPainter();
-        } else if (qdockwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qdockwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QDockWidget::sharedPainter();
         }
+        auto sharedpainter_cb = qdockwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QDockWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,13 +1042,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_inputmethodevent_isbase) {
             qdockwidget_inputmethodevent_isbase = false;
             QDockWidget::inputMethodEvent(param1);
-        } else if (qdockwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qdockwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qdockwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            QDockWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,14 +1059,15 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_inputmethodquery_isbase) {
             qdockwidget_inputmethodquery_isbase = false;
             return QDockWidget::inputMethodQuery(param1);
-        } else if (qdockwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qdockwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qdockwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QDockWidget::inputMethodQuery(param1);
         }
+        return QDockWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,14 +1075,15 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_focusnextprevchild_isbase) {
             qdockwidget_focusnextprevchild_isbase = false;
             return QDockWidget::focusNextPrevChild(next);
-        } else if (qdockwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qdockwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qdockwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDockWidget::focusNextPrevChild(next);
         }
+        return QDockWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1052,15 +1091,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_eventfilter_isbase) {
             qdockwidget_eventfilter_isbase = false;
             return QDockWidget::eventFilter(watched, event);
-        } else if (qdockwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdockwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdockwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDockWidget::eventFilter(watched, event);
         }
+        return QDockWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,13 +1108,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_timerevent_isbase) {
             qdockwidget_timerevent_isbase = false;
             QDockWidget::timerEvent(event);
-        } else if (qdockwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdockwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdockwidget_timerevent_callback(this, cbval1);
-        } else {
-            QDockWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1082,13 +1125,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_childevent_isbase) {
             qdockwidget_childevent_isbase = false;
             QDockWidget::childEvent(event);
-        } else if (qdockwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdockwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdockwidget_childevent_callback(this, cbval1);
-        } else {
-            QDockWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1096,13 +1142,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_customevent_isbase) {
             qdockwidget_customevent_isbase = false;
             QDockWidget::customEvent(event);
-        } else if (qdockwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdockwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdockwidget_customevent_callback(this, cbval1);
-        } else {
-            QDockWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDockWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1110,15 +1159,18 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_connectnotify_isbase) {
             qdockwidget_connectnotify_isbase = false;
             QDockWidget::connectNotify(signal);
-        } else if (qdockwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdockwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdockwidget_connectnotify_callback(this, cbval1);
-        } else {
-            QDockWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDockWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1126,15 +1178,18 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_disconnectnotify_isbase) {
             qdockwidget_disconnectnotify_isbase = false;
             QDockWidget::disconnectNotify(signal);
-        } else if (qdockwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdockwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdockwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDockWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDockWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1197,14 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_updatemicrofocus_isbase) {
             qdockwidget_updatemicrofocus_isbase = false;
             QDockWidget::updateMicroFocus();
-        } else if (qdockwidget_updatemicrofocus_callback != nullptr) {
-            qdockwidget_updatemicrofocus_callback();
-        } else {
-            QDockWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qdockwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QDockWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,11 +1212,14 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_create_isbase) {
             qdockwidget_create_isbase = false;
             QDockWidget::create();
-        } else if (qdockwidget_create_callback != nullptr) {
-            qdockwidget_create_callback();
-        } else {
-            QDockWidget::create();
+            return;
         }
+        auto create_cb = qdockwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QDockWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,11 +1227,14 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_destroy_isbase) {
             qdockwidget_destroy_isbase = false;
             QDockWidget::destroy();
-        } else if (qdockwidget_destroy_callback != nullptr) {
-            qdockwidget_destroy_callback();
-        } else {
-            QDockWidget::destroy();
+            return;
         }
+        auto destroy_cb = qdockwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QDockWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1178,12 +1242,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_focusnextchild_isbase) {
             qdockwidget_focusnextchild_isbase = false;
             return QDockWidget::focusNextChild();
-        } else if (qdockwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = qdockwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QDockWidget::focusNextChild();
         }
+        auto focusnextchild_cb = qdockwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QDockWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1191,12 +1256,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_focuspreviouschild_isbase) {
             qdockwidget_focuspreviouschild_isbase = false;
             return QDockWidget::focusPreviousChild();
-        } else if (qdockwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qdockwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QDockWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qdockwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QDockWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1204,12 +1270,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_sender_isbase) {
             qdockwidget_sender_isbase = false;
             return QDockWidget::sender();
-        } else if (qdockwidget_sender_callback != nullptr) {
-            QObject* callback_ret = qdockwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return QDockWidget::sender();
         }
+        auto sender_cb = qdockwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDockWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1217,12 +1284,13 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_sendersignalindex_isbase) {
             qdockwidget_sendersignalindex_isbase = false;
             return QDockWidget::senderSignalIndex();
-        } else if (qdockwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdockwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDockWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdockwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDockWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1230,14 +1298,15 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_receivers_isbase) {
             qdockwidget_receivers_isbase = false;
             return QDockWidget::receivers(signal);
-        } else if (qdockwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdockwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdockwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDockWidget::receivers(signal);
         }
+        return QDockWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,16 +1314,17 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_issignalconnected_isbase) {
             qdockwidget_issignalconnected_isbase = false;
             return QDockWidget::isSignalConnected(signal);
-        } else if (qdockwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdockwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdockwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDockWidget::isSignalConnected(signal);
         }
+        return QDockWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1262,15 +1332,16 @@ class VirtualQDockWidget final : public QDockWidget {
         if (qdockwidget_getdecodedmetricf_isbase) {
             qdockwidget_getdecodedmetricf_isbase = false;
             return QDockWidget::getDecodedMetricF(metricA, metricB);
-        } else if (qdockwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qdockwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qdockwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QDockWidget::getDecodedMetricF(metricA, metricB);
         }
+        return QDockWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

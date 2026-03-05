@@ -126,42 +126,6 @@ class VirtualQIODevice : public QIODevice {
     VirtualQIODevice() : QIODevice() {};
     VirtualQIODevice(QObject* parent) : QIODevice(parent) {};
 
-    ~VirtualQIODevice() {
-        qiodevice_metaobject_callback = nullptr;
-        qiodevice_metacast_callback = nullptr;
-        qiodevice_metacall_callback = nullptr;
-        qiodevice_issequential_callback = nullptr;
-        qiodevice_open_callback = nullptr;
-        qiodevice_close_callback = nullptr;
-        qiodevice_pos_callback = nullptr;
-        qiodevice_size_callback = nullptr;
-        qiodevice_seek_callback = nullptr;
-        qiodevice_atend_callback = nullptr;
-        qiodevice_reset_callback = nullptr;
-        qiodevice_bytesavailable_callback = nullptr;
-        qiodevice_bytestowrite_callback = nullptr;
-        qiodevice_canreadline_callback = nullptr;
-        qiodevice_waitforreadyread_callback = nullptr;
-        qiodevice_waitforbyteswritten_callback = nullptr;
-        qiodevice_readdata_callback = nullptr;
-        qiodevice_readlinedata_callback = nullptr;
-        qiodevice_skipdata_callback = nullptr;
-        qiodevice_writedata_callback = nullptr;
-        qiodevice_event_callback = nullptr;
-        qiodevice_eventfilter_callback = nullptr;
-        qiodevice_timerevent_callback = nullptr;
-        qiodevice_childevent_callback = nullptr;
-        qiodevice_customevent_callback = nullptr;
-        qiodevice_connectnotify_callback = nullptr;
-        qiodevice_disconnectnotify_callback = nullptr;
-        qiodevice_setopenmode_callback = nullptr;
-        qiodevice_seterrorstring_callback = nullptr;
-        qiodevice_sender_callback = nullptr;
-        qiodevice_sendersignalindex_callback = nullptr;
-        qiodevice_receivers_callback = nullptr;
-        qiodevice_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQIODevice_MetaObject_Callback(QIODevice_MetaObject_Callback cb) { qiodevice_metaobject_callback = cb; }
     inline void setQIODevice_Metacast_Callback(QIODevice_Metacast_Callback cb) { qiodevice_metacast_callback = cb; }
@@ -237,12 +201,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_metaobject_isbase) {
             qiodevice_metaobject_isbase = false;
             return QIODevice::metaObject();
-        } else if (qiodevice_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qiodevice_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QIODevice::metaObject();
         }
+        auto metaobject_cb = qiodevice_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QIODevice::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,14 +215,15 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_metacast_isbase) {
             qiodevice_metacast_isbase = false;
             return QIODevice::qt_metacast(param1);
-        } else if (qiodevice_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qiodevice_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qiodevice_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIODevice::qt_metacast(param1);
         }
+        return QIODevice::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,16 +231,17 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_metacall_isbase) {
             qiodevice_metacall_isbase = false;
             return QIODevice::qt_metacall(param1, param2, param3);
-        } else if (qiodevice_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qiodevice_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qiodevice_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QIODevice::qt_metacall(param1, param2, param3);
         }
+        return QIODevice::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,12 +249,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_issequential_isbase) {
             qiodevice_issequential_isbase = false;
             return QIODevice::isSequential();
-        } else if (qiodevice_issequential_callback != nullptr) {
-            bool callback_ret = qiodevice_issequential_callback();
-            return callback_ret;
-        } else {
-            return QIODevice::isSequential();
         }
+        auto issequential_cb = qiodevice_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return QIODevice::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,14 +263,15 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_open_isbase) {
             qiodevice_open_isbase = false;
             return QIODevice::open(mode);
-        } else if (qiodevice_open_callback != nullptr) {
+        }
+        auto open_cb = qiodevice_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = qiodevice_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIODevice::open(mode);
         }
+        return QIODevice::open(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -310,11 +279,14 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_close_isbase) {
             qiodevice_close_isbase = false;
             QIODevice::close();
-        } else if (qiodevice_close_callback != nullptr) {
-            qiodevice_close_callback();
-        } else {
-            QIODevice::close();
+            return;
         }
+        auto close_cb = qiodevice_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        QIODevice::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -322,12 +294,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_pos_isbase) {
             qiodevice_pos_isbase = false;
             return QIODevice::pos();
-        } else if (qiodevice_pos_callback != nullptr) {
-            long long callback_ret = qiodevice_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QIODevice::pos();
         }
+        auto pos_cb = qiodevice_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QIODevice::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,12 +308,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_size_isbase) {
             qiodevice_size_isbase = false;
             return QIODevice::size();
-        } else if (qiodevice_size_callback != nullptr) {
-            long long callback_ret = qiodevice_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QIODevice::size();
         }
+        auto size_cb = qiodevice_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QIODevice::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -348,14 +322,15 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_seek_isbase) {
             qiodevice_seek_isbase = false;
             return QIODevice::seek(pos);
-        } else if (qiodevice_seek_callback != nullptr) {
+        }
+        auto seek_cb = qiodevice_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
 
-            bool callback_ret = qiodevice_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIODevice::seek(pos);
         }
+        return QIODevice::seek(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -363,12 +338,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_atend_isbase) {
             qiodevice_atend_isbase = false;
             return QIODevice::atEnd();
-        } else if (qiodevice_atend_callback != nullptr) {
-            bool callback_ret = qiodevice_atend_callback();
-            return callback_ret;
-        } else {
-            return QIODevice::atEnd();
         }
+        auto atend_cb = qiodevice_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return QIODevice::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -376,12 +352,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_reset_isbase) {
             qiodevice_reset_isbase = false;
             return QIODevice::reset();
-        } else if (qiodevice_reset_callback != nullptr) {
-            bool callback_ret = qiodevice_reset_callback();
-            return callback_ret;
-        } else {
-            return QIODevice::reset();
         }
+        auto reset_cb = qiodevice_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return QIODevice::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -389,12 +366,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_bytesavailable_isbase) {
             qiodevice_bytesavailable_isbase = false;
             return QIODevice::bytesAvailable();
-        } else if (qiodevice_bytesavailable_callback != nullptr) {
-            long long callback_ret = qiodevice_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QIODevice::bytesAvailable();
         }
+        auto bytesavailable_cb = qiodevice_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QIODevice::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -402,12 +380,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_bytestowrite_isbase) {
             qiodevice_bytestowrite_isbase = false;
             return QIODevice::bytesToWrite();
-        } else if (qiodevice_bytestowrite_callback != nullptr) {
-            long long callback_ret = qiodevice_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QIODevice::bytesToWrite();
         }
+        auto bytestowrite_cb = qiodevice_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QIODevice::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -415,12 +394,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_canreadline_isbase) {
             qiodevice_canreadline_isbase = false;
             return QIODevice::canReadLine();
-        } else if (qiodevice_canreadline_callback != nullptr) {
-            bool callback_ret = qiodevice_canreadline_callback();
-            return callback_ret;
-        } else {
-            return QIODevice::canReadLine();
         }
+        auto canreadline_cb = qiodevice_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return QIODevice::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -428,14 +408,15 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_waitforreadyread_isbase) {
             qiodevice_waitforreadyread_isbase = false;
             return QIODevice::waitForReadyRead(msecs);
-        } else if (qiodevice_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = qiodevice_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qiodevice_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIODevice::waitForReadyRead(msecs);
         }
+        return QIODevice::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -443,27 +424,28 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_waitforbyteswritten_isbase) {
             qiodevice_waitforbyteswritten_isbase = false;
             return QIODevice::waitForBytesWritten(msecs);
-        } else if (qiodevice_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = qiodevice_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qiodevice_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIODevice::waitForBytesWritten(msecs);
         }
+        return QIODevice::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual qint64 readData(char* data, qint64 maxlen) override {
-        if (qiodevice_readdata_callback != nullptr) {
+        auto readdata_cb = qiodevice_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qiodevice_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,15 +453,16 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_readlinedata_isbase) {
             qiodevice_readlinedata_isbase = false;
             return QIODevice::readLineData(data, maxlen);
-        } else if (qiodevice_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = qiodevice_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qiodevice_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QIODevice::readLineData(data, maxlen);
         }
+        return QIODevice::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -487,27 +470,28 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_skipdata_isbase) {
             qiodevice_skipdata_isbase = false;
             return QIODevice::skipData(maxSize);
-        } else if (qiodevice_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = qiodevice_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = qiodevice_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QIODevice::skipData(maxSize);
         }
+        return QIODevice::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual qint64 writeData(const char* data, qint64 lenVal) override {
-        if (qiodevice_writedata_callback != nullptr) {
+        auto writedata_cb = qiodevice_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = qiodevice_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,14 +499,15 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_event_isbase) {
             qiodevice_event_isbase = false;
             return QIODevice::event(event);
-        } else if (qiodevice_event_callback != nullptr) {
+        }
+        auto event_cb = qiodevice_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qiodevice_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIODevice::event(event);
         }
+        return QIODevice::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,15 +515,16 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_eventfilter_isbase) {
             qiodevice_eventfilter_isbase = false;
             return QIODevice::eventFilter(watched, event);
-        } else if (qiodevice_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qiodevice_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qiodevice_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QIODevice::eventFilter(watched, event);
         }
+        return QIODevice::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,13 +532,16 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_timerevent_isbase) {
             qiodevice_timerevent_isbase = false;
             QIODevice::timerEvent(event);
-        } else if (qiodevice_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qiodevice_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qiodevice_timerevent_callback(this, cbval1);
-        } else {
-            QIODevice::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QIODevice::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,13 +549,16 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_childevent_isbase) {
             qiodevice_childevent_isbase = false;
             QIODevice::childEvent(event);
-        } else if (qiodevice_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qiodevice_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qiodevice_childevent_callback(this, cbval1);
-        } else {
-            QIODevice::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QIODevice::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -574,13 +566,16 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_customevent_isbase) {
             qiodevice_customevent_isbase = false;
             QIODevice::customEvent(event);
-        } else if (qiodevice_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qiodevice_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qiodevice_customevent_callback(this, cbval1);
-        } else {
-            QIODevice::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QIODevice::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -588,15 +583,18 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_connectnotify_isbase) {
             qiodevice_connectnotify_isbase = false;
             QIODevice::connectNotify(signal);
-        } else if (qiodevice_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qiodevice_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qiodevice_connectnotify_callback(this, cbval1);
-        } else {
-            QIODevice::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QIODevice::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -604,15 +602,18 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_disconnectnotify_isbase) {
             qiodevice_disconnectnotify_isbase = false;
             QIODevice::disconnectNotify(signal);
-        } else if (qiodevice_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qiodevice_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qiodevice_disconnectnotify_callback(this, cbval1);
-        } else {
-            QIODevice::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QIODevice::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -620,13 +621,16 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_setopenmode_isbase) {
             qiodevice_setopenmode_isbase = false;
             QIODevice::setOpenMode(openMode);
-        } else if (qiodevice_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = qiodevice_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            qiodevice_setopenmode_callback(this, cbval1);
-        } else {
-            QIODevice::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        QIODevice::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,7 +638,10 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_seterrorstring_isbase) {
             qiodevice_seterrorstring_isbase = false;
             QIODevice::setErrorString(errorString);
-        } else if (qiodevice_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = qiodevice_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -644,11 +651,11 @@ class VirtualQIODevice : public QIODevice {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            qiodevice_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            QIODevice::setErrorString(errorString);
+            return;
         }
+        QIODevice::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -656,12 +663,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_sender_isbase) {
             qiodevice_sender_isbase = false;
             return QIODevice::sender();
-        } else if (qiodevice_sender_callback != nullptr) {
-            QObject* callback_ret = qiodevice_sender_callback();
-            return callback_ret;
-        } else {
-            return QIODevice::sender();
         }
+        auto sender_cb = qiodevice_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QIODevice::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,12 +677,13 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_sendersignalindex_isbase) {
             qiodevice_sendersignalindex_isbase = false;
             return QIODevice::senderSignalIndex();
-        } else if (qiodevice_sendersignalindex_callback != nullptr) {
-            int callback_ret = qiodevice_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QIODevice::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qiodevice_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QIODevice::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,14 +691,15 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_receivers_isbase) {
             qiodevice_receivers_isbase = false;
             return QIODevice::receivers(signal);
-        } else if (qiodevice_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qiodevice_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qiodevice_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QIODevice::receivers(signal);
         }
+        return QIODevice::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -697,16 +707,17 @@ class VirtualQIODevice : public QIODevice {
         if (qiodevice_issignalconnected_isbase) {
             qiodevice_issignalconnected_isbase = false;
             return QIODevice::isSignalConnected(signal);
-        } else if (qiodevice_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qiodevice_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qiodevice_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIODevice::isSignalConnected(signal);
         }
+        return QIODevice::isSignalConnected(signal);
     }
 
     // Friend functions

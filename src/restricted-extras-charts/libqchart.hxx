@@ -260,86 +260,6 @@ class VirtualQChart final : public QChart {
     VirtualQChart(QGraphicsItem* parent) : QChart(parent) {};
     VirtualQChart(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QChart(parent, wFlags) {};
 
-    ~VirtualQChart() {
-        qchart_metaobject_callback = nullptr;
-        qchart_metacast_callback = nullptr;
-        qchart_metacall_callback = nullptr;
-        qchart_setgeometry_callback = nullptr;
-        qchart_getcontentsmargins_callback = nullptr;
-        qchart_type_callback = nullptr;
-        qchart_paint_callback = nullptr;
-        qchart_paintwindowframe_callback = nullptr;
-        qchart_boundingrect_callback = nullptr;
-        qchart_shape_callback = nullptr;
-        qchart_initstyleoption_callback = nullptr;
-        qchart_sizehint_callback = nullptr;
-        qchart_updategeometry_callback = nullptr;
-        qchart_itemchange_callback = nullptr;
-        qchart_propertychange_callback = nullptr;
-        qchart_sceneevent_callback = nullptr;
-        qchart_windowframeevent_callback = nullptr;
-        qchart_windowframesectionat_callback = nullptr;
-        qchart_event_callback = nullptr;
-        qchart_changeevent_callback = nullptr;
-        qchart_closeevent_callback = nullptr;
-        qchart_focusinevent_callback = nullptr;
-        qchart_focusnextprevchild_callback = nullptr;
-        qchart_focusoutevent_callback = nullptr;
-        qchart_hideevent_callback = nullptr;
-        qchart_moveevent_callback = nullptr;
-        qchart_polishevent_callback = nullptr;
-        qchart_resizeevent_callback = nullptr;
-        qchart_showevent_callback = nullptr;
-        qchart_hovermoveevent_callback = nullptr;
-        qchart_hoverleaveevent_callback = nullptr;
-        qchart_grabmouseevent_callback = nullptr;
-        qchart_ungrabmouseevent_callback = nullptr;
-        qchart_grabkeyboardevent_callback = nullptr;
-        qchart_ungrabkeyboardevent_callback = nullptr;
-        qchart_eventfilter_callback = nullptr;
-        qchart_timerevent_callback = nullptr;
-        qchart_childevent_callback = nullptr;
-        qchart_customevent_callback = nullptr;
-        qchart_connectnotify_callback = nullptr;
-        qchart_disconnectnotify_callback = nullptr;
-        qchart_advance_callback = nullptr;
-        qchart_contains_callback = nullptr;
-        qchart_collideswithitem_callback = nullptr;
-        qchart_collideswithpath_callback = nullptr;
-        qchart_isobscuredby_callback = nullptr;
-        qchart_opaquearea_callback = nullptr;
-        qchart_sceneeventfilter_callback = nullptr;
-        qchart_contextmenuevent_callback = nullptr;
-        qchart_dragenterevent_callback = nullptr;
-        qchart_dragleaveevent_callback = nullptr;
-        qchart_dragmoveevent_callback = nullptr;
-        qchart_dropevent_callback = nullptr;
-        qchart_hoverenterevent_callback = nullptr;
-        qchart_keypressevent_callback = nullptr;
-        qchart_keyreleaseevent_callback = nullptr;
-        qchart_mousepressevent_callback = nullptr;
-        qchart_mousemoveevent_callback = nullptr;
-        qchart_mousereleaseevent_callback = nullptr;
-        qchart_mousedoubleclickevent_callback = nullptr;
-        qchart_wheelevent_callback = nullptr;
-        qchart_inputmethodevent_callback = nullptr;
-        qchart_inputmethodquery_callback = nullptr;
-        qchart_supportsextension_callback = nullptr;
-        qchart_setextension_callback = nullptr;
-        qchart_extension_callback = nullptr;
-        qchart_isempty_callback = nullptr;
-        qchart_updatemicrofocus_callback = nullptr;
-        qchart_sender_callback = nullptr;
-        qchart_sendersignalindex_callback = nullptr;
-        qchart_receivers_callback = nullptr;
-        qchart_issignalconnected_callback = nullptr;
-        qchart_addtoindex_callback = nullptr;
-        qchart_removefromindex_callback = nullptr;
-        qchart_preparegeometrychange_callback = nullptr;
-        qchart_setgraphicsitem_callback = nullptr;
-        qchart_setownedbylayout_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQChart_MetaObject_Callback(QChart_MetaObject_Callback cb) { qchart_metaobject_callback = cb; }
     inline void setQChart_Metacast_Callback(QChart_Metacast_Callback cb) { qchart_metacast_callback = cb; }
@@ -503,12 +423,13 @@ class VirtualQChart final : public QChart {
         if (qchart_metaobject_isbase) {
             qchart_metaobject_isbase = false;
             return QChart::metaObject();
-        } else if (qchart_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qchart_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QChart::metaObject();
         }
+        auto metaobject_cb = qchart_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QChart::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -516,14 +437,15 @@ class VirtualQChart final : public QChart {
         if (qchart_metacast_isbase) {
             qchart_metacast_isbase = false;
             return QChart::qt_metacast(param1);
-        } else if (qchart_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qchart_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qchart_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChart::qt_metacast(param1);
         }
+        return QChart::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,16 +453,17 @@ class VirtualQChart final : public QChart {
         if (qchart_metacall_isbase) {
             qchart_metacall_isbase = false;
             return QChart::qt_metacall(param1, param2, param3);
-        } else if (qchart_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qchart_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qchart_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QChart::qt_metacall(param1, param2, param3);
         }
+        return QChart::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,15 +471,18 @@ class VirtualQChart final : public QChart {
         if (qchart_setgeometry_isbase) {
             qchart_setgeometry_isbase = false;
             QChart::setGeometry(rect);
-        } else if (qchart_setgeometry_callback != nullptr) {
+            return;
+        }
+        auto setgeometry_cb = qchart_setgeometry_callback;
+        if (setgeometry_cb) {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
 
-            qchart_setgeometry_callback(this, cbval1);
-        } else {
-            QChart::setGeometry(rect);
+            setgeometry_cb(this, cbval1);
+            return;
         }
+        QChart::setGeometry(rect);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,16 +490,19 @@ class VirtualQChart final : public QChart {
         if (qchart_getcontentsmargins_isbase) {
             qchart_getcontentsmargins_isbase = false;
             QChart::getContentsMargins(left, top, right, bottom);
-        } else if (qchart_getcontentsmargins_callback != nullptr) {
+            return;
+        }
+        auto getcontentsmargins_cb = qchart_getcontentsmargins_callback;
+        if (getcontentsmargins_cb) {
             double* cbval1 = static_cast<double*>(left);
             double* cbval2 = static_cast<double*>(top);
             double* cbval3 = static_cast<double*>(right);
             double* cbval4 = static_cast<double*>(bottom);
 
-            qchart_getcontentsmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QChart::getContentsMargins(left, top, right, bottom);
+            getcontentsmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QChart::getContentsMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,12 +510,13 @@ class VirtualQChart final : public QChart {
         if (qchart_type_isbase) {
             qchart_type_isbase = false;
             return QChart::type();
-        } else if (qchart_type_callback != nullptr) {
-            int callback_ret = qchart_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QChart::type();
         }
+        auto type_cb = qchart_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QChart::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,15 +524,18 @@ class VirtualQChart final : public QChart {
         if (qchart_paint_isbase) {
             qchart_paint_isbase = false;
             QChart::paint(painter, option, widget);
-        } else if (qchart_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qchart_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qchart_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QChart::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QChart::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -610,15 +543,18 @@ class VirtualQChart final : public QChart {
         if (qchart_paintwindowframe_isbase) {
             qchart_paintwindowframe_isbase = false;
             QChart::paintWindowFrame(painter, option, widget);
-        } else if (qchart_paintwindowframe_callback != nullptr) {
+            return;
+        }
+        auto paintwindowframe_cb = qchart_paintwindowframe_callback;
+        if (paintwindowframe_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qchart_paintwindowframe_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QChart::paintWindowFrame(painter, option, widget);
+            paintwindowframe_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QChart::paintWindowFrame(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,12 +562,13 @@ class VirtualQChart final : public QChart {
         if (qchart_boundingrect_isbase) {
             qchart_boundingrect_isbase = false;
             return QChart::boundingRect();
-        } else if (qchart_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qchart_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QChart::boundingRect();
         }
+        auto boundingrect_cb = qchart_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QChart::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,12 +576,13 @@ class VirtualQChart final : public QChart {
         if (qchart_shape_isbase) {
             qchart_shape_isbase = false;
             return QChart::shape();
-        } else if (qchart_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qchart_shape_callback();
-            return *callback_ret;
-        } else {
-            return QChart::shape();
         }
+        auto shape_cb = qchart_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QChart::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -652,13 +590,16 @@ class VirtualQChart final : public QChart {
         if (qchart_initstyleoption_isbase) {
             qchart_initstyleoption_isbase = false;
             QChart::initStyleOption(option);
-        } else if (qchart_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qchart_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOption* cbval1 = option;
 
-            qchart_initstyleoption_callback(this, cbval1);
-        } else {
-            QChart::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QChart::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -666,17 +607,18 @@ class VirtualQChart final : public QChart {
         if (qchart_sizehint_isbase) {
             qchart_sizehint_isbase = false;
             return QChart::sizeHint(which, constraint);
-        } else if (qchart_sizehint_callback != nullptr) {
+        }
+        auto sizehint_cb = qchart_sizehint_callback;
+        if (sizehint_cb) {
             int cbval1 = static_cast<int>(which);
             const QSizeF& constraint_ret = constraint;
             // Cast returned reference into pointer
             QSizeF* cbval2 = const_cast<QSizeF*>(&constraint_ret);
 
-            QSizeF* callback_ret = qchart_sizehint_callback(this, cbval1, cbval2);
+            QSizeF* callback_ret = sizehint_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QChart::sizeHint(which, constraint);
         }
+        return QChart::sizeHint(which, constraint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,11 +626,14 @@ class VirtualQChart final : public QChart {
         if (qchart_updategeometry_isbase) {
             qchart_updategeometry_isbase = false;
             QChart::updateGeometry();
-        } else if (qchart_updategeometry_callback != nullptr) {
-            qchart_updategeometry_callback();
-        } else {
-            QChart::updateGeometry();
+            return;
         }
+        auto updategeometry_cb = qchart_updategeometry_callback;
+        if (updategeometry_cb) {
+            updategeometry_cb();
+            return;
+        }
+        QChart::updateGeometry();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,17 +641,18 @@ class VirtualQChart final : public QChart {
         if (qchart_itemchange_isbase) {
             qchart_itemchange_isbase = false;
             return QChart::itemChange(change, value);
-        } else if (qchart_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qchart_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qchart_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QChart::itemChange(change, value);
         }
+        return QChart::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,7 +660,9 @@ class VirtualQChart final : public QChart {
         if (qchart_propertychange_isbase) {
             qchart_propertychange_isbase = false;
             return QChart::propertyChange(propertyName, value);
-        } else if (qchart_propertychange_callback != nullptr) {
+        }
+        auto propertychange_cb = qchart_propertychange_callback;
+        if (propertychange_cb) {
             const QString propertyName_ret = propertyName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
@@ -727,12 +675,11 @@ class VirtualQChart final : public QChart {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qchart_propertychange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = propertychange_cb(this, cbval1, cbval2);
             libqt_free(propertyName_str);
             return *callback_ret;
-        } else {
-            return QChart::propertyChange(propertyName, value);
         }
+        return QChart::propertyChange(propertyName, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,14 +687,15 @@ class VirtualQChart final : public QChart {
         if (qchart_sceneevent_isbase) {
             qchart_sceneevent_isbase = false;
             return QChart::sceneEvent(event);
-        } else if (qchart_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qchart_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qchart_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChart::sceneEvent(event);
         }
+        return QChart::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -755,14 +703,15 @@ class VirtualQChart final : public QChart {
         if (qchart_windowframeevent_isbase) {
             qchart_windowframeevent_isbase = false;
             return QChart::windowFrameEvent(e);
-        } else if (qchart_windowframeevent_callback != nullptr) {
+        }
+        auto windowframeevent_cb = qchart_windowframeevent_callback;
+        if (windowframeevent_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qchart_windowframeevent_callback(this, cbval1);
+            bool callback_ret = windowframeevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChart::windowFrameEvent(e);
         }
+        return QChart::windowFrameEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,16 +719,17 @@ class VirtualQChart final : public QChart {
         if (qchart_windowframesectionat_isbase) {
             qchart_windowframesectionat_isbase = false;
             return QChart::windowFrameSectionAt(pos);
-        } else if (qchart_windowframesectionat_callback != nullptr) {
+        }
+        auto windowframesectionat_cb = qchart_windowframesectionat_callback;
+        if (windowframesectionat_cb) {
             const QPointF& pos_ret = pos;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
 
-            int callback_ret = qchart_windowframesectionat_callback(this, cbval1);
+            int callback_ret = windowframesectionat_cb(this, cbval1);
             return static_cast<Qt::WindowFrameSection>(callback_ret);
-        } else {
-            return QChart::windowFrameSectionAt(pos);
         }
+        return QChart::windowFrameSectionAt(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,14 +737,15 @@ class VirtualQChart final : public QChart {
         if (qchart_event_isbase) {
             qchart_event_isbase = false;
             return QChart::event(event);
-        } else if (qchart_event_callback != nullptr) {
+        }
+        auto event_cb = qchart_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qchart_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChart::event(event);
         }
+        return QChart::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,13 +753,16 @@ class VirtualQChart final : public QChart {
         if (qchart_changeevent_isbase) {
             qchart_changeevent_isbase = false;
             QChart::changeEvent(event);
-        } else if (qchart_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qchart_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qchart_changeevent_callback(this, cbval1);
-        } else {
-            QChart::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QChart::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -816,13 +770,16 @@ class VirtualQChart final : public QChart {
         if (qchart_closeevent_isbase) {
             qchart_closeevent_isbase = false;
             QChart::closeEvent(event);
-        } else if (qchart_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qchart_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qchart_closeevent_callback(this, cbval1);
-        } else {
-            QChart::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QChart::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,13 +787,16 @@ class VirtualQChart final : public QChart {
         if (qchart_focusinevent_isbase) {
             qchart_focusinevent_isbase = false;
             QChart::focusInEvent(event);
-        } else if (qchart_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qchart_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qchart_focusinevent_callback(this, cbval1);
-        } else {
-            QChart::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QChart::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -844,14 +804,15 @@ class VirtualQChart final : public QChart {
         if (qchart_focusnextprevchild_isbase) {
             qchart_focusnextprevchild_isbase = false;
             return QChart::focusNextPrevChild(next);
-        } else if (qchart_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qchart_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qchart_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChart::focusNextPrevChild(next);
         }
+        return QChart::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -859,13 +820,16 @@ class VirtualQChart final : public QChart {
         if (qchart_focusoutevent_isbase) {
             qchart_focusoutevent_isbase = false;
             QChart::focusOutEvent(event);
-        } else if (qchart_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qchart_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qchart_focusoutevent_callback(this, cbval1);
-        } else {
-            QChart::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QChart::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,13 +837,16 @@ class VirtualQChart final : public QChart {
         if (qchart_hideevent_isbase) {
             qchart_hideevent_isbase = false;
             QChart::hideEvent(event);
-        } else if (qchart_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qchart_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qchart_hideevent_callback(this, cbval1);
-        } else {
-            QChart::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QChart::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -887,13 +854,16 @@ class VirtualQChart final : public QChart {
         if (qchart_moveevent_isbase) {
             qchart_moveevent_isbase = false;
             QChart::moveEvent(event);
-        } else if (qchart_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qchart_moveevent_callback;
+        if (moveevent_cb) {
             QGraphicsSceneMoveEvent* cbval1 = event;
 
-            qchart_moveevent_callback(this, cbval1);
-        } else {
-            QChart::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QChart::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -901,11 +871,14 @@ class VirtualQChart final : public QChart {
         if (qchart_polishevent_isbase) {
             qchart_polishevent_isbase = false;
             QChart::polishEvent();
-        } else if (qchart_polishevent_callback != nullptr) {
-            qchart_polishevent_callback();
-        } else {
-            QChart::polishEvent();
+            return;
         }
+        auto polishevent_cb = qchart_polishevent_callback;
+        if (polishevent_cb) {
+            polishevent_cb();
+            return;
+        }
+        QChart::polishEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +886,16 @@ class VirtualQChart final : public QChart {
         if (qchart_resizeevent_isbase) {
             qchart_resizeevent_isbase = false;
             QChart::resizeEvent(event);
-        } else if (qchart_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qchart_resizeevent_callback;
+        if (resizeevent_cb) {
             QGraphicsSceneResizeEvent* cbval1 = event;
 
-            qchart_resizeevent_callback(this, cbval1);
-        } else {
-            QChart::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QChart::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +903,16 @@ class VirtualQChart final : public QChart {
         if (qchart_showevent_isbase) {
             qchart_showevent_isbase = false;
             QChart::showEvent(event);
-        } else if (qchart_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qchart_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qchart_showevent_callback(this, cbval1);
-        } else {
-            QChart::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QChart::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +920,16 @@ class VirtualQChart final : public QChart {
         if (qchart_hovermoveevent_isbase) {
             qchart_hovermoveevent_isbase = false;
             QChart::hoverMoveEvent(event);
-        } else if (qchart_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qchart_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qchart_hovermoveevent_callback(this, cbval1);
-        } else {
-            QChart::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QChart::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,13 +937,16 @@ class VirtualQChart final : public QChart {
         if (qchart_hoverleaveevent_isbase) {
             qchart_hoverleaveevent_isbase = false;
             QChart::hoverLeaveEvent(event);
-        } else if (qchart_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qchart_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qchart_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QChart::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QChart::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,13 +954,16 @@ class VirtualQChart final : public QChart {
         if (qchart_grabmouseevent_isbase) {
             qchart_grabmouseevent_isbase = false;
             QChart::grabMouseEvent(event);
-        } else if (qchart_grabmouseevent_callback != nullptr) {
+            return;
+        }
+        auto grabmouseevent_cb = qchart_grabmouseevent_callback;
+        if (grabmouseevent_cb) {
             QEvent* cbval1 = event;
 
-            qchart_grabmouseevent_callback(this, cbval1);
-        } else {
-            QChart::grabMouseEvent(event);
+            grabmouseevent_cb(this, cbval1);
+            return;
         }
+        QChart::grabMouseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,13 +971,16 @@ class VirtualQChart final : public QChart {
         if (qchart_ungrabmouseevent_isbase) {
             qchart_ungrabmouseevent_isbase = false;
             QChart::ungrabMouseEvent(event);
-        } else if (qchart_ungrabmouseevent_callback != nullptr) {
+            return;
+        }
+        auto ungrabmouseevent_cb = qchart_ungrabmouseevent_callback;
+        if (ungrabmouseevent_cb) {
             QEvent* cbval1 = event;
 
-            qchart_ungrabmouseevent_callback(this, cbval1);
-        } else {
-            QChart::ungrabMouseEvent(event);
+            ungrabmouseevent_cb(this, cbval1);
+            return;
         }
+        QChart::ungrabMouseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,13 +988,16 @@ class VirtualQChart final : public QChart {
         if (qchart_grabkeyboardevent_isbase) {
             qchart_grabkeyboardevent_isbase = false;
             QChart::grabKeyboardEvent(event);
-        } else if (qchart_grabkeyboardevent_callback != nullptr) {
+            return;
+        }
+        auto grabkeyboardevent_cb = qchart_grabkeyboardevent_callback;
+        if (grabkeyboardevent_cb) {
             QEvent* cbval1 = event;
 
-            qchart_grabkeyboardevent_callback(this, cbval1);
-        } else {
-            QChart::grabKeyboardEvent(event);
+            grabkeyboardevent_cb(this, cbval1);
+            return;
         }
+        QChart::grabKeyboardEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1011,13 +1005,16 @@ class VirtualQChart final : public QChart {
         if (qchart_ungrabkeyboardevent_isbase) {
             qchart_ungrabkeyboardevent_isbase = false;
             QChart::ungrabKeyboardEvent(event);
-        } else if (qchart_ungrabkeyboardevent_callback != nullptr) {
+            return;
+        }
+        auto ungrabkeyboardevent_cb = qchart_ungrabkeyboardevent_callback;
+        if (ungrabkeyboardevent_cb) {
             QEvent* cbval1 = event;
 
-            qchart_ungrabkeyboardevent_callback(this, cbval1);
-        } else {
-            QChart::ungrabKeyboardEvent(event);
+            ungrabkeyboardevent_cb(this, cbval1);
+            return;
         }
+        QChart::ungrabKeyboardEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1025,15 +1022,16 @@ class VirtualQChart final : public QChart {
         if (qchart_eventfilter_isbase) {
             qchart_eventfilter_isbase = false;
             return QChart::eventFilter(watched, event);
-        } else if (qchart_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qchart_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qchart_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QChart::eventFilter(watched, event);
         }
+        return QChart::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1041,13 +1039,16 @@ class VirtualQChart final : public QChart {
         if (qchart_timerevent_isbase) {
             qchart_timerevent_isbase = false;
             QChart::timerEvent(event);
-        } else if (qchart_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qchart_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qchart_timerevent_callback(this, cbval1);
-        } else {
-            QChart::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QChart::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,13 +1056,16 @@ class VirtualQChart final : public QChart {
         if (qchart_childevent_isbase) {
             qchart_childevent_isbase = false;
             QChart::childEvent(event);
-        } else if (qchart_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qchart_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qchart_childevent_callback(this, cbval1);
-        } else {
-            QChart::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QChart::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1069,13 +1073,16 @@ class VirtualQChart final : public QChart {
         if (qchart_customevent_isbase) {
             qchart_customevent_isbase = false;
             QChart::customEvent(event);
-        } else if (qchart_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qchart_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qchart_customevent_callback(this, cbval1);
-        } else {
-            QChart::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QChart::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1083,15 +1090,18 @@ class VirtualQChart final : public QChart {
         if (qchart_connectnotify_isbase) {
             qchart_connectnotify_isbase = false;
             QChart::connectNotify(signal);
-        } else if (qchart_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qchart_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qchart_connectnotify_callback(this, cbval1);
-        } else {
-            QChart::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QChart::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1099,15 +1109,18 @@ class VirtualQChart final : public QChart {
         if (qchart_disconnectnotify_isbase) {
             qchart_disconnectnotify_isbase = false;
             QChart::disconnectNotify(signal);
-        } else if (qchart_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qchart_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qchart_disconnectnotify_callback(this, cbval1);
-        } else {
-            QChart::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QChart::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,13 +1128,16 @@ class VirtualQChart final : public QChart {
         if (qchart_advance_isbase) {
             qchart_advance_isbase = false;
             QChart::advance(phase);
-        } else if (qchart_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qchart_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qchart_advance_callback(this, cbval1);
-        } else {
-            QChart::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QChart::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1129,16 +1145,17 @@ class VirtualQChart final : public QChart {
         if (qchart_contains_isbase) {
             qchart_contains_isbase = false;
             return QChart::contains(point);
-        } else if (qchart_contains_callback != nullptr) {
+        }
+        auto contains_cb = qchart_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qchart_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChart::contains(point);
         }
+        return QChart::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1146,15 +1163,16 @@ class VirtualQChart final : public QChart {
         if (qchart_collideswithitem_isbase) {
             qchart_collideswithitem_isbase = false;
             return QChart::collidesWithItem(other, mode);
-        } else if (qchart_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qchart_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qchart_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QChart::collidesWithItem(other, mode);
         }
+        return QChart::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1162,17 +1180,18 @@ class VirtualQChart final : public QChart {
         if (qchart_collideswithpath_isbase) {
             qchart_collideswithpath_isbase = false;
             return QChart::collidesWithPath(path, mode);
-        } else if (qchart_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qchart_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qchart_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QChart::collidesWithPath(path, mode);
         }
+        return QChart::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,14 +1199,15 @@ class VirtualQChart final : public QChart {
         if (qchart_isobscuredby_isbase) {
             qchart_isobscuredby_isbase = false;
             return QChart::isObscuredBy(item);
-        } else if (qchart_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qchart_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qchart_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChart::isObscuredBy(item);
         }
+        return QChart::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,12 +1215,13 @@ class VirtualQChart final : public QChart {
         if (qchart_opaquearea_isbase) {
             qchart_opaquearea_isbase = false;
             return QChart::opaqueArea();
-        } else if (qchart_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qchart_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QChart::opaqueArea();
         }
+        auto opaquearea_cb = qchart_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QChart::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1208,15 +1229,16 @@ class VirtualQChart final : public QChart {
         if (qchart_sceneeventfilter_isbase) {
             qchart_sceneeventfilter_isbase = false;
             return QChart::sceneEventFilter(watched, event);
-        } else if (qchart_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qchart_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qchart_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QChart::sceneEventFilter(watched, event);
         }
+        return QChart::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1224,13 +1246,16 @@ class VirtualQChart final : public QChart {
         if (qchart_contextmenuevent_isbase) {
             qchart_contextmenuevent_isbase = false;
             QChart::contextMenuEvent(event);
-        } else if (qchart_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qchart_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qchart_contextmenuevent_callback(this, cbval1);
-        } else {
-            QChart::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QChart::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,13 +1263,16 @@ class VirtualQChart final : public QChart {
         if (qchart_dragenterevent_isbase) {
             qchart_dragenterevent_isbase = false;
             QChart::dragEnterEvent(event);
-        } else if (qchart_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qchart_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qchart_dragenterevent_callback(this, cbval1);
-        } else {
-            QChart::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QChart::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1252,13 +1280,16 @@ class VirtualQChart final : public QChart {
         if (qchart_dragleaveevent_isbase) {
             qchart_dragleaveevent_isbase = false;
             QChart::dragLeaveEvent(event);
-        } else if (qchart_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qchart_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qchart_dragleaveevent_callback(this, cbval1);
-        } else {
-            QChart::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QChart::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1266,13 +1297,16 @@ class VirtualQChart final : public QChart {
         if (qchart_dragmoveevent_isbase) {
             qchart_dragmoveevent_isbase = false;
             QChart::dragMoveEvent(event);
-        } else if (qchart_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qchart_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qchart_dragmoveevent_callback(this, cbval1);
-        } else {
-            QChart::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QChart::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1280,13 +1314,16 @@ class VirtualQChart final : public QChart {
         if (qchart_dropevent_isbase) {
             qchart_dropevent_isbase = false;
             QChart::dropEvent(event);
-        } else if (qchart_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qchart_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qchart_dropevent_callback(this, cbval1);
-        } else {
-            QChart::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QChart::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,13 +1331,16 @@ class VirtualQChart final : public QChart {
         if (qchart_hoverenterevent_isbase) {
             qchart_hoverenterevent_isbase = false;
             QChart::hoverEnterEvent(event);
-        } else if (qchart_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qchart_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qchart_hoverenterevent_callback(this, cbval1);
-        } else {
-            QChart::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QChart::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,13 +1348,16 @@ class VirtualQChart final : public QChart {
         if (qchart_keypressevent_isbase) {
             qchart_keypressevent_isbase = false;
             QChart::keyPressEvent(event);
-        } else if (qchart_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qchart_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qchart_keypressevent_callback(this, cbval1);
-        } else {
-            QChart::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QChart::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1322,13 +1365,16 @@ class VirtualQChart final : public QChart {
         if (qchart_keyreleaseevent_isbase) {
             qchart_keyreleaseevent_isbase = false;
             QChart::keyReleaseEvent(event);
-        } else if (qchart_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qchart_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qchart_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QChart::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QChart::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,13 +1382,16 @@ class VirtualQChart final : public QChart {
         if (qchart_mousepressevent_isbase) {
             qchart_mousepressevent_isbase = false;
             QChart::mousePressEvent(event);
-        } else if (qchart_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qchart_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qchart_mousepressevent_callback(this, cbval1);
-        } else {
-            QChart::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QChart::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1350,13 +1399,16 @@ class VirtualQChart final : public QChart {
         if (qchart_mousemoveevent_isbase) {
             qchart_mousemoveevent_isbase = false;
             QChart::mouseMoveEvent(event);
-        } else if (qchart_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qchart_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qchart_mousemoveevent_callback(this, cbval1);
-        } else {
-            QChart::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QChart::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1364,13 +1416,16 @@ class VirtualQChart final : public QChart {
         if (qchart_mousereleaseevent_isbase) {
             qchart_mousereleaseevent_isbase = false;
             QChart::mouseReleaseEvent(event);
-        } else if (qchart_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qchart_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qchart_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QChart::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QChart::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1378,13 +1433,16 @@ class VirtualQChart final : public QChart {
         if (qchart_mousedoubleclickevent_isbase) {
             qchart_mousedoubleclickevent_isbase = false;
             QChart::mouseDoubleClickEvent(event);
-        } else if (qchart_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qchart_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qchart_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QChart::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QChart::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1392,13 +1450,16 @@ class VirtualQChart final : public QChart {
         if (qchart_wheelevent_isbase) {
             qchart_wheelevent_isbase = false;
             QChart::wheelEvent(event);
-        } else if (qchart_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qchart_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qchart_wheelevent_callback(this, cbval1);
-        } else {
-            QChart::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QChart::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1406,13 +1467,16 @@ class VirtualQChart final : public QChart {
         if (qchart_inputmethodevent_isbase) {
             qchart_inputmethodevent_isbase = false;
             QChart::inputMethodEvent(event);
-        } else if (qchart_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qchart_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qchart_inputmethodevent_callback(this, cbval1);
-        } else {
-            QChart::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QChart::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1420,14 +1484,15 @@ class VirtualQChart final : public QChart {
         if (qchart_inputmethodquery_isbase) {
             qchart_inputmethodquery_isbase = false;
             return QChart::inputMethodQuery(query);
-        } else if (qchart_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qchart_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qchart_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QChart::inputMethodQuery(query);
         }
+        return QChart::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1435,14 +1500,15 @@ class VirtualQChart final : public QChart {
         if (qchart_supportsextension_isbase) {
             qchart_supportsextension_isbase = false;
             return QChart::supportsExtension(extension);
-        } else if (qchart_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qchart_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qchart_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChart::supportsExtension(extension);
         }
+        return QChart::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1450,16 +1516,19 @@ class VirtualQChart final : public QChart {
         if (qchart_setextension_isbase) {
             qchart_setextension_isbase = false;
             QChart::setExtension(extension, variant);
-        } else if (qchart_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qchart_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qchart_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QChart::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QChart::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1467,16 +1536,17 @@ class VirtualQChart final : public QChart {
         if (qchart_extension_isbase) {
             qchart_extension_isbase = false;
             return QChart::extension(variant);
-        } else if (qchart_extension_callback != nullptr) {
+        }
+        auto extension_cb = qchart_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qchart_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QChart::extension(variant);
         }
+        return QChart::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1484,12 +1554,13 @@ class VirtualQChart final : public QChart {
         if (qchart_isempty_isbase) {
             qchart_isempty_isbase = false;
             return QChart::isEmpty();
-        } else if (qchart_isempty_callback != nullptr) {
-            bool callback_ret = qchart_isempty_callback();
-            return callback_ret;
-        } else {
-            return QChart::isEmpty();
         }
+        auto isempty_cb = qchart_isempty_callback;
+        if (isempty_cb) {
+            bool callback_ret = isempty_cb();
+            return callback_ret;
+        }
+        return QChart::isEmpty();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1497,11 +1568,14 @@ class VirtualQChart final : public QChart {
         if (qchart_updatemicrofocus_isbase) {
             qchart_updatemicrofocus_isbase = false;
             QChart::updateMicroFocus();
-        } else if (qchart_updatemicrofocus_callback != nullptr) {
-            qchart_updatemicrofocus_callback();
-        } else {
-            QChart::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qchart_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QChart::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1509,12 +1583,13 @@ class VirtualQChart final : public QChart {
         if (qchart_sender_isbase) {
             qchart_sender_isbase = false;
             return QChart::sender();
-        } else if (qchart_sender_callback != nullptr) {
-            QObject* callback_ret = qchart_sender_callback();
-            return callback_ret;
-        } else {
-            return QChart::sender();
         }
+        auto sender_cb = qchart_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QChart::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1522,12 +1597,13 @@ class VirtualQChart final : public QChart {
         if (qchart_sendersignalindex_isbase) {
             qchart_sendersignalindex_isbase = false;
             return QChart::senderSignalIndex();
-        } else if (qchart_sendersignalindex_callback != nullptr) {
-            int callback_ret = qchart_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QChart::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qchart_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QChart::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1535,14 +1611,15 @@ class VirtualQChart final : public QChart {
         if (qchart_receivers_isbase) {
             qchart_receivers_isbase = false;
             return QChart::receivers(signal);
-        } else if (qchart_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qchart_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qchart_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QChart::receivers(signal);
         }
+        return QChart::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1550,16 +1627,17 @@ class VirtualQChart final : public QChart {
         if (qchart_issignalconnected_isbase) {
             qchart_issignalconnected_isbase = false;
             return QChart::isSignalConnected(signal);
-        } else if (qchart_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qchart_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qchart_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChart::isSignalConnected(signal);
         }
+        return QChart::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1567,11 +1645,14 @@ class VirtualQChart final : public QChart {
         if (qchart_addtoindex_isbase) {
             qchart_addtoindex_isbase = false;
             QChart::addToIndex();
-        } else if (qchart_addtoindex_callback != nullptr) {
-            qchart_addtoindex_callback();
-        } else {
-            QChart::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qchart_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QChart::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1579,11 +1660,14 @@ class VirtualQChart final : public QChart {
         if (qchart_removefromindex_isbase) {
             qchart_removefromindex_isbase = false;
             QChart::removeFromIndex();
-        } else if (qchart_removefromindex_callback != nullptr) {
-            qchart_removefromindex_callback();
-        } else {
-            QChart::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qchart_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QChart::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1591,11 +1675,14 @@ class VirtualQChart final : public QChart {
         if (qchart_preparegeometrychange_isbase) {
             qchart_preparegeometrychange_isbase = false;
             QChart::prepareGeometryChange();
-        } else if (qchart_preparegeometrychange_callback != nullptr) {
-            qchart_preparegeometrychange_callback();
-        } else {
-            QChart::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qchart_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QChart::prepareGeometryChange();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1603,13 +1690,16 @@ class VirtualQChart final : public QChart {
         if (qchart_setgraphicsitem_isbase) {
             qchart_setgraphicsitem_isbase = false;
             QChart::setGraphicsItem(item);
-        } else if (qchart_setgraphicsitem_callback != nullptr) {
+            return;
+        }
+        auto setgraphicsitem_cb = qchart_setgraphicsitem_callback;
+        if (setgraphicsitem_cb) {
             QGraphicsItem* cbval1 = item;
 
-            qchart_setgraphicsitem_callback(this, cbval1);
-        } else {
-            QChart::setGraphicsItem(item);
+            setgraphicsitem_cb(this, cbval1);
+            return;
         }
+        QChart::setGraphicsItem(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1617,13 +1707,16 @@ class VirtualQChart final : public QChart {
         if (qchart_setownedbylayout_isbase) {
             qchart_setownedbylayout_isbase = false;
             QChart::setOwnedByLayout(ownedByLayout);
-        } else if (qchart_setownedbylayout_callback != nullptr) {
+            return;
+        }
+        auto setownedbylayout_cb = qchart_setownedbylayout_callback;
+        if (setownedbylayout_cb) {
             bool cbval1 = ownedByLayout;
 
-            qchart_setownedbylayout_callback(this, cbval1);
-        } else {
-            QChart::setOwnedByLayout(ownedByLayout);
+            setownedbylayout_cb(this, cbval1);
+            return;
         }
+        QChart::setOwnedByLayout(ownedByLayout);
     }
 
     // Friend functions

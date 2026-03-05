@@ -72,24 +72,6 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
     VirtualSonnetSpellCheckDecorator(QTextEdit* textEdit) : Sonnet::SpellCheckDecorator(textEdit) {};
     VirtualSonnetSpellCheckDecorator(QPlainTextEdit* textEdit) : Sonnet::SpellCheckDecorator(textEdit) {};
 
-    ~VirtualSonnetSpellCheckDecorator() {
-        sonnet__spellcheckdecorator_metaobject_callback = nullptr;
-        sonnet__spellcheckdecorator_metacast_callback = nullptr;
-        sonnet__spellcheckdecorator_metacall_callback = nullptr;
-        sonnet__spellcheckdecorator_eventfilter_callback = nullptr;
-        sonnet__spellcheckdecorator_isspellcheckingenabledforblock_callback = nullptr;
-        sonnet__spellcheckdecorator_event_callback = nullptr;
-        sonnet__spellcheckdecorator_timerevent_callback = nullptr;
-        sonnet__spellcheckdecorator_childevent_callback = nullptr;
-        sonnet__spellcheckdecorator_customevent_callback = nullptr;
-        sonnet__spellcheckdecorator_connectnotify_callback = nullptr;
-        sonnet__spellcheckdecorator_disconnectnotify_callback = nullptr;
-        sonnet__spellcheckdecorator_sender_callback = nullptr;
-        sonnet__spellcheckdecorator_sendersignalindex_callback = nullptr;
-        sonnet__spellcheckdecorator_receivers_callback = nullptr;
-        sonnet__spellcheckdecorator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setSonnet__SpellCheckDecorator_MetaObject_Callback(Sonnet__SpellCheckDecorator_MetaObject_Callback cb) { sonnet__spellcheckdecorator_metaobject_callback = cb; }
     inline void setSonnet__SpellCheckDecorator_Metacast_Callback(Sonnet__SpellCheckDecorator_Metacast_Callback cb) { sonnet__spellcheckdecorator_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_metaobject_isbase) {
             sonnet__spellcheckdecorator_metaobject_isbase = false;
             return Sonnet__SpellCheckDecorator::metaObject();
-        } else if (sonnet__spellcheckdecorator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = sonnet__spellcheckdecorator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__SpellCheckDecorator::metaObject();
         }
+        auto metaobject_cb = sonnet__spellcheckdecorator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Sonnet__SpellCheckDecorator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_metacast_isbase) {
             sonnet__spellcheckdecorator_metacast_isbase = false;
             return Sonnet__SpellCheckDecorator::qt_metacast(param1);
-        } else if (sonnet__spellcheckdecorator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = sonnet__spellcheckdecorator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = sonnet__spellcheckdecorator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__SpellCheckDecorator::qt_metacast(param1);
         }
+        return Sonnet__SpellCheckDecorator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_metacall_isbase) {
             sonnet__spellcheckdecorator_metacall_isbase = false;
             return Sonnet__SpellCheckDecorator::qt_metacall(param1, param2, param3);
-        } else if (sonnet__spellcheckdecorator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = sonnet__spellcheckdecorator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = sonnet__spellcheckdecorator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__SpellCheckDecorator::qt_metacall(param1, param2, param3);
         }
+        return Sonnet__SpellCheckDecorator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,15 +159,16 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_eventfilter_isbase) {
             sonnet__spellcheckdecorator_eventfilter_isbase = false;
             return Sonnet__SpellCheckDecorator::eventFilter(obj, event);
-        } else if (sonnet__spellcheckdecorator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = sonnet__spellcheckdecorator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = obj;
             QEvent* cbval2 = event;
 
-            bool callback_ret = sonnet__spellcheckdecorator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Sonnet__SpellCheckDecorator::eventFilter(obj, event);
         }
+        return Sonnet__SpellCheckDecorator::eventFilter(obj, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -190,7 +176,9 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_isspellcheckingenabledforblock_isbase) {
             sonnet__spellcheckdecorator_isspellcheckingenabledforblock_isbase = false;
             return Sonnet__SpellCheckDecorator::isSpellCheckingEnabledForBlock(textBlock);
-        } else if (sonnet__spellcheckdecorator_isspellcheckingenabledforblock_callback != nullptr) {
+        }
+        auto isspellcheckingenabledforblock_cb = sonnet__spellcheckdecorator_isspellcheckingenabledforblock_callback;
+        if (isspellcheckingenabledforblock_cb) {
             const QString textBlock_ret = textBlock;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray textBlock_b = textBlock_ret.toUtf8();
@@ -200,12 +188,11 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
             ((char*)textBlock_str)[textBlock_str_len] = '\0';
             const char* cbval1 = textBlock_str;
 
-            bool callback_ret = sonnet__spellcheckdecorator_isspellcheckingenabledforblock_callback(this, cbval1);
+            bool callback_ret = isspellcheckingenabledforblock_cb(this, cbval1);
             libqt_free(textBlock_str);
             return callback_ret;
-        } else {
-            return Sonnet__SpellCheckDecorator::isSpellCheckingEnabledForBlock(textBlock);
         }
+        return Sonnet__SpellCheckDecorator::isSpellCheckingEnabledForBlock(textBlock);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,14 +200,15 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_event_isbase) {
             sonnet__spellcheckdecorator_event_isbase = false;
             return Sonnet__SpellCheckDecorator::event(event);
-        } else if (sonnet__spellcheckdecorator_event_callback != nullptr) {
+        }
+        auto event_cb = sonnet__spellcheckdecorator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = sonnet__spellcheckdecorator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__SpellCheckDecorator::event(event);
         }
+        return Sonnet__SpellCheckDecorator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,13 +216,16 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_timerevent_isbase) {
             sonnet__spellcheckdecorator_timerevent_isbase = false;
             Sonnet__SpellCheckDecorator::timerEvent(event);
-        } else if (sonnet__spellcheckdecorator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = sonnet__spellcheckdecorator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            sonnet__spellcheckdecorator_timerevent_callback(this, cbval1);
-        } else {
-            Sonnet__SpellCheckDecorator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__SpellCheckDecorator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,13 +233,16 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_childevent_isbase) {
             sonnet__spellcheckdecorator_childevent_isbase = false;
             Sonnet__SpellCheckDecorator::childEvent(event);
-        } else if (sonnet__spellcheckdecorator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = sonnet__spellcheckdecorator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            sonnet__spellcheckdecorator_childevent_callback(this, cbval1);
-        } else {
-            Sonnet__SpellCheckDecorator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__SpellCheckDecorator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,13 +250,16 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_customevent_isbase) {
             sonnet__spellcheckdecorator_customevent_isbase = false;
             Sonnet__SpellCheckDecorator::customEvent(event);
-        } else if (sonnet__spellcheckdecorator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = sonnet__spellcheckdecorator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            sonnet__spellcheckdecorator_customevent_callback(this, cbval1);
-        } else {
-            Sonnet__SpellCheckDecorator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__SpellCheckDecorator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,15 +267,18 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_connectnotify_isbase) {
             sonnet__spellcheckdecorator_connectnotify_isbase = false;
             Sonnet__SpellCheckDecorator::connectNotify(signal);
-        } else if (sonnet__spellcheckdecorator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = sonnet__spellcheckdecorator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            sonnet__spellcheckdecorator_connectnotify_callback(this, cbval1);
-        } else {
-            Sonnet__SpellCheckDecorator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Sonnet__SpellCheckDecorator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,15 +286,18 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_disconnectnotify_isbase) {
             sonnet__spellcheckdecorator_disconnectnotify_isbase = false;
             Sonnet__SpellCheckDecorator::disconnectNotify(signal);
-        } else if (sonnet__spellcheckdecorator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = sonnet__spellcheckdecorator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            sonnet__spellcheckdecorator_disconnectnotify_callback(this, cbval1);
-        } else {
-            Sonnet__SpellCheckDecorator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Sonnet__SpellCheckDecorator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,12 +305,13 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_sender_isbase) {
             sonnet__spellcheckdecorator_sender_isbase = false;
             return Sonnet__SpellCheckDecorator::sender();
-        } else if (sonnet__spellcheckdecorator_sender_callback != nullptr) {
-            QObject* callback_ret = sonnet__spellcheckdecorator_sender_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__SpellCheckDecorator::sender();
         }
+        auto sender_cb = sonnet__spellcheckdecorator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Sonnet__SpellCheckDecorator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,12 +319,13 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_sendersignalindex_isbase) {
             sonnet__spellcheckdecorator_sendersignalindex_isbase = false;
             return Sonnet__SpellCheckDecorator::senderSignalIndex();
-        } else if (sonnet__spellcheckdecorator_sendersignalindex_callback != nullptr) {
-            int callback_ret = sonnet__spellcheckdecorator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__SpellCheckDecorator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = sonnet__spellcheckdecorator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Sonnet__SpellCheckDecorator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -328,14 +333,15 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_receivers_isbase) {
             sonnet__spellcheckdecorator_receivers_isbase = false;
             return Sonnet__SpellCheckDecorator::receivers(signal);
-        } else if (sonnet__spellcheckdecorator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = sonnet__spellcheckdecorator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = sonnet__spellcheckdecorator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__SpellCheckDecorator::receivers(signal);
         }
+        return Sonnet__SpellCheckDecorator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,16 +349,17 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         if (sonnet__spellcheckdecorator_issignalconnected_isbase) {
             sonnet__spellcheckdecorator_issignalconnected_isbase = false;
             return Sonnet__SpellCheckDecorator::isSignalConnected(signal);
-        } else if (sonnet__spellcheckdecorator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = sonnet__spellcheckdecorator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = sonnet__spellcheckdecorator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__SpellCheckDecorator::isSignalConnected(signal);
         }
+        return Sonnet__SpellCheckDecorator::isSignalConnected(signal);
     }
 
     // Friend functions

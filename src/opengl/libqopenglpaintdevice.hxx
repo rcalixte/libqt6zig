@@ -52,17 +52,6 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
     VirtualQOpenGLPaintDevice(const QSize& size) : QOpenGLPaintDevice(size) {};
     VirtualQOpenGLPaintDevice(int width, int height) : QOpenGLPaintDevice(width, height) {};
 
-    ~VirtualQOpenGLPaintDevice() {
-        qopenglpaintdevice_devtype_callback = nullptr;
-        qopenglpaintdevice_paintengine_callback = nullptr;
-        qopenglpaintdevice_ensureactivetarget_callback = nullptr;
-        qopenglpaintdevice_metric_callback = nullptr;
-        qopenglpaintdevice_initpainter_callback = nullptr;
-        qopenglpaintdevice_redirected_callback = nullptr;
-        qopenglpaintdevice_sharedpainter_callback = nullptr;
-        qopenglpaintdevice_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQOpenGLPaintDevice_DevType_Callback(QOpenGLPaintDevice_DevType_Callback cb) { qopenglpaintdevice_devtype_callback = cb; }
     inline void setQOpenGLPaintDevice_PaintEngine_Callback(QOpenGLPaintDevice_PaintEngine_Callback cb) { qopenglpaintdevice_paintengine_callback = cb; }
@@ -88,12 +77,13 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         if (qopenglpaintdevice_devtype_isbase) {
             qopenglpaintdevice_devtype_isbase = false;
             return QOpenGLPaintDevice::devType();
-        } else if (qopenglpaintdevice_devtype_callback != nullptr) {
-            int callback_ret = qopenglpaintdevice_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLPaintDevice::devType();
         }
+        auto devtype_cb = qopenglpaintdevice_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QOpenGLPaintDevice::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -101,12 +91,13 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         if (qopenglpaintdevice_paintengine_isbase) {
             qopenglpaintdevice_paintengine_isbase = false;
             return QOpenGLPaintDevice::paintEngine();
-        } else if (qopenglpaintdevice_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qopenglpaintdevice_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLPaintDevice::paintEngine();
         }
+        auto paintengine_cb = qopenglpaintdevice_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QOpenGLPaintDevice::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -114,11 +105,14 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         if (qopenglpaintdevice_ensureactivetarget_isbase) {
             qopenglpaintdevice_ensureactivetarget_isbase = false;
             QOpenGLPaintDevice::ensureActiveTarget();
-        } else if (qopenglpaintdevice_ensureactivetarget_callback != nullptr) {
-            qopenglpaintdevice_ensureactivetarget_callback();
-        } else {
-            QOpenGLPaintDevice::ensureActiveTarget();
+            return;
         }
+        auto ensureactivetarget_cb = qopenglpaintdevice_ensureactivetarget_callback;
+        if (ensureactivetarget_cb) {
+            ensureactivetarget_cb();
+            return;
+        }
+        QOpenGLPaintDevice::ensureActiveTarget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -126,14 +120,15 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         if (qopenglpaintdevice_metric_isbase) {
             qopenglpaintdevice_metric_isbase = false;
             return QOpenGLPaintDevice::metric(metric);
-        } else if (qopenglpaintdevice_metric_callback != nullptr) {
+        }
+        auto metric_cb = qopenglpaintdevice_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(metric);
 
-            int callback_ret = qopenglpaintdevice_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLPaintDevice::metric(metric);
         }
+        return QOpenGLPaintDevice::metric(metric);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -141,13 +136,16 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         if (qopenglpaintdevice_initpainter_isbase) {
             qopenglpaintdevice_initpainter_isbase = false;
             QOpenGLPaintDevice::initPainter(painter);
-        } else if (qopenglpaintdevice_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qopenglpaintdevice_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qopenglpaintdevice_initpainter_callback(this, cbval1);
-        } else {
-            QOpenGLPaintDevice::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QOpenGLPaintDevice::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -155,14 +153,15 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         if (qopenglpaintdevice_redirected_isbase) {
             qopenglpaintdevice_redirected_isbase = false;
             return QOpenGLPaintDevice::redirected(offset);
-        } else if (qopenglpaintdevice_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qopenglpaintdevice_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qopenglpaintdevice_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLPaintDevice::redirected(offset);
         }
+        return QOpenGLPaintDevice::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,12 +169,13 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         if (qopenglpaintdevice_sharedpainter_isbase) {
             qopenglpaintdevice_sharedpainter_isbase = false;
             return QOpenGLPaintDevice::sharedPainter();
-        } else if (qopenglpaintdevice_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qopenglpaintdevice_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLPaintDevice::sharedPainter();
         }
+        auto sharedpainter_cb = qopenglpaintdevice_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QOpenGLPaintDevice::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +183,16 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         if (qopenglpaintdevice_getdecodedmetricf_isbase) {
             qopenglpaintdevice_getdecodedmetricf_isbase = false;
             return QOpenGLPaintDevice::getDecodedMetricF(metricA, metricB);
-        } else if (qopenglpaintdevice_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qopenglpaintdevice_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qopenglpaintdevice_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QOpenGLPaintDevice::getDecodedMetricF(metricA, metricB);
         }
+        return QOpenGLPaintDevice::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

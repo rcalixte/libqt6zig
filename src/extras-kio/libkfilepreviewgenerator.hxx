@@ -69,23 +69,6 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
     VirtualKFilePreviewGenerator(QAbstractItemView* parent) : KFilePreviewGenerator(parent) {};
     VirtualKFilePreviewGenerator(KAbstractViewAdapter* parent, QAbstractProxyModel* model) : KFilePreviewGenerator(parent, model) {};
 
-    ~VirtualKFilePreviewGenerator() {
-        kfilepreviewgenerator_metaobject_callback = nullptr;
-        kfilepreviewgenerator_metacast_callback = nullptr;
-        kfilepreviewgenerator_metacall_callback = nullptr;
-        kfilepreviewgenerator_event_callback = nullptr;
-        kfilepreviewgenerator_eventfilter_callback = nullptr;
-        kfilepreviewgenerator_timerevent_callback = nullptr;
-        kfilepreviewgenerator_childevent_callback = nullptr;
-        kfilepreviewgenerator_customevent_callback = nullptr;
-        kfilepreviewgenerator_connectnotify_callback = nullptr;
-        kfilepreviewgenerator_disconnectnotify_callback = nullptr;
-        kfilepreviewgenerator_sender_callback = nullptr;
-        kfilepreviewgenerator_sendersignalindex_callback = nullptr;
-        kfilepreviewgenerator_receivers_callback = nullptr;
-        kfilepreviewgenerator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFilePreviewGenerator_MetaObject_Callback(KFilePreviewGenerator_MetaObject_Callback cb) { kfilepreviewgenerator_metaobject_callback = cb; }
     inline void setKFilePreviewGenerator_Metacast_Callback(KFilePreviewGenerator_Metacast_Callback cb) { kfilepreviewgenerator_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_metaobject_isbase) {
             kfilepreviewgenerator_metaobject_isbase = false;
             return KFilePreviewGenerator::metaObject();
-        } else if (kfilepreviewgenerator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfilepreviewgenerator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFilePreviewGenerator::metaObject();
         }
+        auto metaobject_cb = kfilepreviewgenerator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFilePreviewGenerator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_metacast_isbase) {
             kfilepreviewgenerator_metacast_isbase = false;
             return KFilePreviewGenerator::qt_metacast(param1);
-        } else if (kfilepreviewgenerator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfilepreviewgenerator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfilepreviewgenerator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePreviewGenerator::qt_metacast(param1);
         }
+        return KFilePreviewGenerator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_metacall_isbase) {
             kfilepreviewgenerator_metacall_isbase = false;
             return KFilePreviewGenerator::qt_metacall(param1, param2, param3);
-        } else if (kfilepreviewgenerator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfilepreviewgenerator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfilepreviewgenerator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePreviewGenerator::qt_metacall(param1, param2, param3);
         }
+        return KFilePreviewGenerator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_event_isbase) {
             kfilepreviewgenerator_event_isbase = false;
             return KFilePreviewGenerator::event(event);
-        } else if (kfilepreviewgenerator_event_callback != nullptr) {
+        }
+        auto event_cb = kfilepreviewgenerator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfilepreviewgenerator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePreviewGenerator::event(event);
         }
+        return KFilePreviewGenerator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_eventfilter_isbase) {
             kfilepreviewgenerator_eventfilter_isbase = false;
             return KFilePreviewGenerator::eventFilter(watched, event);
-        } else if (kfilepreviewgenerator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfilepreviewgenerator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kfilepreviewgenerator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFilePreviewGenerator::eventFilter(watched, event);
         }
+        return KFilePreviewGenerator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_timerevent_isbase) {
             kfilepreviewgenerator_timerevent_isbase = false;
             KFilePreviewGenerator::timerEvent(event);
-        } else if (kfilepreviewgenerator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfilepreviewgenerator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfilepreviewgenerator_timerevent_callback(this, cbval1);
-        } else {
-            KFilePreviewGenerator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFilePreviewGenerator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_childevent_isbase) {
             kfilepreviewgenerator_childevent_isbase = false;
             KFilePreviewGenerator::childEvent(event);
-        } else if (kfilepreviewgenerator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfilepreviewgenerator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfilepreviewgenerator_childevent_callback(this, cbval1);
-        } else {
-            KFilePreviewGenerator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFilePreviewGenerator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_customevent_isbase) {
             kfilepreviewgenerator_customevent_isbase = false;
             KFilePreviewGenerator::customEvent(event);
-        } else if (kfilepreviewgenerator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfilepreviewgenerator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfilepreviewgenerator_customevent_callback(this, cbval1);
-        } else {
-            KFilePreviewGenerator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFilePreviewGenerator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_connectnotify_isbase) {
             kfilepreviewgenerator_connectnotify_isbase = false;
             KFilePreviewGenerator::connectNotify(signal);
-        } else if (kfilepreviewgenerator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfilepreviewgenerator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfilepreviewgenerator_connectnotify_callback(this, cbval1);
-        } else {
-            KFilePreviewGenerator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFilePreviewGenerator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_disconnectnotify_isbase) {
             kfilepreviewgenerator_disconnectnotify_isbase = false;
             KFilePreviewGenerator::disconnectNotify(signal);
-        } else if (kfilepreviewgenerator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfilepreviewgenerator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfilepreviewgenerator_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFilePreviewGenerator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFilePreviewGenerator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_sender_isbase) {
             kfilepreviewgenerator_sender_isbase = false;
             return KFilePreviewGenerator::sender();
-        } else if (kfilepreviewgenerator_sender_callback != nullptr) {
-            QObject* callback_ret = kfilepreviewgenerator_sender_callback();
-            return callback_ret;
-        } else {
-            return KFilePreviewGenerator::sender();
         }
+        auto sender_cb = kfilepreviewgenerator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFilePreviewGenerator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_sendersignalindex_isbase) {
             kfilepreviewgenerator_sendersignalindex_isbase = false;
             return KFilePreviewGenerator::senderSignalIndex();
-        } else if (kfilepreviewgenerator_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfilepreviewgenerator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFilePreviewGenerator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfilepreviewgenerator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFilePreviewGenerator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_receivers_isbase) {
             kfilepreviewgenerator_receivers_isbase = false;
             return KFilePreviewGenerator::receivers(signal);
-        } else if (kfilepreviewgenerator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfilepreviewgenerator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfilepreviewgenerator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePreviewGenerator::receivers(signal);
         }
+        return KFilePreviewGenerator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
         if (kfilepreviewgenerator_issignalconnected_isbase) {
             kfilepreviewgenerator_issignalconnected_isbase = false;
             return KFilePreviewGenerator::isSignalConnected(signal);
-        } else if (kfilepreviewgenerator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfilepreviewgenerator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfilepreviewgenerator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePreviewGenerator::isSignalConnected(signal);
         }
+        return KFilePreviewGenerator::isSignalConnected(signal);
     }
 
     // Friend functions

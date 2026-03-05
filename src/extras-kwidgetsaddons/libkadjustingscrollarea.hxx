@@ -228,76 +228,6 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
     VirtualKAdjustingScrollArea(QWidget* parent) : KAdjustingScrollArea(parent) {};
     VirtualKAdjustingScrollArea() : KAdjustingScrollArea() {};
 
-    ~VirtualKAdjustingScrollArea() {
-        kadjustingscrollarea_metaobject_callback = nullptr;
-        kadjustingscrollarea_metacast_callback = nullptr;
-        kadjustingscrollarea_metacall_callback = nullptr;
-        kadjustingscrollarea_minimumsizehint_callback = nullptr;
-        kadjustingscrollarea_sizehint_callback = nullptr;
-        kadjustingscrollarea_event_callback = nullptr;
-        kadjustingscrollarea_focusnextprevchild_callback = nullptr;
-        kadjustingscrollarea_resizeevent_callback = nullptr;
-        kadjustingscrollarea_scrollcontentsby_callback = nullptr;
-        kadjustingscrollarea_viewportsizehint_callback = nullptr;
-        kadjustingscrollarea_setupviewport_callback = nullptr;
-        kadjustingscrollarea_viewportevent_callback = nullptr;
-        kadjustingscrollarea_paintevent_callback = nullptr;
-        kadjustingscrollarea_mousepressevent_callback = nullptr;
-        kadjustingscrollarea_mousereleaseevent_callback = nullptr;
-        kadjustingscrollarea_mousedoubleclickevent_callback = nullptr;
-        kadjustingscrollarea_mousemoveevent_callback = nullptr;
-        kadjustingscrollarea_wheelevent_callback = nullptr;
-        kadjustingscrollarea_contextmenuevent_callback = nullptr;
-        kadjustingscrollarea_dragenterevent_callback = nullptr;
-        kadjustingscrollarea_dragmoveevent_callback = nullptr;
-        kadjustingscrollarea_dragleaveevent_callback = nullptr;
-        kadjustingscrollarea_dropevent_callback = nullptr;
-        kadjustingscrollarea_keypressevent_callback = nullptr;
-        kadjustingscrollarea_changeevent_callback = nullptr;
-        kadjustingscrollarea_initstyleoption_callback = nullptr;
-        kadjustingscrollarea_devtype_callback = nullptr;
-        kadjustingscrollarea_setvisible_callback = nullptr;
-        kadjustingscrollarea_heightforwidth_callback = nullptr;
-        kadjustingscrollarea_hasheightforwidth_callback = nullptr;
-        kadjustingscrollarea_paintengine_callback = nullptr;
-        kadjustingscrollarea_keyreleaseevent_callback = nullptr;
-        kadjustingscrollarea_focusinevent_callback = nullptr;
-        kadjustingscrollarea_focusoutevent_callback = nullptr;
-        kadjustingscrollarea_enterevent_callback = nullptr;
-        kadjustingscrollarea_leaveevent_callback = nullptr;
-        kadjustingscrollarea_moveevent_callback = nullptr;
-        kadjustingscrollarea_closeevent_callback = nullptr;
-        kadjustingscrollarea_tabletevent_callback = nullptr;
-        kadjustingscrollarea_actionevent_callback = nullptr;
-        kadjustingscrollarea_showevent_callback = nullptr;
-        kadjustingscrollarea_hideevent_callback = nullptr;
-        kadjustingscrollarea_nativeevent_callback = nullptr;
-        kadjustingscrollarea_metric_callback = nullptr;
-        kadjustingscrollarea_initpainter_callback = nullptr;
-        kadjustingscrollarea_redirected_callback = nullptr;
-        kadjustingscrollarea_sharedpainter_callback = nullptr;
-        kadjustingscrollarea_inputmethodevent_callback = nullptr;
-        kadjustingscrollarea_inputmethodquery_callback = nullptr;
-        kadjustingscrollarea_timerevent_callback = nullptr;
-        kadjustingscrollarea_childevent_callback = nullptr;
-        kadjustingscrollarea_customevent_callback = nullptr;
-        kadjustingscrollarea_connectnotify_callback = nullptr;
-        kadjustingscrollarea_disconnectnotify_callback = nullptr;
-        kadjustingscrollarea_setviewportmargins_callback = nullptr;
-        kadjustingscrollarea_viewportmargins_callback = nullptr;
-        kadjustingscrollarea_drawframe_callback = nullptr;
-        kadjustingscrollarea_updatemicrofocus_callback = nullptr;
-        kadjustingscrollarea_create_callback = nullptr;
-        kadjustingscrollarea_destroy_callback = nullptr;
-        kadjustingscrollarea_focusnextchild_callback = nullptr;
-        kadjustingscrollarea_focuspreviouschild_callback = nullptr;
-        kadjustingscrollarea_sender_callback = nullptr;
-        kadjustingscrollarea_sendersignalindex_callback = nullptr;
-        kadjustingscrollarea_receivers_callback = nullptr;
-        kadjustingscrollarea_issignalconnected_callback = nullptr;
-        kadjustingscrollarea_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKAdjustingScrollArea_MetaObject_Callback(KAdjustingScrollArea_MetaObject_Callback cb) { kadjustingscrollarea_metaobject_callback = cb; }
     inline void setKAdjustingScrollArea_Metacast_Callback(KAdjustingScrollArea_Metacast_Callback cb) { kadjustingscrollarea_metacast_callback = cb; }
@@ -441,12 +371,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_metaobject_isbase) {
             kadjustingscrollarea_metaobject_isbase = false;
             return KAdjustingScrollArea::metaObject();
-        } else if (kadjustingscrollarea_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kadjustingscrollarea_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KAdjustingScrollArea::metaObject();
         }
+        auto metaobject_cb = kadjustingscrollarea_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KAdjustingScrollArea::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,14 +385,15 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_metacast_isbase) {
             kadjustingscrollarea_metacast_isbase = false;
             return KAdjustingScrollArea::qt_metacast(param1);
-        } else if (kadjustingscrollarea_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kadjustingscrollarea_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kadjustingscrollarea_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAdjustingScrollArea::qt_metacast(param1);
         }
+        return KAdjustingScrollArea::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,16 +401,17 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_metacall_isbase) {
             kadjustingscrollarea_metacall_isbase = false;
             return KAdjustingScrollArea::qt_metacall(param1, param2, param3);
-        } else if (kadjustingscrollarea_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kadjustingscrollarea_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kadjustingscrollarea_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAdjustingScrollArea::qt_metacall(param1, param2, param3);
         }
+        return KAdjustingScrollArea::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,12 +419,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_minimumsizehint_isbase) {
             kadjustingscrollarea_minimumsizehint_isbase = false;
             return KAdjustingScrollArea::minimumSizeHint();
-        } else if (kadjustingscrollarea_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kadjustingscrollarea_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAdjustingScrollArea::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kadjustingscrollarea_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KAdjustingScrollArea::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,12 +433,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_sizehint_isbase) {
             kadjustingscrollarea_sizehint_isbase = false;
             return KAdjustingScrollArea::sizeHint();
-        } else if (kadjustingscrollarea_sizehint_callback != nullptr) {
-            QSize* callback_ret = kadjustingscrollarea_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAdjustingScrollArea::sizeHint();
         }
+        auto sizehint_cb = kadjustingscrollarea_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KAdjustingScrollArea::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,14 +447,15 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_event_isbase) {
             kadjustingscrollarea_event_isbase = false;
             return KAdjustingScrollArea::event(event);
-        } else if (kadjustingscrollarea_event_callback != nullptr) {
+        }
+        auto event_cb = kadjustingscrollarea_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kadjustingscrollarea_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAdjustingScrollArea::event(event);
         }
+        return KAdjustingScrollArea::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,14 +463,15 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_focusnextprevchild_isbase) {
             kadjustingscrollarea_focusnextprevchild_isbase = false;
             return KAdjustingScrollArea::focusNextPrevChild(next);
-        } else if (kadjustingscrollarea_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kadjustingscrollarea_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kadjustingscrollarea_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAdjustingScrollArea::focusNextPrevChild(next);
         }
+        return KAdjustingScrollArea::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -542,13 +479,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_resizeevent_isbase) {
             kadjustingscrollarea_resizeevent_isbase = false;
             KAdjustingScrollArea::resizeEvent(param1);
-        } else if (kadjustingscrollarea_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kadjustingscrollarea_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kadjustingscrollarea_resizeevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,14 +496,17 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_scrollcontentsby_isbase) {
             kadjustingscrollarea_scrollcontentsby_isbase = false;
             KAdjustingScrollArea::scrollContentsBy(dx, dy);
-        } else if (kadjustingscrollarea_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = kadjustingscrollarea_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            kadjustingscrollarea_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            KAdjustingScrollArea::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        KAdjustingScrollArea::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -571,12 +514,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_viewportsizehint_isbase) {
             kadjustingscrollarea_viewportsizehint_isbase = false;
             return KAdjustingScrollArea::viewportSizeHint();
-        } else if (kadjustingscrollarea_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = kadjustingscrollarea_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAdjustingScrollArea::viewportSizeHint();
         }
+        auto viewportsizehint_cb = kadjustingscrollarea_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return KAdjustingScrollArea::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,13 +528,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_setupviewport_isbase) {
             kadjustingscrollarea_setupviewport_isbase = false;
             KAdjustingScrollArea::setupViewport(viewport);
-        } else if (kadjustingscrollarea_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = kadjustingscrollarea_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            kadjustingscrollarea_setupviewport_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,14 +545,15 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_viewportevent_isbase) {
             kadjustingscrollarea_viewportevent_isbase = false;
             return KAdjustingScrollArea::viewportEvent(param1);
-        } else if (kadjustingscrollarea_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = kadjustingscrollarea_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = kadjustingscrollarea_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAdjustingScrollArea::viewportEvent(param1);
         }
+        return KAdjustingScrollArea::viewportEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,13 +561,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_paintevent_isbase) {
             kadjustingscrollarea_paintevent_isbase = false;
             KAdjustingScrollArea::paintEvent(param1);
-        } else if (kadjustingscrollarea_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kadjustingscrollarea_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kadjustingscrollarea_paintevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +578,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_mousepressevent_isbase) {
             kadjustingscrollarea_mousepressevent_isbase = false;
             KAdjustingScrollArea::mousePressEvent(param1);
-        } else if (kadjustingscrollarea_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kadjustingscrollarea_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kadjustingscrollarea_mousepressevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +595,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_mousereleaseevent_isbase) {
             kadjustingscrollarea_mousereleaseevent_isbase = false;
             KAdjustingScrollArea::mouseReleaseEvent(param1);
-        } else if (kadjustingscrollarea_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kadjustingscrollarea_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kadjustingscrollarea_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,13 +612,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_mousedoubleclickevent_isbase) {
             kadjustingscrollarea_mousedoubleclickevent_isbase = false;
             KAdjustingScrollArea::mouseDoubleClickEvent(param1);
-        } else if (kadjustingscrollarea_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kadjustingscrollarea_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kadjustingscrollarea_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::mouseDoubleClickEvent(param1);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::mouseDoubleClickEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,13 +629,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_mousemoveevent_isbase) {
             kadjustingscrollarea_mousemoveevent_isbase = false;
             KAdjustingScrollArea::mouseMoveEvent(param1);
-        } else if (kadjustingscrollarea_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kadjustingscrollarea_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kadjustingscrollarea_mousemoveevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,13 +646,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_wheelevent_isbase) {
             kadjustingscrollarea_wheelevent_isbase = false;
             KAdjustingScrollArea::wheelEvent(param1);
-        } else if (kadjustingscrollarea_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kadjustingscrollarea_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            kadjustingscrollarea_wheelevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -697,13 +663,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_contextmenuevent_isbase) {
             kadjustingscrollarea_contextmenuevent_isbase = false;
             KAdjustingScrollArea::contextMenuEvent(param1);
-        } else if (kadjustingscrollarea_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kadjustingscrollarea_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kadjustingscrollarea_contextmenuevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,13 +680,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_dragenterevent_isbase) {
             kadjustingscrollarea_dragenterevent_isbase = false;
             KAdjustingScrollArea::dragEnterEvent(param1);
-        } else if (kadjustingscrollarea_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kadjustingscrollarea_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
 
-            kadjustingscrollarea_dragenterevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::dragEnterEvent(param1);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::dragEnterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -725,13 +697,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_dragmoveevent_isbase) {
             kadjustingscrollarea_dragmoveevent_isbase = false;
             KAdjustingScrollArea::dragMoveEvent(param1);
-        } else if (kadjustingscrollarea_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kadjustingscrollarea_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = param1;
 
-            kadjustingscrollarea_dragmoveevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::dragMoveEvent(param1);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::dragMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,13 +714,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_dragleaveevent_isbase) {
             kadjustingscrollarea_dragleaveevent_isbase = false;
             KAdjustingScrollArea::dragLeaveEvent(param1);
-        } else if (kadjustingscrollarea_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kadjustingscrollarea_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = param1;
 
-            kadjustingscrollarea_dragleaveevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::dragLeaveEvent(param1);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::dragLeaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -753,13 +731,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_dropevent_isbase) {
             kadjustingscrollarea_dropevent_isbase = false;
             KAdjustingScrollArea::dropEvent(param1);
-        } else if (kadjustingscrollarea_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kadjustingscrollarea_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
 
-            kadjustingscrollarea_dropevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::dropEvent(param1);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::dropEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -767,13 +748,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_keypressevent_isbase) {
             kadjustingscrollarea_keypressevent_isbase = false;
             KAdjustingScrollArea::keyPressEvent(param1);
-        } else if (kadjustingscrollarea_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kadjustingscrollarea_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kadjustingscrollarea_keypressevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,13 +765,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_changeevent_isbase) {
             kadjustingscrollarea_changeevent_isbase = false;
             KAdjustingScrollArea::changeEvent(param1);
-        } else if (kadjustingscrollarea_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kadjustingscrollarea_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kadjustingscrollarea_changeevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,13 +782,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_initstyleoption_isbase) {
             kadjustingscrollarea_initstyleoption_isbase = false;
             KAdjustingScrollArea::initStyleOption(option);
-        } else if (kadjustingscrollarea_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kadjustingscrollarea_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kadjustingscrollarea_initstyleoption_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,12 +799,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_devtype_isbase) {
             kadjustingscrollarea_devtype_isbase = false;
             return KAdjustingScrollArea::devType();
-        } else if (kadjustingscrollarea_devtype_callback != nullptr) {
-            int callback_ret = kadjustingscrollarea_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAdjustingScrollArea::devType();
         }
+        auto devtype_cb = kadjustingscrollarea_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAdjustingScrollArea::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -822,13 +813,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_setvisible_isbase) {
             kadjustingscrollarea_setvisible_isbase = false;
             KAdjustingScrollArea::setVisible(visible);
-        } else if (kadjustingscrollarea_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kadjustingscrollarea_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kadjustingscrollarea_setvisible_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -836,14 +830,15 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_heightforwidth_isbase) {
             kadjustingscrollarea_heightforwidth_isbase = false;
             return KAdjustingScrollArea::heightForWidth(param1);
-        } else if (kadjustingscrollarea_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kadjustingscrollarea_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kadjustingscrollarea_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAdjustingScrollArea::heightForWidth(param1);
         }
+        return KAdjustingScrollArea::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -851,12 +846,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_hasheightforwidth_isbase) {
             kadjustingscrollarea_hasheightforwidth_isbase = false;
             return KAdjustingScrollArea::hasHeightForWidth();
-        } else if (kadjustingscrollarea_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kadjustingscrollarea_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KAdjustingScrollArea::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kadjustingscrollarea_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KAdjustingScrollArea::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -864,12 +860,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_paintengine_isbase) {
             kadjustingscrollarea_paintengine_isbase = false;
             return KAdjustingScrollArea::paintEngine();
-        } else if (kadjustingscrollarea_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kadjustingscrollarea_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KAdjustingScrollArea::paintEngine();
         }
+        auto paintengine_cb = kadjustingscrollarea_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KAdjustingScrollArea::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +874,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_keyreleaseevent_isbase) {
             kadjustingscrollarea_keyreleaseevent_isbase = false;
             KAdjustingScrollArea::keyReleaseEvent(event);
-        } else if (kadjustingscrollarea_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kadjustingscrollarea_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kadjustingscrollarea_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +891,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_focusinevent_isbase) {
             kadjustingscrollarea_focusinevent_isbase = false;
             KAdjustingScrollArea::focusInEvent(event);
-        } else if (kadjustingscrollarea_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kadjustingscrollarea_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kadjustingscrollarea_focusinevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +908,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_focusoutevent_isbase) {
             kadjustingscrollarea_focusoutevent_isbase = false;
             KAdjustingScrollArea::focusOutEvent(event);
-        } else if (kadjustingscrollarea_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kadjustingscrollarea_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kadjustingscrollarea_focusoutevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,13 +925,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_enterevent_isbase) {
             kadjustingscrollarea_enterevent_isbase = false;
             KAdjustingScrollArea::enterEvent(event);
-        } else if (kadjustingscrollarea_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kadjustingscrollarea_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kadjustingscrollarea_enterevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +942,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_leaveevent_isbase) {
             kadjustingscrollarea_leaveevent_isbase = false;
             KAdjustingScrollArea::leaveEvent(event);
-        } else if (kadjustingscrollarea_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kadjustingscrollarea_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kadjustingscrollarea_leaveevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +959,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_moveevent_isbase) {
             kadjustingscrollarea_moveevent_isbase = false;
             KAdjustingScrollArea::moveEvent(event);
-        } else if (kadjustingscrollarea_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kadjustingscrollarea_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kadjustingscrollarea_moveevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,13 +976,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_closeevent_isbase) {
             kadjustingscrollarea_closeevent_isbase = false;
             KAdjustingScrollArea::closeEvent(event);
-        } else if (kadjustingscrollarea_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kadjustingscrollarea_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kadjustingscrollarea_closeevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -975,13 +993,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_tabletevent_isbase) {
             kadjustingscrollarea_tabletevent_isbase = false;
             KAdjustingScrollArea::tabletEvent(event);
-        } else if (kadjustingscrollarea_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kadjustingscrollarea_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kadjustingscrollarea_tabletevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -989,13 +1010,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_actionevent_isbase) {
             kadjustingscrollarea_actionevent_isbase = false;
             KAdjustingScrollArea::actionEvent(event);
-        } else if (kadjustingscrollarea_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kadjustingscrollarea_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kadjustingscrollarea_actionevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,13 +1027,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_showevent_isbase) {
             kadjustingscrollarea_showevent_isbase = false;
             KAdjustingScrollArea::showEvent(event);
-        } else if (kadjustingscrollarea_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kadjustingscrollarea_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kadjustingscrollarea_showevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1017,13 +1044,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_hideevent_isbase) {
             kadjustingscrollarea_hideevent_isbase = false;
             KAdjustingScrollArea::hideEvent(event);
-        } else if (kadjustingscrollarea_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kadjustingscrollarea_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kadjustingscrollarea_hideevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1031,7 +1061,9 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_nativeevent_isbase) {
             kadjustingscrollarea_nativeevent_isbase = false;
             return KAdjustingScrollArea::nativeEvent(eventType, message, result);
-        } else if (kadjustingscrollarea_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kadjustingscrollarea_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1042,12 +1074,11 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kadjustingscrollarea_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KAdjustingScrollArea::nativeEvent(eventType, message, result);
         }
+        return KAdjustingScrollArea::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,14 +1086,15 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_metric_isbase) {
             kadjustingscrollarea_metric_isbase = false;
             return KAdjustingScrollArea::metric(param1);
-        } else if (kadjustingscrollarea_metric_callback != nullptr) {
+        }
+        auto metric_cb = kadjustingscrollarea_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kadjustingscrollarea_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAdjustingScrollArea::metric(param1);
         }
+        return KAdjustingScrollArea::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,13 +1102,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_initpainter_isbase) {
             kadjustingscrollarea_initpainter_isbase = false;
             KAdjustingScrollArea::initPainter(painter);
-        } else if (kadjustingscrollarea_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kadjustingscrollarea_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kadjustingscrollarea_initpainter_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1084,14 +1119,15 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_redirected_isbase) {
             kadjustingscrollarea_redirected_isbase = false;
             return KAdjustingScrollArea::redirected(offset);
-        } else if (kadjustingscrollarea_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kadjustingscrollarea_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kadjustingscrollarea_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAdjustingScrollArea::redirected(offset);
         }
+        return KAdjustingScrollArea::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1099,12 +1135,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_sharedpainter_isbase) {
             kadjustingscrollarea_sharedpainter_isbase = false;
             return KAdjustingScrollArea::sharedPainter();
-        } else if (kadjustingscrollarea_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kadjustingscrollarea_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KAdjustingScrollArea::sharedPainter();
         }
+        auto sharedpainter_cb = kadjustingscrollarea_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KAdjustingScrollArea::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,13 +1149,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_inputmethodevent_isbase) {
             kadjustingscrollarea_inputmethodevent_isbase = false;
             KAdjustingScrollArea::inputMethodEvent(param1);
-        } else if (kadjustingscrollarea_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kadjustingscrollarea_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kadjustingscrollarea_inputmethodevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1126,14 +1166,15 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_inputmethodquery_isbase) {
             kadjustingscrollarea_inputmethodquery_isbase = false;
             return KAdjustingScrollArea::inputMethodQuery(param1);
-        } else if (kadjustingscrollarea_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kadjustingscrollarea_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kadjustingscrollarea_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KAdjustingScrollArea::inputMethodQuery(param1);
         }
+        return KAdjustingScrollArea::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1141,13 +1182,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_timerevent_isbase) {
             kadjustingscrollarea_timerevent_isbase = false;
             KAdjustingScrollArea::timerEvent(event);
-        } else if (kadjustingscrollarea_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kadjustingscrollarea_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kadjustingscrollarea_timerevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1155,13 +1199,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_childevent_isbase) {
             kadjustingscrollarea_childevent_isbase = false;
             KAdjustingScrollArea::childEvent(event);
-        } else if (kadjustingscrollarea_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kadjustingscrollarea_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kadjustingscrollarea_childevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,13 +1216,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_customevent_isbase) {
             kadjustingscrollarea_customevent_isbase = false;
             KAdjustingScrollArea::customEvent(event);
-        } else if (kadjustingscrollarea_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kadjustingscrollarea_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kadjustingscrollarea_customevent_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,15 +1233,18 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_connectnotify_isbase) {
             kadjustingscrollarea_connectnotify_isbase = false;
             KAdjustingScrollArea::connectNotify(signal);
-        } else if (kadjustingscrollarea_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kadjustingscrollarea_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kadjustingscrollarea_connectnotify_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1199,15 +1252,18 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_disconnectnotify_isbase) {
             kadjustingscrollarea_disconnectnotify_isbase = false;
             KAdjustingScrollArea::disconnectNotify(signal);
-        } else if (kadjustingscrollarea_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kadjustingscrollarea_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kadjustingscrollarea_disconnectnotify_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1215,16 +1271,19 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_setviewportmargins_isbase) {
             kadjustingscrollarea_setviewportmargins_isbase = false;
             KAdjustingScrollArea::setViewportMargins(left, top, right, bottom);
-        } else if (kadjustingscrollarea_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = kadjustingscrollarea_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            kadjustingscrollarea_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KAdjustingScrollArea::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KAdjustingScrollArea::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1232,12 +1291,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_viewportmargins_isbase) {
             kadjustingscrollarea_viewportmargins_isbase = false;
             return KAdjustingScrollArea::viewportMargins();
-        } else if (kadjustingscrollarea_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = kadjustingscrollarea_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return KAdjustingScrollArea::viewportMargins();
         }
+        auto viewportmargins_cb = kadjustingscrollarea_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return KAdjustingScrollArea::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,13 +1305,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_drawframe_isbase) {
             kadjustingscrollarea_drawframe_isbase = false;
             KAdjustingScrollArea::drawFrame(param1);
-        } else if (kadjustingscrollarea_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kadjustingscrollarea_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kadjustingscrollarea_drawframe_callback(this, cbval1);
-        } else {
-            KAdjustingScrollArea::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KAdjustingScrollArea::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,11 +1322,14 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_updatemicrofocus_isbase) {
             kadjustingscrollarea_updatemicrofocus_isbase = false;
             KAdjustingScrollArea::updateMicroFocus();
-        } else if (kadjustingscrollarea_updatemicrofocus_callback != nullptr) {
-            kadjustingscrollarea_updatemicrofocus_callback();
-        } else {
-            KAdjustingScrollArea::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kadjustingscrollarea_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KAdjustingScrollArea::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1271,11 +1337,14 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_create_isbase) {
             kadjustingscrollarea_create_isbase = false;
             KAdjustingScrollArea::create();
-        } else if (kadjustingscrollarea_create_callback != nullptr) {
-            kadjustingscrollarea_create_callback();
-        } else {
-            KAdjustingScrollArea::create();
+            return;
         }
+        auto create_cb = kadjustingscrollarea_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KAdjustingScrollArea::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1283,11 +1352,14 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_destroy_isbase) {
             kadjustingscrollarea_destroy_isbase = false;
             KAdjustingScrollArea::destroy();
-        } else if (kadjustingscrollarea_destroy_callback != nullptr) {
-            kadjustingscrollarea_destroy_callback();
-        } else {
-            KAdjustingScrollArea::destroy();
+            return;
         }
+        auto destroy_cb = kadjustingscrollarea_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KAdjustingScrollArea::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,12 +1367,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_focusnextchild_isbase) {
             kadjustingscrollarea_focusnextchild_isbase = false;
             return KAdjustingScrollArea::focusNextChild();
-        } else if (kadjustingscrollarea_focusnextchild_callback != nullptr) {
-            bool callback_ret = kadjustingscrollarea_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KAdjustingScrollArea::focusNextChild();
         }
+        auto focusnextchild_cb = kadjustingscrollarea_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KAdjustingScrollArea::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,12 +1381,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_focuspreviouschild_isbase) {
             kadjustingscrollarea_focuspreviouschild_isbase = false;
             return KAdjustingScrollArea::focusPreviousChild();
-        } else if (kadjustingscrollarea_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kadjustingscrollarea_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KAdjustingScrollArea::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kadjustingscrollarea_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KAdjustingScrollArea::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,12 +1395,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_sender_isbase) {
             kadjustingscrollarea_sender_isbase = false;
             return KAdjustingScrollArea::sender();
-        } else if (kadjustingscrollarea_sender_callback != nullptr) {
-            QObject* callback_ret = kadjustingscrollarea_sender_callback();
-            return callback_ret;
-        } else {
-            return KAdjustingScrollArea::sender();
         }
+        auto sender_cb = kadjustingscrollarea_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KAdjustingScrollArea::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1334,12 +1409,13 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_sendersignalindex_isbase) {
             kadjustingscrollarea_sendersignalindex_isbase = false;
             return KAdjustingScrollArea::senderSignalIndex();
-        } else if (kadjustingscrollarea_sendersignalindex_callback != nullptr) {
-            int callback_ret = kadjustingscrollarea_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAdjustingScrollArea::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kadjustingscrollarea_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAdjustingScrollArea::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1347,14 +1423,15 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_receivers_isbase) {
             kadjustingscrollarea_receivers_isbase = false;
             return KAdjustingScrollArea::receivers(signal);
-        } else if (kadjustingscrollarea_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kadjustingscrollarea_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kadjustingscrollarea_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAdjustingScrollArea::receivers(signal);
         }
+        return KAdjustingScrollArea::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1362,16 +1439,17 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_issignalconnected_isbase) {
             kadjustingscrollarea_issignalconnected_isbase = false;
             return KAdjustingScrollArea::isSignalConnected(signal);
-        } else if (kadjustingscrollarea_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kadjustingscrollarea_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kadjustingscrollarea_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAdjustingScrollArea::isSignalConnected(signal);
         }
+        return KAdjustingScrollArea::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1379,15 +1457,16 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
         if (kadjustingscrollarea_getdecodedmetricf_isbase) {
             kadjustingscrollarea_getdecodedmetricf_isbase = false;
             return KAdjustingScrollArea::getDecodedMetricF(metricA, metricB);
-        } else if (kadjustingscrollarea_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kadjustingscrollarea_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kadjustingscrollarea_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KAdjustingScrollArea::getDecodedMetricF(metricA, metricB);
         }
+        return KAdjustingScrollArea::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -69,23 +69,6 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
     VirtualKGlobalShortcutInfo() : KGlobalShortcutInfo() {};
     VirtualKGlobalShortcutInfo(const KGlobalShortcutInfo& rhs) : KGlobalShortcutInfo(rhs) {};
 
-    ~VirtualKGlobalShortcutInfo() {
-        kglobalshortcutinfo_metaobject_callback = nullptr;
-        kglobalshortcutinfo_metacast_callback = nullptr;
-        kglobalshortcutinfo_metacall_callback = nullptr;
-        kglobalshortcutinfo_event_callback = nullptr;
-        kglobalshortcutinfo_eventfilter_callback = nullptr;
-        kglobalshortcutinfo_timerevent_callback = nullptr;
-        kglobalshortcutinfo_childevent_callback = nullptr;
-        kglobalshortcutinfo_customevent_callback = nullptr;
-        kglobalshortcutinfo_connectnotify_callback = nullptr;
-        kglobalshortcutinfo_disconnectnotify_callback = nullptr;
-        kglobalshortcutinfo_sender_callback = nullptr;
-        kglobalshortcutinfo_sendersignalindex_callback = nullptr;
-        kglobalshortcutinfo_receivers_callback = nullptr;
-        kglobalshortcutinfo_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKGlobalShortcutInfo_MetaObject_Callback(KGlobalShortcutInfo_MetaObject_Callback cb) { kglobalshortcutinfo_metaobject_callback = cb; }
     inline void setKGlobalShortcutInfo_Metacast_Callback(KGlobalShortcutInfo_Metacast_Callback cb) { kglobalshortcutinfo_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_metaobject_isbase) {
             kglobalshortcutinfo_metaobject_isbase = false;
             return KGlobalShortcutInfo::metaObject();
-        } else if (kglobalshortcutinfo_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kglobalshortcutinfo_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KGlobalShortcutInfo::metaObject();
         }
+        auto metaobject_cb = kglobalshortcutinfo_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KGlobalShortcutInfo::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_metacast_isbase) {
             kglobalshortcutinfo_metacast_isbase = false;
             return KGlobalShortcutInfo::qt_metacast(param1);
-        } else if (kglobalshortcutinfo_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kglobalshortcutinfo_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kglobalshortcutinfo_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KGlobalShortcutInfo::qt_metacast(param1);
         }
+        return KGlobalShortcutInfo::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_metacall_isbase) {
             kglobalshortcutinfo_metacall_isbase = false;
             return KGlobalShortcutInfo::qt_metacall(param1, param2, param3);
-        } else if (kglobalshortcutinfo_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kglobalshortcutinfo_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kglobalshortcutinfo_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KGlobalShortcutInfo::qt_metacall(param1, param2, param3);
         }
+        return KGlobalShortcutInfo::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_event_isbase) {
             kglobalshortcutinfo_event_isbase = false;
             return KGlobalShortcutInfo::event(event);
-        } else if (kglobalshortcutinfo_event_callback != nullptr) {
+        }
+        auto event_cb = kglobalshortcutinfo_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kglobalshortcutinfo_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KGlobalShortcutInfo::event(event);
         }
+        return KGlobalShortcutInfo::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_eventfilter_isbase) {
             kglobalshortcutinfo_eventfilter_isbase = false;
             return KGlobalShortcutInfo::eventFilter(watched, event);
-        } else if (kglobalshortcutinfo_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kglobalshortcutinfo_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kglobalshortcutinfo_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KGlobalShortcutInfo::eventFilter(watched, event);
         }
+        return KGlobalShortcutInfo::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_timerevent_isbase) {
             kglobalshortcutinfo_timerevent_isbase = false;
             KGlobalShortcutInfo::timerEvent(event);
-        } else if (kglobalshortcutinfo_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kglobalshortcutinfo_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kglobalshortcutinfo_timerevent_callback(this, cbval1);
-        } else {
-            KGlobalShortcutInfo::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KGlobalShortcutInfo::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_childevent_isbase) {
             kglobalshortcutinfo_childevent_isbase = false;
             KGlobalShortcutInfo::childEvent(event);
-        } else if (kglobalshortcutinfo_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kglobalshortcutinfo_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kglobalshortcutinfo_childevent_callback(this, cbval1);
-        } else {
-            KGlobalShortcutInfo::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KGlobalShortcutInfo::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_customevent_isbase) {
             kglobalshortcutinfo_customevent_isbase = false;
             KGlobalShortcutInfo::customEvent(event);
-        } else if (kglobalshortcutinfo_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kglobalshortcutinfo_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kglobalshortcutinfo_customevent_callback(this, cbval1);
-        } else {
-            KGlobalShortcutInfo::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KGlobalShortcutInfo::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_connectnotify_isbase) {
             kglobalshortcutinfo_connectnotify_isbase = false;
             KGlobalShortcutInfo::connectNotify(signal);
-        } else if (kglobalshortcutinfo_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kglobalshortcutinfo_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kglobalshortcutinfo_connectnotify_callback(this, cbval1);
-        } else {
-            KGlobalShortcutInfo::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KGlobalShortcutInfo::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_disconnectnotify_isbase) {
             kglobalshortcutinfo_disconnectnotify_isbase = false;
             KGlobalShortcutInfo::disconnectNotify(signal);
-        } else if (kglobalshortcutinfo_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kglobalshortcutinfo_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kglobalshortcutinfo_disconnectnotify_callback(this, cbval1);
-        } else {
-            KGlobalShortcutInfo::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KGlobalShortcutInfo::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_sender_isbase) {
             kglobalshortcutinfo_sender_isbase = false;
             return KGlobalShortcutInfo::sender();
-        } else if (kglobalshortcutinfo_sender_callback != nullptr) {
-            QObject* callback_ret = kglobalshortcutinfo_sender_callback();
-            return callback_ret;
-        } else {
-            return KGlobalShortcutInfo::sender();
         }
+        auto sender_cb = kglobalshortcutinfo_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KGlobalShortcutInfo::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_sendersignalindex_isbase) {
             kglobalshortcutinfo_sendersignalindex_isbase = false;
             return KGlobalShortcutInfo::senderSignalIndex();
-        } else if (kglobalshortcutinfo_sendersignalindex_callback != nullptr) {
-            int callback_ret = kglobalshortcutinfo_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KGlobalShortcutInfo::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kglobalshortcutinfo_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KGlobalShortcutInfo::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_receivers_isbase) {
             kglobalshortcutinfo_receivers_isbase = false;
             return KGlobalShortcutInfo::receivers(signal);
-        } else if (kglobalshortcutinfo_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kglobalshortcutinfo_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kglobalshortcutinfo_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KGlobalShortcutInfo::receivers(signal);
         }
+        return KGlobalShortcutInfo::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
         if (kglobalshortcutinfo_issignalconnected_isbase) {
             kglobalshortcutinfo_issignalconnected_isbase = false;
             return KGlobalShortcutInfo::isSignalConnected(signal);
-        } else if (kglobalshortcutinfo_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kglobalshortcutinfo_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kglobalshortcutinfo_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KGlobalShortcutInfo::isSignalConnected(signal);
         }
+        return KGlobalShortcutInfo::isSignalConnected(signal);
     }
 
     // Friend functions

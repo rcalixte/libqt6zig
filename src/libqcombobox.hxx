@@ -219,73 +219,6 @@ class VirtualQComboBox final : public QComboBox {
     VirtualQComboBox(QWidget* parent) : QComboBox(parent) {};
     VirtualQComboBox() : QComboBox() {};
 
-    ~VirtualQComboBox() {
-        qcombobox_metaobject_callback = nullptr;
-        qcombobox_metacast_callback = nullptr;
-        qcombobox_metacall_callback = nullptr;
-        qcombobox_setmodel_callback = nullptr;
-        qcombobox_sizehint_callback = nullptr;
-        qcombobox_minimumsizehint_callback = nullptr;
-        qcombobox_showpopup_callback = nullptr;
-        qcombobox_hidepopup_callback = nullptr;
-        qcombobox_event_callback = nullptr;
-        qcombobox_inputmethodquery_callback = nullptr;
-        qcombobox_focusinevent_callback = nullptr;
-        qcombobox_focusoutevent_callback = nullptr;
-        qcombobox_changeevent_callback = nullptr;
-        qcombobox_resizeevent_callback = nullptr;
-        qcombobox_paintevent_callback = nullptr;
-        qcombobox_showevent_callback = nullptr;
-        qcombobox_hideevent_callback = nullptr;
-        qcombobox_mousepressevent_callback = nullptr;
-        qcombobox_mousereleaseevent_callback = nullptr;
-        qcombobox_keypressevent_callback = nullptr;
-        qcombobox_keyreleaseevent_callback = nullptr;
-        qcombobox_wheelevent_callback = nullptr;
-        qcombobox_contextmenuevent_callback = nullptr;
-        qcombobox_inputmethodevent_callback = nullptr;
-        qcombobox_initstyleoption_callback = nullptr;
-        qcombobox_devtype_callback = nullptr;
-        qcombobox_setvisible_callback = nullptr;
-        qcombobox_heightforwidth_callback = nullptr;
-        qcombobox_hasheightforwidth_callback = nullptr;
-        qcombobox_paintengine_callback = nullptr;
-        qcombobox_mousedoubleclickevent_callback = nullptr;
-        qcombobox_mousemoveevent_callback = nullptr;
-        qcombobox_enterevent_callback = nullptr;
-        qcombobox_leaveevent_callback = nullptr;
-        qcombobox_moveevent_callback = nullptr;
-        qcombobox_closeevent_callback = nullptr;
-        qcombobox_tabletevent_callback = nullptr;
-        qcombobox_actionevent_callback = nullptr;
-        qcombobox_dragenterevent_callback = nullptr;
-        qcombobox_dragmoveevent_callback = nullptr;
-        qcombobox_dragleaveevent_callback = nullptr;
-        qcombobox_dropevent_callback = nullptr;
-        qcombobox_nativeevent_callback = nullptr;
-        qcombobox_metric_callback = nullptr;
-        qcombobox_initpainter_callback = nullptr;
-        qcombobox_redirected_callback = nullptr;
-        qcombobox_sharedpainter_callback = nullptr;
-        qcombobox_focusnextprevchild_callback = nullptr;
-        qcombobox_eventfilter_callback = nullptr;
-        qcombobox_timerevent_callback = nullptr;
-        qcombobox_childevent_callback = nullptr;
-        qcombobox_customevent_callback = nullptr;
-        qcombobox_connectnotify_callback = nullptr;
-        qcombobox_disconnectnotify_callback = nullptr;
-        qcombobox_updatemicrofocus_callback = nullptr;
-        qcombobox_create_callback = nullptr;
-        qcombobox_destroy_callback = nullptr;
-        qcombobox_focusnextchild_callback = nullptr;
-        qcombobox_focuspreviouschild_callback = nullptr;
-        qcombobox_sender_callback = nullptr;
-        qcombobox_sendersignalindex_callback = nullptr;
-        qcombobox_receivers_callback = nullptr;
-        qcombobox_issignalconnected_callback = nullptr;
-        qcombobox_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQComboBox_MetaObject_Callback(QComboBox_MetaObject_Callback cb) { qcombobox_metaobject_callback = cb; }
     inline void setQComboBox_Metacast_Callback(QComboBox_Metacast_Callback cb) { qcombobox_metacast_callback = cb; }
@@ -423,12 +356,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_metaobject_isbase) {
             qcombobox_metaobject_isbase = false;
             return QComboBox::metaObject();
-        } else if (qcombobox_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qcombobox_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QComboBox::metaObject();
         }
+        auto metaobject_cb = qcombobox_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QComboBox::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,14 +370,15 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_metacast_isbase) {
             qcombobox_metacast_isbase = false;
             return QComboBox::qt_metacast(param1);
-        } else if (qcombobox_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qcombobox_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qcombobox_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QComboBox::qt_metacast(param1);
         }
+        return QComboBox::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,16 +386,17 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_metacall_isbase) {
             qcombobox_metacall_isbase = false;
             return QComboBox::qt_metacall(param1, param2, param3);
-        } else if (qcombobox_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qcombobox_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qcombobox_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QComboBox::qt_metacall(param1, param2, param3);
         }
+        return QComboBox::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,13 +404,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_setmodel_isbase) {
             qcombobox_setmodel_isbase = false;
             QComboBox::setModel(model);
-        } else if (qcombobox_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = qcombobox_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            qcombobox_setmodel_callback(this, cbval1);
-        } else {
-            QComboBox::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        QComboBox::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,12 +421,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_sizehint_isbase) {
             qcombobox_sizehint_isbase = false;
             return QComboBox::sizeHint();
-        } else if (qcombobox_sizehint_callback != nullptr) {
-            QSize* callback_ret = qcombobox_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QComboBox::sizeHint();
         }
+        auto sizehint_cb = qcombobox_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QComboBox::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,12 +435,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_minimumsizehint_isbase) {
             qcombobox_minimumsizehint_isbase = false;
             return QComboBox::minimumSizeHint();
-        } else if (qcombobox_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qcombobox_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QComboBox::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qcombobox_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QComboBox::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -508,11 +449,14 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_showpopup_isbase) {
             qcombobox_showpopup_isbase = false;
             QComboBox::showPopup();
-        } else if (qcombobox_showpopup_callback != nullptr) {
-            qcombobox_showpopup_callback();
-        } else {
-            QComboBox::showPopup();
+            return;
         }
+        auto showpopup_cb = qcombobox_showpopup_callback;
+        if (showpopup_cb) {
+            showpopup_cb();
+            return;
+        }
+        QComboBox::showPopup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -520,11 +464,14 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_hidepopup_isbase) {
             qcombobox_hidepopup_isbase = false;
             QComboBox::hidePopup();
-        } else if (qcombobox_hidepopup_callback != nullptr) {
-            qcombobox_hidepopup_callback();
-        } else {
-            QComboBox::hidePopup();
+            return;
         }
+        auto hidepopup_cb = qcombobox_hidepopup_callback;
+        if (hidepopup_cb) {
+            hidepopup_cb();
+            return;
+        }
+        QComboBox::hidePopup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -532,14 +479,15 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_event_isbase) {
             qcombobox_event_isbase = false;
             return QComboBox::event(event);
-        } else if (qcombobox_event_callback != nullptr) {
+        }
+        auto event_cb = qcombobox_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qcombobox_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QComboBox::event(event);
         }
+        return QComboBox::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,14 +495,15 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_inputmethodquery_isbase) {
             qcombobox_inputmethodquery_isbase = false;
             return QComboBox::inputMethodQuery(param1);
-        } else if (qcombobox_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qcombobox_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qcombobox_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QComboBox::inputMethodQuery(param1);
         }
+        return QComboBox::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -562,13 +511,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_focusinevent_isbase) {
             qcombobox_focusinevent_isbase = false;
             QComboBox::focusInEvent(e);
-        } else if (qcombobox_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qcombobox_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            qcombobox_focusinevent_callback(this, cbval1);
-        } else {
-            QComboBox::focusInEvent(e);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::focusInEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -576,13 +528,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_focusoutevent_isbase) {
             qcombobox_focusoutevent_isbase = false;
             QComboBox::focusOutEvent(e);
-        } else if (qcombobox_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qcombobox_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            qcombobox_focusoutevent_callback(this, cbval1);
-        } else {
-            QComboBox::focusOutEvent(e);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::focusOutEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -590,13 +545,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_changeevent_isbase) {
             qcombobox_changeevent_isbase = false;
             QComboBox::changeEvent(e);
-        } else if (qcombobox_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qcombobox_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            qcombobox_changeevent_callback(this, cbval1);
-        } else {
-            QComboBox::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -604,13 +562,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_resizeevent_isbase) {
             qcombobox_resizeevent_isbase = false;
             QComboBox::resizeEvent(e);
-        } else if (qcombobox_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qcombobox_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
 
-            qcombobox_resizeevent_callback(this, cbval1);
-        } else {
-            QComboBox::resizeEvent(e);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::resizeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -618,13 +579,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_paintevent_isbase) {
             qcombobox_paintevent_isbase = false;
             QComboBox::paintEvent(e);
-        } else if (qcombobox_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qcombobox_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
 
-            qcombobox_paintevent_callback(this, cbval1);
-        } else {
-            QComboBox::paintEvent(e);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::paintEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -632,13 +596,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_showevent_isbase) {
             qcombobox_showevent_isbase = false;
             QComboBox::showEvent(e);
-        } else if (qcombobox_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qcombobox_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = e;
 
-            qcombobox_showevent_callback(this, cbval1);
-        } else {
-            QComboBox::showEvent(e);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::showEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -646,13 +613,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_hideevent_isbase) {
             qcombobox_hideevent_isbase = false;
             QComboBox::hideEvent(e);
-        } else if (qcombobox_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qcombobox_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = e;
 
-            qcombobox_hideevent_callback(this, cbval1);
-        } else {
-            QComboBox::hideEvent(e);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::hideEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -660,13 +630,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_mousepressevent_isbase) {
             qcombobox_mousepressevent_isbase = false;
             QComboBox::mousePressEvent(e);
-        } else if (qcombobox_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qcombobox_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            qcombobox_mousepressevent_callback(this, cbval1);
-        } else {
-            QComboBox::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -674,13 +647,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_mousereleaseevent_isbase) {
             qcombobox_mousereleaseevent_isbase = false;
             QComboBox::mouseReleaseEvent(e);
-        } else if (qcombobox_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qcombobox_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            qcombobox_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QComboBox::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,13 +664,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_keypressevent_isbase) {
             qcombobox_keypressevent_isbase = false;
             QComboBox::keyPressEvent(e);
-        } else if (qcombobox_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qcombobox_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            qcombobox_keypressevent_callback(this, cbval1);
-        } else {
-            QComboBox::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -702,13 +681,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_keyreleaseevent_isbase) {
             qcombobox_keyreleaseevent_isbase = false;
             QComboBox::keyReleaseEvent(e);
-        } else if (qcombobox_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qcombobox_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            qcombobox_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QComboBox::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,13 +698,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_wheelevent_isbase) {
             qcombobox_wheelevent_isbase = false;
             QComboBox::wheelEvent(e);
-        } else if (qcombobox_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qcombobox_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            qcombobox_wheelevent_callback(this, cbval1);
-        } else {
-            QComboBox::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -730,13 +715,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_contextmenuevent_isbase) {
             qcombobox_contextmenuevent_isbase = false;
             QComboBox::contextMenuEvent(e);
-        } else if (qcombobox_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qcombobox_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
 
-            qcombobox_contextmenuevent_callback(this, cbval1);
-        } else {
-            QComboBox::contextMenuEvent(e);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::contextMenuEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,13 +732,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_inputmethodevent_isbase) {
             qcombobox_inputmethodevent_isbase = false;
             QComboBox::inputMethodEvent(param1);
-        } else if (qcombobox_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qcombobox_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qcombobox_inputmethodevent_callback(this, cbval1);
-        } else {
-            QComboBox::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,13 +749,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_initstyleoption_isbase) {
             qcombobox_initstyleoption_isbase = false;
             QComboBox::initStyleOption(option);
-        } else if (qcombobox_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qcombobox_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionComboBox* cbval1 = option;
 
-            qcombobox_initstyleoption_callback(this, cbval1);
-        } else {
-            QComboBox::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QComboBox::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -772,12 +766,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_devtype_isbase) {
             qcombobox_devtype_isbase = false;
             return QComboBox::devType();
-        } else if (qcombobox_devtype_callback != nullptr) {
-            int callback_ret = qcombobox_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QComboBox::devType();
         }
+        auto devtype_cb = qcombobox_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QComboBox::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -785,13 +780,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_setvisible_isbase) {
             qcombobox_setvisible_isbase = false;
             QComboBox::setVisible(visible);
-        } else if (qcombobox_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qcombobox_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qcombobox_setvisible_callback(this, cbval1);
-        } else {
-            QComboBox::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QComboBox::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,14 +797,15 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_heightforwidth_isbase) {
             qcombobox_heightforwidth_isbase = false;
             return QComboBox::heightForWidth(param1);
-        } else if (qcombobox_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qcombobox_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qcombobox_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QComboBox::heightForWidth(param1);
         }
+        return QComboBox::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,12 +813,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_hasheightforwidth_isbase) {
             qcombobox_hasheightforwidth_isbase = false;
             return QComboBox::hasHeightForWidth();
-        } else if (qcombobox_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qcombobox_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QComboBox::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qcombobox_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QComboBox::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -827,12 +827,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_paintengine_isbase) {
             qcombobox_paintengine_isbase = false;
             return QComboBox::paintEngine();
-        } else if (qcombobox_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qcombobox_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QComboBox::paintEngine();
         }
+        auto paintengine_cb = qcombobox_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QComboBox::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -840,13 +841,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_mousedoubleclickevent_isbase) {
             qcombobox_mousedoubleclickevent_isbase = false;
             QComboBox::mouseDoubleClickEvent(event);
-        } else if (qcombobox_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qcombobox_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcombobox_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QComboBox::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,13 +858,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_mousemoveevent_isbase) {
             qcombobox_mousemoveevent_isbase = false;
             QComboBox::mouseMoveEvent(event);
-        } else if (qcombobox_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qcombobox_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcombobox_mousemoveevent_callback(this, cbval1);
-        } else {
-            QComboBox::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,13 +875,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_enterevent_isbase) {
             qcombobox_enterevent_isbase = false;
             QComboBox::enterEvent(event);
-        } else if (qcombobox_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qcombobox_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qcombobox_enterevent_callback(this, cbval1);
-        } else {
-            QComboBox::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,13 +892,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_leaveevent_isbase) {
             qcombobox_leaveevent_isbase = false;
             QComboBox::leaveEvent(event);
-        } else if (qcombobox_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qcombobox_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qcombobox_leaveevent_callback(this, cbval1);
-        } else {
-            QComboBox::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -896,13 +909,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_moveevent_isbase) {
             qcombobox_moveevent_isbase = false;
             QComboBox::moveEvent(event);
-        } else if (qcombobox_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qcombobox_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qcombobox_moveevent_callback(this, cbval1);
-        } else {
-            QComboBox::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -910,13 +926,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_closeevent_isbase) {
             qcombobox_closeevent_isbase = false;
             QComboBox::closeEvent(event);
-        } else if (qcombobox_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qcombobox_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qcombobox_closeevent_callback(this, cbval1);
-        } else {
-            QComboBox::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,13 +943,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_tabletevent_isbase) {
             qcombobox_tabletevent_isbase = false;
             QComboBox::tabletEvent(event);
-        } else if (qcombobox_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qcombobox_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qcombobox_tabletevent_callback(this, cbval1);
-        } else {
-            QComboBox::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -938,13 +960,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_actionevent_isbase) {
             qcombobox_actionevent_isbase = false;
             QComboBox::actionEvent(event);
-        } else if (qcombobox_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qcombobox_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qcombobox_actionevent_callback(this, cbval1);
-        } else {
-            QComboBox::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -952,13 +977,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_dragenterevent_isbase) {
             qcombobox_dragenterevent_isbase = false;
             QComboBox::dragEnterEvent(event);
-        } else if (qcombobox_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qcombobox_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qcombobox_dragenterevent_callback(this, cbval1);
-        } else {
-            QComboBox::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -966,13 +994,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_dragmoveevent_isbase) {
             qcombobox_dragmoveevent_isbase = false;
             QComboBox::dragMoveEvent(event);
-        } else if (qcombobox_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qcombobox_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qcombobox_dragmoveevent_callback(this, cbval1);
-        } else {
-            QComboBox::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -980,13 +1011,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_dragleaveevent_isbase) {
             qcombobox_dragleaveevent_isbase = false;
             QComboBox::dragLeaveEvent(event);
-        } else if (qcombobox_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qcombobox_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qcombobox_dragleaveevent_callback(this, cbval1);
-        } else {
-            QComboBox::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -994,13 +1028,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_dropevent_isbase) {
             qcombobox_dropevent_isbase = false;
             QComboBox::dropEvent(event);
-        } else if (qcombobox_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qcombobox_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qcombobox_dropevent_callback(this, cbval1);
-        } else {
-            QComboBox::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,7 +1045,9 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_nativeevent_isbase) {
             qcombobox_nativeevent_isbase = false;
             return QComboBox::nativeEvent(eventType, message, result);
-        } else if (qcombobox_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qcombobox_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1019,12 +1058,11 @@ class VirtualQComboBox final : public QComboBox {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qcombobox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QComboBox::nativeEvent(eventType, message, result);
         }
+        return QComboBox::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1032,14 +1070,15 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_metric_isbase) {
             qcombobox_metric_isbase = false;
             return QComboBox::metric(param1);
-        } else if (qcombobox_metric_callback != nullptr) {
+        }
+        auto metric_cb = qcombobox_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qcombobox_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QComboBox::metric(param1);
         }
+        return QComboBox::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1047,13 +1086,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_initpainter_isbase) {
             qcombobox_initpainter_isbase = false;
             QComboBox::initPainter(painter);
-        } else if (qcombobox_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qcombobox_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qcombobox_initpainter_callback(this, cbval1);
-        } else {
-            QComboBox::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QComboBox::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1061,14 +1103,15 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_redirected_isbase) {
             qcombobox_redirected_isbase = false;
             return QComboBox::redirected(offset);
-        } else if (qcombobox_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qcombobox_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qcombobox_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QComboBox::redirected(offset);
         }
+        return QComboBox::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1076,12 +1119,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_sharedpainter_isbase) {
             qcombobox_sharedpainter_isbase = false;
             return QComboBox::sharedPainter();
-        } else if (qcombobox_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qcombobox_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QComboBox::sharedPainter();
         }
+        auto sharedpainter_cb = qcombobox_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QComboBox::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1089,14 +1133,15 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_focusnextprevchild_isbase) {
             qcombobox_focusnextprevchild_isbase = false;
             return QComboBox::focusNextPrevChild(next);
-        } else if (qcombobox_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qcombobox_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qcombobox_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QComboBox::focusNextPrevChild(next);
         }
+        return QComboBox::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1104,15 +1149,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_eventfilter_isbase) {
             qcombobox_eventfilter_isbase = false;
             return QComboBox::eventFilter(watched, event);
-        } else if (qcombobox_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qcombobox_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qcombobox_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QComboBox::eventFilter(watched, event);
         }
+        return QComboBox::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,13 +1166,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_timerevent_isbase) {
             qcombobox_timerevent_isbase = false;
             QComboBox::timerEvent(event);
-        } else if (qcombobox_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qcombobox_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qcombobox_timerevent_callback(this, cbval1);
-        } else {
-            QComboBox::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1134,13 +1183,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_childevent_isbase) {
             qcombobox_childevent_isbase = false;
             QComboBox::childEvent(event);
-        } else if (qcombobox_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qcombobox_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qcombobox_childevent_callback(this, cbval1);
-        } else {
-            QComboBox::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1148,13 +1200,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_customevent_isbase) {
             qcombobox_customevent_isbase = false;
             QComboBox::customEvent(event);
-        } else if (qcombobox_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qcombobox_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qcombobox_customevent_callback(this, cbval1);
-        } else {
-            QComboBox::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QComboBox::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1162,15 +1217,18 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_connectnotify_isbase) {
             qcombobox_connectnotify_isbase = false;
             QComboBox::connectNotify(signal);
-        } else if (qcombobox_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qcombobox_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcombobox_connectnotify_callback(this, cbval1);
-        } else {
-            QComboBox::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QComboBox::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1178,15 +1236,18 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_disconnectnotify_isbase) {
             qcombobox_disconnectnotify_isbase = false;
             QComboBox::disconnectNotify(signal);
-        } else if (qcombobox_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qcombobox_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcombobox_disconnectnotify_callback(this, cbval1);
-        } else {
-            QComboBox::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QComboBox::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,11 +1255,14 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_updatemicrofocus_isbase) {
             qcombobox_updatemicrofocus_isbase = false;
             QComboBox::updateMicroFocus();
-        } else if (qcombobox_updatemicrofocus_callback != nullptr) {
-            qcombobox_updatemicrofocus_callback();
-        } else {
-            QComboBox::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qcombobox_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QComboBox::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,11 +1270,14 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_create_isbase) {
             qcombobox_create_isbase = false;
             QComboBox::create();
-        } else if (qcombobox_create_callback != nullptr) {
-            qcombobox_create_callback();
-        } else {
-            QComboBox::create();
+            return;
         }
+        auto create_cb = qcombobox_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QComboBox::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1218,11 +1285,14 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_destroy_isbase) {
             qcombobox_destroy_isbase = false;
             QComboBox::destroy();
-        } else if (qcombobox_destroy_callback != nullptr) {
-            qcombobox_destroy_callback();
-        } else {
-            QComboBox::destroy();
+            return;
         }
+        auto destroy_cb = qcombobox_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QComboBox::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1230,12 +1300,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_focusnextchild_isbase) {
             qcombobox_focusnextchild_isbase = false;
             return QComboBox::focusNextChild();
-        } else if (qcombobox_focusnextchild_callback != nullptr) {
-            bool callback_ret = qcombobox_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QComboBox::focusNextChild();
         }
+        auto focusnextchild_cb = qcombobox_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QComboBox::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,12 +1314,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_focuspreviouschild_isbase) {
             qcombobox_focuspreviouschild_isbase = false;
             return QComboBox::focusPreviousChild();
-        } else if (qcombobox_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qcombobox_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QComboBox::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qcombobox_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QComboBox::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,12 +1328,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_sender_isbase) {
             qcombobox_sender_isbase = false;
             return QComboBox::sender();
-        } else if (qcombobox_sender_callback != nullptr) {
-            QObject* callback_ret = qcombobox_sender_callback();
-            return callback_ret;
-        } else {
-            return QComboBox::sender();
         }
+        auto sender_cb = qcombobox_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QComboBox::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,12 +1342,13 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_sendersignalindex_isbase) {
             qcombobox_sendersignalindex_isbase = false;
             return QComboBox::senderSignalIndex();
-        } else if (qcombobox_sendersignalindex_callback != nullptr) {
-            int callback_ret = qcombobox_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QComboBox::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qcombobox_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QComboBox::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,14 +1356,15 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_receivers_isbase) {
             qcombobox_receivers_isbase = false;
             return QComboBox::receivers(signal);
-        } else if (qcombobox_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qcombobox_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qcombobox_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QComboBox::receivers(signal);
         }
+        return QComboBox::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1297,16 +1372,17 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_issignalconnected_isbase) {
             qcombobox_issignalconnected_isbase = false;
             return QComboBox::isSignalConnected(signal);
-        } else if (qcombobox_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qcombobox_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qcombobox_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QComboBox::isSignalConnected(signal);
         }
+        return QComboBox::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1314,15 +1390,16 @@ class VirtualQComboBox final : public QComboBox {
         if (qcombobox_getdecodedmetricf_isbase) {
             qcombobox_getdecodedmetricf_isbase = false;
             return QComboBox::getDecodedMetricF(metricA, metricB);
-        } else if (qcombobox_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qcombobox_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qcombobox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QComboBox::getDecodedMetricF(metricA, metricB);
         }
+        return QComboBox::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

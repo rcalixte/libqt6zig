@@ -45,15 +45,6 @@ class VirtualKArchiveFile final : public KArchiveFile {
     VirtualKArchiveFile(KArchive* archive, const QString& name, int access, const QDateTime& date, const QString& user, const QString& group, const QString& symlink, qint64 pos, qint64 size) : KArchiveFile(archive, name, access, date, user, group, symlink, pos, size) {};
     VirtualKArchiveFile(const KArchiveFile& param1) : KArchiveFile(param1) {};
 
-    ~VirtualKArchiveFile() {
-        karchivefile_data_callback = nullptr;
-        karchivefile_createdevice_callback = nullptr;
-        karchivefile_isfile_callback = nullptr;
-        karchivefile_virtualhook_callback = nullptr;
-        karchivefile_isdirectory_callback = nullptr;
-        karchivefile_archive_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKArchiveFile_Data_Callback(KArchiveFile_Data_Callback cb) { karchivefile_data_callback = cb; }
     inline void setKArchiveFile_CreateDevice_Callback(KArchiveFile_CreateDevice_Callback cb) { karchivefile_createdevice_callback = cb; }
@@ -75,13 +66,14 @@ class VirtualKArchiveFile final : public KArchiveFile {
         if (karchivefile_data_isbase) {
             karchivefile_data_isbase = false;
             return KArchiveFile::data();
-        } else if (karchivefile_data_callback != nullptr) {
-            libqt_string callback_ret = karchivefile_data_callback();
+        }
+        auto data_cb = karchivefile_data_callback;
+        if (data_cb) {
+            libqt_string callback_ret = data_cb();
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
-        } else {
-            return KArchiveFile::data();
         }
+        return KArchiveFile::data();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -89,12 +81,13 @@ class VirtualKArchiveFile final : public KArchiveFile {
         if (karchivefile_createdevice_isbase) {
             karchivefile_createdevice_isbase = false;
             return KArchiveFile::createDevice();
-        } else if (karchivefile_createdevice_callback != nullptr) {
-            QIODevice* callback_ret = karchivefile_createdevice_callback();
-            return callback_ret;
-        } else {
-            return KArchiveFile::createDevice();
         }
+        auto createdevice_cb = karchivefile_createdevice_callback;
+        if (createdevice_cb) {
+            QIODevice* callback_ret = createdevice_cb();
+            return callback_ret;
+        }
+        return KArchiveFile::createDevice();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -102,12 +95,13 @@ class VirtualKArchiveFile final : public KArchiveFile {
         if (karchivefile_isfile_isbase) {
             karchivefile_isfile_isbase = false;
             return KArchiveFile::isFile();
-        } else if (karchivefile_isfile_callback != nullptr) {
-            bool callback_ret = karchivefile_isfile_callback();
-            return callback_ret;
-        } else {
-            return KArchiveFile::isFile();
         }
+        auto isfile_cb = karchivefile_isfile_callback;
+        if (isfile_cb) {
+            bool callback_ret = isfile_cb();
+            return callback_ret;
+        }
+        return KArchiveFile::isFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -115,14 +109,17 @@ class VirtualKArchiveFile final : public KArchiveFile {
         if (karchivefile_virtualhook_isbase) {
             karchivefile_virtualhook_isbase = false;
             KArchiveFile::virtual_hook(id, data);
-        } else if (karchivefile_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = karchivefile_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            karchivefile_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KArchiveFile::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KArchiveFile::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -130,12 +127,13 @@ class VirtualKArchiveFile final : public KArchiveFile {
         if (karchivefile_isdirectory_isbase) {
             karchivefile_isdirectory_isbase = false;
             return KArchiveFile::isDirectory();
-        } else if (karchivefile_isdirectory_callback != nullptr) {
-            bool callback_ret = karchivefile_isdirectory_callback();
-            return callback_ret;
-        } else {
-            return KArchiveFile::isDirectory();
         }
+        auto isdirectory_cb = karchivefile_isdirectory_callback;
+        if (isdirectory_cb) {
+            bool callback_ret = isdirectory_cb();
+            return callback_ret;
+        }
+        return KArchiveFile::isDirectory();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -143,12 +141,13 @@ class VirtualKArchiveFile final : public KArchiveFile {
         if (karchivefile_archive_isbase) {
             karchivefile_archive_isbase = false;
             return KArchiveFile::archive();
-        } else if (karchivefile_archive_callback != nullptr) {
-            KArchive* callback_ret = karchivefile_archive_callback();
-            return callback_ret;
-        } else {
-            return KArchiveFile::archive();
         }
+        auto archive_cb = karchivefile_archive_callback;
+        if (archive_cb) {
+            KArchive* callback_ret = archive_cb();
+            return callback_ret;
+        }
+        return KArchiveFile::archive();
     }
 
     // Friend functions

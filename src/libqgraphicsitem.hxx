@@ -145,48 +145,6 @@ class VirtualQGraphicsItem : public QGraphicsItem {
     VirtualQGraphicsItem() : QGraphicsItem() {};
     VirtualQGraphicsItem(QGraphicsItem* parent) : QGraphicsItem(parent) {};
 
-    ~VirtualQGraphicsItem() {
-        qgraphicsitem_advance_callback = nullptr;
-        qgraphicsitem_boundingrect_callback = nullptr;
-        qgraphicsitem_shape_callback = nullptr;
-        qgraphicsitem_contains_callback = nullptr;
-        qgraphicsitem_collideswithitem_callback = nullptr;
-        qgraphicsitem_collideswithpath_callback = nullptr;
-        qgraphicsitem_isobscuredby_callback = nullptr;
-        qgraphicsitem_opaquearea_callback = nullptr;
-        qgraphicsitem_paint_callback = nullptr;
-        qgraphicsitem_type_callback = nullptr;
-        qgraphicsitem_sceneeventfilter_callback = nullptr;
-        qgraphicsitem_sceneevent_callback = nullptr;
-        qgraphicsitem_contextmenuevent_callback = nullptr;
-        qgraphicsitem_dragenterevent_callback = nullptr;
-        qgraphicsitem_dragleaveevent_callback = nullptr;
-        qgraphicsitem_dragmoveevent_callback = nullptr;
-        qgraphicsitem_dropevent_callback = nullptr;
-        qgraphicsitem_focusinevent_callback = nullptr;
-        qgraphicsitem_focusoutevent_callback = nullptr;
-        qgraphicsitem_hoverenterevent_callback = nullptr;
-        qgraphicsitem_hovermoveevent_callback = nullptr;
-        qgraphicsitem_hoverleaveevent_callback = nullptr;
-        qgraphicsitem_keypressevent_callback = nullptr;
-        qgraphicsitem_keyreleaseevent_callback = nullptr;
-        qgraphicsitem_mousepressevent_callback = nullptr;
-        qgraphicsitem_mousemoveevent_callback = nullptr;
-        qgraphicsitem_mousereleaseevent_callback = nullptr;
-        qgraphicsitem_mousedoubleclickevent_callback = nullptr;
-        qgraphicsitem_wheelevent_callback = nullptr;
-        qgraphicsitem_inputmethodevent_callback = nullptr;
-        qgraphicsitem_inputmethodquery_callback = nullptr;
-        qgraphicsitem_itemchange_callback = nullptr;
-        qgraphicsitem_supportsextension_callback = nullptr;
-        qgraphicsitem_setextension_callback = nullptr;
-        qgraphicsitem_extension_callback = nullptr;
-        qgraphicsitem_updatemicrofocus_callback = nullptr;
-        qgraphicsitem_addtoindex_callback = nullptr;
-        qgraphicsitem_removefromindex_callback = nullptr;
-        qgraphicsitem_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsItem_Advance_Callback(QGraphicsItem_Advance_Callback cb) { qgraphicsitem_advance_callback = cb; }
     inline void setQGraphicsItem_BoundingRect_Callback(QGraphicsItem_BoundingRect_Callback cb) { qgraphicsitem_boundingrect_callback = cb; }
@@ -274,23 +232,26 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_advance_isbase) {
             qgraphicsitem_advance_isbase = false;
             QGraphicsItem::advance(phase);
-        } else if (qgraphicsitem_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicsitem_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicsitem_advance_callback(this, cbval1);
-        } else {
-            QGraphicsItem::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
-        if (qgraphicsitem_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicsitem_boundingrect_callback();
+        auto boundingrect_cb = qgraphicsitem_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,12 +259,13 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_shape_isbase) {
             qgraphicsitem_shape_isbase = false;
             return QGraphicsItem::shape();
-        } else if (qgraphicsitem_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicsitem_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsItem::shape();
         }
+        auto shape_cb = qgraphicsitem_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsItem::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -311,16 +273,17 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_contains_isbase) {
             qgraphicsitem_contains_isbase = false;
             return QGraphicsItem::contains(point);
-        } else if (qgraphicsitem_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicsitem_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicsitem_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsItem::contains(point);
         }
+        return QGraphicsItem::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -328,15 +291,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_collideswithitem_isbase) {
             qgraphicsitem_collideswithitem_isbase = false;
             return QGraphicsItem::collidesWithItem(other, mode);
-        } else if (qgraphicsitem_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicsitem_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicsitem_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsItem::collidesWithItem(other, mode);
         }
+        return QGraphicsItem::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -344,17 +308,18 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_collideswithpath_isbase) {
             qgraphicsitem_collideswithpath_isbase = false;
             return QGraphicsItem::collidesWithPath(path, mode);
-        } else if (qgraphicsitem_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicsitem_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicsitem_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsItem::collidesWithPath(path, mode);
         }
+        return QGraphicsItem::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -362,14 +327,15 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_isobscuredby_isbase) {
             qgraphicsitem_isobscuredby_isbase = false;
             return QGraphicsItem::isObscuredBy(item);
-        } else if (qgraphicsitem_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicsitem_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicsitem_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsItem::isObscuredBy(item);
         }
+        return QGraphicsItem::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -377,22 +343,24 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_opaquearea_isbase) {
             qgraphicsitem_opaquearea_isbase = false;
             return QGraphicsItem::opaqueArea();
-        } else if (qgraphicsitem_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicsitem_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsItem::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicsitem_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsItem::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override {
-        if (qgraphicsitem_paint_callback != nullptr) {
+        auto paint_cb = qgraphicsitem_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicsitem_paint_callback(this, cbval1, cbval2, cbval3);
+            paint_cb(this, cbval1, cbval2, cbval3);
         }
     }
 
@@ -401,12 +369,13 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_type_isbase) {
             qgraphicsitem_type_isbase = false;
             return QGraphicsItem::type();
-        } else if (qgraphicsitem_type_callback != nullptr) {
-            int callback_ret = qgraphicsitem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsItem::type();
         }
+        auto type_cb = qgraphicsitem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,15 +383,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_sceneeventfilter_isbase) {
             qgraphicsitem_sceneeventfilter_isbase = false;
             return QGraphicsItem::sceneEventFilter(watched, event);
-        } else if (qgraphicsitem_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicsitem_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsItem::sceneEventFilter(watched, event);
         }
+        return QGraphicsItem::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -430,14 +400,15 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_sceneevent_isbase) {
             qgraphicsitem_sceneevent_isbase = false;
             return QGraphicsItem::sceneEvent(event);
-        } else if (qgraphicsitem_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicsitem_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsitem_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsItem::sceneEvent(event);
         }
+        return QGraphicsItem::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -445,13 +416,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_contextmenuevent_isbase) {
             qgraphicsitem_contextmenuevent_isbase = false;
             QGraphicsItem::contextMenuEvent(event);
-        } else if (qgraphicsitem_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicsitem_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicsitem_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -459,13 +433,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_dragenterevent_isbase) {
             qgraphicsitem_dragenterevent_isbase = false;
             QGraphicsItem::dragEnterEvent(event);
-        } else if (qgraphicsitem_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicsitem_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsitem_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -473,13 +450,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_dragleaveevent_isbase) {
             qgraphicsitem_dragleaveevent_isbase = false;
             QGraphicsItem::dragLeaveEvent(event);
-        } else if (qgraphicsitem_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicsitem_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsitem_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -487,13 +467,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_dragmoveevent_isbase) {
             qgraphicsitem_dragmoveevent_isbase = false;
             QGraphicsItem::dragMoveEvent(event);
-        } else if (qgraphicsitem_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicsitem_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsitem_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -501,13 +484,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_dropevent_isbase) {
             qgraphicsitem_dropevent_isbase = false;
             QGraphicsItem::dropEvent(event);
-        } else if (qgraphicsitem_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicsitem_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsitem_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,13 +501,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_focusinevent_isbase) {
             qgraphicsitem_focusinevent_isbase = false;
             QGraphicsItem::focusInEvent(event);
-        } else if (qgraphicsitem_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicsitem_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsitem_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,13 +518,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_focusoutevent_isbase) {
             qgraphicsitem_focusoutevent_isbase = false;
             QGraphicsItem::focusOutEvent(event);
-        } else if (qgraphicsitem_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicsitem_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsitem_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,13 +535,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_hoverenterevent_isbase) {
             qgraphicsitem_hoverenterevent_isbase = false;
             QGraphicsItem::hoverEnterEvent(event);
-        } else if (qgraphicsitem_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicsitem_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsitem_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -557,13 +552,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_hovermoveevent_isbase) {
             qgraphicsitem_hovermoveevent_isbase = false;
             QGraphicsItem::hoverMoveEvent(event);
-        } else if (qgraphicsitem_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicsitem_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsitem_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -571,13 +569,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_hoverleaveevent_isbase) {
             qgraphicsitem_hoverleaveevent_isbase = false;
             QGraphicsItem::hoverLeaveEvent(event);
-        } else if (qgraphicsitem_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicsitem_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsitem_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -585,13 +586,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_keypressevent_isbase) {
             qgraphicsitem_keypressevent_isbase = false;
             QGraphicsItem::keyPressEvent(event);
-        } else if (qgraphicsitem_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicsitem_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsitem_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,13 +603,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_keyreleaseevent_isbase) {
             qgraphicsitem_keyreleaseevent_isbase = false;
             QGraphicsItem::keyReleaseEvent(event);
-        } else if (qgraphicsitem_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicsitem_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsitem_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,13 +620,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_mousepressevent_isbase) {
             qgraphicsitem_mousepressevent_isbase = false;
             QGraphicsItem::mousePressEvent(event);
-        } else if (qgraphicsitem_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicsitem_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsitem_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +637,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_mousemoveevent_isbase) {
             qgraphicsitem_mousemoveevent_isbase = false;
             QGraphicsItem::mouseMoveEvent(event);
-        } else if (qgraphicsitem_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicsitem_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsitem_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +654,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_mousereleaseevent_isbase) {
             qgraphicsitem_mousereleaseevent_isbase = false;
             QGraphicsItem::mouseReleaseEvent(event);
-        } else if (qgraphicsitem_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicsitem_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsitem_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,13 +671,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_mousedoubleclickevent_isbase) {
             qgraphicsitem_mousedoubleclickevent_isbase = false;
             QGraphicsItem::mouseDoubleClickEvent(event);
-        } else if (qgraphicsitem_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicsitem_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsitem_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,13 +688,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_wheelevent_isbase) {
             qgraphicsitem_wheelevent_isbase = false;
             QGraphicsItem::wheelEvent(event);
-        } else if (qgraphicsitem_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicsitem_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicsitem_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,13 +705,16 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_inputmethodevent_isbase) {
             qgraphicsitem_inputmethodevent_isbase = false;
             QGraphicsItem::inputMethodEvent(event);
-        } else if (qgraphicsitem_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicsitem_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicsitem_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsItem::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItem::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -697,14 +722,15 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_inputmethodquery_isbase) {
             qgraphicsitem_inputmethodquery_isbase = false;
             return QGraphicsItem::inputMethodQuery(query);
-        } else if (qgraphicsitem_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicsitem_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicsitem_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsItem::inputMethodQuery(query);
         }
+        return QGraphicsItem::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -712,17 +738,18 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_itemchange_isbase) {
             qgraphicsitem_itemchange_isbase = false;
             return QGraphicsItem::itemChange(change, value);
-        } else if (qgraphicsitem_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicsitem_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicsitem_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsItem::itemChange(change, value);
         }
+        return QGraphicsItem::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -730,14 +757,15 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_supportsextension_isbase) {
             qgraphicsitem_supportsextension_isbase = false;
             return QGraphicsItem::supportsExtension(extension);
-        } else if (qgraphicsitem_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicsitem_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicsitem_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsItem::supportsExtension(extension);
         }
+        return QGraphicsItem::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,16 +773,19 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_setextension_isbase) {
             qgraphicsitem_setextension_isbase = false;
             QGraphicsItem::setExtension(extension, variant);
-        } else if (qgraphicsitem_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicsitem_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicsitem_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsItem::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsItem::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -762,16 +793,17 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_extension_isbase) {
             qgraphicsitem_extension_isbase = false;
             return QGraphicsItem::extension(variant);
-        } else if (qgraphicsitem_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicsitem_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicsitem_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsItem::extension(variant);
         }
+        return QGraphicsItem::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,11 +811,14 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_updatemicrofocus_isbase) {
             qgraphicsitem_updatemicrofocus_isbase = false;
             QGraphicsItem::updateMicroFocus();
-        } else if (qgraphicsitem_updatemicrofocus_callback != nullptr) {
-            qgraphicsitem_updatemicrofocus_callback();
-        } else {
-            QGraphicsItem::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicsitem_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsItem::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,11 +826,14 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_addtoindex_isbase) {
             qgraphicsitem_addtoindex_isbase = false;
             QGraphicsItem::addToIndex();
-        } else if (qgraphicsitem_addtoindex_callback != nullptr) {
-            qgraphicsitem_addtoindex_callback();
-        } else {
-            QGraphicsItem::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicsitem_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsItem::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,11 +841,14 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_removefromindex_isbase) {
             qgraphicsitem_removefromindex_isbase = false;
             QGraphicsItem::removeFromIndex();
-        } else if (qgraphicsitem_removefromindex_callback != nullptr) {
-            qgraphicsitem_removefromindex_callback();
-        } else {
-            QGraphicsItem::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicsitem_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsItem::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,11 +856,14 @@ class VirtualQGraphicsItem : public QGraphicsItem {
         if (qgraphicsitem_preparegeometrychange_isbase) {
             qgraphicsitem_preparegeometrychange_isbase = false;
             QGraphicsItem::prepareGeometryChange();
-        } else if (qgraphicsitem_preparegeometrychange_callback != nullptr) {
-            qgraphicsitem_preparegeometrychange_callback();
-        } else {
-            QGraphicsItem::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicsitem_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsItem::prepareGeometryChange();
     }
 
     // Friend functions
@@ -1061,62 +1105,6 @@ class VirtualQGraphicsObject : public QGraphicsObject {
     VirtualQGraphicsObject() : QGraphicsObject() {};
     VirtualQGraphicsObject(QGraphicsItem* parent) : QGraphicsObject(parent) {};
 
-    ~VirtualQGraphicsObject() {
-        qgraphicsobject_metaobject_callback = nullptr;
-        qgraphicsobject_metacast_callback = nullptr;
-        qgraphicsobject_metacall_callback = nullptr;
-        qgraphicsobject_event_callback = nullptr;
-        qgraphicsobject_eventfilter_callback = nullptr;
-        qgraphicsobject_timerevent_callback = nullptr;
-        qgraphicsobject_childevent_callback = nullptr;
-        qgraphicsobject_customevent_callback = nullptr;
-        qgraphicsobject_connectnotify_callback = nullptr;
-        qgraphicsobject_disconnectnotify_callback = nullptr;
-        qgraphicsobject_advance_callback = nullptr;
-        qgraphicsobject_boundingrect_callback = nullptr;
-        qgraphicsobject_shape_callback = nullptr;
-        qgraphicsobject_contains_callback = nullptr;
-        qgraphicsobject_collideswithitem_callback = nullptr;
-        qgraphicsobject_collideswithpath_callback = nullptr;
-        qgraphicsobject_isobscuredby_callback = nullptr;
-        qgraphicsobject_opaquearea_callback = nullptr;
-        qgraphicsobject_paint_callback = nullptr;
-        qgraphicsobject_type_callback = nullptr;
-        qgraphicsobject_sceneeventfilter_callback = nullptr;
-        qgraphicsobject_sceneevent_callback = nullptr;
-        qgraphicsobject_contextmenuevent_callback = nullptr;
-        qgraphicsobject_dragenterevent_callback = nullptr;
-        qgraphicsobject_dragleaveevent_callback = nullptr;
-        qgraphicsobject_dragmoveevent_callback = nullptr;
-        qgraphicsobject_dropevent_callback = nullptr;
-        qgraphicsobject_focusinevent_callback = nullptr;
-        qgraphicsobject_focusoutevent_callback = nullptr;
-        qgraphicsobject_hoverenterevent_callback = nullptr;
-        qgraphicsobject_hovermoveevent_callback = nullptr;
-        qgraphicsobject_hoverleaveevent_callback = nullptr;
-        qgraphicsobject_keypressevent_callback = nullptr;
-        qgraphicsobject_keyreleaseevent_callback = nullptr;
-        qgraphicsobject_mousepressevent_callback = nullptr;
-        qgraphicsobject_mousemoveevent_callback = nullptr;
-        qgraphicsobject_mousereleaseevent_callback = nullptr;
-        qgraphicsobject_mousedoubleclickevent_callback = nullptr;
-        qgraphicsobject_wheelevent_callback = nullptr;
-        qgraphicsobject_inputmethodevent_callback = nullptr;
-        qgraphicsobject_inputmethodquery_callback = nullptr;
-        qgraphicsobject_itemchange_callback = nullptr;
-        qgraphicsobject_supportsextension_callback = nullptr;
-        qgraphicsobject_setextension_callback = nullptr;
-        qgraphicsobject_extension_callback = nullptr;
-        qgraphicsobject_updatemicrofocus_callback = nullptr;
-        qgraphicsobject_sender_callback = nullptr;
-        qgraphicsobject_sendersignalindex_callback = nullptr;
-        qgraphicsobject_receivers_callback = nullptr;
-        qgraphicsobject_issignalconnected_callback = nullptr;
-        qgraphicsobject_addtoindex_callback = nullptr;
-        qgraphicsobject_removefromindex_callback = nullptr;
-        qgraphicsobject_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsObject_MetaObject_Callback(QGraphicsObject_MetaObject_Callback cb) { qgraphicsobject_metaobject_callback = cb; }
     inline void setQGraphicsObject_Metacast_Callback(QGraphicsObject_Metacast_Callback cb) { qgraphicsobject_metacast_callback = cb; }
@@ -1232,12 +1220,13 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_metaobject_isbase) {
             qgraphicsobject_metaobject_isbase = false;
             return QGraphicsObject::metaObject();
-        } else if (qgraphicsobject_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicsobject_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsObject::metaObject();
         }
+        auto metaobject_cb = qgraphicsobject_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsObject::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,14 +1234,15 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_metacast_isbase) {
             qgraphicsobject_metacast_isbase = false;
             return QGraphicsObject::qt_metacast(param1);
-        } else if (qgraphicsobject_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicsobject_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicsobject_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsObject::qt_metacast(param1);
         }
+        return QGraphicsObject::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1260,16 +1250,17 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_metacall_isbase) {
             qgraphicsobject_metacall_isbase = false;
             return QGraphicsObject::qt_metacall(param1, param2, param3);
-        } else if (qgraphicsobject_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicsobject_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicsobject_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsObject::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsObject::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1277,14 +1268,15 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_event_isbase) {
             qgraphicsobject_event_isbase = false;
             return QGraphicsObject::event(ev);
-        } else if (qgraphicsobject_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicsobject_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = ev;
 
-            bool callback_ret = qgraphicsobject_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsObject::event(ev);
         }
+        return QGraphicsObject::event(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1292,15 +1284,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_eventfilter_isbase) {
             qgraphicsobject_eventfilter_isbase = false;
             return QGraphicsObject::eventFilter(watched, event);
-        } else if (qgraphicsobject_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicsobject_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsobject_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsObject::eventFilter(watched, event);
         }
+        return QGraphicsObject::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,13 +1301,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_timerevent_isbase) {
             qgraphicsobject_timerevent_isbase = false;
             QGraphicsObject::timerEvent(event);
-        } else if (qgraphicsobject_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicsobject_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicsobject_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1322,13 +1318,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_childevent_isbase) {
             qgraphicsobject_childevent_isbase = false;
             QGraphicsObject::childEvent(event);
-        } else if (qgraphicsobject_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicsobject_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicsobject_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,13 +1335,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_customevent_isbase) {
             qgraphicsobject_customevent_isbase = false;
             QGraphicsObject::customEvent(event);
-        } else if (qgraphicsobject_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicsobject_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicsobject_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1350,15 +1352,18 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_connectnotify_isbase) {
             qgraphicsobject_connectnotify_isbase = false;
             QGraphicsObject::connectNotify(signal);
-        } else if (qgraphicsobject_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicsobject_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsobject_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsObject::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1366,15 +1371,18 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_disconnectnotify_isbase) {
             qgraphicsobject_disconnectnotify_isbase = false;
             QGraphicsObject::disconnectNotify(signal);
-        } else if (qgraphicsobject_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicsobject_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsobject_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsObject::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1382,23 +1390,26 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_advance_isbase) {
             qgraphicsobject_advance_isbase = false;
             QGraphicsObject::advance(phase);
-        } else if (qgraphicsobject_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicsobject_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicsobject_advance_callback(this, cbval1);
-        } else {
-            QGraphicsObject::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
-        if (qgraphicsobject_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicsobject_boundingrect_callback();
+        auto boundingrect_cb = qgraphicsobject_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1406,12 +1417,13 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_shape_isbase) {
             qgraphicsobject_shape_isbase = false;
             return QGraphicsObject::shape();
-        } else if (qgraphicsobject_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicsobject_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsObject::shape();
         }
+        auto shape_cb = qgraphicsobject_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsObject::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1419,16 +1431,17 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_contains_isbase) {
             qgraphicsobject_contains_isbase = false;
             return QGraphicsObject::contains(point);
-        } else if (qgraphicsobject_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicsobject_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicsobject_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsObject::contains(point);
         }
+        return QGraphicsObject::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1436,15 +1449,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_collideswithitem_isbase) {
             qgraphicsobject_collideswithitem_isbase = false;
             return QGraphicsObject::collidesWithItem(other, mode);
-        } else if (qgraphicsobject_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicsobject_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicsobject_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsObject::collidesWithItem(other, mode);
         }
+        return QGraphicsObject::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1452,17 +1466,18 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_collideswithpath_isbase) {
             qgraphicsobject_collideswithpath_isbase = false;
             return QGraphicsObject::collidesWithPath(path, mode);
-        } else if (qgraphicsobject_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicsobject_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicsobject_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsObject::collidesWithPath(path, mode);
         }
+        return QGraphicsObject::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1470,14 +1485,15 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_isobscuredby_isbase) {
             qgraphicsobject_isobscuredby_isbase = false;
             return QGraphicsObject::isObscuredBy(item);
-        } else if (qgraphicsobject_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicsobject_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicsobject_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsObject::isObscuredBy(item);
         }
+        return QGraphicsObject::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1485,22 +1501,24 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_opaquearea_isbase) {
             qgraphicsobject_opaquearea_isbase = false;
             return QGraphicsObject::opaqueArea();
-        } else if (qgraphicsobject_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicsobject_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsObject::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicsobject_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsObject::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override {
-        if (qgraphicsobject_paint_callback != nullptr) {
+        auto paint_cb = qgraphicsobject_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicsobject_paint_callback(this, cbval1, cbval2, cbval3);
+            paint_cb(this, cbval1, cbval2, cbval3);
         }
     }
 
@@ -1509,12 +1527,13 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_type_isbase) {
             qgraphicsobject_type_isbase = false;
             return QGraphicsObject::type();
-        } else if (qgraphicsobject_type_callback != nullptr) {
-            int callback_ret = qgraphicsobject_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsObject::type();
         }
+        auto type_cb = qgraphicsobject_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsObject::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1522,15 +1541,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_sceneeventfilter_isbase) {
             qgraphicsobject_sceneeventfilter_isbase = false;
             return QGraphicsObject::sceneEventFilter(watched, event);
-        } else if (qgraphicsobject_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicsobject_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsobject_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsObject::sceneEventFilter(watched, event);
         }
+        return QGraphicsObject::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1538,14 +1558,15 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_sceneevent_isbase) {
             qgraphicsobject_sceneevent_isbase = false;
             return QGraphicsObject::sceneEvent(event);
-        } else if (qgraphicsobject_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicsobject_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsobject_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsObject::sceneEvent(event);
         }
+        return QGraphicsObject::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1553,13 +1574,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_contextmenuevent_isbase) {
             qgraphicsobject_contextmenuevent_isbase = false;
             QGraphicsObject::contextMenuEvent(event);
-        } else if (qgraphicsobject_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicsobject_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicsobject_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1567,13 +1591,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_dragenterevent_isbase) {
             qgraphicsobject_dragenterevent_isbase = false;
             QGraphicsObject::dragEnterEvent(event);
-        } else if (qgraphicsobject_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicsobject_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsobject_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1581,13 +1608,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_dragleaveevent_isbase) {
             qgraphicsobject_dragleaveevent_isbase = false;
             QGraphicsObject::dragLeaveEvent(event);
-        } else if (qgraphicsobject_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicsobject_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsobject_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1595,13 +1625,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_dragmoveevent_isbase) {
             qgraphicsobject_dragmoveevent_isbase = false;
             QGraphicsObject::dragMoveEvent(event);
-        } else if (qgraphicsobject_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicsobject_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsobject_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1609,13 +1642,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_dropevent_isbase) {
             qgraphicsobject_dropevent_isbase = false;
             QGraphicsObject::dropEvent(event);
-        } else if (qgraphicsobject_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicsobject_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsobject_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1623,13 +1659,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_focusinevent_isbase) {
             qgraphicsobject_focusinevent_isbase = false;
             QGraphicsObject::focusInEvent(event);
-        } else if (qgraphicsobject_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicsobject_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsobject_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1637,13 +1676,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_focusoutevent_isbase) {
             qgraphicsobject_focusoutevent_isbase = false;
             QGraphicsObject::focusOutEvent(event);
-        } else if (qgraphicsobject_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicsobject_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsobject_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1651,13 +1693,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_hoverenterevent_isbase) {
             qgraphicsobject_hoverenterevent_isbase = false;
             QGraphicsObject::hoverEnterEvent(event);
-        } else if (qgraphicsobject_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicsobject_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsobject_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1665,13 +1710,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_hovermoveevent_isbase) {
             qgraphicsobject_hovermoveevent_isbase = false;
             QGraphicsObject::hoverMoveEvent(event);
-        } else if (qgraphicsobject_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicsobject_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsobject_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1679,13 +1727,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_hoverleaveevent_isbase) {
             qgraphicsobject_hoverleaveevent_isbase = false;
             QGraphicsObject::hoverLeaveEvent(event);
-        } else if (qgraphicsobject_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicsobject_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsobject_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1693,13 +1744,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_keypressevent_isbase) {
             qgraphicsobject_keypressevent_isbase = false;
             QGraphicsObject::keyPressEvent(event);
-        } else if (qgraphicsobject_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicsobject_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsobject_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1707,13 +1761,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_keyreleaseevent_isbase) {
             qgraphicsobject_keyreleaseevent_isbase = false;
             QGraphicsObject::keyReleaseEvent(event);
-        } else if (qgraphicsobject_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicsobject_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsobject_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1721,13 +1778,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_mousepressevent_isbase) {
             qgraphicsobject_mousepressevent_isbase = false;
             QGraphicsObject::mousePressEvent(event);
-        } else if (qgraphicsobject_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicsobject_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsobject_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1735,13 +1795,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_mousemoveevent_isbase) {
             qgraphicsobject_mousemoveevent_isbase = false;
             QGraphicsObject::mouseMoveEvent(event);
-        } else if (qgraphicsobject_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicsobject_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsobject_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1749,13 +1812,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_mousereleaseevent_isbase) {
             qgraphicsobject_mousereleaseevent_isbase = false;
             QGraphicsObject::mouseReleaseEvent(event);
-        } else if (qgraphicsobject_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicsobject_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsobject_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1763,13 +1829,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_mousedoubleclickevent_isbase) {
             qgraphicsobject_mousedoubleclickevent_isbase = false;
             QGraphicsObject::mouseDoubleClickEvent(event);
-        } else if (qgraphicsobject_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicsobject_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsobject_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1777,13 +1846,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_wheelevent_isbase) {
             qgraphicsobject_wheelevent_isbase = false;
             QGraphicsObject::wheelEvent(event);
-        } else if (qgraphicsobject_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicsobject_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicsobject_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1791,13 +1863,16 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_inputmethodevent_isbase) {
             qgraphicsobject_inputmethodevent_isbase = false;
             QGraphicsObject::inputMethodEvent(event);
-        } else if (qgraphicsobject_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicsobject_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicsobject_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsObject::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsObject::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1805,14 +1880,15 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_inputmethodquery_isbase) {
             qgraphicsobject_inputmethodquery_isbase = false;
             return QGraphicsObject::inputMethodQuery(query);
-        } else if (qgraphicsobject_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicsobject_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicsobject_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsObject::inputMethodQuery(query);
         }
+        return QGraphicsObject::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1820,17 +1896,18 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_itemchange_isbase) {
             qgraphicsobject_itemchange_isbase = false;
             return QGraphicsObject::itemChange(change, value);
-        } else if (qgraphicsobject_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicsobject_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicsobject_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsObject::itemChange(change, value);
         }
+        return QGraphicsObject::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1838,14 +1915,15 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_supportsextension_isbase) {
             qgraphicsobject_supportsextension_isbase = false;
             return QGraphicsObject::supportsExtension(extension);
-        } else if (qgraphicsobject_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicsobject_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicsobject_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsObject::supportsExtension(extension);
         }
+        return QGraphicsObject::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1853,16 +1931,19 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_setextension_isbase) {
             qgraphicsobject_setextension_isbase = false;
             QGraphicsObject::setExtension(extension, variant);
-        } else if (qgraphicsobject_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicsobject_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicsobject_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsObject::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsObject::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1870,16 +1951,17 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_extension_isbase) {
             qgraphicsobject_extension_isbase = false;
             return QGraphicsObject::extension(variant);
-        } else if (qgraphicsobject_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicsobject_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicsobject_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsObject::extension(variant);
         }
+        return QGraphicsObject::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1887,11 +1969,14 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_updatemicrofocus_isbase) {
             qgraphicsobject_updatemicrofocus_isbase = false;
             QGraphicsObject::updateMicroFocus();
-        } else if (qgraphicsobject_updatemicrofocus_callback != nullptr) {
-            qgraphicsobject_updatemicrofocus_callback();
-        } else {
-            QGraphicsObject::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicsobject_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsObject::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1899,12 +1984,13 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_sender_isbase) {
             qgraphicsobject_sender_isbase = false;
             return QGraphicsObject::sender();
-        } else if (qgraphicsobject_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicsobject_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsObject::sender();
         }
+        auto sender_cb = qgraphicsobject_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsObject::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1912,12 +1998,13 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_sendersignalindex_isbase) {
             qgraphicsobject_sendersignalindex_isbase = false;
             return QGraphicsObject::senderSignalIndex();
-        } else if (qgraphicsobject_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicsobject_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsObject::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicsobject_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsObject::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1925,14 +2012,15 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_receivers_isbase) {
             qgraphicsobject_receivers_isbase = false;
             return QGraphicsObject::receivers(signal);
-        } else if (qgraphicsobject_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicsobject_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicsobject_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsObject::receivers(signal);
         }
+        return QGraphicsObject::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1940,16 +2028,17 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_issignalconnected_isbase) {
             qgraphicsobject_issignalconnected_isbase = false;
             return QGraphicsObject::isSignalConnected(signal);
-        } else if (qgraphicsobject_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicsobject_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicsobject_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsObject::isSignalConnected(signal);
         }
+        return QGraphicsObject::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1957,11 +2046,14 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_addtoindex_isbase) {
             qgraphicsobject_addtoindex_isbase = false;
             QGraphicsObject::addToIndex();
-        } else if (qgraphicsobject_addtoindex_callback != nullptr) {
-            qgraphicsobject_addtoindex_callback();
-        } else {
-            QGraphicsObject::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicsobject_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsObject::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1969,11 +2061,14 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_removefromindex_isbase) {
             qgraphicsobject_removefromindex_isbase = false;
             QGraphicsObject::removeFromIndex();
-        } else if (qgraphicsobject_removefromindex_callback != nullptr) {
-            qgraphicsobject_removefromindex_callback();
-        } else {
-            QGraphicsObject::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicsobject_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsObject::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1981,11 +2076,14 @@ class VirtualQGraphicsObject : public QGraphicsObject {
         if (qgraphicsobject_preparegeometrychange_isbase) {
             qgraphicsobject_preparegeometrychange_isbase = false;
             QGraphicsObject::prepareGeometryChange();
-        } else if (qgraphicsobject_preparegeometrychange_callback != nullptr) {
-            qgraphicsobject_preparegeometrychange_callback();
-        } else {
-            QGraphicsObject::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicsobject_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsObject::prepareGeometryChange();
     }
 
     // Friend functions
@@ -2205,48 +2303,6 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
     VirtualQAbstractGraphicsShapeItem() : QAbstractGraphicsShapeItem() {};
     VirtualQAbstractGraphicsShapeItem(QGraphicsItem* parent) : QAbstractGraphicsShapeItem(parent) {};
 
-    ~VirtualQAbstractGraphicsShapeItem() {
-        qabstractgraphicsshapeitem_isobscuredby_callback = nullptr;
-        qabstractgraphicsshapeitem_opaquearea_callback = nullptr;
-        qabstractgraphicsshapeitem_advance_callback = nullptr;
-        qabstractgraphicsshapeitem_boundingrect_callback = nullptr;
-        qabstractgraphicsshapeitem_shape_callback = nullptr;
-        qabstractgraphicsshapeitem_contains_callback = nullptr;
-        qabstractgraphicsshapeitem_collideswithitem_callback = nullptr;
-        qabstractgraphicsshapeitem_collideswithpath_callback = nullptr;
-        qabstractgraphicsshapeitem_paint_callback = nullptr;
-        qabstractgraphicsshapeitem_type_callback = nullptr;
-        qabstractgraphicsshapeitem_sceneeventfilter_callback = nullptr;
-        qabstractgraphicsshapeitem_sceneevent_callback = nullptr;
-        qabstractgraphicsshapeitem_contextmenuevent_callback = nullptr;
-        qabstractgraphicsshapeitem_dragenterevent_callback = nullptr;
-        qabstractgraphicsshapeitem_dragleaveevent_callback = nullptr;
-        qabstractgraphicsshapeitem_dragmoveevent_callback = nullptr;
-        qabstractgraphicsshapeitem_dropevent_callback = nullptr;
-        qabstractgraphicsshapeitem_focusinevent_callback = nullptr;
-        qabstractgraphicsshapeitem_focusoutevent_callback = nullptr;
-        qabstractgraphicsshapeitem_hoverenterevent_callback = nullptr;
-        qabstractgraphicsshapeitem_hovermoveevent_callback = nullptr;
-        qabstractgraphicsshapeitem_hoverleaveevent_callback = nullptr;
-        qabstractgraphicsshapeitem_keypressevent_callback = nullptr;
-        qabstractgraphicsshapeitem_keyreleaseevent_callback = nullptr;
-        qabstractgraphicsshapeitem_mousepressevent_callback = nullptr;
-        qabstractgraphicsshapeitem_mousemoveevent_callback = nullptr;
-        qabstractgraphicsshapeitem_mousereleaseevent_callback = nullptr;
-        qabstractgraphicsshapeitem_mousedoubleclickevent_callback = nullptr;
-        qabstractgraphicsshapeitem_wheelevent_callback = nullptr;
-        qabstractgraphicsshapeitem_inputmethodevent_callback = nullptr;
-        qabstractgraphicsshapeitem_inputmethodquery_callback = nullptr;
-        qabstractgraphicsshapeitem_itemchange_callback = nullptr;
-        qabstractgraphicsshapeitem_supportsextension_callback = nullptr;
-        qabstractgraphicsshapeitem_setextension_callback = nullptr;
-        qabstractgraphicsshapeitem_extension_callback = nullptr;
-        qabstractgraphicsshapeitem_updatemicrofocus_callback = nullptr;
-        qabstractgraphicsshapeitem_addtoindex_callback = nullptr;
-        qabstractgraphicsshapeitem_removefromindex_callback = nullptr;
-        qabstractgraphicsshapeitem_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractGraphicsShapeItem_IsObscuredBy_Callback(QAbstractGraphicsShapeItem_IsObscuredBy_Callback cb) { qabstractgraphicsshapeitem_isobscuredby_callback = cb; }
     inline void setQAbstractGraphicsShapeItem_OpaqueArea_Callback(QAbstractGraphicsShapeItem_OpaqueArea_Callback cb) { qabstractgraphicsshapeitem_opaquearea_callback = cb; }
@@ -2334,14 +2390,15 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_isobscuredby_isbase) {
             qabstractgraphicsshapeitem_isobscuredby_isbase = false;
             return QAbstractGraphicsShapeItem::isObscuredBy(item);
-        } else if (qabstractgraphicsshapeitem_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qabstractgraphicsshapeitem_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qabstractgraphicsshapeitem_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::isObscuredBy(item);
         }
+        return QAbstractGraphicsShapeItem::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2349,12 +2406,13 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_opaquearea_isbase) {
             qabstractgraphicsshapeitem_opaquearea_isbase = false;
             return QAbstractGraphicsShapeItem::opaqueArea();
-        } else if (qabstractgraphicsshapeitem_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qabstractgraphicsshapeitem_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::opaqueArea();
         }
+        auto opaquearea_cb = qabstractgraphicsshapeitem_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QAbstractGraphicsShapeItem::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2362,23 +2420,26 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_advance_isbase) {
             qabstractgraphicsshapeitem_advance_isbase = false;
             QAbstractGraphicsShapeItem::advance(phase);
-        } else if (qabstractgraphicsshapeitem_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qabstractgraphicsshapeitem_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qabstractgraphicsshapeitem_advance_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
-        if (qabstractgraphicsshapeitem_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qabstractgraphicsshapeitem_boundingrect_callback();
+        auto boundingrect_cb = qabstractgraphicsshapeitem_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2386,12 +2447,13 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_shape_isbase) {
             qabstractgraphicsshapeitem_shape_isbase = false;
             return QAbstractGraphicsShapeItem::shape();
-        } else if (qabstractgraphicsshapeitem_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qabstractgraphicsshapeitem_shape_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::shape();
         }
+        auto shape_cb = qabstractgraphicsshapeitem_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QAbstractGraphicsShapeItem::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2399,16 +2461,17 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_contains_isbase) {
             qabstractgraphicsshapeitem_contains_isbase = false;
             return QAbstractGraphicsShapeItem::contains(point);
-        } else if (qabstractgraphicsshapeitem_contains_callback != nullptr) {
+        }
+        auto contains_cb = qabstractgraphicsshapeitem_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qabstractgraphicsshapeitem_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::contains(point);
         }
+        return QAbstractGraphicsShapeItem::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2416,15 +2479,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_collideswithitem_isbase) {
             qabstractgraphicsshapeitem_collideswithitem_isbase = false;
             return QAbstractGraphicsShapeItem::collidesWithItem(other, mode);
-        } else if (qabstractgraphicsshapeitem_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qabstractgraphicsshapeitem_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qabstractgraphicsshapeitem_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::collidesWithItem(other, mode);
         }
+        return QAbstractGraphicsShapeItem::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2432,27 +2496,29 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_collideswithpath_isbase) {
             qabstractgraphicsshapeitem_collideswithpath_isbase = false;
             return QAbstractGraphicsShapeItem::collidesWithPath(path, mode);
-        } else if (qabstractgraphicsshapeitem_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qabstractgraphicsshapeitem_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qabstractgraphicsshapeitem_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::collidesWithPath(path, mode);
         }
+        return QAbstractGraphicsShapeItem::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override {
-        if (qabstractgraphicsshapeitem_paint_callback != nullptr) {
+        auto paint_cb = qabstractgraphicsshapeitem_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qabstractgraphicsshapeitem_paint_callback(this, cbval1, cbval2, cbval3);
+            paint_cb(this, cbval1, cbval2, cbval3);
         }
     }
 
@@ -2461,12 +2527,13 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_type_isbase) {
             qabstractgraphicsshapeitem_type_isbase = false;
             return QAbstractGraphicsShapeItem::type();
-        } else if (qabstractgraphicsshapeitem_type_callback != nullptr) {
-            int callback_ret = qabstractgraphicsshapeitem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractGraphicsShapeItem::type();
         }
+        auto type_cb = qabstractgraphicsshapeitem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractGraphicsShapeItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2474,15 +2541,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_sceneeventfilter_isbase) {
             qabstractgraphicsshapeitem_sceneeventfilter_isbase = false;
             return QAbstractGraphicsShapeItem::sceneEventFilter(watched, event);
-        } else if (qabstractgraphicsshapeitem_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qabstractgraphicsshapeitem_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qabstractgraphicsshapeitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::sceneEventFilter(watched, event);
         }
+        return QAbstractGraphicsShapeItem::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2490,14 +2558,15 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_sceneevent_isbase) {
             qabstractgraphicsshapeitem_sceneevent_isbase = false;
             return QAbstractGraphicsShapeItem::sceneEvent(event);
-        } else if (qabstractgraphicsshapeitem_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qabstractgraphicsshapeitem_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qabstractgraphicsshapeitem_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::sceneEvent(event);
         }
+        return QAbstractGraphicsShapeItem::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2505,13 +2574,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_contextmenuevent_isbase) {
             qabstractgraphicsshapeitem_contextmenuevent_isbase = false;
             QAbstractGraphicsShapeItem::contextMenuEvent(event);
-        } else if (qabstractgraphicsshapeitem_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qabstractgraphicsshapeitem_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_contextmenuevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2519,13 +2591,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_dragenterevent_isbase) {
             qabstractgraphicsshapeitem_dragenterevent_isbase = false;
             QAbstractGraphicsShapeItem::dragEnterEvent(event);
-        } else if (qabstractgraphicsshapeitem_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qabstractgraphicsshapeitem_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_dragenterevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2533,13 +2608,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_dragleaveevent_isbase) {
             qabstractgraphicsshapeitem_dragleaveevent_isbase = false;
             QAbstractGraphicsShapeItem::dragLeaveEvent(event);
-        } else if (qabstractgraphicsshapeitem_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qabstractgraphicsshapeitem_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_dragleaveevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2547,13 +2625,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_dragmoveevent_isbase) {
             qabstractgraphicsshapeitem_dragmoveevent_isbase = false;
             QAbstractGraphicsShapeItem::dragMoveEvent(event);
-        } else if (qabstractgraphicsshapeitem_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qabstractgraphicsshapeitem_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_dragmoveevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2561,13 +2642,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_dropevent_isbase) {
             qabstractgraphicsshapeitem_dropevent_isbase = false;
             QAbstractGraphicsShapeItem::dropEvent(event);
-        } else if (qabstractgraphicsshapeitem_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qabstractgraphicsshapeitem_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_dropevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2575,13 +2659,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_focusinevent_isbase) {
             qabstractgraphicsshapeitem_focusinevent_isbase = false;
             QAbstractGraphicsShapeItem::focusInEvent(event);
-        } else if (qabstractgraphicsshapeitem_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qabstractgraphicsshapeitem_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_focusinevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2589,13 +2676,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_focusoutevent_isbase) {
             qabstractgraphicsshapeitem_focusoutevent_isbase = false;
             QAbstractGraphicsShapeItem::focusOutEvent(event);
-        } else if (qabstractgraphicsshapeitem_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qabstractgraphicsshapeitem_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_focusoutevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2603,13 +2693,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_hoverenterevent_isbase) {
             qabstractgraphicsshapeitem_hoverenterevent_isbase = false;
             QAbstractGraphicsShapeItem::hoverEnterEvent(event);
-        } else if (qabstractgraphicsshapeitem_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qabstractgraphicsshapeitem_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_hoverenterevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2617,13 +2710,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_hovermoveevent_isbase) {
             qabstractgraphicsshapeitem_hovermoveevent_isbase = false;
             QAbstractGraphicsShapeItem::hoverMoveEvent(event);
-        } else if (qabstractgraphicsshapeitem_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qabstractgraphicsshapeitem_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_hovermoveevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2631,13 +2727,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_hoverleaveevent_isbase) {
             qabstractgraphicsshapeitem_hoverleaveevent_isbase = false;
             QAbstractGraphicsShapeItem::hoverLeaveEvent(event);
-        } else if (qabstractgraphicsshapeitem_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qabstractgraphicsshapeitem_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2645,13 +2744,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_keypressevent_isbase) {
             qabstractgraphicsshapeitem_keypressevent_isbase = false;
             QAbstractGraphicsShapeItem::keyPressEvent(event);
-        } else if (qabstractgraphicsshapeitem_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qabstractgraphicsshapeitem_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_keypressevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2659,13 +2761,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_keyreleaseevent_isbase) {
             qabstractgraphicsshapeitem_keyreleaseevent_isbase = false;
             QAbstractGraphicsShapeItem::keyReleaseEvent(event);
-        } else if (qabstractgraphicsshapeitem_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qabstractgraphicsshapeitem_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2673,13 +2778,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_mousepressevent_isbase) {
             qabstractgraphicsshapeitem_mousepressevent_isbase = false;
             QAbstractGraphicsShapeItem::mousePressEvent(event);
-        } else if (qabstractgraphicsshapeitem_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qabstractgraphicsshapeitem_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_mousepressevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2687,13 +2795,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_mousemoveevent_isbase) {
             qabstractgraphicsshapeitem_mousemoveevent_isbase = false;
             QAbstractGraphicsShapeItem::mouseMoveEvent(event);
-        } else if (qabstractgraphicsshapeitem_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qabstractgraphicsshapeitem_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_mousemoveevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2701,13 +2812,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_mousereleaseevent_isbase) {
             qabstractgraphicsshapeitem_mousereleaseevent_isbase = false;
             QAbstractGraphicsShapeItem::mouseReleaseEvent(event);
-        } else if (qabstractgraphicsshapeitem_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qabstractgraphicsshapeitem_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2715,13 +2829,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_mousedoubleclickevent_isbase) {
             qabstractgraphicsshapeitem_mousedoubleclickevent_isbase = false;
             QAbstractGraphicsShapeItem::mouseDoubleClickEvent(event);
-        } else if (qabstractgraphicsshapeitem_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qabstractgraphicsshapeitem_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2729,13 +2846,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_wheelevent_isbase) {
             qabstractgraphicsshapeitem_wheelevent_isbase = false;
             QAbstractGraphicsShapeItem::wheelEvent(event);
-        } else if (qabstractgraphicsshapeitem_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qabstractgraphicsshapeitem_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_wheelevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2743,13 +2863,16 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_inputmethodevent_isbase) {
             qabstractgraphicsshapeitem_inputmethodevent_isbase = false;
             QAbstractGraphicsShapeItem::inputMethodEvent(event);
-        } else if (qabstractgraphicsshapeitem_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qabstractgraphicsshapeitem_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qabstractgraphicsshapeitem_inputmethodevent_callback(this, cbval1);
-        } else {
-            QAbstractGraphicsShapeItem::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QAbstractGraphicsShapeItem::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2757,14 +2880,15 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_inputmethodquery_isbase) {
             qabstractgraphicsshapeitem_inputmethodquery_isbase = false;
             return QAbstractGraphicsShapeItem::inputMethodQuery(query);
-        } else if (qabstractgraphicsshapeitem_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qabstractgraphicsshapeitem_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qabstractgraphicsshapeitem_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::inputMethodQuery(query);
         }
+        return QAbstractGraphicsShapeItem::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2772,17 +2896,18 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_itemchange_isbase) {
             qabstractgraphicsshapeitem_itemchange_isbase = false;
             return QAbstractGraphicsShapeItem::itemChange(change, value);
-        } else if (qabstractgraphicsshapeitem_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qabstractgraphicsshapeitem_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qabstractgraphicsshapeitem_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::itemChange(change, value);
         }
+        return QAbstractGraphicsShapeItem::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2790,14 +2915,15 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_supportsextension_isbase) {
             qabstractgraphicsshapeitem_supportsextension_isbase = false;
             return QAbstractGraphicsShapeItem::supportsExtension(extension);
-        } else if (qabstractgraphicsshapeitem_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qabstractgraphicsshapeitem_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qabstractgraphicsshapeitem_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::supportsExtension(extension);
         }
+        return QAbstractGraphicsShapeItem::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2805,16 +2931,19 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_setextension_isbase) {
             qabstractgraphicsshapeitem_setextension_isbase = false;
             QAbstractGraphicsShapeItem::setExtension(extension, variant);
-        } else if (qabstractgraphicsshapeitem_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qabstractgraphicsshapeitem_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qabstractgraphicsshapeitem_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractGraphicsShapeItem::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractGraphicsShapeItem::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2822,16 +2951,17 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_extension_isbase) {
             qabstractgraphicsshapeitem_extension_isbase = false;
             return QAbstractGraphicsShapeItem::extension(variant);
-        } else if (qabstractgraphicsshapeitem_extension_callback != nullptr) {
+        }
+        auto extension_cb = qabstractgraphicsshapeitem_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qabstractgraphicsshapeitem_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractGraphicsShapeItem::extension(variant);
         }
+        return QAbstractGraphicsShapeItem::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2839,11 +2969,14 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_updatemicrofocus_isbase) {
             qabstractgraphicsshapeitem_updatemicrofocus_isbase = false;
             QAbstractGraphicsShapeItem::updateMicroFocus();
-        } else if (qabstractgraphicsshapeitem_updatemicrofocus_callback != nullptr) {
-            qabstractgraphicsshapeitem_updatemicrofocus_callback();
-        } else {
-            QAbstractGraphicsShapeItem::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qabstractgraphicsshapeitem_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QAbstractGraphicsShapeItem::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2851,11 +2984,14 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_addtoindex_isbase) {
             qabstractgraphicsshapeitem_addtoindex_isbase = false;
             QAbstractGraphicsShapeItem::addToIndex();
-        } else if (qabstractgraphicsshapeitem_addtoindex_callback != nullptr) {
-            qabstractgraphicsshapeitem_addtoindex_callback();
-        } else {
-            QAbstractGraphicsShapeItem::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qabstractgraphicsshapeitem_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QAbstractGraphicsShapeItem::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2863,11 +2999,14 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_removefromindex_isbase) {
             qabstractgraphicsshapeitem_removefromindex_isbase = false;
             QAbstractGraphicsShapeItem::removeFromIndex();
-        } else if (qabstractgraphicsshapeitem_removefromindex_callback != nullptr) {
-            qabstractgraphicsshapeitem_removefromindex_callback();
-        } else {
-            QAbstractGraphicsShapeItem::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qabstractgraphicsshapeitem_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QAbstractGraphicsShapeItem::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2875,11 +3014,14 @@ class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
         if (qabstractgraphicsshapeitem_preparegeometrychange_isbase) {
             qabstractgraphicsshapeitem_preparegeometrychange_isbase = false;
             QAbstractGraphicsShapeItem::prepareGeometryChange();
-        } else if (qabstractgraphicsshapeitem_preparegeometrychange_callback != nullptr) {
-            qabstractgraphicsshapeitem_preparegeometrychange_callback();
-        } else {
-            QAbstractGraphicsShapeItem::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qabstractgraphicsshapeitem_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QAbstractGraphicsShapeItem::prepareGeometryChange();
     }
 
     // Friend functions
@@ -3081,48 +3223,6 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
     VirtualQGraphicsPathItem(QGraphicsItem* parent) : QGraphicsPathItem(parent) {};
     VirtualQGraphicsPathItem(const QPainterPath& path, QGraphicsItem* parent) : QGraphicsPathItem(path, parent) {};
 
-    ~VirtualQGraphicsPathItem() {
-        qgraphicspathitem_boundingrect_callback = nullptr;
-        qgraphicspathitem_shape_callback = nullptr;
-        qgraphicspathitem_contains_callback = nullptr;
-        qgraphicspathitem_paint_callback = nullptr;
-        qgraphicspathitem_isobscuredby_callback = nullptr;
-        qgraphicspathitem_opaquearea_callback = nullptr;
-        qgraphicspathitem_type_callback = nullptr;
-        qgraphicspathitem_supportsextension_callback = nullptr;
-        qgraphicspathitem_setextension_callback = nullptr;
-        qgraphicspathitem_extension_callback = nullptr;
-        qgraphicspathitem_advance_callback = nullptr;
-        qgraphicspathitem_collideswithitem_callback = nullptr;
-        qgraphicspathitem_collideswithpath_callback = nullptr;
-        qgraphicspathitem_sceneeventfilter_callback = nullptr;
-        qgraphicspathitem_sceneevent_callback = nullptr;
-        qgraphicspathitem_contextmenuevent_callback = nullptr;
-        qgraphicspathitem_dragenterevent_callback = nullptr;
-        qgraphicspathitem_dragleaveevent_callback = nullptr;
-        qgraphicspathitem_dragmoveevent_callback = nullptr;
-        qgraphicspathitem_dropevent_callback = nullptr;
-        qgraphicspathitem_focusinevent_callback = nullptr;
-        qgraphicspathitem_focusoutevent_callback = nullptr;
-        qgraphicspathitem_hoverenterevent_callback = nullptr;
-        qgraphicspathitem_hovermoveevent_callback = nullptr;
-        qgraphicspathitem_hoverleaveevent_callback = nullptr;
-        qgraphicspathitem_keypressevent_callback = nullptr;
-        qgraphicspathitem_keyreleaseevent_callback = nullptr;
-        qgraphicspathitem_mousepressevent_callback = nullptr;
-        qgraphicspathitem_mousemoveevent_callback = nullptr;
-        qgraphicspathitem_mousereleaseevent_callback = nullptr;
-        qgraphicspathitem_mousedoubleclickevent_callback = nullptr;
-        qgraphicspathitem_wheelevent_callback = nullptr;
-        qgraphicspathitem_inputmethodevent_callback = nullptr;
-        qgraphicspathitem_inputmethodquery_callback = nullptr;
-        qgraphicspathitem_itemchange_callback = nullptr;
-        qgraphicspathitem_updatemicrofocus_callback = nullptr;
-        qgraphicspathitem_addtoindex_callback = nullptr;
-        qgraphicspathitem_removefromindex_callback = nullptr;
-        qgraphicspathitem_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsPathItem_BoundingRect_Callback(QGraphicsPathItem_BoundingRect_Callback cb) { qgraphicspathitem_boundingrect_callback = cb; }
     inline void setQGraphicsPathItem_Shape_Callback(QGraphicsPathItem_Shape_Callback cb) { qgraphicspathitem_shape_callback = cb; }
@@ -3210,12 +3310,13 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_boundingrect_isbase) {
             qgraphicspathitem_boundingrect_isbase = false;
             return QGraphicsPathItem::boundingRect();
-        } else if (qgraphicspathitem_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicspathitem_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsPathItem::boundingRect();
         }
+        auto boundingrect_cb = qgraphicspathitem_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsPathItem::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3223,12 +3324,13 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_shape_isbase) {
             qgraphicspathitem_shape_isbase = false;
             return QGraphicsPathItem::shape();
-        } else if (qgraphicspathitem_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicspathitem_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsPathItem::shape();
         }
+        auto shape_cb = qgraphicspathitem_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsPathItem::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3236,16 +3338,17 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_contains_isbase) {
             qgraphicspathitem_contains_isbase = false;
             return QGraphicsPathItem::contains(point);
-        } else if (qgraphicspathitem_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicspathitem_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicspathitem_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPathItem::contains(point);
         }
+        return QGraphicsPathItem::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3253,15 +3356,18 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_paint_isbase) {
             qgraphicspathitem_paint_isbase = false;
             QGraphicsPathItem::paint(painter, option, widget);
-        } else if (qgraphicspathitem_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qgraphicspathitem_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicspathitem_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QGraphicsPathItem::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QGraphicsPathItem::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3269,14 +3375,15 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_isobscuredby_isbase) {
             qgraphicspathitem_isobscuredby_isbase = false;
             return QGraphicsPathItem::isObscuredBy(item);
-        } else if (qgraphicspathitem_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicspathitem_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicspathitem_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPathItem::isObscuredBy(item);
         }
+        return QGraphicsPathItem::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3284,12 +3391,13 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_opaquearea_isbase) {
             qgraphicspathitem_opaquearea_isbase = false;
             return QGraphicsPathItem::opaqueArea();
-        } else if (qgraphicspathitem_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicspathitem_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsPathItem::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicspathitem_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsPathItem::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3297,12 +3405,13 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_type_isbase) {
             qgraphicspathitem_type_isbase = false;
             return QGraphicsPathItem::type();
-        } else if (qgraphicspathitem_type_callback != nullptr) {
-            int callback_ret = qgraphicspathitem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsPathItem::type();
         }
+        auto type_cb = qgraphicspathitem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsPathItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3310,14 +3419,15 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_supportsextension_isbase) {
             qgraphicspathitem_supportsextension_isbase = false;
             return QGraphicsPathItem::supportsExtension(extension);
-        } else if (qgraphicspathitem_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicspathitem_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicspathitem_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPathItem::supportsExtension(extension);
         }
+        return QGraphicsPathItem::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3325,16 +3435,19 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_setextension_isbase) {
             qgraphicspathitem_setextension_isbase = false;
             QGraphicsPathItem::setExtension(extension, variant);
-        } else if (qgraphicspathitem_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicspathitem_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicspathitem_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsPathItem::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsPathItem::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3342,16 +3455,17 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_extension_isbase) {
             qgraphicspathitem_extension_isbase = false;
             return QGraphicsPathItem::extension(variant);
-        } else if (qgraphicspathitem_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicspathitem_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicspathitem_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsPathItem::extension(variant);
         }
+        return QGraphicsPathItem::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3359,13 +3473,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_advance_isbase) {
             qgraphicspathitem_advance_isbase = false;
             QGraphicsPathItem::advance(phase);
-        } else if (qgraphicspathitem_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicspathitem_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicspathitem_advance_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3373,15 +3490,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_collideswithitem_isbase) {
             qgraphicspathitem_collideswithitem_isbase = false;
             return QGraphicsPathItem::collidesWithItem(other, mode);
-        } else if (qgraphicspathitem_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicspathitem_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicspathitem_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsPathItem::collidesWithItem(other, mode);
         }
+        return QGraphicsPathItem::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3389,17 +3507,18 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_collideswithpath_isbase) {
             qgraphicspathitem_collideswithpath_isbase = false;
             return QGraphicsPathItem::collidesWithPath(path, mode);
-        } else if (qgraphicspathitem_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicspathitem_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicspathitem_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsPathItem::collidesWithPath(path, mode);
         }
+        return QGraphicsPathItem::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3407,15 +3526,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_sceneeventfilter_isbase) {
             qgraphicspathitem_sceneeventfilter_isbase = false;
             return QGraphicsPathItem::sceneEventFilter(watched, event);
-        } else if (qgraphicspathitem_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicspathitem_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicspathitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsPathItem::sceneEventFilter(watched, event);
         }
+        return QGraphicsPathItem::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3423,14 +3543,15 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_sceneevent_isbase) {
             qgraphicspathitem_sceneevent_isbase = false;
             return QGraphicsPathItem::sceneEvent(event);
-        } else if (qgraphicspathitem_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicspathitem_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicspathitem_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPathItem::sceneEvent(event);
         }
+        return QGraphicsPathItem::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3438,13 +3559,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_contextmenuevent_isbase) {
             qgraphicspathitem_contextmenuevent_isbase = false;
             QGraphicsPathItem::contextMenuEvent(event);
-        } else if (qgraphicspathitem_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicspathitem_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicspathitem_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3452,13 +3576,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_dragenterevent_isbase) {
             qgraphicspathitem_dragenterevent_isbase = false;
             QGraphicsPathItem::dragEnterEvent(event);
-        } else if (qgraphicspathitem_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicspathitem_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspathitem_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3466,13 +3593,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_dragleaveevent_isbase) {
             qgraphicspathitem_dragleaveevent_isbase = false;
             QGraphicsPathItem::dragLeaveEvent(event);
-        } else if (qgraphicspathitem_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicspathitem_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspathitem_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3480,13 +3610,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_dragmoveevent_isbase) {
             qgraphicspathitem_dragmoveevent_isbase = false;
             QGraphicsPathItem::dragMoveEvent(event);
-        } else if (qgraphicspathitem_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicspathitem_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspathitem_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3494,13 +3627,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_dropevent_isbase) {
             qgraphicspathitem_dropevent_isbase = false;
             QGraphicsPathItem::dropEvent(event);
-        } else if (qgraphicspathitem_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicspathitem_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspathitem_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3508,13 +3644,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_focusinevent_isbase) {
             qgraphicspathitem_focusinevent_isbase = false;
             QGraphicsPathItem::focusInEvent(event);
-        } else if (qgraphicspathitem_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicspathitem_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicspathitem_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3522,13 +3661,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_focusoutevent_isbase) {
             qgraphicspathitem_focusoutevent_isbase = false;
             QGraphicsPathItem::focusOutEvent(event);
-        } else if (qgraphicspathitem_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicspathitem_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicspathitem_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3536,13 +3678,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_hoverenterevent_isbase) {
             qgraphicspathitem_hoverenterevent_isbase = false;
             QGraphicsPathItem::hoverEnterEvent(event);
-        } else if (qgraphicspathitem_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicspathitem_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicspathitem_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3550,13 +3695,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_hovermoveevent_isbase) {
             qgraphicspathitem_hovermoveevent_isbase = false;
             QGraphicsPathItem::hoverMoveEvent(event);
-        } else if (qgraphicspathitem_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicspathitem_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicspathitem_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3564,13 +3712,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_hoverleaveevent_isbase) {
             qgraphicspathitem_hoverleaveevent_isbase = false;
             QGraphicsPathItem::hoverLeaveEvent(event);
-        } else if (qgraphicspathitem_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicspathitem_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicspathitem_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3578,13 +3729,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_keypressevent_isbase) {
             qgraphicspathitem_keypressevent_isbase = false;
             QGraphicsPathItem::keyPressEvent(event);
-        } else if (qgraphicspathitem_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicspathitem_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicspathitem_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3592,13 +3746,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_keyreleaseevent_isbase) {
             qgraphicspathitem_keyreleaseevent_isbase = false;
             QGraphicsPathItem::keyReleaseEvent(event);
-        } else if (qgraphicspathitem_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicspathitem_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicspathitem_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3606,13 +3763,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_mousepressevent_isbase) {
             qgraphicspathitem_mousepressevent_isbase = false;
             QGraphicsPathItem::mousePressEvent(event);
-        } else if (qgraphicspathitem_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicspathitem_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspathitem_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3620,13 +3780,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_mousemoveevent_isbase) {
             qgraphicspathitem_mousemoveevent_isbase = false;
             QGraphicsPathItem::mouseMoveEvent(event);
-        } else if (qgraphicspathitem_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicspathitem_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspathitem_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3634,13 +3797,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_mousereleaseevent_isbase) {
             qgraphicspathitem_mousereleaseevent_isbase = false;
             QGraphicsPathItem::mouseReleaseEvent(event);
-        } else if (qgraphicspathitem_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicspathitem_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspathitem_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3648,13 +3814,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_mousedoubleclickevent_isbase) {
             qgraphicspathitem_mousedoubleclickevent_isbase = false;
             QGraphicsPathItem::mouseDoubleClickEvent(event);
-        } else if (qgraphicspathitem_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicspathitem_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspathitem_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3662,13 +3831,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_wheelevent_isbase) {
             qgraphicspathitem_wheelevent_isbase = false;
             QGraphicsPathItem::wheelEvent(event);
-        } else if (qgraphicspathitem_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicspathitem_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicspathitem_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3676,13 +3848,16 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_inputmethodevent_isbase) {
             qgraphicspathitem_inputmethodevent_isbase = false;
             QGraphicsPathItem::inputMethodEvent(event);
-        } else if (qgraphicspathitem_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicspathitem_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicspathitem_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsPathItem::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPathItem::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3690,14 +3865,15 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_inputmethodquery_isbase) {
             qgraphicspathitem_inputmethodquery_isbase = false;
             return QGraphicsPathItem::inputMethodQuery(query);
-        } else if (qgraphicspathitem_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicspathitem_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicspathitem_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsPathItem::inputMethodQuery(query);
         }
+        return QGraphicsPathItem::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3705,17 +3881,18 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_itemchange_isbase) {
             qgraphicspathitem_itemchange_isbase = false;
             return QGraphicsPathItem::itemChange(change, value);
-        } else if (qgraphicspathitem_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicspathitem_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicspathitem_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsPathItem::itemChange(change, value);
         }
+        return QGraphicsPathItem::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3723,11 +3900,14 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_updatemicrofocus_isbase) {
             qgraphicspathitem_updatemicrofocus_isbase = false;
             QGraphicsPathItem::updateMicroFocus();
-        } else if (qgraphicspathitem_updatemicrofocus_callback != nullptr) {
-            qgraphicspathitem_updatemicrofocus_callback();
-        } else {
-            QGraphicsPathItem::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicspathitem_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsPathItem::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3735,11 +3915,14 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_addtoindex_isbase) {
             qgraphicspathitem_addtoindex_isbase = false;
             QGraphicsPathItem::addToIndex();
-        } else if (qgraphicspathitem_addtoindex_callback != nullptr) {
-            qgraphicspathitem_addtoindex_callback();
-        } else {
-            QGraphicsPathItem::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicspathitem_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsPathItem::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3747,11 +3930,14 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_removefromindex_isbase) {
             qgraphicspathitem_removefromindex_isbase = false;
             QGraphicsPathItem::removeFromIndex();
-        } else if (qgraphicspathitem_removefromindex_callback != nullptr) {
-            qgraphicspathitem_removefromindex_callback();
-        } else {
-            QGraphicsPathItem::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicspathitem_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsPathItem::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3759,11 +3945,14 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
         if (qgraphicspathitem_preparegeometrychange_isbase) {
             qgraphicspathitem_preparegeometrychange_isbase = false;
             QGraphicsPathItem::prepareGeometryChange();
-        } else if (qgraphicspathitem_preparegeometrychange_callback != nullptr) {
-            qgraphicspathitem_preparegeometrychange_callback();
-        } else {
-            QGraphicsPathItem::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicspathitem_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsPathItem::prepareGeometryChange();
     }
 
     // Friend functions
@@ -3967,48 +4156,6 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
     VirtualQGraphicsRectItem(const QRectF& rect, QGraphicsItem* parent) : QGraphicsRectItem(rect, parent) {};
     VirtualQGraphicsRectItem(qreal x, qreal y, qreal w, qreal h, QGraphicsItem* parent) : QGraphicsRectItem(x, y, w, h, parent) {};
 
-    ~VirtualQGraphicsRectItem() {
-        qgraphicsrectitem_boundingrect_callback = nullptr;
-        qgraphicsrectitem_shape_callback = nullptr;
-        qgraphicsrectitem_contains_callback = nullptr;
-        qgraphicsrectitem_paint_callback = nullptr;
-        qgraphicsrectitem_isobscuredby_callback = nullptr;
-        qgraphicsrectitem_opaquearea_callback = nullptr;
-        qgraphicsrectitem_type_callback = nullptr;
-        qgraphicsrectitem_supportsextension_callback = nullptr;
-        qgraphicsrectitem_setextension_callback = nullptr;
-        qgraphicsrectitem_extension_callback = nullptr;
-        qgraphicsrectitem_advance_callback = nullptr;
-        qgraphicsrectitem_collideswithitem_callback = nullptr;
-        qgraphicsrectitem_collideswithpath_callback = nullptr;
-        qgraphicsrectitem_sceneeventfilter_callback = nullptr;
-        qgraphicsrectitem_sceneevent_callback = nullptr;
-        qgraphicsrectitem_contextmenuevent_callback = nullptr;
-        qgraphicsrectitem_dragenterevent_callback = nullptr;
-        qgraphicsrectitem_dragleaveevent_callback = nullptr;
-        qgraphicsrectitem_dragmoveevent_callback = nullptr;
-        qgraphicsrectitem_dropevent_callback = nullptr;
-        qgraphicsrectitem_focusinevent_callback = nullptr;
-        qgraphicsrectitem_focusoutevent_callback = nullptr;
-        qgraphicsrectitem_hoverenterevent_callback = nullptr;
-        qgraphicsrectitem_hovermoveevent_callback = nullptr;
-        qgraphicsrectitem_hoverleaveevent_callback = nullptr;
-        qgraphicsrectitem_keypressevent_callback = nullptr;
-        qgraphicsrectitem_keyreleaseevent_callback = nullptr;
-        qgraphicsrectitem_mousepressevent_callback = nullptr;
-        qgraphicsrectitem_mousemoveevent_callback = nullptr;
-        qgraphicsrectitem_mousereleaseevent_callback = nullptr;
-        qgraphicsrectitem_mousedoubleclickevent_callback = nullptr;
-        qgraphicsrectitem_wheelevent_callback = nullptr;
-        qgraphicsrectitem_inputmethodevent_callback = nullptr;
-        qgraphicsrectitem_inputmethodquery_callback = nullptr;
-        qgraphicsrectitem_itemchange_callback = nullptr;
-        qgraphicsrectitem_updatemicrofocus_callback = nullptr;
-        qgraphicsrectitem_addtoindex_callback = nullptr;
-        qgraphicsrectitem_removefromindex_callback = nullptr;
-        qgraphicsrectitem_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsRectItem_BoundingRect_Callback(QGraphicsRectItem_BoundingRect_Callback cb) { qgraphicsrectitem_boundingrect_callback = cb; }
     inline void setQGraphicsRectItem_Shape_Callback(QGraphicsRectItem_Shape_Callback cb) { qgraphicsrectitem_shape_callback = cb; }
@@ -4096,12 +4243,13 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_boundingrect_isbase) {
             qgraphicsrectitem_boundingrect_isbase = false;
             return QGraphicsRectItem::boundingRect();
-        } else if (qgraphicsrectitem_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicsrectitem_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsRectItem::boundingRect();
         }
+        auto boundingrect_cb = qgraphicsrectitem_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsRectItem::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4109,12 +4257,13 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_shape_isbase) {
             qgraphicsrectitem_shape_isbase = false;
             return QGraphicsRectItem::shape();
-        } else if (qgraphicsrectitem_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicsrectitem_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsRectItem::shape();
         }
+        auto shape_cb = qgraphicsrectitem_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsRectItem::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4122,16 +4271,17 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_contains_isbase) {
             qgraphicsrectitem_contains_isbase = false;
             return QGraphicsRectItem::contains(point);
-        } else if (qgraphicsrectitem_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicsrectitem_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicsrectitem_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsRectItem::contains(point);
         }
+        return QGraphicsRectItem::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4139,15 +4289,18 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_paint_isbase) {
             qgraphicsrectitem_paint_isbase = false;
             QGraphicsRectItem::paint(painter, option, widget);
-        } else if (qgraphicsrectitem_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qgraphicsrectitem_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicsrectitem_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QGraphicsRectItem::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QGraphicsRectItem::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4155,14 +4308,15 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_isobscuredby_isbase) {
             qgraphicsrectitem_isobscuredby_isbase = false;
             return QGraphicsRectItem::isObscuredBy(item);
-        } else if (qgraphicsrectitem_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicsrectitem_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicsrectitem_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsRectItem::isObscuredBy(item);
         }
+        return QGraphicsRectItem::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4170,12 +4324,13 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_opaquearea_isbase) {
             qgraphicsrectitem_opaquearea_isbase = false;
             return QGraphicsRectItem::opaqueArea();
-        } else if (qgraphicsrectitem_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicsrectitem_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsRectItem::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicsrectitem_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsRectItem::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4183,12 +4338,13 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_type_isbase) {
             qgraphicsrectitem_type_isbase = false;
             return QGraphicsRectItem::type();
-        } else if (qgraphicsrectitem_type_callback != nullptr) {
-            int callback_ret = qgraphicsrectitem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsRectItem::type();
         }
+        auto type_cb = qgraphicsrectitem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsRectItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4196,14 +4352,15 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_supportsextension_isbase) {
             qgraphicsrectitem_supportsextension_isbase = false;
             return QGraphicsRectItem::supportsExtension(extension);
-        } else if (qgraphicsrectitem_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicsrectitem_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicsrectitem_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsRectItem::supportsExtension(extension);
         }
+        return QGraphicsRectItem::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4211,16 +4368,19 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_setextension_isbase) {
             qgraphicsrectitem_setextension_isbase = false;
             QGraphicsRectItem::setExtension(extension, variant);
-        } else if (qgraphicsrectitem_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicsrectitem_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicsrectitem_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsRectItem::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsRectItem::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4228,16 +4388,17 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_extension_isbase) {
             qgraphicsrectitem_extension_isbase = false;
             return QGraphicsRectItem::extension(variant);
-        } else if (qgraphicsrectitem_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicsrectitem_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicsrectitem_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsRectItem::extension(variant);
         }
+        return QGraphicsRectItem::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4245,13 +4406,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_advance_isbase) {
             qgraphicsrectitem_advance_isbase = false;
             QGraphicsRectItem::advance(phase);
-        } else if (qgraphicsrectitem_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicsrectitem_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicsrectitem_advance_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4259,15 +4423,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_collideswithitem_isbase) {
             qgraphicsrectitem_collideswithitem_isbase = false;
             return QGraphicsRectItem::collidesWithItem(other, mode);
-        } else if (qgraphicsrectitem_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicsrectitem_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicsrectitem_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsRectItem::collidesWithItem(other, mode);
         }
+        return QGraphicsRectItem::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4275,17 +4440,18 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_collideswithpath_isbase) {
             qgraphicsrectitem_collideswithpath_isbase = false;
             return QGraphicsRectItem::collidesWithPath(path, mode);
-        } else if (qgraphicsrectitem_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicsrectitem_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicsrectitem_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsRectItem::collidesWithPath(path, mode);
         }
+        return QGraphicsRectItem::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4293,15 +4459,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_sceneeventfilter_isbase) {
             qgraphicsrectitem_sceneeventfilter_isbase = false;
             return QGraphicsRectItem::sceneEventFilter(watched, event);
-        } else if (qgraphicsrectitem_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicsrectitem_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsrectitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsRectItem::sceneEventFilter(watched, event);
         }
+        return QGraphicsRectItem::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4309,14 +4476,15 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_sceneevent_isbase) {
             qgraphicsrectitem_sceneevent_isbase = false;
             return QGraphicsRectItem::sceneEvent(event);
-        } else if (qgraphicsrectitem_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicsrectitem_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsrectitem_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsRectItem::sceneEvent(event);
         }
+        return QGraphicsRectItem::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4324,13 +4492,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_contextmenuevent_isbase) {
             qgraphicsrectitem_contextmenuevent_isbase = false;
             QGraphicsRectItem::contextMenuEvent(event);
-        } else if (qgraphicsrectitem_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicsrectitem_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicsrectitem_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4338,13 +4509,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_dragenterevent_isbase) {
             qgraphicsrectitem_dragenterevent_isbase = false;
             QGraphicsRectItem::dragEnterEvent(event);
-        } else if (qgraphicsrectitem_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicsrectitem_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsrectitem_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4352,13 +4526,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_dragleaveevent_isbase) {
             qgraphicsrectitem_dragleaveevent_isbase = false;
             QGraphicsRectItem::dragLeaveEvent(event);
-        } else if (qgraphicsrectitem_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicsrectitem_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsrectitem_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4366,13 +4543,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_dragmoveevent_isbase) {
             qgraphicsrectitem_dragmoveevent_isbase = false;
             QGraphicsRectItem::dragMoveEvent(event);
-        } else if (qgraphicsrectitem_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicsrectitem_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsrectitem_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4380,13 +4560,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_dropevent_isbase) {
             qgraphicsrectitem_dropevent_isbase = false;
             QGraphicsRectItem::dropEvent(event);
-        } else if (qgraphicsrectitem_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicsrectitem_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsrectitem_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4394,13 +4577,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_focusinevent_isbase) {
             qgraphicsrectitem_focusinevent_isbase = false;
             QGraphicsRectItem::focusInEvent(event);
-        } else if (qgraphicsrectitem_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicsrectitem_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsrectitem_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4408,13 +4594,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_focusoutevent_isbase) {
             qgraphicsrectitem_focusoutevent_isbase = false;
             QGraphicsRectItem::focusOutEvent(event);
-        } else if (qgraphicsrectitem_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicsrectitem_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsrectitem_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4422,13 +4611,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_hoverenterevent_isbase) {
             qgraphicsrectitem_hoverenterevent_isbase = false;
             QGraphicsRectItem::hoverEnterEvent(event);
-        } else if (qgraphicsrectitem_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicsrectitem_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsrectitem_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4436,13 +4628,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_hovermoveevent_isbase) {
             qgraphicsrectitem_hovermoveevent_isbase = false;
             QGraphicsRectItem::hoverMoveEvent(event);
-        } else if (qgraphicsrectitem_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicsrectitem_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsrectitem_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4450,13 +4645,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_hoverleaveevent_isbase) {
             qgraphicsrectitem_hoverleaveevent_isbase = false;
             QGraphicsRectItem::hoverLeaveEvent(event);
-        } else if (qgraphicsrectitem_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicsrectitem_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsrectitem_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4464,13 +4662,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_keypressevent_isbase) {
             qgraphicsrectitem_keypressevent_isbase = false;
             QGraphicsRectItem::keyPressEvent(event);
-        } else if (qgraphicsrectitem_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicsrectitem_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsrectitem_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4478,13 +4679,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_keyreleaseevent_isbase) {
             qgraphicsrectitem_keyreleaseevent_isbase = false;
             QGraphicsRectItem::keyReleaseEvent(event);
-        } else if (qgraphicsrectitem_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicsrectitem_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsrectitem_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4492,13 +4696,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_mousepressevent_isbase) {
             qgraphicsrectitem_mousepressevent_isbase = false;
             QGraphicsRectItem::mousePressEvent(event);
-        } else if (qgraphicsrectitem_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicsrectitem_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsrectitem_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4506,13 +4713,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_mousemoveevent_isbase) {
             qgraphicsrectitem_mousemoveevent_isbase = false;
             QGraphicsRectItem::mouseMoveEvent(event);
-        } else if (qgraphicsrectitem_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicsrectitem_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsrectitem_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4520,13 +4730,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_mousereleaseevent_isbase) {
             qgraphicsrectitem_mousereleaseevent_isbase = false;
             QGraphicsRectItem::mouseReleaseEvent(event);
-        } else if (qgraphicsrectitem_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicsrectitem_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsrectitem_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4534,13 +4747,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_mousedoubleclickevent_isbase) {
             qgraphicsrectitem_mousedoubleclickevent_isbase = false;
             QGraphicsRectItem::mouseDoubleClickEvent(event);
-        } else if (qgraphicsrectitem_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicsrectitem_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsrectitem_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4548,13 +4764,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_wheelevent_isbase) {
             qgraphicsrectitem_wheelevent_isbase = false;
             QGraphicsRectItem::wheelEvent(event);
-        } else if (qgraphicsrectitem_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicsrectitem_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicsrectitem_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4562,13 +4781,16 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_inputmethodevent_isbase) {
             qgraphicsrectitem_inputmethodevent_isbase = false;
             QGraphicsRectItem::inputMethodEvent(event);
-        } else if (qgraphicsrectitem_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicsrectitem_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicsrectitem_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsRectItem::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRectItem::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4576,14 +4798,15 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_inputmethodquery_isbase) {
             qgraphicsrectitem_inputmethodquery_isbase = false;
             return QGraphicsRectItem::inputMethodQuery(query);
-        } else if (qgraphicsrectitem_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicsrectitem_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicsrectitem_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsRectItem::inputMethodQuery(query);
         }
+        return QGraphicsRectItem::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4591,17 +4814,18 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_itemchange_isbase) {
             qgraphicsrectitem_itemchange_isbase = false;
             return QGraphicsRectItem::itemChange(change, value);
-        } else if (qgraphicsrectitem_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicsrectitem_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicsrectitem_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsRectItem::itemChange(change, value);
         }
+        return QGraphicsRectItem::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4609,11 +4833,14 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_updatemicrofocus_isbase) {
             qgraphicsrectitem_updatemicrofocus_isbase = false;
             QGraphicsRectItem::updateMicroFocus();
-        } else if (qgraphicsrectitem_updatemicrofocus_callback != nullptr) {
-            qgraphicsrectitem_updatemicrofocus_callback();
-        } else {
-            QGraphicsRectItem::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicsrectitem_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsRectItem::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4621,11 +4848,14 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_addtoindex_isbase) {
             qgraphicsrectitem_addtoindex_isbase = false;
             QGraphicsRectItem::addToIndex();
-        } else if (qgraphicsrectitem_addtoindex_callback != nullptr) {
-            qgraphicsrectitem_addtoindex_callback();
-        } else {
-            QGraphicsRectItem::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicsrectitem_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsRectItem::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4633,11 +4863,14 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_removefromindex_isbase) {
             qgraphicsrectitem_removefromindex_isbase = false;
             QGraphicsRectItem::removeFromIndex();
-        } else if (qgraphicsrectitem_removefromindex_callback != nullptr) {
-            qgraphicsrectitem_removefromindex_callback();
-        } else {
-            QGraphicsRectItem::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicsrectitem_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsRectItem::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4645,11 +4878,14 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
         if (qgraphicsrectitem_preparegeometrychange_isbase) {
             qgraphicsrectitem_preparegeometrychange_isbase = false;
             QGraphicsRectItem::prepareGeometryChange();
-        } else if (qgraphicsrectitem_preparegeometrychange_callback != nullptr) {
-            qgraphicsrectitem_preparegeometrychange_callback();
-        } else {
-            QGraphicsRectItem::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicsrectitem_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsRectItem::prepareGeometryChange();
     }
 
     // Friend functions
@@ -4853,48 +5089,6 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
     VirtualQGraphicsEllipseItem(const QRectF& rect, QGraphicsItem* parent) : QGraphicsEllipseItem(rect, parent) {};
     VirtualQGraphicsEllipseItem(qreal x, qreal y, qreal w, qreal h, QGraphicsItem* parent) : QGraphicsEllipseItem(x, y, w, h, parent) {};
 
-    ~VirtualQGraphicsEllipseItem() {
-        qgraphicsellipseitem_boundingrect_callback = nullptr;
-        qgraphicsellipseitem_shape_callback = nullptr;
-        qgraphicsellipseitem_contains_callback = nullptr;
-        qgraphicsellipseitem_paint_callback = nullptr;
-        qgraphicsellipseitem_isobscuredby_callback = nullptr;
-        qgraphicsellipseitem_opaquearea_callback = nullptr;
-        qgraphicsellipseitem_type_callback = nullptr;
-        qgraphicsellipseitem_supportsextension_callback = nullptr;
-        qgraphicsellipseitem_setextension_callback = nullptr;
-        qgraphicsellipseitem_extension_callback = nullptr;
-        qgraphicsellipseitem_advance_callback = nullptr;
-        qgraphicsellipseitem_collideswithitem_callback = nullptr;
-        qgraphicsellipseitem_collideswithpath_callback = nullptr;
-        qgraphicsellipseitem_sceneeventfilter_callback = nullptr;
-        qgraphicsellipseitem_sceneevent_callback = nullptr;
-        qgraphicsellipseitem_contextmenuevent_callback = nullptr;
-        qgraphicsellipseitem_dragenterevent_callback = nullptr;
-        qgraphicsellipseitem_dragleaveevent_callback = nullptr;
-        qgraphicsellipseitem_dragmoveevent_callback = nullptr;
-        qgraphicsellipseitem_dropevent_callback = nullptr;
-        qgraphicsellipseitem_focusinevent_callback = nullptr;
-        qgraphicsellipseitem_focusoutevent_callback = nullptr;
-        qgraphicsellipseitem_hoverenterevent_callback = nullptr;
-        qgraphicsellipseitem_hovermoveevent_callback = nullptr;
-        qgraphicsellipseitem_hoverleaveevent_callback = nullptr;
-        qgraphicsellipseitem_keypressevent_callback = nullptr;
-        qgraphicsellipseitem_keyreleaseevent_callback = nullptr;
-        qgraphicsellipseitem_mousepressevent_callback = nullptr;
-        qgraphicsellipseitem_mousemoveevent_callback = nullptr;
-        qgraphicsellipseitem_mousereleaseevent_callback = nullptr;
-        qgraphicsellipseitem_mousedoubleclickevent_callback = nullptr;
-        qgraphicsellipseitem_wheelevent_callback = nullptr;
-        qgraphicsellipseitem_inputmethodevent_callback = nullptr;
-        qgraphicsellipseitem_inputmethodquery_callback = nullptr;
-        qgraphicsellipseitem_itemchange_callback = nullptr;
-        qgraphicsellipseitem_updatemicrofocus_callback = nullptr;
-        qgraphicsellipseitem_addtoindex_callback = nullptr;
-        qgraphicsellipseitem_removefromindex_callback = nullptr;
-        qgraphicsellipseitem_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsEllipseItem_BoundingRect_Callback(QGraphicsEllipseItem_BoundingRect_Callback cb) { qgraphicsellipseitem_boundingrect_callback = cb; }
     inline void setQGraphicsEllipseItem_Shape_Callback(QGraphicsEllipseItem_Shape_Callback cb) { qgraphicsellipseitem_shape_callback = cb; }
@@ -4982,12 +5176,13 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_boundingrect_isbase) {
             qgraphicsellipseitem_boundingrect_isbase = false;
             return QGraphicsEllipseItem::boundingRect();
-        } else if (qgraphicsellipseitem_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicsellipseitem_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsEllipseItem::boundingRect();
         }
+        auto boundingrect_cb = qgraphicsellipseitem_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsEllipseItem::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4995,12 +5190,13 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_shape_isbase) {
             qgraphicsellipseitem_shape_isbase = false;
             return QGraphicsEllipseItem::shape();
-        } else if (qgraphicsellipseitem_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicsellipseitem_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsEllipseItem::shape();
         }
+        auto shape_cb = qgraphicsellipseitem_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsEllipseItem::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5008,16 +5204,17 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_contains_isbase) {
             qgraphicsellipseitem_contains_isbase = false;
             return QGraphicsEllipseItem::contains(point);
-        } else if (qgraphicsellipseitem_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicsellipseitem_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicsellipseitem_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsEllipseItem::contains(point);
         }
+        return QGraphicsEllipseItem::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5025,15 +5222,18 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_paint_isbase) {
             qgraphicsellipseitem_paint_isbase = false;
             QGraphicsEllipseItem::paint(painter, option, widget);
-        } else if (qgraphicsellipseitem_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qgraphicsellipseitem_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicsellipseitem_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QGraphicsEllipseItem::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QGraphicsEllipseItem::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5041,14 +5241,15 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_isobscuredby_isbase) {
             qgraphicsellipseitem_isobscuredby_isbase = false;
             return QGraphicsEllipseItem::isObscuredBy(item);
-        } else if (qgraphicsellipseitem_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicsellipseitem_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicsellipseitem_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsEllipseItem::isObscuredBy(item);
         }
+        return QGraphicsEllipseItem::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5056,12 +5257,13 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_opaquearea_isbase) {
             qgraphicsellipseitem_opaquearea_isbase = false;
             return QGraphicsEllipseItem::opaqueArea();
-        } else if (qgraphicsellipseitem_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicsellipseitem_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsEllipseItem::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicsellipseitem_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsEllipseItem::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5069,12 +5271,13 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_type_isbase) {
             qgraphicsellipseitem_type_isbase = false;
             return QGraphicsEllipseItem::type();
-        } else if (qgraphicsellipseitem_type_callback != nullptr) {
-            int callback_ret = qgraphicsellipseitem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsEllipseItem::type();
         }
+        auto type_cb = qgraphicsellipseitem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsEllipseItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5082,14 +5285,15 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_supportsextension_isbase) {
             qgraphicsellipseitem_supportsextension_isbase = false;
             return QGraphicsEllipseItem::supportsExtension(extension);
-        } else if (qgraphicsellipseitem_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicsellipseitem_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicsellipseitem_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsEllipseItem::supportsExtension(extension);
         }
+        return QGraphicsEllipseItem::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5097,16 +5301,19 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_setextension_isbase) {
             qgraphicsellipseitem_setextension_isbase = false;
             QGraphicsEllipseItem::setExtension(extension, variant);
-        } else if (qgraphicsellipseitem_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicsellipseitem_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicsellipseitem_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsEllipseItem::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsEllipseItem::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5114,16 +5321,17 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_extension_isbase) {
             qgraphicsellipseitem_extension_isbase = false;
             return QGraphicsEllipseItem::extension(variant);
-        } else if (qgraphicsellipseitem_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicsellipseitem_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicsellipseitem_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsEllipseItem::extension(variant);
         }
+        return QGraphicsEllipseItem::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5131,13 +5339,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_advance_isbase) {
             qgraphicsellipseitem_advance_isbase = false;
             QGraphicsEllipseItem::advance(phase);
-        } else if (qgraphicsellipseitem_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicsellipseitem_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicsellipseitem_advance_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5145,15 +5356,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_collideswithitem_isbase) {
             qgraphicsellipseitem_collideswithitem_isbase = false;
             return QGraphicsEllipseItem::collidesWithItem(other, mode);
-        } else if (qgraphicsellipseitem_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicsellipseitem_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicsellipseitem_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsEllipseItem::collidesWithItem(other, mode);
         }
+        return QGraphicsEllipseItem::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5161,17 +5373,18 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_collideswithpath_isbase) {
             qgraphicsellipseitem_collideswithpath_isbase = false;
             return QGraphicsEllipseItem::collidesWithPath(path, mode);
-        } else if (qgraphicsellipseitem_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicsellipseitem_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicsellipseitem_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsEllipseItem::collidesWithPath(path, mode);
         }
+        return QGraphicsEllipseItem::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5179,15 +5392,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_sceneeventfilter_isbase) {
             qgraphicsellipseitem_sceneeventfilter_isbase = false;
             return QGraphicsEllipseItem::sceneEventFilter(watched, event);
-        } else if (qgraphicsellipseitem_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicsellipseitem_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsellipseitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsEllipseItem::sceneEventFilter(watched, event);
         }
+        return QGraphicsEllipseItem::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5195,14 +5409,15 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_sceneevent_isbase) {
             qgraphicsellipseitem_sceneevent_isbase = false;
             return QGraphicsEllipseItem::sceneEvent(event);
-        } else if (qgraphicsellipseitem_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicsellipseitem_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsellipseitem_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsEllipseItem::sceneEvent(event);
         }
+        return QGraphicsEllipseItem::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5210,13 +5425,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_contextmenuevent_isbase) {
             qgraphicsellipseitem_contextmenuevent_isbase = false;
             QGraphicsEllipseItem::contextMenuEvent(event);
-        } else if (qgraphicsellipseitem_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicsellipseitem_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicsellipseitem_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5224,13 +5442,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_dragenterevent_isbase) {
             qgraphicsellipseitem_dragenterevent_isbase = false;
             QGraphicsEllipseItem::dragEnterEvent(event);
-        } else if (qgraphicsellipseitem_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicsellipseitem_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsellipseitem_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5238,13 +5459,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_dragleaveevent_isbase) {
             qgraphicsellipseitem_dragleaveevent_isbase = false;
             QGraphicsEllipseItem::dragLeaveEvent(event);
-        } else if (qgraphicsellipseitem_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicsellipseitem_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsellipseitem_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5252,13 +5476,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_dragmoveevent_isbase) {
             qgraphicsellipseitem_dragmoveevent_isbase = false;
             QGraphicsEllipseItem::dragMoveEvent(event);
-        } else if (qgraphicsellipseitem_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicsellipseitem_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsellipseitem_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5266,13 +5493,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_dropevent_isbase) {
             qgraphicsellipseitem_dropevent_isbase = false;
             QGraphicsEllipseItem::dropEvent(event);
-        } else if (qgraphicsellipseitem_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicsellipseitem_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsellipseitem_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5280,13 +5510,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_focusinevent_isbase) {
             qgraphicsellipseitem_focusinevent_isbase = false;
             QGraphicsEllipseItem::focusInEvent(event);
-        } else if (qgraphicsellipseitem_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicsellipseitem_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsellipseitem_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5294,13 +5527,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_focusoutevent_isbase) {
             qgraphicsellipseitem_focusoutevent_isbase = false;
             QGraphicsEllipseItem::focusOutEvent(event);
-        } else if (qgraphicsellipseitem_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicsellipseitem_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsellipseitem_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5308,13 +5544,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_hoverenterevent_isbase) {
             qgraphicsellipseitem_hoverenterevent_isbase = false;
             QGraphicsEllipseItem::hoverEnterEvent(event);
-        } else if (qgraphicsellipseitem_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicsellipseitem_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsellipseitem_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5322,13 +5561,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_hovermoveevent_isbase) {
             qgraphicsellipseitem_hovermoveevent_isbase = false;
             QGraphicsEllipseItem::hoverMoveEvent(event);
-        } else if (qgraphicsellipseitem_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicsellipseitem_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsellipseitem_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5336,13 +5578,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_hoverleaveevent_isbase) {
             qgraphicsellipseitem_hoverleaveevent_isbase = false;
             QGraphicsEllipseItem::hoverLeaveEvent(event);
-        } else if (qgraphicsellipseitem_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicsellipseitem_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsellipseitem_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5350,13 +5595,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_keypressevent_isbase) {
             qgraphicsellipseitem_keypressevent_isbase = false;
             QGraphicsEllipseItem::keyPressEvent(event);
-        } else if (qgraphicsellipseitem_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicsellipseitem_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsellipseitem_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5364,13 +5612,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_keyreleaseevent_isbase) {
             qgraphicsellipseitem_keyreleaseevent_isbase = false;
             QGraphicsEllipseItem::keyReleaseEvent(event);
-        } else if (qgraphicsellipseitem_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicsellipseitem_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsellipseitem_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5378,13 +5629,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_mousepressevent_isbase) {
             qgraphicsellipseitem_mousepressevent_isbase = false;
             QGraphicsEllipseItem::mousePressEvent(event);
-        } else if (qgraphicsellipseitem_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicsellipseitem_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsellipseitem_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5392,13 +5646,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_mousemoveevent_isbase) {
             qgraphicsellipseitem_mousemoveevent_isbase = false;
             QGraphicsEllipseItem::mouseMoveEvent(event);
-        } else if (qgraphicsellipseitem_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicsellipseitem_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsellipseitem_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5406,13 +5663,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_mousereleaseevent_isbase) {
             qgraphicsellipseitem_mousereleaseevent_isbase = false;
             QGraphicsEllipseItem::mouseReleaseEvent(event);
-        } else if (qgraphicsellipseitem_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicsellipseitem_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsellipseitem_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5420,13 +5680,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_mousedoubleclickevent_isbase) {
             qgraphicsellipseitem_mousedoubleclickevent_isbase = false;
             QGraphicsEllipseItem::mouseDoubleClickEvent(event);
-        } else if (qgraphicsellipseitem_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicsellipseitem_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsellipseitem_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5434,13 +5697,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_wheelevent_isbase) {
             qgraphicsellipseitem_wheelevent_isbase = false;
             QGraphicsEllipseItem::wheelEvent(event);
-        } else if (qgraphicsellipseitem_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicsellipseitem_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicsellipseitem_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5448,13 +5714,16 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_inputmethodevent_isbase) {
             qgraphicsellipseitem_inputmethodevent_isbase = false;
             QGraphicsEllipseItem::inputMethodEvent(event);
-        } else if (qgraphicsellipseitem_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicsellipseitem_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicsellipseitem_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsEllipseItem::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEllipseItem::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5462,14 +5731,15 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_inputmethodquery_isbase) {
             qgraphicsellipseitem_inputmethodquery_isbase = false;
             return QGraphicsEllipseItem::inputMethodQuery(query);
-        } else if (qgraphicsellipseitem_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicsellipseitem_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicsellipseitem_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsEllipseItem::inputMethodQuery(query);
         }
+        return QGraphicsEllipseItem::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5477,17 +5747,18 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_itemchange_isbase) {
             qgraphicsellipseitem_itemchange_isbase = false;
             return QGraphicsEllipseItem::itemChange(change, value);
-        } else if (qgraphicsellipseitem_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicsellipseitem_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicsellipseitem_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsEllipseItem::itemChange(change, value);
         }
+        return QGraphicsEllipseItem::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5495,11 +5766,14 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_updatemicrofocus_isbase) {
             qgraphicsellipseitem_updatemicrofocus_isbase = false;
             QGraphicsEllipseItem::updateMicroFocus();
-        } else if (qgraphicsellipseitem_updatemicrofocus_callback != nullptr) {
-            qgraphicsellipseitem_updatemicrofocus_callback();
-        } else {
-            QGraphicsEllipseItem::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicsellipseitem_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsEllipseItem::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5507,11 +5781,14 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_addtoindex_isbase) {
             qgraphicsellipseitem_addtoindex_isbase = false;
             QGraphicsEllipseItem::addToIndex();
-        } else if (qgraphicsellipseitem_addtoindex_callback != nullptr) {
-            qgraphicsellipseitem_addtoindex_callback();
-        } else {
-            QGraphicsEllipseItem::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicsellipseitem_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsEllipseItem::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5519,11 +5796,14 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_removefromindex_isbase) {
             qgraphicsellipseitem_removefromindex_isbase = false;
             QGraphicsEllipseItem::removeFromIndex();
-        } else if (qgraphicsellipseitem_removefromindex_callback != nullptr) {
-            qgraphicsellipseitem_removefromindex_callback();
-        } else {
-            QGraphicsEllipseItem::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicsellipseitem_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsEllipseItem::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5531,11 +5811,14 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
         if (qgraphicsellipseitem_preparegeometrychange_isbase) {
             qgraphicsellipseitem_preparegeometrychange_isbase = false;
             QGraphicsEllipseItem::prepareGeometryChange();
-        } else if (qgraphicsellipseitem_preparegeometrychange_callback != nullptr) {
-            qgraphicsellipseitem_preparegeometrychange_callback();
-        } else {
-            QGraphicsEllipseItem::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicsellipseitem_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsEllipseItem::prepareGeometryChange();
     }
 
     // Friend functions
@@ -5735,48 +6018,6 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
     VirtualQGraphicsPolygonItem() : QGraphicsPolygonItem() {};
     VirtualQGraphicsPolygonItem(QGraphicsItem* parent) : QGraphicsPolygonItem(parent) {};
 
-    ~VirtualQGraphicsPolygonItem() {
-        qgraphicspolygonitem_boundingrect_callback = nullptr;
-        qgraphicspolygonitem_shape_callback = nullptr;
-        qgraphicspolygonitem_contains_callback = nullptr;
-        qgraphicspolygonitem_paint_callback = nullptr;
-        qgraphicspolygonitem_isobscuredby_callback = nullptr;
-        qgraphicspolygonitem_opaquearea_callback = nullptr;
-        qgraphicspolygonitem_type_callback = nullptr;
-        qgraphicspolygonitem_supportsextension_callback = nullptr;
-        qgraphicspolygonitem_setextension_callback = nullptr;
-        qgraphicspolygonitem_extension_callback = nullptr;
-        qgraphicspolygonitem_advance_callback = nullptr;
-        qgraphicspolygonitem_collideswithitem_callback = nullptr;
-        qgraphicspolygonitem_collideswithpath_callback = nullptr;
-        qgraphicspolygonitem_sceneeventfilter_callback = nullptr;
-        qgraphicspolygonitem_sceneevent_callback = nullptr;
-        qgraphicspolygonitem_contextmenuevent_callback = nullptr;
-        qgraphicspolygonitem_dragenterevent_callback = nullptr;
-        qgraphicspolygonitem_dragleaveevent_callback = nullptr;
-        qgraphicspolygonitem_dragmoveevent_callback = nullptr;
-        qgraphicspolygonitem_dropevent_callback = nullptr;
-        qgraphicspolygonitem_focusinevent_callback = nullptr;
-        qgraphicspolygonitem_focusoutevent_callback = nullptr;
-        qgraphicspolygonitem_hoverenterevent_callback = nullptr;
-        qgraphicspolygonitem_hovermoveevent_callback = nullptr;
-        qgraphicspolygonitem_hoverleaveevent_callback = nullptr;
-        qgraphicspolygonitem_keypressevent_callback = nullptr;
-        qgraphicspolygonitem_keyreleaseevent_callback = nullptr;
-        qgraphicspolygonitem_mousepressevent_callback = nullptr;
-        qgraphicspolygonitem_mousemoveevent_callback = nullptr;
-        qgraphicspolygonitem_mousereleaseevent_callback = nullptr;
-        qgraphicspolygonitem_mousedoubleclickevent_callback = nullptr;
-        qgraphicspolygonitem_wheelevent_callback = nullptr;
-        qgraphicspolygonitem_inputmethodevent_callback = nullptr;
-        qgraphicspolygonitem_inputmethodquery_callback = nullptr;
-        qgraphicspolygonitem_itemchange_callback = nullptr;
-        qgraphicspolygonitem_updatemicrofocus_callback = nullptr;
-        qgraphicspolygonitem_addtoindex_callback = nullptr;
-        qgraphicspolygonitem_removefromindex_callback = nullptr;
-        qgraphicspolygonitem_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsPolygonItem_BoundingRect_Callback(QGraphicsPolygonItem_BoundingRect_Callback cb) { qgraphicspolygonitem_boundingrect_callback = cb; }
     inline void setQGraphicsPolygonItem_Shape_Callback(QGraphicsPolygonItem_Shape_Callback cb) { qgraphicspolygonitem_shape_callback = cb; }
@@ -5864,12 +6105,13 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_boundingrect_isbase) {
             qgraphicspolygonitem_boundingrect_isbase = false;
             return QGraphicsPolygonItem::boundingRect();
-        } else if (qgraphicspolygonitem_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicspolygonitem_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsPolygonItem::boundingRect();
         }
+        auto boundingrect_cb = qgraphicspolygonitem_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsPolygonItem::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5877,12 +6119,13 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_shape_isbase) {
             qgraphicspolygonitem_shape_isbase = false;
             return QGraphicsPolygonItem::shape();
-        } else if (qgraphicspolygonitem_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicspolygonitem_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsPolygonItem::shape();
         }
+        auto shape_cb = qgraphicspolygonitem_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsPolygonItem::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5890,16 +6133,17 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_contains_isbase) {
             qgraphicspolygonitem_contains_isbase = false;
             return QGraphicsPolygonItem::contains(point);
-        } else if (qgraphicspolygonitem_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicspolygonitem_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicspolygonitem_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPolygonItem::contains(point);
         }
+        return QGraphicsPolygonItem::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5907,15 +6151,18 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_paint_isbase) {
             qgraphicspolygonitem_paint_isbase = false;
             QGraphicsPolygonItem::paint(painter, option, widget);
-        } else if (qgraphicspolygonitem_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qgraphicspolygonitem_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicspolygonitem_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QGraphicsPolygonItem::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QGraphicsPolygonItem::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5923,14 +6170,15 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_isobscuredby_isbase) {
             qgraphicspolygonitem_isobscuredby_isbase = false;
             return QGraphicsPolygonItem::isObscuredBy(item);
-        } else if (qgraphicspolygonitem_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicspolygonitem_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicspolygonitem_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPolygonItem::isObscuredBy(item);
         }
+        return QGraphicsPolygonItem::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5938,12 +6186,13 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_opaquearea_isbase) {
             qgraphicspolygonitem_opaquearea_isbase = false;
             return QGraphicsPolygonItem::opaqueArea();
-        } else if (qgraphicspolygonitem_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicspolygonitem_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsPolygonItem::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicspolygonitem_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsPolygonItem::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5951,12 +6200,13 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_type_isbase) {
             qgraphicspolygonitem_type_isbase = false;
             return QGraphicsPolygonItem::type();
-        } else if (qgraphicspolygonitem_type_callback != nullptr) {
-            int callback_ret = qgraphicspolygonitem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsPolygonItem::type();
         }
+        auto type_cb = qgraphicspolygonitem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsPolygonItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5964,14 +6214,15 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_supportsextension_isbase) {
             qgraphicspolygonitem_supportsextension_isbase = false;
             return QGraphicsPolygonItem::supportsExtension(extension);
-        } else if (qgraphicspolygonitem_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicspolygonitem_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicspolygonitem_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPolygonItem::supportsExtension(extension);
         }
+        return QGraphicsPolygonItem::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5979,16 +6230,19 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_setextension_isbase) {
             qgraphicspolygonitem_setextension_isbase = false;
             QGraphicsPolygonItem::setExtension(extension, variant);
-        } else if (qgraphicspolygonitem_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicspolygonitem_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicspolygonitem_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsPolygonItem::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsPolygonItem::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5996,16 +6250,17 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_extension_isbase) {
             qgraphicspolygonitem_extension_isbase = false;
             return QGraphicsPolygonItem::extension(variant);
-        } else if (qgraphicspolygonitem_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicspolygonitem_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicspolygonitem_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsPolygonItem::extension(variant);
         }
+        return QGraphicsPolygonItem::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6013,13 +6268,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_advance_isbase) {
             qgraphicspolygonitem_advance_isbase = false;
             QGraphicsPolygonItem::advance(phase);
-        } else if (qgraphicspolygonitem_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicspolygonitem_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicspolygonitem_advance_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6027,15 +6285,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_collideswithitem_isbase) {
             qgraphicspolygonitem_collideswithitem_isbase = false;
             return QGraphicsPolygonItem::collidesWithItem(other, mode);
-        } else if (qgraphicspolygonitem_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicspolygonitem_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicspolygonitem_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsPolygonItem::collidesWithItem(other, mode);
         }
+        return QGraphicsPolygonItem::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6043,17 +6302,18 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_collideswithpath_isbase) {
             qgraphicspolygonitem_collideswithpath_isbase = false;
             return QGraphicsPolygonItem::collidesWithPath(path, mode);
-        } else if (qgraphicspolygonitem_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicspolygonitem_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicspolygonitem_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsPolygonItem::collidesWithPath(path, mode);
         }
+        return QGraphicsPolygonItem::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6061,15 +6321,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_sceneeventfilter_isbase) {
             qgraphicspolygonitem_sceneeventfilter_isbase = false;
             return QGraphicsPolygonItem::sceneEventFilter(watched, event);
-        } else if (qgraphicspolygonitem_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicspolygonitem_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicspolygonitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsPolygonItem::sceneEventFilter(watched, event);
         }
+        return QGraphicsPolygonItem::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6077,14 +6338,15 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_sceneevent_isbase) {
             qgraphicspolygonitem_sceneevent_isbase = false;
             return QGraphicsPolygonItem::sceneEvent(event);
-        } else if (qgraphicspolygonitem_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicspolygonitem_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicspolygonitem_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPolygonItem::sceneEvent(event);
         }
+        return QGraphicsPolygonItem::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6092,13 +6354,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_contextmenuevent_isbase) {
             qgraphicspolygonitem_contextmenuevent_isbase = false;
             QGraphicsPolygonItem::contextMenuEvent(event);
-        } else if (qgraphicspolygonitem_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicspolygonitem_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicspolygonitem_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6106,13 +6371,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_dragenterevent_isbase) {
             qgraphicspolygonitem_dragenterevent_isbase = false;
             QGraphicsPolygonItem::dragEnterEvent(event);
-        } else if (qgraphicspolygonitem_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicspolygonitem_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspolygonitem_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6120,13 +6388,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_dragleaveevent_isbase) {
             qgraphicspolygonitem_dragleaveevent_isbase = false;
             QGraphicsPolygonItem::dragLeaveEvent(event);
-        } else if (qgraphicspolygonitem_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicspolygonitem_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspolygonitem_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6134,13 +6405,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_dragmoveevent_isbase) {
             qgraphicspolygonitem_dragmoveevent_isbase = false;
             QGraphicsPolygonItem::dragMoveEvent(event);
-        } else if (qgraphicspolygonitem_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicspolygonitem_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspolygonitem_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6148,13 +6422,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_dropevent_isbase) {
             qgraphicspolygonitem_dropevent_isbase = false;
             QGraphicsPolygonItem::dropEvent(event);
-        } else if (qgraphicspolygonitem_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicspolygonitem_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspolygonitem_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6162,13 +6439,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_focusinevent_isbase) {
             qgraphicspolygonitem_focusinevent_isbase = false;
             QGraphicsPolygonItem::focusInEvent(event);
-        } else if (qgraphicspolygonitem_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicspolygonitem_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicspolygonitem_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6176,13 +6456,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_focusoutevent_isbase) {
             qgraphicspolygonitem_focusoutevent_isbase = false;
             QGraphicsPolygonItem::focusOutEvent(event);
-        } else if (qgraphicspolygonitem_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicspolygonitem_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicspolygonitem_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6190,13 +6473,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_hoverenterevent_isbase) {
             qgraphicspolygonitem_hoverenterevent_isbase = false;
             QGraphicsPolygonItem::hoverEnterEvent(event);
-        } else if (qgraphicspolygonitem_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicspolygonitem_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicspolygonitem_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6204,13 +6490,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_hovermoveevent_isbase) {
             qgraphicspolygonitem_hovermoveevent_isbase = false;
             QGraphicsPolygonItem::hoverMoveEvent(event);
-        } else if (qgraphicspolygonitem_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicspolygonitem_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicspolygonitem_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6218,13 +6507,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_hoverleaveevent_isbase) {
             qgraphicspolygonitem_hoverleaveevent_isbase = false;
             QGraphicsPolygonItem::hoverLeaveEvent(event);
-        } else if (qgraphicspolygonitem_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicspolygonitem_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicspolygonitem_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6232,13 +6524,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_keypressevent_isbase) {
             qgraphicspolygonitem_keypressevent_isbase = false;
             QGraphicsPolygonItem::keyPressEvent(event);
-        } else if (qgraphicspolygonitem_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicspolygonitem_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicspolygonitem_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6246,13 +6541,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_keyreleaseevent_isbase) {
             qgraphicspolygonitem_keyreleaseevent_isbase = false;
             QGraphicsPolygonItem::keyReleaseEvent(event);
-        } else if (qgraphicspolygonitem_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicspolygonitem_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicspolygonitem_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6260,13 +6558,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_mousepressevent_isbase) {
             qgraphicspolygonitem_mousepressevent_isbase = false;
             QGraphicsPolygonItem::mousePressEvent(event);
-        } else if (qgraphicspolygonitem_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicspolygonitem_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspolygonitem_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6274,13 +6575,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_mousemoveevent_isbase) {
             qgraphicspolygonitem_mousemoveevent_isbase = false;
             QGraphicsPolygonItem::mouseMoveEvent(event);
-        } else if (qgraphicspolygonitem_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicspolygonitem_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspolygonitem_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6288,13 +6592,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_mousereleaseevent_isbase) {
             qgraphicspolygonitem_mousereleaseevent_isbase = false;
             QGraphicsPolygonItem::mouseReleaseEvent(event);
-        } else if (qgraphicspolygonitem_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicspolygonitem_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspolygonitem_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6302,13 +6609,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_mousedoubleclickevent_isbase) {
             qgraphicspolygonitem_mousedoubleclickevent_isbase = false;
             QGraphicsPolygonItem::mouseDoubleClickEvent(event);
-        } else if (qgraphicspolygonitem_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicspolygonitem_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspolygonitem_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6316,13 +6626,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_wheelevent_isbase) {
             qgraphicspolygonitem_wheelevent_isbase = false;
             QGraphicsPolygonItem::wheelEvent(event);
-        } else if (qgraphicspolygonitem_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicspolygonitem_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicspolygonitem_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6330,13 +6643,16 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_inputmethodevent_isbase) {
             qgraphicspolygonitem_inputmethodevent_isbase = false;
             QGraphicsPolygonItem::inputMethodEvent(event);
-        } else if (qgraphicspolygonitem_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicspolygonitem_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicspolygonitem_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsPolygonItem::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPolygonItem::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6344,14 +6660,15 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_inputmethodquery_isbase) {
             qgraphicspolygonitem_inputmethodquery_isbase = false;
             return QGraphicsPolygonItem::inputMethodQuery(query);
-        } else if (qgraphicspolygonitem_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicspolygonitem_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicspolygonitem_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsPolygonItem::inputMethodQuery(query);
         }
+        return QGraphicsPolygonItem::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6359,17 +6676,18 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_itemchange_isbase) {
             qgraphicspolygonitem_itemchange_isbase = false;
             return QGraphicsPolygonItem::itemChange(change, value);
-        } else if (qgraphicspolygonitem_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicspolygonitem_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicspolygonitem_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsPolygonItem::itemChange(change, value);
         }
+        return QGraphicsPolygonItem::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6377,11 +6695,14 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_updatemicrofocus_isbase) {
             qgraphicspolygonitem_updatemicrofocus_isbase = false;
             QGraphicsPolygonItem::updateMicroFocus();
-        } else if (qgraphicspolygonitem_updatemicrofocus_callback != nullptr) {
-            qgraphicspolygonitem_updatemicrofocus_callback();
-        } else {
-            QGraphicsPolygonItem::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicspolygonitem_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsPolygonItem::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6389,11 +6710,14 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_addtoindex_isbase) {
             qgraphicspolygonitem_addtoindex_isbase = false;
             QGraphicsPolygonItem::addToIndex();
-        } else if (qgraphicspolygonitem_addtoindex_callback != nullptr) {
-            qgraphicspolygonitem_addtoindex_callback();
-        } else {
-            QGraphicsPolygonItem::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicspolygonitem_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsPolygonItem::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6401,11 +6725,14 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_removefromindex_isbase) {
             qgraphicspolygonitem_removefromindex_isbase = false;
             QGraphicsPolygonItem::removeFromIndex();
-        } else if (qgraphicspolygonitem_removefromindex_callback != nullptr) {
-            qgraphicspolygonitem_removefromindex_callback();
-        } else {
-            QGraphicsPolygonItem::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicspolygonitem_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsPolygonItem::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6413,11 +6740,14 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
         if (qgraphicspolygonitem_preparegeometrychange_isbase) {
             qgraphicspolygonitem_preparegeometrychange_isbase = false;
             QGraphicsPolygonItem::prepareGeometryChange();
-        } else if (qgraphicspolygonitem_preparegeometrychange_callback != nullptr) {
-            qgraphicspolygonitem_preparegeometrychange_callback();
-        } else {
-            QGraphicsPolygonItem::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicspolygonitem_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsPolygonItem::prepareGeometryChange();
     }
 
     // Friend functions
@@ -6621,48 +6951,6 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
     VirtualQGraphicsLineItem(const QLineF& line, QGraphicsItem* parent) : QGraphicsLineItem(line, parent) {};
     VirtualQGraphicsLineItem(qreal x1, qreal y1, qreal x2, qreal y2, QGraphicsItem* parent) : QGraphicsLineItem(x1, y1, x2, y2, parent) {};
 
-    ~VirtualQGraphicsLineItem() {
-        qgraphicslineitem_boundingrect_callback = nullptr;
-        qgraphicslineitem_shape_callback = nullptr;
-        qgraphicslineitem_contains_callback = nullptr;
-        qgraphicslineitem_paint_callback = nullptr;
-        qgraphicslineitem_isobscuredby_callback = nullptr;
-        qgraphicslineitem_opaquearea_callback = nullptr;
-        qgraphicslineitem_type_callback = nullptr;
-        qgraphicslineitem_supportsextension_callback = nullptr;
-        qgraphicslineitem_setextension_callback = nullptr;
-        qgraphicslineitem_extension_callback = nullptr;
-        qgraphicslineitem_advance_callback = nullptr;
-        qgraphicslineitem_collideswithitem_callback = nullptr;
-        qgraphicslineitem_collideswithpath_callback = nullptr;
-        qgraphicslineitem_sceneeventfilter_callback = nullptr;
-        qgraphicslineitem_sceneevent_callback = nullptr;
-        qgraphicslineitem_contextmenuevent_callback = nullptr;
-        qgraphicslineitem_dragenterevent_callback = nullptr;
-        qgraphicslineitem_dragleaveevent_callback = nullptr;
-        qgraphicslineitem_dragmoveevent_callback = nullptr;
-        qgraphicslineitem_dropevent_callback = nullptr;
-        qgraphicslineitem_focusinevent_callback = nullptr;
-        qgraphicslineitem_focusoutevent_callback = nullptr;
-        qgraphicslineitem_hoverenterevent_callback = nullptr;
-        qgraphicslineitem_hovermoveevent_callback = nullptr;
-        qgraphicslineitem_hoverleaveevent_callback = nullptr;
-        qgraphicslineitem_keypressevent_callback = nullptr;
-        qgraphicslineitem_keyreleaseevent_callback = nullptr;
-        qgraphicslineitem_mousepressevent_callback = nullptr;
-        qgraphicslineitem_mousemoveevent_callback = nullptr;
-        qgraphicslineitem_mousereleaseevent_callback = nullptr;
-        qgraphicslineitem_mousedoubleclickevent_callback = nullptr;
-        qgraphicslineitem_wheelevent_callback = nullptr;
-        qgraphicslineitem_inputmethodevent_callback = nullptr;
-        qgraphicslineitem_inputmethodquery_callback = nullptr;
-        qgraphicslineitem_itemchange_callback = nullptr;
-        qgraphicslineitem_updatemicrofocus_callback = nullptr;
-        qgraphicslineitem_addtoindex_callback = nullptr;
-        qgraphicslineitem_removefromindex_callback = nullptr;
-        qgraphicslineitem_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsLineItem_BoundingRect_Callback(QGraphicsLineItem_BoundingRect_Callback cb) { qgraphicslineitem_boundingrect_callback = cb; }
     inline void setQGraphicsLineItem_Shape_Callback(QGraphicsLineItem_Shape_Callback cb) { qgraphicslineitem_shape_callback = cb; }
@@ -6750,12 +7038,13 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_boundingrect_isbase) {
             qgraphicslineitem_boundingrect_isbase = false;
             return QGraphicsLineItem::boundingRect();
-        } else if (qgraphicslineitem_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicslineitem_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsLineItem::boundingRect();
         }
+        auto boundingrect_cb = qgraphicslineitem_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsLineItem::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6763,12 +7052,13 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_shape_isbase) {
             qgraphicslineitem_shape_isbase = false;
             return QGraphicsLineItem::shape();
-        } else if (qgraphicslineitem_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicslineitem_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsLineItem::shape();
         }
+        auto shape_cb = qgraphicslineitem_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsLineItem::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6776,16 +7066,17 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_contains_isbase) {
             qgraphicslineitem_contains_isbase = false;
             return QGraphicsLineItem::contains(point);
-        } else if (qgraphicslineitem_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicslineitem_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicslineitem_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsLineItem::contains(point);
         }
+        return QGraphicsLineItem::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6793,15 +7084,18 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_paint_isbase) {
             qgraphicslineitem_paint_isbase = false;
             QGraphicsLineItem::paint(painter, option, widget);
-        } else if (qgraphicslineitem_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qgraphicslineitem_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicslineitem_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QGraphicsLineItem::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QGraphicsLineItem::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6809,14 +7103,15 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_isobscuredby_isbase) {
             qgraphicslineitem_isobscuredby_isbase = false;
             return QGraphicsLineItem::isObscuredBy(item);
-        } else if (qgraphicslineitem_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicslineitem_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicslineitem_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsLineItem::isObscuredBy(item);
         }
+        return QGraphicsLineItem::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6824,12 +7119,13 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_opaquearea_isbase) {
             qgraphicslineitem_opaquearea_isbase = false;
             return QGraphicsLineItem::opaqueArea();
-        } else if (qgraphicslineitem_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicslineitem_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsLineItem::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicslineitem_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsLineItem::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6837,12 +7133,13 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_type_isbase) {
             qgraphicslineitem_type_isbase = false;
             return QGraphicsLineItem::type();
-        } else if (qgraphicslineitem_type_callback != nullptr) {
-            int callback_ret = qgraphicslineitem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsLineItem::type();
         }
+        auto type_cb = qgraphicslineitem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsLineItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6850,14 +7147,15 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_supportsextension_isbase) {
             qgraphicslineitem_supportsextension_isbase = false;
             return QGraphicsLineItem::supportsExtension(extension);
-        } else if (qgraphicslineitem_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicslineitem_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicslineitem_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsLineItem::supportsExtension(extension);
         }
+        return QGraphicsLineItem::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6865,16 +7163,19 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_setextension_isbase) {
             qgraphicslineitem_setextension_isbase = false;
             QGraphicsLineItem::setExtension(extension, variant);
-        } else if (qgraphicslineitem_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicslineitem_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicslineitem_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsLineItem::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsLineItem::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6882,16 +7183,17 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_extension_isbase) {
             qgraphicslineitem_extension_isbase = false;
             return QGraphicsLineItem::extension(variant);
-        } else if (qgraphicslineitem_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicslineitem_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicslineitem_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsLineItem::extension(variant);
         }
+        return QGraphicsLineItem::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6899,13 +7201,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_advance_isbase) {
             qgraphicslineitem_advance_isbase = false;
             QGraphicsLineItem::advance(phase);
-        } else if (qgraphicslineitem_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicslineitem_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicslineitem_advance_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6913,15 +7218,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_collideswithitem_isbase) {
             qgraphicslineitem_collideswithitem_isbase = false;
             return QGraphicsLineItem::collidesWithItem(other, mode);
-        } else if (qgraphicslineitem_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicslineitem_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicslineitem_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsLineItem::collidesWithItem(other, mode);
         }
+        return QGraphicsLineItem::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6929,17 +7235,18 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_collideswithpath_isbase) {
             qgraphicslineitem_collideswithpath_isbase = false;
             return QGraphicsLineItem::collidesWithPath(path, mode);
-        } else if (qgraphicslineitem_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicslineitem_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicslineitem_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsLineItem::collidesWithPath(path, mode);
         }
+        return QGraphicsLineItem::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6947,15 +7254,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_sceneeventfilter_isbase) {
             qgraphicslineitem_sceneeventfilter_isbase = false;
             return QGraphicsLineItem::sceneEventFilter(watched, event);
-        } else if (qgraphicslineitem_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicslineitem_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicslineitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsLineItem::sceneEventFilter(watched, event);
         }
+        return QGraphicsLineItem::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6963,14 +7271,15 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_sceneevent_isbase) {
             qgraphicslineitem_sceneevent_isbase = false;
             return QGraphicsLineItem::sceneEvent(event);
-        } else if (qgraphicslineitem_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicslineitem_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicslineitem_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsLineItem::sceneEvent(event);
         }
+        return QGraphicsLineItem::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6978,13 +7287,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_contextmenuevent_isbase) {
             qgraphicslineitem_contextmenuevent_isbase = false;
             QGraphicsLineItem::contextMenuEvent(event);
-        } else if (qgraphicslineitem_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicslineitem_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicslineitem_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -6992,13 +7304,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_dragenterevent_isbase) {
             qgraphicslineitem_dragenterevent_isbase = false;
             QGraphicsLineItem::dragEnterEvent(event);
-        } else if (qgraphicslineitem_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicslineitem_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicslineitem_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7006,13 +7321,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_dragleaveevent_isbase) {
             qgraphicslineitem_dragleaveevent_isbase = false;
             QGraphicsLineItem::dragLeaveEvent(event);
-        } else if (qgraphicslineitem_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicslineitem_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicslineitem_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7020,13 +7338,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_dragmoveevent_isbase) {
             qgraphicslineitem_dragmoveevent_isbase = false;
             QGraphicsLineItem::dragMoveEvent(event);
-        } else if (qgraphicslineitem_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicslineitem_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicslineitem_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7034,13 +7355,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_dropevent_isbase) {
             qgraphicslineitem_dropevent_isbase = false;
             QGraphicsLineItem::dropEvent(event);
-        } else if (qgraphicslineitem_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicslineitem_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicslineitem_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7048,13 +7372,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_focusinevent_isbase) {
             qgraphicslineitem_focusinevent_isbase = false;
             QGraphicsLineItem::focusInEvent(event);
-        } else if (qgraphicslineitem_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicslineitem_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicslineitem_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7062,13 +7389,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_focusoutevent_isbase) {
             qgraphicslineitem_focusoutevent_isbase = false;
             QGraphicsLineItem::focusOutEvent(event);
-        } else if (qgraphicslineitem_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicslineitem_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicslineitem_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7076,13 +7406,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_hoverenterevent_isbase) {
             qgraphicslineitem_hoverenterevent_isbase = false;
             QGraphicsLineItem::hoverEnterEvent(event);
-        } else if (qgraphicslineitem_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicslineitem_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicslineitem_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7090,13 +7423,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_hovermoveevent_isbase) {
             qgraphicslineitem_hovermoveevent_isbase = false;
             QGraphicsLineItem::hoverMoveEvent(event);
-        } else if (qgraphicslineitem_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicslineitem_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicslineitem_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7104,13 +7440,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_hoverleaveevent_isbase) {
             qgraphicslineitem_hoverleaveevent_isbase = false;
             QGraphicsLineItem::hoverLeaveEvent(event);
-        } else if (qgraphicslineitem_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicslineitem_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicslineitem_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7118,13 +7457,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_keypressevent_isbase) {
             qgraphicslineitem_keypressevent_isbase = false;
             QGraphicsLineItem::keyPressEvent(event);
-        } else if (qgraphicslineitem_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicslineitem_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicslineitem_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7132,13 +7474,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_keyreleaseevent_isbase) {
             qgraphicslineitem_keyreleaseevent_isbase = false;
             QGraphicsLineItem::keyReleaseEvent(event);
-        } else if (qgraphicslineitem_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicslineitem_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicslineitem_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7146,13 +7491,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_mousepressevent_isbase) {
             qgraphicslineitem_mousepressevent_isbase = false;
             QGraphicsLineItem::mousePressEvent(event);
-        } else if (qgraphicslineitem_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicslineitem_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicslineitem_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7160,13 +7508,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_mousemoveevent_isbase) {
             qgraphicslineitem_mousemoveevent_isbase = false;
             QGraphicsLineItem::mouseMoveEvent(event);
-        } else if (qgraphicslineitem_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicslineitem_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicslineitem_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7174,13 +7525,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_mousereleaseevent_isbase) {
             qgraphicslineitem_mousereleaseevent_isbase = false;
             QGraphicsLineItem::mouseReleaseEvent(event);
-        } else if (qgraphicslineitem_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicslineitem_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicslineitem_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7188,13 +7542,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_mousedoubleclickevent_isbase) {
             qgraphicslineitem_mousedoubleclickevent_isbase = false;
             QGraphicsLineItem::mouseDoubleClickEvent(event);
-        } else if (qgraphicslineitem_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicslineitem_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicslineitem_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7202,13 +7559,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_wheelevent_isbase) {
             qgraphicslineitem_wheelevent_isbase = false;
             QGraphicsLineItem::wheelEvent(event);
-        } else if (qgraphicslineitem_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicslineitem_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicslineitem_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7216,13 +7576,16 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_inputmethodevent_isbase) {
             qgraphicslineitem_inputmethodevent_isbase = false;
             QGraphicsLineItem::inputMethodEvent(event);
-        } else if (qgraphicslineitem_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicslineitem_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicslineitem_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsLineItem::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsLineItem::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7230,14 +7593,15 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_inputmethodquery_isbase) {
             qgraphicslineitem_inputmethodquery_isbase = false;
             return QGraphicsLineItem::inputMethodQuery(query);
-        } else if (qgraphicslineitem_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicslineitem_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicslineitem_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsLineItem::inputMethodQuery(query);
         }
+        return QGraphicsLineItem::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7245,17 +7609,18 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_itemchange_isbase) {
             qgraphicslineitem_itemchange_isbase = false;
             return QGraphicsLineItem::itemChange(change, value);
-        } else if (qgraphicslineitem_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicslineitem_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicslineitem_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsLineItem::itemChange(change, value);
         }
+        return QGraphicsLineItem::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7263,11 +7628,14 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_updatemicrofocus_isbase) {
             qgraphicslineitem_updatemicrofocus_isbase = false;
             QGraphicsLineItem::updateMicroFocus();
-        } else if (qgraphicslineitem_updatemicrofocus_callback != nullptr) {
-            qgraphicslineitem_updatemicrofocus_callback();
-        } else {
-            QGraphicsLineItem::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicslineitem_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsLineItem::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7275,11 +7643,14 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_addtoindex_isbase) {
             qgraphicslineitem_addtoindex_isbase = false;
             QGraphicsLineItem::addToIndex();
-        } else if (qgraphicslineitem_addtoindex_callback != nullptr) {
-            qgraphicslineitem_addtoindex_callback();
-        } else {
-            QGraphicsLineItem::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicslineitem_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsLineItem::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7287,11 +7658,14 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_removefromindex_isbase) {
             qgraphicslineitem_removefromindex_isbase = false;
             QGraphicsLineItem::removeFromIndex();
-        } else if (qgraphicslineitem_removefromindex_callback != nullptr) {
-            qgraphicslineitem_removefromindex_callback();
-        } else {
-            QGraphicsLineItem::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicslineitem_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsLineItem::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7299,11 +7673,14 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
         if (qgraphicslineitem_preparegeometrychange_isbase) {
             qgraphicslineitem_preparegeometrychange_isbase = false;
             QGraphicsLineItem::prepareGeometryChange();
-        } else if (qgraphicslineitem_preparegeometrychange_callback != nullptr) {
-            qgraphicslineitem_preparegeometrychange_callback();
-        } else {
-            QGraphicsLineItem::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicslineitem_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsLineItem::prepareGeometryChange();
     }
 
     // Friend functions
@@ -7505,48 +7882,6 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
     VirtualQGraphicsPixmapItem(QGraphicsItem* parent) : QGraphicsPixmapItem(parent) {};
     VirtualQGraphicsPixmapItem(const QPixmap& pixmap, QGraphicsItem* parent) : QGraphicsPixmapItem(pixmap, parent) {};
 
-    ~VirtualQGraphicsPixmapItem() {
-        qgraphicspixmapitem_boundingrect_callback = nullptr;
-        qgraphicspixmapitem_shape_callback = nullptr;
-        qgraphicspixmapitem_contains_callback = nullptr;
-        qgraphicspixmapitem_paint_callback = nullptr;
-        qgraphicspixmapitem_isobscuredby_callback = nullptr;
-        qgraphicspixmapitem_opaquearea_callback = nullptr;
-        qgraphicspixmapitem_type_callback = nullptr;
-        qgraphicspixmapitem_supportsextension_callback = nullptr;
-        qgraphicspixmapitem_setextension_callback = nullptr;
-        qgraphicspixmapitem_extension_callback = nullptr;
-        qgraphicspixmapitem_advance_callback = nullptr;
-        qgraphicspixmapitem_collideswithitem_callback = nullptr;
-        qgraphicspixmapitem_collideswithpath_callback = nullptr;
-        qgraphicspixmapitem_sceneeventfilter_callback = nullptr;
-        qgraphicspixmapitem_sceneevent_callback = nullptr;
-        qgraphicspixmapitem_contextmenuevent_callback = nullptr;
-        qgraphicspixmapitem_dragenterevent_callback = nullptr;
-        qgraphicspixmapitem_dragleaveevent_callback = nullptr;
-        qgraphicspixmapitem_dragmoveevent_callback = nullptr;
-        qgraphicspixmapitem_dropevent_callback = nullptr;
-        qgraphicspixmapitem_focusinevent_callback = nullptr;
-        qgraphicspixmapitem_focusoutevent_callback = nullptr;
-        qgraphicspixmapitem_hoverenterevent_callback = nullptr;
-        qgraphicspixmapitem_hovermoveevent_callback = nullptr;
-        qgraphicspixmapitem_hoverleaveevent_callback = nullptr;
-        qgraphicspixmapitem_keypressevent_callback = nullptr;
-        qgraphicspixmapitem_keyreleaseevent_callback = nullptr;
-        qgraphicspixmapitem_mousepressevent_callback = nullptr;
-        qgraphicspixmapitem_mousemoveevent_callback = nullptr;
-        qgraphicspixmapitem_mousereleaseevent_callback = nullptr;
-        qgraphicspixmapitem_mousedoubleclickevent_callback = nullptr;
-        qgraphicspixmapitem_wheelevent_callback = nullptr;
-        qgraphicspixmapitem_inputmethodevent_callback = nullptr;
-        qgraphicspixmapitem_inputmethodquery_callback = nullptr;
-        qgraphicspixmapitem_itemchange_callback = nullptr;
-        qgraphicspixmapitem_updatemicrofocus_callback = nullptr;
-        qgraphicspixmapitem_addtoindex_callback = nullptr;
-        qgraphicspixmapitem_removefromindex_callback = nullptr;
-        qgraphicspixmapitem_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsPixmapItem_BoundingRect_Callback(QGraphicsPixmapItem_BoundingRect_Callback cb) { qgraphicspixmapitem_boundingrect_callback = cb; }
     inline void setQGraphicsPixmapItem_Shape_Callback(QGraphicsPixmapItem_Shape_Callback cb) { qgraphicspixmapitem_shape_callback = cb; }
@@ -7634,12 +7969,13 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_boundingrect_isbase) {
             qgraphicspixmapitem_boundingrect_isbase = false;
             return QGraphicsPixmapItem::boundingRect();
-        } else if (qgraphicspixmapitem_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicspixmapitem_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsPixmapItem::boundingRect();
         }
+        auto boundingrect_cb = qgraphicspixmapitem_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsPixmapItem::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7647,12 +7983,13 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_shape_isbase) {
             qgraphicspixmapitem_shape_isbase = false;
             return QGraphicsPixmapItem::shape();
-        } else if (qgraphicspixmapitem_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicspixmapitem_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsPixmapItem::shape();
         }
+        auto shape_cb = qgraphicspixmapitem_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsPixmapItem::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7660,16 +7997,17 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_contains_isbase) {
             qgraphicspixmapitem_contains_isbase = false;
             return QGraphicsPixmapItem::contains(point);
-        } else if (qgraphicspixmapitem_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicspixmapitem_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicspixmapitem_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPixmapItem::contains(point);
         }
+        return QGraphicsPixmapItem::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7677,15 +8015,18 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_paint_isbase) {
             qgraphicspixmapitem_paint_isbase = false;
             QGraphicsPixmapItem::paint(painter, option, widget);
-        } else if (qgraphicspixmapitem_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qgraphicspixmapitem_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicspixmapitem_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QGraphicsPixmapItem::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QGraphicsPixmapItem::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7693,14 +8034,15 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_isobscuredby_isbase) {
             qgraphicspixmapitem_isobscuredby_isbase = false;
             return QGraphicsPixmapItem::isObscuredBy(item);
-        } else if (qgraphicspixmapitem_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicspixmapitem_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicspixmapitem_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPixmapItem::isObscuredBy(item);
         }
+        return QGraphicsPixmapItem::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7708,12 +8050,13 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_opaquearea_isbase) {
             qgraphicspixmapitem_opaquearea_isbase = false;
             return QGraphicsPixmapItem::opaqueArea();
-        } else if (qgraphicspixmapitem_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicspixmapitem_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsPixmapItem::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicspixmapitem_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsPixmapItem::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7721,12 +8064,13 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_type_isbase) {
             qgraphicspixmapitem_type_isbase = false;
             return QGraphicsPixmapItem::type();
-        } else if (qgraphicspixmapitem_type_callback != nullptr) {
-            int callback_ret = qgraphicspixmapitem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsPixmapItem::type();
         }
+        auto type_cb = qgraphicspixmapitem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsPixmapItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7734,14 +8078,15 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_supportsextension_isbase) {
             qgraphicspixmapitem_supportsextension_isbase = false;
             return QGraphicsPixmapItem::supportsExtension(extension);
-        } else if (qgraphicspixmapitem_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicspixmapitem_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicspixmapitem_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPixmapItem::supportsExtension(extension);
         }
+        return QGraphicsPixmapItem::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7749,16 +8094,19 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_setextension_isbase) {
             qgraphicspixmapitem_setextension_isbase = false;
             QGraphicsPixmapItem::setExtension(extension, variant);
-        } else if (qgraphicspixmapitem_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicspixmapitem_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicspixmapitem_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsPixmapItem::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsPixmapItem::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7766,16 +8114,17 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_extension_isbase) {
             qgraphicspixmapitem_extension_isbase = false;
             return QGraphicsPixmapItem::extension(variant);
-        } else if (qgraphicspixmapitem_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicspixmapitem_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicspixmapitem_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsPixmapItem::extension(variant);
         }
+        return QGraphicsPixmapItem::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7783,13 +8132,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_advance_isbase) {
             qgraphicspixmapitem_advance_isbase = false;
             QGraphicsPixmapItem::advance(phase);
-        } else if (qgraphicspixmapitem_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicspixmapitem_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicspixmapitem_advance_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7797,15 +8149,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_collideswithitem_isbase) {
             qgraphicspixmapitem_collideswithitem_isbase = false;
             return QGraphicsPixmapItem::collidesWithItem(other, mode);
-        } else if (qgraphicspixmapitem_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicspixmapitem_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicspixmapitem_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsPixmapItem::collidesWithItem(other, mode);
         }
+        return QGraphicsPixmapItem::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7813,17 +8166,18 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_collideswithpath_isbase) {
             qgraphicspixmapitem_collideswithpath_isbase = false;
             return QGraphicsPixmapItem::collidesWithPath(path, mode);
-        } else if (qgraphicspixmapitem_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicspixmapitem_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicspixmapitem_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsPixmapItem::collidesWithPath(path, mode);
         }
+        return QGraphicsPixmapItem::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7831,15 +8185,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_sceneeventfilter_isbase) {
             qgraphicspixmapitem_sceneeventfilter_isbase = false;
             return QGraphicsPixmapItem::sceneEventFilter(watched, event);
-        } else if (qgraphicspixmapitem_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicspixmapitem_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicspixmapitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsPixmapItem::sceneEventFilter(watched, event);
         }
+        return QGraphicsPixmapItem::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7847,14 +8202,15 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_sceneevent_isbase) {
             qgraphicspixmapitem_sceneevent_isbase = false;
             return QGraphicsPixmapItem::sceneEvent(event);
-        } else if (qgraphicspixmapitem_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicspixmapitem_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicspixmapitem_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsPixmapItem::sceneEvent(event);
         }
+        return QGraphicsPixmapItem::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7862,13 +8218,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_contextmenuevent_isbase) {
             qgraphicspixmapitem_contextmenuevent_isbase = false;
             QGraphicsPixmapItem::contextMenuEvent(event);
-        } else if (qgraphicspixmapitem_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicspixmapitem_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicspixmapitem_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7876,13 +8235,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_dragenterevent_isbase) {
             qgraphicspixmapitem_dragenterevent_isbase = false;
             QGraphicsPixmapItem::dragEnterEvent(event);
-        } else if (qgraphicspixmapitem_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicspixmapitem_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspixmapitem_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7890,13 +8252,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_dragleaveevent_isbase) {
             qgraphicspixmapitem_dragleaveevent_isbase = false;
             QGraphicsPixmapItem::dragLeaveEvent(event);
-        } else if (qgraphicspixmapitem_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicspixmapitem_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspixmapitem_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7904,13 +8269,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_dragmoveevent_isbase) {
             qgraphicspixmapitem_dragmoveevent_isbase = false;
             QGraphicsPixmapItem::dragMoveEvent(event);
-        } else if (qgraphicspixmapitem_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicspixmapitem_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspixmapitem_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7918,13 +8286,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_dropevent_isbase) {
             qgraphicspixmapitem_dropevent_isbase = false;
             QGraphicsPixmapItem::dropEvent(event);
-        } else if (qgraphicspixmapitem_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicspixmapitem_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicspixmapitem_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7932,13 +8303,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_focusinevent_isbase) {
             qgraphicspixmapitem_focusinevent_isbase = false;
             QGraphicsPixmapItem::focusInEvent(event);
-        } else if (qgraphicspixmapitem_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicspixmapitem_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicspixmapitem_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7946,13 +8320,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_focusoutevent_isbase) {
             qgraphicspixmapitem_focusoutevent_isbase = false;
             QGraphicsPixmapItem::focusOutEvent(event);
-        } else if (qgraphicspixmapitem_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicspixmapitem_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicspixmapitem_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7960,13 +8337,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_hoverenterevent_isbase) {
             qgraphicspixmapitem_hoverenterevent_isbase = false;
             QGraphicsPixmapItem::hoverEnterEvent(event);
-        } else if (qgraphicspixmapitem_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicspixmapitem_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicspixmapitem_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7974,13 +8354,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_hovermoveevent_isbase) {
             qgraphicspixmapitem_hovermoveevent_isbase = false;
             QGraphicsPixmapItem::hoverMoveEvent(event);
-        } else if (qgraphicspixmapitem_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicspixmapitem_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicspixmapitem_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -7988,13 +8371,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_hoverleaveevent_isbase) {
             qgraphicspixmapitem_hoverleaveevent_isbase = false;
             QGraphicsPixmapItem::hoverLeaveEvent(event);
-        } else if (qgraphicspixmapitem_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicspixmapitem_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicspixmapitem_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8002,13 +8388,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_keypressevent_isbase) {
             qgraphicspixmapitem_keypressevent_isbase = false;
             QGraphicsPixmapItem::keyPressEvent(event);
-        } else if (qgraphicspixmapitem_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicspixmapitem_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicspixmapitem_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8016,13 +8405,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_keyreleaseevent_isbase) {
             qgraphicspixmapitem_keyreleaseevent_isbase = false;
             QGraphicsPixmapItem::keyReleaseEvent(event);
-        } else if (qgraphicspixmapitem_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicspixmapitem_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicspixmapitem_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8030,13 +8422,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_mousepressevent_isbase) {
             qgraphicspixmapitem_mousepressevent_isbase = false;
             QGraphicsPixmapItem::mousePressEvent(event);
-        } else if (qgraphicspixmapitem_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicspixmapitem_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspixmapitem_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8044,13 +8439,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_mousemoveevent_isbase) {
             qgraphicspixmapitem_mousemoveevent_isbase = false;
             QGraphicsPixmapItem::mouseMoveEvent(event);
-        } else if (qgraphicspixmapitem_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicspixmapitem_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspixmapitem_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8058,13 +8456,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_mousereleaseevent_isbase) {
             qgraphicspixmapitem_mousereleaseevent_isbase = false;
             QGraphicsPixmapItem::mouseReleaseEvent(event);
-        } else if (qgraphicspixmapitem_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicspixmapitem_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspixmapitem_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8072,13 +8473,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_mousedoubleclickevent_isbase) {
             qgraphicspixmapitem_mousedoubleclickevent_isbase = false;
             QGraphicsPixmapItem::mouseDoubleClickEvent(event);
-        } else if (qgraphicspixmapitem_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicspixmapitem_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicspixmapitem_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8086,13 +8490,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_wheelevent_isbase) {
             qgraphicspixmapitem_wheelevent_isbase = false;
             QGraphicsPixmapItem::wheelEvent(event);
-        } else if (qgraphicspixmapitem_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicspixmapitem_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicspixmapitem_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8100,13 +8507,16 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_inputmethodevent_isbase) {
             qgraphicspixmapitem_inputmethodevent_isbase = false;
             QGraphicsPixmapItem::inputMethodEvent(event);
-        } else if (qgraphicspixmapitem_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicspixmapitem_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicspixmapitem_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsPixmapItem::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsPixmapItem::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8114,14 +8524,15 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_inputmethodquery_isbase) {
             qgraphicspixmapitem_inputmethodquery_isbase = false;
             return QGraphicsPixmapItem::inputMethodQuery(query);
-        } else if (qgraphicspixmapitem_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicspixmapitem_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicspixmapitem_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsPixmapItem::inputMethodQuery(query);
         }
+        return QGraphicsPixmapItem::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8129,17 +8540,18 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_itemchange_isbase) {
             qgraphicspixmapitem_itemchange_isbase = false;
             return QGraphicsPixmapItem::itemChange(change, value);
-        } else if (qgraphicspixmapitem_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicspixmapitem_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicspixmapitem_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsPixmapItem::itemChange(change, value);
         }
+        return QGraphicsPixmapItem::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8147,11 +8559,14 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_updatemicrofocus_isbase) {
             qgraphicspixmapitem_updatemicrofocus_isbase = false;
             QGraphicsPixmapItem::updateMicroFocus();
-        } else if (qgraphicspixmapitem_updatemicrofocus_callback != nullptr) {
-            qgraphicspixmapitem_updatemicrofocus_callback();
-        } else {
-            QGraphicsPixmapItem::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicspixmapitem_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsPixmapItem::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8159,11 +8574,14 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_addtoindex_isbase) {
             qgraphicspixmapitem_addtoindex_isbase = false;
             QGraphicsPixmapItem::addToIndex();
-        } else if (qgraphicspixmapitem_addtoindex_callback != nullptr) {
-            qgraphicspixmapitem_addtoindex_callback();
-        } else {
-            QGraphicsPixmapItem::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicspixmapitem_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsPixmapItem::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8171,11 +8589,14 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_removefromindex_isbase) {
             qgraphicspixmapitem_removefromindex_isbase = false;
             QGraphicsPixmapItem::removeFromIndex();
-        } else if (qgraphicspixmapitem_removefromindex_callback != nullptr) {
-            qgraphicspixmapitem_removefromindex_callback();
-        } else {
-            QGraphicsPixmapItem::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicspixmapitem_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsPixmapItem::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8183,11 +8604,14 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
         if (qgraphicspixmapitem_preparegeometrychange_isbase) {
             qgraphicspixmapitem_preparegeometrychange_isbase = false;
             QGraphicsPixmapItem::prepareGeometryChange();
-        } else if (qgraphicspixmapitem_preparegeometrychange_callback != nullptr) {
-            qgraphicspixmapitem_preparegeometrychange_callback();
-        } else {
-            QGraphicsPixmapItem::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicspixmapitem_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsPixmapItem::prepareGeometryChange();
     }
 
     // Friend functions
@@ -8431,62 +8855,6 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
     VirtualQGraphicsTextItem(QGraphicsItem* parent) : QGraphicsTextItem(parent) {};
     VirtualQGraphicsTextItem(const QString& text, QGraphicsItem* parent) : QGraphicsTextItem(text, parent) {};
 
-    ~VirtualQGraphicsTextItem() {
-        qgraphicstextitem_metaobject_callback = nullptr;
-        qgraphicstextitem_metacast_callback = nullptr;
-        qgraphicstextitem_metacall_callback = nullptr;
-        qgraphicstextitem_boundingrect_callback = nullptr;
-        qgraphicstextitem_shape_callback = nullptr;
-        qgraphicstextitem_contains_callback = nullptr;
-        qgraphicstextitem_paint_callback = nullptr;
-        qgraphicstextitem_isobscuredby_callback = nullptr;
-        qgraphicstextitem_opaquearea_callback = nullptr;
-        qgraphicstextitem_type_callback = nullptr;
-        qgraphicstextitem_sceneevent_callback = nullptr;
-        qgraphicstextitem_mousepressevent_callback = nullptr;
-        qgraphicstextitem_mousemoveevent_callback = nullptr;
-        qgraphicstextitem_mousereleaseevent_callback = nullptr;
-        qgraphicstextitem_mousedoubleclickevent_callback = nullptr;
-        qgraphicstextitem_contextmenuevent_callback = nullptr;
-        qgraphicstextitem_keypressevent_callback = nullptr;
-        qgraphicstextitem_keyreleaseevent_callback = nullptr;
-        qgraphicstextitem_focusinevent_callback = nullptr;
-        qgraphicstextitem_focusoutevent_callback = nullptr;
-        qgraphicstextitem_dragenterevent_callback = nullptr;
-        qgraphicstextitem_dragleaveevent_callback = nullptr;
-        qgraphicstextitem_dragmoveevent_callback = nullptr;
-        qgraphicstextitem_dropevent_callback = nullptr;
-        qgraphicstextitem_inputmethodevent_callback = nullptr;
-        qgraphicstextitem_hoverenterevent_callback = nullptr;
-        qgraphicstextitem_hovermoveevent_callback = nullptr;
-        qgraphicstextitem_hoverleaveevent_callback = nullptr;
-        qgraphicstextitem_inputmethodquery_callback = nullptr;
-        qgraphicstextitem_supportsextension_callback = nullptr;
-        qgraphicstextitem_setextension_callback = nullptr;
-        qgraphicstextitem_extension_callback = nullptr;
-        qgraphicstextitem_event_callback = nullptr;
-        qgraphicstextitem_eventfilter_callback = nullptr;
-        qgraphicstextitem_timerevent_callback = nullptr;
-        qgraphicstextitem_childevent_callback = nullptr;
-        qgraphicstextitem_customevent_callback = nullptr;
-        qgraphicstextitem_connectnotify_callback = nullptr;
-        qgraphicstextitem_disconnectnotify_callback = nullptr;
-        qgraphicstextitem_advance_callback = nullptr;
-        qgraphicstextitem_collideswithitem_callback = nullptr;
-        qgraphicstextitem_collideswithpath_callback = nullptr;
-        qgraphicstextitem_sceneeventfilter_callback = nullptr;
-        qgraphicstextitem_wheelevent_callback = nullptr;
-        qgraphicstextitem_itemchange_callback = nullptr;
-        qgraphicstextitem_updatemicrofocus_callback = nullptr;
-        qgraphicstextitem_sender_callback = nullptr;
-        qgraphicstextitem_sendersignalindex_callback = nullptr;
-        qgraphicstextitem_receivers_callback = nullptr;
-        qgraphicstextitem_issignalconnected_callback = nullptr;
-        qgraphicstextitem_addtoindex_callback = nullptr;
-        qgraphicstextitem_removefromindex_callback = nullptr;
-        qgraphicstextitem_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsTextItem_MetaObject_Callback(QGraphicsTextItem_MetaObject_Callback cb) { qgraphicstextitem_metaobject_callback = cb; }
     inline void setQGraphicsTextItem_Metacast_Callback(QGraphicsTextItem_Metacast_Callback cb) { qgraphicstextitem_metacast_callback = cb; }
@@ -8602,12 +8970,13 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_metaobject_isbase) {
             qgraphicstextitem_metaobject_isbase = false;
             return QGraphicsTextItem::metaObject();
-        } else if (qgraphicstextitem_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicstextitem_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsTextItem::metaObject();
         }
+        auto metaobject_cb = qgraphicstextitem_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsTextItem::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8615,14 +8984,15 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_metacast_isbase) {
             qgraphicstextitem_metacast_isbase = false;
             return QGraphicsTextItem::qt_metacast(param1);
-        } else if (qgraphicstextitem_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicstextitem_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicstextitem_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::qt_metacast(param1);
         }
+        return QGraphicsTextItem::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8630,16 +9000,17 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_metacall_isbase) {
             qgraphicstextitem_metacall_isbase = false;
             return QGraphicsTextItem::qt_metacall(param1, param2, param3);
-        } else if (qgraphicstextitem_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicstextitem_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicstextitem_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsTextItem::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsTextItem::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8647,12 +9018,13 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_boundingrect_isbase) {
             qgraphicstextitem_boundingrect_isbase = false;
             return QGraphicsTextItem::boundingRect();
-        } else if (qgraphicstextitem_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicstextitem_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsTextItem::boundingRect();
         }
+        auto boundingrect_cb = qgraphicstextitem_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsTextItem::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8660,12 +9032,13 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_shape_isbase) {
             qgraphicstextitem_shape_isbase = false;
             return QGraphicsTextItem::shape();
-        } else if (qgraphicstextitem_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicstextitem_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsTextItem::shape();
         }
+        auto shape_cb = qgraphicstextitem_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsTextItem::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8673,16 +9046,17 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_contains_isbase) {
             qgraphicstextitem_contains_isbase = false;
             return QGraphicsTextItem::contains(point);
-        } else if (qgraphicstextitem_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicstextitem_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicstextitem_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::contains(point);
         }
+        return QGraphicsTextItem::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8690,15 +9064,18 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_paint_isbase) {
             qgraphicstextitem_paint_isbase = false;
             QGraphicsTextItem::paint(painter, option, widget);
-        } else if (qgraphicstextitem_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qgraphicstextitem_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicstextitem_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QGraphicsTextItem::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QGraphicsTextItem::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8706,14 +9083,15 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_isobscuredby_isbase) {
             qgraphicstextitem_isobscuredby_isbase = false;
             return QGraphicsTextItem::isObscuredBy(item);
-        } else if (qgraphicstextitem_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicstextitem_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicstextitem_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::isObscuredBy(item);
         }
+        return QGraphicsTextItem::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8721,12 +9099,13 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_opaquearea_isbase) {
             qgraphicstextitem_opaquearea_isbase = false;
             return QGraphicsTextItem::opaqueArea();
-        } else if (qgraphicstextitem_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicstextitem_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsTextItem::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicstextitem_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsTextItem::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8734,12 +9113,13 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_type_isbase) {
             qgraphicstextitem_type_isbase = false;
             return QGraphicsTextItem::type();
-        } else if (qgraphicstextitem_type_callback != nullptr) {
-            int callback_ret = qgraphicstextitem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsTextItem::type();
         }
+        auto type_cb = qgraphicstextitem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsTextItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8747,14 +9127,15 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_sceneevent_isbase) {
             qgraphicstextitem_sceneevent_isbase = false;
             return QGraphicsTextItem::sceneEvent(event);
-        } else if (qgraphicstextitem_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicstextitem_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicstextitem_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::sceneEvent(event);
         }
+        return QGraphicsTextItem::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8762,13 +9143,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_mousepressevent_isbase) {
             qgraphicstextitem_mousepressevent_isbase = false;
             QGraphicsTextItem::mousePressEvent(event);
-        } else if (qgraphicstextitem_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicstextitem_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicstextitem_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8776,13 +9160,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_mousemoveevent_isbase) {
             qgraphicstextitem_mousemoveevent_isbase = false;
             QGraphicsTextItem::mouseMoveEvent(event);
-        } else if (qgraphicstextitem_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicstextitem_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicstextitem_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8790,13 +9177,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_mousereleaseevent_isbase) {
             qgraphicstextitem_mousereleaseevent_isbase = false;
             QGraphicsTextItem::mouseReleaseEvent(event);
-        } else if (qgraphicstextitem_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicstextitem_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicstextitem_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8804,13 +9194,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_mousedoubleclickevent_isbase) {
             qgraphicstextitem_mousedoubleclickevent_isbase = false;
             QGraphicsTextItem::mouseDoubleClickEvent(event);
-        } else if (qgraphicstextitem_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicstextitem_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicstextitem_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8818,13 +9211,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_contextmenuevent_isbase) {
             qgraphicstextitem_contextmenuevent_isbase = false;
             QGraphicsTextItem::contextMenuEvent(event);
-        } else if (qgraphicstextitem_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicstextitem_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicstextitem_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8832,13 +9228,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_keypressevent_isbase) {
             qgraphicstextitem_keypressevent_isbase = false;
             QGraphicsTextItem::keyPressEvent(event);
-        } else if (qgraphicstextitem_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicstextitem_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicstextitem_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8846,13 +9245,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_keyreleaseevent_isbase) {
             qgraphicstextitem_keyreleaseevent_isbase = false;
             QGraphicsTextItem::keyReleaseEvent(event);
-        } else if (qgraphicstextitem_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicstextitem_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicstextitem_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8860,13 +9262,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_focusinevent_isbase) {
             qgraphicstextitem_focusinevent_isbase = false;
             QGraphicsTextItem::focusInEvent(event);
-        } else if (qgraphicstextitem_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicstextitem_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicstextitem_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8874,13 +9279,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_focusoutevent_isbase) {
             qgraphicstextitem_focusoutevent_isbase = false;
             QGraphicsTextItem::focusOutEvent(event);
-        } else if (qgraphicstextitem_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicstextitem_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicstextitem_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8888,13 +9296,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_dragenterevent_isbase) {
             qgraphicstextitem_dragenterevent_isbase = false;
             QGraphicsTextItem::dragEnterEvent(event);
-        } else if (qgraphicstextitem_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicstextitem_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicstextitem_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8902,13 +9313,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_dragleaveevent_isbase) {
             qgraphicstextitem_dragleaveevent_isbase = false;
             QGraphicsTextItem::dragLeaveEvent(event);
-        } else if (qgraphicstextitem_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicstextitem_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicstextitem_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8916,13 +9330,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_dragmoveevent_isbase) {
             qgraphicstextitem_dragmoveevent_isbase = false;
             QGraphicsTextItem::dragMoveEvent(event);
-        } else if (qgraphicstextitem_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicstextitem_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicstextitem_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8930,13 +9347,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_dropevent_isbase) {
             qgraphicstextitem_dropevent_isbase = false;
             QGraphicsTextItem::dropEvent(event);
-        } else if (qgraphicstextitem_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicstextitem_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicstextitem_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8944,13 +9364,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_inputmethodevent_isbase) {
             qgraphicstextitem_inputmethodevent_isbase = false;
             QGraphicsTextItem::inputMethodEvent(event);
-        } else if (qgraphicstextitem_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicstextitem_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicstextitem_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8958,13 +9381,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_hoverenterevent_isbase) {
             qgraphicstextitem_hoverenterevent_isbase = false;
             QGraphicsTextItem::hoverEnterEvent(event);
-        } else if (qgraphicstextitem_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicstextitem_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicstextitem_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8972,13 +9398,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_hovermoveevent_isbase) {
             qgraphicstextitem_hovermoveevent_isbase = false;
             QGraphicsTextItem::hoverMoveEvent(event);
-        } else if (qgraphicstextitem_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicstextitem_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicstextitem_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -8986,13 +9415,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_hoverleaveevent_isbase) {
             qgraphicstextitem_hoverleaveevent_isbase = false;
             QGraphicsTextItem::hoverLeaveEvent(event);
-        } else if (qgraphicstextitem_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicstextitem_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicstextitem_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9000,14 +9432,15 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_inputmethodquery_isbase) {
             qgraphicstextitem_inputmethodquery_isbase = false;
             return QGraphicsTextItem::inputMethodQuery(query);
-        } else if (qgraphicstextitem_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicstextitem_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicstextitem_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsTextItem::inputMethodQuery(query);
         }
+        return QGraphicsTextItem::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9015,14 +9448,15 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_supportsextension_isbase) {
             qgraphicstextitem_supportsextension_isbase = false;
             return QGraphicsTextItem::supportsExtension(extension);
-        } else if (qgraphicstextitem_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicstextitem_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicstextitem_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::supportsExtension(extension);
         }
+        return QGraphicsTextItem::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9030,16 +9464,19 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_setextension_isbase) {
             qgraphicstextitem_setextension_isbase = false;
             QGraphicsTextItem::setExtension(extension, variant);
-        } else if (qgraphicstextitem_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicstextitem_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicstextitem_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsTextItem::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsTextItem::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9047,16 +9484,17 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_extension_isbase) {
             qgraphicstextitem_extension_isbase = false;
             return QGraphicsTextItem::extension(variant);
-        } else if (qgraphicstextitem_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicstextitem_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicstextitem_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsTextItem::extension(variant);
         }
+        return QGraphicsTextItem::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9064,14 +9502,15 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_event_isbase) {
             qgraphicstextitem_event_isbase = false;
             return QGraphicsTextItem::event(ev);
-        } else if (qgraphicstextitem_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicstextitem_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = ev;
 
-            bool callback_ret = qgraphicstextitem_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::event(ev);
         }
+        return QGraphicsTextItem::event(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9079,15 +9518,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_eventfilter_isbase) {
             qgraphicstextitem_eventfilter_isbase = false;
             return QGraphicsTextItem::eventFilter(watched, event);
-        } else if (qgraphicstextitem_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicstextitem_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicstextitem_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::eventFilter(watched, event);
         }
+        return QGraphicsTextItem::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9095,13 +9535,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_timerevent_isbase) {
             qgraphicstextitem_timerevent_isbase = false;
             QGraphicsTextItem::timerEvent(event);
-        } else if (qgraphicstextitem_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicstextitem_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicstextitem_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9109,13 +9552,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_childevent_isbase) {
             qgraphicstextitem_childevent_isbase = false;
             QGraphicsTextItem::childEvent(event);
-        } else if (qgraphicstextitem_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicstextitem_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicstextitem_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9123,13 +9569,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_customevent_isbase) {
             qgraphicstextitem_customevent_isbase = false;
             QGraphicsTextItem::customEvent(event);
-        } else if (qgraphicstextitem_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicstextitem_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicstextitem_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9137,15 +9586,18 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_connectnotify_isbase) {
             qgraphicstextitem_connectnotify_isbase = false;
             QGraphicsTextItem::connectNotify(signal);
-        } else if (qgraphicstextitem_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicstextitem_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicstextitem_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9153,15 +9605,18 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_disconnectnotify_isbase) {
             qgraphicstextitem_disconnectnotify_isbase = false;
             QGraphicsTextItem::disconnectNotify(signal);
-        } else if (qgraphicstextitem_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicstextitem_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicstextitem_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9169,13 +9624,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_advance_isbase) {
             qgraphicstextitem_advance_isbase = false;
             QGraphicsTextItem::advance(phase);
-        } else if (qgraphicstextitem_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicstextitem_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicstextitem_advance_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9183,15 +9641,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_collideswithitem_isbase) {
             qgraphicstextitem_collideswithitem_isbase = false;
             return QGraphicsTextItem::collidesWithItem(other, mode);
-        } else if (qgraphicstextitem_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicstextitem_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicstextitem_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::collidesWithItem(other, mode);
         }
+        return QGraphicsTextItem::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9199,17 +9658,18 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_collideswithpath_isbase) {
             qgraphicstextitem_collideswithpath_isbase = false;
             return QGraphicsTextItem::collidesWithPath(path, mode);
-        } else if (qgraphicstextitem_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicstextitem_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicstextitem_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::collidesWithPath(path, mode);
         }
+        return QGraphicsTextItem::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9217,15 +9677,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_sceneeventfilter_isbase) {
             qgraphicstextitem_sceneeventfilter_isbase = false;
             return QGraphicsTextItem::sceneEventFilter(watched, event);
-        } else if (qgraphicstextitem_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicstextitem_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicstextitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::sceneEventFilter(watched, event);
         }
+        return QGraphicsTextItem::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9233,13 +9694,16 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_wheelevent_isbase) {
             qgraphicstextitem_wheelevent_isbase = false;
             QGraphicsTextItem::wheelEvent(event);
-        } else if (qgraphicstextitem_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicstextitem_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicstextitem_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsTextItem::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTextItem::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9247,17 +9711,18 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_itemchange_isbase) {
             qgraphicstextitem_itemchange_isbase = false;
             return QGraphicsTextItem::itemChange(change, value);
-        } else if (qgraphicstextitem_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicstextitem_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicstextitem_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsTextItem::itemChange(change, value);
         }
+        return QGraphicsTextItem::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9265,11 +9730,14 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_updatemicrofocus_isbase) {
             qgraphicstextitem_updatemicrofocus_isbase = false;
             QGraphicsTextItem::updateMicroFocus();
-        } else if (qgraphicstextitem_updatemicrofocus_callback != nullptr) {
-            qgraphicstextitem_updatemicrofocus_callback();
-        } else {
-            QGraphicsTextItem::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicstextitem_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsTextItem::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9277,12 +9745,13 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_sender_isbase) {
             qgraphicstextitem_sender_isbase = false;
             return QGraphicsTextItem::sender();
-        } else if (qgraphicstextitem_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicstextitem_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsTextItem::sender();
         }
+        auto sender_cb = qgraphicstextitem_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsTextItem::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9290,12 +9759,13 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_sendersignalindex_isbase) {
             qgraphicstextitem_sendersignalindex_isbase = false;
             return QGraphicsTextItem::senderSignalIndex();
-        } else if (qgraphicstextitem_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicstextitem_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsTextItem::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicstextitem_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsTextItem::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9303,14 +9773,15 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_receivers_isbase) {
             qgraphicstextitem_receivers_isbase = false;
             return QGraphicsTextItem::receivers(signal);
-        } else if (qgraphicstextitem_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicstextitem_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicstextitem_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsTextItem::receivers(signal);
         }
+        return QGraphicsTextItem::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9318,16 +9789,17 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_issignalconnected_isbase) {
             qgraphicstextitem_issignalconnected_isbase = false;
             return QGraphicsTextItem::isSignalConnected(signal);
-        } else if (qgraphicstextitem_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicstextitem_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicstextitem_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsTextItem::isSignalConnected(signal);
         }
+        return QGraphicsTextItem::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9335,11 +9807,14 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_addtoindex_isbase) {
             qgraphicstextitem_addtoindex_isbase = false;
             QGraphicsTextItem::addToIndex();
-        } else if (qgraphicstextitem_addtoindex_callback != nullptr) {
-            qgraphicstextitem_addtoindex_callback();
-        } else {
-            QGraphicsTextItem::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicstextitem_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsTextItem::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9347,11 +9822,14 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_removefromindex_isbase) {
             qgraphicstextitem_removefromindex_isbase = false;
             QGraphicsTextItem::removeFromIndex();
-        } else if (qgraphicstextitem_removefromindex_callback != nullptr) {
-            qgraphicstextitem_removefromindex_callback();
-        } else {
-            QGraphicsTextItem::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicstextitem_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsTextItem::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9359,11 +9837,14 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
         if (qgraphicstextitem_preparegeometrychange_isbase) {
             qgraphicstextitem_preparegeometrychange_isbase = false;
             QGraphicsTextItem::prepareGeometryChange();
-        } else if (qgraphicstextitem_preparegeometrychange_callback != nullptr) {
-            qgraphicstextitem_preparegeometrychange_callback();
-        } else {
-            QGraphicsTextItem::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicstextitem_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsTextItem::prepareGeometryChange();
     }
 
     // Friend functions
@@ -9585,48 +10066,6 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
     VirtualQGraphicsSimpleTextItem(QGraphicsItem* parent) : QGraphicsSimpleTextItem(parent) {};
     VirtualQGraphicsSimpleTextItem(const QString& text, QGraphicsItem* parent) : QGraphicsSimpleTextItem(text, parent) {};
 
-    ~VirtualQGraphicsSimpleTextItem() {
-        qgraphicssimpletextitem_boundingrect_callback = nullptr;
-        qgraphicssimpletextitem_shape_callback = nullptr;
-        qgraphicssimpletextitem_contains_callback = nullptr;
-        qgraphicssimpletextitem_paint_callback = nullptr;
-        qgraphicssimpletextitem_isobscuredby_callback = nullptr;
-        qgraphicssimpletextitem_opaquearea_callback = nullptr;
-        qgraphicssimpletextitem_type_callback = nullptr;
-        qgraphicssimpletextitem_supportsextension_callback = nullptr;
-        qgraphicssimpletextitem_setextension_callback = nullptr;
-        qgraphicssimpletextitem_extension_callback = nullptr;
-        qgraphicssimpletextitem_advance_callback = nullptr;
-        qgraphicssimpletextitem_collideswithitem_callback = nullptr;
-        qgraphicssimpletextitem_collideswithpath_callback = nullptr;
-        qgraphicssimpletextitem_sceneeventfilter_callback = nullptr;
-        qgraphicssimpletextitem_sceneevent_callback = nullptr;
-        qgraphicssimpletextitem_contextmenuevent_callback = nullptr;
-        qgraphicssimpletextitem_dragenterevent_callback = nullptr;
-        qgraphicssimpletextitem_dragleaveevent_callback = nullptr;
-        qgraphicssimpletextitem_dragmoveevent_callback = nullptr;
-        qgraphicssimpletextitem_dropevent_callback = nullptr;
-        qgraphicssimpletextitem_focusinevent_callback = nullptr;
-        qgraphicssimpletextitem_focusoutevent_callback = nullptr;
-        qgraphicssimpletextitem_hoverenterevent_callback = nullptr;
-        qgraphicssimpletextitem_hovermoveevent_callback = nullptr;
-        qgraphicssimpletextitem_hoverleaveevent_callback = nullptr;
-        qgraphicssimpletextitem_keypressevent_callback = nullptr;
-        qgraphicssimpletextitem_keyreleaseevent_callback = nullptr;
-        qgraphicssimpletextitem_mousepressevent_callback = nullptr;
-        qgraphicssimpletextitem_mousemoveevent_callback = nullptr;
-        qgraphicssimpletextitem_mousereleaseevent_callback = nullptr;
-        qgraphicssimpletextitem_mousedoubleclickevent_callback = nullptr;
-        qgraphicssimpletextitem_wheelevent_callback = nullptr;
-        qgraphicssimpletextitem_inputmethodevent_callback = nullptr;
-        qgraphicssimpletextitem_inputmethodquery_callback = nullptr;
-        qgraphicssimpletextitem_itemchange_callback = nullptr;
-        qgraphicssimpletextitem_updatemicrofocus_callback = nullptr;
-        qgraphicssimpletextitem_addtoindex_callback = nullptr;
-        qgraphicssimpletextitem_removefromindex_callback = nullptr;
-        qgraphicssimpletextitem_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsSimpleTextItem_BoundingRect_Callback(QGraphicsSimpleTextItem_BoundingRect_Callback cb) { qgraphicssimpletextitem_boundingrect_callback = cb; }
     inline void setQGraphicsSimpleTextItem_Shape_Callback(QGraphicsSimpleTextItem_Shape_Callback cb) { qgraphicssimpletextitem_shape_callback = cb; }
@@ -9714,12 +10153,13 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_boundingrect_isbase) {
             qgraphicssimpletextitem_boundingrect_isbase = false;
             return QGraphicsSimpleTextItem::boundingRect();
-        } else if (qgraphicssimpletextitem_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicssimpletextitem_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::boundingRect();
         }
+        auto boundingrect_cb = qgraphicssimpletextitem_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsSimpleTextItem::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9727,12 +10167,13 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_shape_isbase) {
             qgraphicssimpletextitem_shape_isbase = false;
             return QGraphicsSimpleTextItem::shape();
-        } else if (qgraphicssimpletextitem_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicssimpletextitem_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::shape();
         }
+        auto shape_cb = qgraphicssimpletextitem_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsSimpleTextItem::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9740,16 +10181,17 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_contains_isbase) {
             qgraphicssimpletextitem_contains_isbase = false;
             return QGraphicsSimpleTextItem::contains(point);
-        } else if (qgraphicssimpletextitem_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicssimpletextitem_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicssimpletextitem_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::contains(point);
         }
+        return QGraphicsSimpleTextItem::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9757,15 +10199,18 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_paint_isbase) {
             qgraphicssimpletextitem_paint_isbase = false;
             QGraphicsSimpleTextItem::paint(painter, option, widget);
-        } else if (qgraphicssimpletextitem_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qgraphicssimpletextitem_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicssimpletextitem_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QGraphicsSimpleTextItem::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QGraphicsSimpleTextItem::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9773,14 +10218,15 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_isobscuredby_isbase) {
             qgraphicssimpletextitem_isobscuredby_isbase = false;
             return QGraphicsSimpleTextItem::isObscuredBy(item);
-        } else if (qgraphicssimpletextitem_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicssimpletextitem_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicssimpletextitem_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::isObscuredBy(item);
         }
+        return QGraphicsSimpleTextItem::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9788,12 +10234,13 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_opaquearea_isbase) {
             qgraphicssimpletextitem_opaquearea_isbase = false;
             return QGraphicsSimpleTextItem::opaqueArea();
-        } else if (qgraphicssimpletextitem_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicssimpletextitem_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicssimpletextitem_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsSimpleTextItem::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9801,12 +10248,13 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_type_isbase) {
             qgraphicssimpletextitem_type_isbase = false;
             return QGraphicsSimpleTextItem::type();
-        } else if (qgraphicssimpletextitem_type_callback != nullptr) {
-            int callback_ret = qgraphicssimpletextitem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsSimpleTextItem::type();
         }
+        auto type_cb = qgraphicssimpletextitem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsSimpleTextItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9814,14 +10262,15 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_supportsextension_isbase) {
             qgraphicssimpletextitem_supportsextension_isbase = false;
             return QGraphicsSimpleTextItem::supportsExtension(extension);
-        } else if (qgraphicssimpletextitem_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicssimpletextitem_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicssimpletextitem_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::supportsExtension(extension);
         }
+        return QGraphicsSimpleTextItem::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9829,16 +10278,19 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_setextension_isbase) {
             qgraphicssimpletextitem_setextension_isbase = false;
             QGraphicsSimpleTextItem::setExtension(extension, variant);
-        } else if (qgraphicssimpletextitem_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicssimpletextitem_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicssimpletextitem_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsSimpleTextItem::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsSimpleTextItem::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9846,16 +10298,17 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_extension_isbase) {
             qgraphicssimpletextitem_extension_isbase = false;
             return QGraphicsSimpleTextItem::extension(variant);
-        } else if (qgraphicssimpletextitem_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicssimpletextitem_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicssimpletextitem_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::extension(variant);
         }
+        return QGraphicsSimpleTextItem::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9863,13 +10316,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_advance_isbase) {
             qgraphicssimpletextitem_advance_isbase = false;
             QGraphicsSimpleTextItem::advance(phase);
-        } else if (qgraphicssimpletextitem_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicssimpletextitem_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicssimpletextitem_advance_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9877,15 +10333,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_collideswithitem_isbase) {
             qgraphicssimpletextitem_collideswithitem_isbase = false;
             return QGraphicsSimpleTextItem::collidesWithItem(other, mode);
-        } else if (qgraphicssimpletextitem_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicssimpletextitem_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicssimpletextitem_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::collidesWithItem(other, mode);
         }
+        return QGraphicsSimpleTextItem::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9893,17 +10350,18 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_collideswithpath_isbase) {
             qgraphicssimpletextitem_collideswithpath_isbase = false;
             return QGraphicsSimpleTextItem::collidesWithPath(path, mode);
-        } else if (qgraphicssimpletextitem_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicssimpletextitem_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicssimpletextitem_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::collidesWithPath(path, mode);
         }
+        return QGraphicsSimpleTextItem::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9911,15 +10369,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_sceneeventfilter_isbase) {
             qgraphicssimpletextitem_sceneeventfilter_isbase = false;
             return QGraphicsSimpleTextItem::sceneEventFilter(watched, event);
-        } else if (qgraphicssimpletextitem_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicssimpletextitem_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicssimpletextitem_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::sceneEventFilter(watched, event);
         }
+        return QGraphicsSimpleTextItem::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9927,14 +10386,15 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_sceneevent_isbase) {
             qgraphicssimpletextitem_sceneevent_isbase = false;
             return QGraphicsSimpleTextItem::sceneEvent(event);
-        } else if (qgraphicssimpletextitem_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicssimpletextitem_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicssimpletextitem_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::sceneEvent(event);
         }
+        return QGraphicsSimpleTextItem::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9942,13 +10402,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_contextmenuevent_isbase) {
             qgraphicssimpletextitem_contextmenuevent_isbase = false;
             QGraphicsSimpleTextItem::contextMenuEvent(event);
-        } else if (qgraphicssimpletextitem_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicssimpletextitem_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9956,13 +10419,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_dragenterevent_isbase) {
             qgraphicssimpletextitem_dragenterevent_isbase = false;
             QGraphicsSimpleTextItem::dragEnterEvent(event);
-        } else if (qgraphicssimpletextitem_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicssimpletextitem_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9970,13 +10436,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_dragleaveevent_isbase) {
             qgraphicssimpletextitem_dragleaveevent_isbase = false;
             QGraphicsSimpleTextItem::dragLeaveEvent(event);
-        } else if (qgraphicssimpletextitem_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicssimpletextitem_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9984,13 +10453,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_dragmoveevent_isbase) {
             qgraphicssimpletextitem_dragmoveevent_isbase = false;
             QGraphicsSimpleTextItem::dragMoveEvent(event);
-        } else if (qgraphicssimpletextitem_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicssimpletextitem_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -9998,13 +10470,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_dropevent_isbase) {
             qgraphicssimpletextitem_dropevent_isbase = false;
             QGraphicsSimpleTextItem::dropEvent(event);
-        } else if (qgraphicssimpletextitem_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicssimpletextitem_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10012,13 +10487,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_focusinevent_isbase) {
             qgraphicssimpletextitem_focusinevent_isbase = false;
             QGraphicsSimpleTextItem::focusInEvent(event);
-        } else if (qgraphicssimpletextitem_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicssimpletextitem_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10026,13 +10504,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_focusoutevent_isbase) {
             qgraphicssimpletextitem_focusoutevent_isbase = false;
             QGraphicsSimpleTextItem::focusOutEvent(event);
-        } else if (qgraphicssimpletextitem_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicssimpletextitem_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10040,13 +10521,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_hoverenterevent_isbase) {
             qgraphicssimpletextitem_hoverenterevent_isbase = false;
             QGraphicsSimpleTextItem::hoverEnterEvent(event);
-        } else if (qgraphicssimpletextitem_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicssimpletextitem_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10054,13 +10538,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_hovermoveevent_isbase) {
             qgraphicssimpletextitem_hovermoveevent_isbase = false;
             QGraphicsSimpleTextItem::hoverMoveEvent(event);
-        } else if (qgraphicssimpletextitem_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicssimpletextitem_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10068,13 +10555,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_hoverleaveevent_isbase) {
             qgraphicssimpletextitem_hoverleaveevent_isbase = false;
             QGraphicsSimpleTextItem::hoverLeaveEvent(event);
-        } else if (qgraphicssimpletextitem_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicssimpletextitem_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10082,13 +10572,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_keypressevent_isbase) {
             qgraphicssimpletextitem_keypressevent_isbase = false;
             QGraphicsSimpleTextItem::keyPressEvent(event);
-        } else if (qgraphicssimpletextitem_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicssimpletextitem_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10096,13 +10589,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_keyreleaseevent_isbase) {
             qgraphicssimpletextitem_keyreleaseevent_isbase = false;
             QGraphicsSimpleTextItem::keyReleaseEvent(event);
-        } else if (qgraphicssimpletextitem_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicssimpletextitem_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10110,13 +10606,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_mousepressevent_isbase) {
             qgraphicssimpletextitem_mousepressevent_isbase = false;
             QGraphicsSimpleTextItem::mousePressEvent(event);
-        } else if (qgraphicssimpletextitem_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicssimpletextitem_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10124,13 +10623,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_mousemoveevent_isbase) {
             qgraphicssimpletextitem_mousemoveevent_isbase = false;
             QGraphicsSimpleTextItem::mouseMoveEvent(event);
-        } else if (qgraphicssimpletextitem_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicssimpletextitem_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10138,13 +10640,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_mousereleaseevent_isbase) {
             qgraphicssimpletextitem_mousereleaseevent_isbase = false;
             QGraphicsSimpleTextItem::mouseReleaseEvent(event);
-        } else if (qgraphicssimpletextitem_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicssimpletextitem_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10152,13 +10657,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_mousedoubleclickevent_isbase) {
             qgraphicssimpletextitem_mousedoubleclickevent_isbase = false;
             QGraphicsSimpleTextItem::mouseDoubleClickEvent(event);
-        } else if (qgraphicssimpletextitem_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicssimpletextitem_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10166,13 +10674,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_wheelevent_isbase) {
             qgraphicssimpletextitem_wheelevent_isbase = false;
             QGraphicsSimpleTextItem::wheelEvent(event);
-        } else if (qgraphicssimpletextitem_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicssimpletextitem_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10180,13 +10691,16 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_inputmethodevent_isbase) {
             qgraphicssimpletextitem_inputmethodevent_isbase = false;
             QGraphicsSimpleTextItem::inputMethodEvent(event);
-        } else if (qgraphicssimpletextitem_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicssimpletextitem_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicssimpletextitem_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsSimpleTextItem::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsSimpleTextItem::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10194,14 +10708,15 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_inputmethodquery_isbase) {
             qgraphicssimpletextitem_inputmethodquery_isbase = false;
             return QGraphicsSimpleTextItem::inputMethodQuery(query);
-        } else if (qgraphicssimpletextitem_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicssimpletextitem_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicssimpletextitem_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::inputMethodQuery(query);
         }
+        return QGraphicsSimpleTextItem::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10209,17 +10724,18 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_itemchange_isbase) {
             qgraphicssimpletextitem_itemchange_isbase = false;
             return QGraphicsSimpleTextItem::itemChange(change, value);
-        } else if (qgraphicssimpletextitem_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicssimpletextitem_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicssimpletextitem_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsSimpleTextItem::itemChange(change, value);
         }
+        return QGraphicsSimpleTextItem::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10227,11 +10743,14 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_updatemicrofocus_isbase) {
             qgraphicssimpletextitem_updatemicrofocus_isbase = false;
             QGraphicsSimpleTextItem::updateMicroFocus();
-        } else if (qgraphicssimpletextitem_updatemicrofocus_callback != nullptr) {
-            qgraphicssimpletextitem_updatemicrofocus_callback();
-        } else {
-            QGraphicsSimpleTextItem::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicssimpletextitem_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsSimpleTextItem::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10239,11 +10758,14 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_addtoindex_isbase) {
             qgraphicssimpletextitem_addtoindex_isbase = false;
             QGraphicsSimpleTextItem::addToIndex();
-        } else if (qgraphicssimpletextitem_addtoindex_callback != nullptr) {
-            qgraphicssimpletextitem_addtoindex_callback();
-        } else {
-            QGraphicsSimpleTextItem::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicssimpletextitem_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsSimpleTextItem::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10251,11 +10773,14 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_removefromindex_isbase) {
             qgraphicssimpletextitem_removefromindex_isbase = false;
             QGraphicsSimpleTextItem::removeFromIndex();
-        } else if (qgraphicssimpletextitem_removefromindex_callback != nullptr) {
-            qgraphicssimpletextitem_removefromindex_callback();
-        } else {
-            QGraphicsSimpleTextItem::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicssimpletextitem_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsSimpleTextItem::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10263,11 +10788,14 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
         if (qgraphicssimpletextitem_preparegeometrychange_isbase) {
             qgraphicssimpletextitem_preparegeometrychange_isbase = false;
             QGraphicsSimpleTextItem::prepareGeometryChange();
-        } else if (qgraphicssimpletextitem_preparegeometrychange_callback != nullptr) {
-            qgraphicssimpletextitem_preparegeometrychange_callback();
-        } else {
-            QGraphicsSimpleTextItem::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicssimpletextitem_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsSimpleTextItem::prepareGeometryChange();
     }
 
     // Friend functions
@@ -10467,48 +10995,6 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
     VirtualQGraphicsItemGroup() : QGraphicsItemGroup() {};
     VirtualQGraphicsItemGroup(QGraphicsItem* parent) : QGraphicsItemGroup(parent) {};
 
-    ~VirtualQGraphicsItemGroup() {
-        qgraphicsitemgroup_boundingrect_callback = nullptr;
-        qgraphicsitemgroup_paint_callback = nullptr;
-        qgraphicsitemgroup_isobscuredby_callback = nullptr;
-        qgraphicsitemgroup_opaquearea_callback = nullptr;
-        qgraphicsitemgroup_type_callback = nullptr;
-        qgraphicsitemgroup_advance_callback = nullptr;
-        qgraphicsitemgroup_shape_callback = nullptr;
-        qgraphicsitemgroup_contains_callback = nullptr;
-        qgraphicsitemgroup_collideswithitem_callback = nullptr;
-        qgraphicsitemgroup_collideswithpath_callback = nullptr;
-        qgraphicsitemgroup_sceneeventfilter_callback = nullptr;
-        qgraphicsitemgroup_sceneevent_callback = nullptr;
-        qgraphicsitemgroup_contextmenuevent_callback = nullptr;
-        qgraphicsitemgroup_dragenterevent_callback = nullptr;
-        qgraphicsitemgroup_dragleaveevent_callback = nullptr;
-        qgraphicsitemgroup_dragmoveevent_callback = nullptr;
-        qgraphicsitemgroup_dropevent_callback = nullptr;
-        qgraphicsitemgroup_focusinevent_callback = nullptr;
-        qgraphicsitemgroup_focusoutevent_callback = nullptr;
-        qgraphicsitemgroup_hoverenterevent_callback = nullptr;
-        qgraphicsitemgroup_hovermoveevent_callback = nullptr;
-        qgraphicsitemgroup_hoverleaveevent_callback = nullptr;
-        qgraphicsitemgroup_keypressevent_callback = nullptr;
-        qgraphicsitemgroup_keyreleaseevent_callback = nullptr;
-        qgraphicsitemgroup_mousepressevent_callback = nullptr;
-        qgraphicsitemgroup_mousemoveevent_callback = nullptr;
-        qgraphicsitemgroup_mousereleaseevent_callback = nullptr;
-        qgraphicsitemgroup_mousedoubleclickevent_callback = nullptr;
-        qgraphicsitemgroup_wheelevent_callback = nullptr;
-        qgraphicsitemgroup_inputmethodevent_callback = nullptr;
-        qgraphicsitemgroup_inputmethodquery_callback = nullptr;
-        qgraphicsitemgroup_itemchange_callback = nullptr;
-        qgraphicsitemgroup_supportsextension_callback = nullptr;
-        qgraphicsitemgroup_setextension_callback = nullptr;
-        qgraphicsitemgroup_extension_callback = nullptr;
-        qgraphicsitemgroup_updatemicrofocus_callback = nullptr;
-        qgraphicsitemgroup_addtoindex_callback = nullptr;
-        qgraphicsitemgroup_removefromindex_callback = nullptr;
-        qgraphicsitemgroup_preparegeometrychange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsItemGroup_BoundingRect_Callback(QGraphicsItemGroup_BoundingRect_Callback cb) { qgraphicsitemgroup_boundingrect_callback = cb; }
     inline void setQGraphicsItemGroup_Paint_Callback(QGraphicsItemGroup_Paint_Callback cb) { qgraphicsitemgroup_paint_callback = cb; }
@@ -10596,12 +11082,13 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_boundingrect_isbase) {
             qgraphicsitemgroup_boundingrect_isbase = false;
             return QGraphicsItemGroup::boundingRect();
-        } else if (qgraphicsitemgroup_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicsitemgroup_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsItemGroup::boundingRect();
         }
+        auto boundingrect_cb = qgraphicsitemgroup_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsItemGroup::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10609,15 +11096,18 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_paint_isbase) {
             qgraphicsitemgroup_paint_isbase = false;
             QGraphicsItemGroup::paint(painter, option, widget);
-        } else if (qgraphicsitemgroup_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qgraphicsitemgroup_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qgraphicsitemgroup_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QGraphicsItemGroup::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QGraphicsItemGroup::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10625,14 +11115,15 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_isobscuredby_isbase) {
             qgraphicsitemgroup_isobscuredby_isbase = false;
             return QGraphicsItemGroup::isObscuredBy(item);
-        } else if (qgraphicsitemgroup_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qgraphicsitemgroup_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qgraphicsitemgroup_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsItemGroup::isObscuredBy(item);
         }
+        return QGraphicsItemGroup::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10640,12 +11131,13 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_opaquearea_isbase) {
             qgraphicsitemgroup_opaquearea_isbase = false;
             return QGraphicsItemGroup::opaqueArea();
-        } else if (qgraphicsitemgroup_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicsitemgroup_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsItemGroup::opaqueArea();
         }
+        auto opaquearea_cb = qgraphicsitemgroup_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QGraphicsItemGroup::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10653,12 +11145,13 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_type_isbase) {
             qgraphicsitemgroup_type_isbase = false;
             return QGraphicsItemGroup::type();
-        } else if (qgraphicsitemgroup_type_callback != nullptr) {
-            int callback_ret = qgraphicsitemgroup_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsItemGroup::type();
         }
+        auto type_cb = qgraphicsitemgroup_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsItemGroup::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10666,13 +11159,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_advance_isbase) {
             qgraphicsitemgroup_advance_isbase = false;
             QGraphicsItemGroup::advance(phase);
-        } else if (qgraphicsitemgroup_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qgraphicsitemgroup_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qgraphicsitemgroup_advance_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10680,12 +11176,13 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_shape_isbase) {
             qgraphicsitemgroup_shape_isbase = false;
             return QGraphicsItemGroup::shape();
-        } else if (qgraphicsitemgroup_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qgraphicsitemgroup_shape_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsItemGroup::shape();
         }
+        auto shape_cb = qgraphicsitemgroup_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QGraphicsItemGroup::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10693,16 +11190,17 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_contains_isbase) {
             qgraphicsitemgroup_contains_isbase = false;
             return QGraphicsItemGroup::contains(point);
-        } else if (qgraphicsitemgroup_contains_callback != nullptr) {
+        }
+        auto contains_cb = qgraphicsitemgroup_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qgraphicsitemgroup_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsItemGroup::contains(point);
         }
+        return QGraphicsItemGroup::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10710,15 +11208,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_collideswithitem_isbase) {
             qgraphicsitemgroup_collideswithitem_isbase = false;
             return QGraphicsItemGroup::collidesWithItem(other, mode);
-        } else if (qgraphicsitemgroup_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qgraphicsitemgroup_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicsitemgroup_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsItemGroup::collidesWithItem(other, mode);
         }
+        return QGraphicsItemGroup::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10726,17 +11225,18 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_collideswithpath_isbase) {
             qgraphicsitemgroup_collideswithpath_isbase = false;
             return QGraphicsItemGroup::collidesWithPath(path, mode);
-        } else if (qgraphicsitemgroup_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qgraphicsitemgroup_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qgraphicsitemgroup_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsItemGroup::collidesWithPath(path, mode);
         }
+        return QGraphicsItemGroup::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10744,15 +11244,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_sceneeventfilter_isbase) {
             qgraphicsitemgroup_sceneeventfilter_isbase = false;
             return QGraphicsItemGroup::sceneEventFilter(watched, event);
-        } else if (qgraphicsitemgroup_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qgraphicsitemgroup_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsitemgroup_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsItemGroup::sceneEventFilter(watched, event);
         }
+        return QGraphicsItemGroup::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10760,14 +11261,15 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_sceneevent_isbase) {
             qgraphicsitemgroup_sceneevent_isbase = false;
             return QGraphicsItemGroup::sceneEvent(event);
-        } else if (qgraphicsitemgroup_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qgraphicsitemgroup_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsitemgroup_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsItemGroup::sceneEvent(event);
         }
+        return QGraphicsItemGroup::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10775,13 +11277,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_contextmenuevent_isbase) {
             qgraphicsitemgroup_contextmenuevent_isbase = false;
             QGraphicsItemGroup::contextMenuEvent(event);
-        } else if (qgraphicsitemgroup_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgraphicsitemgroup_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qgraphicsitemgroup_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10789,13 +11294,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_dragenterevent_isbase) {
             qgraphicsitemgroup_dragenterevent_isbase = false;
             QGraphicsItemGroup::dragEnterEvent(event);
-        } else if (qgraphicsitemgroup_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgraphicsitemgroup_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsitemgroup_dragenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10803,13 +11311,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_dragleaveevent_isbase) {
             qgraphicsitemgroup_dragleaveevent_isbase = false;
             QGraphicsItemGroup::dragLeaveEvent(event);
-        } else if (qgraphicsitemgroup_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgraphicsitemgroup_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsitemgroup_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10817,13 +11328,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_dragmoveevent_isbase) {
             qgraphicsitemgroup_dragmoveevent_isbase = false;
             QGraphicsItemGroup::dragMoveEvent(event);
-        } else if (qgraphicsitemgroup_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgraphicsitemgroup_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsitemgroup_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10831,13 +11345,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_dropevent_isbase) {
             qgraphicsitemgroup_dropevent_isbase = false;
             QGraphicsItemGroup::dropEvent(event);
-        } else if (qgraphicsitemgroup_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgraphicsitemgroup_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qgraphicsitemgroup_dropevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10845,13 +11362,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_focusinevent_isbase) {
             qgraphicsitemgroup_focusinevent_isbase = false;
             QGraphicsItemGroup::focusInEvent(event);
-        } else if (qgraphicsitemgroup_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgraphicsitemgroup_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsitemgroup_focusinevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10859,13 +11379,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_focusoutevent_isbase) {
             qgraphicsitemgroup_focusoutevent_isbase = false;
             QGraphicsItemGroup::focusOutEvent(event);
-        } else if (qgraphicsitemgroup_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgraphicsitemgroup_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgraphicsitemgroup_focusoutevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10873,13 +11396,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_hoverenterevent_isbase) {
             qgraphicsitemgroup_hoverenterevent_isbase = false;
             QGraphicsItemGroup::hoverEnterEvent(event);
-        } else if (qgraphicsitemgroup_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qgraphicsitemgroup_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsitemgroup_hoverenterevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10887,13 +11413,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_hovermoveevent_isbase) {
             qgraphicsitemgroup_hovermoveevent_isbase = false;
             QGraphicsItemGroup::hoverMoveEvent(event);
-        } else if (qgraphicsitemgroup_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qgraphicsitemgroup_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsitemgroup_hovermoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10901,13 +11430,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_hoverleaveevent_isbase) {
             qgraphicsitemgroup_hoverleaveevent_isbase = false;
             QGraphicsItemGroup::hoverLeaveEvent(event);
-        } else if (qgraphicsitemgroup_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qgraphicsitemgroup_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qgraphicsitemgroup_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10915,13 +11447,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_keypressevent_isbase) {
             qgraphicsitemgroup_keypressevent_isbase = false;
             QGraphicsItemGroup::keyPressEvent(event);
-        } else if (qgraphicsitemgroup_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgraphicsitemgroup_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsitemgroup_keypressevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10929,13 +11464,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_keyreleaseevent_isbase) {
             qgraphicsitemgroup_keyreleaseevent_isbase = false;
             QGraphicsItemGroup::keyReleaseEvent(event);
-        } else if (qgraphicsitemgroup_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgraphicsitemgroup_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgraphicsitemgroup_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10943,13 +11481,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_mousepressevent_isbase) {
             qgraphicsitemgroup_mousepressevent_isbase = false;
             QGraphicsItemGroup::mousePressEvent(event);
-        } else if (qgraphicsitemgroup_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgraphicsitemgroup_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsitemgroup_mousepressevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10957,13 +11498,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_mousemoveevent_isbase) {
             qgraphicsitemgroup_mousemoveevent_isbase = false;
             QGraphicsItemGroup::mouseMoveEvent(event);
-        } else if (qgraphicsitemgroup_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgraphicsitemgroup_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsitemgroup_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10971,13 +11515,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_mousereleaseevent_isbase) {
             qgraphicsitemgroup_mousereleaseevent_isbase = false;
             QGraphicsItemGroup::mouseReleaseEvent(event);
-        } else if (qgraphicsitemgroup_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgraphicsitemgroup_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsitemgroup_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10985,13 +11532,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_mousedoubleclickevent_isbase) {
             qgraphicsitemgroup_mousedoubleclickevent_isbase = false;
             QGraphicsItemGroup::mouseDoubleClickEvent(event);
-        } else if (qgraphicsitemgroup_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgraphicsitemgroup_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qgraphicsitemgroup_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -10999,13 +11549,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_wheelevent_isbase) {
             qgraphicsitemgroup_wheelevent_isbase = false;
             QGraphicsItemGroup::wheelEvent(event);
-        } else if (qgraphicsitemgroup_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgraphicsitemgroup_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qgraphicsitemgroup_wheelevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -11013,13 +11566,16 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_inputmethodevent_isbase) {
             qgraphicsitemgroup_inputmethodevent_isbase = false;
             QGraphicsItemGroup::inputMethodEvent(event);
-        } else if (qgraphicsitemgroup_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgraphicsitemgroup_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qgraphicsitemgroup_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGraphicsItemGroup::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsItemGroup::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -11027,14 +11583,15 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_inputmethodquery_isbase) {
             qgraphicsitemgroup_inputmethodquery_isbase = false;
             return QGraphicsItemGroup::inputMethodQuery(query);
-        } else if (qgraphicsitemgroup_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgraphicsitemgroup_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qgraphicsitemgroup_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsItemGroup::inputMethodQuery(query);
         }
+        return QGraphicsItemGroup::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -11042,17 +11599,18 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_itemchange_isbase) {
             qgraphicsitemgroup_itemchange_isbase = false;
             return QGraphicsItemGroup::itemChange(change, value);
-        } else if (qgraphicsitemgroup_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qgraphicsitemgroup_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qgraphicsitemgroup_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsItemGroup::itemChange(change, value);
         }
+        return QGraphicsItemGroup::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -11060,14 +11618,15 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_supportsextension_isbase) {
             qgraphicsitemgroup_supportsextension_isbase = false;
             return QGraphicsItemGroup::supportsExtension(extension);
-        } else if (qgraphicsitemgroup_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qgraphicsitemgroup_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qgraphicsitemgroup_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsItemGroup::supportsExtension(extension);
         }
+        return QGraphicsItemGroup::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -11075,16 +11634,19 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_setextension_isbase) {
             qgraphicsitemgroup_setextension_isbase = false;
             QGraphicsItemGroup::setExtension(extension, variant);
-        } else if (qgraphicsitemgroup_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qgraphicsitemgroup_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qgraphicsitemgroup_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QGraphicsItemGroup::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QGraphicsItemGroup::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -11092,16 +11654,17 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_extension_isbase) {
             qgraphicsitemgroup_extension_isbase = false;
             return QGraphicsItemGroup::extension(variant);
-        } else if (qgraphicsitemgroup_extension_callback != nullptr) {
+        }
+        auto extension_cb = qgraphicsitemgroup_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qgraphicsitemgroup_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsItemGroup::extension(variant);
         }
+        return QGraphicsItemGroup::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -11109,11 +11672,14 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_updatemicrofocus_isbase) {
             qgraphicsitemgroup_updatemicrofocus_isbase = false;
             QGraphicsItemGroup::updateMicroFocus();
-        } else if (qgraphicsitemgroup_updatemicrofocus_callback != nullptr) {
-            qgraphicsitemgroup_updatemicrofocus_callback();
-        } else {
-            QGraphicsItemGroup::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgraphicsitemgroup_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGraphicsItemGroup::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -11121,11 +11687,14 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_addtoindex_isbase) {
             qgraphicsitemgroup_addtoindex_isbase = false;
             QGraphicsItemGroup::addToIndex();
-        } else if (qgraphicsitemgroup_addtoindex_callback != nullptr) {
-            qgraphicsitemgroup_addtoindex_callback();
-        } else {
-            QGraphicsItemGroup::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qgraphicsitemgroup_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QGraphicsItemGroup::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -11133,11 +11702,14 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_removefromindex_isbase) {
             qgraphicsitemgroup_removefromindex_isbase = false;
             QGraphicsItemGroup::removeFromIndex();
-        } else if (qgraphicsitemgroup_removefromindex_callback != nullptr) {
-            qgraphicsitemgroup_removefromindex_callback();
-        } else {
-            QGraphicsItemGroup::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qgraphicsitemgroup_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QGraphicsItemGroup::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -11145,11 +11717,14 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
         if (qgraphicsitemgroup_preparegeometrychange_isbase) {
             qgraphicsitemgroup_preparegeometrychange_isbase = false;
             QGraphicsItemGroup::prepareGeometryChange();
-        } else if (qgraphicsitemgroup_preparegeometrychange_callback != nullptr) {
-            qgraphicsitemgroup_preparegeometrychange_callback();
-        } else {
-            QGraphicsItemGroup::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qgraphicsitemgroup_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QGraphicsItemGroup::prepareGeometryChange();
     }
 
     // Friend functions

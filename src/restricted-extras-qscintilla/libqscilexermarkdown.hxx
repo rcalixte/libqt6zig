@@ -177,59 +177,6 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
     VirtualQsciLexerMarkdown() : QsciLexerMarkdown() {};
     VirtualQsciLexerMarkdown(QObject* parent) : QsciLexerMarkdown(parent) {};
 
-    ~VirtualQsciLexerMarkdown() {
-        qscilexermarkdown_metaobject_callback = nullptr;
-        qscilexermarkdown_metacast_callback = nullptr;
-        qscilexermarkdown_metacall_callback = nullptr;
-        qscilexermarkdown_language_callback = nullptr;
-        qscilexermarkdown_lexer_callback = nullptr;
-        qscilexermarkdown_lexerid_callback = nullptr;
-        qscilexermarkdown_autocompletionfillups_callback = nullptr;
-        qscilexermarkdown_autocompletionwordseparators_callback = nullptr;
-        qscilexermarkdown_blockend_callback = nullptr;
-        qscilexermarkdown_blocklookback_callback = nullptr;
-        qscilexermarkdown_blockstart_callback = nullptr;
-        qscilexermarkdown_blockstartkeyword_callback = nullptr;
-        qscilexermarkdown_bracestyle_callback = nullptr;
-        qscilexermarkdown_casesensitive_callback = nullptr;
-        qscilexermarkdown_color_callback = nullptr;
-        qscilexermarkdown_eolfill_callback = nullptr;
-        qscilexermarkdown_font_callback = nullptr;
-        qscilexermarkdown_indentationguideview_callback = nullptr;
-        qscilexermarkdown_keywords_callback = nullptr;
-        qscilexermarkdown_defaultstyle_callback = nullptr;
-        qscilexermarkdown_description_callback = nullptr;
-        qscilexermarkdown_paper_callback = nullptr;
-        qscilexermarkdown_defaultcolor2_callback = nullptr;
-        qscilexermarkdown_defaulteolfill_callback = nullptr;
-        qscilexermarkdown_defaultfont2_callback = nullptr;
-        qscilexermarkdown_defaultpaper2_callback = nullptr;
-        qscilexermarkdown_seteditor_callback = nullptr;
-        qscilexermarkdown_refreshproperties_callback = nullptr;
-        qscilexermarkdown_stylebitsneeded_callback = nullptr;
-        qscilexermarkdown_wordcharacters_callback = nullptr;
-        qscilexermarkdown_setautoindentstyle_callback = nullptr;
-        qscilexermarkdown_setcolor_callback = nullptr;
-        qscilexermarkdown_seteolfill_callback = nullptr;
-        qscilexermarkdown_setfont_callback = nullptr;
-        qscilexermarkdown_setpaper_callback = nullptr;
-        qscilexermarkdown_readproperties_callback = nullptr;
-        qscilexermarkdown_writeproperties_callback = nullptr;
-        qscilexermarkdown_event_callback = nullptr;
-        qscilexermarkdown_eventfilter_callback = nullptr;
-        qscilexermarkdown_timerevent_callback = nullptr;
-        qscilexermarkdown_childevent_callback = nullptr;
-        qscilexermarkdown_customevent_callback = nullptr;
-        qscilexermarkdown_connectnotify_callback = nullptr;
-        qscilexermarkdown_disconnectnotify_callback = nullptr;
-        qscilexermarkdown_textasbytes_callback = nullptr;
-        qscilexermarkdown_bytesastext_callback = nullptr;
-        qscilexermarkdown_sender_callback = nullptr;
-        qscilexermarkdown_sendersignalindex_callback = nullptr;
-        qscilexermarkdown_receivers_callback = nullptr;
-        qscilexermarkdown_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQsciLexerMarkdown_MetaObject_Callback(QsciLexerMarkdown_MetaObject_Callback cb) { qscilexermarkdown_metaobject_callback = cb; }
     inline void setQsciLexerMarkdown_Metacast_Callback(QsciLexerMarkdown_Metacast_Callback cb) { qscilexermarkdown_metacast_callback = cb; }
@@ -339,12 +286,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_metaobject_isbase) {
             qscilexermarkdown_metaobject_isbase = false;
             return QsciLexerMarkdown::metaObject();
-        } else if (qscilexermarkdown_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qscilexermarkdown_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMarkdown::metaObject();
         }
+        auto metaobject_cb = qscilexermarkdown_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QsciLexerMarkdown::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,14 +300,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_metacast_isbase) {
             qscilexermarkdown_metacast_isbase = false;
             return QsciLexerMarkdown::qt_metacast(param1);
-        } else if (qscilexermarkdown_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qscilexermarkdown_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qscilexermarkdown_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::qt_metacast(param1);
         }
+        return QsciLexerMarkdown::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -367,26 +316,27 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_metacall_isbase) {
             qscilexermarkdown_metacall_isbase = false;
             return QsciLexerMarkdown::qt_metacall(param1, param2, param3);
-        } else if (qscilexermarkdown_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qscilexermarkdown_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qscilexermarkdown_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMarkdown::qt_metacall(param1, param2, param3);
         }
+        return QsciLexerMarkdown::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual const char* language() const override {
-        if (qscilexermarkdown_language_callback != nullptr) {
-            const char* callback_ret = qscilexermarkdown_language_callback();
+        auto language_cb = qscilexermarkdown_language_callback;
+        if (language_cb) {
+            const char* callback_ret = language_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,12 +344,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_lexer_isbase) {
             qscilexermarkdown_lexer_isbase = false;
             return QsciLexerMarkdown::lexer();
-        } else if (qscilexermarkdown_lexer_callback != nullptr) {
-            const char* callback_ret = qscilexermarkdown_lexer_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMarkdown::lexer();
         }
+        auto lexer_cb = qscilexermarkdown_lexer_callback;
+        if (lexer_cb) {
+            const char* callback_ret = lexer_cb();
+            return callback_ret;
+        }
+        return QsciLexerMarkdown::lexer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -407,12 +358,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_lexerid_isbase) {
             qscilexermarkdown_lexerid_isbase = false;
             return QsciLexerMarkdown::lexerId();
-        } else if (qscilexermarkdown_lexerid_callback != nullptr) {
-            int callback_ret = qscilexermarkdown_lexerid_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMarkdown::lexerId();
         }
+        auto lexerid_cb = qscilexermarkdown_lexerid_callback;
+        if (lexerid_cb) {
+            int callback_ret = lexerid_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMarkdown::lexerId();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -420,12 +372,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_autocompletionfillups_isbase) {
             qscilexermarkdown_autocompletionfillups_isbase = false;
             return QsciLexerMarkdown::autoCompletionFillups();
-        } else if (qscilexermarkdown_autocompletionfillups_callback != nullptr) {
-            const char* callback_ret = qscilexermarkdown_autocompletionfillups_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMarkdown::autoCompletionFillups();
         }
+        auto autocompletionfillups_cb = qscilexermarkdown_autocompletionfillups_callback;
+        if (autocompletionfillups_cb) {
+            const char* callback_ret = autocompletionfillups_cb();
+            return callback_ret;
+        }
+        return QsciLexerMarkdown::autoCompletionFillups();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -433,8 +386,10 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_autocompletionwordseparators_isbase) {
             qscilexermarkdown_autocompletionwordseparators_isbase = false;
             return QsciLexerMarkdown::autoCompletionWordSeparators();
-        } else if (qscilexermarkdown_autocompletionwordseparators_callback != nullptr) {
-            const char** callback_ret = qscilexermarkdown_autocompletionwordseparators_callback();
+        }
+        auto autocompletionwordseparators_cb = qscilexermarkdown_autocompletionwordseparators_callback;
+        if (autocompletionwordseparators_cb) {
+            const char** callback_ret = autocompletionwordseparators_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -445,9 +400,8 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QsciLexerMarkdown::autoCompletionWordSeparators();
         }
+        return QsciLexerMarkdown::autoCompletionWordSeparators();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -455,14 +409,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_blockend_isbase) {
             qscilexermarkdown_blockend_isbase = false;
             return QsciLexerMarkdown::blockEnd(style);
-        } else if (qscilexermarkdown_blockend_callback != nullptr) {
+        }
+        auto blockend_cb = qscilexermarkdown_blockend_callback;
+        if (blockend_cb) {
             int* cbval1 = style;
 
-            const char* callback_ret = qscilexermarkdown_blockend_callback(this, cbval1);
+            const char* callback_ret = blockend_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::blockEnd(style);
         }
+        return QsciLexerMarkdown::blockEnd(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,12 +425,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_blocklookback_isbase) {
             qscilexermarkdown_blocklookback_isbase = false;
             return QsciLexerMarkdown::blockLookback();
-        } else if (qscilexermarkdown_blocklookback_callback != nullptr) {
-            int callback_ret = qscilexermarkdown_blocklookback_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMarkdown::blockLookback();
         }
+        auto blocklookback_cb = qscilexermarkdown_blocklookback_callback;
+        if (blocklookback_cb) {
+            int callback_ret = blocklookback_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMarkdown::blockLookback();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,14 +439,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_blockstart_isbase) {
             qscilexermarkdown_blockstart_isbase = false;
             return QsciLexerMarkdown::blockStart(style);
-        } else if (qscilexermarkdown_blockstart_callback != nullptr) {
+        }
+        auto blockstart_cb = qscilexermarkdown_blockstart_callback;
+        if (blockstart_cb) {
             int* cbval1 = style;
 
-            const char* callback_ret = qscilexermarkdown_blockstart_callback(this, cbval1);
+            const char* callback_ret = blockstart_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::blockStart(style);
         }
+        return QsciLexerMarkdown::blockStart(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,14 +455,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_blockstartkeyword_isbase) {
             qscilexermarkdown_blockstartkeyword_isbase = false;
             return QsciLexerMarkdown::blockStartKeyword(style);
-        } else if (qscilexermarkdown_blockstartkeyword_callback != nullptr) {
+        }
+        auto blockstartkeyword_cb = qscilexermarkdown_blockstartkeyword_callback;
+        if (blockstartkeyword_cb) {
             int* cbval1 = style;
 
-            const char* callback_ret = qscilexermarkdown_blockstartkeyword_callback(this, cbval1);
+            const char* callback_ret = blockstartkeyword_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::blockStartKeyword(style);
         }
+        return QsciLexerMarkdown::blockStartKeyword(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,12 +471,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_bracestyle_isbase) {
             qscilexermarkdown_bracestyle_isbase = false;
             return QsciLexerMarkdown::braceStyle();
-        } else if (qscilexermarkdown_bracestyle_callback != nullptr) {
-            int callback_ret = qscilexermarkdown_bracestyle_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMarkdown::braceStyle();
         }
+        auto bracestyle_cb = qscilexermarkdown_bracestyle_callback;
+        if (bracestyle_cb) {
+            int callback_ret = bracestyle_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMarkdown::braceStyle();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,12 +485,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_casesensitive_isbase) {
             qscilexermarkdown_casesensitive_isbase = false;
             return QsciLexerMarkdown::caseSensitive();
-        } else if (qscilexermarkdown_casesensitive_callback != nullptr) {
-            bool callback_ret = qscilexermarkdown_casesensitive_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMarkdown::caseSensitive();
         }
+        auto casesensitive_cb = qscilexermarkdown_casesensitive_callback;
+        if (casesensitive_cb) {
+            bool callback_ret = casesensitive_cb();
+            return callback_ret;
+        }
+        return QsciLexerMarkdown::caseSensitive();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -539,14 +499,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_color_isbase) {
             qscilexermarkdown_color_isbase = false;
             return QsciLexerMarkdown::color(style);
-        } else if (qscilexermarkdown_color_callback != nullptr) {
+        }
+        auto color_cb = qscilexermarkdown_color_callback;
+        if (color_cb) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexermarkdown_color_callback(this, cbval1);
+            QColor* callback_ret = color_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMarkdown::color(style);
         }
+        return QsciLexerMarkdown::color(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,14 +515,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_eolfill_isbase) {
             qscilexermarkdown_eolfill_isbase = false;
             return QsciLexerMarkdown::eolFill(style);
-        } else if (qscilexermarkdown_eolfill_callback != nullptr) {
+        }
+        auto eolfill_cb = qscilexermarkdown_eolfill_callback;
+        if (eolfill_cb) {
             int cbval1 = style;
 
-            bool callback_ret = qscilexermarkdown_eolfill_callback(this, cbval1);
+            bool callback_ret = eolfill_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::eolFill(style);
         }
+        return QsciLexerMarkdown::eolFill(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,14 +531,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_font_isbase) {
             qscilexermarkdown_font_isbase = false;
             return QsciLexerMarkdown::font(style);
-        } else if (qscilexermarkdown_font_callback != nullptr) {
+        }
+        auto font_cb = qscilexermarkdown_font_callback;
+        if (font_cb) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexermarkdown_font_callback(this, cbval1);
+            QFont* callback_ret = font_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMarkdown::font(style);
         }
+        return QsciLexerMarkdown::font(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,12 +547,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_indentationguideview_isbase) {
             qscilexermarkdown_indentationguideview_isbase = false;
             return QsciLexerMarkdown::indentationGuideView();
-        } else if (qscilexermarkdown_indentationguideview_callback != nullptr) {
-            int callback_ret = qscilexermarkdown_indentationguideview_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMarkdown::indentationGuideView();
         }
+        auto indentationguideview_cb = qscilexermarkdown_indentationguideview_callback;
+        if (indentationguideview_cb) {
+            int callback_ret = indentationguideview_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMarkdown::indentationGuideView();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,14 +561,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_keywords_isbase) {
             qscilexermarkdown_keywords_isbase = false;
             return QsciLexerMarkdown::keywords(set);
-        } else if (qscilexermarkdown_keywords_callback != nullptr) {
+        }
+        auto keywords_cb = qscilexermarkdown_keywords_callback;
+        if (keywords_cb) {
             int cbval1 = set;
 
-            const char* callback_ret = qscilexermarkdown_keywords_callback(this, cbval1);
+            const char* callback_ret = keywords_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::keywords(set);
         }
+        return QsciLexerMarkdown::keywords(set);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,25 +577,26 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_defaultstyle_isbase) {
             qscilexermarkdown_defaultstyle_isbase = false;
             return QsciLexerMarkdown::defaultStyle();
-        } else if (qscilexermarkdown_defaultstyle_callback != nullptr) {
-            int callback_ret = qscilexermarkdown_defaultstyle_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMarkdown::defaultStyle();
         }
+        auto defaultstyle_cb = qscilexermarkdown_defaultstyle_callback;
+        if (defaultstyle_cb) {
+            int callback_ret = defaultstyle_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMarkdown::defaultStyle();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString description(int style) const override {
-        if (qscilexermarkdown_description_callback != nullptr) {
+        auto description_cb = qscilexermarkdown_description_callback;
+        if (description_cb) {
             int cbval1 = style;
 
-            const char* callback_ret = qscilexermarkdown_description_callback(this, cbval1);
+            const char* callback_ret = description_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -638,14 +604,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_paper_isbase) {
             qscilexermarkdown_paper_isbase = false;
             return QsciLexerMarkdown::paper(style);
-        } else if (qscilexermarkdown_paper_callback != nullptr) {
+        }
+        auto paper_cb = qscilexermarkdown_paper_callback;
+        if (paper_cb) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexermarkdown_paper_callback(this, cbval1);
+            QColor* callback_ret = paper_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMarkdown::paper(style);
         }
+        return QsciLexerMarkdown::paper(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,14 +620,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_defaultcolor2_isbase) {
             qscilexermarkdown_defaultcolor2_isbase = false;
             return QsciLexerMarkdown::defaultColor(style);
-        } else if (qscilexermarkdown_defaultcolor2_callback != nullptr) {
+        }
+        auto defaultcolor2_cb = qscilexermarkdown_defaultcolor2_callback;
+        if (defaultcolor2_cb) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexermarkdown_defaultcolor2_callback(this, cbval1);
+            QColor* callback_ret = defaultcolor2_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMarkdown::defaultColor(style);
         }
+        return QsciLexerMarkdown::defaultColor(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,14 +636,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_defaulteolfill_isbase) {
             qscilexermarkdown_defaulteolfill_isbase = false;
             return QsciLexerMarkdown::defaultEolFill(style);
-        } else if (qscilexermarkdown_defaulteolfill_callback != nullptr) {
+        }
+        auto defaulteolfill_cb = qscilexermarkdown_defaulteolfill_callback;
+        if (defaulteolfill_cb) {
             int cbval1 = style;
 
-            bool callback_ret = qscilexermarkdown_defaulteolfill_callback(this, cbval1);
+            bool callback_ret = defaulteolfill_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::defaultEolFill(style);
         }
+        return QsciLexerMarkdown::defaultEolFill(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,14 +652,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_defaultfont2_isbase) {
             qscilexermarkdown_defaultfont2_isbase = false;
             return QsciLexerMarkdown::defaultFont(style);
-        } else if (qscilexermarkdown_defaultfont2_callback != nullptr) {
+        }
+        auto defaultfont2_cb = qscilexermarkdown_defaultfont2_callback;
+        if (defaultfont2_cb) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexermarkdown_defaultfont2_callback(this, cbval1);
+            QFont* callback_ret = defaultfont2_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMarkdown::defaultFont(style);
         }
+        return QsciLexerMarkdown::defaultFont(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,14 +668,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_defaultpaper2_isbase) {
             qscilexermarkdown_defaultpaper2_isbase = false;
             return QsciLexerMarkdown::defaultPaper(style);
-        } else if (qscilexermarkdown_defaultpaper2_callback != nullptr) {
+        }
+        auto defaultpaper2_cb = qscilexermarkdown_defaultpaper2_callback;
+        if (defaultpaper2_cb) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexermarkdown_defaultpaper2_callback(this, cbval1);
+            QColor* callback_ret = defaultpaper2_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMarkdown::defaultPaper(style);
         }
+        return QsciLexerMarkdown::defaultPaper(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -713,13 +684,16 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_seteditor_isbase) {
             qscilexermarkdown_seteditor_isbase = false;
             QsciLexerMarkdown::setEditor(editor);
-        } else if (qscilexermarkdown_seteditor_callback != nullptr) {
+            return;
+        }
+        auto seteditor_cb = qscilexermarkdown_seteditor_callback;
+        if (seteditor_cb) {
             QsciScintilla* cbval1 = editor;
 
-            qscilexermarkdown_seteditor_callback(this, cbval1);
-        } else {
-            QsciLexerMarkdown::setEditor(editor);
+            seteditor_cb(this, cbval1);
+            return;
         }
+        QsciLexerMarkdown::setEditor(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,11 +701,14 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_refreshproperties_isbase) {
             qscilexermarkdown_refreshproperties_isbase = false;
             QsciLexerMarkdown::refreshProperties();
-        } else if (qscilexermarkdown_refreshproperties_callback != nullptr) {
-            qscilexermarkdown_refreshproperties_callback();
-        } else {
-            QsciLexerMarkdown::refreshProperties();
+            return;
         }
+        auto refreshproperties_cb = qscilexermarkdown_refreshproperties_callback;
+        if (refreshproperties_cb) {
+            refreshproperties_cb();
+            return;
+        }
+        QsciLexerMarkdown::refreshProperties();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,12 +716,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_stylebitsneeded_isbase) {
             qscilexermarkdown_stylebitsneeded_isbase = false;
             return QsciLexerMarkdown::styleBitsNeeded();
-        } else if (qscilexermarkdown_stylebitsneeded_callback != nullptr) {
-            int callback_ret = qscilexermarkdown_stylebitsneeded_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMarkdown::styleBitsNeeded();
         }
+        auto stylebitsneeded_cb = qscilexermarkdown_stylebitsneeded_callback;
+        if (stylebitsneeded_cb) {
+            int callback_ret = stylebitsneeded_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMarkdown::styleBitsNeeded();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,12 +730,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_wordcharacters_isbase) {
             qscilexermarkdown_wordcharacters_isbase = false;
             return QsciLexerMarkdown::wordCharacters();
-        } else if (qscilexermarkdown_wordcharacters_callback != nullptr) {
-            const char* callback_ret = qscilexermarkdown_wordcharacters_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMarkdown::wordCharacters();
         }
+        auto wordcharacters_cb = qscilexermarkdown_wordcharacters_callback;
+        if (wordcharacters_cb) {
+            const char* callback_ret = wordcharacters_cb();
+            return callback_ret;
+        }
+        return QsciLexerMarkdown::wordCharacters();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +744,16 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_setautoindentstyle_isbase) {
             qscilexermarkdown_setautoindentstyle_isbase = false;
             QsciLexerMarkdown::setAutoIndentStyle(autoindentstyle);
-        } else if (qscilexermarkdown_setautoindentstyle_callback != nullptr) {
+            return;
+        }
+        auto setautoindentstyle_cb = qscilexermarkdown_setautoindentstyle_callback;
+        if (setautoindentstyle_cb) {
             int cbval1 = autoindentstyle;
 
-            qscilexermarkdown_setautoindentstyle_callback(this, cbval1);
-        } else {
-            QsciLexerMarkdown::setAutoIndentStyle(autoindentstyle);
+            setautoindentstyle_cb(this, cbval1);
+            return;
         }
+        QsciLexerMarkdown::setAutoIndentStyle(autoindentstyle);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,16 +761,19 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_setcolor_isbase) {
             qscilexermarkdown_setcolor_isbase = false;
             QsciLexerMarkdown::setColor(c, style);
-        } else if (qscilexermarkdown_setcolor_callback != nullptr) {
+            return;
+        }
+        auto setcolor_cb = qscilexermarkdown_setcolor_callback;
+        if (setcolor_cb) {
             const QColor& c_ret = c;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
             int cbval2 = style;
 
-            qscilexermarkdown_setcolor_callback(this, cbval1, cbval2);
-        } else {
-            QsciLexerMarkdown::setColor(c, style);
+            setcolor_cb(this, cbval1, cbval2);
+            return;
         }
+        QsciLexerMarkdown::setColor(c, style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,14 +781,17 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_seteolfill_isbase) {
             qscilexermarkdown_seteolfill_isbase = false;
             QsciLexerMarkdown::setEolFill(eoffill, style);
-        } else if (qscilexermarkdown_seteolfill_callback != nullptr) {
+            return;
+        }
+        auto seteolfill_cb = qscilexermarkdown_seteolfill_callback;
+        if (seteolfill_cb) {
             bool cbval1 = eoffill;
             int cbval2 = style;
 
-            qscilexermarkdown_seteolfill_callback(this, cbval1, cbval2);
-        } else {
-            QsciLexerMarkdown::setEolFill(eoffill, style);
+            seteolfill_cb(this, cbval1, cbval2);
+            return;
         }
+        QsciLexerMarkdown::setEolFill(eoffill, style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -811,16 +799,19 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_setfont_isbase) {
             qscilexermarkdown_setfont_isbase = false;
             QsciLexerMarkdown::setFont(f, style);
-        } else if (qscilexermarkdown_setfont_callback != nullptr) {
+            return;
+        }
+        auto setfont_cb = qscilexermarkdown_setfont_callback;
+        if (setfont_cb) {
             const QFont& f_ret = f;
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&f_ret);
             int cbval2 = style;
 
-            qscilexermarkdown_setfont_callback(this, cbval1, cbval2);
-        } else {
-            QsciLexerMarkdown::setFont(f, style);
+            setfont_cb(this, cbval1, cbval2);
+            return;
         }
+        QsciLexerMarkdown::setFont(f, style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,16 +819,19 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_setpaper_isbase) {
             qscilexermarkdown_setpaper_isbase = false;
             QsciLexerMarkdown::setPaper(c, style);
-        } else if (qscilexermarkdown_setpaper_callback != nullptr) {
+            return;
+        }
+        auto setpaper_cb = qscilexermarkdown_setpaper_callback;
+        if (setpaper_cb) {
             const QColor& c_ret = c;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
             int cbval2 = style;
 
-            qscilexermarkdown_setpaper_callback(this, cbval1, cbval2);
-        } else {
-            QsciLexerMarkdown::setPaper(c, style);
+            setpaper_cb(this, cbval1, cbval2);
+            return;
         }
+        QsciLexerMarkdown::setPaper(c, style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,7 +839,9 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_readproperties_isbase) {
             qscilexermarkdown_readproperties_isbase = false;
             return QsciLexerMarkdown::readProperties(qs, prefix);
-        } else if (qscilexermarkdown_readproperties_callback != nullptr) {
+        }
+        auto readproperties_cb = qscilexermarkdown_readproperties_callback;
+        if (readproperties_cb) {
             QSettings& qs_ret = qs;
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
@@ -858,12 +854,11 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval2 = prefix_str;
 
-            bool callback_ret = qscilexermarkdown_readproperties_callback(this, cbval1, cbval2);
+            bool callback_ret = readproperties_cb(this, cbval1, cbval2);
             libqt_free(prefix_str);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::readProperties(qs, prefix);
         }
+        return QsciLexerMarkdown::readProperties(qs, prefix);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,7 +866,9 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_writeproperties_isbase) {
             qscilexermarkdown_writeproperties_isbase = false;
             return QsciLexerMarkdown::writeProperties(qs, prefix);
-        } else if (qscilexermarkdown_writeproperties_callback != nullptr) {
+        }
+        auto writeproperties_cb = qscilexermarkdown_writeproperties_callback;
+        if (writeproperties_cb) {
             QSettings& qs_ret = qs;
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
@@ -884,12 +881,11 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval2 = prefix_str;
 
-            bool callback_ret = qscilexermarkdown_writeproperties_callback(this, cbval1, cbval2);
+            bool callback_ret = writeproperties_cb(this, cbval1, cbval2);
             libqt_free(prefix_str);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::writeProperties(qs, prefix);
         }
+        return QsciLexerMarkdown::writeProperties(qs, prefix);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -897,14 +893,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_event_isbase) {
             qscilexermarkdown_event_isbase = false;
             return QsciLexerMarkdown::event(event);
-        } else if (qscilexermarkdown_event_callback != nullptr) {
+        }
+        auto event_cb = qscilexermarkdown_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qscilexermarkdown_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::event(event);
         }
+        return QsciLexerMarkdown::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,15 +909,16 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_eventfilter_isbase) {
             qscilexermarkdown_eventfilter_isbase = false;
             return QsciLexerMarkdown::eventFilter(watched, event);
-        } else if (qscilexermarkdown_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qscilexermarkdown_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qscilexermarkdown_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::eventFilter(watched, event);
         }
+        return QsciLexerMarkdown::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -928,13 +926,16 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_timerevent_isbase) {
             qscilexermarkdown_timerevent_isbase = false;
             QsciLexerMarkdown::timerEvent(event);
-        } else if (qscilexermarkdown_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qscilexermarkdown_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qscilexermarkdown_timerevent_callback(this, cbval1);
-        } else {
-            QsciLexerMarkdown::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QsciLexerMarkdown::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,13 +943,16 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_childevent_isbase) {
             qscilexermarkdown_childevent_isbase = false;
             QsciLexerMarkdown::childEvent(event);
-        } else if (qscilexermarkdown_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qscilexermarkdown_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qscilexermarkdown_childevent_callback(this, cbval1);
-        } else {
-            QsciLexerMarkdown::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QsciLexerMarkdown::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,13 +960,16 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_customevent_isbase) {
             qscilexermarkdown_customevent_isbase = false;
             QsciLexerMarkdown::customEvent(event);
-        } else if (qscilexermarkdown_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qscilexermarkdown_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qscilexermarkdown_customevent_callback(this, cbval1);
-        } else {
-            QsciLexerMarkdown::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QsciLexerMarkdown::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -970,15 +977,18 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_connectnotify_isbase) {
             qscilexermarkdown_connectnotify_isbase = false;
             QsciLexerMarkdown::connectNotify(signal);
-        } else if (qscilexermarkdown_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qscilexermarkdown_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qscilexermarkdown_connectnotify_callback(this, cbval1);
-        } else {
-            QsciLexerMarkdown::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QsciLexerMarkdown::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,15 +996,18 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_disconnectnotify_isbase) {
             qscilexermarkdown_disconnectnotify_isbase = false;
             QsciLexerMarkdown::disconnectNotify(signal);
-        } else if (qscilexermarkdown_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qscilexermarkdown_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qscilexermarkdown_disconnectnotify_callback(this, cbval1);
-        } else {
-            QsciLexerMarkdown::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QsciLexerMarkdown::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1002,7 +1015,9 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_textasbytes_isbase) {
             qscilexermarkdown_textasbytes_isbase = false;
             return QsciLexerMarkdown::textAsBytes(text);
-        } else if (qscilexermarkdown_textasbytes_callback != nullptr) {
+        }
+        auto textasbytes_cb = qscilexermarkdown_textasbytes_callback;
+        if (textasbytes_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -1012,13 +1027,12 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            libqt_string callback_ret = qscilexermarkdown_textasbytes_callback(this, cbval1);
+            libqt_string callback_ret = textasbytes_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             libqt_free(text_str);
             return callback_ret_QByteArray;
-        } else {
-            return QsciLexerMarkdown::textAsBytes(text);
         }
+        return QsciLexerMarkdown::textAsBytes(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1026,16 +1040,17 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_bytesastext_isbase) {
             qscilexermarkdown_bytesastext_isbase = false;
             return QsciLexerMarkdown::bytesAsText(bytes, size);
-        } else if (qscilexermarkdown_bytesastext_callback != nullptr) {
+        }
+        auto bytesastext_cb = qscilexermarkdown_bytesastext_callback;
+        if (bytesastext_cb) {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
 
-            const char* callback_ret = qscilexermarkdown_bytesastext_callback(this, cbval1, cbval2);
+            const char* callback_ret = bytesastext_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QsciLexerMarkdown::bytesAsText(bytes, size);
         }
+        return QsciLexerMarkdown::bytesAsText(bytes, size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,12 +1058,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_sender_isbase) {
             qscilexermarkdown_sender_isbase = false;
             return QsciLexerMarkdown::sender();
-        } else if (qscilexermarkdown_sender_callback != nullptr) {
-            QObject* callback_ret = qscilexermarkdown_sender_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMarkdown::sender();
         }
+        auto sender_cb = qscilexermarkdown_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QsciLexerMarkdown::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,12 +1072,13 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_sendersignalindex_isbase) {
             qscilexermarkdown_sendersignalindex_isbase = false;
             return QsciLexerMarkdown::senderSignalIndex();
-        } else if (qscilexermarkdown_sendersignalindex_callback != nullptr) {
-            int callback_ret = qscilexermarkdown_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMarkdown::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qscilexermarkdown_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMarkdown::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1069,14 +1086,15 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_receivers_isbase) {
             qscilexermarkdown_receivers_isbase = false;
             return QsciLexerMarkdown::receivers(signal);
-        } else if (qscilexermarkdown_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qscilexermarkdown_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qscilexermarkdown_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMarkdown::receivers(signal);
         }
+        return QsciLexerMarkdown::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1084,16 +1102,17 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
         if (qscilexermarkdown_issignalconnected_isbase) {
             qscilexermarkdown_issignalconnected_isbase = false;
             return QsciLexerMarkdown::isSignalConnected(signal);
-        } else if (qscilexermarkdown_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qscilexermarkdown_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qscilexermarkdown_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMarkdown::isSignalConnected(signal);
         }
+        return QsciLexerMarkdown::isSignalConnected(signal);
     }
 
     // Friend functions

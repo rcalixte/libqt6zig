@@ -71,23 +71,6 @@ class VirtualQChronoTimer final : public QChronoTimer {
     VirtualQChronoTimer(std::chrono::nanoseconds nsec, QObject* parent) : QChronoTimer(nsec, parent) {};
     VirtualQChronoTimer(QObject* parent) : QChronoTimer(parent) {};
 
-    ~VirtualQChronoTimer() {
-        qchronotimer_metaobject_callback = nullptr;
-        qchronotimer_metacast_callback = nullptr;
-        qchronotimer_metacall_callback = nullptr;
-        qchronotimer_timerevent_callback = nullptr;
-        qchronotimer_event_callback = nullptr;
-        qchronotimer_eventfilter_callback = nullptr;
-        qchronotimer_childevent_callback = nullptr;
-        qchronotimer_customevent_callback = nullptr;
-        qchronotimer_connectnotify_callback = nullptr;
-        qchronotimer_disconnectnotify_callback = nullptr;
-        qchronotimer_sender_callback = nullptr;
-        qchronotimer_sendersignalindex_callback = nullptr;
-        qchronotimer_receivers_callback = nullptr;
-        qchronotimer_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQChronoTimer_MetaObject_Callback(QChronoTimer_MetaObject_Callback cb) { qchronotimer_metaobject_callback = cb; }
     inline void setQChronoTimer_Metacast_Callback(QChronoTimer_Metacast_Callback cb) { qchronotimer_metacast_callback = cb; }
@@ -125,12 +108,13 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_metaobject_isbase) {
             qchronotimer_metaobject_isbase = false;
             return QChronoTimer::metaObject();
-        } else if (qchronotimer_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qchronotimer_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QChronoTimer::metaObject();
         }
+        auto metaobject_cb = qchronotimer_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QChronoTimer::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,14 +122,15 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_metacast_isbase) {
             qchronotimer_metacast_isbase = false;
             return QChronoTimer::qt_metacast(param1);
-        } else if (qchronotimer_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qchronotimer_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qchronotimer_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChronoTimer::qt_metacast(param1);
         }
+        return QChronoTimer::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,16 +138,17 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_metacall_isbase) {
             qchronotimer_metacall_isbase = false;
             return QChronoTimer::qt_metacall(param1, param2, param3);
-        } else if (qchronotimer_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qchronotimer_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qchronotimer_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QChronoTimer::qt_metacall(param1, param2, param3);
         }
+        return QChronoTimer::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,13 +156,16 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_timerevent_isbase) {
             qchronotimer_timerevent_isbase = false;
             QChronoTimer::timerEvent(param1);
-        } else if (qchronotimer_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qchronotimer_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            qchronotimer_timerevent_callback(this, cbval1);
-        } else {
-            QChronoTimer::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QChronoTimer::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -184,14 +173,15 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_event_isbase) {
             qchronotimer_event_isbase = false;
             return QChronoTimer::event(event);
-        } else if (qchronotimer_event_callback != nullptr) {
+        }
+        auto event_cb = qchronotimer_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qchronotimer_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChronoTimer::event(event);
         }
+        return QChronoTimer::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,15 +189,16 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_eventfilter_isbase) {
             qchronotimer_eventfilter_isbase = false;
             return QChronoTimer::eventFilter(watched, event);
-        } else if (qchronotimer_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qchronotimer_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qchronotimer_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QChronoTimer::eventFilter(watched, event);
         }
+        return QChronoTimer::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,13 +206,16 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_childevent_isbase) {
             qchronotimer_childevent_isbase = false;
             QChronoTimer::childEvent(event);
-        } else if (qchronotimer_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qchronotimer_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qchronotimer_childevent_callback(this, cbval1);
-        } else {
-            QChronoTimer::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QChronoTimer::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,13 +223,16 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_customevent_isbase) {
             qchronotimer_customevent_isbase = false;
             QChronoTimer::customEvent(event);
-        } else if (qchronotimer_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qchronotimer_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qchronotimer_customevent_callback(this, cbval1);
-        } else {
-            QChronoTimer::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QChronoTimer::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +240,18 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_connectnotify_isbase) {
             qchronotimer_connectnotify_isbase = false;
             QChronoTimer::connectNotify(signal);
-        } else if (qchronotimer_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qchronotimer_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qchronotimer_connectnotify_callback(this, cbval1);
-        } else {
-            QChronoTimer::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QChronoTimer::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,15 +259,18 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_disconnectnotify_isbase) {
             qchronotimer_disconnectnotify_isbase = false;
             QChronoTimer::disconnectNotify(signal);
-        } else if (qchronotimer_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qchronotimer_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qchronotimer_disconnectnotify_callback(this, cbval1);
-        } else {
-            QChronoTimer::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QChronoTimer::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,12 +278,13 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_sender_isbase) {
             qchronotimer_sender_isbase = false;
             return QChronoTimer::sender();
-        } else if (qchronotimer_sender_callback != nullptr) {
-            QObject* callback_ret = qchronotimer_sender_callback();
-            return callback_ret;
-        } else {
-            return QChronoTimer::sender();
         }
+        auto sender_cb = qchronotimer_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QChronoTimer::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,12 +292,13 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_sendersignalindex_isbase) {
             qchronotimer_sendersignalindex_isbase = false;
             return QChronoTimer::senderSignalIndex();
-        } else if (qchronotimer_sendersignalindex_callback != nullptr) {
-            int callback_ret = qchronotimer_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QChronoTimer::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qchronotimer_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QChronoTimer::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,14 +306,15 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_receivers_isbase) {
             qchronotimer_receivers_isbase = false;
             return QChronoTimer::receivers(signal);
-        } else if (qchronotimer_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qchronotimer_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qchronotimer_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QChronoTimer::receivers(signal);
         }
+        return QChronoTimer::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,16 +322,17 @@ class VirtualQChronoTimer final : public QChronoTimer {
         if (qchronotimer_issignalconnected_isbase) {
             qchronotimer_issignalconnected_isbase = false;
             return QChronoTimer::isSignalConnected(signal);
-        } else if (qchronotimer_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qchronotimer_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qchronotimer_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QChronoTimer::isSignalConnected(signal);
         }
+        return QChronoTimer::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -69,23 +69,6 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
     VirtualKSvgFrameSvg() : KSvg::FrameSvg() {};
     VirtualKSvgFrameSvg(QObject* parent) : KSvg::FrameSvg(parent) {};
 
-    ~VirtualKSvgFrameSvg() {
-        ksvg__framesvg_metaobject_callback = nullptr;
-        ksvg__framesvg_metacast_callback = nullptr;
-        ksvg__framesvg_metacall_callback = nullptr;
-        ksvg__framesvg_setimagepath_callback = nullptr;
-        ksvg__framesvg_event_callback = nullptr;
-        ksvg__framesvg_timerevent_callback = nullptr;
-        ksvg__framesvg_childevent_callback = nullptr;
-        ksvg__framesvg_customevent_callback = nullptr;
-        ksvg__framesvg_connectnotify_callback = nullptr;
-        ksvg__framesvg_disconnectnotify_callback = nullptr;
-        ksvg__framesvg_sender_callback = nullptr;
-        ksvg__framesvg_sendersignalindex_callback = nullptr;
-        ksvg__framesvg_receivers_callback = nullptr;
-        ksvg__framesvg_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSvg__FrameSvg_MetaObject_Callback(KSvg__FrameSvg_MetaObject_Callback cb) { ksvg__framesvg_metaobject_callback = cb; }
     inline void setKSvg__FrameSvg_Metacast_Callback(KSvg__FrameSvg_Metacast_Callback cb) { ksvg__framesvg_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_metaobject_isbase) {
             ksvg__framesvg_metaobject_isbase = false;
             return KSvg__FrameSvg::metaObject();
-        } else if (ksvg__framesvg_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ksvg__framesvg_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSvg__FrameSvg::metaObject();
         }
+        auto metaobject_cb = ksvg__framesvg_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSvg__FrameSvg::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_metacast_isbase) {
             ksvg__framesvg_metacast_isbase = false;
             return KSvg__FrameSvg::qt_metacast(param1);
-        } else if (ksvg__framesvg_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ksvg__framesvg_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ksvg__framesvg_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSvg__FrameSvg::qt_metacast(param1);
         }
+        return KSvg__FrameSvg::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_metacall_isbase) {
             ksvg__framesvg_metacall_isbase = false;
             return KSvg__FrameSvg::qt_metacall(param1, param2, param3);
-        } else if (ksvg__framesvg_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ksvg__framesvg_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ksvg__framesvg_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSvg__FrameSvg::qt_metacall(param1, param2, param3);
         }
+        return KSvg__FrameSvg::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,7 +154,10 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_setimagepath_isbase) {
             ksvg__framesvg_setimagepath_isbase = false;
             KSvg__FrameSvg::setImagePath(path);
-        } else if (ksvg__framesvg_setimagepath_callback != nullptr) {
+            return;
+        }
+        auto setimagepath_cb = ksvg__framesvg_setimagepath_callback;
+        if (setimagepath_cb) {
             const QString path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
@@ -178,11 +167,11 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
             ((char*)path_str)[path_str_len] = '\0';
             const char* cbval1 = path_str;
 
-            ksvg__framesvg_setimagepath_callback(this, cbval1);
+            setimagepath_cb(this, cbval1);
             libqt_free(path_str);
-        } else {
-            KSvg__FrameSvg::setImagePath(path);
+            return;
         }
+        KSvg__FrameSvg::setImagePath(path);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -190,14 +179,15 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_event_isbase) {
             ksvg__framesvg_event_isbase = false;
             return KSvg__FrameSvg::event(event);
-        } else if (ksvg__framesvg_event_callback != nullptr) {
+        }
+        auto event_cb = ksvg__framesvg_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ksvg__framesvg_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSvg__FrameSvg::event(event);
         }
+        return KSvg__FrameSvg::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,13 +195,16 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_timerevent_isbase) {
             ksvg__framesvg_timerevent_isbase = false;
             KSvg__FrameSvg::timerEvent(event);
-        } else if (ksvg__framesvg_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ksvg__framesvg_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ksvg__framesvg_timerevent_callback(this, cbval1);
-        } else {
-            KSvg__FrameSvg::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSvg__FrameSvg::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,13 +212,16 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_childevent_isbase) {
             ksvg__framesvg_childevent_isbase = false;
             KSvg__FrameSvg::childEvent(event);
-        } else if (ksvg__framesvg_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ksvg__framesvg_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ksvg__framesvg_childevent_callback(this, cbval1);
-        } else {
-            KSvg__FrameSvg::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSvg__FrameSvg::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +229,16 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_customevent_isbase) {
             ksvg__framesvg_customevent_isbase = false;
             KSvg__FrameSvg::customEvent(event);
-        } else if (ksvg__framesvg_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ksvg__framesvg_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ksvg__framesvg_customevent_callback(this, cbval1);
-        } else {
-            KSvg__FrameSvg::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSvg__FrameSvg::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,15 +246,18 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_connectnotify_isbase) {
             ksvg__framesvg_connectnotify_isbase = false;
             KSvg__FrameSvg::connectNotify(signal);
-        } else if (ksvg__framesvg_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ksvg__framesvg_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksvg__framesvg_connectnotify_callback(this, cbval1);
-        } else {
-            KSvg__FrameSvg::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSvg__FrameSvg::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,15 +265,18 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_disconnectnotify_isbase) {
             ksvg__framesvg_disconnectnotify_isbase = false;
             KSvg__FrameSvg::disconnectNotify(signal);
-        } else if (ksvg__framesvg_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ksvg__framesvg_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksvg__framesvg_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSvg__FrameSvg::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSvg__FrameSvg::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,12 +284,13 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_sender_isbase) {
             ksvg__framesvg_sender_isbase = false;
             return KSvg__FrameSvg::sender();
-        } else if (ksvg__framesvg_sender_callback != nullptr) {
-            QObject* callback_ret = ksvg__framesvg_sender_callback();
-            return callback_ret;
-        } else {
-            return KSvg__FrameSvg::sender();
         }
+        auto sender_cb = ksvg__framesvg_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSvg__FrameSvg::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +298,13 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_sendersignalindex_isbase) {
             ksvg__framesvg_sendersignalindex_isbase = false;
             return KSvg__FrameSvg::senderSignalIndex();
-        } else if (ksvg__framesvg_sendersignalindex_callback != nullptr) {
-            int callback_ret = ksvg__framesvg_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSvg__FrameSvg::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ksvg__framesvg_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSvg__FrameSvg::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,14 +312,15 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_receivers_isbase) {
             ksvg__framesvg_receivers_isbase = false;
             return KSvg__FrameSvg::receivers(signal);
-        } else if (ksvg__framesvg_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ksvg__framesvg_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ksvg__framesvg_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSvg__FrameSvg::receivers(signal);
         }
+        return KSvg__FrameSvg::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,16 +328,17 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
         if (ksvg__framesvg_issignalconnected_isbase) {
             ksvg__framesvg_issignalconnected_isbase = false;
             return KSvg__FrameSvg::isSignalConnected(signal);
-        } else if (ksvg__framesvg_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ksvg__framesvg_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ksvg__framesvg_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSvg__FrameSvg::isSignalConnected(signal);
         }
+        return KSvg__FrameSvg::isSignalConnected(signal);
     }
 
     // Friend functions

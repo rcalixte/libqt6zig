@@ -38,13 +38,6 @@ class VirtualQOpenGLFunctions_1_3 final : public QOpenGLFunctions_1_3 {
   public:
     VirtualQOpenGLFunctions_1_3() : QOpenGLFunctions_1_3() {};
 
-    ~VirtualQOpenGLFunctions_1_3() {
-        qopenglfunctions_1_3_initializeopenglfunctions_callback = nullptr;
-        qopenglfunctions_1_3_isinitialized_callback = nullptr;
-        qopenglfunctions_1_3_setowningcontext_callback = nullptr;
-        qopenglfunctions_1_3_owningcontext_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQOpenGLFunctions_1_3_InitializeOpenGLFunctions_Callback(QOpenGLFunctions_1_3_InitializeOpenGLFunctions_Callback cb) { qopenglfunctions_1_3_initializeopenglfunctions_callback = cb; }
     inline void setQOpenGLFunctions_1_3_IsInitialized_Callback(QOpenGLFunctions_1_3_IsInitialized_Callback cb) { qopenglfunctions_1_3_isinitialized_callback = cb; }
@@ -62,12 +55,13 @@ class VirtualQOpenGLFunctions_1_3 final : public QOpenGLFunctions_1_3 {
         if (qopenglfunctions_1_3_initializeopenglfunctions_isbase) {
             qopenglfunctions_1_3_initializeopenglfunctions_isbase = false;
             return QOpenGLFunctions_1_3::initializeOpenGLFunctions();
-        } else if (qopenglfunctions_1_3_initializeopenglfunctions_callback != nullptr) {
-            bool callback_ret = qopenglfunctions_1_3_initializeopenglfunctions_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLFunctions_1_3::initializeOpenGLFunctions();
         }
+        auto initializeopenglfunctions_cb = qopenglfunctions_1_3_initializeopenglfunctions_callback;
+        if (initializeopenglfunctions_cb) {
+            bool callback_ret = initializeopenglfunctions_cb();
+            return callback_ret;
+        }
+        return QOpenGLFunctions_1_3::initializeOpenGLFunctions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -75,12 +69,13 @@ class VirtualQOpenGLFunctions_1_3 final : public QOpenGLFunctions_1_3 {
         if (qopenglfunctions_1_3_isinitialized_isbase) {
             qopenglfunctions_1_3_isinitialized_isbase = false;
             return QOpenGLFunctions_1_3::isInitialized();
-        } else if (qopenglfunctions_1_3_isinitialized_callback != nullptr) {
-            bool callback_ret = qopenglfunctions_1_3_isinitialized_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLFunctions_1_3::isInitialized();
         }
+        auto isinitialized_cb = qopenglfunctions_1_3_isinitialized_callback;
+        if (isinitialized_cb) {
+            bool callback_ret = isinitialized_cb();
+            return callback_ret;
+        }
+        return QOpenGLFunctions_1_3::isInitialized();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -88,13 +83,16 @@ class VirtualQOpenGLFunctions_1_3 final : public QOpenGLFunctions_1_3 {
         if (qopenglfunctions_1_3_setowningcontext_isbase) {
             qopenglfunctions_1_3_setowningcontext_isbase = false;
             QOpenGLFunctions_1_3::setOwningContext(context);
-        } else if (qopenglfunctions_1_3_setowningcontext_callback != nullptr) {
+            return;
+        }
+        auto setowningcontext_cb = qopenglfunctions_1_3_setowningcontext_callback;
+        if (setowningcontext_cb) {
             QOpenGLContext* cbval1 = (QOpenGLContext*)context;
 
-            qopenglfunctions_1_3_setowningcontext_callback(this, cbval1);
-        } else {
-            QOpenGLFunctions_1_3::setOwningContext(context);
+            setowningcontext_cb(this, cbval1);
+            return;
         }
+        QOpenGLFunctions_1_3::setOwningContext(context);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -102,12 +100,13 @@ class VirtualQOpenGLFunctions_1_3 final : public QOpenGLFunctions_1_3 {
         if (qopenglfunctions_1_3_owningcontext_isbase) {
             qopenglfunctions_1_3_owningcontext_isbase = false;
             return QOpenGLFunctions_1_3::owningContext();
-        } else if (qopenglfunctions_1_3_owningcontext_callback != nullptr) {
-            QOpenGLContext* callback_ret = qopenglfunctions_1_3_owningcontext_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLFunctions_1_3::owningContext();
         }
+        auto owningcontext_cb = qopenglfunctions_1_3_owningcontext_callback;
+        if (owningcontext_cb) {
+            QOpenGLContext* callback_ret = owningcontext_cb();
+            return callback_ret;
+        }
+        return QOpenGLFunctions_1_3::owningContext();
     }
 
     // Friend functions

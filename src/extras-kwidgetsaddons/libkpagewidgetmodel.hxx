@@ -69,23 +69,6 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
     VirtualKPageWidgetItem(QWidget* widget) : KPageWidgetItem(widget) {};
     VirtualKPageWidgetItem(QWidget* widget, const QString& name) : KPageWidgetItem(widget, name) {};
 
-    ~VirtualKPageWidgetItem() {
-        kpagewidgetitem_metaobject_callback = nullptr;
-        kpagewidgetitem_metacast_callback = nullptr;
-        kpagewidgetitem_metacall_callback = nullptr;
-        kpagewidgetitem_event_callback = nullptr;
-        kpagewidgetitem_eventfilter_callback = nullptr;
-        kpagewidgetitem_timerevent_callback = nullptr;
-        kpagewidgetitem_childevent_callback = nullptr;
-        kpagewidgetitem_customevent_callback = nullptr;
-        kpagewidgetitem_connectnotify_callback = nullptr;
-        kpagewidgetitem_disconnectnotify_callback = nullptr;
-        kpagewidgetitem_sender_callback = nullptr;
-        kpagewidgetitem_sendersignalindex_callback = nullptr;
-        kpagewidgetitem_receivers_callback = nullptr;
-        kpagewidgetitem_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPageWidgetItem_MetaObject_Callback(KPageWidgetItem_MetaObject_Callback cb) { kpagewidgetitem_metaobject_callback = cb; }
     inline void setKPageWidgetItem_Metacast_Callback(KPageWidgetItem_Metacast_Callback cb) { kpagewidgetitem_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_metaobject_isbase) {
             kpagewidgetitem_metaobject_isbase = false;
             return KPageWidgetItem::metaObject();
-        } else if (kpagewidgetitem_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpagewidgetitem_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPageWidgetItem::metaObject();
         }
+        auto metaobject_cb = kpagewidgetitem_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPageWidgetItem::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_metacast_isbase) {
             kpagewidgetitem_metacast_isbase = false;
             return KPageWidgetItem::qt_metacast(param1);
-        } else if (kpagewidgetitem_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpagewidgetitem_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpagewidgetitem_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageWidgetItem::qt_metacast(param1);
         }
+        return KPageWidgetItem::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_metacall_isbase) {
             kpagewidgetitem_metacall_isbase = false;
             return KPageWidgetItem::qt_metacall(param1, param2, param3);
-        } else if (kpagewidgetitem_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpagewidgetitem_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpagewidgetitem_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPageWidgetItem::qt_metacall(param1, param2, param3);
         }
+        return KPageWidgetItem::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_event_isbase) {
             kpagewidgetitem_event_isbase = false;
             return KPageWidgetItem::event(event);
-        } else if (kpagewidgetitem_event_callback != nullptr) {
+        }
+        auto event_cb = kpagewidgetitem_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kpagewidgetitem_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageWidgetItem::event(event);
         }
+        return KPageWidgetItem::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_eventfilter_isbase) {
             kpagewidgetitem_eventfilter_isbase = false;
             return KPageWidgetItem::eventFilter(watched, event);
-        } else if (kpagewidgetitem_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpagewidgetitem_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kpagewidgetitem_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPageWidgetItem::eventFilter(watched, event);
         }
+        return KPageWidgetItem::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_timerevent_isbase) {
             kpagewidgetitem_timerevent_isbase = false;
             KPageWidgetItem::timerEvent(event);
-        } else if (kpagewidgetitem_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpagewidgetitem_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpagewidgetitem_timerevent_callback(this, cbval1);
-        } else {
-            KPageWidgetItem::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPageWidgetItem::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_childevent_isbase) {
             kpagewidgetitem_childevent_isbase = false;
             KPageWidgetItem::childEvent(event);
-        } else if (kpagewidgetitem_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpagewidgetitem_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpagewidgetitem_childevent_callback(this, cbval1);
-        } else {
-            KPageWidgetItem::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPageWidgetItem::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_customevent_isbase) {
             kpagewidgetitem_customevent_isbase = false;
             KPageWidgetItem::customEvent(event);
-        } else if (kpagewidgetitem_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpagewidgetitem_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpagewidgetitem_customevent_callback(this, cbval1);
-        } else {
-            KPageWidgetItem::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPageWidgetItem::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_connectnotify_isbase) {
             kpagewidgetitem_connectnotify_isbase = false;
             KPageWidgetItem::connectNotify(signal);
-        } else if (kpagewidgetitem_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpagewidgetitem_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpagewidgetitem_connectnotify_callback(this, cbval1);
-        } else {
-            KPageWidgetItem::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPageWidgetItem::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_disconnectnotify_isbase) {
             kpagewidgetitem_disconnectnotify_isbase = false;
             KPageWidgetItem::disconnectNotify(signal);
-        } else if (kpagewidgetitem_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpagewidgetitem_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpagewidgetitem_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPageWidgetItem::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPageWidgetItem::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_sender_isbase) {
             kpagewidgetitem_sender_isbase = false;
             return KPageWidgetItem::sender();
-        } else if (kpagewidgetitem_sender_callback != nullptr) {
-            QObject* callback_ret = kpagewidgetitem_sender_callback();
-            return callback_ret;
-        } else {
-            return KPageWidgetItem::sender();
         }
+        auto sender_cb = kpagewidgetitem_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPageWidgetItem::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_sendersignalindex_isbase) {
             kpagewidgetitem_sendersignalindex_isbase = false;
             return KPageWidgetItem::senderSignalIndex();
-        } else if (kpagewidgetitem_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpagewidgetitem_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPageWidgetItem::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpagewidgetitem_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPageWidgetItem::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_receivers_isbase) {
             kpagewidgetitem_receivers_isbase = false;
             return KPageWidgetItem::receivers(signal);
-        } else if (kpagewidgetitem_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpagewidgetitem_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpagewidgetitem_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPageWidgetItem::receivers(signal);
         }
+        return KPageWidgetItem::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
         if (kpagewidgetitem_issignalconnected_isbase) {
             kpagewidgetitem_issignalconnected_isbase = false;
             return KPageWidgetItem::isSignalConnected(signal);
-        } else if (kpagewidgetitem_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpagewidgetitem_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpagewidgetitem_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageWidgetItem::isSignalConnected(signal);
         }
+        return KPageWidgetItem::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -578,80 +585,6 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
     VirtualKPageWidgetModel() : KPageWidgetModel() {};
     VirtualKPageWidgetModel(QObject* parent) : KPageWidgetModel(parent) {};
 
-    ~VirtualKPageWidgetModel() {
-        kpagewidgetmodel_metaobject_callback = nullptr;
-        kpagewidgetmodel_metacast_callback = nullptr;
-        kpagewidgetmodel_metacall_callback = nullptr;
-        kpagewidgetmodel_columncount_callback = nullptr;
-        kpagewidgetmodel_data_callback = nullptr;
-        kpagewidgetmodel_setdata_callback = nullptr;
-        kpagewidgetmodel_flags_callback = nullptr;
-        kpagewidgetmodel_index_callback = nullptr;
-        kpagewidgetmodel_parent_callback = nullptr;
-        kpagewidgetmodel_rowcount_callback = nullptr;
-        kpagewidgetmodel_sibling_callback = nullptr;
-        kpagewidgetmodel_haschildren_callback = nullptr;
-        kpagewidgetmodel_headerdata_callback = nullptr;
-        kpagewidgetmodel_setheaderdata_callback = nullptr;
-        kpagewidgetmodel_itemdata_callback = nullptr;
-        kpagewidgetmodel_setitemdata_callback = nullptr;
-        kpagewidgetmodel_clearitemdata_callback = nullptr;
-        kpagewidgetmodel_mimetypes_callback = nullptr;
-        kpagewidgetmodel_mimedata_callback = nullptr;
-        kpagewidgetmodel_candropmimedata_callback = nullptr;
-        kpagewidgetmodel_dropmimedata_callback = nullptr;
-        kpagewidgetmodel_supporteddropactions_callback = nullptr;
-        kpagewidgetmodel_supporteddragactions_callback = nullptr;
-        kpagewidgetmodel_insertrows_callback = nullptr;
-        kpagewidgetmodel_insertcolumns_callback = nullptr;
-        kpagewidgetmodel_removerows_callback = nullptr;
-        kpagewidgetmodel_removecolumns_callback = nullptr;
-        kpagewidgetmodel_moverows_callback = nullptr;
-        kpagewidgetmodel_movecolumns_callback = nullptr;
-        kpagewidgetmodel_fetchmore_callback = nullptr;
-        kpagewidgetmodel_canfetchmore_callback = nullptr;
-        kpagewidgetmodel_sort_callback = nullptr;
-        kpagewidgetmodel_buddy_callback = nullptr;
-        kpagewidgetmodel_match_callback = nullptr;
-        kpagewidgetmodel_span_callback = nullptr;
-        kpagewidgetmodel_rolenames_callback = nullptr;
-        kpagewidgetmodel_multidata_callback = nullptr;
-        kpagewidgetmodel_submit_callback = nullptr;
-        kpagewidgetmodel_revert_callback = nullptr;
-        kpagewidgetmodel_resetinternaldata_callback = nullptr;
-        kpagewidgetmodel_event_callback = nullptr;
-        kpagewidgetmodel_eventfilter_callback = nullptr;
-        kpagewidgetmodel_timerevent_callback = nullptr;
-        kpagewidgetmodel_childevent_callback = nullptr;
-        kpagewidgetmodel_customevent_callback = nullptr;
-        kpagewidgetmodel_connectnotify_callback = nullptr;
-        kpagewidgetmodel_disconnectnotify_callback = nullptr;
-        kpagewidgetmodel_createindex_callback = nullptr;
-        kpagewidgetmodel_encodedata_callback = nullptr;
-        kpagewidgetmodel_decodedata_callback = nullptr;
-        kpagewidgetmodel_begininsertrows_callback = nullptr;
-        kpagewidgetmodel_endinsertrows_callback = nullptr;
-        kpagewidgetmodel_beginremoverows_callback = nullptr;
-        kpagewidgetmodel_endremoverows_callback = nullptr;
-        kpagewidgetmodel_beginmoverows_callback = nullptr;
-        kpagewidgetmodel_endmoverows_callback = nullptr;
-        kpagewidgetmodel_begininsertcolumns_callback = nullptr;
-        kpagewidgetmodel_endinsertcolumns_callback = nullptr;
-        kpagewidgetmodel_beginremovecolumns_callback = nullptr;
-        kpagewidgetmodel_endremovecolumns_callback = nullptr;
-        kpagewidgetmodel_beginmovecolumns_callback = nullptr;
-        kpagewidgetmodel_endmovecolumns_callback = nullptr;
-        kpagewidgetmodel_beginresetmodel_callback = nullptr;
-        kpagewidgetmodel_endresetmodel_callback = nullptr;
-        kpagewidgetmodel_changepersistentindex_callback = nullptr;
-        kpagewidgetmodel_changepersistentindexlist_callback = nullptr;
-        kpagewidgetmodel_persistentindexlist_callback = nullptr;
-        kpagewidgetmodel_sender_callback = nullptr;
-        kpagewidgetmodel_sendersignalindex_callback = nullptr;
-        kpagewidgetmodel_receivers_callback = nullptr;
-        kpagewidgetmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPageWidgetModel_MetaObject_Callback(KPageWidgetModel_MetaObject_Callback cb) { kpagewidgetmodel_metaobject_callback = cb; }
     inline void setKPageWidgetModel_Metacast_Callback(KPageWidgetModel_Metacast_Callback cb) { kpagewidgetmodel_metacast_callback = cb; }
@@ -803,12 +736,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_metaobject_isbase) {
             kpagewidgetmodel_metaobject_isbase = false;
             return KPageWidgetModel::metaObject();
-        } else if (kpagewidgetmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpagewidgetmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPageWidgetModel::metaObject();
         }
+        auto metaobject_cb = kpagewidgetmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPageWidgetModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -816,14 +750,15 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_metacast_isbase) {
             kpagewidgetmodel_metacast_isbase = false;
             return KPageWidgetModel::qt_metacast(param1);
-        } else if (kpagewidgetmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpagewidgetmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpagewidgetmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::qt_metacast(param1);
         }
+        return KPageWidgetModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -831,16 +766,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_metacall_isbase) {
             kpagewidgetmodel_metacall_isbase = false;
             return KPageWidgetModel::qt_metacall(param1, param2, param3);
-        } else if (kpagewidgetmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpagewidgetmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpagewidgetmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPageWidgetModel::qt_metacall(param1, param2, param3);
         }
+        return KPageWidgetModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -848,16 +784,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_columncount_isbase) {
             kpagewidgetmodel_columncount_isbase = false;
             return KPageWidgetModel::columnCount(parent);
-        } else if (kpagewidgetmodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = kpagewidgetmodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kpagewidgetmodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPageWidgetModel::columnCount(parent);
         }
+        return KPageWidgetModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -865,17 +802,18 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_data_isbase) {
             kpagewidgetmodel_data_isbase = false;
             return KPageWidgetModel::data(index, role);
-        } else if (kpagewidgetmodel_data_callback != nullptr) {
+        }
+        auto data_cb = kpagewidgetmodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = kpagewidgetmodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KPageWidgetModel::data(index, role);
         }
+        return KPageWidgetModel::data(index, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -883,7 +821,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_setdata_isbase) {
             kpagewidgetmodel_setdata_isbase = false;
             return KPageWidgetModel::setData(index, value, role);
-        } else if (kpagewidgetmodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = kpagewidgetmodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -892,11 +832,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = kpagewidgetmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::setData(index, value, role);
         }
+        return KPageWidgetModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -904,16 +843,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_flags_isbase) {
             kpagewidgetmodel_flags_isbase = false;
             return KPageWidgetModel::flags(index);
-        } else if (kpagewidgetmodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = kpagewidgetmodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = kpagewidgetmodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return KPageWidgetModel::flags(index);
         }
+        return KPageWidgetModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -921,18 +861,19 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_index_isbase) {
             kpagewidgetmodel_index_isbase = false;
             return KPageWidgetModel::index(row, column, parent);
-        } else if (kpagewidgetmodel_index_callback != nullptr) {
+        }
+        auto index_cb = kpagewidgetmodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = kpagewidgetmodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KPageWidgetModel::index(row, column, parent);
         }
+        return KPageWidgetModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,16 +881,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_parent_isbase) {
             kpagewidgetmodel_parent_isbase = false;
             return KPageWidgetModel::parent(index);
-        } else if (kpagewidgetmodel_parent_callback != nullptr) {
+        }
+        auto parent_cb = kpagewidgetmodel_parent_callback;
+        if (parent_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = kpagewidgetmodel_parent_callback(this, cbval1);
+            QModelIndex* callback_ret = parent_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KPageWidgetModel::parent(index);
         }
+        return KPageWidgetModel::parent(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -957,16 +899,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_rowcount_isbase) {
             kpagewidgetmodel_rowcount_isbase = false;
             return KPageWidgetModel::rowCount(parent);
-        } else if (kpagewidgetmodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = kpagewidgetmodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kpagewidgetmodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPageWidgetModel::rowCount(parent);
         }
+        return KPageWidgetModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -974,18 +917,19 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_sibling_isbase) {
             kpagewidgetmodel_sibling_isbase = false;
             return KPageWidgetModel::sibling(row, column, idx);
-        } else if (kpagewidgetmodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = kpagewidgetmodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = kpagewidgetmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KPageWidgetModel::sibling(row, column, idx);
         }
+        return KPageWidgetModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -993,16 +937,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_haschildren_isbase) {
             kpagewidgetmodel_haschildren_isbase = false;
             return KPageWidgetModel::hasChildren(parent);
-        } else if (kpagewidgetmodel_haschildren_callback != nullptr) {
+        }
+        auto haschildren_cb = kpagewidgetmodel_haschildren_callback;
+        if (haschildren_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kpagewidgetmodel_haschildren_callback(this, cbval1);
+            bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::hasChildren(parent);
         }
+        return KPageWidgetModel::hasChildren(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1010,16 +955,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_headerdata_isbase) {
             kpagewidgetmodel_headerdata_isbase = false;
             return KPageWidgetModel::headerData(section, orientation, role);
-        } else if (kpagewidgetmodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = kpagewidgetmodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = kpagewidgetmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KPageWidgetModel::headerData(section, orientation, role);
         }
+        return KPageWidgetModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1027,7 +973,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_setheaderdata_isbase) {
             kpagewidgetmodel_setheaderdata_isbase = false;
             return KPageWidgetModel::setHeaderData(section, orientation, value, role);
-        } else if (kpagewidgetmodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = kpagewidgetmodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -1035,11 +983,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = kpagewidgetmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::setHeaderData(section, orientation, value, role);
         }
+        return KPageWidgetModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1047,12 +994,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_itemdata_isbase) {
             kpagewidgetmodel_itemdata_isbase = false;
             return KPageWidgetModel::itemData(index);
-        } else if (kpagewidgetmodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = kpagewidgetmodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = kpagewidgetmodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -1060,9 +1009,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return KPageWidgetModel::itemData(index);
         }
+        return KPageWidgetModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,7 +1018,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_setitemdata_isbase) {
             kpagewidgetmodel_setitemdata_isbase = false;
             return KPageWidgetModel::setItemData(index, roles);
-        } else if (kpagewidgetmodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = kpagewidgetmodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -1090,11 +1040,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = kpagewidgetmodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::setItemData(index, roles);
         }
+        return KPageWidgetModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,16 +1051,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_clearitemdata_isbase) {
             kpagewidgetmodel_clearitemdata_isbase = false;
             return KPageWidgetModel::clearItemData(index);
-        } else if (kpagewidgetmodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = kpagewidgetmodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kpagewidgetmodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::clearItemData(index);
         }
+        return KPageWidgetModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1119,8 +1069,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_mimetypes_isbase) {
             kpagewidgetmodel_mimetypes_isbase = false;
             return KPageWidgetModel::mimeTypes();
-        } else if (kpagewidgetmodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = kpagewidgetmodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = kpagewidgetmodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1131,9 +1083,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KPageWidgetModel::mimeTypes();
         }
+        return KPageWidgetModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1141,7 +1092,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_mimedata_isbase) {
             kpagewidgetmodel_mimedata_isbase = false;
             return KPageWidgetModel::mimeData(indexes);
-        } else if (kpagewidgetmodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = kpagewidgetmodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1153,12 +1106,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = kpagewidgetmodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::mimeData(indexes);
         }
+        return KPageWidgetModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,7 +1118,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_candropmimedata_isbase) {
             kpagewidgetmodel_candropmimedata_isbase = false;
             return KPageWidgetModel::canDropMimeData(data, action, row, column, parent);
-        } else if (kpagewidgetmodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = kpagewidgetmodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1175,11 +1129,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kpagewidgetmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::canDropMimeData(data, action, row, column, parent);
         }
+        return KPageWidgetModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,7 +1140,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_dropmimedata_isbase) {
             kpagewidgetmodel_dropmimedata_isbase = false;
             return KPageWidgetModel::dropMimeData(data, action, row, column, parent);
-        } else if (kpagewidgetmodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = kpagewidgetmodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1196,11 +1151,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kpagewidgetmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::dropMimeData(data, action, row, column, parent);
         }
+        return KPageWidgetModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1208,12 +1162,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_supporteddropactions_isbase) {
             kpagewidgetmodel_supporteddropactions_isbase = false;
             return KPageWidgetModel::supportedDropActions();
-        } else if (kpagewidgetmodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = kpagewidgetmodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KPageWidgetModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = kpagewidgetmodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KPageWidgetModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,12 +1176,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_supporteddragactions_isbase) {
             kpagewidgetmodel_supporteddragactions_isbase = false;
             return KPageWidgetModel::supportedDragActions();
-        } else if (kpagewidgetmodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = kpagewidgetmodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KPageWidgetModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = kpagewidgetmodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KPageWidgetModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,18 +1190,19 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_insertrows_isbase) {
             kpagewidgetmodel_insertrows_isbase = false;
             return KPageWidgetModel::insertRows(row, count, parent);
-        } else if (kpagewidgetmodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = kpagewidgetmodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kpagewidgetmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::insertRows(row, count, parent);
         }
+        return KPageWidgetModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1253,18 +1210,19 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_insertcolumns_isbase) {
             kpagewidgetmodel_insertcolumns_isbase = false;
             return KPageWidgetModel::insertColumns(column, count, parent);
-        } else if (kpagewidgetmodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = kpagewidgetmodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kpagewidgetmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::insertColumns(column, count, parent);
         }
+        return KPageWidgetModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1272,18 +1230,19 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_removerows_isbase) {
             kpagewidgetmodel_removerows_isbase = false;
             return KPageWidgetModel::removeRows(row, count, parent);
-        } else if (kpagewidgetmodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = kpagewidgetmodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kpagewidgetmodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::removeRows(row, count, parent);
         }
+        return KPageWidgetModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1291,18 +1250,19 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_removecolumns_isbase) {
             kpagewidgetmodel_removecolumns_isbase = false;
             return KPageWidgetModel::removeColumns(column, count, parent);
-        } else if (kpagewidgetmodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = kpagewidgetmodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kpagewidgetmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::removeColumns(column, count, parent);
         }
+        return KPageWidgetModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1310,7 +1270,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_moverows_isbase) {
             kpagewidgetmodel_moverows_isbase = false;
             return KPageWidgetModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (kpagewidgetmodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = kpagewidgetmodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1321,11 +1283,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kpagewidgetmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return KPageWidgetModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1333,7 +1294,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_movecolumns_isbase) {
             kpagewidgetmodel_movecolumns_isbase = false;
             return KPageWidgetModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (kpagewidgetmodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = kpagewidgetmodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1344,11 +1307,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kpagewidgetmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return KPageWidgetModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1356,15 +1318,18 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_fetchmore_isbase) {
             kpagewidgetmodel_fetchmore_isbase = false;
             KPageWidgetModel::fetchMore(parent);
-        } else if (kpagewidgetmodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = kpagewidgetmodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            kpagewidgetmodel_fetchmore_callback(this, cbval1);
-        } else {
-            KPageWidgetModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        KPageWidgetModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1372,16 +1337,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_canfetchmore_isbase) {
             kpagewidgetmodel_canfetchmore_isbase = false;
             return KPageWidgetModel::canFetchMore(parent);
-        } else if (kpagewidgetmodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = kpagewidgetmodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kpagewidgetmodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::canFetchMore(parent);
         }
+        return KPageWidgetModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1389,14 +1355,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_sort_isbase) {
             kpagewidgetmodel_sort_isbase = false;
             KPageWidgetModel::sort(column, order);
-        } else if (kpagewidgetmodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = kpagewidgetmodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            kpagewidgetmodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            KPageWidgetModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        KPageWidgetModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1404,16 +1373,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_buddy_isbase) {
             kpagewidgetmodel_buddy_isbase = false;
             return KPageWidgetModel::buddy(index);
-        } else if (kpagewidgetmodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = kpagewidgetmodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = kpagewidgetmodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KPageWidgetModel::buddy(index);
         }
+        return KPageWidgetModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1421,7 +1391,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_match_isbase) {
             kpagewidgetmodel_match_isbase = false;
             return KPageWidgetModel::match(start, role, value, hits, flags);
-        } else if (kpagewidgetmodel_match_callback != nullptr) {
+        }
+        auto match_cb = kpagewidgetmodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1432,7 +1404,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = kpagewidgetmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1441,9 +1413,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KPageWidgetModel::match(start, role, value, hits, flags);
         }
+        return KPageWidgetModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1451,16 +1422,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_span_isbase) {
             kpagewidgetmodel_span_isbase = false;
             return KPageWidgetModel::span(index);
-        } else if (kpagewidgetmodel_span_callback != nullptr) {
+        }
+        auto span_cb = kpagewidgetmodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = kpagewidgetmodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KPageWidgetModel::span(index);
         }
+        return KPageWidgetModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1468,8 +1440,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_rolenames_isbase) {
             kpagewidgetmodel_rolenames_isbase = false;
             return KPageWidgetModel::roleNames();
-        } else if (kpagewidgetmodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = kpagewidgetmodel_rolenames_callback();
+        }
+        auto rolenames_cb = kpagewidgetmodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -1479,9 +1453,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return KPageWidgetModel::roleNames();
         }
+        return KPageWidgetModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1489,16 +1462,19 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_multidata_isbase) {
             kpagewidgetmodel_multidata_isbase = false;
             KPageWidgetModel::multiData(index, roleDataSpan);
-        } else if (kpagewidgetmodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = kpagewidgetmodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            kpagewidgetmodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            KPageWidgetModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        KPageWidgetModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1506,12 +1482,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_submit_isbase) {
             kpagewidgetmodel_submit_isbase = false;
             return KPageWidgetModel::submit();
-        } else if (kpagewidgetmodel_submit_callback != nullptr) {
-            bool callback_ret = kpagewidgetmodel_submit_callback();
-            return callback_ret;
-        } else {
-            return KPageWidgetModel::submit();
         }
+        auto submit_cb = kpagewidgetmodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return KPageWidgetModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1519,11 +1496,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_revert_isbase) {
             kpagewidgetmodel_revert_isbase = false;
             KPageWidgetModel::revert();
-        } else if (kpagewidgetmodel_revert_callback != nullptr) {
-            kpagewidgetmodel_revert_callback();
-        } else {
-            KPageWidgetModel::revert();
+            return;
         }
+        auto revert_cb = kpagewidgetmodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        KPageWidgetModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1531,11 +1511,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_resetinternaldata_isbase) {
             kpagewidgetmodel_resetinternaldata_isbase = false;
             KPageWidgetModel::resetInternalData();
-        } else if (kpagewidgetmodel_resetinternaldata_callback != nullptr) {
-            kpagewidgetmodel_resetinternaldata_callback();
-        } else {
-            KPageWidgetModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = kpagewidgetmodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        KPageWidgetModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1543,14 +1526,15 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_event_isbase) {
             kpagewidgetmodel_event_isbase = false;
             return KPageWidgetModel::event(event);
-        } else if (kpagewidgetmodel_event_callback != nullptr) {
+        }
+        auto event_cb = kpagewidgetmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kpagewidgetmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::event(event);
         }
+        return KPageWidgetModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1558,15 +1542,16 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_eventfilter_isbase) {
             kpagewidgetmodel_eventfilter_isbase = false;
             return KPageWidgetModel::eventFilter(watched, event);
-        } else if (kpagewidgetmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpagewidgetmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kpagewidgetmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::eventFilter(watched, event);
         }
+        return KPageWidgetModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1574,13 +1559,16 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_timerevent_isbase) {
             kpagewidgetmodel_timerevent_isbase = false;
             KPageWidgetModel::timerEvent(event);
-        } else if (kpagewidgetmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpagewidgetmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpagewidgetmodel_timerevent_callback(this, cbval1);
-        } else {
-            KPageWidgetModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPageWidgetModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1588,13 +1576,16 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_childevent_isbase) {
             kpagewidgetmodel_childevent_isbase = false;
             KPageWidgetModel::childEvent(event);
-        } else if (kpagewidgetmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpagewidgetmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpagewidgetmodel_childevent_callback(this, cbval1);
-        } else {
-            KPageWidgetModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPageWidgetModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1602,13 +1593,16 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_customevent_isbase) {
             kpagewidgetmodel_customevent_isbase = false;
             KPageWidgetModel::customEvent(event);
-        } else if (kpagewidgetmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpagewidgetmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpagewidgetmodel_customevent_callback(this, cbval1);
-        } else {
-            KPageWidgetModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPageWidgetModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1616,15 +1610,18 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_connectnotify_isbase) {
             kpagewidgetmodel_connectnotify_isbase = false;
             KPageWidgetModel::connectNotify(signal);
-        } else if (kpagewidgetmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpagewidgetmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpagewidgetmodel_connectnotify_callback(this, cbval1);
-        } else {
-            KPageWidgetModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPageWidgetModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1632,15 +1629,18 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_disconnectnotify_isbase) {
             kpagewidgetmodel_disconnectnotify_isbase = false;
             KPageWidgetModel::disconnectNotify(signal);
-        } else if (kpagewidgetmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpagewidgetmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpagewidgetmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPageWidgetModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPageWidgetModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1648,15 +1648,16 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_createindex_isbase) {
             kpagewidgetmodel_createindex_isbase = false;
             return KPageWidgetModel::createIndex(row, column);
-        } else if (kpagewidgetmodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = kpagewidgetmodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = kpagewidgetmodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KPageWidgetModel::createIndex(row, column);
         }
+        return KPageWidgetModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1664,7 +1665,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_encodedata_isbase) {
             kpagewidgetmodel_encodedata_isbase = false;
             KPageWidgetModel::encodeData(indexes, stream);
-        } else if (kpagewidgetmodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = kpagewidgetmodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1679,11 +1683,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            kpagewidgetmodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            KPageWidgetModel::encodeData(indexes, stream);
+            return;
         }
+        KPageWidgetModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1691,7 +1695,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_decodedata_isbase) {
             kpagewidgetmodel_decodedata_isbase = false;
             return KPageWidgetModel::decodeData(row, column, parent, stream);
-        } else if (kpagewidgetmodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = kpagewidgetmodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1701,11 +1707,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = kpagewidgetmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::decodeData(row, column, parent, stream);
         }
+        return KPageWidgetModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1713,17 +1718,20 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_begininsertrows_isbase) {
             kpagewidgetmodel_begininsertrows_isbase = false;
             KPageWidgetModel::beginInsertRows(parent, first, last);
-        } else if (kpagewidgetmodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = kpagewidgetmodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kpagewidgetmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KPageWidgetModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KPageWidgetModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1731,11 +1739,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_endinsertrows_isbase) {
             kpagewidgetmodel_endinsertrows_isbase = false;
             KPageWidgetModel::endInsertRows();
-        } else if (kpagewidgetmodel_endinsertrows_callback != nullptr) {
-            kpagewidgetmodel_endinsertrows_callback();
-        } else {
-            KPageWidgetModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = kpagewidgetmodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        KPageWidgetModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1743,17 +1754,20 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_beginremoverows_isbase) {
             kpagewidgetmodel_beginremoverows_isbase = false;
             KPageWidgetModel::beginRemoveRows(parent, first, last);
-        } else if (kpagewidgetmodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = kpagewidgetmodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kpagewidgetmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KPageWidgetModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KPageWidgetModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1761,11 +1775,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_endremoverows_isbase) {
             kpagewidgetmodel_endremoverows_isbase = false;
             KPageWidgetModel::endRemoveRows();
-        } else if (kpagewidgetmodel_endremoverows_callback != nullptr) {
-            kpagewidgetmodel_endremoverows_callback();
-        } else {
-            KPageWidgetModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = kpagewidgetmodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        KPageWidgetModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1773,7 +1790,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_beginmoverows_isbase) {
             kpagewidgetmodel_beginmoverows_isbase = false;
             return KPageWidgetModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (kpagewidgetmodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = kpagewidgetmodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1784,11 +1803,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = kpagewidgetmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return KPageWidgetModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1796,11 +1814,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_endmoverows_isbase) {
             kpagewidgetmodel_endmoverows_isbase = false;
             KPageWidgetModel::endMoveRows();
-        } else if (kpagewidgetmodel_endmoverows_callback != nullptr) {
-            kpagewidgetmodel_endmoverows_callback();
-        } else {
-            KPageWidgetModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = kpagewidgetmodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        KPageWidgetModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1808,17 +1829,20 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_begininsertcolumns_isbase) {
             kpagewidgetmodel_begininsertcolumns_isbase = false;
             KPageWidgetModel::beginInsertColumns(parent, first, last);
-        } else if (kpagewidgetmodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = kpagewidgetmodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kpagewidgetmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KPageWidgetModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KPageWidgetModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1826,11 +1850,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_endinsertcolumns_isbase) {
             kpagewidgetmodel_endinsertcolumns_isbase = false;
             KPageWidgetModel::endInsertColumns();
-        } else if (kpagewidgetmodel_endinsertcolumns_callback != nullptr) {
-            kpagewidgetmodel_endinsertcolumns_callback();
-        } else {
-            KPageWidgetModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = kpagewidgetmodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        KPageWidgetModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1838,17 +1865,20 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_beginremovecolumns_isbase) {
             kpagewidgetmodel_beginremovecolumns_isbase = false;
             KPageWidgetModel::beginRemoveColumns(parent, first, last);
-        } else if (kpagewidgetmodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = kpagewidgetmodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kpagewidgetmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KPageWidgetModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KPageWidgetModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1856,11 +1886,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_endremovecolumns_isbase) {
             kpagewidgetmodel_endremovecolumns_isbase = false;
             KPageWidgetModel::endRemoveColumns();
-        } else if (kpagewidgetmodel_endremovecolumns_callback != nullptr) {
-            kpagewidgetmodel_endremovecolumns_callback();
-        } else {
-            KPageWidgetModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = kpagewidgetmodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        KPageWidgetModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1868,7 +1901,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_beginmovecolumns_isbase) {
             kpagewidgetmodel_beginmovecolumns_isbase = false;
             return KPageWidgetModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (kpagewidgetmodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = kpagewidgetmodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1879,11 +1914,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = kpagewidgetmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return KPageWidgetModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1891,11 +1925,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_endmovecolumns_isbase) {
             kpagewidgetmodel_endmovecolumns_isbase = false;
             KPageWidgetModel::endMoveColumns();
-        } else if (kpagewidgetmodel_endmovecolumns_callback != nullptr) {
-            kpagewidgetmodel_endmovecolumns_callback();
-        } else {
-            KPageWidgetModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = kpagewidgetmodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        KPageWidgetModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1903,11 +1940,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_beginresetmodel_isbase) {
             kpagewidgetmodel_beginresetmodel_isbase = false;
             KPageWidgetModel::beginResetModel();
-        } else if (kpagewidgetmodel_beginresetmodel_callback != nullptr) {
-            kpagewidgetmodel_beginresetmodel_callback();
-        } else {
-            KPageWidgetModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = kpagewidgetmodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        KPageWidgetModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1915,11 +1955,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_endresetmodel_isbase) {
             kpagewidgetmodel_endresetmodel_isbase = false;
             KPageWidgetModel::endResetModel();
-        } else if (kpagewidgetmodel_endresetmodel_callback != nullptr) {
-            kpagewidgetmodel_endresetmodel_callback();
-        } else {
-            KPageWidgetModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = kpagewidgetmodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        KPageWidgetModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1927,7 +1970,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_changepersistentindex_isbase) {
             kpagewidgetmodel_changepersistentindex_isbase = false;
             KPageWidgetModel::changePersistentIndex(from, to);
-        } else if (kpagewidgetmodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = kpagewidgetmodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1935,10 +1981,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            kpagewidgetmodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            KPageWidgetModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KPageWidgetModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1946,7 +1992,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_changepersistentindexlist_isbase) {
             kpagewidgetmodel_changepersistentindexlist_isbase = false;
             KPageWidgetModel::changePersistentIndexList(from, to);
-        } else if (kpagewidgetmodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = kpagewidgetmodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1968,12 +2017,12 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            kpagewidgetmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            KPageWidgetModel::changePersistentIndexList(from, to);
+            return;
         }
+        KPageWidgetModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1981,8 +2030,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_persistentindexlist_isbase) {
             kpagewidgetmodel_persistentindexlist_isbase = false;
             return KPageWidgetModel::persistentIndexList();
-        } else if (kpagewidgetmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = kpagewidgetmodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = kpagewidgetmodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1991,9 +2042,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KPageWidgetModel::persistentIndexList();
         }
+        return KPageWidgetModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2001,12 +2051,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_sender_isbase) {
             kpagewidgetmodel_sender_isbase = false;
             return KPageWidgetModel::sender();
-        } else if (kpagewidgetmodel_sender_callback != nullptr) {
-            QObject* callback_ret = kpagewidgetmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return KPageWidgetModel::sender();
         }
+        auto sender_cb = kpagewidgetmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPageWidgetModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2014,12 +2065,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_sendersignalindex_isbase) {
             kpagewidgetmodel_sendersignalindex_isbase = false;
             return KPageWidgetModel::senderSignalIndex();
-        } else if (kpagewidgetmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpagewidgetmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPageWidgetModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpagewidgetmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPageWidgetModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2027,14 +2079,15 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_receivers_isbase) {
             kpagewidgetmodel_receivers_isbase = false;
             return KPageWidgetModel::receivers(signal);
-        } else if (kpagewidgetmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpagewidgetmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpagewidgetmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPageWidgetModel::receivers(signal);
         }
+        return KPageWidgetModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2042,16 +2095,17 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
         if (kpagewidgetmodel_issignalconnected_isbase) {
             kpagewidgetmodel_issignalconnected_isbase = false;
             return KPageWidgetModel::isSignalConnected(signal);
-        } else if (kpagewidgetmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpagewidgetmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpagewidgetmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageWidgetModel::isSignalConnected(signal);
         }
+        return KPageWidgetModel::isSignalConnected(signal);
     }
 
     // Friend functions

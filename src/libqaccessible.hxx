@@ -30,10 +30,6 @@ class VirtualQAccessibleEvent final : public QAccessibleEvent {
     VirtualQAccessibleEvent(QObject* obj, QAccessible::Event typ) : QAccessibleEvent(obj, typ) {};
     VirtualQAccessibleEvent(QAccessibleInterface* iface, QAccessible::Event typ) : QAccessibleEvent(iface, typ) {};
 
-    ~VirtualQAccessibleEvent() {
-        qaccessibleevent_accessibleinterface_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleEvent_AccessibleInterface_Callback(QAccessibleEvent_AccessibleInterface_Callback cb) { qaccessibleevent_accessibleinterface_callback = cb; }
 
@@ -45,12 +41,13 @@ class VirtualQAccessibleEvent final : public QAccessibleEvent {
         if (qaccessibleevent_accessibleinterface_isbase) {
             qaccessibleevent_accessibleinterface_isbase = false;
             return QAccessibleEvent::accessibleInterface();
-        } else if (qaccessibleevent_accessibleinterface_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibleevent_accessibleinterface_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleEvent::accessibleInterface();
         }
+        auto accessibleinterface_cb = qaccessibleevent_accessibleinterface_callback;
+        if (accessibleinterface_cb) {
+            QAccessibleInterface* callback_ret = accessibleinterface_cb();
+            return callback_ret;
+        }
+        return QAccessibleEvent::accessibleInterface();
     }
 };
 
@@ -75,10 +72,6 @@ class VirtualQAccessibleStateChangeEvent final : public QAccessibleStateChangeEv
     VirtualQAccessibleStateChangeEvent(QObject* obj, QAccessible::State state) : QAccessibleStateChangeEvent(obj, state) {};
     VirtualQAccessibleStateChangeEvent(QAccessibleInterface* iface, QAccessible::State state) : QAccessibleStateChangeEvent(iface, state) {};
 
-    ~VirtualQAccessibleStateChangeEvent() {
-        qaccessiblestatechangeevent_accessibleinterface_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleStateChangeEvent_AccessibleInterface_Callback(QAccessibleStateChangeEvent_AccessibleInterface_Callback cb) { qaccessiblestatechangeevent_accessibleinterface_callback = cb; }
 
@@ -90,12 +83,13 @@ class VirtualQAccessibleStateChangeEvent final : public QAccessibleStateChangeEv
         if (qaccessiblestatechangeevent_accessibleinterface_isbase) {
             qaccessiblestatechangeevent_accessibleinterface_isbase = false;
             return QAccessibleStateChangeEvent::accessibleInterface();
-        } else if (qaccessiblestatechangeevent_accessibleinterface_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessiblestatechangeevent_accessibleinterface_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleStateChangeEvent::accessibleInterface();
         }
+        auto accessibleinterface_cb = qaccessiblestatechangeevent_accessibleinterface_callback;
+        if (accessibleinterface_cb) {
+            QAccessibleInterface* callback_ret = accessibleinterface_cb();
+            return callback_ret;
+        }
+        return QAccessibleStateChangeEvent::accessibleInterface();
     }
 };
 
@@ -120,10 +114,6 @@ class VirtualQAccessibleTextCursorEvent final : public QAccessibleTextCursorEven
     VirtualQAccessibleTextCursorEvent(QObject* obj, int cursorPos) : QAccessibleTextCursorEvent(obj, cursorPos) {};
     VirtualQAccessibleTextCursorEvent(QAccessibleInterface* iface, int cursorPos) : QAccessibleTextCursorEvent(iface, cursorPos) {};
 
-    ~VirtualQAccessibleTextCursorEvent() {
-        qaccessibletextcursorevent_accessibleinterface_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleTextCursorEvent_AccessibleInterface_Callback(QAccessibleTextCursorEvent_AccessibleInterface_Callback cb) { qaccessibletextcursorevent_accessibleinterface_callback = cb; }
 
@@ -135,12 +125,13 @@ class VirtualQAccessibleTextCursorEvent final : public QAccessibleTextCursorEven
         if (qaccessibletextcursorevent_accessibleinterface_isbase) {
             qaccessibletextcursorevent_accessibleinterface_isbase = false;
             return QAccessibleTextCursorEvent::accessibleInterface();
-        } else if (qaccessibletextcursorevent_accessibleinterface_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibletextcursorevent_accessibleinterface_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleTextCursorEvent::accessibleInterface();
         }
+        auto accessibleinterface_cb = qaccessibletextcursorevent_accessibleinterface_callback;
+        if (accessibleinterface_cb) {
+            QAccessibleInterface* callback_ret = accessibleinterface_cb();
+            return callback_ret;
+        }
+        return QAccessibleTextCursorEvent::accessibleInterface();
     }
 };
 
@@ -165,10 +156,6 @@ class VirtualQAccessibleTextSelectionEvent final : public QAccessibleTextSelecti
     VirtualQAccessibleTextSelectionEvent(QObject* obj, int start, int end) : QAccessibleTextSelectionEvent(obj, start, end) {};
     VirtualQAccessibleTextSelectionEvent(QAccessibleInterface* iface, int start, int end) : QAccessibleTextSelectionEvent(iface, start, end) {};
 
-    ~VirtualQAccessibleTextSelectionEvent() {
-        qaccessibletextselectionevent_accessibleinterface_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleTextSelectionEvent_AccessibleInterface_Callback(QAccessibleTextSelectionEvent_AccessibleInterface_Callback cb) { qaccessibletextselectionevent_accessibleinterface_callback = cb; }
 
@@ -180,12 +167,13 @@ class VirtualQAccessibleTextSelectionEvent final : public QAccessibleTextSelecti
         if (qaccessibletextselectionevent_accessibleinterface_isbase) {
             qaccessibletextselectionevent_accessibleinterface_isbase = false;
             return QAccessibleTextSelectionEvent::accessibleInterface();
-        } else if (qaccessibletextselectionevent_accessibleinterface_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibletextselectionevent_accessibleinterface_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleTextSelectionEvent::accessibleInterface();
         }
+        auto accessibleinterface_cb = qaccessibletextselectionevent_accessibleinterface_callback;
+        if (accessibleinterface_cb) {
+            QAccessibleInterface* callback_ret = accessibleinterface_cb();
+            return callback_ret;
+        }
+        return QAccessibleTextSelectionEvent::accessibleInterface();
     }
 };
 
@@ -210,10 +198,6 @@ class VirtualQAccessibleTextInsertEvent final : public QAccessibleTextInsertEven
     VirtualQAccessibleTextInsertEvent(QObject* obj, int position, const QString& text) : QAccessibleTextInsertEvent(obj, position, text) {};
     VirtualQAccessibleTextInsertEvent(QAccessibleInterface* iface, int position, const QString& text) : QAccessibleTextInsertEvent(iface, position, text) {};
 
-    ~VirtualQAccessibleTextInsertEvent() {
-        qaccessibletextinsertevent_accessibleinterface_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleTextInsertEvent_AccessibleInterface_Callback(QAccessibleTextInsertEvent_AccessibleInterface_Callback cb) { qaccessibletextinsertevent_accessibleinterface_callback = cb; }
 
@@ -225,12 +209,13 @@ class VirtualQAccessibleTextInsertEvent final : public QAccessibleTextInsertEven
         if (qaccessibletextinsertevent_accessibleinterface_isbase) {
             qaccessibletextinsertevent_accessibleinterface_isbase = false;
             return QAccessibleTextInsertEvent::accessibleInterface();
-        } else if (qaccessibletextinsertevent_accessibleinterface_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibletextinsertevent_accessibleinterface_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleTextInsertEvent::accessibleInterface();
         }
+        auto accessibleinterface_cb = qaccessibletextinsertevent_accessibleinterface_callback;
+        if (accessibleinterface_cb) {
+            QAccessibleInterface* callback_ret = accessibleinterface_cb();
+            return callback_ret;
+        }
+        return QAccessibleTextInsertEvent::accessibleInterface();
     }
 };
 
@@ -255,10 +240,6 @@ class VirtualQAccessibleTextRemoveEvent final : public QAccessibleTextRemoveEven
     VirtualQAccessibleTextRemoveEvent(QObject* obj, int position, const QString& text) : QAccessibleTextRemoveEvent(obj, position, text) {};
     VirtualQAccessibleTextRemoveEvent(QAccessibleInterface* iface, int position, const QString& text) : QAccessibleTextRemoveEvent(iface, position, text) {};
 
-    ~VirtualQAccessibleTextRemoveEvent() {
-        qaccessibletextremoveevent_accessibleinterface_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleTextRemoveEvent_AccessibleInterface_Callback(QAccessibleTextRemoveEvent_AccessibleInterface_Callback cb) { qaccessibletextremoveevent_accessibleinterface_callback = cb; }
 
@@ -270,12 +251,13 @@ class VirtualQAccessibleTextRemoveEvent final : public QAccessibleTextRemoveEven
         if (qaccessibletextremoveevent_accessibleinterface_isbase) {
             qaccessibletextremoveevent_accessibleinterface_isbase = false;
             return QAccessibleTextRemoveEvent::accessibleInterface();
-        } else if (qaccessibletextremoveevent_accessibleinterface_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibletextremoveevent_accessibleinterface_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleTextRemoveEvent::accessibleInterface();
         }
+        auto accessibleinterface_cb = qaccessibletextremoveevent_accessibleinterface_callback;
+        if (accessibleinterface_cb) {
+            QAccessibleInterface* callback_ret = accessibleinterface_cb();
+            return callback_ret;
+        }
+        return QAccessibleTextRemoveEvent::accessibleInterface();
     }
 };
 
@@ -300,10 +282,6 @@ class VirtualQAccessibleTextUpdateEvent final : public QAccessibleTextUpdateEven
     VirtualQAccessibleTextUpdateEvent(QObject* obj, int position, const QString& oldText, const QString& text) : QAccessibleTextUpdateEvent(obj, position, oldText, text) {};
     VirtualQAccessibleTextUpdateEvent(QAccessibleInterface* iface, int position, const QString& oldText, const QString& text) : QAccessibleTextUpdateEvent(iface, position, oldText, text) {};
 
-    ~VirtualQAccessibleTextUpdateEvent() {
-        qaccessibletextupdateevent_accessibleinterface_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleTextUpdateEvent_AccessibleInterface_Callback(QAccessibleTextUpdateEvent_AccessibleInterface_Callback cb) { qaccessibletextupdateevent_accessibleinterface_callback = cb; }
 
@@ -315,12 +293,13 @@ class VirtualQAccessibleTextUpdateEvent final : public QAccessibleTextUpdateEven
         if (qaccessibletextupdateevent_accessibleinterface_isbase) {
             qaccessibletextupdateevent_accessibleinterface_isbase = false;
             return QAccessibleTextUpdateEvent::accessibleInterface();
-        } else if (qaccessibletextupdateevent_accessibleinterface_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibletextupdateevent_accessibleinterface_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleTextUpdateEvent::accessibleInterface();
         }
+        auto accessibleinterface_cb = qaccessibletextupdateevent_accessibleinterface_callback;
+        if (accessibleinterface_cb) {
+            QAccessibleInterface* callback_ret = accessibleinterface_cb();
+            return callback_ret;
+        }
+        return QAccessibleTextUpdateEvent::accessibleInterface();
     }
 };
 
@@ -345,10 +324,6 @@ class VirtualQAccessibleValueChangeEvent final : public QAccessibleValueChangeEv
     VirtualQAccessibleValueChangeEvent(QObject* obj, const QVariant& val) : QAccessibleValueChangeEvent(obj, val) {};
     VirtualQAccessibleValueChangeEvent(QAccessibleInterface* iface, const QVariant& val) : QAccessibleValueChangeEvent(iface, val) {};
 
-    ~VirtualQAccessibleValueChangeEvent() {
-        qaccessiblevaluechangeevent_accessibleinterface_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleValueChangeEvent_AccessibleInterface_Callback(QAccessibleValueChangeEvent_AccessibleInterface_Callback cb) { qaccessiblevaluechangeevent_accessibleinterface_callback = cb; }
 
@@ -360,12 +335,13 @@ class VirtualQAccessibleValueChangeEvent final : public QAccessibleValueChangeEv
         if (qaccessiblevaluechangeevent_accessibleinterface_isbase) {
             qaccessiblevaluechangeevent_accessibleinterface_isbase = false;
             return QAccessibleValueChangeEvent::accessibleInterface();
-        } else if (qaccessiblevaluechangeevent_accessibleinterface_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessiblevaluechangeevent_accessibleinterface_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleValueChangeEvent::accessibleInterface();
         }
+        auto accessibleinterface_cb = qaccessiblevaluechangeevent_accessibleinterface_callback;
+        if (accessibleinterface_cb) {
+            QAccessibleInterface* callback_ret = accessibleinterface_cb();
+            return callback_ret;
+        }
+        return QAccessibleValueChangeEvent::accessibleInterface();
     }
 };
 
@@ -390,10 +366,6 @@ class VirtualQAccessibleTableModelChangeEvent final : public QAccessibleTableMod
     VirtualQAccessibleTableModelChangeEvent(QObject* obj, QAccessibleTableModelChangeEvent::ModelChangeType changeType) : QAccessibleTableModelChangeEvent(obj, changeType) {};
     VirtualQAccessibleTableModelChangeEvent(QAccessibleInterface* iface, QAccessibleTableModelChangeEvent::ModelChangeType changeType) : QAccessibleTableModelChangeEvent(iface, changeType) {};
 
-    ~VirtualQAccessibleTableModelChangeEvent() {
-        qaccessibletablemodelchangeevent_accessibleinterface_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleTableModelChangeEvent_AccessibleInterface_Callback(QAccessibleTableModelChangeEvent_AccessibleInterface_Callback cb) { qaccessibletablemodelchangeevent_accessibleinterface_callback = cb; }
 
@@ -405,12 +377,13 @@ class VirtualQAccessibleTableModelChangeEvent final : public QAccessibleTableMod
         if (qaccessibletablemodelchangeevent_accessibleinterface_isbase) {
             qaccessibletablemodelchangeevent_accessibleinterface_isbase = false;
             return QAccessibleTableModelChangeEvent::accessibleInterface();
-        } else if (qaccessibletablemodelchangeevent_accessibleinterface_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibletablemodelchangeevent_accessibleinterface_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleTableModelChangeEvent::accessibleInterface();
         }
+        auto accessibleinterface_cb = qaccessibletablemodelchangeevent_accessibleinterface_callback;
+        if (accessibleinterface_cb) {
+            QAccessibleInterface* callback_ret = accessibleinterface_cb();
+            return callback_ret;
+        }
+        return QAccessibleTableModelChangeEvent::accessibleInterface();
     }
 };
 
@@ -435,10 +408,6 @@ class VirtualQAccessibleAnnouncementEvent final : public QAccessibleAnnouncement
     VirtualQAccessibleAnnouncementEvent(QObject* object, const QString& message) : QAccessibleAnnouncementEvent(object, message) {};
     VirtualQAccessibleAnnouncementEvent(QAccessibleInterface* iface, const QString& message) : QAccessibleAnnouncementEvent(iface, message) {};
 
-    ~VirtualQAccessibleAnnouncementEvent() {
-        qaccessibleannouncementevent_accessibleinterface_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleAnnouncementEvent_AccessibleInterface_Callback(QAccessibleAnnouncementEvent_AccessibleInterface_Callback cb) { qaccessibleannouncementevent_accessibleinterface_callback = cb; }
 
@@ -450,12 +419,13 @@ class VirtualQAccessibleAnnouncementEvent final : public QAccessibleAnnouncement
         if (qaccessibleannouncementevent_accessibleinterface_isbase) {
             qaccessibleannouncementevent_accessibleinterface_isbase = false;
             return QAccessibleAnnouncementEvent::accessibleInterface();
-        } else if (qaccessibleannouncementevent_accessibleinterface_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qaccessibleannouncementevent_accessibleinterface_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleAnnouncementEvent::accessibleInterface();
         }
+        auto accessibleinterface_cb = qaccessibleannouncementevent_accessibleinterface_callback;
+        if (accessibleinterface_cb) {
+            QAccessibleInterface* callback_ret = accessibleinterface_cb();
+            return callback_ret;
+        }
+        return QAccessibleAnnouncementEvent::accessibleInterface();
     }
 };
 

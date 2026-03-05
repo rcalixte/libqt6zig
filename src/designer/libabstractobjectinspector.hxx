@@ -213,71 +213,6 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
     VirtualQDesignerObjectInspectorInterface(QWidget* parent) : QDesignerObjectInspectorInterface(parent) {};
     VirtualQDesignerObjectInspectorInterface(QWidget* parent, Qt::WindowFlags flags) : QDesignerObjectInspectorInterface(parent, flags) {};
 
-    ~VirtualQDesignerObjectInspectorInterface() {
-        qdesignerobjectinspectorinterface_metaobject_callback = nullptr;
-        qdesignerobjectinspectorinterface_metacast_callback = nullptr;
-        qdesignerobjectinspectorinterface_metacall_callback = nullptr;
-        qdesignerobjectinspectorinterface_core_callback = nullptr;
-        qdesignerobjectinspectorinterface_setformwindow_callback = nullptr;
-        qdesignerobjectinspectorinterface_devtype_callback = nullptr;
-        qdesignerobjectinspectorinterface_setvisible_callback = nullptr;
-        qdesignerobjectinspectorinterface_sizehint_callback = nullptr;
-        qdesignerobjectinspectorinterface_minimumsizehint_callback = nullptr;
-        qdesignerobjectinspectorinterface_heightforwidth_callback = nullptr;
-        qdesignerobjectinspectorinterface_hasheightforwidth_callback = nullptr;
-        qdesignerobjectinspectorinterface_paintengine_callback = nullptr;
-        qdesignerobjectinspectorinterface_event_callback = nullptr;
-        qdesignerobjectinspectorinterface_mousepressevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_mousereleaseevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_mousedoubleclickevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_mousemoveevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_wheelevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_keypressevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_keyreleaseevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_focusinevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_focusoutevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_enterevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_leaveevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_paintevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_moveevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_resizeevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_closeevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_contextmenuevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_tabletevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_actionevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_dragenterevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_dragmoveevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_dragleaveevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_dropevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_showevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_hideevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_nativeevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_changeevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_metric_callback = nullptr;
-        qdesignerobjectinspectorinterface_initpainter_callback = nullptr;
-        qdesignerobjectinspectorinterface_redirected_callback = nullptr;
-        qdesignerobjectinspectorinterface_sharedpainter_callback = nullptr;
-        qdesignerobjectinspectorinterface_inputmethodevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_inputmethodquery_callback = nullptr;
-        qdesignerobjectinspectorinterface_focusnextprevchild_callback = nullptr;
-        qdesignerobjectinspectorinterface_eventfilter_callback = nullptr;
-        qdesignerobjectinspectorinterface_timerevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_childevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_customevent_callback = nullptr;
-        qdesignerobjectinspectorinterface_connectnotify_callback = nullptr;
-        qdesignerobjectinspectorinterface_disconnectnotify_callback = nullptr;
-        qdesignerobjectinspectorinterface_updatemicrofocus_callback = nullptr;
-        qdesignerobjectinspectorinterface_create_callback = nullptr;
-        qdesignerobjectinspectorinterface_destroy_callback = nullptr;
-        qdesignerobjectinspectorinterface_focusnextchild_callback = nullptr;
-        qdesignerobjectinspectorinterface_focuspreviouschild_callback = nullptr;
-        qdesignerobjectinspectorinterface_sender_callback = nullptr;
-        qdesignerobjectinspectorinterface_sendersignalindex_callback = nullptr;
-        qdesignerobjectinspectorinterface_receivers_callback = nullptr;
-        qdesignerobjectinspectorinterface_issignalconnected_callback = nullptr;
-        qdesignerobjectinspectorinterface_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerObjectInspectorInterface_MetaObject_Callback(QDesignerObjectInspectorInterface_MetaObject_Callback cb) { qdesignerobjectinspectorinterface_metaobject_callback = cb; }
     inline void setQDesignerObjectInspectorInterface_Metacast_Callback(QDesignerObjectInspectorInterface_Metacast_Callback cb) { qdesignerobjectinspectorinterface_metacast_callback = cb; }
@@ -411,12 +346,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_metaobject_isbase) {
             qdesignerobjectinspectorinterface_metaobject_isbase = false;
             return QDesignerObjectInspectorInterface::metaObject();
-        } else if (qdesignerobjectinspectorinterface_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdesignerobjectinspectorinterface_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::metaObject();
         }
+        auto metaobject_cb = qdesignerobjectinspectorinterface_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDesignerObjectInspectorInterface::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,14 +360,15 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_metacast_isbase) {
             qdesignerobjectinspectorinterface_metacast_isbase = false;
             return QDesignerObjectInspectorInterface::qt_metacast(param1);
-        } else if (qdesignerobjectinspectorinterface_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdesignerobjectinspectorinterface_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdesignerobjectinspectorinterface_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::qt_metacast(param1);
         }
+        return QDesignerObjectInspectorInterface::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,16 +376,17 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_metacall_isbase) {
             qdesignerobjectinspectorinterface_metacall_isbase = false;
             return QDesignerObjectInspectorInterface::qt_metacall(param1, param2, param3);
-        } else if (qdesignerobjectinspectorinterface_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdesignerobjectinspectorinterface_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdesignerobjectinspectorinterface_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerObjectInspectorInterface::qt_metacall(param1, param2, param3);
         }
+        return QDesignerObjectInspectorInterface::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -456,20 +394,22 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_core_isbase) {
             qdesignerobjectinspectorinterface_core_isbase = false;
             return QDesignerObjectInspectorInterface::core();
-        } else if (qdesignerobjectinspectorinterface_core_callback != nullptr) {
-            QDesignerFormEditorInterface* callback_ret = qdesignerobjectinspectorinterface_core_callback();
-            return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::core();
         }
+        auto core_cb = qdesignerobjectinspectorinterface_core_callback;
+        if (core_cb) {
+            QDesignerFormEditorInterface* callback_ret = core_cb();
+            return callback_ret;
+        }
+        return QDesignerObjectInspectorInterface::core();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setFormWindow(QDesignerFormWindowInterface* formWindow) override {
-        if (qdesignerobjectinspectorinterface_setformwindow_callback != nullptr) {
+        auto setformwindow_cb = qdesignerobjectinspectorinterface_setformwindow_callback;
+        if (setformwindow_cb) {
             QDesignerFormWindowInterface* cbval1 = formWindow;
 
-            qdesignerobjectinspectorinterface_setformwindow_callback(this, cbval1);
+            setformwindow_cb(this, cbval1);
         }
     }
 
@@ -478,12 +418,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_devtype_isbase) {
             qdesignerobjectinspectorinterface_devtype_isbase = false;
             return QDesignerObjectInspectorInterface::devType();
-        } else if (qdesignerobjectinspectorinterface_devtype_callback != nullptr) {
-            int callback_ret = qdesignerobjectinspectorinterface_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerObjectInspectorInterface::devType();
         }
+        auto devtype_cb = qdesignerobjectinspectorinterface_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerObjectInspectorInterface::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -491,13 +432,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_setvisible_isbase) {
             qdesignerobjectinspectorinterface_setvisible_isbase = false;
             QDesignerObjectInspectorInterface::setVisible(visible);
-        } else if (qdesignerobjectinspectorinterface_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qdesignerobjectinspectorinterface_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qdesignerobjectinspectorinterface_setvisible_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -505,12 +449,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_sizehint_isbase) {
             qdesignerobjectinspectorinterface_sizehint_isbase = false;
             return QDesignerObjectInspectorInterface::sizeHint();
-        } else if (qdesignerobjectinspectorinterface_sizehint_callback != nullptr) {
-            QSize* callback_ret = qdesignerobjectinspectorinterface_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::sizeHint();
         }
+        auto sizehint_cb = qdesignerobjectinspectorinterface_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QDesignerObjectInspectorInterface::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,12 +463,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_minimumsizehint_isbase) {
             qdesignerobjectinspectorinterface_minimumsizehint_isbase = false;
             return QDesignerObjectInspectorInterface::minimumSizeHint();
-        } else if (qdesignerobjectinspectorinterface_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qdesignerobjectinspectorinterface_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qdesignerobjectinspectorinterface_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QDesignerObjectInspectorInterface::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,14 +477,15 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_heightforwidth_isbase) {
             qdesignerobjectinspectorinterface_heightforwidth_isbase = false;
             return QDesignerObjectInspectorInterface::heightForWidth(param1);
-        } else if (qdesignerobjectinspectorinterface_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qdesignerobjectinspectorinterface_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qdesignerobjectinspectorinterface_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerObjectInspectorInterface::heightForWidth(param1);
         }
+        return QDesignerObjectInspectorInterface::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,12 +493,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_hasheightforwidth_isbase) {
             qdesignerobjectinspectorinterface_hasheightforwidth_isbase = false;
             return QDesignerObjectInspectorInterface::hasHeightForWidth();
-        } else if (qdesignerobjectinspectorinterface_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qdesignerobjectinspectorinterface_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qdesignerobjectinspectorinterface_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QDesignerObjectInspectorInterface::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -559,12 +507,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_paintengine_isbase) {
             qdesignerobjectinspectorinterface_paintengine_isbase = false;
             return QDesignerObjectInspectorInterface::paintEngine();
-        } else if (qdesignerobjectinspectorinterface_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qdesignerobjectinspectorinterface_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::paintEngine();
         }
+        auto paintengine_cb = qdesignerobjectinspectorinterface_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QDesignerObjectInspectorInterface::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -572,14 +521,15 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_event_isbase) {
             qdesignerobjectinspectorinterface_event_isbase = false;
             return QDesignerObjectInspectorInterface::event(event);
-        } else if (qdesignerobjectinspectorinterface_event_callback != nullptr) {
+        }
+        auto event_cb = qdesignerobjectinspectorinterface_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdesignerobjectinspectorinterface_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::event(event);
         }
+        return QDesignerObjectInspectorInterface::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,13 +537,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_mousepressevent_isbase) {
             qdesignerobjectinspectorinterface_mousepressevent_isbase = false;
             QDesignerObjectInspectorInterface::mousePressEvent(event);
-        } else if (qdesignerobjectinspectorinterface_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qdesignerobjectinspectorinterface_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_mousepressevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -601,13 +554,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_mousereleaseevent_isbase) {
             qdesignerobjectinspectorinterface_mousereleaseevent_isbase = false;
             QDesignerObjectInspectorInterface::mouseReleaseEvent(event);
-        } else if (qdesignerobjectinspectorinterface_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qdesignerobjectinspectorinterface_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -615,13 +571,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_mousedoubleclickevent_isbase) {
             qdesignerobjectinspectorinterface_mousedoubleclickevent_isbase = false;
             QDesignerObjectInspectorInterface::mouseDoubleClickEvent(event);
-        } else if (qdesignerobjectinspectorinterface_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qdesignerobjectinspectorinterface_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -629,13 +588,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_mousemoveevent_isbase) {
             qdesignerobjectinspectorinterface_mousemoveevent_isbase = false;
             QDesignerObjectInspectorInterface::mouseMoveEvent(event);
-        } else if (qdesignerobjectinspectorinterface_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qdesignerobjectinspectorinterface_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_mousemoveevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -643,13 +605,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_wheelevent_isbase) {
             qdesignerobjectinspectorinterface_wheelevent_isbase = false;
             QDesignerObjectInspectorInterface::wheelEvent(event);
-        } else if (qdesignerobjectinspectorinterface_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qdesignerobjectinspectorinterface_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_wheelevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -657,13 +622,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_keypressevent_isbase) {
             qdesignerobjectinspectorinterface_keypressevent_isbase = false;
             QDesignerObjectInspectorInterface::keyPressEvent(event);
-        } else if (qdesignerobjectinspectorinterface_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qdesignerobjectinspectorinterface_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_keypressevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,13 +639,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_keyreleaseevent_isbase) {
             qdesignerobjectinspectorinterface_keyreleaseevent_isbase = false;
             QDesignerObjectInspectorInterface::keyReleaseEvent(event);
-        } else if (qdesignerobjectinspectorinterface_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qdesignerobjectinspectorinterface_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -685,13 +656,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_focusinevent_isbase) {
             qdesignerobjectinspectorinterface_focusinevent_isbase = false;
             QDesignerObjectInspectorInterface::focusInEvent(event);
-        } else if (qdesignerobjectinspectorinterface_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qdesignerobjectinspectorinterface_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_focusinevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -699,13 +673,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_focusoutevent_isbase) {
             qdesignerobjectinspectorinterface_focusoutevent_isbase = false;
             QDesignerObjectInspectorInterface::focusOutEvent(event);
-        } else if (qdesignerobjectinspectorinterface_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qdesignerobjectinspectorinterface_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_focusoutevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -713,13 +690,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_enterevent_isbase) {
             qdesignerobjectinspectorinterface_enterevent_isbase = false;
             QDesignerObjectInspectorInterface::enterEvent(event);
-        } else if (qdesignerobjectinspectorinterface_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qdesignerobjectinspectorinterface_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_enterevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,13 +707,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_leaveevent_isbase) {
             qdesignerobjectinspectorinterface_leaveevent_isbase = false;
             QDesignerObjectInspectorInterface::leaveEvent(event);
-        } else if (qdesignerobjectinspectorinterface_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qdesignerobjectinspectorinterface_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_leaveevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -741,13 +724,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_paintevent_isbase) {
             qdesignerobjectinspectorinterface_paintevent_isbase = false;
             QDesignerObjectInspectorInterface::paintEvent(event);
-        } else if (qdesignerobjectinspectorinterface_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qdesignerobjectinspectorinterface_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_paintevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -755,13 +741,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_moveevent_isbase) {
             qdesignerobjectinspectorinterface_moveevent_isbase = false;
             QDesignerObjectInspectorInterface::moveEvent(event);
-        } else if (qdesignerobjectinspectorinterface_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qdesignerobjectinspectorinterface_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_moveevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -769,13 +758,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_resizeevent_isbase) {
             qdesignerobjectinspectorinterface_resizeevent_isbase = false;
             QDesignerObjectInspectorInterface::resizeEvent(event);
-        } else if (qdesignerobjectinspectorinterface_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qdesignerobjectinspectorinterface_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_resizeevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -783,13 +775,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_closeevent_isbase) {
             qdesignerobjectinspectorinterface_closeevent_isbase = false;
             QDesignerObjectInspectorInterface::closeEvent(event);
-        } else if (qdesignerobjectinspectorinterface_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qdesignerobjectinspectorinterface_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_closeevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -797,13 +792,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_contextmenuevent_isbase) {
             qdesignerobjectinspectorinterface_contextmenuevent_isbase = false;
             QDesignerObjectInspectorInterface::contextMenuEvent(event);
-        } else if (qdesignerobjectinspectorinterface_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qdesignerobjectinspectorinterface_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_contextmenuevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -811,13 +809,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_tabletevent_isbase) {
             qdesignerobjectinspectorinterface_tabletevent_isbase = false;
             QDesignerObjectInspectorInterface::tabletEvent(event);
-        } else if (qdesignerobjectinspectorinterface_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qdesignerobjectinspectorinterface_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_tabletevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -825,13 +826,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_actionevent_isbase) {
             qdesignerobjectinspectorinterface_actionevent_isbase = false;
             QDesignerObjectInspectorInterface::actionEvent(event);
-        } else if (qdesignerobjectinspectorinterface_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qdesignerobjectinspectorinterface_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_actionevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -839,13 +843,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_dragenterevent_isbase) {
             qdesignerobjectinspectorinterface_dragenterevent_isbase = false;
             QDesignerObjectInspectorInterface::dragEnterEvent(event);
-        } else if (qdesignerobjectinspectorinterface_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qdesignerobjectinspectorinterface_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_dragenterevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -853,13 +860,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_dragmoveevent_isbase) {
             qdesignerobjectinspectorinterface_dragmoveevent_isbase = false;
             QDesignerObjectInspectorInterface::dragMoveEvent(event);
-        } else if (qdesignerobjectinspectorinterface_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qdesignerobjectinspectorinterface_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_dragmoveevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,13 +877,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_dragleaveevent_isbase) {
             qdesignerobjectinspectorinterface_dragleaveevent_isbase = false;
             QDesignerObjectInspectorInterface::dragLeaveEvent(event);
-        } else if (qdesignerobjectinspectorinterface_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qdesignerobjectinspectorinterface_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_dragleaveevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -881,13 +894,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_dropevent_isbase) {
             qdesignerobjectinspectorinterface_dropevent_isbase = false;
             QDesignerObjectInspectorInterface::dropEvent(event);
-        } else if (qdesignerobjectinspectorinterface_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qdesignerobjectinspectorinterface_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_dropevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -895,13 +911,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_showevent_isbase) {
             qdesignerobjectinspectorinterface_showevent_isbase = false;
             QDesignerObjectInspectorInterface::showEvent(event);
-        } else if (qdesignerobjectinspectorinterface_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qdesignerobjectinspectorinterface_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_showevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -909,13 +928,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_hideevent_isbase) {
             qdesignerobjectinspectorinterface_hideevent_isbase = false;
             QDesignerObjectInspectorInterface::hideEvent(event);
-        } else if (qdesignerobjectinspectorinterface_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qdesignerobjectinspectorinterface_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_hideevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -923,7 +945,9 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_nativeevent_isbase) {
             qdesignerobjectinspectorinterface_nativeevent_isbase = false;
             return QDesignerObjectInspectorInterface::nativeEvent(eventType, message, result);
-        } else if (qdesignerobjectinspectorinterface_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qdesignerobjectinspectorinterface_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -934,12 +958,11 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qdesignerobjectinspectorinterface_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::nativeEvent(eventType, message, result);
         }
+        return QDesignerObjectInspectorInterface::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +970,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_changeevent_isbase) {
             qdesignerobjectinspectorinterface_changeevent_isbase = false;
             QDesignerObjectInspectorInterface::changeEvent(param1);
-        } else if (qdesignerobjectinspectorinterface_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qdesignerobjectinspectorinterface_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qdesignerobjectinspectorinterface_changeevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,14 +987,15 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_metric_isbase) {
             qdesignerobjectinspectorinterface_metric_isbase = false;
             return QDesignerObjectInspectorInterface::metric(param1);
-        } else if (qdesignerobjectinspectorinterface_metric_callback != nullptr) {
+        }
+        auto metric_cb = qdesignerobjectinspectorinterface_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qdesignerobjectinspectorinterface_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerObjectInspectorInterface::metric(param1);
         }
+        return QDesignerObjectInspectorInterface::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -976,13 +1003,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_initpainter_isbase) {
             qdesignerobjectinspectorinterface_initpainter_isbase = false;
             QDesignerObjectInspectorInterface::initPainter(painter);
-        } else if (qdesignerobjectinspectorinterface_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qdesignerobjectinspectorinterface_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qdesignerobjectinspectorinterface_initpainter_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -990,14 +1020,15 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_redirected_isbase) {
             qdesignerobjectinspectorinterface_redirected_isbase = false;
             return QDesignerObjectInspectorInterface::redirected(offset);
-        } else if (qdesignerobjectinspectorinterface_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qdesignerobjectinspectorinterface_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qdesignerobjectinspectorinterface_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::redirected(offset);
         }
+        return QDesignerObjectInspectorInterface::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1005,12 +1036,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_sharedpainter_isbase) {
             qdesignerobjectinspectorinterface_sharedpainter_isbase = false;
             return QDesignerObjectInspectorInterface::sharedPainter();
-        } else if (qdesignerobjectinspectorinterface_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qdesignerobjectinspectorinterface_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::sharedPainter();
         }
+        auto sharedpainter_cb = qdesignerobjectinspectorinterface_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QDesignerObjectInspectorInterface::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1018,13 +1050,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_inputmethodevent_isbase) {
             qdesignerobjectinspectorinterface_inputmethodevent_isbase = false;
             QDesignerObjectInspectorInterface::inputMethodEvent(param1);
-        } else if (qdesignerobjectinspectorinterface_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qdesignerobjectinspectorinterface_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qdesignerobjectinspectorinterface_inputmethodevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1032,14 +1067,15 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_inputmethodquery_isbase) {
             qdesignerobjectinspectorinterface_inputmethodquery_isbase = false;
             return QDesignerObjectInspectorInterface::inputMethodQuery(param1);
-        } else if (qdesignerobjectinspectorinterface_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qdesignerobjectinspectorinterface_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qdesignerobjectinspectorinterface_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::inputMethodQuery(param1);
         }
+        return QDesignerObjectInspectorInterface::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1047,14 +1083,15 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_focusnextprevchild_isbase) {
             qdesignerobjectinspectorinterface_focusnextprevchild_isbase = false;
             return QDesignerObjectInspectorInterface::focusNextPrevChild(next);
-        } else if (qdesignerobjectinspectorinterface_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qdesignerobjectinspectorinterface_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qdesignerobjectinspectorinterface_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::focusNextPrevChild(next);
         }
+        return QDesignerObjectInspectorInterface::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1062,15 +1099,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_eventfilter_isbase) {
             qdesignerobjectinspectorinterface_eventfilter_isbase = false;
             return QDesignerObjectInspectorInterface::eventFilter(watched, event);
-        } else if (qdesignerobjectinspectorinterface_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdesignerobjectinspectorinterface_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdesignerobjectinspectorinterface_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::eventFilter(watched, event);
         }
+        return QDesignerObjectInspectorInterface::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1078,13 +1116,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_timerevent_isbase) {
             qdesignerobjectinspectorinterface_timerevent_isbase = false;
             QDesignerObjectInspectorInterface::timerEvent(event);
-        } else if (qdesignerobjectinspectorinterface_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdesignerobjectinspectorinterface_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_timerevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,13 +1133,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_childevent_isbase) {
             qdesignerobjectinspectorinterface_childevent_isbase = false;
             QDesignerObjectInspectorInterface::childEvent(event);
-        } else if (qdesignerobjectinspectorinterface_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdesignerobjectinspectorinterface_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_childevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,13 +1150,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_customevent_isbase) {
             qdesignerobjectinspectorinterface_customevent_isbase = false;
             QDesignerObjectInspectorInterface::customEvent(event);
-        } else if (qdesignerobjectinspectorinterface_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdesignerobjectinspectorinterface_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdesignerobjectinspectorinterface_customevent_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,15 +1167,18 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_connectnotify_isbase) {
             qdesignerobjectinspectorinterface_connectnotify_isbase = false;
             QDesignerObjectInspectorInterface::connectNotify(signal);
-        } else if (qdesignerobjectinspectorinterface_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdesignerobjectinspectorinterface_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesignerobjectinspectorinterface_connectnotify_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1136,15 +1186,18 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_disconnectnotify_isbase) {
             qdesignerobjectinspectorinterface_disconnectnotify_isbase = false;
             QDesignerObjectInspectorInterface::disconnectNotify(signal);
-        } else if (qdesignerobjectinspectorinterface_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdesignerobjectinspectorinterface_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesignerobjectinspectorinterface_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDesignerObjectInspectorInterface::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerObjectInspectorInterface::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1152,11 +1205,14 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_updatemicrofocus_isbase) {
             qdesignerobjectinspectorinterface_updatemicrofocus_isbase = false;
             QDesignerObjectInspectorInterface::updateMicroFocus();
-        } else if (qdesignerobjectinspectorinterface_updatemicrofocus_callback != nullptr) {
-            qdesignerobjectinspectorinterface_updatemicrofocus_callback();
-        } else {
-            QDesignerObjectInspectorInterface::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qdesignerobjectinspectorinterface_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QDesignerObjectInspectorInterface::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1164,11 +1220,14 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_create_isbase) {
             qdesignerobjectinspectorinterface_create_isbase = false;
             QDesignerObjectInspectorInterface::create();
-        } else if (qdesignerobjectinspectorinterface_create_callback != nullptr) {
-            qdesignerobjectinspectorinterface_create_callback();
-        } else {
-            QDesignerObjectInspectorInterface::create();
+            return;
         }
+        auto create_cb = qdesignerobjectinspectorinterface_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QDesignerObjectInspectorInterface::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1176,11 +1235,14 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_destroy_isbase) {
             qdesignerobjectinspectorinterface_destroy_isbase = false;
             QDesignerObjectInspectorInterface::destroy();
-        } else if (qdesignerobjectinspectorinterface_destroy_callback != nullptr) {
-            qdesignerobjectinspectorinterface_destroy_callback();
-        } else {
-            QDesignerObjectInspectorInterface::destroy();
+            return;
         }
+        auto destroy_cb = qdesignerobjectinspectorinterface_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QDesignerObjectInspectorInterface::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1188,12 +1250,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_focusnextchild_isbase) {
             qdesignerobjectinspectorinterface_focusnextchild_isbase = false;
             return QDesignerObjectInspectorInterface::focusNextChild();
-        } else if (qdesignerobjectinspectorinterface_focusnextchild_callback != nullptr) {
-            bool callback_ret = qdesignerobjectinspectorinterface_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::focusNextChild();
         }
+        auto focusnextchild_cb = qdesignerobjectinspectorinterface_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QDesignerObjectInspectorInterface::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1201,12 +1264,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_focuspreviouschild_isbase) {
             qdesignerobjectinspectorinterface_focuspreviouschild_isbase = false;
             return QDesignerObjectInspectorInterface::focusPreviousChild();
-        } else if (qdesignerobjectinspectorinterface_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qdesignerobjectinspectorinterface_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qdesignerobjectinspectorinterface_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QDesignerObjectInspectorInterface::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1214,12 +1278,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_sender_isbase) {
             qdesignerobjectinspectorinterface_sender_isbase = false;
             return QDesignerObjectInspectorInterface::sender();
-        } else if (qdesignerobjectinspectorinterface_sender_callback != nullptr) {
-            QObject* callback_ret = qdesignerobjectinspectorinterface_sender_callback();
-            return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::sender();
         }
+        auto sender_cb = qdesignerobjectinspectorinterface_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDesignerObjectInspectorInterface::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1227,12 +1292,13 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_sendersignalindex_isbase) {
             qdesignerobjectinspectorinterface_sendersignalindex_isbase = false;
             return QDesignerObjectInspectorInterface::senderSignalIndex();
-        } else if (qdesignerobjectinspectorinterface_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdesignerobjectinspectorinterface_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerObjectInspectorInterface::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdesignerobjectinspectorinterface_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerObjectInspectorInterface::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1240,14 +1306,15 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_receivers_isbase) {
             qdesignerobjectinspectorinterface_receivers_isbase = false;
             return QDesignerObjectInspectorInterface::receivers(signal);
-        } else if (qdesignerobjectinspectorinterface_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdesignerobjectinspectorinterface_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdesignerobjectinspectorinterface_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerObjectInspectorInterface::receivers(signal);
         }
+        return QDesignerObjectInspectorInterface::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1255,16 +1322,17 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_issignalconnected_isbase) {
             qdesignerobjectinspectorinterface_issignalconnected_isbase = false;
             return QDesignerObjectInspectorInterface::isSignalConnected(signal);
-        } else if (qdesignerobjectinspectorinterface_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdesignerobjectinspectorinterface_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdesignerobjectinspectorinterface_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerObjectInspectorInterface::isSignalConnected(signal);
         }
+        return QDesignerObjectInspectorInterface::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1272,15 +1340,16 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
         if (qdesignerobjectinspectorinterface_getdecodedmetricf_isbase) {
             qdesignerobjectinspectorinterface_getdecodedmetricf_isbase = false;
             return QDesignerObjectInspectorInterface::getDecodedMetricF(metricA, metricB);
-        } else if (qdesignerobjectinspectorinterface_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qdesignerobjectinspectorinterface_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qdesignerobjectinspectorinterface_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QDesignerObjectInspectorInterface::getDecodedMetricF(metricA, metricB);
         }
+        return QDesignerObjectInspectorInterface::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

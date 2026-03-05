@@ -231,77 +231,6 @@ class VirtualKNumberModel final : public KNumberModel {
     VirtualKNumberModel() : KNumberModel() {};
     VirtualKNumberModel(QObject* parent) : KNumberModel(parent) {};
 
-    ~VirtualKNumberModel() {
-        knumbermodel_metaobject_callback = nullptr;
-        knumbermodel_metacast_callback = nullptr;
-        knumbermodel_metacall_callback = nullptr;
-        knumbermodel_rowcount_callback = nullptr;
-        knumbermodel_data_callback = nullptr;
-        knumbermodel_rolenames_callback = nullptr;
-        knumbermodel_index_callback = nullptr;
-        knumbermodel_sibling_callback = nullptr;
-        knumbermodel_dropmimedata_callback = nullptr;
-        knumbermodel_flags_callback = nullptr;
-        knumbermodel_setdata_callback = nullptr;
-        knumbermodel_headerdata_callback = nullptr;
-        knumbermodel_setheaderdata_callback = nullptr;
-        knumbermodel_itemdata_callback = nullptr;
-        knumbermodel_setitemdata_callback = nullptr;
-        knumbermodel_clearitemdata_callback = nullptr;
-        knumbermodel_mimetypes_callback = nullptr;
-        knumbermodel_mimedata_callback = nullptr;
-        knumbermodel_candropmimedata_callback = nullptr;
-        knumbermodel_supporteddropactions_callback = nullptr;
-        knumbermodel_supporteddragactions_callback = nullptr;
-        knumbermodel_insertrows_callback = nullptr;
-        knumbermodel_insertcolumns_callback = nullptr;
-        knumbermodel_removerows_callback = nullptr;
-        knumbermodel_removecolumns_callback = nullptr;
-        knumbermodel_moverows_callback = nullptr;
-        knumbermodel_movecolumns_callback = nullptr;
-        knumbermodel_fetchmore_callback = nullptr;
-        knumbermodel_canfetchmore_callback = nullptr;
-        knumbermodel_sort_callback = nullptr;
-        knumbermodel_buddy_callback = nullptr;
-        knumbermodel_match_callback = nullptr;
-        knumbermodel_span_callback = nullptr;
-        knumbermodel_multidata_callback = nullptr;
-        knumbermodel_submit_callback = nullptr;
-        knumbermodel_revert_callback = nullptr;
-        knumbermodel_resetinternaldata_callback = nullptr;
-        knumbermodel_event_callback = nullptr;
-        knumbermodel_eventfilter_callback = nullptr;
-        knumbermodel_timerevent_callback = nullptr;
-        knumbermodel_childevent_callback = nullptr;
-        knumbermodel_customevent_callback = nullptr;
-        knumbermodel_connectnotify_callback = nullptr;
-        knumbermodel_disconnectnotify_callback = nullptr;
-        knumbermodel_createindex_callback = nullptr;
-        knumbermodel_encodedata_callback = nullptr;
-        knumbermodel_decodedata_callback = nullptr;
-        knumbermodel_begininsertrows_callback = nullptr;
-        knumbermodel_endinsertrows_callback = nullptr;
-        knumbermodel_beginremoverows_callback = nullptr;
-        knumbermodel_endremoverows_callback = nullptr;
-        knumbermodel_beginmoverows_callback = nullptr;
-        knumbermodel_endmoverows_callback = nullptr;
-        knumbermodel_begininsertcolumns_callback = nullptr;
-        knumbermodel_endinsertcolumns_callback = nullptr;
-        knumbermodel_beginremovecolumns_callback = nullptr;
-        knumbermodel_endremovecolumns_callback = nullptr;
-        knumbermodel_beginmovecolumns_callback = nullptr;
-        knumbermodel_endmovecolumns_callback = nullptr;
-        knumbermodel_beginresetmodel_callback = nullptr;
-        knumbermodel_endresetmodel_callback = nullptr;
-        knumbermodel_changepersistentindex_callback = nullptr;
-        knumbermodel_changepersistentindexlist_callback = nullptr;
-        knumbermodel_persistentindexlist_callback = nullptr;
-        knumbermodel_sender_callback = nullptr;
-        knumbermodel_sendersignalindex_callback = nullptr;
-        knumbermodel_receivers_callback = nullptr;
-        knumbermodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKNumberModel_MetaObject_Callback(KNumberModel_MetaObject_Callback cb) { knumbermodel_metaobject_callback = cb; }
     inline void setKNumberModel_Metacast_Callback(KNumberModel_Metacast_Callback cb) { knumbermodel_metacast_callback = cb; }
@@ -447,12 +376,13 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_metaobject_isbase) {
             knumbermodel_metaobject_isbase = false;
             return KNumberModel::metaObject();
-        } else if (knumbermodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = knumbermodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KNumberModel::metaObject();
         }
+        auto metaobject_cb = knumbermodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KNumberModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -460,14 +390,15 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_metacast_isbase) {
             knumbermodel_metacast_isbase = false;
             return KNumberModel::qt_metacast(param1);
-        } else if (knumbermodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = knumbermodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = knumbermodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNumberModel::qt_metacast(param1);
         }
+        return KNumberModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -475,16 +406,17 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_metacall_isbase) {
             knumbermodel_metacall_isbase = false;
             return KNumberModel::qt_metacall(param1, param2, param3);
-        } else if (knumbermodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = knumbermodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = knumbermodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNumberModel::qt_metacall(param1, param2, param3);
         }
+        return KNumberModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,16 +424,17 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_rowcount_isbase) {
             knumbermodel_rowcount_isbase = false;
             return KNumberModel::rowCount(index);
-        } else if (knumbermodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = knumbermodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = knumbermodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNumberModel::rowCount(index);
         }
+        return KNumberModel::rowCount(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,17 +442,18 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_data_isbase) {
             knumbermodel_data_isbase = false;
             return KNumberModel::data(index, role);
-        } else if (knumbermodel_data_callback != nullptr) {
+        }
+        auto data_cb = knumbermodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = knumbermodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KNumberModel::data(index, role);
         }
+        return KNumberModel::data(index, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,8 +461,10 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_rolenames_isbase) {
             knumbermodel_rolenames_isbase = false;
             return KNumberModel::roleNames();
-        } else if (knumbermodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = knumbermodel_rolenames_callback();
+        }
+        auto rolenames_cb = knumbermodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -538,9 +474,8 @@ class VirtualKNumberModel final : public KNumberModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return KNumberModel::roleNames();
         }
+        return KNumberModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,18 +483,19 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_index_isbase) {
             knumbermodel_index_isbase = false;
             return KNumberModel::index(row, column, parent);
-        } else if (knumbermodel_index_callback != nullptr) {
+        }
+        auto index_cb = knumbermodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = knumbermodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KNumberModel::index(row, column, parent);
         }
+        return KNumberModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,18 +503,19 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_sibling_isbase) {
             knumbermodel_sibling_isbase = false;
             return KNumberModel::sibling(row, column, idx);
-        } else if (knumbermodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = knumbermodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = knumbermodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KNumberModel::sibling(row, column, idx);
         }
+        return KNumberModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,7 +523,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_dropmimedata_isbase) {
             knumbermodel_dropmimedata_isbase = false;
             return KNumberModel::dropMimeData(data, action, row, column, parent);
-        } else if (knumbermodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = knumbermodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -595,11 +534,10 @@ class VirtualKNumberModel final : public KNumberModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = knumbermodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KNumberModel::dropMimeData(data, action, row, column, parent);
         }
+        return KNumberModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,16 +545,17 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_flags_isbase) {
             knumbermodel_flags_isbase = false;
             return KNumberModel::flags(index);
-        } else if (knumbermodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = knumbermodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = knumbermodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return KNumberModel::flags(index);
         }
+        return KNumberModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,7 +563,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_setdata_isbase) {
             knumbermodel_setdata_isbase = false;
             return KNumberModel::setData(index, value, role);
-        } else if (knumbermodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = knumbermodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -633,11 +574,10 @@ class VirtualKNumberModel final : public KNumberModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = knumbermodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KNumberModel::setData(index, value, role);
         }
+        return KNumberModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,16 +585,17 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_headerdata_isbase) {
             knumbermodel_headerdata_isbase = false;
             return KNumberModel::headerData(section, orientation, role);
-        } else if (knumbermodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = knumbermodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = knumbermodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KNumberModel::headerData(section, orientation, role);
         }
+        return KNumberModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,7 +603,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_setheaderdata_isbase) {
             knumbermodel_setheaderdata_isbase = false;
             return KNumberModel::setHeaderData(section, orientation, value, role);
-        } else if (knumbermodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = knumbermodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -670,11 +613,10 @@ class VirtualKNumberModel final : public KNumberModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = knumbermodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KNumberModel::setHeaderData(section, orientation, value, role);
         }
+        return KNumberModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,12 +624,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_itemdata_isbase) {
             knumbermodel_itemdata_isbase = false;
             return KNumberModel::itemData(index);
-        } else if (knumbermodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = knumbermodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = knumbermodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -695,9 +639,8 @@ class VirtualKNumberModel final : public KNumberModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return KNumberModel::itemData(index);
         }
+        return KNumberModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,7 +648,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_setitemdata_isbase) {
             knumbermodel_setitemdata_isbase = false;
             return KNumberModel::setItemData(index, roles);
-        } else if (knumbermodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = knumbermodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -725,11 +670,10 @@ class VirtualKNumberModel final : public KNumberModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = knumbermodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KNumberModel::setItemData(index, roles);
         }
+        return KNumberModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,16 +681,17 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_clearitemdata_isbase) {
             knumbermodel_clearitemdata_isbase = false;
             return KNumberModel::clearItemData(index);
-        } else if (knumbermodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = knumbermodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = knumbermodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNumberModel::clearItemData(index);
         }
+        return KNumberModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,8 +699,10 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_mimetypes_isbase) {
             knumbermodel_mimetypes_isbase = false;
             return KNumberModel::mimeTypes();
-        } else if (knumbermodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = knumbermodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = knumbermodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -766,9 +713,8 @@ class VirtualKNumberModel final : public KNumberModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KNumberModel::mimeTypes();
         }
+        return KNumberModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,7 +722,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_mimedata_isbase) {
             knumbermodel_mimedata_isbase = false;
             return KNumberModel::mimeData(indexes);
-        } else if (knumbermodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = knumbermodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -788,12 +736,11 @@ class VirtualKNumberModel final : public KNumberModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = knumbermodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return KNumberModel::mimeData(indexes);
         }
+        return KNumberModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,7 +748,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_candropmimedata_isbase) {
             knumbermodel_candropmimedata_isbase = false;
             return KNumberModel::canDropMimeData(data, action, row, column, parent);
-        } else if (knumbermodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = knumbermodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -810,11 +759,10 @@ class VirtualKNumberModel final : public KNumberModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = knumbermodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KNumberModel::canDropMimeData(data, action, row, column, parent);
         }
+        return KNumberModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -822,12 +770,13 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_supporteddropactions_isbase) {
             knumbermodel_supporteddropactions_isbase = false;
             return KNumberModel::supportedDropActions();
-        } else if (knumbermodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = knumbermodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KNumberModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = knumbermodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KNumberModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,12 +784,13 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_supporteddragactions_isbase) {
             knumbermodel_supporteddragactions_isbase = false;
             return KNumberModel::supportedDragActions();
-        } else if (knumbermodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = knumbermodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KNumberModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = knumbermodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KNumberModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -848,18 +798,19 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_insertrows_isbase) {
             knumbermodel_insertrows_isbase = false;
             return KNumberModel::insertRows(row, count, parent);
-        } else if (knumbermodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = knumbermodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = knumbermodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KNumberModel::insertRows(row, count, parent);
         }
+        return KNumberModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,18 +818,19 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_insertcolumns_isbase) {
             knumbermodel_insertcolumns_isbase = false;
             return KNumberModel::insertColumns(column, count, parent);
-        } else if (knumbermodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = knumbermodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = knumbermodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KNumberModel::insertColumns(column, count, parent);
         }
+        return KNumberModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -886,18 +838,19 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_removerows_isbase) {
             knumbermodel_removerows_isbase = false;
             return KNumberModel::removeRows(row, count, parent);
-        } else if (knumbermodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = knumbermodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = knumbermodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KNumberModel::removeRows(row, count, parent);
         }
+        return KNumberModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,18 +858,19 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_removecolumns_isbase) {
             knumbermodel_removecolumns_isbase = false;
             return KNumberModel::removeColumns(column, count, parent);
-        } else if (knumbermodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = knumbermodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = knumbermodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KNumberModel::removeColumns(column, count, parent);
         }
+        return KNumberModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,7 +878,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_moverows_isbase) {
             knumbermodel_moverows_isbase = false;
             return KNumberModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (knumbermodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = knumbermodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -935,11 +891,10 @@ class VirtualKNumberModel final : public KNumberModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = knumbermodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KNumberModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return KNumberModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,7 +902,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_movecolumns_isbase) {
             knumbermodel_movecolumns_isbase = false;
             return KNumberModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (knumbermodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = knumbermodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -958,11 +915,10 @@ class VirtualKNumberModel final : public KNumberModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = knumbermodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KNumberModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return KNumberModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -970,15 +926,18 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_fetchmore_isbase) {
             knumbermodel_fetchmore_isbase = false;
             KNumberModel::fetchMore(parent);
-        } else if (knumbermodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = knumbermodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            knumbermodel_fetchmore_callback(this, cbval1);
-        } else {
-            KNumberModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        KNumberModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,16 +945,17 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_canfetchmore_isbase) {
             knumbermodel_canfetchmore_isbase = false;
             return KNumberModel::canFetchMore(parent);
-        } else if (knumbermodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = knumbermodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = knumbermodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNumberModel::canFetchMore(parent);
         }
+        return KNumberModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,14 +963,17 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_sort_isbase) {
             knumbermodel_sort_isbase = false;
             KNumberModel::sort(column, order);
-        } else if (knumbermodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = knumbermodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            knumbermodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            KNumberModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        KNumberModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1018,16 +981,17 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_buddy_isbase) {
             knumbermodel_buddy_isbase = false;
             return KNumberModel::buddy(index);
-        } else if (knumbermodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = knumbermodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = knumbermodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KNumberModel::buddy(index);
         }
+        return KNumberModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,7 +999,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_match_isbase) {
             knumbermodel_match_isbase = false;
             return KNumberModel::match(start, role, value, hits, flags);
-        } else if (knumbermodel_match_callback != nullptr) {
+        }
+        auto match_cb = knumbermodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1046,7 +1012,7 @@ class VirtualKNumberModel final : public KNumberModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = knumbermodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1055,9 +1021,8 @@ class VirtualKNumberModel final : public KNumberModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KNumberModel::match(start, role, value, hits, flags);
         }
+        return KNumberModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,16 +1030,17 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_span_isbase) {
             knumbermodel_span_isbase = false;
             return KNumberModel::span(index);
-        } else if (knumbermodel_span_callback != nullptr) {
+        }
+        auto span_cb = knumbermodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = knumbermodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KNumberModel::span(index);
         }
+        return KNumberModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1082,16 +1048,19 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_multidata_isbase) {
             knumbermodel_multidata_isbase = false;
             KNumberModel::multiData(index, roleDataSpan);
-        } else if (knumbermodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = knumbermodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            knumbermodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            KNumberModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        KNumberModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1099,12 +1068,13 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_submit_isbase) {
             knumbermodel_submit_isbase = false;
             return KNumberModel::submit();
-        } else if (knumbermodel_submit_callback != nullptr) {
-            bool callback_ret = knumbermodel_submit_callback();
-            return callback_ret;
-        } else {
-            return KNumberModel::submit();
         }
+        auto submit_cb = knumbermodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return KNumberModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,11 +1082,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_revert_isbase) {
             knumbermodel_revert_isbase = false;
             KNumberModel::revert();
-        } else if (knumbermodel_revert_callback != nullptr) {
-            knumbermodel_revert_callback();
-        } else {
-            KNumberModel::revert();
+            return;
         }
+        auto revert_cb = knumbermodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        KNumberModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1124,11 +1097,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_resetinternaldata_isbase) {
             knumbermodel_resetinternaldata_isbase = false;
             KNumberModel::resetInternalData();
-        } else if (knumbermodel_resetinternaldata_callback != nullptr) {
-            knumbermodel_resetinternaldata_callback();
-        } else {
-            KNumberModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = knumbermodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        KNumberModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1136,14 +1112,15 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_event_isbase) {
             knumbermodel_event_isbase = false;
             return KNumberModel::event(event);
-        } else if (knumbermodel_event_callback != nullptr) {
+        }
+        auto event_cb = knumbermodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = knumbermodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNumberModel::event(event);
         }
+        return KNumberModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1151,15 +1128,16 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_eventfilter_isbase) {
             knumbermodel_eventfilter_isbase = false;
             return KNumberModel::eventFilter(watched, event);
-        } else if (knumbermodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = knumbermodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = knumbermodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KNumberModel::eventFilter(watched, event);
         }
+        return KNumberModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,13 +1145,16 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_timerevent_isbase) {
             knumbermodel_timerevent_isbase = false;
             KNumberModel::timerEvent(event);
-        } else if (knumbermodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = knumbermodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            knumbermodel_timerevent_callback(this, cbval1);
-        } else {
-            KNumberModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KNumberModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,13 +1162,16 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_childevent_isbase) {
             knumbermodel_childevent_isbase = false;
             KNumberModel::childEvent(event);
-        } else if (knumbermodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = knumbermodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            knumbermodel_childevent_callback(this, cbval1);
-        } else {
-            KNumberModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KNumberModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,13 +1179,16 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_customevent_isbase) {
             knumbermodel_customevent_isbase = false;
             KNumberModel::customEvent(event);
-        } else if (knumbermodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = knumbermodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            knumbermodel_customevent_callback(this, cbval1);
-        } else {
-            KNumberModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KNumberModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1209,15 +1196,18 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_connectnotify_isbase) {
             knumbermodel_connectnotify_isbase = false;
             KNumberModel::connectNotify(signal);
-        } else if (knumbermodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = knumbermodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knumbermodel_connectnotify_callback(this, cbval1);
-        } else {
-            KNumberModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KNumberModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,15 +1215,18 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_disconnectnotify_isbase) {
             knumbermodel_disconnectnotify_isbase = false;
             KNumberModel::disconnectNotify(signal);
-        } else if (knumbermodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = knumbermodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knumbermodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KNumberModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KNumberModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,15 +1234,16 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_createindex_isbase) {
             knumbermodel_createindex_isbase = false;
             return KNumberModel::createIndex(row, column);
-        } else if (knumbermodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = knumbermodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = knumbermodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KNumberModel::createIndex(row, column);
         }
+        return KNumberModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,7 +1251,10 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_encodedata_isbase) {
             knumbermodel_encodedata_isbase = false;
             KNumberModel::encodeData(indexes, stream);
-        } else if (knumbermodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = knumbermodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1272,11 +1269,11 @@ class VirtualKNumberModel final : public KNumberModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            knumbermodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            KNumberModel::encodeData(indexes, stream);
+            return;
         }
+        KNumberModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,7 +1281,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_decodedata_isbase) {
             knumbermodel_decodedata_isbase = false;
             return KNumberModel::decodeData(row, column, parent, stream);
-        } else if (knumbermodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = knumbermodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1294,11 +1293,10 @@ class VirtualKNumberModel final : public KNumberModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = knumbermodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KNumberModel::decodeData(row, column, parent, stream);
         }
+        return KNumberModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1306,17 +1304,20 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_begininsertrows_isbase) {
             knumbermodel_begininsertrows_isbase = false;
             KNumberModel::beginInsertRows(parent, first, last);
-        } else if (knumbermodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = knumbermodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            knumbermodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KNumberModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KNumberModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1324,11 +1325,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_endinsertrows_isbase) {
             knumbermodel_endinsertrows_isbase = false;
             KNumberModel::endInsertRows();
-        } else if (knumbermodel_endinsertrows_callback != nullptr) {
-            knumbermodel_endinsertrows_callback();
-        } else {
-            KNumberModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = knumbermodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        KNumberModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,17 +1340,20 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_beginremoverows_isbase) {
             knumbermodel_beginremoverows_isbase = false;
             KNumberModel::beginRemoveRows(parent, first, last);
-        } else if (knumbermodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = knumbermodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            knumbermodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KNumberModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KNumberModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1354,11 +1361,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_endremoverows_isbase) {
             knumbermodel_endremoverows_isbase = false;
             KNumberModel::endRemoveRows();
-        } else if (knumbermodel_endremoverows_callback != nullptr) {
-            knumbermodel_endremoverows_callback();
-        } else {
-            KNumberModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = knumbermodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        KNumberModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1366,7 +1376,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_beginmoverows_isbase) {
             knumbermodel_beginmoverows_isbase = false;
             return KNumberModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (knumbermodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = knumbermodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1377,11 +1389,10 @@ class VirtualKNumberModel final : public KNumberModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = knumbermodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KNumberModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return KNumberModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1389,11 +1400,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_endmoverows_isbase) {
             knumbermodel_endmoverows_isbase = false;
             KNumberModel::endMoveRows();
-        } else if (knumbermodel_endmoverows_callback != nullptr) {
-            knumbermodel_endmoverows_callback();
-        } else {
-            KNumberModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = knumbermodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        KNumberModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1401,17 +1415,20 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_begininsertcolumns_isbase) {
             knumbermodel_begininsertcolumns_isbase = false;
             KNumberModel::beginInsertColumns(parent, first, last);
-        } else if (knumbermodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = knumbermodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            knumbermodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KNumberModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KNumberModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1419,11 +1436,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_endinsertcolumns_isbase) {
             knumbermodel_endinsertcolumns_isbase = false;
             KNumberModel::endInsertColumns();
-        } else if (knumbermodel_endinsertcolumns_callback != nullptr) {
-            knumbermodel_endinsertcolumns_callback();
-        } else {
-            KNumberModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = knumbermodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        KNumberModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1431,17 +1451,20 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_beginremovecolumns_isbase) {
             knumbermodel_beginremovecolumns_isbase = false;
             KNumberModel::beginRemoveColumns(parent, first, last);
-        } else if (knumbermodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = knumbermodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            knumbermodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KNumberModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KNumberModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1449,11 +1472,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_endremovecolumns_isbase) {
             knumbermodel_endremovecolumns_isbase = false;
             KNumberModel::endRemoveColumns();
-        } else if (knumbermodel_endremovecolumns_callback != nullptr) {
-            knumbermodel_endremovecolumns_callback();
-        } else {
-            KNumberModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = knumbermodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        KNumberModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1461,7 +1487,9 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_beginmovecolumns_isbase) {
             knumbermodel_beginmovecolumns_isbase = false;
             return KNumberModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (knumbermodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = knumbermodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1472,11 +1500,10 @@ class VirtualKNumberModel final : public KNumberModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = knumbermodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KNumberModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return KNumberModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1484,11 +1511,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_endmovecolumns_isbase) {
             knumbermodel_endmovecolumns_isbase = false;
             KNumberModel::endMoveColumns();
-        } else if (knumbermodel_endmovecolumns_callback != nullptr) {
-            knumbermodel_endmovecolumns_callback();
-        } else {
-            KNumberModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = knumbermodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        KNumberModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1496,11 +1526,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_beginresetmodel_isbase) {
             knumbermodel_beginresetmodel_isbase = false;
             KNumberModel::beginResetModel();
-        } else if (knumbermodel_beginresetmodel_callback != nullptr) {
-            knumbermodel_beginresetmodel_callback();
-        } else {
-            KNumberModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = knumbermodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        KNumberModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1508,11 +1541,14 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_endresetmodel_isbase) {
             knumbermodel_endresetmodel_isbase = false;
             KNumberModel::endResetModel();
-        } else if (knumbermodel_endresetmodel_callback != nullptr) {
-            knumbermodel_endresetmodel_callback();
-        } else {
-            KNumberModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = knumbermodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        KNumberModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1520,7 +1556,10 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_changepersistentindex_isbase) {
             knumbermodel_changepersistentindex_isbase = false;
             KNumberModel::changePersistentIndex(from, to);
-        } else if (knumbermodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = knumbermodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1528,10 +1567,10 @@ class VirtualKNumberModel final : public KNumberModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            knumbermodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            KNumberModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KNumberModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1539,7 +1578,10 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_changepersistentindexlist_isbase) {
             knumbermodel_changepersistentindexlist_isbase = false;
             KNumberModel::changePersistentIndexList(from, to);
-        } else if (knumbermodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = knumbermodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1561,12 +1603,12 @@ class VirtualKNumberModel final : public KNumberModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            knumbermodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            KNumberModel::changePersistentIndexList(from, to);
+            return;
         }
+        KNumberModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1574,8 +1616,10 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_persistentindexlist_isbase) {
             knumbermodel_persistentindexlist_isbase = false;
             return KNumberModel::persistentIndexList();
-        } else if (knumbermodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = knumbermodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = knumbermodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1584,9 +1628,8 @@ class VirtualKNumberModel final : public KNumberModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KNumberModel::persistentIndexList();
         }
+        return KNumberModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1594,12 +1637,13 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_sender_isbase) {
             knumbermodel_sender_isbase = false;
             return KNumberModel::sender();
-        } else if (knumbermodel_sender_callback != nullptr) {
-            QObject* callback_ret = knumbermodel_sender_callback();
-            return callback_ret;
-        } else {
-            return KNumberModel::sender();
         }
+        auto sender_cb = knumbermodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KNumberModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1607,12 +1651,13 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_sendersignalindex_isbase) {
             knumbermodel_sendersignalindex_isbase = false;
             return KNumberModel::senderSignalIndex();
-        } else if (knumbermodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = knumbermodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNumberModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = knumbermodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNumberModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1620,14 +1665,15 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_receivers_isbase) {
             knumbermodel_receivers_isbase = false;
             return KNumberModel::receivers(signal);
-        } else if (knumbermodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = knumbermodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = knumbermodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNumberModel::receivers(signal);
         }
+        return KNumberModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1635,16 +1681,17 @@ class VirtualKNumberModel final : public KNumberModel {
         if (knumbermodel_issignalconnected_isbase) {
             knumbermodel_issignalconnected_isbase = false;
             return KNumberModel::isSignalConnected(signal);
-        } else if (knumbermodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = knumbermodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = knumbermodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNumberModel::isSignalConnected(signal);
         }
+        return KNumberModel::isSignalConnected(signal);
     }
 
     // Friend functions

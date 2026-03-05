@@ -223,73 +223,6 @@ class VirtualKColorButton final : public KColorButton {
     VirtualKColorButton(const QColor& c, QWidget* parent) : KColorButton(c, parent) {};
     VirtualKColorButton(const QColor& c, const QColor& defaultColor, QWidget* parent) : KColorButton(c, defaultColor, parent) {};
 
-    ~VirtualKColorButton() {
-        kcolorbutton_metaobject_callback = nullptr;
-        kcolorbutton_metacast_callback = nullptr;
-        kcolorbutton_metacall_callback = nullptr;
-        kcolorbutton_sizehint_callback = nullptr;
-        kcolorbutton_minimumsizehint_callback = nullptr;
-        kcolorbutton_paintevent_callback = nullptr;
-        kcolorbutton_dragenterevent_callback = nullptr;
-        kcolorbutton_dropevent_callback = nullptr;
-        kcolorbutton_mousepressevent_callback = nullptr;
-        kcolorbutton_mousemoveevent_callback = nullptr;
-        kcolorbutton_keypressevent_callback = nullptr;
-        kcolorbutton_event_callback = nullptr;
-        kcolorbutton_focusinevent_callback = nullptr;
-        kcolorbutton_focusoutevent_callback = nullptr;
-        kcolorbutton_initstyleoption_callback = nullptr;
-        kcolorbutton_hitbutton_callback = nullptr;
-        kcolorbutton_checkstateset_callback = nullptr;
-        kcolorbutton_nextcheckstate_callback = nullptr;
-        kcolorbutton_keyreleaseevent_callback = nullptr;
-        kcolorbutton_mousereleaseevent_callback = nullptr;
-        kcolorbutton_changeevent_callback = nullptr;
-        kcolorbutton_timerevent_callback = nullptr;
-        kcolorbutton_devtype_callback = nullptr;
-        kcolorbutton_setvisible_callback = nullptr;
-        kcolorbutton_heightforwidth_callback = nullptr;
-        kcolorbutton_hasheightforwidth_callback = nullptr;
-        kcolorbutton_paintengine_callback = nullptr;
-        kcolorbutton_mousedoubleclickevent_callback = nullptr;
-        kcolorbutton_wheelevent_callback = nullptr;
-        kcolorbutton_enterevent_callback = nullptr;
-        kcolorbutton_leaveevent_callback = nullptr;
-        kcolorbutton_moveevent_callback = nullptr;
-        kcolorbutton_resizeevent_callback = nullptr;
-        kcolorbutton_closeevent_callback = nullptr;
-        kcolorbutton_contextmenuevent_callback = nullptr;
-        kcolorbutton_tabletevent_callback = nullptr;
-        kcolorbutton_actionevent_callback = nullptr;
-        kcolorbutton_dragmoveevent_callback = nullptr;
-        kcolorbutton_dragleaveevent_callback = nullptr;
-        kcolorbutton_showevent_callback = nullptr;
-        kcolorbutton_hideevent_callback = nullptr;
-        kcolorbutton_nativeevent_callback = nullptr;
-        kcolorbutton_metric_callback = nullptr;
-        kcolorbutton_initpainter_callback = nullptr;
-        kcolorbutton_redirected_callback = nullptr;
-        kcolorbutton_sharedpainter_callback = nullptr;
-        kcolorbutton_inputmethodevent_callback = nullptr;
-        kcolorbutton_inputmethodquery_callback = nullptr;
-        kcolorbutton_focusnextprevchild_callback = nullptr;
-        kcolorbutton_eventfilter_callback = nullptr;
-        kcolorbutton_childevent_callback = nullptr;
-        kcolorbutton_customevent_callback = nullptr;
-        kcolorbutton_connectnotify_callback = nullptr;
-        kcolorbutton_disconnectnotify_callback = nullptr;
-        kcolorbutton_updatemicrofocus_callback = nullptr;
-        kcolorbutton_create_callback = nullptr;
-        kcolorbutton_destroy_callback = nullptr;
-        kcolorbutton_focusnextchild_callback = nullptr;
-        kcolorbutton_focuspreviouschild_callback = nullptr;
-        kcolorbutton_sender_callback = nullptr;
-        kcolorbutton_sendersignalindex_callback = nullptr;
-        kcolorbutton_receivers_callback = nullptr;
-        kcolorbutton_issignalconnected_callback = nullptr;
-        kcolorbutton_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKColorButton_MetaObject_Callback(KColorButton_MetaObject_Callback cb) { kcolorbutton_metaobject_callback = cb; }
     inline void setKColorButton_Metacast_Callback(KColorButton_Metacast_Callback cb) { kcolorbutton_metacast_callback = cb; }
@@ -427,12 +360,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_metaobject_isbase) {
             kcolorbutton_metaobject_isbase = false;
             return KColorButton::metaObject();
-        } else if (kcolorbutton_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcolorbutton_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KColorButton::metaObject();
         }
+        auto metaobject_cb = kcolorbutton_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KColorButton::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -440,14 +374,15 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_metacast_isbase) {
             kcolorbutton_metacast_isbase = false;
             return KColorButton::qt_metacast(param1);
-        } else if (kcolorbutton_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcolorbutton_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcolorbutton_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorButton::qt_metacast(param1);
         }
+        return KColorButton::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -455,16 +390,17 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_metacall_isbase) {
             kcolorbutton_metacall_isbase = false;
             return KColorButton::qt_metacall(param1, param2, param3);
-        } else if (kcolorbutton_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcolorbutton_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcolorbutton_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColorButton::qt_metacall(param1, param2, param3);
         }
+        return KColorButton::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -472,12 +408,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_sizehint_isbase) {
             kcolorbutton_sizehint_isbase = false;
             return KColorButton::sizeHint();
-        } else if (kcolorbutton_sizehint_callback != nullptr) {
-            QSize* callback_ret = kcolorbutton_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KColorButton::sizeHint();
         }
+        auto sizehint_cb = kcolorbutton_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KColorButton::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -485,12 +422,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_minimumsizehint_isbase) {
             kcolorbutton_minimumsizehint_isbase = false;
             return KColorButton::minimumSizeHint();
-        } else if (kcolorbutton_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kcolorbutton_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KColorButton::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kcolorbutton_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KColorButton::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,13 +436,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_paintevent_isbase) {
             kcolorbutton_paintevent_isbase = false;
             KColorButton::paintEvent(pe);
-        } else if (kcolorbutton_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kcolorbutton_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = pe;
 
-            kcolorbutton_paintevent_callback(this, cbval1);
-        } else {
-            KColorButton::paintEvent(pe);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::paintEvent(pe);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,13 +453,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_dragenterevent_isbase) {
             kcolorbutton_dragenterevent_isbase = false;
             KColorButton::dragEnterEvent(param1);
-        } else if (kcolorbutton_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kcolorbutton_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
 
-            kcolorbutton_dragenterevent_callback(this, cbval1);
-        } else {
-            KColorButton::dragEnterEvent(param1);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::dragEnterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,13 +470,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_dropevent_isbase) {
             kcolorbutton_dropevent_isbase = false;
             KColorButton::dropEvent(param1);
-        } else if (kcolorbutton_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kcolorbutton_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
 
-            kcolorbutton_dropevent_callback(this, cbval1);
-        } else {
-            KColorButton::dropEvent(param1);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::dropEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,13 +487,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_mousepressevent_isbase) {
             kcolorbutton_mousepressevent_isbase = false;
             KColorButton::mousePressEvent(e);
-        } else if (kcolorbutton_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kcolorbutton_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kcolorbutton_mousepressevent_callback(this, cbval1);
-        } else {
-            KColorButton::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,13 +504,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_mousemoveevent_isbase) {
             kcolorbutton_mousemoveevent_isbase = false;
             KColorButton::mouseMoveEvent(e);
-        } else if (kcolorbutton_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kcolorbutton_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kcolorbutton_mousemoveevent_callback(this, cbval1);
-        } else {
-            KColorButton::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,13 +521,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_keypressevent_isbase) {
             kcolorbutton_keypressevent_isbase = false;
             KColorButton::keyPressEvent(e);
-        } else if (kcolorbutton_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kcolorbutton_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kcolorbutton_keypressevent_callback(this, cbval1);
-        } else {
-            KColorButton::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,14 +538,15 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_event_isbase) {
             kcolorbutton_event_isbase = false;
             return KColorButton::event(e);
-        } else if (kcolorbutton_event_callback != nullptr) {
+        }
+        auto event_cb = kcolorbutton_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kcolorbutton_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorButton::event(e);
         }
+        return KColorButton::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,13 +554,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_focusinevent_isbase) {
             kcolorbutton_focusinevent_isbase = false;
             KColorButton::focusInEvent(param1);
-        } else if (kcolorbutton_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kcolorbutton_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            kcolorbutton_focusinevent_callback(this, cbval1);
-        } else {
-            KColorButton::focusInEvent(param1);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::focusInEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +571,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_focusoutevent_isbase) {
             kcolorbutton_focusoutevent_isbase = false;
             KColorButton::focusOutEvent(param1);
-        } else if (kcolorbutton_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kcolorbutton_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            kcolorbutton_focusoutevent_callback(this, cbval1);
-        } else {
-            KColorButton::focusOutEvent(param1);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::focusOutEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,13 +588,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_initstyleoption_isbase) {
             kcolorbutton_initstyleoption_isbase = false;
             KColorButton::initStyleOption(option);
-        } else if (kcolorbutton_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kcolorbutton_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionButton* cbval1 = option;
 
-            kcolorbutton_initstyleoption_callback(this, cbval1);
-        } else {
-            KColorButton::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KColorButton::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,16 +605,17 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_hitbutton_isbase) {
             kcolorbutton_hitbutton_isbase = false;
             return KColorButton::hitButton(pos);
-        } else if (kcolorbutton_hitbutton_callback != nullptr) {
+        }
+        auto hitbutton_cb = kcolorbutton_hitbutton_callback;
+        if (hitbutton_cb) {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
 
-            bool callback_ret = kcolorbutton_hitbutton_callback(this, cbval1);
+            bool callback_ret = hitbutton_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorButton::hitButton(pos);
         }
+        return KColorButton::hitButton(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -656,11 +623,14 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_checkstateset_isbase) {
             kcolorbutton_checkstateset_isbase = false;
             KColorButton::checkStateSet();
-        } else if (kcolorbutton_checkstateset_callback != nullptr) {
-            kcolorbutton_checkstateset_callback();
-        } else {
-            KColorButton::checkStateSet();
+            return;
         }
+        auto checkstateset_cb = kcolorbutton_checkstateset_callback;
+        if (checkstateset_cb) {
+            checkstateset_cb();
+            return;
+        }
+        KColorButton::checkStateSet();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,11 +638,14 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_nextcheckstate_isbase) {
             kcolorbutton_nextcheckstate_isbase = false;
             KColorButton::nextCheckState();
-        } else if (kcolorbutton_nextcheckstate_callback != nullptr) {
-            kcolorbutton_nextcheckstate_callback();
-        } else {
-            KColorButton::nextCheckState();
+            return;
         }
+        auto nextcheckstate_cb = kcolorbutton_nextcheckstate_callback;
+        if (nextcheckstate_cb) {
+            nextcheckstate_cb();
+            return;
+        }
+        KColorButton::nextCheckState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,13 +653,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_keyreleaseevent_isbase) {
             kcolorbutton_keyreleaseevent_isbase = false;
             KColorButton::keyReleaseEvent(e);
-        } else if (kcolorbutton_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kcolorbutton_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kcolorbutton_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KColorButton::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -694,13 +670,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_mousereleaseevent_isbase) {
             kcolorbutton_mousereleaseevent_isbase = false;
             KColorButton::mouseReleaseEvent(e);
-        } else if (kcolorbutton_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kcolorbutton_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kcolorbutton_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KColorButton::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -708,13 +687,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_changeevent_isbase) {
             kcolorbutton_changeevent_isbase = false;
             KColorButton::changeEvent(e);
-        } else if (kcolorbutton_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kcolorbutton_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            kcolorbutton_changeevent_callback(this, cbval1);
-        } else {
-            KColorButton::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -722,13 +704,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_timerevent_isbase) {
             kcolorbutton_timerevent_isbase = false;
             KColorButton::timerEvent(e);
-        } else if (kcolorbutton_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcolorbutton_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
 
-            kcolorbutton_timerevent_callback(this, cbval1);
-        } else {
-            KColorButton::timerEvent(e);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::timerEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -736,12 +721,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_devtype_isbase) {
             kcolorbutton_devtype_isbase = false;
             return KColorButton::devType();
-        } else if (kcolorbutton_devtype_callback != nullptr) {
-            int callback_ret = kcolorbutton_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KColorButton::devType();
         }
+        auto devtype_cb = kcolorbutton_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KColorButton::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,13 +735,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_setvisible_isbase) {
             kcolorbutton_setvisible_isbase = false;
             KColorButton::setVisible(visible);
-        } else if (kcolorbutton_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kcolorbutton_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kcolorbutton_setvisible_callback(this, cbval1);
-        } else {
-            KColorButton::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KColorButton::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,14 +752,15 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_heightforwidth_isbase) {
             kcolorbutton_heightforwidth_isbase = false;
             return KColorButton::heightForWidth(param1);
-        } else if (kcolorbutton_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kcolorbutton_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kcolorbutton_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColorButton::heightForWidth(param1);
         }
+        return KColorButton::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -778,12 +768,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_hasheightforwidth_isbase) {
             kcolorbutton_hasheightforwidth_isbase = false;
             return KColorButton::hasHeightForWidth();
-        } else if (kcolorbutton_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kcolorbutton_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KColorButton::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kcolorbutton_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KColorButton::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,12 +782,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_paintengine_isbase) {
             kcolorbutton_paintengine_isbase = false;
             return KColorButton::paintEngine();
-        } else if (kcolorbutton_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kcolorbutton_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KColorButton::paintEngine();
         }
+        auto paintengine_cb = kcolorbutton_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KColorButton::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,13 +796,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_mousedoubleclickevent_isbase) {
             kcolorbutton_mousedoubleclickevent_isbase = false;
             KColorButton::mouseDoubleClickEvent(event);
-        } else if (kcolorbutton_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kcolorbutton_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcolorbutton_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KColorButton::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -818,13 +813,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_wheelevent_isbase) {
             kcolorbutton_wheelevent_isbase = false;
             KColorButton::wheelEvent(event);
-        } else if (kcolorbutton_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kcolorbutton_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kcolorbutton_wheelevent_callback(this, cbval1);
-        } else {
-            KColorButton::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -832,13 +830,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_enterevent_isbase) {
             kcolorbutton_enterevent_isbase = false;
             KColorButton::enterEvent(event);
-        } else if (kcolorbutton_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kcolorbutton_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kcolorbutton_enterevent_callback(this, cbval1);
-        } else {
-            KColorButton::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -846,13 +847,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_leaveevent_isbase) {
             kcolorbutton_leaveevent_isbase = false;
             KColorButton::leaveEvent(event);
-        } else if (kcolorbutton_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kcolorbutton_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kcolorbutton_leaveevent_callback(this, cbval1);
-        } else {
-            KColorButton::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -860,13 +864,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_moveevent_isbase) {
             kcolorbutton_moveevent_isbase = false;
             KColorButton::moveEvent(event);
-        } else if (kcolorbutton_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kcolorbutton_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kcolorbutton_moveevent_callback(this, cbval1);
-        } else {
-            KColorButton::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -874,13 +881,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_resizeevent_isbase) {
             kcolorbutton_resizeevent_isbase = false;
             KColorButton::resizeEvent(event);
-        } else if (kcolorbutton_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kcolorbutton_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kcolorbutton_resizeevent_callback(this, cbval1);
-        } else {
-            KColorButton::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -888,13 +898,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_closeevent_isbase) {
             kcolorbutton_closeevent_isbase = false;
             KColorButton::closeEvent(event);
-        } else if (kcolorbutton_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kcolorbutton_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kcolorbutton_closeevent_callback(this, cbval1);
-        } else {
-            KColorButton::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -902,13 +915,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_contextmenuevent_isbase) {
             kcolorbutton_contextmenuevent_isbase = false;
             KColorButton::contextMenuEvent(event);
-        } else if (kcolorbutton_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kcolorbutton_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kcolorbutton_contextmenuevent_callback(this, cbval1);
-        } else {
-            KColorButton::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -916,13 +932,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_tabletevent_isbase) {
             kcolorbutton_tabletevent_isbase = false;
             KColorButton::tabletEvent(event);
-        } else if (kcolorbutton_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kcolorbutton_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kcolorbutton_tabletevent_callback(this, cbval1);
-        } else {
-            KColorButton::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,13 +949,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_actionevent_isbase) {
             kcolorbutton_actionevent_isbase = false;
             KColorButton::actionEvent(event);
-        } else if (kcolorbutton_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kcolorbutton_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kcolorbutton_actionevent_callback(this, cbval1);
-        } else {
-            KColorButton::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,13 +966,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_dragmoveevent_isbase) {
             kcolorbutton_dragmoveevent_isbase = false;
             KColorButton::dragMoveEvent(event);
-        } else if (kcolorbutton_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kcolorbutton_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kcolorbutton_dragmoveevent_callback(this, cbval1);
-        } else {
-            KColorButton::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +983,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_dragleaveevent_isbase) {
             kcolorbutton_dragleaveevent_isbase = false;
             KColorButton::dragLeaveEvent(event);
-        } else if (kcolorbutton_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kcolorbutton_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kcolorbutton_dragleaveevent_callback(this, cbval1);
-        } else {
-            KColorButton::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,13 +1000,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_showevent_isbase) {
             kcolorbutton_showevent_isbase = false;
             KColorButton::showEvent(event);
-        } else if (kcolorbutton_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kcolorbutton_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kcolorbutton_showevent_callback(this, cbval1);
-        } else {
-            KColorButton::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,13 +1017,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_hideevent_isbase) {
             kcolorbutton_hideevent_isbase = false;
             KColorButton::hideEvent(event);
-        } else if (kcolorbutton_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kcolorbutton_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kcolorbutton_hideevent_callback(this, cbval1);
-        } else {
-            KColorButton::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,7 +1034,9 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_nativeevent_isbase) {
             kcolorbutton_nativeevent_isbase = false;
             return KColorButton::nativeEvent(eventType, message, result);
-        } else if (kcolorbutton_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kcolorbutton_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1011,12 +1047,11 @@ class VirtualKColorButton final : public KColorButton {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kcolorbutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KColorButton::nativeEvent(eventType, message, result);
         }
+        return KColorButton::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,14 +1059,15 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_metric_isbase) {
             kcolorbutton_metric_isbase = false;
             return KColorButton::metric(param1);
-        } else if (kcolorbutton_metric_callback != nullptr) {
+        }
+        auto metric_cb = kcolorbutton_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kcolorbutton_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColorButton::metric(param1);
         }
+        return KColorButton::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1039,13 +1075,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_initpainter_isbase) {
             kcolorbutton_initpainter_isbase = false;
             KColorButton::initPainter(painter);
-        } else if (kcolorbutton_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kcolorbutton_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kcolorbutton_initpainter_callback(this, cbval1);
-        } else {
-            KColorButton::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KColorButton::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1053,14 +1092,15 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_redirected_isbase) {
             kcolorbutton_redirected_isbase = false;
             return KColorButton::redirected(offset);
-        } else if (kcolorbutton_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kcolorbutton_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kcolorbutton_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorButton::redirected(offset);
         }
+        return KColorButton::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,12 +1108,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_sharedpainter_isbase) {
             kcolorbutton_sharedpainter_isbase = false;
             return KColorButton::sharedPainter();
-        } else if (kcolorbutton_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kcolorbutton_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KColorButton::sharedPainter();
         }
+        auto sharedpainter_cb = kcolorbutton_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KColorButton::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1081,13 +1122,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_inputmethodevent_isbase) {
             kcolorbutton_inputmethodevent_isbase = false;
             KColorButton::inputMethodEvent(param1);
-        } else if (kcolorbutton_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kcolorbutton_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kcolorbutton_inputmethodevent_callback(this, cbval1);
-        } else {
-            KColorButton::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1095,14 +1139,15 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_inputmethodquery_isbase) {
             kcolorbutton_inputmethodquery_isbase = false;
             return KColorButton::inputMethodQuery(param1);
-        } else if (kcolorbutton_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kcolorbutton_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kcolorbutton_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KColorButton::inputMethodQuery(param1);
         }
+        return KColorButton::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1110,14 +1155,15 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_focusnextprevchild_isbase) {
             kcolorbutton_focusnextprevchild_isbase = false;
             return KColorButton::focusNextPrevChild(next);
-        } else if (kcolorbutton_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kcolorbutton_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kcolorbutton_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorButton::focusNextPrevChild(next);
         }
+        return KColorButton::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1125,15 +1171,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_eventfilter_isbase) {
             kcolorbutton_eventfilter_isbase = false;
             return KColorButton::eventFilter(watched, event);
-        } else if (kcolorbutton_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcolorbutton_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcolorbutton_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KColorButton::eventFilter(watched, event);
         }
+        return KColorButton::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1141,13 +1188,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_childevent_isbase) {
             kcolorbutton_childevent_isbase = false;
             KColorButton::childEvent(event);
-        } else if (kcolorbutton_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcolorbutton_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcolorbutton_childevent_callback(this, cbval1);
-        } else {
-            KColorButton::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1155,13 +1205,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_customevent_isbase) {
             kcolorbutton_customevent_isbase = false;
             KColorButton::customEvent(event);
-        } else if (kcolorbutton_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcolorbutton_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcolorbutton_customevent_callback(this, cbval1);
-        } else {
-            KColorButton::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KColorButton::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,15 +1222,18 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_connectnotify_isbase) {
             kcolorbutton_connectnotify_isbase = false;
             KColorButton::connectNotify(signal);
-        } else if (kcolorbutton_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcolorbutton_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcolorbutton_connectnotify_callback(this, cbval1);
-        } else {
-            KColorButton::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KColorButton::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1185,15 +1241,18 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_disconnectnotify_isbase) {
             kcolorbutton_disconnectnotify_isbase = false;
             KColorButton::disconnectNotify(signal);
-        } else if (kcolorbutton_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcolorbutton_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcolorbutton_disconnectnotify_callback(this, cbval1);
-        } else {
-            KColorButton::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KColorButton::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1201,11 +1260,14 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_updatemicrofocus_isbase) {
             kcolorbutton_updatemicrofocus_isbase = false;
             KColorButton::updateMicroFocus();
-        } else if (kcolorbutton_updatemicrofocus_callback != nullptr) {
-            kcolorbutton_updatemicrofocus_callback();
-        } else {
-            KColorButton::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kcolorbutton_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KColorButton::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1213,11 +1275,14 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_create_isbase) {
             kcolorbutton_create_isbase = false;
             KColorButton::create();
-        } else if (kcolorbutton_create_callback != nullptr) {
-            kcolorbutton_create_callback();
-        } else {
-            KColorButton::create();
+            return;
         }
+        auto create_cb = kcolorbutton_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KColorButton::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,11 +1290,14 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_destroy_isbase) {
             kcolorbutton_destroy_isbase = false;
             KColorButton::destroy();
-        } else if (kcolorbutton_destroy_callback != nullptr) {
-            kcolorbutton_destroy_callback();
-        } else {
-            KColorButton::destroy();
+            return;
         }
+        auto destroy_cb = kcolorbutton_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KColorButton::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1237,12 +1305,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_focusnextchild_isbase) {
             kcolorbutton_focusnextchild_isbase = false;
             return KColorButton::focusNextChild();
-        } else if (kcolorbutton_focusnextchild_callback != nullptr) {
-            bool callback_ret = kcolorbutton_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KColorButton::focusNextChild();
         }
+        auto focusnextchild_cb = kcolorbutton_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KColorButton::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1250,12 +1319,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_focuspreviouschild_isbase) {
             kcolorbutton_focuspreviouschild_isbase = false;
             return KColorButton::focusPreviousChild();
-        } else if (kcolorbutton_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kcolorbutton_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KColorButton::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kcolorbutton_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KColorButton::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1263,12 +1333,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_sender_isbase) {
             kcolorbutton_sender_isbase = false;
             return KColorButton::sender();
-        } else if (kcolorbutton_sender_callback != nullptr) {
-            QObject* callback_ret = kcolorbutton_sender_callback();
-            return callback_ret;
-        } else {
-            return KColorButton::sender();
         }
+        auto sender_cb = kcolorbutton_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KColorButton::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1276,12 +1347,13 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_sendersignalindex_isbase) {
             kcolorbutton_sendersignalindex_isbase = false;
             return KColorButton::senderSignalIndex();
-        } else if (kcolorbutton_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcolorbutton_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KColorButton::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcolorbutton_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KColorButton::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1289,14 +1361,15 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_receivers_isbase) {
             kcolorbutton_receivers_isbase = false;
             return KColorButton::receivers(signal);
-        } else if (kcolorbutton_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcolorbutton_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcolorbutton_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColorButton::receivers(signal);
         }
+        return KColorButton::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1304,16 +1377,17 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_issignalconnected_isbase) {
             kcolorbutton_issignalconnected_isbase = false;
             return KColorButton::isSignalConnected(signal);
-        } else if (kcolorbutton_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcolorbutton_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcolorbutton_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorButton::isSignalConnected(signal);
         }
+        return KColorButton::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,15 +1395,16 @@ class VirtualKColorButton final : public KColorButton {
         if (kcolorbutton_getdecodedmetricf_isbase) {
             kcolorbutton_getdecodedmetricf_isbase = false;
             return KColorButton::getDecodedMetricF(metricA, metricB);
-        } else if (kcolorbutton_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kcolorbutton_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kcolorbutton_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KColorButton::getDecodedMetricF(metricA, metricB);
         }
+        return KColorButton::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

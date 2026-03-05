@@ -180,60 +180,6 @@ class VirtualQSslSocket final : public QSslSocket {
     VirtualQSslSocket() : QSslSocket() {};
     VirtualQSslSocket(QObject* parent) : QSslSocket(parent) {};
 
-    ~VirtualQSslSocket() {
-        qsslsocket_metaobject_callback = nullptr;
-        qsslsocket_metacast_callback = nullptr;
-        qsslsocket_metacall_callback = nullptr;
-        qsslsocket_resume_callback = nullptr;
-        qsslsocket_setsocketdescriptor_callback = nullptr;
-        qsslsocket_connecttohost_callback = nullptr;
-        qsslsocket_disconnectfromhost_callback = nullptr;
-        qsslsocket_setsocketoption_callback = nullptr;
-        qsslsocket_socketoption_callback = nullptr;
-        qsslsocket_bytesavailable_callback = nullptr;
-        qsslsocket_bytestowrite_callback = nullptr;
-        qsslsocket_canreadline_callback = nullptr;
-        qsslsocket_close_callback = nullptr;
-        qsslsocket_atend_callback = nullptr;
-        qsslsocket_setreadbuffersize_callback = nullptr;
-        qsslsocket_waitforconnected_callback = nullptr;
-        qsslsocket_waitforreadyread_callback = nullptr;
-        qsslsocket_waitforbyteswritten_callback = nullptr;
-        qsslsocket_waitfordisconnected_callback = nullptr;
-        qsslsocket_readdata_callback = nullptr;
-        qsslsocket_skipdata_callback = nullptr;
-        qsslsocket_writedata_callback = nullptr;
-        qsslsocket_bind_callback = nullptr;
-        qsslsocket_socketdescriptor_callback = nullptr;
-        qsslsocket_issequential_callback = nullptr;
-        qsslsocket_readlinedata_callback = nullptr;
-        qsslsocket_open_callback = nullptr;
-        qsslsocket_pos_callback = nullptr;
-        qsslsocket_size_callback = nullptr;
-        qsslsocket_seek_callback = nullptr;
-        qsslsocket_reset_callback = nullptr;
-        qsslsocket_event_callback = nullptr;
-        qsslsocket_eventfilter_callback = nullptr;
-        qsslsocket_timerevent_callback = nullptr;
-        qsslsocket_childevent_callback = nullptr;
-        qsslsocket_customevent_callback = nullptr;
-        qsslsocket_connectnotify_callback = nullptr;
-        qsslsocket_disconnectnotify_callback = nullptr;
-        qsslsocket_setsocketstate_callback = nullptr;
-        qsslsocket_setsocketerror_callback = nullptr;
-        qsslsocket_setlocalport_callback = nullptr;
-        qsslsocket_setlocaladdress_callback = nullptr;
-        qsslsocket_setpeerport_callback = nullptr;
-        qsslsocket_setpeeraddress_callback = nullptr;
-        qsslsocket_setpeername_callback = nullptr;
-        qsslsocket_setopenmode_callback = nullptr;
-        qsslsocket_seterrorstring_callback = nullptr;
-        qsslsocket_sender_callback = nullptr;
-        qsslsocket_sendersignalindex_callback = nullptr;
-        qsslsocket_receivers_callback = nullptr;
-        qsslsocket_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSslSocket_MetaObject_Callback(QSslSocket_MetaObject_Callback cb) { qsslsocket_metaobject_callback = cb; }
     inline void setQSslSocket_Metacast_Callback(QSslSocket_Metacast_Callback cb) { qsslsocket_metacast_callback = cb; }
@@ -345,12 +291,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_metaobject_isbase) {
             qsslsocket_metaobject_isbase = false;
             return QSslSocket::metaObject();
-        } else if (qsslsocket_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsslsocket_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSslSocket::metaObject();
         }
+        auto metaobject_cb = qsslsocket_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSslSocket::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,14 +305,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_metacast_isbase) {
             qsslsocket_metacast_isbase = false;
             return QSslSocket::qt_metacast(param1);
-        } else if (qsslsocket_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsslsocket_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsslsocket_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslSocket::qt_metacast(param1);
         }
+        return QSslSocket::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,16 +321,17 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_metacall_isbase) {
             qsslsocket_metacall_isbase = false;
             return QSslSocket::qt_metacall(param1, param2, param3);
-        } else if (qsslsocket_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsslsocket_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsslsocket_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSslSocket::qt_metacall(param1, param2, param3);
         }
+        return QSslSocket::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,11 +339,14 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_resume_isbase) {
             qsslsocket_resume_isbase = false;
             QSslSocket::resume();
-        } else if (qsslsocket_resume_callback != nullptr) {
-            qsslsocket_resume_callback();
-        } else {
-            QSslSocket::resume();
+            return;
         }
+        auto resume_cb = qsslsocket_resume_callback;
+        if (resume_cb) {
+            resume_cb();
+            return;
+        }
+        QSslSocket::resume();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -402,17 +354,18 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setsocketdescriptor_isbase) {
             qsslsocket_setsocketdescriptor_isbase = false;
             return QSslSocket::setSocketDescriptor(socketDescriptor, state, openMode);
-        } else if (qsslsocket_setsocketdescriptor_callback != nullptr) {
+        }
+        auto setsocketdescriptor_cb = qsslsocket_setsocketdescriptor_callback;
+        if (setsocketdescriptor_cb) {
             qintptr socketDescriptor_ret = socketDescriptor;
             intptr_t cbval1 = (intptr_t)(socketDescriptor_ret);
             int cbval2 = static_cast<int>(state);
             int cbval3 = static_cast<int>(openMode);
 
-            bool callback_ret = qsslsocket_setsocketdescriptor_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setsocketdescriptor_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSslSocket::setSocketDescriptor(socketDescriptor, state, openMode);
         }
+        return QSslSocket::setSocketDescriptor(socketDescriptor, state, openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -420,7 +373,10 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_connecttohost_isbase) {
             qsslsocket_connecttohost_isbase = false;
             QSslSocket::connectToHost(hostName, port, openMode, protocol);
-        } else if (qsslsocket_connecttohost_callback != nullptr) {
+            return;
+        }
+        auto connecttohost_cb = qsslsocket_connecttohost_callback;
+        if (connecttohost_cb) {
             const QString hostName_ret = hostName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray hostName_b = hostName_ret.toUtf8();
@@ -433,11 +389,11 @@ class VirtualQSslSocket final : public QSslSocket {
             int cbval3 = static_cast<int>(openMode);
             int cbval4 = static_cast<int>(protocol);
 
-            qsslsocket_connecttohost_callback(this, cbval1, cbval2, cbval3, cbval4);
+            connecttohost_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(hostName_str);
-        } else {
-            QSslSocket::connectToHost(hostName, port, openMode, protocol);
+            return;
         }
+        QSslSocket::connectToHost(hostName, port, openMode, protocol);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -445,11 +401,14 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_disconnectfromhost_isbase) {
             qsslsocket_disconnectfromhost_isbase = false;
             QSslSocket::disconnectFromHost();
-        } else if (qsslsocket_disconnectfromhost_callback != nullptr) {
-            qsslsocket_disconnectfromhost_callback();
-        } else {
-            QSslSocket::disconnectFromHost();
+            return;
         }
+        auto disconnectfromhost_cb = qsslsocket_disconnectfromhost_callback;
+        if (disconnectfromhost_cb) {
+            disconnectfromhost_cb();
+            return;
+        }
+        QSslSocket::disconnectFromHost();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,16 +416,19 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setsocketoption_isbase) {
             qsslsocket_setsocketoption_isbase = false;
             QSslSocket::setSocketOption(option, value);
-        } else if (qsslsocket_setsocketoption_callback != nullptr) {
+            return;
+        }
+        auto setsocketoption_cb = qsslsocket_setsocketoption_callback;
+        if (setsocketoption_cb) {
             int cbval1 = static_cast<int>(option);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            qsslsocket_setsocketoption_callback(this, cbval1, cbval2);
-        } else {
-            QSslSocket::setSocketOption(option, value);
+            setsocketoption_cb(this, cbval1, cbval2);
+            return;
         }
+        QSslSocket::setSocketOption(option, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -474,14 +436,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_socketoption_isbase) {
             qsslsocket_socketoption_isbase = false;
             return QSslSocket::socketOption(option);
-        } else if (qsslsocket_socketoption_callback != nullptr) {
+        }
+        auto socketoption_cb = qsslsocket_socketoption_callback;
+        if (socketoption_cb) {
             int cbval1 = static_cast<int>(option);
 
-            QVariant* callback_ret = qsslsocket_socketoption_callback(this, cbval1);
+            QVariant* callback_ret = socketoption_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSslSocket::socketOption(option);
         }
+        return QSslSocket::socketOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -489,12 +452,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_bytesavailable_isbase) {
             qsslsocket_bytesavailable_isbase = false;
             return QSslSocket::bytesAvailable();
-        } else if (qsslsocket_bytesavailable_callback != nullptr) {
-            long long callback_ret = qsslsocket_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSslSocket::bytesAvailable();
         }
+        auto bytesavailable_cb = qsslsocket_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSslSocket::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,12 +466,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_bytestowrite_isbase) {
             qsslsocket_bytestowrite_isbase = false;
             return QSslSocket::bytesToWrite();
-        } else if (qsslsocket_bytestowrite_callback != nullptr) {
-            long long callback_ret = qsslsocket_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSslSocket::bytesToWrite();
         }
+        auto bytestowrite_cb = qsslsocket_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSslSocket::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,12 +480,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_canreadline_isbase) {
             qsslsocket_canreadline_isbase = false;
             return QSslSocket::canReadLine();
-        } else if (qsslsocket_canreadline_callback != nullptr) {
-            bool callback_ret = qsslsocket_canreadline_callback();
-            return callback_ret;
-        } else {
-            return QSslSocket::canReadLine();
         }
+        auto canreadline_cb = qsslsocket_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return QSslSocket::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,11 +494,14 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_close_isbase) {
             qsslsocket_close_isbase = false;
             QSslSocket::close();
-        } else if (qsslsocket_close_callback != nullptr) {
-            qsslsocket_close_callback();
-        } else {
-            QSslSocket::close();
+            return;
         }
+        auto close_cb = qsslsocket_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        QSslSocket::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,12 +509,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_atend_isbase) {
             qsslsocket_atend_isbase = false;
             return QSslSocket::atEnd();
-        } else if (qsslsocket_atend_callback != nullptr) {
-            bool callback_ret = qsslsocket_atend_callback();
-            return callback_ret;
-        } else {
-            return QSslSocket::atEnd();
         }
+        auto atend_cb = qsslsocket_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return QSslSocket::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,13 +523,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setreadbuffersize_isbase) {
             qsslsocket_setreadbuffersize_isbase = false;
             QSslSocket::setReadBufferSize(size);
-        } else if (qsslsocket_setreadbuffersize_callback != nullptr) {
+            return;
+        }
+        auto setreadbuffersize_cb = qsslsocket_setreadbuffersize_callback;
+        if (setreadbuffersize_cb) {
             long long cbval1 = static_cast<long long>(size);
 
-            qsslsocket_setreadbuffersize_callback(this, cbval1);
-        } else {
-            QSslSocket::setReadBufferSize(size);
+            setreadbuffersize_cb(this, cbval1);
+            return;
         }
+        QSslSocket::setReadBufferSize(size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,14 +540,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_waitforconnected_isbase) {
             qsslsocket_waitforconnected_isbase = false;
             return QSslSocket::waitForConnected(msecs);
-        } else if (qsslsocket_waitforconnected_callback != nullptr) {
+        }
+        auto waitforconnected_cb = qsslsocket_waitforconnected_callback;
+        if (waitforconnected_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qsslsocket_waitforconnected_callback(this, cbval1);
+            bool callback_ret = waitforconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslSocket::waitForConnected(msecs);
         }
+        return QSslSocket::waitForConnected(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,14 +556,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_waitforreadyread_isbase) {
             qsslsocket_waitforreadyread_isbase = false;
             return QSslSocket::waitForReadyRead(msecs);
-        } else if (qsslsocket_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = qsslsocket_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qsslsocket_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslSocket::waitForReadyRead(msecs);
         }
+        return QSslSocket::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,14 +572,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_waitforbyteswritten_isbase) {
             qsslsocket_waitforbyteswritten_isbase = false;
             return QSslSocket::waitForBytesWritten(msecs);
-        } else if (qsslsocket_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = qsslsocket_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qsslsocket_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslSocket::waitForBytesWritten(msecs);
         }
+        return QSslSocket::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,14 +588,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_waitfordisconnected_isbase) {
             qsslsocket_waitfordisconnected_isbase = false;
             return QSslSocket::waitForDisconnected(msecs);
-        } else if (qsslsocket_waitfordisconnected_callback != nullptr) {
+        }
+        auto waitfordisconnected_cb = qsslsocket_waitfordisconnected_callback;
+        if (waitfordisconnected_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qsslsocket_waitfordisconnected_callback(this, cbval1);
+            bool callback_ret = waitfordisconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslSocket::waitForDisconnected(msecs);
         }
+        return QSslSocket::waitForDisconnected(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,15 +604,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_readdata_isbase) {
             qsslsocket_readdata_isbase = false;
             return QSslSocket::readData(data, maxlen);
-        } else if (qsslsocket_readdata_callback != nullptr) {
+        }
+        auto readdata_cb = qsslsocket_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qsslsocket_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSslSocket::readData(data, maxlen);
         }
+        return QSslSocket::readData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -643,14 +621,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_skipdata_isbase) {
             qsslsocket_skipdata_isbase = false;
             return QSslSocket::skipData(maxSize);
-        } else if (qsslsocket_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = qsslsocket_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = qsslsocket_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSslSocket::skipData(maxSize);
         }
+        return QSslSocket::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -658,15 +637,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_writedata_isbase) {
             qsslsocket_writedata_isbase = false;
             return QSslSocket::writeData(data, lenVal);
-        } else if (qsslsocket_writedata_callback != nullptr) {
+        }
+        auto writedata_cb = qsslsocket_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = qsslsocket_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSslSocket::writeData(data, lenVal);
         }
+        return QSslSocket::writeData(data, lenVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -674,18 +654,19 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_bind_isbase) {
             qsslsocket_bind_isbase = false;
             return QSslSocket::bind(address, port, mode);
-        } else if (qsslsocket_bind_callback != nullptr) {
+        }
+        auto bind_cb = qsslsocket_bind_callback;
+        if (bind_cb) {
             const QHostAddress& address_ret = address;
             // Cast returned reference into pointer
             QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
             uint16_t cbval2 = static_cast<uint16_t>(port);
             int cbval3 = static_cast<int>(mode);
 
-            bool callback_ret = qsslsocket_bind_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = bind_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSslSocket::bind(address, port, mode);
         }
+        return QSslSocket::bind(address, port, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,12 +674,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_socketdescriptor_isbase) {
             qsslsocket_socketdescriptor_isbase = false;
             return QSslSocket::socketDescriptor();
-        } else if (qsslsocket_socketdescriptor_callback != nullptr) {
-            intptr_t callback_ret = qsslsocket_socketdescriptor_callback();
-            return (qintptr)(callback_ret);
-        } else {
-            return QSslSocket::socketDescriptor();
         }
+        auto socketdescriptor_cb = qsslsocket_socketdescriptor_callback;
+        if (socketdescriptor_cb) {
+            intptr_t callback_ret = socketdescriptor_cb();
+            return (qintptr)(callback_ret);
+        }
+        return QSslSocket::socketDescriptor();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -706,12 +688,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_issequential_isbase) {
             qsslsocket_issequential_isbase = false;
             return QSslSocket::isSequential();
-        } else if (qsslsocket_issequential_callback != nullptr) {
-            bool callback_ret = qsslsocket_issequential_callback();
-            return callback_ret;
-        } else {
-            return QSslSocket::isSequential();
         }
+        auto issequential_cb = qsslsocket_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return QSslSocket::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,15 +702,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_readlinedata_isbase) {
             qsslsocket_readlinedata_isbase = false;
             return QSslSocket::readLineData(data, maxlen);
-        } else if (qsslsocket_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = qsslsocket_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qsslsocket_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QSslSocket::readLineData(data, maxlen);
         }
+        return QSslSocket::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,14 +719,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_open_isbase) {
             qsslsocket_open_isbase = false;
             return QSslSocket::open(mode);
-        } else if (qsslsocket_open_callback != nullptr) {
+        }
+        auto open_cb = qsslsocket_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = qsslsocket_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslSocket::open(mode);
         }
+        return QSslSocket::open(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -750,12 +735,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_pos_isbase) {
             qsslsocket_pos_isbase = false;
             return QSslSocket::pos();
-        } else if (qsslsocket_pos_callback != nullptr) {
-            long long callback_ret = qsslsocket_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSslSocket::pos();
         }
+        auto pos_cb = qsslsocket_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSslSocket::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,12 +749,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_size_isbase) {
             qsslsocket_size_isbase = false;
             return QSslSocket::size();
-        } else if (qsslsocket_size_callback != nullptr) {
-            long long callback_ret = qsslsocket_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QSslSocket::size();
         }
+        auto size_cb = qsslsocket_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QSslSocket::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,14 +763,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_seek_isbase) {
             qsslsocket_seek_isbase = false;
             return QSslSocket::seek(pos);
-        } else if (qsslsocket_seek_callback != nullptr) {
+        }
+        auto seek_cb = qsslsocket_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
 
-            bool callback_ret = qsslsocket_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslSocket::seek(pos);
         }
+        return QSslSocket::seek(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,12 +779,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_reset_isbase) {
             qsslsocket_reset_isbase = false;
             return QSslSocket::reset();
-        } else if (qsslsocket_reset_callback != nullptr) {
-            bool callback_ret = qsslsocket_reset_callback();
-            return callback_ret;
-        } else {
-            return QSslSocket::reset();
         }
+        auto reset_cb = qsslsocket_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return QSslSocket::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,14 +793,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_event_isbase) {
             qsslsocket_event_isbase = false;
             return QSslSocket::event(event);
-        } else if (qsslsocket_event_callback != nullptr) {
+        }
+        auto event_cb = qsslsocket_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsslsocket_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslSocket::event(event);
         }
+        return QSslSocket::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,15 +809,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_eventfilter_isbase) {
             qsslsocket_eventfilter_isbase = false;
             return QSslSocket::eventFilter(watched, event);
-        } else if (qsslsocket_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsslsocket_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsslsocket_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSslSocket::eventFilter(watched, event);
         }
+        return QSslSocket::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +826,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_timerevent_isbase) {
             qsslsocket_timerevent_isbase = false;
             QSslSocket::timerEvent(event);
-        } else if (qsslsocket_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsslsocket_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsslsocket_timerevent_callback(this, cbval1);
-        } else {
-            QSslSocket::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSslSocket::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +843,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_childevent_isbase) {
             qsslsocket_childevent_isbase = false;
             QSslSocket::childEvent(event);
-        } else if (qsslsocket_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsslsocket_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsslsocket_childevent_callback(this, cbval1);
-        } else {
-            QSslSocket::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSslSocket::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +860,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_customevent_isbase) {
             qsslsocket_customevent_isbase = false;
             QSslSocket::customEvent(event);
-        } else if (qsslsocket_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsslsocket_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsslsocket_customevent_callback(this, cbval1);
-        } else {
-            QSslSocket::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSslSocket::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,15 +877,18 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_connectnotify_isbase) {
             qsslsocket_connectnotify_isbase = false;
             QSslSocket::connectNotify(signal);
-        } else if (qsslsocket_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsslsocket_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsslsocket_connectnotify_callback(this, cbval1);
-        } else {
-            QSslSocket::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSslSocket::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -893,15 +896,18 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_disconnectnotify_isbase) {
             qsslsocket_disconnectnotify_isbase = false;
             QSslSocket::disconnectNotify(signal);
-        } else if (qsslsocket_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsslsocket_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsslsocket_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSslSocket::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSslSocket::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -909,13 +915,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setsocketstate_isbase) {
             qsslsocket_setsocketstate_isbase = false;
             QSslSocket::setSocketState(state);
-        } else if (qsslsocket_setsocketstate_callback != nullptr) {
+            return;
+        }
+        auto setsocketstate_cb = qsslsocket_setsocketstate_callback;
+        if (setsocketstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            qsslsocket_setsocketstate_callback(this, cbval1);
-        } else {
-            QSslSocket::setSocketState(state);
+            setsocketstate_cb(this, cbval1);
+            return;
         }
+        QSslSocket::setSocketState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -923,13 +932,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setsocketerror_isbase) {
             qsslsocket_setsocketerror_isbase = false;
             QSslSocket::setSocketError(socketError);
-        } else if (qsslsocket_setsocketerror_callback != nullptr) {
+            return;
+        }
+        auto setsocketerror_cb = qsslsocket_setsocketerror_callback;
+        if (setsocketerror_cb) {
             int cbval1 = static_cast<int>(socketError);
 
-            qsslsocket_setsocketerror_callback(this, cbval1);
-        } else {
-            QSslSocket::setSocketError(socketError);
+            setsocketerror_cb(this, cbval1);
+            return;
         }
+        QSslSocket::setSocketError(socketError);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -937,13 +949,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setlocalport_isbase) {
             qsslsocket_setlocalport_isbase = false;
             QSslSocket::setLocalPort(port);
-        } else if (qsslsocket_setlocalport_callback != nullptr) {
+            return;
+        }
+        auto setlocalport_cb = qsslsocket_setlocalport_callback;
+        if (setlocalport_cb) {
             uint16_t cbval1 = static_cast<uint16_t>(port);
 
-            qsslsocket_setlocalport_callback(this, cbval1);
-        } else {
-            QSslSocket::setLocalPort(port);
+            setlocalport_cb(this, cbval1);
+            return;
         }
+        QSslSocket::setLocalPort(port);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -951,15 +966,18 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setlocaladdress_isbase) {
             qsslsocket_setlocaladdress_isbase = false;
             QSslSocket::setLocalAddress(address);
-        } else if (qsslsocket_setlocaladdress_callback != nullptr) {
+            return;
+        }
+        auto setlocaladdress_cb = qsslsocket_setlocaladdress_callback;
+        if (setlocaladdress_cb) {
             const QHostAddress& address_ret = address;
             // Cast returned reference into pointer
             QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
 
-            qsslsocket_setlocaladdress_callback(this, cbval1);
-        } else {
-            QSslSocket::setLocalAddress(address);
+            setlocaladdress_cb(this, cbval1);
+            return;
         }
+        QSslSocket::setLocalAddress(address);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,13 +985,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setpeerport_isbase) {
             qsslsocket_setpeerport_isbase = false;
             QSslSocket::setPeerPort(port);
-        } else if (qsslsocket_setpeerport_callback != nullptr) {
+            return;
+        }
+        auto setpeerport_cb = qsslsocket_setpeerport_callback;
+        if (setpeerport_cb) {
             uint16_t cbval1 = static_cast<uint16_t>(port);
 
-            qsslsocket_setpeerport_callback(this, cbval1);
-        } else {
-            QSslSocket::setPeerPort(port);
+            setpeerport_cb(this, cbval1);
+            return;
         }
+        QSslSocket::setPeerPort(port);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -981,15 +1002,18 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setpeeraddress_isbase) {
             qsslsocket_setpeeraddress_isbase = false;
             QSslSocket::setPeerAddress(address);
-        } else if (qsslsocket_setpeeraddress_callback != nullptr) {
+            return;
+        }
+        auto setpeeraddress_cb = qsslsocket_setpeeraddress_callback;
+        if (setpeeraddress_cb) {
             const QHostAddress& address_ret = address;
             // Cast returned reference into pointer
             QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
 
-            qsslsocket_setpeeraddress_callback(this, cbval1);
-        } else {
-            QSslSocket::setPeerAddress(address);
+            setpeeraddress_cb(this, cbval1);
+            return;
         }
+        QSslSocket::setPeerAddress(address);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,7 +1021,10 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setpeername_isbase) {
             qsslsocket_setpeername_isbase = false;
             QSslSocket::setPeerName(name);
-        } else if (qsslsocket_setpeername_callback != nullptr) {
+            return;
+        }
+        auto setpeername_cb = qsslsocket_setpeername_callback;
+        if (setpeername_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -1007,11 +1034,11 @@ class VirtualQSslSocket final : public QSslSocket {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            qsslsocket_setpeername_callback(this, cbval1);
+            setpeername_cb(this, cbval1);
             libqt_free(name_str);
-        } else {
-            QSslSocket::setPeerName(name);
+            return;
         }
+        QSslSocket::setPeerName(name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1019,13 +1046,16 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_setopenmode_isbase) {
             qsslsocket_setopenmode_isbase = false;
             QSslSocket::setOpenMode(openMode);
-        } else if (qsslsocket_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = qsslsocket_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            qsslsocket_setopenmode_callback(this, cbval1);
-        } else {
-            QSslSocket::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        QSslSocket::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1033,7 +1063,10 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_seterrorstring_isbase) {
             qsslsocket_seterrorstring_isbase = false;
             QSslSocket::setErrorString(errorString);
-        } else if (qsslsocket_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = qsslsocket_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -1043,11 +1076,11 @@ class VirtualQSslSocket final : public QSslSocket {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            qsslsocket_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            QSslSocket::setErrorString(errorString);
+            return;
         }
+        QSslSocket::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,12 +1088,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_sender_isbase) {
             qsslsocket_sender_isbase = false;
             return QSslSocket::sender();
-        } else if (qsslsocket_sender_callback != nullptr) {
-            QObject* callback_ret = qsslsocket_sender_callback();
-            return callback_ret;
-        } else {
-            return QSslSocket::sender();
         }
+        auto sender_cb = qsslsocket_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSslSocket::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,12 +1102,13 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_sendersignalindex_isbase) {
             qsslsocket_sendersignalindex_isbase = false;
             return QSslSocket::senderSignalIndex();
-        } else if (qsslsocket_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsslsocket_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSslSocket::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsslsocket_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSslSocket::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1081,14 +1116,15 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_receivers_isbase) {
             qsslsocket_receivers_isbase = false;
             return QSslSocket::receivers(signal);
-        } else if (qsslsocket_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsslsocket_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsslsocket_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSslSocket::receivers(signal);
         }
+        return QSslSocket::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1096,16 +1132,17 @@ class VirtualQSslSocket final : public QSslSocket {
         if (qsslsocket_issignalconnected_isbase) {
             qsslsocket_issignalconnected_isbase = false;
             return QSslSocket::isSignalConnected(signal);
-        } else if (qsslsocket_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsslsocket_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsslsocket_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslSocket::isSignalConnected(signal);
         }
+        return QSslSocket::isSignalConnected(signal);
     }
 
     // Friend functions

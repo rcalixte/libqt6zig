@@ -120,40 +120,6 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
     VirtualKEMailClientLauncherJob() : KEMailClientLauncherJob() {};
     VirtualKEMailClientLauncherJob(QObject* parent) : KEMailClientLauncherJob(parent) {};
 
-    ~VirtualKEMailClientLauncherJob() {
-        kemailclientlauncherjob_metaobject_callback = nullptr;
-        kemailclientlauncherjob_metacast_callback = nullptr;
-        kemailclientlauncherjob_metacall_callback = nullptr;
-        kemailclientlauncherjob_start_callback = nullptr;
-        kemailclientlauncherjob_dokill_callback = nullptr;
-        kemailclientlauncherjob_dosuspend_callback = nullptr;
-        kemailclientlauncherjob_doresume_callback = nullptr;
-        kemailclientlauncherjob_errorstring_callback = nullptr;
-        kemailclientlauncherjob_event_callback = nullptr;
-        kemailclientlauncherjob_eventfilter_callback = nullptr;
-        kemailclientlauncherjob_timerevent_callback = nullptr;
-        kemailclientlauncherjob_childevent_callback = nullptr;
-        kemailclientlauncherjob_customevent_callback = nullptr;
-        kemailclientlauncherjob_connectnotify_callback = nullptr;
-        kemailclientlauncherjob_disconnectnotify_callback = nullptr;
-        kemailclientlauncherjob_setcapabilities_callback = nullptr;
-        kemailclientlauncherjob_isfinished_callback = nullptr;
-        kemailclientlauncherjob_seterror_callback = nullptr;
-        kemailclientlauncherjob_seterrortext_callback = nullptr;
-        kemailclientlauncherjob_setprocessedamount_callback = nullptr;
-        kemailclientlauncherjob_settotalamount_callback = nullptr;
-        kemailclientlauncherjob_setprogressunit_callback = nullptr;
-        kemailclientlauncherjob_setpercent_callback = nullptr;
-        kemailclientlauncherjob_emitresult_callback = nullptr;
-        kemailclientlauncherjob_emitpercent_callback = nullptr;
-        kemailclientlauncherjob_emitspeed_callback = nullptr;
-        kemailclientlauncherjob_startelapsedtimer_callback = nullptr;
-        kemailclientlauncherjob_sender_callback = nullptr;
-        kemailclientlauncherjob_sendersignalindex_callback = nullptr;
-        kemailclientlauncherjob_receivers_callback = nullptr;
-        kemailclientlauncherjob_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKEMailClientLauncherJob_MetaObject_Callback(KEMailClientLauncherJob_MetaObject_Callback cb) { kemailclientlauncherjob_metaobject_callback = cb; }
     inline void setKEMailClientLauncherJob_Metacast_Callback(KEMailClientLauncherJob_Metacast_Callback cb) { kemailclientlauncherjob_metacast_callback = cb; }
@@ -225,12 +191,13 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_metaobject_isbase) {
             kemailclientlauncherjob_metaobject_isbase = false;
             return KEMailClientLauncherJob::metaObject();
-        } else if (kemailclientlauncherjob_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kemailclientlauncherjob_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KEMailClientLauncherJob::metaObject();
         }
+        auto metaobject_cb = kemailclientlauncherjob_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KEMailClientLauncherJob::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -238,14 +205,15 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_metacast_isbase) {
             kemailclientlauncherjob_metacast_isbase = false;
             return KEMailClientLauncherJob::qt_metacast(param1);
-        } else if (kemailclientlauncherjob_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kemailclientlauncherjob_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kemailclientlauncherjob_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEMailClientLauncherJob::qt_metacast(param1);
         }
+        return KEMailClientLauncherJob::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -253,16 +221,17 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_metacall_isbase) {
             kemailclientlauncherjob_metacall_isbase = false;
             return KEMailClientLauncherJob::qt_metacall(param1, param2, param3);
-        } else if (kemailclientlauncherjob_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kemailclientlauncherjob_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kemailclientlauncherjob_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEMailClientLauncherJob::qt_metacall(param1, param2, param3);
         }
+        return KEMailClientLauncherJob::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,11 +239,14 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_start_isbase) {
             kemailclientlauncherjob_start_isbase = false;
             KEMailClientLauncherJob::start();
-        } else if (kemailclientlauncherjob_start_callback != nullptr) {
-            kemailclientlauncherjob_start_callback();
-        } else {
-            KEMailClientLauncherJob::start();
+            return;
         }
+        auto start_cb = kemailclientlauncherjob_start_callback;
+        if (start_cb) {
+            start_cb();
+            return;
+        }
+        KEMailClientLauncherJob::start();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,12 +254,13 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_dokill_isbase) {
             kemailclientlauncherjob_dokill_isbase = false;
             return KEMailClientLauncherJob::doKill();
-        } else if (kemailclientlauncherjob_dokill_callback != nullptr) {
-            bool callback_ret = kemailclientlauncherjob_dokill_callback();
-            return callback_ret;
-        } else {
-            return KEMailClientLauncherJob::doKill();
         }
+        auto dokill_cb = kemailclientlauncherjob_dokill_callback;
+        if (dokill_cb) {
+            bool callback_ret = dokill_cb();
+            return callback_ret;
+        }
+        return KEMailClientLauncherJob::doKill();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,12 +268,13 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_dosuspend_isbase) {
             kemailclientlauncherjob_dosuspend_isbase = false;
             return KEMailClientLauncherJob::doSuspend();
-        } else if (kemailclientlauncherjob_dosuspend_callback != nullptr) {
-            bool callback_ret = kemailclientlauncherjob_dosuspend_callback();
-            return callback_ret;
-        } else {
-            return KEMailClientLauncherJob::doSuspend();
         }
+        auto dosuspend_cb = kemailclientlauncherjob_dosuspend_callback;
+        if (dosuspend_cb) {
+            bool callback_ret = dosuspend_cb();
+            return callback_ret;
+        }
+        return KEMailClientLauncherJob::doSuspend();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,12 +282,13 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_doresume_isbase) {
             kemailclientlauncherjob_doresume_isbase = false;
             return KEMailClientLauncherJob::doResume();
-        } else if (kemailclientlauncherjob_doresume_callback != nullptr) {
-            bool callback_ret = kemailclientlauncherjob_doresume_callback();
-            return callback_ret;
-        } else {
-            return KEMailClientLauncherJob::doResume();
         }
+        auto doresume_cb = kemailclientlauncherjob_doresume_callback;
+        if (doresume_cb) {
+            bool callback_ret = doresume_cb();
+            return callback_ret;
+        }
+        return KEMailClientLauncherJob::doResume();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,13 +296,14 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_errorstring_isbase) {
             kemailclientlauncherjob_errorstring_isbase = false;
             return KEMailClientLauncherJob::errorString();
-        } else if (kemailclientlauncherjob_errorstring_callback != nullptr) {
-            const char* callback_ret = kemailclientlauncherjob_errorstring_callback();
+        }
+        auto errorstring_cb = kemailclientlauncherjob_errorstring_callback;
+        if (errorstring_cb) {
+            const char* callback_ret = errorstring_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KEMailClientLauncherJob::errorString();
         }
+        return KEMailClientLauncherJob::errorString();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,14 +311,15 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_event_isbase) {
             kemailclientlauncherjob_event_isbase = false;
             return KEMailClientLauncherJob::event(event);
-        } else if (kemailclientlauncherjob_event_callback != nullptr) {
+        }
+        auto event_cb = kemailclientlauncherjob_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kemailclientlauncherjob_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEMailClientLauncherJob::event(event);
         }
+        return KEMailClientLauncherJob::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -350,15 +327,16 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_eventfilter_isbase) {
             kemailclientlauncherjob_eventfilter_isbase = false;
             return KEMailClientLauncherJob::eventFilter(watched, event);
-        } else if (kemailclientlauncherjob_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kemailclientlauncherjob_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kemailclientlauncherjob_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KEMailClientLauncherJob::eventFilter(watched, event);
         }
+        return KEMailClientLauncherJob::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,13 +344,16 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_timerevent_isbase) {
             kemailclientlauncherjob_timerevent_isbase = false;
             KEMailClientLauncherJob::timerEvent(event);
-        } else if (kemailclientlauncherjob_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kemailclientlauncherjob_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kemailclientlauncherjob_timerevent_callback(this, cbval1);
-        } else {
-            KEMailClientLauncherJob::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KEMailClientLauncherJob::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,13 +361,16 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_childevent_isbase) {
             kemailclientlauncherjob_childevent_isbase = false;
             KEMailClientLauncherJob::childEvent(event);
-        } else if (kemailclientlauncherjob_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kemailclientlauncherjob_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kemailclientlauncherjob_childevent_callback(this, cbval1);
-        } else {
-            KEMailClientLauncherJob::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KEMailClientLauncherJob::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,13 +378,16 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_customevent_isbase) {
             kemailclientlauncherjob_customevent_isbase = false;
             KEMailClientLauncherJob::customEvent(event);
-        } else if (kemailclientlauncherjob_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kemailclientlauncherjob_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kemailclientlauncherjob_customevent_callback(this, cbval1);
-        } else {
-            KEMailClientLauncherJob::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KEMailClientLauncherJob::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -408,15 +395,18 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_connectnotify_isbase) {
             kemailclientlauncherjob_connectnotify_isbase = false;
             KEMailClientLauncherJob::connectNotify(signal);
-        } else if (kemailclientlauncherjob_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kemailclientlauncherjob_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kemailclientlauncherjob_connectnotify_callback(this, cbval1);
-        } else {
-            KEMailClientLauncherJob::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KEMailClientLauncherJob::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,15 +414,18 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_disconnectnotify_isbase) {
             kemailclientlauncherjob_disconnectnotify_isbase = false;
             KEMailClientLauncherJob::disconnectNotify(signal);
-        } else if (kemailclientlauncherjob_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kemailclientlauncherjob_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kemailclientlauncherjob_disconnectnotify_callback(this, cbval1);
-        } else {
-            KEMailClientLauncherJob::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KEMailClientLauncherJob::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -440,13 +433,16 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_setcapabilities_isbase) {
             kemailclientlauncherjob_setcapabilities_isbase = false;
             KEMailClientLauncherJob::setCapabilities(capabilities);
-        } else if (kemailclientlauncherjob_setcapabilities_callback != nullptr) {
+            return;
+        }
+        auto setcapabilities_cb = kemailclientlauncherjob_setcapabilities_callback;
+        if (setcapabilities_cb) {
             int cbval1 = static_cast<int>(capabilities);
 
-            kemailclientlauncherjob_setcapabilities_callback(this, cbval1);
-        } else {
-            KEMailClientLauncherJob::setCapabilities(capabilities);
+            setcapabilities_cb(this, cbval1);
+            return;
         }
+        KEMailClientLauncherJob::setCapabilities(capabilities);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,12 +450,13 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_isfinished_isbase) {
             kemailclientlauncherjob_isfinished_isbase = false;
             return KEMailClientLauncherJob::isFinished();
-        } else if (kemailclientlauncherjob_isfinished_callback != nullptr) {
-            bool callback_ret = kemailclientlauncherjob_isfinished_callback();
-            return callback_ret;
-        } else {
-            return KEMailClientLauncherJob::isFinished();
         }
+        auto isfinished_cb = kemailclientlauncherjob_isfinished_callback;
+        if (isfinished_cb) {
+            bool callback_ret = isfinished_cb();
+            return callback_ret;
+        }
+        return KEMailClientLauncherJob::isFinished();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,13 +464,16 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_seterror_isbase) {
             kemailclientlauncherjob_seterror_isbase = false;
             KEMailClientLauncherJob::setError(errorCode);
-        } else if (kemailclientlauncherjob_seterror_callback != nullptr) {
+            return;
+        }
+        auto seterror_cb = kemailclientlauncherjob_seterror_callback;
+        if (seterror_cb) {
             int cbval1 = errorCode;
 
-            kemailclientlauncherjob_seterror_callback(this, cbval1);
-        } else {
-            KEMailClientLauncherJob::setError(errorCode);
+            seterror_cb(this, cbval1);
+            return;
         }
+        KEMailClientLauncherJob::setError(errorCode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,7 +481,10 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_seterrortext_isbase) {
             kemailclientlauncherjob_seterrortext_isbase = false;
             KEMailClientLauncherJob::setErrorText(errorText);
-        } else if (kemailclientlauncherjob_seterrortext_callback != nullptr) {
+            return;
+        }
+        auto seterrortext_cb = kemailclientlauncherjob_seterrortext_callback;
+        if (seterrortext_cb) {
             const QString errorText_ret = errorText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
@@ -491,11 +494,11 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
             ((char*)errorText_str)[errorText_str_len] = '\0';
             const char* cbval1 = errorText_str;
 
-            kemailclientlauncherjob_seterrortext_callback(this, cbval1);
+            seterrortext_cb(this, cbval1);
             libqt_free(errorText_str);
-        } else {
-            KEMailClientLauncherJob::setErrorText(errorText);
+            return;
         }
+        KEMailClientLauncherJob::setErrorText(errorText);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -503,14 +506,17 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_setprocessedamount_isbase) {
             kemailclientlauncherjob_setprocessedamount_isbase = false;
             KEMailClientLauncherJob::setProcessedAmount(unit, amount);
-        } else if (kemailclientlauncherjob_setprocessedamount_callback != nullptr) {
+            return;
+        }
+        auto setprocessedamount_cb = kemailclientlauncherjob_setprocessedamount_callback;
+        if (setprocessedamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            kemailclientlauncherjob_setprocessedamount_callback(this, cbval1, cbval2);
-        } else {
-            KEMailClientLauncherJob::setProcessedAmount(unit, amount);
+            setprocessedamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KEMailClientLauncherJob::setProcessedAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,14 +524,17 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_settotalamount_isbase) {
             kemailclientlauncherjob_settotalamount_isbase = false;
             KEMailClientLauncherJob::setTotalAmount(unit, amount);
-        } else if (kemailclientlauncherjob_settotalamount_callback != nullptr) {
+            return;
+        }
+        auto settotalamount_cb = kemailclientlauncherjob_settotalamount_callback;
+        if (settotalamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            kemailclientlauncherjob_settotalamount_callback(this, cbval1, cbval2);
-        } else {
-            KEMailClientLauncherJob::setTotalAmount(unit, amount);
+            settotalamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KEMailClientLauncherJob::setTotalAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -533,13 +542,16 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_setprogressunit_isbase) {
             kemailclientlauncherjob_setprogressunit_isbase = false;
             KEMailClientLauncherJob::setProgressUnit(unit);
-        } else if (kemailclientlauncherjob_setprogressunit_callback != nullptr) {
+            return;
+        }
+        auto setprogressunit_cb = kemailclientlauncherjob_setprogressunit_callback;
+        if (setprogressunit_cb) {
             int cbval1 = static_cast<int>(unit);
 
-            kemailclientlauncherjob_setprogressunit_callback(this, cbval1);
-        } else {
-            KEMailClientLauncherJob::setProgressUnit(unit);
+            setprogressunit_cb(this, cbval1);
+            return;
         }
+        KEMailClientLauncherJob::setProgressUnit(unit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,13 +559,16 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_setpercent_isbase) {
             kemailclientlauncherjob_setpercent_isbase = false;
             KEMailClientLauncherJob::setPercent(percentage);
-        } else if (kemailclientlauncherjob_setpercent_callback != nullptr) {
+            return;
+        }
+        auto setpercent_cb = kemailclientlauncherjob_setpercent_callback;
+        if (setpercent_cb) {
             unsigned long cbval1 = percentage;
 
-            kemailclientlauncherjob_setpercent_callback(this, cbval1);
-        } else {
-            KEMailClientLauncherJob::setPercent(percentage);
+            setpercent_cb(this, cbval1);
+            return;
         }
+        KEMailClientLauncherJob::setPercent(percentage);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,11 +576,14 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_emitresult_isbase) {
             kemailclientlauncherjob_emitresult_isbase = false;
             KEMailClientLauncherJob::emitResult();
-        } else if (kemailclientlauncherjob_emitresult_callback != nullptr) {
-            kemailclientlauncherjob_emitresult_callback();
-        } else {
-            KEMailClientLauncherJob::emitResult();
+            return;
         }
+        auto emitresult_cb = kemailclientlauncherjob_emitresult_callback;
+        if (emitresult_cb) {
+            emitresult_cb();
+            return;
+        }
+        KEMailClientLauncherJob::emitResult();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,14 +591,17 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_emitpercent_isbase) {
             kemailclientlauncherjob_emitpercent_isbase = false;
             KEMailClientLauncherJob::emitPercent(processedAmount, totalAmount);
-        } else if (kemailclientlauncherjob_emitpercent_callback != nullptr) {
+            return;
+        }
+        auto emitpercent_cb = kemailclientlauncherjob_emitpercent_callback;
+        if (emitpercent_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(processedAmount);
             unsigned long long cbval2 = static_cast<unsigned long long>(totalAmount);
 
-            kemailclientlauncherjob_emitpercent_callback(this, cbval1, cbval2);
-        } else {
-            KEMailClientLauncherJob::emitPercent(processedAmount, totalAmount);
+            emitpercent_cb(this, cbval1, cbval2);
+            return;
         }
+        KEMailClientLauncherJob::emitPercent(processedAmount, totalAmount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -588,13 +609,16 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_emitspeed_isbase) {
             kemailclientlauncherjob_emitspeed_isbase = false;
             KEMailClientLauncherJob::emitSpeed(speed);
-        } else if (kemailclientlauncherjob_emitspeed_callback != nullptr) {
+            return;
+        }
+        auto emitspeed_cb = kemailclientlauncherjob_emitspeed_callback;
+        if (emitspeed_cb) {
             unsigned long cbval1 = speed;
 
-            kemailclientlauncherjob_emitspeed_callback(this, cbval1);
-        } else {
-            KEMailClientLauncherJob::emitSpeed(speed);
+            emitspeed_cb(this, cbval1);
+            return;
         }
+        KEMailClientLauncherJob::emitSpeed(speed);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,11 +626,14 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_startelapsedtimer_isbase) {
             kemailclientlauncherjob_startelapsedtimer_isbase = false;
             KEMailClientLauncherJob::startElapsedTimer();
-        } else if (kemailclientlauncherjob_startelapsedtimer_callback != nullptr) {
-            kemailclientlauncherjob_startelapsedtimer_callback();
-        } else {
-            KEMailClientLauncherJob::startElapsedTimer();
+            return;
         }
+        auto startelapsedtimer_cb = kemailclientlauncherjob_startelapsedtimer_callback;
+        if (startelapsedtimer_cb) {
+            startelapsedtimer_cb();
+            return;
+        }
+        KEMailClientLauncherJob::startElapsedTimer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -614,12 +641,13 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_sender_isbase) {
             kemailclientlauncherjob_sender_isbase = false;
             return KEMailClientLauncherJob::sender();
-        } else if (kemailclientlauncherjob_sender_callback != nullptr) {
-            QObject* callback_ret = kemailclientlauncherjob_sender_callback();
-            return callback_ret;
-        } else {
-            return KEMailClientLauncherJob::sender();
         }
+        auto sender_cb = kemailclientlauncherjob_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KEMailClientLauncherJob::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,12 +655,13 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_sendersignalindex_isbase) {
             kemailclientlauncherjob_sendersignalindex_isbase = false;
             return KEMailClientLauncherJob::senderSignalIndex();
-        } else if (kemailclientlauncherjob_sendersignalindex_callback != nullptr) {
-            int callback_ret = kemailclientlauncherjob_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KEMailClientLauncherJob::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kemailclientlauncherjob_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KEMailClientLauncherJob::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,14 +669,15 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_receivers_isbase) {
             kemailclientlauncherjob_receivers_isbase = false;
             return KEMailClientLauncherJob::receivers(signal);
-        } else if (kemailclientlauncherjob_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kemailclientlauncherjob_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kemailclientlauncherjob_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEMailClientLauncherJob::receivers(signal);
         }
+        return KEMailClientLauncherJob::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,16 +685,17 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
         if (kemailclientlauncherjob_issignalconnected_isbase) {
             kemailclientlauncherjob_issignalconnected_isbase = false;
             return KEMailClientLauncherJob::isSignalConnected(signal);
-        } else if (kemailclientlauncherjob_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kemailclientlauncherjob_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kemailclientlauncherjob_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEMailClientLauncherJob::isSignalConnected(signal);
         }
+        return KEMailClientLauncherJob::isSignalConnected(signal);
     }
 
     // Friend functions

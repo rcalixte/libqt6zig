@@ -72,24 +72,6 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
     VirtualQDataWidgetMapper() : QDataWidgetMapper() {};
     VirtualQDataWidgetMapper(QObject* parent) : QDataWidgetMapper(parent) {};
 
-    ~VirtualQDataWidgetMapper() {
-        qdatawidgetmapper_metaobject_callback = nullptr;
-        qdatawidgetmapper_metacast_callback = nullptr;
-        qdatawidgetmapper_metacall_callback = nullptr;
-        qdatawidgetmapper_setcurrentindex_callback = nullptr;
-        qdatawidgetmapper_event_callback = nullptr;
-        qdatawidgetmapper_eventfilter_callback = nullptr;
-        qdatawidgetmapper_timerevent_callback = nullptr;
-        qdatawidgetmapper_childevent_callback = nullptr;
-        qdatawidgetmapper_customevent_callback = nullptr;
-        qdatawidgetmapper_connectnotify_callback = nullptr;
-        qdatawidgetmapper_disconnectnotify_callback = nullptr;
-        qdatawidgetmapper_sender_callback = nullptr;
-        qdatawidgetmapper_sendersignalindex_callback = nullptr;
-        qdatawidgetmapper_receivers_callback = nullptr;
-        qdatawidgetmapper_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDataWidgetMapper_MetaObject_Callback(QDataWidgetMapper_MetaObject_Callback cb) { qdatawidgetmapper_metaobject_callback = cb; }
     inline void setQDataWidgetMapper_Metacast_Callback(QDataWidgetMapper_Metacast_Callback cb) { qdatawidgetmapper_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_metaobject_isbase) {
             qdatawidgetmapper_metaobject_isbase = false;
             return QDataWidgetMapper::metaObject();
-        } else if (qdatawidgetmapper_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdatawidgetmapper_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDataWidgetMapper::metaObject();
         }
+        auto metaobject_cb = qdatawidgetmapper_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDataWidgetMapper::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_metacast_isbase) {
             qdatawidgetmapper_metacast_isbase = false;
             return QDataWidgetMapper::qt_metacast(param1);
-        } else if (qdatawidgetmapper_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdatawidgetmapper_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdatawidgetmapper_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDataWidgetMapper::qt_metacast(param1);
         }
+        return QDataWidgetMapper::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_metacall_isbase) {
             qdatawidgetmapper_metacall_isbase = false;
             return QDataWidgetMapper::qt_metacall(param1, param2, param3);
-        } else if (qdatawidgetmapper_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdatawidgetmapper_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdatawidgetmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDataWidgetMapper::qt_metacall(param1, param2, param3);
         }
+        return QDataWidgetMapper::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,13 +159,16 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_setcurrentindex_isbase) {
             qdatawidgetmapper_setcurrentindex_isbase = false;
             QDataWidgetMapper::setCurrentIndex(index);
-        } else if (qdatawidgetmapper_setcurrentindex_callback != nullptr) {
+            return;
+        }
+        auto setcurrentindex_cb = qdatawidgetmapper_setcurrentindex_callback;
+        if (setcurrentindex_cb) {
             int cbval1 = index;
 
-            qdatawidgetmapper_setcurrentindex_callback(this, cbval1);
-        } else {
-            QDataWidgetMapper::setCurrentIndex(index);
+            setcurrentindex_cb(this, cbval1);
+            return;
         }
+        QDataWidgetMapper::setCurrentIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -188,14 +176,15 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_event_isbase) {
             qdatawidgetmapper_event_isbase = false;
             return QDataWidgetMapper::event(event);
-        } else if (qdatawidgetmapper_event_callback != nullptr) {
+        }
+        auto event_cb = qdatawidgetmapper_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdatawidgetmapper_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDataWidgetMapper::event(event);
         }
+        return QDataWidgetMapper::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -203,15 +192,16 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_eventfilter_isbase) {
             qdatawidgetmapper_eventfilter_isbase = false;
             return QDataWidgetMapper::eventFilter(watched, event);
-        } else if (qdatawidgetmapper_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdatawidgetmapper_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdatawidgetmapper_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDataWidgetMapper::eventFilter(watched, event);
         }
+        return QDataWidgetMapper::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,13 +209,16 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_timerevent_isbase) {
             qdatawidgetmapper_timerevent_isbase = false;
             QDataWidgetMapper::timerEvent(event);
-        } else if (qdatawidgetmapper_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdatawidgetmapper_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdatawidgetmapper_timerevent_callback(this, cbval1);
-        } else {
-            QDataWidgetMapper::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDataWidgetMapper::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +226,16 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_childevent_isbase) {
             qdatawidgetmapper_childevent_isbase = false;
             QDataWidgetMapper::childEvent(event);
-        } else if (qdatawidgetmapper_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdatawidgetmapper_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdatawidgetmapper_childevent_callback(this, cbval1);
-        } else {
-            QDataWidgetMapper::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDataWidgetMapper::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,13 +243,16 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_customevent_isbase) {
             qdatawidgetmapper_customevent_isbase = false;
             QDataWidgetMapper::customEvent(event);
-        } else if (qdatawidgetmapper_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdatawidgetmapper_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdatawidgetmapper_customevent_callback(this, cbval1);
-        } else {
-            QDataWidgetMapper::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDataWidgetMapper::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,15 +260,18 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_connectnotify_isbase) {
             qdatawidgetmapper_connectnotify_isbase = false;
             QDataWidgetMapper::connectNotify(signal);
-        } else if (qdatawidgetmapper_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdatawidgetmapper_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdatawidgetmapper_connectnotify_callback(this, cbval1);
-        } else {
-            QDataWidgetMapper::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDataWidgetMapper::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,15 +279,18 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_disconnectnotify_isbase) {
             qdatawidgetmapper_disconnectnotify_isbase = false;
             QDataWidgetMapper::disconnectNotify(signal);
-        } else if (qdatawidgetmapper_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdatawidgetmapper_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdatawidgetmapper_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDataWidgetMapper::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDataWidgetMapper::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -293,12 +298,13 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_sender_isbase) {
             qdatawidgetmapper_sender_isbase = false;
             return QDataWidgetMapper::sender();
-        } else if (qdatawidgetmapper_sender_callback != nullptr) {
-            QObject* callback_ret = qdatawidgetmapper_sender_callback();
-            return callback_ret;
-        } else {
-            return QDataWidgetMapper::sender();
         }
+        auto sender_cb = qdatawidgetmapper_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDataWidgetMapper::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -306,12 +312,13 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_sendersignalindex_isbase) {
             qdatawidgetmapper_sendersignalindex_isbase = false;
             return QDataWidgetMapper::senderSignalIndex();
-        } else if (qdatawidgetmapper_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdatawidgetmapper_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDataWidgetMapper::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdatawidgetmapper_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDataWidgetMapper::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,14 +326,15 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_receivers_isbase) {
             qdatawidgetmapper_receivers_isbase = false;
             return QDataWidgetMapper::receivers(signal);
-        } else if (qdatawidgetmapper_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdatawidgetmapper_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdatawidgetmapper_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDataWidgetMapper::receivers(signal);
         }
+        return QDataWidgetMapper::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -334,16 +342,17 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
         if (qdatawidgetmapper_issignalconnected_isbase) {
             qdatawidgetmapper_issignalconnected_isbase = false;
             return QDataWidgetMapper::isSignalConnected(signal);
-        } else if (qdatawidgetmapper_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdatawidgetmapper_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdatawidgetmapper_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDataWidgetMapper::isSignalConnected(signal);
         }
+        return QDataWidgetMapper::isSignalConnected(signal);
     }
 
     // Friend functions

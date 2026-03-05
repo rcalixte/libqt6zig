@@ -217,71 +217,6 @@ class VirtualKSeparator final : public KSeparator {
     VirtualKSeparator(Qt::Orientation orientation, QWidget* parent) : KSeparator(orientation, parent) {};
     VirtualKSeparator(Qt::Orientation orientation, QWidget* parent, Qt::WindowFlags f) : KSeparator(orientation, parent, f) {};
 
-    ~VirtualKSeparator() {
-        kseparator_metaobject_callback = nullptr;
-        kseparator_metacast_callback = nullptr;
-        kseparator_metacall_callback = nullptr;
-        kseparator_sizehint_callback = nullptr;
-        kseparator_event_callback = nullptr;
-        kseparator_paintevent_callback = nullptr;
-        kseparator_changeevent_callback = nullptr;
-        kseparator_initstyleoption_callback = nullptr;
-        kseparator_devtype_callback = nullptr;
-        kseparator_setvisible_callback = nullptr;
-        kseparator_minimumsizehint_callback = nullptr;
-        kseparator_heightforwidth_callback = nullptr;
-        kseparator_hasheightforwidth_callback = nullptr;
-        kseparator_paintengine_callback = nullptr;
-        kseparator_mousepressevent_callback = nullptr;
-        kseparator_mousereleaseevent_callback = nullptr;
-        kseparator_mousedoubleclickevent_callback = nullptr;
-        kseparator_mousemoveevent_callback = nullptr;
-        kseparator_wheelevent_callback = nullptr;
-        kseparator_keypressevent_callback = nullptr;
-        kseparator_keyreleaseevent_callback = nullptr;
-        kseparator_focusinevent_callback = nullptr;
-        kseparator_focusoutevent_callback = nullptr;
-        kseparator_enterevent_callback = nullptr;
-        kseparator_leaveevent_callback = nullptr;
-        kseparator_moveevent_callback = nullptr;
-        kseparator_resizeevent_callback = nullptr;
-        kseparator_closeevent_callback = nullptr;
-        kseparator_contextmenuevent_callback = nullptr;
-        kseparator_tabletevent_callback = nullptr;
-        kseparator_actionevent_callback = nullptr;
-        kseparator_dragenterevent_callback = nullptr;
-        kseparator_dragmoveevent_callback = nullptr;
-        kseparator_dragleaveevent_callback = nullptr;
-        kseparator_dropevent_callback = nullptr;
-        kseparator_showevent_callback = nullptr;
-        kseparator_hideevent_callback = nullptr;
-        kseparator_nativeevent_callback = nullptr;
-        kseparator_metric_callback = nullptr;
-        kseparator_initpainter_callback = nullptr;
-        kseparator_redirected_callback = nullptr;
-        kseparator_sharedpainter_callback = nullptr;
-        kseparator_inputmethodevent_callback = nullptr;
-        kseparator_inputmethodquery_callback = nullptr;
-        kseparator_focusnextprevchild_callback = nullptr;
-        kseparator_eventfilter_callback = nullptr;
-        kseparator_timerevent_callback = nullptr;
-        kseparator_childevent_callback = nullptr;
-        kseparator_customevent_callback = nullptr;
-        kseparator_connectnotify_callback = nullptr;
-        kseparator_disconnectnotify_callback = nullptr;
-        kseparator_drawframe_callback = nullptr;
-        kseparator_updatemicrofocus_callback = nullptr;
-        kseparator_create_callback = nullptr;
-        kseparator_destroy_callback = nullptr;
-        kseparator_focusnextchild_callback = nullptr;
-        kseparator_focuspreviouschild_callback = nullptr;
-        kseparator_sender_callback = nullptr;
-        kseparator_sendersignalindex_callback = nullptr;
-        kseparator_receivers_callback = nullptr;
-        kseparator_issignalconnected_callback = nullptr;
-        kseparator_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSeparator_MetaObject_Callback(KSeparator_MetaObject_Callback cb) { kseparator_metaobject_callback = cb; }
     inline void setKSeparator_Metacast_Callback(KSeparator_Metacast_Callback cb) { kseparator_metacast_callback = cb; }
@@ -415,12 +350,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_metaobject_isbase) {
             kseparator_metaobject_isbase = false;
             return KSeparator::metaObject();
-        } else if (kseparator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kseparator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSeparator::metaObject();
         }
+        auto metaobject_cb = kseparator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSeparator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -428,14 +364,15 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_metacast_isbase) {
             kseparator_metacast_isbase = false;
             return KSeparator::qt_metacast(param1);
-        } else if (kseparator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kseparator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kseparator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSeparator::qt_metacast(param1);
         }
+        return KSeparator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -443,16 +380,17 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_metacall_isbase) {
             kseparator_metacall_isbase = false;
             return KSeparator::qt_metacall(param1, param2, param3);
-        } else if (kseparator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kseparator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kseparator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSeparator::qt_metacall(param1, param2, param3);
         }
+        return KSeparator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -460,12 +398,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_sizehint_isbase) {
             kseparator_sizehint_isbase = false;
             return KSeparator::sizeHint();
-        } else if (kseparator_sizehint_callback != nullptr) {
-            QSize* callback_ret = kseparator_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KSeparator::sizeHint();
         }
+        auto sizehint_cb = kseparator_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KSeparator::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -473,14 +412,15 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_event_isbase) {
             kseparator_event_isbase = false;
             return KSeparator::event(e);
-        } else if (kseparator_event_callback != nullptr) {
+        }
+        auto event_cb = kseparator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kseparator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSeparator::event(e);
         }
+        return KSeparator::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -488,13 +428,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_paintevent_isbase) {
             kseparator_paintevent_isbase = false;
             KSeparator::paintEvent(param1);
-        } else if (kseparator_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kseparator_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kseparator_paintevent_callback(this, cbval1);
-        } else {
-            KSeparator::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,13 +445,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_changeevent_isbase) {
             kseparator_changeevent_isbase = false;
             KSeparator::changeEvent(param1);
-        } else if (kseparator_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kseparator_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kseparator_changeevent_callback(this, cbval1);
-        } else {
-            KSeparator::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -516,13 +462,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_initstyleoption_isbase) {
             kseparator_initstyleoption_isbase = false;
             KSeparator::initStyleOption(option);
-        } else if (kseparator_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kseparator_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kseparator_initstyleoption_callback(this, cbval1);
-        } else {
-            KSeparator::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KSeparator::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,12 +479,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_devtype_isbase) {
             kseparator_devtype_isbase = false;
             return KSeparator::devType();
-        } else if (kseparator_devtype_callback != nullptr) {
-            int callback_ret = kseparator_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSeparator::devType();
         }
+        auto devtype_cb = kseparator_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSeparator::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,13 +493,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_setvisible_isbase) {
             kseparator_setvisible_isbase = false;
             KSeparator::setVisible(visible);
-        } else if (kseparator_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kseparator_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kseparator_setvisible_callback(this, cbval1);
-        } else {
-            KSeparator::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KSeparator::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -557,12 +510,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_minimumsizehint_isbase) {
             kseparator_minimumsizehint_isbase = false;
             return KSeparator::minimumSizeHint();
-        } else if (kseparator_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kseparator_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KSeparator::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kseparator_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KSeparator::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -570,14 +524,15 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_heightforwidth_isbase) {
             kseparator_heightforwidth_isbase = false;
             return KSeparator::heightForWidth(param1);
-        } else if (kseparator_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kseparator_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kseparator_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSeparator::heightForWidth(param1);
         }
+        return KSeparator::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -585,12 +540,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_hasheightforwidth_isbase) {
             kseparator_hasheightforwidth_isbase = false;
             return KSeparator::hasHeightForWidth();
-        } else if (kseparator_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kseparator_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KSeparator::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kseparator_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KSeparator::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,12 +554,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_paintengine_isbase) {
             kseparator_paintengine_isbase = false;
             return KSeparator::paintEngine();
-        } else if (kseparator_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kseparator_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KSeparator::paintEngine();
         }
+        auto paintengine_cb = kseparator_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KSeparator::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +568,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_mousepressevent_isbase) {
             kseparator_mousepressevent_isbase = false;
             KSeparator::mousePressEvent(event);
-        } else if (kseparator_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kseparator_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kseparator_mousepressevent_callback(this, cbval1);
-        } else {
-            KSeparator::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,13 +585,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_mousereleaseevent_isbase) {
             kseparator_mousereleaseevent_isbase = false;
             KSeparator::mouseReleaseEvent(event);
-        } else if (kseparator_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kseparator_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kseparator_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KSeparator::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,13 +602,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_mousedoubleclickevent_isbase) {
             kseparator_mousedoubleclickevent_isbase = false;
             KSeparator::mouseDoubleClickEvent(event);
-        } else if (kseparator_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kseparator_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kseparator_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KSeparator::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +619,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_mousemoveevent_isbase) {
             kseparator_mousemoveevent_isbase = false;
             KSeparator::mouseMoveEvent(event);
-        } else if (kseparator_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kseparator_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kseparator_mousemoveevent_callback(this, cbval1);
-        } else {
-            KSeparator::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,13 +636,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_wheelevent_isbase) {
             kseparator_wheelevent_isbase = false;
             KSeparator::wheelEvent(event);
-        } else if (kseparator_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kseparator_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kseparator_wheelevent_callback(this, cbval1);
-        } else {
-            KSeparator::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,13 +653,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_keypressevent_isbase) {
             kseparator_keypressevent_isbase = false;
             KSeparator::keyPressEvent(event);
-        } else if (kseparator_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kseparator_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kseparator_keypressevent_callback(this, cbval1);
-        } else {
-            KSeparator::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,13 +670,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_keyreleaseevent_isbase) {
             kseparator_keyreleaseevent_isbase = false;
             KSeparator::keyReleaseEvent(event);
-        } else if (kseparator_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kseparator_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kseparator_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KSeparator::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +687,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_focusinevent_isbase) {
             kseparator_focusinevent_isbase = false;
             KSeparator::focusInEvent(event);
-        } else if (kseparator_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kseparator_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kseparator_focusinevent_callback(this, cbval1);
-        } else {
-            KSeparator::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,13 +704,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_focusoutevent_isbase) {
             kseparator_focusoutevent_isbase = false;
             KSeparator::focusOutEvent(event);
-        } else if (kseparator_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kseparator_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kseparator_focusoutevent_callback(this, cbval1);
-        } else {
-            KSeparator::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,13 +721,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_enterevent_isbase) {
             kseparator_enterevent_isbase = false;
             KSeparator::enterEvent(event);
-        } else if (kseparator_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kseparator_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kseparator_enterevent_callback(this, cbval1);
-        } else {
-            KSeparator::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,13 +738,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_leaveevent_isbase) {
             kseparator_leaveevent_isbase = false;
             KSeparator::leaveEvent(event);
-        } else if (kseparator_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kseparator_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kseparator_leaveevent_callback(this, cbval1);
-        } else {
-            KSeparator::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +755,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_moveevent_isbase) {
             kseparator_moveevent_isbase = false;
             KSeparator::moveEvent(event);
-        } else if (kseparator_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kseparator_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kseparator_moveevent_callback(this, cbval1);
-        } else {
-            KSeparator::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +772,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_resizeevent_isbase) {
             kseparator_resizeevent_isbase = false;
             KSeparator::resizeEvent(event);
-        } else if (kseparator_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kseparator_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kseparator_resizeevent_callback(this, cbval1);
-        } else {
-            KSeparator::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +789,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_closeevent_isbase) {
             kseparator_closeevent_isbase = false;
             KSeparator::closeEvent(event);
-        } else if (kseparator_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kseparator_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kseparator_closeevent_callback(this, cbval1);
-        } else {
-            KSeparator::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +806,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_contextmenuevent_isbase) {
             kseparator_contextmenuevent_isbase = false;
             KSeparator::contextMenuEvent(event);
-        } else if (kseparator_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kseparator_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kseparator_contextmenuevent_callback(this, cbval1);
-        } else {
-            KSeparator::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +823,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_tabletevent_isbase) {
             kseparator_tabletevent_isbase = false;
             KSeparator::tabletEvent(event);
-        } else if (kseparator_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kseparator_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kseparator_tabletevent_callback(this, cbval1);
-        } else {
-            KSeparator::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +840,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_actionevent_isbase) {
             kseparator_actionevent_isbase = false;
             KSeparator::actionEvent(event);
-        } else if (kseparator_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kseparator_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kseparator_actionevent_callback(this, cbval1);
-        } else {
-            KSeparator::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +857,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_dragenterevent_isbase) {
             kseparator_dragenterevent_isbase = false;
             KSeparator::dragEnterEvent(event);
-        } else if (kseparator_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kseparator_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kseparator_dragenterevent_callback(this, cbval1);
-        } else {
-            KSeparator::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +874,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_dragmoveevent_isbase) {
             kseparator_dragmoveevent_isbase = false;
             KSeparator::dragMoveEvent(event);
-        } else if (kseparator_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kseparator_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kseparator_dragmoveevent_callback(this, cbval1);
-        } else {
-            KSeparator::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +891,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_dragleaveevent_isbase) {
             kseparator_dragleaveevent_isbase = false;
             KSeparator::dragLeaveEvent(event);
-        } else if (kseparator_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kseparator_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kseparator_dragleaveevent_callback(this, cbval1);
-        } else {
-            KSeparator::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +908,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_dropevent_isbase) {
             kseparator_dropevent_isbase = false;
             KSeparator::dropEvent(event);
-        } else if (kseparator_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kseparator_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kseparator_dropevent_callback(this, cbval1);
-        } else {
-            KSeparator::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +925,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_showevent_isbase) {
             kseparator_showevent_isbase = false;
             KSeparator::showEvent(event);
-        } else if (kseparator_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kseparator_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kseparator_showevent_callback(this, cbval1);
-        } else {
-            KSeparator::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,13 +942,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_hideevent_isbase) {
             kseparator_hideevent_isbase = false;
             KSeparator::hideEvent(event);
-        } else if (kseparator_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kseparator_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kseparator_hideevent_callback(this, cbval1);
-        } else {
-            KSeparator::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,7 +959,9 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_nativeevent_isbase) {
             kseparator_nativeevent_isbase = false;
             return KSeparator::nativeEvent(eventType, message, result);
-        } else if (kseparator_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kseparator_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -944,12 +972,11 @@ class VirtualKSeparator final : public KSeparator {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kseparator_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KSeparator::nativeEvent(eventType, message, result);
         }
+        return KSeparator::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -957,14 +984,15 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_metric_isbase) {
             kseparator_metric_isbase = false;
             return KSeparator::metric(param1);
-        } else if (kseparator_metric_callback != nullptr) {
+        }
+        auto metric_cb = kseparator_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kseparator_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSeparator::metric(param1);
         }
+        return KSeparator::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,13 +1000,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_initpainter_isbase) {
             kseparator_initpainter_isbase = false;
             KSeparator::initPainter(painter);
-        } else if (kseparator_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kseparator_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kseparator_initpainter_callback(this, cbval1);
-        } else {
-            KSeparator::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KSeparator::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,14 +1017,15 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_redirected_isbase) {
             kseparator_redirected_isbase = false;
             return KSeparator::redirected(offset);
-        } else if (kseparator_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kseparator_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kseparator_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSeparator::redirected(offset);
         }
+        return KSeparator::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1001,12 +1033,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_sharedpainter_isbase) {
             kseparator_sharedpainter_isbase = false;
             return KSeparator::sharedPainter();
-        } else if (kseparator_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kseparator_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KSeparator::sharedPainter();
         }
+        auto sharedpainter_cb = kseparator_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KSeparator::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,13 +1047,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_inputmethodevent_isbase) {
             kseparator_inputmethodevent_isbase = false;
             KSeparator::inputMethodEvent(param1);
-        } else if (kseparator_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kseparator_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kseparator_inputmethodevent_callback(this, cbval1);
-        } else {
-            KSeparator::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,14 +1064,15 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_inputmethodquery_isbase) {
             kseparator_inputmethodquery_isbase = false;
             return KSeparator::inputMethodQuery(param1);
-        } else if (kseparator_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kseparator_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kseparator_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KSeparator::inputMethodQuery(param1);
         }
+        return KSeparator::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,14 +1080,15 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_focusnextprevchild_isbase) {
             kseparator_focusnextprevchild_isbase = false;
             return KSeparator::focusNextPrevChild(next);
-        } else if (kseparator_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kseparator_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kseparator_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSeparator::focusNextPrevChild(next);
         }
+        return KSeparator::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,15 +1096,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_eventfilter_isbase) {
             kseparator_eventfilter_isbase = false;
             return KSeparator::eventFilter(watched, event);
-        } else if (kseparator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kseparator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kseparator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KSeparator::eventFilter(watched, event);
         }
+        return KSeparator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1074,13 +1113,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_timerevent_isbase) {
             kseparator_timerevent_isbase = false;
             KSeparator::timerEvent(event);
-        } else if (kseparator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kseparator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kseparator_timerevent_callback(this, cbval1);
-        } else {
-            KSeparator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,13 +1130,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_childevent_isbase) {
             kseparator_childevent_isbase = false;
             KSeparator::childEvent(event);
-        } else if (kseparator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kseparator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kseparator_childevent_callback(this, cbval1);
-        } else {
-            KSeparator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,13 +1147,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_customevent_isbase) {
             kseparator_customevent_isbase = false;
             KSeparator::customEvent(event);
-        } else if (kseparator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kseparator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kseparator_customevent_callback(this, cbval1);
-        } else {
-            KSeparator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSeparator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1116,15 +1164,18 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_connectnotify_isbase) {
             kseparator_connectnotify_isbase = false;
             KSeparator::connectNotify(signal);
-        } else if (kseparator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kseparator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kseparator_connectnotify_callback(this, cbval1);
-        } else {
-            KSeparator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSeparator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1132,15 +1183,18 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_disconnectnotify_isbase) {
             kseparator_disconnectnotify_isbase = false;
             KSeparator::disconnectNotify(signal);
-        } else if (kseparator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kseparator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kseparator_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSeparator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSeparator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1148,13 +1202,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_drawframe_isbase) {
             kseparator_drawframe_isbase = false;
             KSeparator::drawFrame(param1);
-        } else if (kseparator_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kseparator_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kseparator_drawframe_callback(this, cbval1);
-        } else {
-            KSeparator::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KSeparator::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1162,11 +1219,14 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_updatemicrofocus_isbase) {
             kseparator_updatemicrofocus_isbase = false;
             KSeparator::updateMicroFocus();
-        } else if (kseparator_updatemicrofocus_callback != nullptr) {
-            kseparator_updatemicrofocus_callback();
-        } else {
-            KSeparator::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kseparator_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KSeparator::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1174,11 +1234,14 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_create_isbase) {
             kseparator_create_isbase = false;
             KSeparator::create();
-        } else if (kseparator_create_callback != nullptr) {
-            kseparator_create_callback();
-        } else {
-            KSeparator::create();
+            return;
         }
+        auto create_cb = kseparator_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KSeparator::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1186,11 +1249,14 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_destroy_isbase) {
             kseparator_destroy_isbase = false;
             KSeparator::destroy();
-        } else if (kseparator_destroy_callback != nullptr) {
-            kseparator_destroy_callback();
-        } else {
-            KSeparator::destroy();
+            return;
         }
+        auto destroy_cb = kseparator_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KSeparator::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1198,12 +1264,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_focusnextchild_isbase) {
             kseparator_focusnextchild_isbase = false;
             return KSeparator::focusNextChild();
-        } else if (kseparator_focusnextchild_callback != nullptr) {
-            bool callback_ret = kseparator_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KSeparator::focusNextChild();
         }
+        auto focusnextchild_cb = kseparator_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KSeparator::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1211,12 +1278,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_focuspreviouschild_isbase) {
             kseparator_focuspreviouschild_isbase = false;
             return KSeparator::focusPreviousChild();
-        } else if (kseparator_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kseparator_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KSeparator::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kseparator_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KSeparator::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1224,12 +1292,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_sender_isbase) {
             kseparator_sender_isbase = false;
             return KSeparator::sender();
-        } else if (kseparator_sender_callback != nullptr) {
-            QObject* callback_ret = kseparator_sender_callback();
-            return callback_ret;
-        } else {
-            return KSeparator::sender();
         }
+        auto sender_cb = kseparator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSeparator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1237,12 +1306,13 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_sendersignalindex_isbase) {
             kseparator_sendersignalindex_isbase = false;
             return KSeparator::senderSignalIndex();
-        } else if (kseparator_sendersignalindex_callback != nullptr) {
-            int callback_ret = kseparator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSeparator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kseparator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSeparator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1250,14 +1320,15 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_receivers_isbase) {
             kseparator_receivers_isbase = false;
             return KSeparator::receivers(signal);
-        } else if (kseparator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kseparator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kseparator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSeparator::receivers(signal);
         }
+        return KSeparator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1265,16 +1336,17 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_issignalconnected_isbase) {
             kseparator_issignalconnected_isbase = false;
             return KSeparator::isSignalConnected(signal);
-        } else if (kseparator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kseparator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kseparator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSeparator::isSignalConnected(signal);
         }
+        return KSeparator::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,15 +1354,16 @@ class VirtualKSeparator final : public KSeparator {
         if (kseparator_getdecodedmetricf_isbase) {
             kseparator_getdecodedmetricf_isbase = false;
             return KSeparator::getDecodedMetricF(metricA, metricB);
-        } else if (kseparator_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kseparator_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kseparator_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KSeparator::getDecodedMetricF(metricA, metricB);
         }
+        return KSeparator::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

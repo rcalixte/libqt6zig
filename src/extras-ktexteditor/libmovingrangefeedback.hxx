@@ -44,15 +44,6 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
   public:
     VirtualKTextEditorMovingRangeFeedback() : KTextEditor::MovingRangeFeedback() {};
 
-    ~VirtualKTextEditorMovingRangeFeedback() {
-        ktexteditor__movingrangefeedback_rangeempty_callback = nullptr;
-        ktexteditor__movingrangefeedback_rangeinvalid_callback = nullptr;
-        ktexteditor__movingrangefeedback_mouseenteredrange_callback = nullptr;
-        ktexteditor__movingrangefeedback_mouseexitedrange_callback = nullptr;
-        ktexteditor__movingrangefeedback_caretenteredrange_callback = nullptr;
-        ktexteditor__movingrangefeedback_caretexitedrange_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKTextEditor__MovingRangeFeedback_RangeEmpty_Callback(KTextEditor__MovingRangeFeedback_RangeEmpty_Callback cb) { ktexteditor__movingrangefeedback_rangeempty_callback = cb; }
     inline void setKTextEditor__MovingRangeFeedback_RangeInvalid_Callback(KTextEditor__MovingRangeFeedback_RangeInvalid_Callback cb) { ktexteditor__movingrangefeedback_rangeinvalid_callback = cb; }
@@ -74,13 +65,16 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         if (ktexteditor__movingrangefeedback_rangeempty_isbase) {
             ktexteditor__movingrangefeedback_rangeempty_isbase = false;
             KTextEditor__MovingRangeFeedback::rangeEmpty(range);
-        } else if (ktexteditor__movingrangefeedback_rangeempty_callback != nullptr) {
+            return;
+        }
+        auto rangeempty_cb = ktexteditor__movingrangefeedback_rangeempty_callback;
+        if (rangeempty_cb) {
             KTextEditor__MovingRange* cbval1 = range;
 
-            ktexteditor__movingrangefeedback_rangeempty_callback(this, cbval1);
-        } else {
-            KTextEditor__MovingRangeFeedback::rangeEmpty(range);
+            rangeempty_cb(this, cbval1);
+            return;
         }
+        KTextEditor__MovingRangeFeedback::rangeEmpty(range);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -88,13 +82,16 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         if (ktexteditor__movingrangefeedback_rangeinvalid_isbase) {
             ktexteditor__movingrangefeedback_rangeinvalid_isbase = false;
             KTextEditor__MovingRangeFeedback::rangeInvalid(range);
-        } else if (ktexteditor__movingrangefeedback_rangeinvalid_callback != nullptr) {
+            return;
+        }
+        auto rangeinvalid_cb = ktexteditor__movingrangefeedback_rangeinvalid_callback;
+        if (rangeinvalid_cb) {
             KTextEditor__MovingRange* cbval1 = range;
 
-            ktexteditor__movingrangefeedback_rangeinvalid_callback(this, cbval1);
-        } else {
-            KTextEditor__MovingRangeFeedback::rangeInvalid(range);
+            rangeinvalid_cb(this, cbval1);
+            return;
         }
+        KTextEditor__MovingRangeFeedback::rangeInvalid(range);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -102,14 +99,17 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         if (ktexteditor__movingrangefeedback_mouseenteredrange_isbase) {
             ktexteditor__movingrangefeedback_mouseenteredrange_isbase = false;
             KTextEditor__MovingRangeFeedback::mouseEnteredRange(range, view);
-        } else if (ktexteditor__movingrangefeedback_mouseenteredrange_callback != nullptr) {
+            return;
+        }
+        auto mouseenteredrange_cb = ktexteditor__movingrangefeedback_mouseenteredrange_callback;
+        if (mouseenteredrange_cb) {
             KTextEditor__MovingRange* cbval1 = range;
             KTextEditor__View* cbval2 = view;
 
-            ktexteditor__movingrangefeedback_mouseenteredrange_callback(this, cbval1, cbval2);
-        } else {
-            KTextEditor__MovingRangeFeedback::mouseEnteredRange(range, view);
+            mouseenteredrange_cb(this, cbval1, cbval2);
+            return;
         }
+        KTextEditor__MovingRangeFeedback::mouseEnteredRange(range, view);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -117,14 +117,17 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         if (ktexteditor__movingrangefeedback_mouseexitedrange_isbase) {
             ktexteditor__movingrangefeedback_mouseexitedrange_isbase = false;
             KTextEditor__MovingRangeFeedback::mouseExitedRange(range, view);
-        } else if (ktexteditor__movingrangefeedback_mouseexitedrange_callback != nullptr) {
+            return;
+        }
+        auto mouseexitedrange_cb = ktexteditor__movingrangefeedback_mouseexitedrange_callback;
+        if (mouseexitedrange_cb) {
             KTextEditor__MovingRange* cbval1 = range;
             KTextEditor__View* cbval2 = view;
 
-            ktexteditor__movingrangefeedback_mouseexitedrange_callback(this, cbval1, cbval2);
-        } else {
-            KTextEditor__MovingRangeFeedback::mouseExitedRange(range, view);
+            mouseexitedrange_cb(this, cbval1, cbval2);
+            return;
         }
+        KTextEditor__MovingRangeFeedback::mouseExitedRange(range, view);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -132,14 +135,17 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         if (ktexteditor__movingrangefeedback_caretenteredrange_isbase) {
             ktexteditor__movingrangefeedback_caretenteredrange_isbase = false;
             KTextEditor__MovingRangeFeedback::caretEnteredRange(range, view);
-        } else if (ktexteditor__movingrangefeedback_caretenteredrange_callback != nullptr) {
+            return;
+        }
+        auto caretenteredrange_cb = ktexteditor__movingrangefeedback_caretenteredrange_callback;
+        if (caretenteredrange_cb) {
             KTextEditor__MovingRange* cbval1 = range;
             KTextEditor__View* cbval2 = view;
 
-            ktexteditor__movingrangefeedback_caretenteredrange_callback(this, cbval1, cbval2);
-        } else {
-            KTextEditor__MovingRangeFeedback::caretEnteredRange(range, view);
+            caretenteredrange_cb(this, cbval1, cbval2);
+            return;
         }
+        KTextEditor__MovingRangeFeedback::caretEnteredRange(range, view);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -147,14 +153,17 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         if (ktexteditor__movingrangefeedback_caretexitedrange_isbase) {
             ktexteditor__movingrangefeedback_caretexitedrange_isbase = false;
             KTextEditor__MovingRangeFeedback::caretExitedRange(range, view);
-        } else if (ktexteditor__movingrangefeedback_caretexitedrange_callback != nullptr) {
+            return;
+        }
+        auto caretexitedrange_cb = ktexteditor__movingrangefeedback_caretexitedrange_callback;
+        if (caretexitedrange_cb) {
             KTextEditor__MovingRange* cbval1 = range;
             KTextEditor__View* cbval2 = view;
 
-            ktexteditor__movingrangefeedback_caretexitedrange_callback(this, cbval1, cbval2);
-        } else {
-            KTextEditor__MovingRangeFeedback::caretExitedRange(range, view);
+            caretexitedrange_cb(this, cbval1, cbval2);
+            return;
         }
+        KTextEditor__MovingRangeFeedback::caretExitedRange(range, view);
     }
 };
 

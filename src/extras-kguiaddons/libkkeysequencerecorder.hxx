@@ -69,23 +69,6 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
     VirtualKKeySequenceRecorder(QWindow* window) : KKeySequenceRecorder(window) {};
     VirtualKKeySequenceRecorder(QWindow* window, QObject* parent) : KKeySequenceRecorder(window, parent) {};
 
-    ~VirtualKKeySequenceRecorder() {
-        kkeysequencerecorder_metaobject_callback = nullptr;
-        kkeysequencerecorder_metacast_callback = nullptr;
-        kkeysequencerecorder_metacall_callback = nullptr;
-        kkeysequencerecorder_event_callback = nullptr;
-        kkeysequencerecorder_eventfilter_callback = nullptr;
-        kkeysequencerecorder_timerevent_callback = nullptr;
-        kkeysequencerecorder_childevent_callback = nullptr;
-        kkeysequencerecorder_customevent_callback = nullptr;
-        kkeysequencerecorder_connectnotify_callback = nullptr;
-        kkeysequencerecorder_disconnectnotify_callback = nullptr;
-        kkeysequencerecorder_sender_callback = nullptr;
-        kkeysequencerecorder_sendersignalindex_callback = nullptr;
-        kkeysequencerecorder_receivers_callback = nullptr;
-        kkeysequencerecorder_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKKeySequenceRecorder_MetaObject_Callback(KKeySequenceRecorder_MetaObject_Callback cb) { kkeysequencerecorder_metaobject_callback = cb; }
     inline void setKKeySequenceRecorder_Metacast_Callback(KKeySequenceRecorder_Metacast_Callback cb) { kkeysequencerecorder_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_metaobject_isbase) {
             kkeysequencerecorder_metaobject_isbase = false;
             return KKeySequenceRecorder::metaObject();
-        } else if (kkeysequencerecorder_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kkeysequencerecorder_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KKeySequenceRecorder::metaObject();
         }
+        auto metaobject_cb = kkeysequencerecorder_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KKeySequenceRecorder::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_metacast_isbase) {
             kkeysequencerecorder_metacast_isbase = false;
             return KKeySequenceRecorder::qt_metacast(param1);
-        } else if (kkeysequencerecorder_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kkeysequencerecorder_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kkeysequencerecorder_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KKeySequenceRecorder::qt_metacast(param1);
         }
+        return KKeySequenceRecorder::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_metacall_isbase) {
             kkeysequencerecorder_metacall_isbase = false;
             return KKeySequenceRecorder::qt_metacall(param1, param2, param3);
-        } else if (kkeysequencerecorder_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kkeysequencerecorder_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kkeysequencerecorder_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KKeySequenceRecorder::qt_metacall(param1, param2, param3);
         }
+        return KKeySequenceRecorder::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_event_isbase) {
             kkeysequencerecorder_event_isbase = false;
             return KKeySequenceRecorder::event(event);
-        } else if (kkeysequencerecorder_event_callback != nullptr) {
+        }
+        auto event_cb = kkeysequencerecorder_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kkeysequencerecorder_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KKeySequenceRecorder::event(event);
         }
+        return KKeySequenceRecorder::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_eventfilter_isbase) {
             kkeysequencerecorder_eventfilter_isbase = false;
             return KKeySequenceRecorder::eventFilter(watched, event);
-        } else if (kkeysequencerecorder_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kkeysequencerecorder_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kkeysequencerecorder_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KKeySequenceRecorder::eventFilter(watched, event);
         }
+        return KKeySequenceRecorder::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_timerevent_isbase) {
             kkeysequencerecorder_timerevent_isbase = false;
             KKeySequenceRecorder::timerEvent(event);
-        } else if (kkeysequencerecorder_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kkeysequencerecorder_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kkeysequencerecorder_timerevent_callback(this, cbval1);
-        } else {
-            KKeySequenceRecorder::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceRecorder::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_childevent_isbase) {
             kkeysequencerecorder_childevent_isbase = false;
             KKeySequenceRecorder::childEvent(event);
-        } else if (kkeysequencerecorder_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kkeysequencerecorder_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kkeysequencerecorder_childevent_callback(this, cbval1);
-        } else {
-            KKeySequenceRecorder::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceRecorder::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_customevent_isbase) {
             kkeysequencerecorder_customevent_isbase = false;
             KKeySequenceRecorder::customEvent(event);
-        } else if (kkeysequencerecorder_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kkeysequencerecorder_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kkeysequencerecorder_customevent_callback(this, cbval1);
-        } else {
-            KKeySequenceRecorder::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KKeySequenceRecorder::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_connectnotify_isbase) {
             kkeysequencerecorder_connectnotify_isbase = false;
             KKeySequenceRecorder::connectNotify(signal);
-        } else if (kkeysequencerecorder_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kkeysequencerecorder_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kkeysequencerecorder_connectnotify_callback(this, cbval1);
-        } else {
-            KKeySequenceRecorder::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KKeySequenceRecorder::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_disconnectnotify_isbase) {
             kkeysequencerecorder_disconnectnotify_isbase = false;
             KKeySequenceRecorder::disconnectNotify(signal);
-        } else if (kkeysequencerecorder_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kkeysequencerecorder_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kkeysequencerecorder_disconnectnotify_callback(this, cbval1);
-        } else {
-            KKeySequenceRecorder::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KKeySequenceRecorder::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_sender_isbase) {
             kkeysequencerecorder_sender_isbase = false;
             return KKeySequenceRecorder::sender();
-        } else if (kkeysequencerecorder_sender_callback != nullptr) {
-            QObject* callback_ret = kkeysequencerecorder_sender_callback();
-            return callback_ret;
-        } else {
-            return KKeySequenceRecorder::sender();
         }
+        auto sender_cb = kkeysequencerecorder_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KKeySequenceRecorder::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_sendersignalindex_isbase) {
             kkeysequencerecorder_sendersignalindex_isbase = false;
             return KKeySequenceRecorder::senderSignalIndex();
-        } else if (kkeysequencerecorder_sendersignalindex_callback != nullptr) {
-            int callback_ret = kkeysequencerecorder_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KKeySequenceRecorder::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kkeysequencerecorder_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KKeySequenceRecorder::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_receivers_isbase) {
             kkeysequencerecorder_receivers_isbase = false;
             return KKeySequenceRecorder::receivers(signal);
-        } else if (kkeysequencerecorder_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kkeysequencerecorder_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kkeysequencerecorder_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KKeySequenceRecorder::receivers(signal);
         }
+        return KKeySequenceRecorder::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
         if (kkeysequencerecorder_issignalconnected_isbase) {
             kkeysequencerecorder_issignalconnected_isbase = false;
             return KKeySequenceRecorder::isSignalConnected(signal);
-        } else if (kkeysequencerecorder_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kkeysequencerecorder_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kkeysequencerecorder_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KKeySequenceRecorder::isSignalConnected(signal);
         }
+        return KKeySequenceRecorder::isSignalConnected(signal);
     }
 
     // Friend functions

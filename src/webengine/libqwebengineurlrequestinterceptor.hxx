@@ -72,24 +72,6 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
     VirtualQWebEngineUrlRequestInterceptor() : QWebEngineUrlRequestInterceptor() {};
     VirtualQWebEngineUrlRequestInterceptor(QObject* p) : QWebEngineUrlRequestInterceptor(p) {};
 
-    ~VirtualQWebEngineUrlRequestInterceptor() {
-        qwebengineurlrequestinterceptor_metaobject_callback = nullptr;
-        qwebengineurlrequestinterceptor_metacast_callback = nullptr;
-        qwebengineurlrequestinterceptor_metacall_callback = nullptr;
-        qwebengineurlrequestinterceptor_interceptrequest_callback = nullptr;
-        qwebengineurlrequestinterceptor_event_callback = nullptr;
-        qwebengineurlrequestinterceptor_eventfilter_callback = nullptr;
-        qwebengineurlrequestinterceptor_timerevent_callback = nullptr;
-        qwebengineurlrequestinterceptor_childevent_callback = nullptr;
-        qwebengineurlrequestinterceptor_customevent_callback = nullptr;
-        qwebengineurlrequestinterceptor_connectnotify_callback = nullptr;
-        qwebengineurlrequestinterceptor_disconnectnotify_callback = nullptr;
-        qwebengineurlrequestinterceptor_sender_callback = nullptr;
-        qwebengineurlrequestinterceptor_sendersignalindex_callback = nullptr;
-        qwebengineurlrequestinterceptor_receivers_callback = nullptr;
-        qwebengineurlrequestinterceptor_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQWebEngineUrlRequestInterceptor_MetaObject_Callback(QWebEngineUrlRequestInterceptor_MetaObject_Callback cb) { qwebengineurlrequestinterceptor_metaobject_callback = cb; }
     inline void setQWebEngineUrlRequestInterceptor_Metacast_Callback(QWebEngineUrlRequestInterceptor_Metacast_Callback cb) { qwebengineurlrequestinterceptor_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_metaobject_isbase) {
             qwebengineurlrequestinterceptor_metaobject_isbase = false;
             return QWebEngineUrlRequestInterceptor::metaObject();
-        } else if (qwebengineurlrequestinterceptor_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qwebengineurlrequestinterceptor_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineUrlRequestInterceptor::metaObject();
         }
+        auto metaobject_cb = qwebengineurlrequestinterceptor_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QWebEngineUrlRequestInterceptor::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_metacast_isbase) {
             qwebengineurlrequestinterceptor_metacast_isbase = false;
             return QWebEngineUrlRequestInterceptor::qt_metacast(param1);
-        } else if (qwebengineurlrequestinterceptor_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qwebengineurlrequestinterceptor_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qwebengineurlrequestinterceptor_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineUrlRequestInterceptor::qt_metacast(param1);
         }
+        return QWebEngineUrlRequestInterceptor::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,26 +141,28 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_metacall_isbase) {
             qwebengineurlrequestinterceptor_metacall_isbase = false;
             return QWebEngineUrlRequestInterceptor::qt_metacall(param1, param2, param3);
-        } else if (qwebengineurlrequestinterceptor_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qwebengineurlrequestinterceptor_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qwebengineurlrequestinterceptor_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineUrlRequestInterceptor::qt_metacall(param1, param2, param3);
         }
+        return QWebEngineUrlRequestInterceptor::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void interceptRequest(QWebEngineUrlRequestInfo& info) override {
-        if (qwebengineurlrequestinterceptor_interceptrequest_callback != nullptr) {
+        auto interceptrequest_cb = qwebengineurlrequestinterceptor_interceptrequest_callback;
+        if (interceptrequest_cb) {
             QWebEngineUrlRequestInfo& info_ret = info;
             // Cast returned reference into pointer
             QWebEngineUrlRequestInfo* cbval1 = &info_ret;
 
-            qwebengineurlrequestinterceptor_interceptrequest_callback(this, cbval1);
+            interceptrequest_cb(this, cbval1);
         }
     }
 
@@ -185,14 +171,15 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_event_isbase) {
             qwebengineurlrequestinterceptor_event_isbase = false;
             return QWebEngineUrlRequestInterceptor::event(event);
-        } else if (qwebengineurlrequestinterceptor_event_callback != nullptr) {
+        }
+        auto event_cb = qwebengineurlrequestinterceptor_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qwebengineurlrequestinterceptor_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineUrlRequestInterceptor::event(event);
         }
+        return QWebEngineUrlRequestInterceptor::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -200,15 +187,16 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_eventfilter_isbase) {
             qwebengineurlrequestinterceptor_eventfilter_isbase = false;
             return QWebEngineUrlRequestInterceptor::eventFilter(watched, event);
-        } else if (qwebengineurlrequestinterceptor_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qwebengineurlrequestinterceptor_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qwebengineurlrequestinterceptor_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QWebEngineUrlRequestInterceptor::eventFilter(watched, event);
         }
+        return QWebEngineUrlRequestInterceptor::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -216,13 +204,16 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_timerevent_isbase) {
             qwebengineurlrequestinterceptor_timerevent_isbase = false;
             QWebEngineUrlRequestInterceptor::timerEvent(event);
-        } else if (qwebengineurlrequestinterceptor_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qwebengineurlrequestinterceptor_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qwebengineurlrequestinterceptor_timerevent_callback(this, cbval1);
-        } else {
-            QWebEngineUrlRequestInterceptor::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineUrlRequestInterceptor::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -230,13 +221,16 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_childevent_isbase) {
             qwebengineurlrequestinterceptor_childevent_isbase = false;
             QWebEngineUrlRequestInterceptor::childEvent(event);
-        } else if (qwebengineurlrequestinterceptor_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qwebengineurlrequestinterceptor_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qwebengineurlrequestinterceptor_childevent_callback(this, cbval1);
-        } else {
-            QWebEngineUrlRequestInterceptor::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineUrlRequestInterceptor::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -244,13 +238,16 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_customevent_isbase) {
             qwebengineurlrequestinterceptor_customevent_isbase = false;
             QWebEngineUrlRequestInterceptor::customEvent(event);
-        } else if (qwebengineurlrequestinterceptor_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qwebengineurlrequestinterceptor_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qwebengineurlrequestinterceptor_customevent_callback(this, cbval1);
-        } else {
-            QWebEngineUrlRequestInterceptor::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineUrlRequestInterceptor::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,15 +255,18 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_connectnotify_isbase) {
             qwebengineurlrequestinterceptor_connectnotify_isbase = false;
             QWebEngineUrlRequestInterceptor::connectNotify(signal);
-        } else if (qwebengineurlrequestinterceptor_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qwebengineurlrequestinterceptor_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebengineurlrequestinterceptor_connectnotify_callback(this, cbval1);
-        } else {
-            QWebEngineUrlRequestInterceptor::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QWebEngineUrlRequestInterceptor::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -274,15 +274,18 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_disconnectnotify_isbase) {
             qwebengineurlrequestinterceptor_disconnectnotify_isbase = false;
             QWebEngineUrlRequestInterceptor::disconnectNotify(signal);
-        } else if (qwebengineurlrequestinterceptor_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qwebengineurlrequestinterceptor_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebengineurlrequestinterceptor_disconnectnotify_callback(this, cbval1);
-        } else {
-            QWebEngineUrlRequestInterceptor::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QWebEngineUrlRequestInterceptor::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -290,12 +293,13 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_sender_isbase) {
             qwebengineurlrequestinterceptor_sender_isbase = false;
             return QWebEngineUrlRequestInterceptor::sender();
-        } else if (qwebengineurlrequestinterceptor_sender_callback != nullptr) {
-            QObject* callback_ret = qwebengineurlrequestinterceptor_sender_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineUrlRequestInterceptor::sender();
         }
+        auto sender_cb = qwebengineurlrequestinterceptor_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QWebEngineUrlRequestInterceptor::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,12 +307,13 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_sendersignalindex_isbase) {
             qwebengineurlrequestinterceptor_sendersignalindex_isbase = false;
             return QWebEngineUrlRequestInterceptor::senderSignalIndex();
-        } else if (qwebengineurlrequestinterceptor_sendersignalindex_callback != nullptr) {
-            int callback_ret = qwebengineurlrequestinterceptor_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineUrlRequestInterceptor::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qwebengineurlrequestinterceptor_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QWebEngineUrlRequestInterceptor::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,14 +321,15 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_receivers_isbase) {
             qwebengineurlrequestinterceptor_receivers_isbase = false;
             return QWebEngineUrlRequestInterceptor::receivers(signal);
-        } else if (qwebengineurlrequestinterceptor_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qwebengineurlrequestinterceptor_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qwebengineurlrequestinterceptor_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineUrlRequestInterceptor::receivers(signal);
         }
+        return QWebEngineUrlRequestInterceptor::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,16 +337,17 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
         if (qwebengineurlrequestinterceptor_issignalconnected_isbase) {
             qwebengineurlrequestinterceptor_issignalconnected_isbase = false;
             return QWebEngineUrlRequestInterceptor::isSignalConnected(signal);
-        } else if (qwebengineurlrequestinterceptor_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qwebengineurlrequestinterceptor_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qwebengineurlrequestinterceptor_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineUrlRequestInterceptor::isSignalConnected(signal);
         }
+        return QWebEngineUrlRequestInterceptor::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -162,54 +162,6 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
   public:
     VirtualKIOForwardingWorkerBase(const QByteArray& protocol, const QByteArray& poolSocket, const QByteArray& appSocket) : KIO::ForwardingWorkerBase(protocol, poolSocket, appSocket) {};
 
-    ~VirtualKIOForwardingWorkerBase() {
-        kio__forwardingworkerbase_metaobject_callback = nullptr;
-        kio__forwardingworkerbase_metacast_callback = nullptr;
-        kio__forwardingworkerbase_metacall_callback = nullptr;
-        kio__forwardingworkerbase_get_callback = nullptr;
-        kio__forwardingworkerbase_put_callback = nullptr;
-        kio__forwardingworkerbase_stat_callback = nullptr;
-        kio__forwardingworkerbase_mimetype_callback = nullptr;
-        kio__forwardingworkerbase_listdir_callback = nullptr;
-        kio__forwardingworkerbase_mkdir_callback = nullptr;
-        kio__forwardingworkerbase_rename_callback = nullptr;
-        kio__forwardingworkerbase_symlink_callback = nullptr;
-        kio__forwardingworkerbase_chmod_callback = nullptr;
-        kio__forwardingworkerbase_setmodificationtime_callback = nullptr;
-        kio__forwardingworkerbase_copy_callback = nullptr;
-        kio__forwardingworkerbase_del_callback = nullptr;
-        kio__forwardingworkerbase_rewriteurl_callback = nullptr;
-        kio__forwardingworkerbase_adjustudsentry_callback = nullptr;
-        kio__forwardingworkerbase_event_callback = nullptr;
-        kio__forwardingworkerbase_eventfilter_callback = nullptr;
-        kio__forwardingworkerbase_timerevent_callback = nullptr;
-        kio__forwardingworkerbase_childevent_callback = nullptr;
-        kio__forwardingworkerbase_customevent_callback = nullptr;
-        kio__forwardingworkerbase_connectnotify_callback = nullptr;
-        kio__forwardingworkerbase_disconnectnotify_callback = nullptr;
-        kio__forwardingworkerbase_appconnectionmade_callback = nullptr;
-        kio__forwardingworkerbase_sethost_callback = nullptr;
-        kio__forwardingworkerbase_openconnection_callback = nullptr;
-        kio__forwardingworkerbase_closeconnection_callback = nullptr;
-        kio__forwardingworkerbase_open_callback = nullptr;
-        kio__forwardingworkerbase_read_callback = nullptr;
-        kio__forwardingworkerbase_write_callback = nullptr;
-        kio__forwardingworkerbase_seek_callback = nullptr;
-        kio__forwardingworkerbase_truncate_callback = nullptr;
-        kio__forwardingworkerbase_close_callback = nullptr;
-        kio__forwardingworkerbase_chown_callback = nullptr;
-        kio__forwardingworkerbase_special_callback = nullptr;
-        kio__forwardingworkerbase_filesystemfreespace_callback = nullptr;
-        kio__forwardingworkerbase_workerstatus2_callback = nullptr;
-        kio__forwardingworkerbase_reparseconfiguration_callback = nullptr;
-        kio__forwardingworkerbase_processedurl_callback = nullptr;
-        kio__forwardingworkerbase_requestedurl_callback = nullptr;
-        kio__forwardingworkerbase_sender_callback = nullptr;
-        kio__forwardingworkerbase_sendersignalindex_callback = nullptr;
-        kio__forwardingworkerbase_receivers_callback = nullptr;
-        kio__forwardingworkerbase_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKIO__ForwardingWorkerBase_MetaObject_Callback(KIO__ForwardingWorkerBase_MetaObject_Callback cb) { kio__forwardingworkerbase_metaobject_callback = cb; }
     inline void setKIO__ForwardingWorkerBase_Metacast_Callback(KIO__ForwardingWorkerBase_Metacast_Callback cb) { kio__forwardingworkerbase_metacast_callback = cb; }
@@ -309,12 +261,13 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_metaobject_isbase) {
             kio__forwardingworkerbase_metaobject_isbase = false;
             return KIO__ForwardingWorkerBase::metaObject();
-        } else if (kio__forwardingworkerbase_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kio__forwardingworkerbase_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::metaObject();
         }
+        auto metaobject_cb = kio__forwardingworkerbase_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KIO__ForwardingWorkerBase::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -322,14 +275,15 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_metacast_isbase) {
             kio__forwardingworkerbase_metacast_isbase = false;
             return KIO__ForwardingWorkerBase::qt_metacast(param1);
-        } else if (kio__forwardingworkerbase_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kio__forwardingworkerbase_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kio__forwardingworkerbase_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::qt_metacast(param1);
         }
+        return KIO__ForwardingWorkerBase::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,16 +291,17 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_metacall_isbase) {
             kio__forwardingworkerbase_metacall_isbase = false;
             return KIO__ForwardingWorkerBase::qt_metacall(param1, param2, param3);
-        } else if (kio__forwardingworkerbase_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kio__forwardingworkerbase_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kio__forwardingworkerbase_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__ForwardingWorkerBase::qt_metacall(param1, param2, param3);
         }
+        return KIO__ForwardingWorkerBase::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -354,16 +309,17 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_get_isbase) {
             kio__forwardingworkerbase_get_isbase = false;
             return KIO__ForwardingWorkerBase::get(url);
-        } else if (kio__forwardingworkerbase_get_callback != nullptr) {
+        }
+        auto get_cb = kio__forwardingworkerbase_get_callback;
+        if (get_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_get_callback(this, cbval1);
+            KIO__WorkerResult* callback_ret = get_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::get(url);
         }
+        return KIO__ForwardingWorkerBase::get(url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -371,18 +327,19 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_put_isbase) {
             kio__forwardingworkerbase_put_isbase = false;
             return KIO__ForwardingWorkerBase::put(url, permissions, flags);
-        } else if (kio__forwardingworkerbase_put_callback != nullptr) {
+        }
+        auto put_cb = kio__forwardingworkerbase_put_callback;
+        if (put_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = permissions;
             int cbval3 = static_cast<int>(flags);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_put_callback(this, cbval1, cbval2, cbval3);
+            KIO__WorkerResult* callback_ret = put_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::put(url, permissions, flags);
         }
+        return KIO__ForwardingWorkerBase::put(url, permissions, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,16 +347,17 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_stat_isbase) {
             kio__forwardingworkerbase_stat_isbase = false;
             return KIO__ForwardingWorkerBase::stat(url);
-        } else if (kio__forwardingworkerbase_stat_callback != nullptr) {
+        }
+        auto stat_cb = kio__forwardingworkerbase_stat_callback;
+        if (stat_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_stat_callback(this, cbval1);
+            KIO__WorkerResult* callback_ret = stat_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::stat(url);
         }
+        return KIO__ForwardingWorkerBase::stat(url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -407,16 +365,17 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_mimetype_isbase) {
             kio__forwardingworkerbase_mimetype_isbase = false;
             return KIO__ForwardingWorkerBase::mimetype(url);
-        } else if (kio__forwardingworkerbase_mimetype_callback != nullptr) {
+        }
+        auto mimetype_cb = kio__forwardingworkerbase_mimetype_callback;
+        if (mimetype_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_mimetype_callback(this, cbval1);
+            KIO__WorkerResult* callback_ret = mimetype_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::mimetype(url);
         }
+        return KIO__ForwardingWorkerBase::mimetype(url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,16 +383,17 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_listdir_isbase) {
             kio__forwardingworkerbase_listdir_isbase = false;
             return KIO__ForwardingWorkerBase::listDir(url);
-        } else if (kio__forwardingworkerbase_listdir_callback != nullptr) {
+        }
+        auto listdir_cb = kio__forwardingworkerbase_listdir_callback;
+        if (listdir_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_listdir_callback(this, cbval1);
+            KIO__WorkerResult* callback_ret = listdir_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::listDir(url);
         }
+        return KIO__ForwardingWorkerBase::listDir(url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,17 +401,18 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_mkdir_isbase) {
             kio__forwardingworkerbase_mkdir_isbase = false;
             return KIO__ForwardingWorkerBase::mkdir(url, permissions);
-        } else if (kio__forwardingworkerbase_mkdir_callback != nullptr) {
+        }
+        auto mkdir_cb = kio__forwardingworkerbase_mkdir_callback;
+        if (mkdir_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = permissions;
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_mkdir_callback(this, cbval1, cbval2);
+            KIO__WorkerResult* callback_ret = mkdir_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::mkdir(url, permissions);
         }
+        return KIO__ForwardingWorkerBase::mkdir(url, permissions);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -459,7 +420,9 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_rename_isbase) {
             kio__forwardingworkerbase_rename_isbase = false;
             return KIO__ForwardingWorkerBase::rename(src, dest, flags);
-        } else if (kio__forwardingworkerbase_rename_callback != nullptr) {
+        }
+        auto rename_cb = kio__forwardingworkerbase_rename_callback;
+        if (rename_cb) {
             const QUrl& src_ret = src;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&src_ret);
@@ -468,11 +431,10 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
             QUrl* cbval2 = const_cast<QUrl*>(&dest_ret);
             int cbval3 = static_cast<int>(flags);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_rename_callback(this, cbval1, cbval2, cbval3);
+            KIO__WorkerResult* callback_ret = rename_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::rename(src, dest, flags);
         }
+        return KIO__ForwardingWorkerBase::rename(src, dest, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,7 +442,9 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_symlink_isbase) {
             kio__forwardingworkerbase_symlink_isbase = false;
             return KIO__ForwardingWorkerBase::symlink(target, dest, flags);
-        } else if (kio__forwardingworkerbase_symlink_callback != nullptr) {
+        }
+        auto symlink_cb = kio__forwardingworkerbase_symlink_callback;
+        if (symlink_cb) {
             const QString target_ret = target;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray target_b = target_ret.toUtf8();
@@ -494,12 +458,11 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
             QUrl* cbval2 = const_cast<QUrl*>(&dest_ret);
             int cbval3 = static_cast<int>(flags);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_symlink_callback(this, cbval1, cbval2, cbval3);
+            KIO__WorkerResult* callback_ret = symlink_cb(this, cbval1, cbval2, cbval3);
             libqt_free(target_str);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::symlink(target, dest, flags);
         }
+        return KIO__ForwardingWorkerBase::symlink(target, dest, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -507,17 +470,18 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_chmod_isbase) {
             kio__forwardingworkerbase_chmod_isbase = false;
             return KIO__ForwardingWorkerBase::chmod(url, permissions);
-        } else if (kio__forwardingworkerbase_chmod_callback != nullptr) {
+        }
+        auto chmod_cb = kio__forwardingworkerbase_chmod_callback;
+        if (chmod_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = permissions;
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_chmod_callback(this, cbval1, cbval2);
+            KIO__WorkerResult* callback_ret = chmod_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::chmod(url, permissions);
         }
+        return KIO__ForwardingWorkerBase::chmod(url, permissions);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,7 +489,9 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_setmodificationtime_isbase) {
             kio__forwardingworkerbase_setmodificationtime_isbase = false;
             return KIO__ForwardingWorkerBase::setModificationTime(url, mtime);
-        } else if (kio__forwardingworkerbase_setmodificationtime_callback != nullptr) {
+        }
+        auto setmodificationtime_cb = kio__forwardingworkerbase_setmodificationtime_callback;
+        if (setmodificationtime_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
@@ -533,11 +499,10 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
             // Cast returned reference into pointer
             QDateTime* cbval2 = const_cast<QDateTime*>(&mtime_ret);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_setmodificationtime_callback(this, cbval1, cbval2);
+            KIO__WorkerResult* callback_ret = setmodificationtime_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::setModificationTime(url, mtime);
         }
+        return KIO__ForwardingWorkerBase::setModificationTime(url, mtime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -545,7 +510,9 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_copy_isbase) {
             kio__forwardingworkerbase_copy_isbase = false;
             return KIO__ForwardingWorkerBase::copy(src, dest, permissions, flags);
-        } else if (kio__forwardingworkerbase_copy_callback != nullptr) {
+        }
+        auto copy_cb = kio__forwardingworkerbase_copy_callback;
+        if (copy_cb) {
             const QUrl& src_ret = src;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&src_ret);
@@ -555,11 +522,10 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
             int cbval3 = permissions;
             int cbval4 = static_cast<int>(flags);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_copy_callback(this, cbval1, cbval2, cbval3, cbval4);
+            KIO__WorkerResult* callback_ret = copy_cb(this, cbval1, cbval2, cbval3, cbval4);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::copy(src, dest, permissions, flags);
         }
+        return KIO__ForwardingWorkerBase::copy(src, dest, permissions, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,22 +533,24 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_del_isbase) {
             kio__forwardingworkerbase_del_isbase = false;
             return KIO__ForwardingWorkerBase::del(url, isfile);
-        } else if (kio__forwardingworkerbase_del_callback != nullptr) {
+        }
+        auto del_cb = kio__forwardingworkerbase_del_callback;
+        if (del_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             bool cbval2 = isfile;
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_del_callback(this, cbval1, cbval2);
+            KIO__WorkerResult* callback_ret = del_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::del(url, isfile);
         }
+        return KIO__ForwardingWorkerBase::del(url, isfile);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool rewriteUrl(const QUrl& url, QUrl& newURL) override {
-        if (kio__forwardingworkerbase_rewriteurl_callback != nullptr) {
+        auto rewriteurl_cb = kio__forwardingworkerbase_rewriteurl_callback;
+        if (rewriteurl_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
@@ -590,11 +558,10 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
             // Cast returned reference into pointer
             QUrl* cbval2 = &newURL_ret;
 
-            bool callback_ret = kio__forwardingworkerbase_rewriteurl_callback(this, cbval1, cbval2);
+            bool callback_ret = rewriteurl_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,16 +569,19 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_adjustudsentry_isbase) {
             kio__forwardingworkerbase_adjustudsentry_isbase = false;
             KIO__ForwardingWorkerBase::adjustUDSEntry(entry, creationMode);
-        } else if (kio__forwardingworkerbase_adjustudsentry_callback != nullptr) {
+            return;
+        }
+        auto adjustudsentry_cb = kio__forwardingworkerbase_adjustudsentry_callback;
+        if (adjustudsentry_cb) {
             KIO::UDSEntry& entry_ret = entry;
             // Cast returned reference into pointer
             KIO__UDSEntry* cbval1 = &entry_ret;
             int cbval2 = static_cast<int>(creationMode);
 
-            kio__forwardingworkerbase_adjustudsentry_callback(this, cbval1, cbval2);
-        } else {
-            KIO__ForwardingWorkerBase::adjustUDSEntry(entry, creationMode);
+            adjustudsentry_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__ForwardingWorkerBase::adjustUDSEntry(entry, creationMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,14 +589,15 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_event_isbase) {
             kio__forwardingworkerbase_event_isbase = false;
             return KIO__ForwardingWorkerBase::event(event);
-        } else if (kio__forwardingworkerbase_event_callback != nullptr) {
+        }
+        auto event_cb = kio__forwardingworkerbase_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kio__forwardingworkerbase_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::event(event);
         }
+        return KIO__ForwardingWorkerBase::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,15 +605,16 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_eventfilter_isbase) {
             kio__forwardingworkerbase_eventfilter_isbase = false;
             return KIO__ForwardingWorkerBase::eventFilter(watched, event);
-        } else if (kio__forwardingworkerbase_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kio__forwardingworkerbase_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kio__forwardingworkerbase_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::eventFilter(watched, event);
         }
+        return KIO__ForwardingWorkerBase::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -650,13 +622,16 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_timerevent_isbase) {
             kio__forwardingworkerbase_timerevent_isbase = false;
             KIO__ForwardingWorkerBase::timerEvent(event);
-        } else if (kio__forwardingworkerbase_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kio__forwardingworkerbase_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kio__forwardingworkerbase_timerevent_callback(this, cbval1);
-        } else {
-            KIO__ForwardingWorkerBase::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KIO__ForwardingWorkerBase::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -664,13 +639,16 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_childevent_isbase) {
             kio__forwardingworkerbase_childevent_isbase = false;
             KIO__ForwardingWorkerBase::childEvent(event);
-        } else if (kio__forwardingworkerbase_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kio__forwardingworkerbase_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kio__forwardingworkerbase_childevent_callback(this, cbval1);
-        } else {
-            KIO__ForwardingWorkerBase::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KIO__ForwardingWorkerBase::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -678,13 +656,16 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_customevent_isbase) {
             kio__forwardingworkerbase_customevent_isbase = false;
             KIO__ForwardingWorkerBase::customEvent(event);
-        } else if (kio__forwardingworkerbase_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kio__forwardingworkerbase_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kio__forwardingworkerbase_customevent_callback(this, cbval1);
-        } else {
-            KIO__ForwardingWorkerBase::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KIO__ForwardingWorkerBase::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -692,15 +673,18 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_connectnotify_isbase) {
             kio__forwardingworkerbase_connectnotify_isbase = false;
             KIO__ForwardingWorkerBase::connectNotify(signal);
-        } else if (kio__forwardingworkerbase_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kio__forwardingworkerbase_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__forwardingworkerbase_connectnotify_callback(this, cbval1);
-        } else {
-            KIO__ForwardingWorkerBase::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__ForwardingWorkerBase::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -708,15 +692,18 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_disconnectnotify_isbase) {
             kio__forwardingworkerbase_disconnectnotify_isbase = false;
             KIO__ForwardingWorkerBase::disconnectNotify(signal);
-        } else if (kio__forwardingworkerbase_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kio__forwardingworkerbase_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__forwardingworkerbase_disconnectnotify_callback(this, cbval1);
-        } else {
-            KIO__ForwardingWorkerBase::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__ForwardingWorkerBase::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,11 +711,14 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_appconnectionmade_isbase) {
             kio__forwardingworkerbase_appconnectionmade_isbase = false;
             KIO__ForwardingWorkerBase::appConnectionMade();
-        } else if (kio__forwardingworkerbase_appconnectionmade_callback != nullptr) {
-            kio__forwardingworkerbase_appconnectionmade_callback();
-        } else {
-            KIO__ForwardingWorkerBase::appConnectionMade();
+            return;
         }
+        auto appconnectionmade_cb = kio__forwardingworkerbase_appconnectionmade_callback;
+        if (appconnectionmade_cb) {
+            appconnectionmade_cb();
+            return;
+        }
+        KIO__ForwardingWorkerBase::appConnectionMade();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -736,7 +726,10 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_sethost_isbase) {
             kio__forwardingworkerbase_sethost_isbase = false;
             KIO__ForwardingWorkerBase::setHost(host, port, user, pass);
-        } else if (kio__forwardingworkerbase_sethost_callback != nullptr) {
+            return;
+        }
+        auto sethost_cb = kio__forwardingworkerbase_sethost_callback;
+        if (sethost_cb) {
             const QString host_ret = host;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray host_b = host_ret.toUtf8();
@@ -763,13 +756,13 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
             ((char*)pass_str)[pass_str_len] = '\0';
             const char* cbval4 = pass_str;
 
-            kio__forwardingworkerbase_sethost_callback(this, cbval1, cbval2, cbval3, cbval4);
+            sethost_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(host_str);
             libqt_free(user_str);
             libqt_free(pass_str);
-        } else {
-            KIO__ForwardingWorkerBase::setHost(host, port, user, pass);
+            return;
         }
+        KIO__ForwardingWorkerBase::setHost(host, port, user, pass);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -777,12 +770,13 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_openconnection_isbase) {
             kio__forwardingworkerbase_openconnection_isbase = false;
             return KIO__ForwardingWorkerBase::openConnection();
-        } else if (kio__forwardingworkerbase_openconnection_callback != nullptr) {
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_openconnection_callback();
-            return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::openConnection();
         }
+        auto openconnection_cb = kio__forwardingworkerbase_openconnection_callback;
+        if (openconnection_cb) {
+            KIO__WorkerResult* callback_ret = openconnection_cb();
+            return *callback_ret;
+        }
+        return KIO__ForwardingWorkerBase::openConnection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -790,11 +784,14 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_closeconnection_isbase) {
             kio__forwardingworkerbase_closeconnection_isbase = false;
             KIO__ForwardingWorkerBase::closeConnection();
-        } else if (kio__forwardingworkerbase_closeconnection_callback != nullptr) {
-            kio__forwardingworkerbase_closeconnection_callback();
-        } else {
-            KIO__ForwardingWorkerBase::closeConnection();
+            return;
         }
+        auto closeconnection_cb = kio__forwardingworkerbase_closeconnection_callback;
+        if (closeconnection_cb) {
+            closeconnection_cb();
+            return;
+        }
+        KIO__ForwardingWorkerBase::closeConnection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,17 +799,18 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_open_isbase) {
             kio__forwardingworkerbase_open_isbase = false;
             return KIO__ForwardingWorkerBase::open(url, mode);
-        } else if (kio__forwardingworkerbase_open_callback != nullptr) {
+        }
+        auto open_cb = kio__forwardingworkerbase_open_callback;
+        if (open_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = static_cast<int>(mode);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_open_callback(this, cbval1, cbval2);
+            KIO__WorkerResult* callback_ret = open_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::open(url, mode);
         }
+        return KIO__ForwardingWorkerBase::open(url, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -820,14 +818,15 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_read_isbase) {
             kio__forwardingworkerbase_read_isbase = false;
             return KIO__ForwardingWorkerBase::read(size);
-        } else if (kio__forwardingworkerbase_read_callback != nullptr) {
+        }
+        auto read_cb = kio__forwardingworkerbase_read_callback;
+        if (read_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(size);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_read_callback(this, cbval1);
+            KIO__WorkerResult* callback_ret = read_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::read(size);
         }
+        return KIO__ForwardingWorkerBase::read(size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,7 +834,9 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_write_isbase) {
             kio__forwardingworkerbase_write_isbase = false;
             return KIO__ForwardingWorkerBase::write(data);
-        } else if (kio__forwardingworkerbase_write_callback != nullptr) {
+        }
+        auto write_cb = kio__forwardingworkerbase_write_callback;
+        if (write_cb) {
             const QByteArray data_qb = data;
             libqt_string data_str;
             data_str.len = data_qb.length();
@@ -843,12 +844,11 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
             libqt_string cbval1 = data_str;
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_write_callback(this, cbval1);
+            KIO__WorkerResult* callback_ret = write_cb(this, cbval1);
             libqt_free(data_str.data);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::write(data);
         }
+        return KIO__ForwardingWorkerBase::write(data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -856,14 +856,15 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_seek_isbase) {
             kio__forwardingworkerbase_seek_isbase = false;
             return KIO__ForwardingWorkerBase::seek(offset);
-        } else if (kio__forwardingworkerbase_seek_callback != nullptr) {
+        }
+        auto seek_cb = kio__forwardingworkerbase_seek_callback;
+        if (seek_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(offset);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_seek_callback(this, cbval1);
+            KIO__WorkerResult* callback_ret = seek_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::seek(offset);
         }
+        return KIO__ForwardingWorkerBase::seek(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,14 +872,15 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_truncate_isbase) {
             kio__forwardingworkerbase_truncate_isbase = false;
             return KIO__ForwardingWorkerBase::truncate(size);
-        } else if (kio__forwardingworkerbase_truncate_callback != nullptr) {
+        }
+        auto truncate_cb = kio__forwardingworkerbase_truncate_callback;
+        if (truncate_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(size);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_truncate_callback(this, cbval1);
+            KIO__WorkerResult* callback_ret = truncate_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::truncate(size);
         }
+        return KIO__ForwardingWorkerBase::truncate(size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -886,12 +888,13 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_close_isbase) {
             kio__forwardingworkerbase_close_isbase = false;
             return KIO__ForwardingWorkerBase::close();
-        } else if (kio__forwardingworkerbase_close_callback != nullptr) {
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_close_callback();
-            return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::close();
         }
+        auto close_cb = kio__forwardingworkerbase_close_callback;
+        if (close_cb) {
+            KIO__WorkerResult* callback_ret = close_cb();
+            return *callback_ret;
+        }
+        return KIO__ForwardingWorkerBase::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,7 +902,9 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_chown_isbase) {
             kio__forwardingworkerbase_chown_isbase = false;
             return KIO__ForwardingWorkerBase::chown(url, owner, group);
-        } else if (kio__forwardingworkerbase_chown_callback != nullptr) {
+        }
+        auto chown_cb = kio__forwardingworkerbase_chown_callback;
+        if (chown_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
@@ -920,13 +925,12 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
             ((char*)group_str)[group_str_len] = '\0';
             const char* cbval3 = group_str;
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_chown_callback(this, cbval1, cbval2, cbval3);
+            KIO__WorkerResult* callback_ret = chown_cb(this, cbval1, cbval2, cbval3);
             libqt_free(owner_str);
             libqt_free(group_str);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::chown(url, owner, group);
         }
+        return KIO__ForwardingWorkerBase::chown(url, owner, group);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -934,7 +938,9 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_special_isbase) {
             kio__forwardingworkerbase_special_isbase = false;
             return KIO__ForwardingWorkerBase::special(data);
-        } else if (kio__forwardingworkerbase_special_callback != nullptr) {
+        }
+        auto special_cb = kio__forwardingworkerbase_special_callback;
+        if (special_cb) {
             const QByteArray data_qb = data;
             libqt_string data_str;
             data_str.len = data_qb.length();
@@ -942,12 +948,11 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
             libqt_string cbval1 = data_str;
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_special_callback(this, cbval1);
+            KIO__WorkerResult* callback_ret = special_cb(this, cbval1);
             libqt_free(data_str.data);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::special(data);
         }
+        return KIO__ForwardingWorkerBase::special(data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,16 +960,17 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_filesystemfreespace_isbase) {
             kio__forwardingworkerbase_filesystemfreespace_isbase = false;
             return KIO__ForwardingWorkerBase::fileSystemFreeSpace(url);
-        } else if (kio__forwardingworkerbase_filesystemfreespace_callback != nullptr) {
+        }
+        auto filesystemfreespace_cb = kio__forwardingworkerbase_filesystemfreespace_callback;
+        if (filesystemfreespace_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            KIO__WorkerResult* callback_ret = kio__forwardingworkerbase_filesystemfreespace_callback(this, cbval1);
+            KIO__WorkerResult* callback_ret = filesystemfreespace_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::fileSystemFreeSpace(url);
         }
+        return KIO__ForwardingWorkerBase::fileSystemFreeSpace(url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,11 +978,14 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_workerstatus2_isbase) {
             kio__forwardingworkerbase_workerstatus2_isbase = false;
             KIO__ForwardingWorkerBase::worker_status();
-        } else if (kio__forwardingworkerbase_workerstatus2_callback != nullptr) {
-            kio__forwardingworkerbase_workerstatus2_callback();
-        } else {
-            KIO__ForwardingWorkerBase::worker_status();
+            return;
         }
+        auto workerstatus2_cb = kio__forwardingworkerbase_workerstatus2_callback;
+        if (workerstatus2_cb) {
+            workerstatus2_cb();
+            return;
+        }
+        KIO__ForwardingWorkerBase::worker_status();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,11 +993,14 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_reparseconfiguration_isbase) {
             kio__forwardingworkerbase_reparseconfiguration_isbase = false;
             KIO__ForwardingWorkerBase::reparseConfiguration();
-        } else if (kio__forwardingworkerbase_reparseconfiguration_callback != nullptr) {
-            kio__forwardingworkerbase_reparseconfiguration_callback();
-        } else {
-            KIO__ForwardingWorkerBase::reparseConfiguration();
+            return;
         }
+        auto reparseconfiguration_cb = kio__forwardingworkerbase_reparseconfiguration_callback;
+        if (reparseconfiguration_cb) {
+            reparseconfiguration_cb();
+            return;
+        }
+        KIO__ForwardingWorkerBase::reparseConfiguration();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,12 +1008,13 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_processedurl_isbase) {
             kio__forwardingworkerbase_processedurl_isbase = false;
             return KIO__ForwardingWorkerBase::processedUrl();
-        } else if (kio__forwardingworkerbase_processedurl_callback != nullptr) {
-            QUrl* callback_ret = kio__forwardingworkerbase_processedurl_callback();
-            return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::processedUrl();
         }
+        auto processedurl_cb = kio__forwardingworkerbase_processedurl_callback;
+        if (processedurl_cb) {
+            QUrl* callback_ret = processedurl_cb();
+            return *callback_ret;
+        }
+        return KIO__ForwardingWorkerBase::processedUrl();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,12 +1022,13 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_requestedurl_isbase) {
             kio__forwardingworkerbase_requestedurl_isbase = false;
             return KIO__ForwardingWorkerBase::requestedUrl();
-        } else if (kio__forwardingworkerbase_requestedurl_callback != nullptr) {
-            QUrl* callback_ret = kio__forwardingworkerbase_requestedurl_callback();
-            return *callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::requestedUrl();
         }
+        auto requestedurl_cb = kio__forwardingworkerbase_requestedurl_callback;
+        if (requestedurl_cb) {
+            QUrl* callback_ret = requestedurl_cb();
+            return *callback_ret;
+        }
+        return KIO__ForwardingWorkerBase::requestedUrl();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,12 +1036,13 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_sender_isbase) {
             kio__forwardingworkerbase_sender_isbase = false;
             return KIO__ForwardingWorkerBase::sender();
-        } else if (kio__forwardingworkerbase_sender_callback != nullptr) {
-            QObject* callback_ret = kio__forwardingworkerbase_sender_callback();
-            return callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::sender();
         }
+        auto sender_cb = kio__forwardingworkerbase_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KIO__ForwardingWorkerBase::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,12 +1050,13 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_sendersignalindex_isbase) {
             kio__forwardingworkerbase_sendersignalindex_isbase = false;
             return KIO__ForwardingWorkerBase::senderSignalIndex();
-        } else if (kio__forwardingworkerbase_sendersignalindex_callback != nullptr) {
-            int callback_ret = kio__forwardingworkerbase_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIO__ForwardingWorkerBase::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kio__forwardingworkerbase_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIO__ForwardingWorkerBase::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,14 +1064,15 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_receivers_isbase) {
             kio__forwardingworkerbase_receivers_isbase = false;
             return KIO__ForwardingWorkerBase::receivers(signal);
-        } else if (kio__forwardingworkerbase_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kio__forwardingworkerbase_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kio__forwardingworkerbase_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__ForwardingWorkerBase::receivers(signal);
         }
+        return KIO__ForwardingWorkerBase::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,16 +1080,17 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
         if (kio__forwardingworkerbase_issignalconnected_isbase) {
             kio__forwardingworkerbase_issignalconnected_isbase = false;
             return KIO__ForwardingWorkerBase::isSignalConnected(signal);
-        } else if (kio__forwardingworkerbase_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kio__forwardingworkerbase_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kio__forwardingworkerbase_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__ForwardingWorkerBase::isSignalConnected(signal);
         }
+        return KIO__ForwardingWorkerBase::isSignalConnected(signal);
     }
 
     // Friend functions

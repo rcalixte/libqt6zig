@@ -215,71 +215,6 @@ class VirtualQLCDNumber final : public QLCDNumber {
     VirtualQLCDNumber(uint numDigits) : QLCDNumber(numDigits) {};
     VirtualQLCDNumber(uint numDigits, QWidget* parent) : QLCDNumber(numDigits, parent) {};
 
-    ~VirtualQLCDNumber() {
-        qlcdnumber_metaobject_callback = nullptr;
-        qlcdnumber_metacast_callback = nullptr;
-        qlcdnumber_metacall_callback = nullptr;
-        qlcdnumber_sizehint_callback = nullptr;
-        qlcdnumber_event_callback = nullptr;
-        qlcdnumber_paintevent_callback = nullptr;
-        qlcdnumber_changeevent_callback = nullptr;
-        qlcdnumber_initstyleoption_callback = nullptr;
-        qlcdnumber_devtype_callback = nullptr;
-        qlcdnumber_setvisible_callback = nullptr;
-        qlcdnumber_minimumsizehint_callback = nullptr;
-        qlcdnumber_heightforwidth_callback = nullptr;
-        qlcdnumber_hasheightforwidth_callback = nullptr;
-        qlcdnumber_paintengine_callback = nullptr;
-        qlcdnumber_mousepressevent_callback = nullptr;
-        qlcdnumber_mousereleaseevent_callback = nullptr;
-        qlcdnumber_mousedoubleclickevent_callback = nullptr;
-        qlcdnumber_mousemoveevent_callback = nullptr;
-        qlcdnumber_wheelevent_callback = nullptr;
-        qlcdnumber_keypressevent_callback = nullptr;
-        qlcdnumber_keyreleaseevent_callback = nullptr;
-        qlcdnumber_focusinevent_callback = nullptr;
-        qlcdnumber_focusoutevent_callback = nullptr;
-        qlcdnumber_enterevent_callback = nullptr;
-        qlcdnumber_leaveevent_callback = nullptr;
-        qlcdnumber_moveevent_callback = nullptr;
-        qlcdnumber_resizeevent_callback = nullptr;
-        qlcdnumber_closeevent_callback = nullptr;
-        qlcdnumber_contextmenuevent_callback = nullptr;
-        qlcdnumber_tabletevent_callback = nullptr;
-        qlcdnumber_actionevent_callback = nullptr;
-        qlcdnumber_dragenterevent_callback = nullptr;
-        qlcdnumber_dragmoveevent_callback = nullptr;
-        qlcdnumber_dragleaveevent_callback = nullptr;
-        qlcdnumber_dropevent_callback = nullptr;
-        qlcdnumber_showevent_callback = nullptr;
-        qlcdnumber_hideevent_callback = nullptr;
-        qlcdnumber_nativeevent_callback = nullptr;
-        qlcdnumber_metric_callback = nullptr;
-        qlcdnumber_initpainter_callback = nullptr;
-        qlcdnumber_redirected_callback = nullptr;
-        qlcdnumber_sharedpainter_callback = nullptr;
-        qlcdnumber_inputmethodevent_callback = nullptr;
-        qlcdnumber_inputmethodquery_callback = nullptr;
-        qlcdnumber_focusnextprevchild_callback = nullptr;
-        qlcdnumber_eventfilter_callback = nullptr;
-        qlcdnumber_timerevent_callback = nullptr;
-        qlcdnumber_childevent_callback = nullptr;
-        qlcdnumber_customevent_callback = nullptr;
-        qlcdnumber_connectnotify_callback = nullptr;
-        qlcdnumber_disconnectnotify_callback = nullptr;
-        qlcdnumber_drawframe_callback = nullptr;
-        qlcdnumber_updatemicrofocus_callback = nullptr;
-        qlcdnumber_create_callback = nullptr;
-        qlcdnumber_destroy_callback = nullptr;
-        qlcdnumber_focusnextchild_callback = nullptr;
-        qlcdnumber_focuspreviouschild_callback = nullptr;
-        qlcdnumber_sender_callback = nullptr;
-        qlcdnumber_sendersignalindex_callback = nullptr;
-        qlcdnumber_receivers_callback = nullptr;
-        qlcdnumber_issignalconnected_callback = nullptr;
-        qlcdnumber_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQLCDNumber_MetaObject_Callback(QLCDNumber_MetaObject_Callback cb) { qlcdnumber_metaobject_callback = cb; }
     inline void setQLCDNumber_Metacast_Callback(QLCDNumber_Metacast_Callback cb) { qlcdnumber_metacast_callback = cb; }
@@ -413,12 +348,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_metaobject_isbase) {
             qlcdnumber_metaobject_isbase = false;
             return QLCDNumber::metaObject();
-        } else if (qlcdnumber_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qlcdnumber_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QLCDNumber::metaObject();
         }
+        auto metaobject_cb = qlcdnumber_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QLCDNumber::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,14 +362,15 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_metacast_isbase) {
             qlcdnumber_metacast_isbase = false;
             return QLCDNumber::qt_metacast(param1);
-        } else if (qlcdnumber_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qlcdnumber_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qlcdnumber_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLCDNumber::qt_metacast(param1);
         }
+        return QLCDNumber::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,16 +378,17 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_metacall_isbase) {
             qlcdnumber_metacall_isbase = false;
             return QLCDNumber::qt_metacall(param1, param2, param3);
-        } else if (qlcdnumber_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qlcdnumber_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qlcdnumber_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLCDNumber::qt_metacall(param1, param2, param3);
         }
+        return QLCDNumber::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,12 +396,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_sizehint_isbase) {
             qlcdnumber_sizehint_isbase = false;
             return QLCDNumber::sizeHint();
-        } else if (qlcdnumber_sizehint_callback != nullptr) {
-            QSize* callback_ret = qlcdnumber_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QLCDNumber::sizeHint();
         }
+        auto sizehint_cb = qlcdnumber_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QLCDNumber::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,14 +410,15 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_event_isbase) {
             qlcdnumber_event_isbase = false;
             return QLCDNumber::event(e);
-        } else if (qlcdnumber_event_callback != nullptr) {
+        }
+        auto event_cb = qlcdnumber_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qlcdnumber_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLCDNumber::event(e);
         }
+        return QLCDNumber::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,13 +426,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_paintevent_isbase) {
             qlcdnumber_paintevent_isbase = false;
             QLCDNumber::paintEvent(param1);
-        } else if (qlcdnumber_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qlcdnumber_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qlcdnumber_paintevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -500,13 +443,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_changeevent_isbase) {
             qlcdnumber_changeevent_isbase = false;
             QLCDNumber::changeEvent(param1);
-        } else if (qlcdnumber_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qlcdnumber_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qlcdnumber_changeevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,13 +460,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_initstyleoption_isbase) {
             qlcdnumber_initstyleoption_isbase = false;
             QLCDNumber::initStyleOption(option);
-        } else if (qlcdnumber_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qlcdnumber_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qlcdnumber_initstyleoption_callback(this, cbval1);
-        } else {
-            QLCDNumber::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,12 +477,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_devtype_isbase) {
             qlcdnumber_devtype_isbase = false;
             return QLCDNumber::devType();
-        } else if (qlcdnumber_devtype_callback != nullptr) {
-            int callback_ret = qlcdnumber_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QLCDNumber::devType();
         }
+        auto devtype_cb = qlcdnumber_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QLCDNumber::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,13 +491,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_setvisible_isbase) {
             qlcdnumber_setvisible_isbase = false;
             QLCDNumber::setVisible(visible);
-        } else if (qlcdnumber_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qlcdnumber_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qlcdnumber_setvisible_callback(this, cbval1);
-        } else {
-            QLCDNumber::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,12 +508,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_minimumsizehint_isbase) {
             qlcdnumber_minimumsizehint_isbase = false;
             return QLCDNumber::minimumSizeHint();
-        } else if (qlcdnumber_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qlcdnumber_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QLCDNumber::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qlcdnumber_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QLCDNumber::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,14 +522,15 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_heightforwidth_isbase) {
             qlcdnumber_heightforwidth_isbase = false;
             return QLCDNumber::heightForWidth(param1);
-        } else if (qlcdnumber_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qlcdnumber_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qlcdnumber_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLCDNumber::heightForWidth(param1);
         }
+        return QLCDNumber::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -583,12 +538,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_hasheightforwidth_isbase) {
             qlcdnumber_hasheightforwidth_isbase = false;
             return QLCDNumber::hasHeightForWidth();
-        } else if (qlcdnumber_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qlcdnumber_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QLCDNumber::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qlcdnumber_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QLCDNumber::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -596,12 +552,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_paintengine_isbase) {
             qlcdnumber_paintengine_isbase = false;
             return QLCDNumber::paintEngine();
-        } else if (qlcdnumber_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qlcdnumber_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QLCDNumber::paintEngine();
         }
+        auto paintengine_cb = qlcdnumber_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QLCDNumber::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,13 +566,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_mousepressevent_isbase) {
             qlcdnumber_mousepressevent_isbase = false;
             QLCDNumber::mousePressEvent(event);
-        } else if (qlcdnumber_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qlcdnumber_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qlcdnumber_mousepressevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -623,13 +583,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_mousereleaseevent_isbase) {
             qlcdnumber_mousereleaseevent_isbase = false;
             QLCDNumber::mouseReleaseEvent(event);
-        } else if (qlcdnumber_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qlcdnumber_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qlcdnumber_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,13 +600,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_mousedoubleclickevent_isbase) {
             qlcdnumber_mousedoubleclickevent_isbase = false;
             QLCDNumber::mouseDoubleClickEvent(event);
-        } else if (qlcdnumber_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qlcdnumber_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qlcdnumber_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,13 +617,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_mousemoveevent_isbase) {
             qlcdnumber_mousemoveevent_isbase = false;
             QLCDNumber::mouseMoveEvent(event);
-        } else if (qlcdnumber_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qlcdnumber_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qlcdnumber_mousemoveevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,13 +634,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_wheelevent_isbase) {
             qlcdnumber_wheelevent_isbase = false;
             QLCDNumber::wheelEvent(event);
-        } else if (qlcdnumber_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qlcdnumber_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qlcdnumber_wheelevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -679,13 +651,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_keypressevent_isbase) {
             qlcdnumber_keypressevent_isbase = false;
             QLCDNumber::keyPressEvent(event);
-        } else if (qlcdnumber_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qlcdnumber_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qlcdnumber_keypressevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,13 +668,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_keyreleaseevent_isbase) {
             qlcdnumber_keyreleaseevent_isbase = false;
             QLCDNumber::keyReleaseEvent(event);
-        } else if (qlcdnumber_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qlcdnumber_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qlcdnumber_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -707,13 +685,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_focusinevent_isbase) {
             qlcdnumber_focusinevent_isbase = false;
             QLCDNumber::focusInEvent(event);
-        } else if (qlcdnumber_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qlcdnumber_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qlcdnumber_focusinevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,13 +702,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_focusoutevent_isbase) {
             qlcdnumber_focusoutevent_isbase = false;
             QLCDNumber::focusOutEvent(event);
-        } else if (qlcdnumber_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qlcdnumber_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qlcdnumber_focusoutevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,13 +719,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_enterevent_isbase) {
             qlcdnumber_enterevent_isbase = false;
             QLCDNumber::enterEvent(event);
-        } else if (qlcdnumber_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qlcdnumber_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qlcdnumber_enterevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,13 +736,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_leaveevent_isbase) {
             qlcdnumber_leaveevent_isbase = false;
             QLCDNumber::leaveEvent(event);
-        } else if (qlcdnumber_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qlcdnumber_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qlcdnumber_leaveevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,13 +753,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_moveevent_isbase) {
             qlcdnumber_moveevent_isbase = false;
             QLCDNumber::moveEvent(event);
-        } else if (qlcdnumber_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qlcdnumber_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qlcdnumber_moveevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -777,13 +770,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_resizeevent_isbase) {
             qlcdnumber_resizeevent_isbase = false;
             QLCDNumber::resizeEvent(event);
-        } else if (qlcdnumber_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qlcdnumber_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qlcdnumber_resizeevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,13 +787,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_closeevent_isbase) {
             qlcdnumber_closeevent_isbase = false;
             QLCDNumber::closeEvent(event);
-        } else if (qlcdnumber_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qlcdnumber_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qlcdnumber_closeevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -805,13 +804,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_contextmenuevent_isbase) {
             qlcdnumber_contextmenuevent_isbase = false;
             QLCDNumber::contextMenuEvent(event);
-        } else if (qlcdnumber_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qlcdnumber_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qlcdnumber_contextmenuevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,13 +821,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_tabletevent_isbase) {
             qlcdnumber_tabletevent_isbase = false;
             QLCDNumber::tabletEvent(event);
-        } else if (qlcdnumber_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qlcdnumber_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qlcdnumber_tabletevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -833,13 +838,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_actionevent_isbase) {
             qlcdnumber_actionevent_isbase = false;
             QLCDNumber::actionEvent(event);
-        } else if (qlcdnumber_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qlcdnumber_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qlcdnumber_actionevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -847,13 +855,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_dragenterevent_isbase) {
             qlcdnumber_dragenterevent_isbase = false;
             QLCDNumber::dragEnterEvent(event);
-        } else if (qlcdnumber_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qlcdnumber_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qlcdnumber_dragenterevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,13 +872,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_dragmoveevent_isbase) {
             qlcdnumber_dragmoveevent_isbase = false;
             QLCDNumber::dragMoveEvent(event);
-        } else if (qlcdnumber_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qlcdnumber_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qlcdnumber_dragmoveevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -875,13 +889,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_dragleaveevent_isbase) {
             qlcdnumber_dragleaveevent_isbase = false;
             QLCDNumber::dragLeaveEvent(event);
-        } else if (qlcdnumber_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qlcdnumber_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qlcdnumber_dragleaveevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -889,13 +906,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_dropevent_isbase) {
             qlcdnumber_dropevent_isbase = false;
             QLCDNumber::dropEvent(event);
-        } else if (qlcdnumber_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qlcdnumber_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qlcdnumber_dropevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -903,13 +923,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_showevent_isbase) {
             qlcdnumber_showevent_isbase = false;
             QLCDNumber::showEvent(event);
-        } else if (qlcdnumber_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qlcdnumber_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qlcdnumber_showevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -917,13 +940,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_hideevent_isbase) {
             qlcdnumber_hideevent_isbase = false;
             QLCDNumber::hideEvent(event);
-        } else if (qlcdnumber_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qlcdnumber_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qlcdnumber_hideevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -931,7 +957,9 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_nativeevent_isbase) {
             qlcdnumber_nativeevent_isbase = false;
             return QLCDNumber::nativeEvent(eventType, message, result);
-        } else if (qlcdnumber_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qlcdnumber_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -942,12 +970,11 @@ class VirtualQLCDNumber final : public QLCDNumber {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qlcdnumber_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QLCDNumber::nativeEvent(eventType, message, result);
         }
+        return QLCDNumber::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,14 +982,15 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_metric_isbase) {
             qlcdnumber_metric_isbase = false;
             return QLCDNumber::metric(param1);
-        } else if (qlcdnumber_metric_callback != nullptr) {
+        }
+        auto metric_cb = qlcdnumber_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qlcdnumber_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLCDNumber::metric(param1);
         }
+        return QLCDNumber::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -970,13 +998,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_initpainter_isbase) {
             qlcdnumber_initpainter_isbase = false;
             QLCDNumber::initPainter(painter);
-        } else if (qlcdnumber_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qlcdnumber_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qlcdnumber_initpainter_callback(this, cbval1);
-        } else {
-            QLCDNumber::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,14 +1015,15 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_redirected_isbase) {
             qlcdnumber_redirected_isbase = false;
             return QLCDNumber::redirected(offset);
-        } else if (qlcdnumber_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qlcdnumber_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qlcdnumber_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLCDNumber::redirected(offset);
         }
+        return QLCDNumber::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -999,12 +1031,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_sharedpainter_isbase) {
             qlcdnumber_sharedpainter_isbase = false;
             return QLCDNumber::sharedPainter();
-        } else if (qlcdnumber_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qlcdnumber_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QLCDNumber::sharedPainter();
         }
+        auto sharedpainter_cb = qlcdnumber_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QLCDNumber::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1012,13 +1045,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_inputmethodevent_isbase) {
             qlcdnumber_inputmethodevent_isbase = false;
             QLCDNumber::inputMethodEvent(param1);
-        } else if (qlcdnumber_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qlcdnumber_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qlcdnumber_inputmethodevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1026,14 +1062,15 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_inputmethodquery_isbase) {
             qlcdnumber_inputmethodquery_isbase = false;
             return QLCDNumber::inputMethodQuery(param1);
-        } else if (qlcdnumber_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qlcdnumber_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qlcdnumber_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QLCDNumber::inputMethodQuery(param1);
         }
+        return QLCDNumber::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1041,14 +1078,15 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_focusnextprevchild_isbase) {
             qlcdnumber_focusnextprevchild_isbase = false;
             return QLCDNumber::focusNextPrevChild(next);
-        } else if (qlcdnumber_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qlcdnumber_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qlcdnumber_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLCDNumber::focusNextPrevChild(next);
         }
+        return QLCDNumber::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,15 +1094,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_eventfilter_isbase) {
             qlcdnumber_eventfilter_isbase = false;
             return QLCDNumber::eventFilter(watched, event);
-        } else if (qlcdnumber_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qlcdnumber_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qlcdnumber_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QLCDNumber::eventFilter(watched, event);
         }
+        return QLCDNumber::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,13 +1111,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_timerevent_isbase) {
             qlcdnumber_timerevent_isbase = false;
             QLCDNumber::timerEvent(event);
-        } else if (qlcdnumber_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qlcdnumber_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qlcdnumber_timerevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,13 +1128,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_childevent_isbase) {
             qlcdnumber_childevent_isbase = false;
             QLCDNumber::childEvent(event);
-        } else if (qlcdnumber_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qlcdnumber_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qlcdnumber_childevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1100,13 +1145,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_customevent_isbase) {
             qlcdnumber_customevent_isbase = false;
             QLCDNumber::customEvent(event);
-        } else if (qlcdnumber_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qlcdnumber_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qlcdnumber_customevent_callback(this, cbval1);
-        } else {
-            QLCDNumber::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1114,15 +1162,18 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_connectnotify_isbase) {
             qlcdnumber_connectnotify_isbase = false;
             QLCDNumber::connectNotify(signal);
-        } else if (qlcdnumber_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qlcdnumber_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlcdnumber_connectnotify_callback(this, cbval1);
-        } else {
-            QLCDNumber::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,15 +1181,18 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_disconnectnotify_isbase) {
             qlcdnumber_disconnectnotify_isbase = false;
             QLCDNumber::disconnectNotify(signal);
-        } else if (qlcdnumber_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qlcdnumber_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlcdnumber_disconnectnotify_callback(this, cbval1);
-        } else {
-            QLCDNumber::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1146,13 +1200,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_drawframe_isbase) {
             qlcdnumber_drawframe_isbase = false;
             QLCDNumber::drawFrame(param1);
-        } else if (qlcdnumber_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qlcdnumber_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qlcdnumber_drawframe_callback(this, cbval1);
-        } else {
-            QLCDNumber::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QLCDNumber::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1160,11 +1217,14 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_updatemicrofocus_isbase) {
             qlcdnumber_updatemicrofocus_isbase = false;
             QLCDNumber::updateMicroFocus();
-        } else if (qlcdnumber_updatemicrofocus_callback != nullptr) {
-            qlcdnumber_updatemicrofocus_callback();
-        } else {
-            QLCDNumber::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qlcdnumber_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QLCDNumber::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,11 +1232,14 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_create_isbase) {
             qlcdnumber_create_isbase = false;
             QLCDNumber::create();
-        } else if (qlcdnumber_create_callback != nullptr) {
-            qlcdnumber_create_callback();
-        } else {
-            QLCDNumber::create();
+            return;
         }
+        auto create_cb = qlcdnumber_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QLCDNumber::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,11 +1247,14 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_destroy_isbase) {
             qlcdnumber_destroy_isbase = false;
             QLCDNumber::destroy();
-        } else if (qlcdnumber_destroy_callback != nullptr) {
-            qlcdnumber_destroy_callback();
-        } else {
-            QLCDNumber::destroy();
+            return;
         }
+        auto destroy_cb = qlcdnumber_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QLCDNumber::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1196,12 +1262,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_focusnextchild_isbase) {
             qlcdnumber_focusnextchild_isbase = false;
             return QLCDNumber::focusNextChild();
-        } else if (qlcdnumber_focusnextchild_callback != nullptr) {
-            bool callback_ret = qlcdnumber_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QLCDNumber::focusNextChild();
         }
+        auto focusnextchild_cb = qlcdnumber_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QLCDNumber::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1209,12 +1276,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_focuspreviouschild_isbase) {
             qlcdnumber_focuspreviouschild_isbase = false;
             return QLCDNumber::focusPreviousChild();
-        } else if (qlcdnumber_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qlcdnumber_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QLCDNumber::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qlcdnumber_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QLCDNumber::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,12 +1290,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_sender_isbase) {
             qlcdnumber_sender_isbase = false;
             return QLCDNumber::sender();
-        } else if (qlcdnumber_sender_callback != nullptr) {
-            QObject* callback_ret = qlcdnumber_sender_callback();
-            return callback_ret;
-        } else {
-            return QLCDNumber::sender();
         }
+        auto sender_cb = qlcdnumber_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QLCDNumber::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,12 +1304,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_sendersignalindex_isbase) {
             qlcdnumber_sendersignalindex_isbase = false;
             return QLCDNumber::senderSignalIndex();
-        } else if (qlcdnumber_sendersignalindex_callback != nullptr) {
-            int callback_ret = qlcdnumber_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QLCDNumber::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qlcdnumber_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QLCDNumber::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1248,14 +1318,15 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_receivers_isbase) {
             qlcdnumber_receivers_isbase = false;
             return QLCDNumber::receivers(signal);
-        } else if (qlcdnumber_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qlcdnumber_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qlcdnumber_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLCDNumber::receivers(signal);
         }
+        return QLCDNumber::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1263,16 +1334,17 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_issignalconnected_isbase) {
             qlcdnumber_issignalconnected_isbase = false;
             return QLCDNumber::isSignalConnected(signal);
-        } else if (qlcdnumber_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qlcdnumber_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qlcdnumber_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLCDNumber::isSignalConnected(signal);
         }
+        return QLCDNumber::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1280,15 +1352,16 @@ class VirtualQLCDNumber final : public QLCDNumber {
         if (qlcdnumber_getdecodedmetricf_isbase) {
             qlcdnumber_getdecodedmetricf_isbase = false;
             return QLCDNumber::getDecodedMetricF(metricA, metricB);
-        } else if (qlcdnumber_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qlcdnumber_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qlcdnumber_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QLCDNumber::getDecodedMetricF(metricA, metricB);
         }
+        return QLCDNumber::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

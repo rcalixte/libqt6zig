@@ -69,23 +69,6 @@ class VirtualQThreadPool final : public QThreadPool {
     VirtualQThreadPool() : QThreadPool() {};
     VirtualQThreadPool(QObject* parent) : QThreadPool(parent) {};
 
-    ~VirtualQThreadPool() {
-        qthreadpool_metaobject_callback = nullptr;
-        qthreadpool_metacast_callback = nullptr;
-        qthreadpool_metacall_callback = nullptr;
-        qthreadpool_event_callback = nullptr;
-        qthreadpool_eventfilter_callback = nullptr;
-        qthreadpool_timerevent_callback = nullptr;
-        qthreadpool_childevent_callback = nullptr;
-        qthreadpool_customevent_callback = nullptr;
-        qthreadpool_connectnotify_callback = nullptr;
-        qthreadpool_disconnectnotify_callback = nullptr;
-        qthreadpool_sender_callback = nullptr;
-        qthreadpool_sendersignalindex_callback = nullptr;
-        qthreadpool_receivers_callback = nullptr;
-        qthreadpool_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQThreadPool_MetaObject_Callback(QThreadPool_MetaObject_Callback cb) { qthreadpool_metaobject_callback = cb; }
     inline void setQThreadPool_Metacast_Callback(QThreadPool_Metacast_Callback cb) { qthreadpool_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_metaobject_isbase) {
             qthreadpool_metaobject_isbase = false;
             return QThreadPool::metaObject();
-        } else if (qthreadpool_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qthreadpool_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QThreadPool::metaObject();
         }
+        auto metaobject_cb = qthreadpool_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QThreadPool::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_metacast_isbase) {
             qthreadpool_metacast_isbase = false;
             return QThreadPool::qt_metacast(param1);
-        } else if (qthreadpool_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qthreadpool_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qthreadpool_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QThreadPool::qt_metacast(param1);
         }
+        return QThreadPool::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_metacall_isbase) {
             qthreadpool_metacall_isbase = false;
             return QThreadPool::qt_metacall(param1, param2, param3);
-        } else if (qthreadpool_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qthreadpool_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qthreadpool_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QThreadPool::qt_metacall(param1, param2, param3);
         }
+        return QThreadPool::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_event_isbase) {
             qthreadpool_event_isbase = false;
             return QThreadPool::event(event);
-        } else if (qthreadpool_event_callback != nullptr) {
+        }
+        auto event_cb = qthreadpool_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qthreadpool_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QThreadPool::event(event);
         }
+        return QThreadPool::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_eventfilter_isbase) {
             qthreadpool_eventfilter_isbase = false;
             return QThreadPool::eventFilter(watched, event);
-        } else if (qthreadpool_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qthreadpool_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qthreadpool_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QThreadPool::eventFilter(watched, event);
         }
+        return QThreadPool::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_timerevent_isbase) {
             qthreadpool_timerevent_isbase = false;
             QThreadPool::timerEvent(event);
-        } else if (qthreadpool_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qthreadpool_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qthreadpool_timerevent_callback(this, cbval1);
-        } else {
-            QThreadPool::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QThreadPool::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_childevent_isbase) {
             qthreadpool_childevent_isbase = false;
             QThreadPool::childEvent(event);
-        } else if (qthreadpool_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qthreadpool_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qthreadpool_childevent_callback(this, cbval1);
-        } else {
-            QThreadPool::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QThreadPool::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_customevent_isbase) {
             qthreadpool_customevent_isbase = false;
             QThreadPool::customEvent(event);
-        } else if (qthreadpool_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qthreadpool_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qthreadpool_customevent_callback(this, cbval1);
-        } else {
-            QThreadPool::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QThreadPool::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_connectnotify_isbase) {
             qthreadpool_connectnotify_isbase = false;
             QThreadPool::connectNotify(signal);
-        } else if (qthreadpool_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qthreadpool_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qthreadpool_connectnotify_callback(this, cbval1);
-        } else {
-            QThreadPool::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QThreadPool::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_disconnectnotify_isbase) {
             qthreadpool_disconnectnotify_isbase = false;
             QThreadPool::disconnectNotify(signal);
-        } else if (qthreadpool_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qthreadpool_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qthreadpool_disconnectnotify_callback(this, cbval1);
-        } else {
-            QThreadPool::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QThreadPool::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_sender_isbase) {
             qthreadpool_sender_isbase = false;
             return QThreadPool::sender();
-        } else if (qthreadpool_sender_callback != nullptr) {
-            QObject* callback_ret = qthreadpool_sender_callback();
-            return callback_ret;
-        } else {
-            return QThreadPool::sender();
         }
+        auto sender_cb = qthreadpool_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QThreadPool::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_sendersignalindex_isbase) {
             qthreadpool_sendersignalindex_isbase = false;
             return QThreadPool::senderSignalIndex();
-        } else if (qthreadpool_sendersignalindex_callback != nullptr) {
-            int callback_ret = qthreadpool_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QThreadPool::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qthreadpool_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QThreadPool::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_receivers_isbase) {
             qthreadpool_receivers_isbase = false;
             return QThreadPool::receivers(signal);
-        } else if (qthreadpool_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qthreadpool_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qthreadpool_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QThreadPool::receivers(signal);
         }
+        return QThreadPool::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQThreadPool final : public QThreadPool {
         if (qthreadpool_issignalconnected_isbase) {
             qthreadpool_issignalconnected_isbase = false;
             return QThreadPool::isSignalConnected(signal);
-        } else if (qthreadpool_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qthreadpool_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qthreadpool_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QThreadPool::isSignalConnected(signal);
         }
+        return QThreadPool::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -72,24 +72,6 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
     VirtualQSqlDriverPlugin() : QSqlDriverPlugin() {};
     VirtualQSqlDriverPlugin(QObject* parent) : QSqlDriverPlugin(parent) {};
 
-    ~VirtualQSqlDriverPlugin() {
-        qsqldriverplugin_metaobject_callback = nullptr;
-        qsqldriverplugin_metacast_callback = nullptr;
-        qsqldriverplugin_metacall_callback = nullptr;
-        qsqldriverplugin_create_callback = nullptr;
-        qsqldriverplugin_event_callback = nullptr;
-        qsqldriverplugin_eventfilter_callback = nullptr;
-        qsqldriverplugin_timerevent_callback = nullptr;
-        qsqldriverplugin_childevent_callback = nullptr;
-        qsqldriverplugin_customevent_callback = nullptr;
-        qsqldriverplugin_connectnotify_callback = nullptr;
-        qsqldriverplugin_disconnectnotify_callback = nullptr;
-        qsqldriverplugin_sender_callback = nullptr;
-        qsqldriverplugin_sendersignalindex_callback = nullptr;
-        qsqldriverplugin_receivers_callback = nullptr;
-        qsqldriverplugin_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSqlDriverPlugin_MetaObject_Callback(QSqlDriverPlugin_MetaObject_Callback cb) { qsqldriverplugin_metaobject_callback = cb; }
     inline void setQSqlDriverPlugin_Metacast_Callback(QSqlDriverPlugin_Metacast_Callback cb) { qsqldriverplugin_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_metaobject_isbase) {
             qsqldriverplugin_metaobject_isbase = false;
             return QSqlDriverPlugin::metaObject();
-        } else if (qsqldriverplugin_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsqldriverplugin_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSqlDriverPlugin::metaObject();
         }
+        auto metaobject_cb = qsqldriverplugin_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSqlDriverPlugin::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_metacast_isbase) {
             qsqldriverplugin_metacast_isbase = false;
             return QSqlDriverPlugin::qt_metacast(param1);
-        } else if (qsqldriverplugin_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsqldriverplugin_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsqldriverplugin_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlDriverPlugin::qt_metacast(param1);
         }
+        return QSqlDriverPlugin::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,21 +141,23 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_metacall_isbase) {
             qsqldriverplugin_metacall_isbase = false;
             return QSqlDriverPlugin::qt_metacall(param1, param2, param3);
-        } else if (qsqldriverplugin_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsqldriverplugin_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsqldriverplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSqlDriverPlugin::qt_metacall(param1, param2, param3);
         }
+        return QSqlDriverPlugin::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSqlDriver* create(const QString& key) override {
-        if (qsqldriverplugin_create_callback != nullptr) {
+        auto create_cb = qsqldriverplugin_create_callback;
+        if (create_cb) {
             const QString key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -181,12 +167,11 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval1 = key_str;
 
-            QSqlDriver* callback_ret = qsqldriverplugin_create_callback(this, cbval1);
+            QSqlDriver* callback_ret = create_cb(this, cbval1);
             libqt_free(key_str);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,14 +179,15 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_event_isbase) {
             qsqldriverplugin_event_isbase = false;
             return QSqlDriverPlugin::event(event);
-        } else if (qsqldriverplugin_event_callback != nullptr) {
+        }
+        auto event_cb = qsqldriverplugin_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsqldriverplugin_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlDriverPlugin::event(event);
         }
+        return QSqlDriverPlugin::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -209,15 +195,16 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_eventfilter_isbase) {
             qsqldriverplugin_eventfilter_isbase = false;
             return QSqlDriverPlugin::eventFilter(watched, event);
-        } else if (qsqldriverplugin_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsqldriverplugin_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsqldriverplugin_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSqlDriverPlugin::eventFilter(watched, event);
         }
+        return QSqlDriverPlugin::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -225,13 +212,16 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_timerevent_isbase) {
             qsqldriverplugin_timerevent_isbase = false;
             QSqlDriverPlugin::timerEvent(event);
-        } else if (qsqldriverplugin_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsqldriverplugin_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsqldriverplugin_timerevent_callback(this, cbval1);
-        } else {
-            QSqlDriverPlugin::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSqlDriverPlugin::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -239,13 +229,16 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_childevent_isbase) {
             qsqldriverplugin_childevent_isbase = false;
             QSqlDriverPlugin::childEvent(event);
-        } else if (qsqldriverplugin_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsqldriverplugin_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsqldriverplugin_childevent_callback(this, cbval1);
-        } else {
-            QSqlDriverPlugin::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSqlDriverPlugin::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -253,13 +246,16 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_customevent_isbase) {
             qsqldriverplugin_customevent_isbase = false;
             QSqlDriverPlugin::customEvent(event);
-        } else if (qsqldriverplugin_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsqldriverplugin_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsqldriverplugin_customevent_callback(this, cbval1);
-        } else {
-            QSqlDriverPlugin::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSqlDriverPlugin::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -267,15 +263,18 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_connectnotify_isbase) {
             qsqldriverplugin_connectnotify_isbase = false;
             QSqlDriverPlugin::connectNotify(signal);
-        } else if (qsqldriverplugin_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsqldriverplugin_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsqldriverplugin_connectnotify_callback(this, cbval1);
-        } else {
-            QSqlDriverPlugin::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSqlDriverPlugin::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -283,15 +282,18 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_disconnectnotify_isbase) {
             qsqldriverplugin_disconnectnotify_isbase = false;
             QSqlDriverPlugin::disconnectNotify(signal);
-        } else if (qsqldriverplugin_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsqldriverplugin_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsqldriverplugin_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSqlDriverPlugin::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSqlDriverPlugin::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,12 +301,13 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_sender_isbase) {
             qsqldriverplugin_sender_isbase = false;
             return QSqlDriverPlugin::sender();
-        } else if (qsqldriverplugin_sender_callback != nullptr) {
-            QObject* callback_ret = qsqldriverplugin_sender_callback();
-            return callback_ret;
-        } else {
-            return QSqlDriverPlugin::sender();
         }
+        auto sender_cb = qsqldriverplugin_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSqlDriverPlugin::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,12 +315,13 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_sendersignalindex_isbase) {
             qsqldriverplugin_sendersignalindex_isbase = false;
             return QSqlDriverPlugin::senderSignalIndex();
-        } else if (qsqldriverplugin_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsqldriverplugin_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSqlDriverPlugin::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsqldriverplugin_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSqlDriverPlugin::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -325,14 +329,15 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_receivers_isbase) {
             qsqldriverplugin_receivers_isbase = false;
             return QSqlDriverPlugin::receivers(signal);
-        } else if (qsqldriverplugin_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsqldriverplugin_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsqldriverplugin_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSqlDriverPlugin::receivers(signal);
         }
+        return QSqlDriverPlugin::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -340,16 +345,17 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
         if (qsqldriverplugin_issignalconnected_isbase) {
             qsqldriverplugin_issignalconnected_isbase = false;
             return QSqlDriverPlugin::isSignalConnected(signal);
-        } else if (qsqldriverplugin_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsqldriverplugin_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsqldriverplugin_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlDriverPlugin::isSignalConnected(signal);
         }
+        return QSqlDriverPlugin::isSignalConnected(signal);
     }
 
     // Friend functions

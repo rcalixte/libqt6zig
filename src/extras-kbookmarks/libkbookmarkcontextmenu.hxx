@@ -240,80 +240,6 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
     VirtualKBookmarkContextMenu(const KBookmark& bm, KBookmarkManager* manager, KBookmarkOwner* owner) : KBookmarkContextMenu(bm, manager, owner) {};
     VirtualKBookmarkContextMenu(const KBookmark& bm, KBookmarkManager* manager, KBookmarkOwner* owner, QWidget* parent) : KBookmarkContextMenu(bm, manager, owner, parent) {};
 
-    ~VirtualKBookmarkContextMenu() {
-        kbookmarkcontextmenu_metaobject_callback = nullptr;
-        kbookmarkcontextmenu_metacast_callback = nullptr;
-        kbookmarkcontextmenu_metacall_callback = nullptr;
-        kbookmarkcontextmenu_addactions_callback = nullptr;
-        kbookmarkcontextmenu_sizehint_callback = nullptr;
-        kbookmarkcontextmenu_changeevent_callback = nullptr;
-        kbookmarkcontextmenu_keypressevent_callback = nullptr;
-        kbookmarkcontextmenu_mousereleaseevent_callback = nullptr;
-        kbookmarkcontextmenu_mousepressevent_callback = nullptr;
-        kbookmarkcontextmenu_mousemoveevent_callback = nullptr;
-        kbookmarkcontextmenu_wheelevent_callback = nullptr;
-        kbookmarkcontextmenu_enterevent_callback = nullptr;
-        kbookmarkcontextmenu_leaveevent_callback = nullptr;
-        kbookmarkcontextmenu_hideevent_callback = nullptr;
-        kbookmarkcontextmenu_paintevent_callback = nullptr;
-        kbookmarkcontextmenu_actionevent_callback = nullptr;
-        kbookmarkcontextmenu_timerevent_callback = nullptr;
-        kbookmarkcontextmenu_event_callback = nullptr;
-        kbookmarkcontextmenu_focusnextprevchild_callback = nullptr;
-        kbookmarkcontextmenu_initstyleoption_callback = nullptr;
-        kbookmarkcontextmenu_devtype_callback = nullptr;
-        kbookmarkcontextmenu_setvisible_callback = nullptr;
-        kbookmarkcontextmenu_minimumsizehint_callback = nullptr;
-        kbookmarkcontextmenu_heightforwidth_callback = nullptr;
-        kbookmarkcontextmenu_hasheightforwidth_callback = nullptr;
-        kbookmarkcontextmenu_paintengine_callback = nullptr;
-        kbookmarkcontextmenu_mousedoubleclickevent_callback = nullptr;
-        kbookmarkcontextmenu_keyreleaseevent_callback = nullptr;
-        kbookmarkcontextmenu_focusinevent_callback = nullptr;
-        kbookmarkcontextmenu_focusoutevent_callback = nullptr;
-        kbookmarkcontextmenu_moveevent_callback = nullptr;
-        kbookmarkcontextmenu_resizeevent_callback = nullptr;
-        kbookmarkcontextmenu_closeevent_callback = nullptr;
-        kbookmarkcontextmenu_contextmenuevent_callback = nullptr;
-        kbookmarkcontextmenu_tabletevent_callback = nullptr;
-        kbookmarkcontextmenu_dragenterevent_callback = nullptr;
-        kbookmarkcontextmenu_dragmoveevent_callback = nullptr;
-        kbookmarkcontextmenu_dragleaveevent_callback = nullptr;
-        kbookmarkcontextmenu_dropevent_callback = nullptr;
-        kbookmarkcontextmenu_showevent_callback = nullptr;
-        kbookmarkcontextmenu_nativeevent_callback = nullptr;
-        kbookmarkcontextmenu_metric_callback = nullptr;
-        kbookmarkcontextmenu_initpainter_callback = nullptr;
-        kbookmarkcontextmenu_redirected_callback = nullptr;
-        kbookmarkcontextmenu_sharedpainter_callback = nullptr;
-        kbookmarkcontextmenu_inputmethodevent_callback = nullptr;
-        kbookmarkcontextmenu_inputmethodquery_callback = nullptr;
-        kbookmarkcontextmenu_eventfilter_callback = nullptr;
-        kbookmarkcontextmenu_childevent_callback = nullptr;
-        kbookmarkcontextmenu_customevent_callback = nullptr;
-        kbookmarkcontextmenu_connectnotify_callback = nullptr;
-        kbookmarkcontextmenu_disconnectnotify_callback = nullptr;
-        kbookmarkcontextmenu_addbookmark_callback = nullptr;
-        kbookmarkcontextmenu_addfolderactions_callback = nullptr;
-        kbookmarkcontextmenu_addproperties_callback = nullptr;
-        kbookmarkcontextmenu_addbookmarkactions_callback = nullptr;
-        kbookmarkcontextmenu_addopenfolderintabs_callback = nullptr;
-        kbookmarkcontextmenu_manager_callback = nullptr;
-        kbookmarkcontextmenu_owner_callback = nullptr;
-        kbookmarkcontextmenu_bookmark_callback = nullptr;
-        kbookmarkcontextmenu_columncount_callback = nullptr;
-        kbookmarkcontextmenu_updatemicrofocus_callback = nullptr;
-        kbookmarkcontextmenu_create_callback = nullptr;
-        kbookmarkcontextmenu_destroy_callback = nullptr;
-        kbookmarkcontextmenu_focusnextchild_callback = nullptr;
-        kbookmarkcontextmenu_focuspreviouschild_callback = nullptr;
-        kbookmarkcontextmenu_sender_callback = nullptr;
-        kbookmarkcontextmenu_sendersignalindex_callback = nullptr;
-        kbookmarkcontextmenu_receivers_callback = nullptr;
-        kbookmarkcontextmenu_issignalconnected_callback = nullptr;
-        kbookmarkcontextmenu_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKBookmarkContextMenu_MetaObject_Callback(KBookmarkContextMenu_MetaObject_Callback cb) { kbookmarkcontextmenu_metaobject_callback = cb; }
     inline void setKBookmarkContextMenu_Metacast_Callback(KBookmarkContextMenu_Metacast_Callback cb) { kbookmarkcontextmenu_metacast_callback = cb; }
@@ -465,12 +391,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_metaobject_isbase) {
             kbookmarkcontextmenu_metaobject_isbase = false;
             return KBookmarkContextMenu::metaObject();
-        } else if (kbookmarkcontextmenu_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kbookmarkcontextmenu_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkContextMenu::metaObject();
         }
+        auto metaobject_cb = kbookmarkcontextmenu_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KBookmarkContextMenu::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -478,14 +405,15 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_metacast_isbase) {
             kbookmarkcontextmenu_metacast_isbase = false;
             return KBookmarkContextMenu::qt_metacast(param1);
-        } else if (kbookmarkcontextmenu_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kbookmarkcontextmenu_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kbookmarkcontextmenu_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkContextMenu::qt_metacast(param1);
         }
+        return KBookmarkContextMenu::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,16 +421,17 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_metacall_isbase) {
             kbookmarkcontextmenu_metacall_isbase = false;
             return KBookmarkContextMenu::qt_metacall(param1, param2, param3);
-        } else if (kbookmarkcontextmenu_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kbookmarkcontextmenu_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kbookmarkcontextmenu_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkContextMenu::qt_metacall(param1, param2, param3);
         }
+        return KBookmarkContextMenu::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,11 +439,14 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_addactions_isbase) {
             kbookmarkcontextmenu_addactions_isbase = false;
             KBookmarkContextMenu::addActions();
-        } else if (kbookmarkcontextmenu_addactions_callback != nullptr) {
-            kbookmarkcontextmenu_addactions_callback();
-        } else {
-            KBookmarkContextMenu::addActions();
+            return;
         }
+        auto addactions_cb = kbookmarkcontextmenu_addactions_callback;
+        if (addactions_cb) {
+            addactions_cb();
+            return;
+        }
+        KBookmarkContextMenu::addActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,12 +454,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_sizehint_isbase) {
             kbookmarkcontextmenu_sizehint_isbase = false;
             return KBookmarkContextMenu::sizeHint();
-        } else if (kbookmarkcontextmenu_sizehint_callback != nullptr) {
-            QSize* callback_ret = kbookmarkcontextmenu_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KBookmarkContextMenu::sizeHint();
         }
+        auto sizehint_cb = kbookmarkcontextmenu_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KBookmarkContextMenu::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -535,13 +468,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_changeevent_isbase) {
             kbookmarkcontextmenu_changeevent_isbase = false;
             KBookmarkContextMenu::changeEvent(param1);
-        } else if (kbookmarkcontextmenu_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kbookmarkcontextmenu_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_changeevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -549,13 +485,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_keypressevent_isbase) {
             kbookmarkcontextmenu_keypressevent_isbase = false;
             KBookmarkContextMenu::keyPressEvent(param1);
-        } else if (kbookmarkcontextmenu_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kbookmarkcontextmenu_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_keypressevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -563,13 +502,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_mousereleaseevent_isbase) {
             kbookmarkcontextmenu_mousereleaseevent_isbase = false;
             KBookmarkContextMenu::mouseReleaseEvent(param1);
-        } else if (kbookmarkcontextmenu_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kbookmarkcontextmenu_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,13 +519,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_mousepressevent_isbase) {
             kbookmarkcontextmenu_mousepressevent_isbase = false;
             KBookmarkContextMenu::mousePressEvent(param1);
-        } else if (kbookmarkcontextmenu_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kbookmarkcontextmenu_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_mousepressevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -591,13 +536,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_mousemoveevent_isbase) {
             kbookmarkcontextmenu_mousemoveevent_isbase = false;
             KBookmarkContextMenu::mouseMoveEvent(param1);
-        } else if (kbookmarkcontextmenu_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kbookmarkcontextmenu_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_mousemoveevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -605,13 +553,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_wheelevent_isbase) {
             kbookmarkcontextmenu_wheelevent_isbase = false;
             KBookmarkContextMenu::wheelEvent(param1);
-        } else if (kbookmarkcontextmenu_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kbookmarkcontextmenu_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_wheelevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,13 +570,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_enterevent_isbase) {
             kbookmarkcontextmenu_enterevent_isbase = false;
             KBookmarkContextMenu::enterEvent(param1);
-        } else if (kbookmarkcontextmenu_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kbookmarkcontextmenu_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_enterevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::enterEvent(param1);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::enterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,13 +587,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_leaveevent_isbase) {
             kbookmarkcontextmenu_leaveevent_isbase = false;
             KBookmarkContextMenu::leaveEvent(param1);
-        } else if (kbookmarkcontextmenu_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kbookmarkcontextmenu_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_leaveevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::leaveEvent(param1);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::leaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -647,13 +604,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_hideevent_isbase) {
             kbookmarkcontextmenu_hideevent_isbase = false;
             KBookmarkContextMenu::hideEvent(param1);
-        } else if (kbookmarkcontextmenu_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kbookmarkcontextmenu_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_hideevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::hideEvent(param1);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::hideEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -661,13 +621,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_paintevent_isbase) {
             kbookmarkcontextmenu_paintevent_isbase = false;
             KBookmarkContextMenu::paintEvent(param1);
-        } else if (kbookmarkcontextmenu_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kbookmarkcontextmenu_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_paintevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,13 +638,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_actionevent_isbase) {
             kbookmarkcontextmenu_actionevent_isbase = false;
             KBookmarkContextMenu::actionEvent(param1);
-        } else if (kbookmarkcontextmenu_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kbookmarkcontextmenu_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_actionevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::actionEvent(param1);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::actionEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,13 +655,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_timerevent_isbase) {
             kbookmarkcontextmenu_timerevent_isbase = false;
             KBookmarkContextMenu::timerEvent(param1);
-        } else if (kbookmarkcontextmenu_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kbookmarkcontextmenu_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_timerevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,14 +672,15 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_event_isbase) {
             kbookmarkcontextmenu_event_isbase = false;
             return KBookmarkContextMenu::event(param1);
-        } else if (kbookmarkcontextmenu_event_callback != nullptr) {
+        }
+        auto event_cb = kbookmarkcontextmenu_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = kbookmarkcontextmenu_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkContextMenu::event(param1);
         }
+        return KBookmarkContextMenu::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -718,14 +688,15 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_focusnextprevchild_isbase) {
             kbookmarkcontextmenu_focusnextprevchild_isbase = false;
             return KBookmarkContextMenu::focusNextPrevChild(next);
-        } else if (kbookmarkcontextmenu_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kbookmarkcontextmenu_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kbookmarkcontextmenu_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkContextMenu::focusNextPrevChild(next);
         }
+        return KBookmarkContextMenu::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,14 +704,17 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_initstyleoption_isbase) {
             kbookmarkcontextmenu_initstyleoption_isbase = false;
             KBookmarkContextMenu::initStyleOption(option, action);
-        } else if (kbookmarkcontextmenu_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kbookmarkcontextmenu_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionMenuItem* cbval1 = option;
             QAction* cbval2 = (QAction*)action;
 
-            kbookmarkcontextmenu_initstyleoption_callback(this, cbval1, cbval2);
-        } else {
-            KBookmarkContextMenu::initStyleOption(option, action);
+            initstyleoption_cb(this, cbval1, cbval2);
+            return;
         }
+        KBookmarkContextMenu::initStyleOption(option, action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -748,12 +722,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_devtype_isbase) {
             kbookmarkcontextmenu_devtype_isbase = false;
             return KBookmarkContextMenu::devType();
-        } else if (kbookmarkcontextmenu_devtype_callback != nullptr) {
-            int callback_ret = kbookmarkcontextmenu_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkContextMenu::devType();
         }
+        auto devtype_cb = kbookmarkcontextmenu_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBookmarkContextMenu::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,13 +736,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_setvisible_isbase) {
             kbookmarkcontextmenu_setvisible_isbase = false;
             KBookmarkContextMenu::setVisible(visible);
-        } else if (kbookmarkcontextmenu_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kbookmarkcontextmenu_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kbookmarkcontextmenu_setvisible_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,12 +753,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_minimumsizehint_isbase) {
             kbookmarkcontextmenu_minimumsizehint_isbase = false;
             return KBookmarkContextMenu::minimumSizeHint();
-        } else if (kbookmarkcontextmenu_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kbookmarkcontextmenu_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KBookmarkContextMenu::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kbookmarkcontextmenu_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KBookmarkContextMenu::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,14 +767,15 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_heightforwidth_isbase) {
             kbookmarkcontextmenu_heightforwidth_isbase = false;
             return KBookmarkContextMenu::heightForWidth(param1);
-        } else if (kbookmarkcontextmenu_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kbookmarkcontextmenu_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kbookmarkcontextmenu_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkContextMenu::heightForWidth(param1);
         }
+        return KBookmarkContextMenu::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,12 +783,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_hasheightforwidth_isbase) {
             kbookmarkcontextmenu_hasheightforwidth_isbase = false;
             return KBookmarkContextMenu::hasHeightForWidth();
-        } else if (kbookmarkcontextmenu_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kbookmarkcontextmenu_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkContextMenu::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kbookmarkcontextmenu_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KBookmarkContextMenu::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -816,12 +797,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_paintengine_isbase) {
             kbookmarkcontextmenu_paintengine_isbase = false;
             return KBookmarkContextMenu::paintEngine();
-        } else if (kbookmarkcontextmenu_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kbookmarkcontextmenu_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkContextMenu::paintEngine();
         }
+        auto paintengine_cb = kbookmarkcontextmenu_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KBookmarkContextMenu::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +811,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_mousedoubleclickevent_isbase) {
             kbookmarkcontextmenu_mousedoubleclickevent_isbase = false;
             KBookmarkContextMenu::mouseDoubleClickEvent(event);
-        } else if (kbookmarkcontextmenu_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kbookmarkcontextmenu_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +828,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_keyreleaseevent_isbase) {
             kbookmarkcontextmenu_keyreleaseevent_isbase = false;
             KBookmarkContextMenu::keyReleaseEvent(event);
-        } else if (kbookmarkcontextmenu_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kbookmarkcontextmenu_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +845,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_focusinevent_isbase) {
             kbookmarkcontextmenu_focusinevent_isbase = false;
             KBookmarkContextMenu::focusInEvent(event);
-        } else if (kbookmarkcontextmenu_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kbookmarkcontextmenu_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_focusinevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +862,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_focusoutevent_isbase) {
             kbookmarkcontextmenu_focusoutevent_isbase = false;
             KBookmarkContextMenu::focusOutEvent(event);
-        } else if (kbookmarkcontextmenu_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kbookmarkcontextmenu_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_focusoutevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +879,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_moveevent_isbase) {
             kbookmarkcontextmenu_moveevent_isbase = false;
             KBookmarkContextMenu::moveEvent(event);
-        } else if (kbookmarkcontextmenu_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kbookmarkcontextmenu_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_moveevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +896,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_resizeevent_isbase) {
             kbookmarkcontextmenu_resizeevent_isbase = false;
             KBookmarkContextMenu::resizeEvent(event);
-        } else if (kbookmarkcontextmenu_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kbookmarkcontextmenu_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_resizeevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +913,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_closeevent_isbase) {
             kbookmarkcontextmenu_closeevent_isbase = false;
             KBookmarkContextMenu::closeEvent(event);
-        } else if (kbookmarkcontextmenu_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kbookmarkcontextmenu_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_closeevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +930,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_contextmenuevent_isbase) {
             kbookmarkcontextmenu_contextmenuevent_isbase = false;
             KBookmarkContextMenu::contextMenuEvent(event);
-        } else if (kbookmarkcontextmenu_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kbookmarkcontextmenu_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_contextmenuevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +947,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_tabletevent_isbase) {
             kbookmarkcontextmenu_tabletevent_isbase = false;
             KBookmarkContextMenu::tabletEvent(event);
-        } else if (kbookmarkcontextmenu_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kbookmarkcontextmenu_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_tabletevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,13 +964,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_dragenterevent_isbase) {
             kbookmarkcontextmenu_dragenterevent_isbase = false;
             KBookmarkContextMenu::dragEnterEvent(event);
-        } else if (kbookmarkcontextmenu_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kbookmarkcontextmenu_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_dragenterevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,13 +981,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_dragmoveevent_isbase) {
             kbookmarkcontextmenu_dragmoveevent_isbase = false;
             KBookmarkContextMenu::dragMoveEvent(event);
-        } else if (kbookmarkcontextmenu_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kbookmarkcontextmenu_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_dragmoveevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,13 +998,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_dragleaveevent_isbase) {
             kbookmarkcontextmenu_dragleaveevent_isbase = false;
             KBookmarkContextMenu::dragLeaveEvent(event);
-        } else if (kbookmarkcontextmenu_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kbookmarkcontextmenu_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_dragleaveevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,13 +1015,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_dropevent_isbase) {
             kbookmarkcontextmenu_dropevent_isbase = false;
             KBookmarkContextMenu::dropEvent(event);
-        } else if (kbookmarkcontextmenu_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kbookmarkcontextmenu_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_dropevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1011,13 +1032,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_showevent_isbase) {
             kbookmarkcontextmenu_showevent_isbase = false;
             KBookmarkContextMenu::showEvent(event);
-        } else if (kbookmarkcontextmenu_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kbookmarkcontextmenu_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_showevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1025,7 +1049,9 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_nativeevent_isbase) {
             kbookmarkcontextmenu_nativeevent_isbase = false;
             return KBookmarkContextMenu::nativeEvent(eventType, message, result);
-        } else if (kbookmarkcontextmenu_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kbookmarkcontextmenu_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1036,12 +1062,11 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kbookmarkcontextmenu_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KBookmarkContextMenu::nativeEvent(eventType, message, result);
         }
+        return KBookmarkContextMenu::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1049,14 +1074,15 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_metric_isbase) {
             kbookmarkcontextmenu_metric_isbase = false;
             return KBookmarkContextMenu::metric(param1);
-        } else if (kbookmarkcontextmenu_metric_callback != nullptr) {
+        }
+        auto metric_cb = kbookmarkcontextmenu_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kbookmarkcontextmenu_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkContextMenu::metric(param1);
         }
+        return KBookmarkContextMenu::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,13 +1090,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_initpainter_isbase) {
             kbookmarkcontextmenu_initpainter_isbase = false;
             KBookmarkContextMenu::initPainter(painter);
-        } else if (kbookmarkcontextmenu_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kbookmarkcontextmenu_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kbookmarkcontextmenu_initpainter_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1078,14 +1107,15 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_redirected_isbase) {
             kbookmarkcontextmenu_redirected_isbase = false;
             return KBookmarkContextMenu::redirected(offset);
-        } else if (kbookmarkcontextmenu_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kbookmarkcontextmenu_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kbookmarkcontextmenu_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkContextMenu::redirected(offset);
         }
+        return KBookmarkContextMenu::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1093,12 +1123,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_sharedpainter_isbase) {
             kbookmarkcontextmenu_sharedpainter_isbase = false;
             return KBookmarkContextMenu::sharedPainter();
-        } else if (kbookmarkcontextmenu_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kbookmarkcontextmenu_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkContextMenu::sharedPainter();
         }
+        auto sharedpainter_cb = kbookmarkcontextmenu_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KBookmarkContextMenu::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,13 +1137,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_inputmethodevent_isbase) {
             kbookmarkcontextmenu_inputmethodevent_isbase = false;
             KBookmarkContextMenu::inputMethodEvent(param1);
-        } else if (kbookmarkcontextmenu_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kbookmarkcontextmenu_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kbookmarkcontextmenu_inputmethodevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,14 +1154,15 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_inputmethodquery_isbase) {
             kbookmarkcontextmenu_inputmethodquery_isbase = false;
             return KBookmarkContextMenu::inputMethodQuery(param1);
-        } else if (kbookmarkcontextmenu_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kbookmarkcontextmenu_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kbookmarkcontextmenu_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KBookmarkContextMenu::inputMethodQuery(param1);
         }
+        return KBookmarkContextMenu::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1135,15 +1170,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_eventfilter_isbase) {
             kbookmarkcontextmenu_eventfilter_isbase = false;
             return KBookmarkContextMenu::eventFilter(watched, event);
-        } else if (kbookmarkcontextmenu_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kbookmarkcontextmenu_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kbookmarkcontextmenu_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KBookmarkContextMenu::eventFilter(watched, event);
         }
+        return KBookmarkContextMenu::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1151,13 +1187,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_childevent_isbase) {
             kbookmarkcontextmenu_childevent_isbase = false;
             KBookmarkContextMenu::childEvent(event);
-        } else if (kbookmarkcontextmenu_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kbookmarkcontextmenu_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_childevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1165,13 +1204,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_customevent_isbase) {
             kbookmarkcontextmenu_customevent_isbase = false;
             KBookmarkContextMenu::customEvent(event);
-        } else if (kbookmarkcontextmenu_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kbookmarkcontextmenu_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kbookmarkcontextmenu_customevent_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1179,15 +1221,18 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_connectnotify_isbase) {
             kbookmarkcontextmenu_connectnotify_isbase = false;
             KBookmarkContextMenu::connectNotify(signal);
-        } else if (kbookmarkcontextmenu_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kbookmarkcontextmenu_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kbookmarkcontextmenu_connectnotify_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,15 +1240,18 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_disconnectnotify_isbase) {
             kbookmarkcontextmenu_disconnectnotify_isbase = false;
             KBookmarkContextMenu::disconnectNotify(signal);
-        } else if (kbookmarkcontextmenu_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kbookmarkcontextmenu_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kbookmarkcontextmenu_disconnectnotify_callback(this, cbval1);
-        } else {
-            KBookmarkContextMenu::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KBookmarkContextMenu::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1211,11 +1259,14 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_addbookmark_isbase) {
             kbookmarkcontextmenu_addbookmark_isbase = false;
             KBookmarkContextMenu::addBookmark();
-        } else if (kbookmarkcontextmenu_addbookmark_callback != nullptr) {
-            kbookmarkcontextmenu_addbookmark_callback();
-        } else {
-            KBookmarkContextMenu::addBookmark();
+            return;
         }
+        auto addbookmark_cb = kbookmarkcontextmenu_addbookmark_callback;
+        if (addbookmark_cb) {
+            addbookmark_cb();
+            return;
+        }
+        KBookmarkContextMenu::addBookmark();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1223,11 +1274,14 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_addfolderactions_isbase) {
             kbookmarkcontextmenu_addfolderactions_isbase = false;
             KBookmarkContextMenu::addFolderActions();
-        } else if (kbookmarkcontextmenu_addfolderactions_callback != nullptr) {
-            kbookmarkcontextmenu_addfolderactions_callback();
-        } else {
-            KBookmarkContextMenu::addFolderActions();
+            return;
         }
+        auto addfolderactions_cb = kbookmarkcontextmenu_addfolderactions_callback;
+        if (addfolderactions_cb) {
+            addfolderactions_cb();
+            return;
+        }
+        KBookmarkContextMenu::addFolderActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,11 +1289,14 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_addproperties_isbase) {
             kbookmarkcontextmenu_addproperties_isbase = false;
             KBookmarkContextMenu::addProperties();
-        } else if (kbookmarkcontextmenu_addproperties_callback != nullptr) {
-            kbookmarkcontextmenu_addproperties_callback();
-        } else {
-            KBookmarkContextMenu::addProperties();
+            return;
         }
+        auto addproperties_cb = kbookmarkcontextmenu_addproperties_callback;
+        if (addproperties_cb) {
+            addproperties_cb();
+            return;
+        }
+        KBookmarkContextMenu::addProperties();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,11 +1304,14 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_addbookmarkactions_isbase) {
             kbookmarkcontextmenu_addbookmarkactions_isbase = false;
             KBookmarkContextMenu::addBookmarkActions();
-        } else if (kbookmarkcontextmenu_addbookmarkactions_callback != nullptr) {
-            kbookmarkcontextmenu_addbookmarkactions_callback();
-        } else {
-            KBookmarkContextMenu::addBookmarkActions();
+            return;
         }
+        auto addbookmarkactions_cb = kbookmarkcontextmenu_addbookmarkactions_callback;
+        if (addbookmarkactions_cb) {
+            addbookmarkactions_cb();
+            return;
+        }
+        KBookmarkContextMenu::addBookmarkActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,11 +1319,14 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_addopenfolderintabs_isbase) {
             kbookmarkcontextmenu_addopenfolderintabs_isbase = false;
             KBookmarkContextMenu::addOpenFolderInTabs();
-        } else if (kbookmarkcontextmenu_addopenfolderintabs_callback != nullptr) {
-            kbookmarkcontextmenu_addopenfolderintabs_callback();
-        } else {
-            KBookmarkContextMenu::addOpenFolderInTabs();
+            return;
         }
+        auto addopenfolderintabs_cb = kbookmarkcontextmenu_addopenfolderintabs_callback;
+        if (addopenfolderintabs_cb) {
+            addopenfolderintabs_cb();
+            return;
+        }
+        KBookmarkContextMenu::addOpenFolderInTabs();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1271,12 +1334,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_manager_isbase) {
             kbookmarkcontextmenu_manager_isbase = false;
             return KBookmarkContextMenu::manager();
-        } else if (kbookmarkcontextmenu_manager_callback != nullptr) {
-            KBookmarkManager* callback_ret = kbookmarkcontextmenu_manager_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkContextMenu::manager();
         }
+        auto manager_cb = kbookmarkcontextmenu_manager_callback;
+        if (manager_cb) {
+            KBookmarkManager* callback_ret = manager_cb();
+            return callback_ret;
+        }
+        return KBookmarkContextMenu::manager();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,12 +1348,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_owner_isbase) {
             kbookmarkcontextmenu_owner_isbase = false;
             return KBookmarkContextMenu::owner();
-        } else if (kbookmarkcontextmenu_owner_callback != nullptr) {
-            KBookmarkOwner* callback_ret = kbookmarkcontextmenu_owner_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkContextMenu::owner();
         }
+        auto owner_cb = kbookmarkcontextmenu_owner_callback;
+        if (owner_cb) {
+            KBookmarkOwner* callback_ret = owner_cb();
+            return callback_ret;
+        }
+        return KBookmarkContextMenu::owner();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1297,12 +1362,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_bookmark_isbase) {
             kbookmarkcontextmenu_bookmark_isbase = false;
             return KBookmarkContextMenu::bookmark();
-        } else if (kbookmarkcontextmenu_bookmark_callback != nullptr) {
-            KBookmark* callback_ret = kbookmarkcontextmenu_bookmark_callback();
-            return *callback_ret;
-        } else {
-            return KBookmarkContextMenu::bookmark();
         }
+        auto bookmark_cb = kbookmarkcontextmenu_bookmark_callback;
+        if (bookmark_cb) {
+            KBookmark* callback_ret = bookmark_cb();
+            return *callback_ret;
+        }
+        return KBookmarkContextMenu::bookmark();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1310,12 +1376,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_columncount_isbase) {
             kbookmarkcontextmenu_columncount_isbase = false;
             return KBookmarkContextMenu::columnCount();
-        } else if (kbookmarkcontextmenu_columncount_callback != nullptr) {
-            int callback_ret = kbookmarkcontextmenu_columncount_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkContextMenu::columnCount();
         }
+        auto columncount_cb = kbookmarkcontextmenu_columncount_callback;
+        if (columncount_cb) {
+            int callback_ret = columncount_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBookmarkContextMenu::columnCount();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1323,11 +1390,14 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_updatemicrofocus_isbase) {
             kbookmarkcontextmenu_updatemicrofocus_isbase = false;
             KBookmarkContextMenu::updateMicroFocus();
-        } else if (kbookmarkcontextmenu_updatemicrofocus_callback != nullptr) {
-            kbookmarkcontextmenu_updatemicrofocus_callback();
-        } else {
-            KBookmarkContextMenu::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kbookmarkcontextmenu_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KBookmarkContextMenu::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1335,11 +1405,14 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_create_isbase) {
             kbookmarkcontextmenu_create_isbase = false;
             KBookmarkContextMenu::create();
-        } else if (kbookmarkcontextmenu_create_callback != nullptr) {
-            kbookmarkcontextmenu_create_callback();
-        } else {
-            KBookmarkContextMenu::create();
+            return;
         }
+        auto create_cb = kbookmarkcontextmenu_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KBookmarkContextMenu::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1347,11 +1420,14 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_destroy_isbase) {
             kbookmarkcontextmenu_destroy_isbase = false;
             KBookmarkContextMenu::destroy();
-        } else if (kbookmarkcontextmenu_destroy_callback != nullptr) {
-            kbookmarkcontextmenu_destroy_callback();
-        } else {
-            KBookmarkContextMenu::destroy();
+            return;
         }
+        auto destroy_cb = kbookmarkcontextmenu_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KBookmarkContextMenu::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1359,12 +1435,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_focusnextchild_isbase) {
             kbookmarkcontextmenu_focusnextchild_isbase = false;
             return KBookmarkContextMenu::focusNextChild();
-        } else if (kbookmarkcontextmenu_focusnextchild_callback != nullptr) {
-            bool callback_ret = kbookmarkcontextmenu_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkContextMenu::focusNextChild();
         }
+        auto focusnextchild_cb = kbookmarkcontextmenu_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KBookmarkContextMenu::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1372,12 +1449,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_focuspreviouschild_isbase) {
             kbookmarkcontextmenu_focuspreviouschild_isbase = false;
             return KBookmarkContextMenu::focusPreviousChild();
-        } else if (kbookmarkcontextmenu_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kbookmarkcontextmenu_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkContextMenu::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kbookmarkcontextmenu_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KBookmarkContextMenu::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1385,12 +1463,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_sender_isbase) {
             kbookmarkcontextmenu_sender_isbase = false;
             return KBookmarkContextMenu::sender();
-        } else if (kbookmarkcontextmenu_sender_callback != nullptr) {
-            QObject* callback_ret = kbookmarkcontextmenu_sender_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkContextMenu::sender();
         }
+        auto sender_cb = kbookmarkcontextmenu_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KBookmarkContextMenu::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1398,12 +1477,13 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_sendersignalindex_isbase) {
             kbookmarkcontextmenu_sendersignalindex_isbase = false;
             return KBookmarkContextMenu::senderSignalIndex();
-        } else if (kbookmarkcontextmenu_sendersignalindex_callback != nullptr) {
-            int callback_ret = kbookmarkcontextmenu_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkContextMenu::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kbookmarkcontextmenu_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBookmarkContextMenu::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1411,14 +1491,15 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_receivers_isbase) {
             kbookmarkcontextmenu_receivers_isbase = false;
             return KBookmarkContextMenu::receivers(signal);
-        } else if (kbookmarkcontextmenu_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kbookmarkcontextmenu_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kbookmarkcontextmenu_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkContextMenu::receivers(signal);
         }
+        return KBookmarkContextMenu::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1426,16 +1507,17 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_issignalconnected_isbase) {
             kbookmarkcontextmenu_issignalconnected_isbase = false;
             return KBookmarkContextMenu::isSignalConnected(signal);
-        } else if (kbookmarkcontextmenu_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kbookmarkcontextmenu_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kbookmarkcontextmenu_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkContextMenu::isSignalConnected(signal);
         }
+        return KBookmarkContextMenu::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1443,15 +1525,16 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
         if (kbookmarkcontextmenu_getdecodedmetricf_isbase) {
             kbookmarkcontextmenu_getdecodedmetricf_isbase = false;
             return KBookmarkContextMenu::getDecodedMetricF(metricA, metricB);
-        } else if (kbookmarkcontextmenu_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kbookmarkcontextmenu_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kbookmarkcontextmenu_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KBookmarkContextMenu::getDecodedMetricF(metricA, metricB);
         }
+        return KBookmarkContextMenu::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

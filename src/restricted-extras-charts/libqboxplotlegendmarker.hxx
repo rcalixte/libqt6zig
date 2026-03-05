@@ -75,25 +75,6 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
     VirtualQBoxPlotLegendMarker(QBoxPlotSeries* series, QLegend* legend) : QBoxPlotLegendMarker(series, legend) {};
     VirtualQBoxPlotLegendMarker(QBoxPlotSeries* series, QLegend* legend, QObject* parent) : QBoxPlotLegendMarker(series, legend, parent) {};
 
-    ~VirtualQBoxPlotLegendMarker() {
-        qboxplotlegendmarker_metaobject_callback = nullptr;
-        qboxplotlegendmarker_metacast_callback = nullptr;
-        qboxplotlegendmarker_metacall_callback = nullptr;
-        qboxplotlegendmarker_type_callback = nullptr;
-        qboxplotlegendmarker_series_callback = nullptr;
-        qboxplotlegendmarker_event_callback = nullptr;
-        qboxplotlegendmarker_eventfilter_callback = nullptr;
-        qboxplotlegendmarker_timerevent_callback = nullptr;
-        qboxplotlegendmarker_childevent_callback = nullptr;
-        qboxplotlegendmarker_customevent_callback = nullptr;
-        qboxplotlegendmarker_connectnotify_callback = nullptr;
-        qboxplotlegendmarker_disconnectnotify_callback = nullptr;
-        qboxplotlegendmarker_sender_callback = nullptr;
-        qboxplotlegendmarker_sendersignalindex_callback = nullptr;
-        qboxplotlegendmarker_receivers_callback = nullptr;
-        qboxplotlegendmarker_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQBoxPlotLegendMarker_MetaObject_Callback(QBoxPlotLegendMarker_MetaObject_Callback cb) { qboxplotlegendmarker_metaobject_callback = cb; }
     inline void setQBoxPlotLegendMarker_Metacast_Callback(QBoxPlotLegendMarker_Metacast_Callback cb) { qboxplotlegendmarker_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_metaobject_isbase) {
             qboxplotlegendmarker_metaobject_isbase = false;
             return QBoxPlotLegendMarker::metaObject();
-        } else if (qboxplotlegendmarker_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qboxplotlegendmarker_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QBoxPlotLegendMarker::metaObject();
         }
+        auto metaobject_cb = qboxplotlegendmarker_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QBoxPlotLegendMarker::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_metacast_isbase) {
             qboxplotlegendmarker_metacast_isbase = false;
             return QBoxPlotLegendMarker::qt_metacast(param1);
-        } else if (qboxplotlegendmarker_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qboxplotlegendmarker_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qboxplotlegendmarker_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBoxPlotLegendMarker::qt_metacast(param1);
         }
+        return QBoxPlotLegendMarker::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,16 +146,17 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_metacall_isbase) {
             qboxplotlegendmarker_metacall_isbase = false;
             return QBoxPlotLegendMarker::qt_metacall(param1, param2, param3);
-        } else if (qboxplotlegendmarker_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qboxplotlegendmarker_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qboxplotlegendmarker_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QBoxPlotLegendMarker::qt_metacall(param1, param2, param3);
         }
+        return QBoxPlotLegendMarker::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,12 +164,13 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_type_isbase) {
             qboxplotlegendmarker_type_isbase = false;
             return QBoxPlotLegendMarker::type();
-        } else if (qboxplotlegendmarker_type_callback != nullptr) {
-            int callback_ret = qboxplotlegendmarker_type_callback();
-            return static_cast<QLegendMarker::LegendMarkerType>(callback_ret);
-        } else {
-            return QBoxPlotLegendMarker::type();
         }
+        auto type_cb = qboxplotlegendmarker_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QLegendMarker::LegendMarkerType>(callback_ret);
+        }
+        return QBoxPlotLegendMarker::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -193,12 +178,13 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_series_isbase) {
             qboxplotlegendmarker_series_isbase = false;
             return QBoxPlotLegendMarker::series();
-        } else if (qboxplotlegendmarker_series_callback != nullptr) {
-            QBoxPlotSeries* callback_ret = qboxplotlegendmarker_series_callback();
-            return callback_ret;
-        } else {
-            return QBoxPlotLegendMarker::series();
         }
+        auto series_cb = qboxplotlegendmarker_series_callback;
+        if (series_cb) {
+            QBoxPlotSeries* callback_ret = series_cb();
+            return callback_ret;
+        }
+        return QBoxPlotLegendMarker::series();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -206,14 +192,15 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_event_isbase) {
             qboxplotlegendmarker_event_isbase = false;
             return QBoxPlotLegendMarker::event(event);
-        } else if (qboxplotlegendmarker_event_callback != nullptr) {
+        }
+        auto event_cb = qboxplotlegendmarker_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qboxplotlegendmarker_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBoxPlotLegendMarker::event(event);
         }
+        return QBoxPlotLegendMarker::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -221,15 +208,16 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_eventfilter_isbase) {
             qboxplotlegendmarker_eventfilter_isbase = false;
             return QBoxPlotLegendMarker::eventFilter(watched, event);
-        } else if (qboxplotlegendmarker_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qboxplotlegendmarker_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qboxplotlegendmarker_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QBoxPlotLegendMarker::eventFilter(watched, event);
         }
+        return QBoxPlotLegendMarker::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -237,13 +225,16 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_timerevent_isbase) {
             qboxplotlegendmarker_timerevent_isbase = false;
             QBoxPlotLegendMarker::timerEvent(event);
-        } else if (qboxplotlegendmarker_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qboxplotlegendmarker_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qboxplotlegendmarker_timerevent_callback(this, cbval1);
-        } else {
-            QBoxPlotLegendMarker::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QBoxPlotLegendMarker::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -251,13 +242,16 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_childevent_isbase) {
             qboxplotlegendmarker_childevent_isbase = false;
             QBoxPlotLegendMarker::childEvent(event);
-        } else if (qboxplotlegendmarker_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qboxplotlegendmarker_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qboxplotlegendmarker_childevent_callback(this, cbval1);
-        } else {
-            QBoxPlotLegendMarker::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QBoxPlotLegendMarker::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,13 +259,16 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_customevent_isbase) {
             qboxplotlegendmarker_customevent_isbase = false;
             QBoxPlotLegendMarker::customEvent(event);
-        } else if (qboxplotlegendmarker_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qboxplotlegendmarker_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qboxplotlegendmarker_customevent_callback(this, cbval1);
-        } else {
-            QBoxPlotLegendMarker::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QBoxPlotLegendMarker::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,15 +276,18 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_connectnotify_isbase) {
             qboxplotlegendmarker_connectnotify_isbase = false;
             QBoxPlotLegendMarker::connectNotify(signal);
-        } else if (qboxplotlegendmarker_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qboxplotlegendmarker_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qboxplotlegendmarker_connectnotify_callback(this, cbval1);
-        } else {
-            QBoxPlotLegendMarker::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QBoxPlotLegendMarker::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,15 +295,18 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_disconnectnotify_isbase) {
             qboxplotlegendmarker_disconnectnotify_isbase = false;
             QBoxPlotLegendMarker::disconnectNotify(signal);
-        } else if (qboxplotlegendmarker_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qboxplotlegendmarker_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qboxplotlegendmarker_disconnectnotify_callback(this, cbval1);
-        } else {
-            QBoxPlotLegendMarker::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QBoxPlotLegendMarker::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -311,12 +314,13 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_sender_isbase) {
             qboxplotlegendmarker_sender_isbase = false;
             return QBoxPlotLegendMarker::sender();
-        } else if (qboxplotlegendmarker_sender_callback != nullptr) {
-            QObject* callback_ret = qboxplotlegendmarker_sender_callback();
-            return callback_ret;
-        } else {
-            return QBoxPlotLegendMarker::sender();
         }
+        auto sender_cb = qboxplotlegendmarker_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QBoxPlotLegendMarker::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -324,12 +328,13 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_sendersignalindex_isbase) {
             qboxplotlegendmarker_sendersignalindex_isbase = false;
             return QBoxPlotLegendMarker::senderSignalIndex();
-        } else if (qboxplotlegendmarker_sendersignalindex_callback != nullptr) {
-            int callback_ret = qboxplotlegendmarker_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QBoxPlotLegendMarker::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qboxplotlegendmarker_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QBoxPlotLegendMarker::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,14 +342,15 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_receivers_isbase) {
             qboxplotlegendmarker_receivers_isbase = false;
             return QBoxPlotLegendMarker::receivers(signal);
-        } else if (qboxplotlegendmarker_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qboxplotlegendmarker_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qboxplotlegendmarker_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QBoxPlotLegendMarker::receivers(signal);
         }
+        return QBoxPlotLegendMarker::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,16 +358,17 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
         if (qboxplotlegendmarker_issignalconnected_isbase) {
             qboxplotlegendmarker_issignalconnected_isbase = false;
             return QBoxPlotLegendMarker::isSignalConnected(signal);
-        } else if (qboxplotlegendmarker_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qboxplotlegendmarker_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qboxplotlegendmarker_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBoxPlotLegendMarker::isSignalConnected(signal);
         }
+        return QBoxPlotLegendMarker::isSignalConnected(signal);
     }
 
     // Friend functions

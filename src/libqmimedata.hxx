@@ -77,26 +77,6 @@ class VirtualQMimeData final : public QMimeData {
   public:
     VirtualQMimeData() : QMimeData() {};
 
-    ~VirtualQMimeData() {
-        qmimedata_metaobject_callback = nullptr;
-        qmimedata_metacast_callback = nullptr;
-        qmimedata_metacall_callback = nullptr;
-        qmimedata_hasformat_callback = nullptr;
-        qmimedata_formats_callback = nullptr;
-        qmimedata_retrievedata_callback = nullptr;
-        qmimedata_event_callback = nullptr;
-        qmimedata_eventfilter_callback = nullptr;
-        qmimedata_timerevent_callback = nullptr;
-        qmimedata_childevent_callback = nullptr;
-        qmimedata_customevent_callback = nullptr;
-        qmimedata_connectnotify_callback = nullptr;
-        qmimedata_disconnectnotify_callback = nullptr;
-        qmimedata_sender_callback = nullptr;
-        qmimedata_sendersignalindex_callback = nullptr;
-        qmimedata_receivers_callback = nullptr;
-        qmimedata_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMimeData_MetaObject_Callback(QMimeData_MetaObject_Callback cb) { qmimedata_metaobject_callback = cb; }
     inline void setQMimeData_Metacast_Callback(QMimeData_Metacast_Callback cb) { qmimedata_metacast_callback = cb; }
@@ -140,12 +120,13 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_metaobject_isbase) {
             qmimedata_metaobject_isbase = false;
             return QMimeData::metaObject();
-        } else if (qmimedata_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qmimedata_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QMimeData::metaObject();
         }
+        auto metaobject_cb = qmimedata_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QMimeData::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,14 +134,15 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_metacast_isbase) {
             qmimedata_metacast_isbase = false;
             return QMimeData::qt_metacast(param1);
-        } else if (qmimedata_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qmimedata_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qmimedata_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMimeData::qt_metacast(param1);
         }
+        return QMimeData::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,16 +150,17 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_metacall_isbase) {
             qmimedata_metacall_isbase = false;
             return QMimeData::qt_metacall(param1, param2, param3);
-        } else if (qmimedata_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qmimedata_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qmimedata_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMimeData::qt_metacall(param1, param2, param3);
         }
+        return QMimeData::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,7 +168,9 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_hasformat_isbase) {
             qmimedata_hasformat_isbase = false;
             return QMimeData::hasFormat(mimetype);
-        } else if (qmimedata_hasformat_callback != nullptr) {
+        }
+        auto hasformat_cb = qmimedata_hasformat_callback;
+        if (hasformat_cb) {
             const QString mimetype_ret = mimetype;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray mimetype_b = mimetype_ret.toUtf8();
@@ -195,12 +180,11 @@ class VirtualQMimeData final : public QMimeData {
             ((char*)mimetype_str)[mimetype_str_len] = '\0';
             const char* cbval1 = mimetype_str;
 
-            bool callback_ret = qmimedata_hasformat_callback(this, cbval1);
+            bool callback_ret = hasformat_cb(this, cbval1);
             libqt_free(mimetype_str);
             return callback_ret;
-        } else {
-            return QMimeData::hasFormat(mimetype);
         }
+        return QMimeData::hasFormat(mimetype);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -208,8 +192,10 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_formats_isbase) {
             qmimedata_formats_isbase = false;
             return QMimeData::formats();
-        } else if (qmimedata_formats_callback != nullptr) {
-            const char** callback_ret = qmimedata_formats_callback();
+        }
+        auto formats_cb = qmimedata_formats_callback;
+        if (formats_cb) {
+            const char** callback_ret = formats_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -220,9 +206,8 @@ class VirtualQMimeData final : public QMimeData {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QMimeData::formats();
         }
+        return QMimeData::formats();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -230,7 +215,9 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_retrievedata_isbase) {
             qmimedata_retrievedata_isbase = false;
             return QMimeData::retrieveData(mimetype, preferredType);
-        } else if (qmimedata_retrievedata_callback != nullptr) {
+        }
+        auto retrievedata_cb = qmimedata_retrievedata_callback;
+        if (retrievedata_cb) {
             const QString mimetype_ret = mimetype;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray mimetype_b = mimetype_ret.toUtf8();
@@ -241,12 +228,11 @@ class VirtualQMimeData final : public QMimeData {
             const char* cbval1 = mimetype_str;
             QMetaType* cbval2 = new QMetaType(preferredType);
 
-            QVariant* callback_ret = qmimedata_retrievedata_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = retrievedata_cb(this, cbval1, cbval2);
             libqt_free(mimetype_str);
             return *callback_ret;
-        } else {
-            return QMimeData::retrieveData(mimetype, preferredType);
         }
+        return QMimeData::retrieveData(mimetype, preferredType);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -254,14 +240,15 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_event_isbase) {
             qmimedata_event_isbase = false;
             return QMimeData::event(event);
-        } else if (qmimedata_event_callback != nullptr) {
+        }
+        auto event_cb = qmimedata_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qmimedata_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMimeData::event(event);
         }
+        return QMimeData::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -269,15 +256,16 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_eventfilter_isbase) {
             qmimedata_eventfilter_isbase = false;
             return QMimeData::eventFilter(watched, event);
-        } else if (qmimedata_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qmimedata_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qmimedata_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QMimeData::eventFilter(watched, event);
         }
+        return QMimeData::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,13 +273,16 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_timerevent_isbase) {
             qmimedata_timerevent_isbase = false;
             QMimeData::timerEvent(event);
-        } else if (qmimedata_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qmimedata_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qmimedata_timerevent_callback(this, cbval1);
-        } else {
-            QMimeData::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QMimeData::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,13 +290,16 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_childevent_isbase) {
             qmimedata_childevent_isbase = false;
             QMimeData::childEvent(event);
-        } else if (qmimedata_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qmimedata_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qmimedata_childevent_callback(this, cbval1);
-        } else {
-            QMimeData::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QMimeData::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,13 +307,16 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_customevent_isbase) {
             qmimedata_customevent_isbase = false;
             QMimeData::customEvent(event);
-        } else if (qmimedata_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qmimedata_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qmimedata_customevent_callback(this, cbval1);
-        } else {
-            QMimeData::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QMimeData::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -327,15 +324,18 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_connectnotify_isbase) {
             qmimedata_connectnotify_isbase = false;
             QMimeData::connectNotify(signal);
-        } else if (qmimedata_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qmimedata_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmimedata_connectnotify_callback(this, cbval1);
-        } else {
-            QMimeData::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QMimeData::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,15 +343,18 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_disconnectnotify_isbase) {
             qmimedata_disconnectnotify_isbase = false;
             QMimeData::disconnectNotify(signal);
-        } else if (qmimedata_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qmimedata_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmimedata_disconnectnotify_callback(this, cbval1);
-        } else {
-            QMimeData::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QMimeData::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -359,12 +362,13 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_sender_isbase) {
             qmimedata_sender_isbase = false;
             return QMimeData::sender();
-        } else if (qmimedata_sender_callback != nullptr) {
-            QObject* callback_ret = qmimedata_sender_callback();
-            return callback_ret;
-        } else {
-            return QMimeData::sender();
         }
+        auto sender_cb = qmimedata_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QMimeData::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -372,12 +376,13 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_sendersignalindex_isbase) {
             qmimedata_sendersignalindex_isbase = false;
             return QMimeData::senderSignalIndex();
-        } else if (qmimedata_sendersignalindex_callback != nullptr) {
-            int callback_ret = qmimedata_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMimeData::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qmimedata_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMimeData::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -385,14 +390,15 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_receivers_isbase) {
             qmimedata_receivers_isbase = false;
             return QMimeData::receivers(signal);
-        } else if (qmimedata_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qmimedata_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qmimedata_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMimeData::receivers(signal);
         }
+        return QMimeData::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -400,16 +406,17 @@ class VirtualQMimeData final : public QMimeData {
         if (qmimedata_issignalconnected_isbase) {
             qmimedata_issignalconnected_isbase = false;
             return QMimeData::isSignalConnected(signal);
-        } else if (qmimedata_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qmimedata_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qmimedata_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMimeData::isSignalConnected(signal);
         }
+        return QMimeData::isSignalConnected(signal);
     }
 
     // Friend functions

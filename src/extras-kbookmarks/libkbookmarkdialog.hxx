@@ -228,76 +228,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
     VirtualKBookmarkDialog(KBookmarkManager* manager) : KBookmarkDialog(manager) {};
     VirtualKBookmarkDialog(KBookmarkManager* manager, QWidget* parent) : KBookmarkDialog(manager, parent) {};
 
-    ~VirtualKBookmarkDialog() {
-        kbookmarkdialog_metaobject_callback = nullptr;
-        kbookmarkdialog_metacast_callback = nullptr;
-        kbookmarkdialog_metacall_callback = nullptr;
-        kbookmarkdialog_accept_callback = nullptr;
-        kbookmarkdialog_setvisible_callback = nullptr;
-        kbookmarkdialog_sizehint_callback = nullptr;
-        kbookmarkdialog_minimumsizehint_callback = nullptr;
-        kbookmarkdialog_open_callback = nullptr;
-        kbookmarkdialog_exec_callback = nullptr;
-        kbookmarkdialog_done_callback = nullptr;
-        kbookmarkdialog_reject_callback = nullptr;
-        kbookmarkdialog_keypressevent_callback = nullptr;
-        kbookmarkdialog_closeevent_callback = nullptr;
-        kbookmarkdialog_showevent_callback = nullptr;
-        kbookmarkdialog_resizeevent_callback = nullptr;
-        kbookmarkdialog_contextmenuevent_callback = nullptr;
-        kbookmarkdialog_eventfilter_callback = nullptr;
-        kbookmarkdialog_devtype_callback = nullptr;
-        kbookmarkdialog_heightforwidth_callback = nullptr;
-        kbookmarkdialog_hasheightforwidth_callback = nullptr;
-        kbookmarkdialog_paintengine_callback = nullptr;
-        kbookmarkdialog_event_callback = nullptr;
-        kbookmarkdialog_mousepressevent_callback = nullptr;
-        kbookmarkdialog_mousereleaseevent_callback = nullptr;
-        kbookmarkdialog_mousedoubleclickevent_callback = nullptr;
-        kbookmarkdialog_mousemoveevent_callback = nullptr;
-        kbookmarkdialog_wheelevent_callback = nullptr;
-        kbookmarkdialog_keyreleaseevent_callback = nullptr;
-        kbookmarkdialog_focusinevent_callback = nullptr;
-        kbookmarkdialog_focusoutevent_callback = nullptr;
-        kbookmarkdialog_enterevent_callback = nullptr;
-        kbookmarkdialog_leaveevent_callback = nullptr;
-        kbookmarkdialog_paintevent_callback = nullptr;
-        kbookmarkdialog_moveevent_callback = nullptr;
-        kbookmarkdialog_tabletevent_callback = nullptr;
-        kbookmarkdialog_actionevent_callback = nullptr;
-        kbookmarkdialog_dragenterevent_callback = nullptr;
-        kbookmarkdialog_dragmoveevent_callback = nullptr;
-        kbookmarkdialog_dragleaveevent_callback = nullptr;
-        kbookmarkdialog_dropevent_callback = nullptr;
-        kbookmarkdialog_hideevent_callback = nullptr;
-        kbookmarkdialog_nativeevent_callback = nullptr;
-        kbookmarkdialog_changeevent_callback = nullptr;
-        kbookmarkdialog_metric_callback = nullptr;
-        kbookmarkdialog_initpainter_callback = nullptr;
-        kbookmarkdialog_redirected_callback = nullptr;
-        kbookmarkdialog_sharedpainter_callback = nullptr;
-        kbookmarkdialog_inputmethodevent_callback = nullptr;
-        kbookmarkdialog_inputmethodquery_callback = nullptr;
-        kbookmarkdialog_focusnextprevchild_callback = nullptr;
-        kbookmarkdialog_timerevent_callback = nullptr;
-        kbookmarkdialog_childevent_callback = nullptr;
-        kbookmarkdialog_customevent_callback = nullptr;
-        kbookmarkdialog_connectnotify_callback = nullptr;
-        kbookmarkdialog_disconnectnotify_callback = nullptr;
-        kbookmarkdialog_newfolderbutton_callback = nullptr;
-        kbookmarkdialog_adjustposition_callback = nullptr;
-        kbookmarkdialog_updatemicrofocus_callback = nullptr;
-        kbookmarkdialog_create_callback = nullptr;
-        kbookmarkdialog_destroy_callback = nullptr;
-        kbookmarkdialog_focusnextchild_callback = nullptr;
-        kbookmarkdialog_focuspreviouschild_callback = nullptr;
-        kbookmarkdialog_sender_callback = nullptr;
-        kbookmarkdialog_sendersignalindex_callback = nullptr;
-        kbookmarkdialog_receivers_callback = nullptr;
-        kbookmarkdialog_issignalconnected_callback = nullptr;
-        kbookmarkdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKBookmarkDialog_MetaObject_Callback(KBookmarkDialog_MetaObject_Callback cb) { kbookmarkdialog_metaobject_callback = cb; }
     inline void setKBookmarkDialog_Metacast_Callback(KBookmarkDialog_Metacast_Callback cb) { kbookmarkdialog_metacast_callback = cb; }
@@ -441,12 +371,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_metaobject_isbase) {
             kbookmarkdialog_metaobject_isbase = false;
             return KBookmarkDialog::metaObject();
-        } else if (kbookmarkdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kbookmarkdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkDialog::metaObject();
         }
+        auto metaobject_cb = kbookmarkdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KBookmarkDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,14 +385,15 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_metacast_isbase) {
             kbookmarkdialog_metacast_isbase = false;
             return KBookmarkDialog::qt_metacast(param1);
-        } else if (kbookmarkdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kbookmarkdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kbookmarkdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkDialog::qt_metacast(param1);
         }
+        return KBookmarkDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,16 +401,17 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_metacall_isbase) {
             kbookmarkdialog_metacall_isbase = false;
             return KBookmarkDialog::qt_metacall(param1, param2, param3);
-        } else if (kbookmarkdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kbookmarkdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kbookmarkdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkDialog::qt_metacall(param1, param2, param3);
         }
+        return KBookmarkDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,11 +419,14 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_accept_isbase) {
             kbookmarkdialog_accept_isbase = false;
             KBookmarkDialog::accept();
-        } else if (kbookmarkdialog_accept_callback != nullptr) {
-            kbookmarkdialog_accept_callback();
-        } else {
-            KBookmarkDialog::accept();
+            return;
         }
+        auto accept_cb = kbookmarkdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KBookmarkDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,13 +434,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_setvisible_isbase) {
             kbookmarkdialog_setvisible_isbase = false;
             KBookmarkDialog::setVisible(visible);
-        } else if (kbookmarkdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kbookmarkdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kbookmarkdialog_setvisible_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,12 +451,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_sizehint_isbase) {
             kbookmarkdialog_sizehint_isbase = false;
             return KBookmarkDialog::sizeHint();
-        } else if (kbookmarkdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kbookmarkdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KBookmarkDialog::sizeHint();
         }
+        auto sizehint_cb = kbookmarkdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KBookmarkDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,12 +465,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_minimumsizehint_isbase) {
             kbookmarkdialog_minimumsizehint_isbase = false;
             return KBookmarkDialog::minimumSizeHint();
-        } else if (kbookmarkdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kbookmarkdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KBookmarkDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kbookmarkdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KBookmarkDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,11 +479,14 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_open_isbase) {
             kbookmarkdialog_open_isbase = false;
             KBookmarkDialog::open();
-        } else if (kbookmarkdialog_open_callback != nullptr) {
-            kbookmarkdialog_open_callback();
-        } else {
-            KBookmarkDialog::open();
+            return;
         }
+        auto open_cb = kbookmarkdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KBookmarkDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,12 +494,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_exec_isbase) {
             kbookmarkdialog_exec_isbase = false;
             return KBookmarkDialog::exec();
-        } else if (kbookmarkdialog_exec_callback != nullptr) {
-            int callback_ret = kbookmarkdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkDialog::exec();
         }
+        auto exec_cb = kbookmarkdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBookmarkDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -563,13 +508,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_done_isbase) {
             kbookmarkdialog_done_isbase = false;
             KBookmarkDialog::done(param1);
-        } else if (kbookmarkdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kbookmarkdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kbookmarkdialog_done_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,11 +525,14 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_reject_isbase) {
             kbookmarkdialog_reject_isbase = false;
             KBookmarkDialog::reject();
-        } else if (kbookmarkdialog_reject_callback != nullptr) {
-            kbookmarkdialog_reject_callback();
-        } else {
-            KBookmarkDialog::reject();
+            return;
         }
+        auto reject_cb = kbookmarkdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KBookmarkDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -589,13 +540,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_keypressevent_isbase) {
             kbookmarkdialog_keypressevent_isbase = false;
             KBookmarkDialog::keyPressEvent(param1);
-        } else if (kbookmarkdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kbookmarkdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kbookmarkdialog_keypressevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -603,13 +557,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_closeevent_isbase) {
             kbookmarkdialog_closeevent_isbase = false;
             KBookmarkDialog::closeEvent(param1);
-        } else if (kbookmarkdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kbookmarkdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kbookmarkdialog_closeevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,13 +574,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_showevent_isbase) {
             kbookmarkdialog_showevent_isbase = false;
             KBookmarkDialog::showEvent(param1);
-        } else if (kbookmarkdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kbookmarkdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            kbookmarkdialog_showevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,13 +591,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_resizeevent_isbase) {
             kbookmarkdialog_resizeevent_isbase = false;
             KBookmarkDialog::resizeEvent(param1);
-        } else if (kbookmarkdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kbookmarkdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kbookmarkdialog_resizeevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,13 +608,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_contextmenuevent_isbase) {
             kbookmarkdialog_contextmenuevent_isbase = false;
             KBookmarkDialog::contextMenuEvent(param1);
-        } else if (kbookmarkdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kbookmarkdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kbookmarkdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -659,15 +625,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_eventfilter_isbase) {
             kbookmarkdialog_eventfilter_isbase = false;
             return KBookmarkDialog::eventFilter(param1, param2);
-        } else if (kbookmarkdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kbookmarkdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kbookmarkdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KBookmarkDialog::eventFilter(param1, param2);
         }
+        return KBookmarkDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,12 +642,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_devtype_isbase) {
             kbookmarkdialog_devtype_isbase = false;
             return KBookmarkDialog::devType();
-        } else if (kbookmarkdialog_devtype_callback != nullptr) {
-            int callback_ret = kbookmarkdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkDialog::devType();
         }
+        auto devtype_cb = kbookmarkdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBookmarkDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,14 +656,15 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_heightforwidth_isbase) {
             kbookmarkdialog_heightforwidth_isbase = false;
             return KBookmarkDialog::heightForWidth(param1);
-        } else if (kbookmarkdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kbookmarkdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kbookmarkdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkDialog::heightForWidth(param1);
         }
+        return KBookmarkDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,12 +672,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_hasheightforwidth_isbase) {
             kbookmarkdialog_hasheightforwidth_isbase = false;
             return KBookmarkDialog::hasHeightForWidth();
-        } else if (kbookmarkdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kbookmarkdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kbookmarkdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KBookmarkDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,12 +686,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_paintengine_isbase) {
             kbookmarkdialog_paintengine_isbase = false;
             return KBookmarkDialog::paintEngine();
-        } else if (kbookmarkdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kbookmarkdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkDialog::paintEngine();
         }
+        auto paintengine_cb = kbookmarkdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KBookmarkDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -729,14 +700,15 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_event_isbase) {
             kbookmarkdialog_event_isbase = false;
             return KBookmarkDialog::event(event);
-        } else if (kbookmarkdialog_event_callback != nullptr) {
+        }
+        auto event_cb = kbookmarkdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kbookmarkdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkDialog::event(event);
         }
+        return KBookmarkDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,13 +716,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_mousepressevent_isbase) {
             kbookmarkdialog_mousepressevent_isbase = false;
             KBookmarkDialog::mousePressEvent(event);
-        } else if (kbookmarkdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kbookmarkdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kbookmarkdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,13 +733,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_mousereleaseevent_isbase) {
             kbookmarkdialog_mousereleaseevent_isbase = false;
             KBookmarkDialog::mouseReleaseEvent(event);
-        } else if (kbookmarkdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kbookmarkdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kbookmarkdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -772,13 +750,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_mousedoubleclickevent_isbase) {
             kbookmarkdialog_mousedoubleclickevent_isbase = false;
             KBookmarkDialog::mouseDoubleClickEvent(event);
-        } else if (kbookmarkdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kbookmarkdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kbookmarkdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,13 +767,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_mousemoveevent_isbase) {
             kbookmarkdialog_mousemoveevent_isbase = false;
             KBookmarkDialog::mouseMoveEvent(event);
-        } else if (kbookmarkdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kbookmarkdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kbookmarkdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -800,13 +784,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_wheelevent_isbase) {
             kbookmarkdialog_wheelevent_isbase = false;
             KBookmarkDialog::wheelEvent(event);
-        } else if (kbookmarkdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kbookmarkdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kbookmarkdialog_wheelevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,13 +801,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_keyreleaseevent_isbase) {
             kbookmarkdialog_keyreleaseevent_isbase = false;
             KBookmarkDialog::keyReleaseEvent(event);
-        } else if (kbookmarkdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kbookmarkdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kbookmarkdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,13 +818,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_focusinevent_isbase) {
             kbookmarkdialog_focusinevent_isbase = false;
             KBookmarkDialog::focusInEvent(event);
-        } else if (kbookmarkdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kbookmarkdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kbookmarkdialog_focusinevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -842,13 +835,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_focusoutevent_isbase) {
             kbookmarkdialog_focusoutevent_isbase = false;
             KBookmarkDialog::focusOutEvent(event);
-        } else if (kbookmarkdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kbookmarkdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kbookmarkdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -856,13 +852,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_enterevent_isbase) {
             kbookmarkdialog_enterevent_isbase = false;
             KBookmarkDialog::enterEvent(event);
-        } else if (kbookmarkdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kbookmarkdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kbookmarkdialog_enterevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -870,13 +869,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_leaveevent_isbase) {
             kbookmarkdialog_leaveevent_isbase = false;
             KBookmarkDialog::leaveEvent(event);
-        } else if (kbookmarkdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kbookmarkdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kbookmarkdialog_leaveevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -884,13 +886,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_paintevent_isbase) {
             kbookmarkdialog_paintevent_isbase = false;
             KBookmarkDialog::paintEvent(event);
-        } else if (kbookmarkdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kbookmarkdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kbookmarkdialog_paintevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,13 +903,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_moveevent_isbase) {
             kbookmarkdialog_moveevent_isbase = false;
             KBookmarkDialog::moveEvent(event);
-        } else if (kbookmarkdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kbookmarkdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kbookmarkdialog_moveevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,13 +920,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_tabletevent_isbase) {
             kbookmarkdialog_tabletevent_isbase = false;
             KBookmarkDialog::tabletEvent(event);
-        } else if (kbookmarkdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kbookmarkdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kbookmarkdialog_tabletevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,13 +937,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_actionevent_isbase) {
             kbookmarkdialog_actionevent_isbase = false;
             KBookmarkDialog::actionEvent(event);
-        } else if (kbookmarkdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kbookmarkdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kbookmarkdialog_actionevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +954,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_dragenterevent_isbase) {
             kbookmarkdialog_dragenterevent_isbase = false;
             KBookmarkDialog::dragEnterEvent(event);
-        } else if (kbookmarkdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kbookmarkdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kbookmarkdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +971,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_dragmoveevent_isbase) {
             kbookmarkdialog_dragmoveevent_isbase = false;
             KBookmarkDialog::dragMoveEvent(event);
-        } else if (kbookmarkdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kbookmarkdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kbookmarkdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +988,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_dragleaveevent_isbase) {
             kbookmarkdialog_dragleaveevent_isbase = false;
             KBookmarkDialog::dragLeaveEvent(event);
-        } else if (kbookmarkdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kbookmarkdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kbookmarkdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,13 +1005,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_dropevent_isbase) {
             kbookmarkdialog_dropevent_isbase = false;
             KBookmarkDialog::dropEvent(event);
-        } else if (kbookmarkdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kbookmarkdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kbookmarkdialog_dropevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,13 +1022,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_hideevent_isbase) {
             kbookmarkdialog_hideevent_isbase = false;
             KBookmarkDialog::hideEvent(event);
-        } else if (kbookmarkdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kbookmarkdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kbookmarkdialog_hideevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1010,7 +1039,9 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_nativeevent_isbase) {
             kbookmarkdialog_nativeevent_isbase = false;
             return KBookmarkDialog::nativeEvent(eventType, message, result);
-        } else if (kbookmarkdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kbookmarkdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1021,12 +1052,11 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kbookmarkdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KBookmarkDialog::nativeEvent(eventType, message, result);
         }
+        return KBookmarkDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,13 +1064,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_changeevent_isbase) {
             kbookmarkdialog_changeevent_isbase = false;
             KBookmarkDialog::changeEvent(param1);
-        } else if (kbookmarkdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kbookmarkdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kbookmarkdialog_changeevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,14 +1081,15 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_metric_isbase) {
             kbookmarkdialog_metric_isbase = false;
             return KBookmarkDialog::metric(param1);
-        } else if (kbookmarkdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kbookmarkdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kbookmarkdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkDialog::metric(param1);
         }
+        return KBookmarkDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,13 +1097,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_initpainter_isbase) {
             kbookmarkdialog_initpainter_isbase = false;
             KBookmarkDialog::initPainter(painter);
-        } else if (kbookmarkdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kbookmarkdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kbookmarkdialog_initpainter_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,14 +1114,15 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_redirected_isbase) {
             kbookmarkdialog_redirected_isbase = false;
             return KBookmarkDialog::redirected(offset);
-        } else if (kbookmarkdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kbookmarkdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kbookmarkdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkDialog::redirected(offset);
         }
+        return KBookmarkDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,12 +1130,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_sharedpainter_isbase) {
             kbookmarkdialog_sharedpainter_isbase = false;
             return KBookmarkDialog::sharedPainter();
-        } else if (kbookmarkdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kbookmarkdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kbookmarkdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KBookmarkDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,13 +1144,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_inputmethodevent_isbase) {
             kbookmarkdialog_inputmethodevent_isbase = false;
             KBookmarkDialog::inputMethodEvent(param1);
-        } else if (kbookmarkdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kbookmarkdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kbookmarkdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1119,14 +1161,15 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_inputmethodquery_isbase) {
             kbookmarkdialog_inputmethodquery_isbase = false;
             return KBookmarkDialog::inputMethodQuery(param1);
-        } else if (kbookmarkdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kbookmarkdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kbookmarkdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KBookmarkDialog::inputMethodQuery(param1);
         }
+        return KBookmarkDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1134,14 +1177,15 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_focusnextprevchild_isbase) {
             kbookmarkdialog_focusnextprevchild_isbase = false;
             return KBookmarkDialog::focusNextPrevChild(next);
-        } else if (kbookmarkdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kbookmarkdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kbookmarkdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkDialog::focusNextPrevChild(next);
         }
+        return KBookmarkDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1149,13 +1193,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_timerevent_isbase) {
             kbookmarkdialog_timerevent_isbase = false;
             KBookmarkDialog::timerEvent(event);
-        } else if (kbookmarkdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kbookmarkdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kbookmarkdialog_timerevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1163,13 +1210,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_childevent_isbase) {
             kbookmarkdialog_childevent_isbase = false;
             KBookmarkDialog::childEvent(event);
-        } else if (kbookmarkdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kbookmarkdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kbookmarkdialog_childevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1177,13 +1227,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_customevent_isbase) {
             kbookmarkdialog_customevent_isbase = false;
             KBookmarkDialog::customEvent(event);
-        } else if (kbookmarkdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kbookmarkdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kbookmarkdialog_customevent_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1191,15 +1244,18 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_connectnotify_isbase) {
             kbookmarkdialog_connectnotify_isbase = false;
             KBookmarkDialog::connectNotify(signal);
-        } else if (kbookmarkdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kbookmarkdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kbookmarkdialog_connectnotify_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1207,15 +1263,18 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_disconnectnotify_isbase) {
             kbookmarkdialog_disconnectnotify_isbase = false;
             KBookmarkDialog::disconnectNotify(signal);
-        } else if (kbookmarkdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kbookmarkdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kbookmarkdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1223,11 +1282,14 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_newfolderbutton_isbase) {
             kbookmarkdialog_newfolderbutton_isbase = false;
             KBookmarkDialog::newFolderButton();
-        } else if (kbookmarkdialog_newfolderbutton_callback != nullptr) {
-            kbookmarkdialog_newfolderbutton_callback();
-        } else {
-            KBookmarkDialog::newFolderButton();
+            return;
         }
+        auto newfolderbutton_cb = kbookmarkdialog_newfolderbutton_callback;
+        if (newfolderbutton_cb) {
+            newfolderbutton_cb();
+            return;
+        }
+        KBookmarkDialog::newFolderButton();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,13 +1297,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_adjustposition_isbase) {
             kbookmarkdialog_adjustposition_isbase = false;
             KBookmarkDialog::adjustPosition(param1);
-        } else if (kbookmarkdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kbookmarkdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kbookmarkdialog_adjustposition_callback(this, cbval1);
-        } else {
-            KBookmarkDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KBookmarkDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1249,11 +1314,14 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_updatemicrofocus_isbase) {
             kbookmarkdialog_updatemicrofocus_isbase = false;
             KBookmarkDialog::updateMicroFocus();
-        } else if (kbookmarkdialog_updatemicrofocus_callback != nullptr) {
-            kbookmarkdialog_updatemicrofocus_callback();
-        } else {
-            KBookmarkDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kbookmarkdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KBookmarkDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,11 +1329,14 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_create_isbase) {
             kbookmarkdialog_create_isbase = false;
             KBookmarkDialog::create();
-        } else if (kbookmarkdialog_create_callback != nullptr) {
-            kbookmarkdialog_create_callback();
-        } else {
-            KBookmarkDialog::create();
+            return;
         }
+        auto create_cb = kbookmarkdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KBookmarkDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1273,11 +1344,14 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_destroy_isbase) {
             kbookmarkdialog_destroy_isbase = false;
             KBookmarkDialog::destroy();
-        } else if (kbookmarkdialog_destroy_callback != nullptr) {
-            kbookmarkdialog_destroy_callback();
-        } else {
-            KBookmarkDialog::destroy();
+            return;
         }
+        auto destroy_cb = kbookmarkdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KBookmarkDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,12 +1359,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_focusnextchild_isbase) {
             kbookmarkdialog_focusnextchild_isbase = false;
             return KBookmarkDialog::focusNextChild();
-        } else if (kbookmarkdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kbookmarkdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kbookmarkdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KBookmarkDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1298,12 +1373,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_focuspreviouschild_isbase) {
             kbookmarkdialog_focuspreviouschild_isbase = false;
             return KBookmarkDialog::focusPreviousChild();
-        } else if (kbookmarkdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kbookmarkdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kbookmarkdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KBookmarkDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1311,12 +1387,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_sender_isbase) {
             kbookmarkdialog_sender_isbase = false;
             return KBookmarkDialog::sender();
-        } else if (kbookmarkdialog_sender_callback != nullptr) {
-            QObject* callback_ret = kbookmarkdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KBookmarkDialog::sender();
         }
+        auto sender_cb = kbookmarkdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KBookmarkDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1324,12 +1401,13 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_sendersignalindex_isbase) {
             kbookmarkdialog_sendersignalindex_isbase = false;
             return KBookmarkDialog::senderSignalIndex();
-        } else if (kbookmarkdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kbookmarkdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kbookmarkdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBookmarkDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1337,14 +1415,15 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_receivers_isbase) {
             kbookmarkdialog_receivers_isbase = false;
             return KBookmarkDialog::receivers(signal);
-        } else if (kbookmarkdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kbookmarkdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kbookmarkdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBookmarkDialog::receivers(signal);
         }
+        return KBookmarkDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1352,16 +1431,17 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_issignalconnected_isbase) {
             kbookmarkdialog_issignalconnected_isbase = false;
             return KBookmarkDialog::isSignalConnected(signal);
-        } else if (kbookmarkdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kbookmarkdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kbookmarkdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBookmarkDialog::isSignalConnected(signal);
         }
+        return KBookmarkDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1369,15 +1449,16 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (kbookmarkdialog_getdecodedmetricf_isbase) {
             kbookmarkdialog_getdecodedmetricf_isbase = false;
             return KBookmarkDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kbookmarkdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kbookmarkdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kbookmarkdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KBookmarkDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KBookmarkDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

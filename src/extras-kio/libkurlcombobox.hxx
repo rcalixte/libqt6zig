@@ -260,86 +260,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
     VirtualKUrlComboBox(KUrlComboBox::Mode mode, QWidget* parent) : KUrlComboBox(mode, parent) {};
     VirtualKUrlComboBox(KUrlComboBox::Mode mode, bool rw, QWidget* parent) : KUrlComboBox(mode, rw, parent) {};
 
-    ~VirtualKUrlComboBox() {
-        kurlcombobox_metaobject_callback = nullptr;
-        kurlcombobox_metacast_callback = nullptr;
-        kurlcombobox_metacall_callback = nullptr;
-        kurlcombobox_setcompletionobject_callback = nullptr;
-        kurlcombobox_mousepressevent_callback = nullptr;
-        kurlcombobox_mousemoveevent_callback = nullptr;
-        kurlcombobox_setautocompletion_callback = nullptr;
-        kurlcombobox_setlineedit_callback = nullptr;
-        kurlcombobox_minimumsizehint_callback = nullptr;
-        kurlcombobox_setcompletedtext_callback = nullptr;
-        kurlcombobox_setcompleteditems_callback = nullptr;
-        kurlcombobox_makecompletion_callback = nullptr;
-        kurlcombobox_setmodel_callback = nullptr;
-        kurlcombobox_sizehint_callback = nullptr;
-        kurlcombobox_showpopup_callback = nullptr;
-        kurlcombobox_hidepopup_callback = nullptr;
-        kurlcombobox_event_callback = nullptr;
-        kurlcombobox_inputmethodquery_callback = nullptr;
-        kurlcombobox_focusinevent_callback = nullptr;
-        kurlcombobox_focusoutevent_callback = nullptr;
-        kurlcombobox_changeevent_callback = nullptr;
-        kurlcombobox_resizeevent_callback = nullptr;
-        kurlcombobox_paintevent_callback = nullptr;
-        kurlcombobox_showevent_callback = nullptr;
-        kurlcombobox_hideevent_callback = nullptr;
-        kurlcombobox_mousereleaseevent_callback = nullptr;
-        kurlcombobox_keypressevent_callback = nullptr;
-        kurlcombobox_keyreleaseevent_callback = nullptr;
-        kurlcombobox_wheelevent_callback = nullptr;
-        kurlcombobox_contextmenuevent_callback = nullptr;
-        kurlcombobox_inputmethodevent_callback = nullptr;
-        kurlcombobox_initstyleoption_callback = nullptr;
-        kurlcombobox_devtype_callback = nullptr;
-        kurlcombobox_setvisible_callback = nullptr;
-        kurlcombobox_heightforwidth_callback = nullptr;
-        kurlcombobox_hasheightforwidth_callback = nullptr;
-        kurlcombobox_paintengine_callback = nullptr;
-        kurlcombobox_mousedoubleclickevent_callback = nullptr;
-        kurlcombobox_enterevent_callback = nullptr;
-        kurlcombobox_leaveevent_callback = nullptr;
-        kurlcombobox_moveevent_callback = nullptr;
-        kurlcombobox_closeevent_callback = nullptr;
-        kurlcombobox_tabletevent_callback = nullptr;
-        kurlcombobox_actionevent_callback = nullptr;
-        kurlcombobox_dragenterevent_callback = nullptr;
-        kurlcombobox_dragmoveevent_callback = nullptr;
-        kurlcombobox_dragleaveevent_callback = nullptr;
-        kurlcombobox_dropevent_callback = nullptr;
-        kurlcombobox_nativeevent_callback = nullptr;
-        kurlcombobox_metric_callback = nullptr;
-        kurlcombobox_initpainter_callback = nullptr;
-        kurlcombobox_redirected_callback = nullptr;
-        kurlcombobox_sharedpainter_callback = nullptr;
-        kurlcombobox_focusnextprevchild_callback = nullptr;
-        kurlcombobox_eventfilter_callback = nullptr;
-        kurlcombobox_timerevent_callback = nullptr;
-        kurlcombobox_childevent_callback = nullptr;
-        kurlcombobox_customevent_callback = nullptr;
-        kurlcombobox_connectnotify_callback = nullptr;
-        kurlcombobox_disconnectnotify_callback = nullptr;
-        kurlcombobox_sethandlesignals_callback = nullptr;
-        kurlcombobox_setcompletionmode_callback = nullptr;
-        kurlcombobox_virtualhook_callback = nullptr;
-        kurlcombobox_updatemicrofocus_callback = nullptr;
-        kurlcombobox_create_callback = nullptr;
-        kurlcombobox_destroy_callback = nullptr;
-        kurlcombobox_focusnextchild_callback = nullptr;
-        kurlcombobox_focuspreviouschild_callback = nullptr;
-        kurlcombobox_sender_callback = nullptr;
-        kurlcombobox_sendersignalindex_callback = nullptr;
-        kurlcombobox_receivers_callback = nullptr;
-        kurlcombobox_issignalconnected_callback = nullptr;
-        kurlcombobox_getdecodedmetricf_callback = nullptr;
-        kurlcombobox_keybindingmap_callback = nullptr;
-        kurlcombobox_setkeybindingmap_callback = nullptr;
-        kurlcombobox_setdelegate_callback = nullptr;
-        kurlcombobox_delegate_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKUrlComboBox_MetaObject_Callback(KUrlComboBox_MetaObject_Callback cb) { kurlcombobox_metaobject_callback = cb; }
     inline void setKUrlComboBox_Metacast_Callback(KUrlComboBox_Metacast_Callback cb) { kurlcombobox_metacast_callback = cb; }
@@ -503,12 +423,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_metaobject_isbase) {
             kurlcombobox_metaobject_isbase = false;
             return KUrlComboBox::metaObject();
-        } else if (kurlcombobox_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kurlcombobox_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboBox::metaObject();
         }
+        auto metaobject_cb = kurlcombobox_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KUrlComboBox::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -516,14 +437,15 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_metacast_isbase) {
             kurlcombobox_metacast_isbase = false;
             return KUrlComboBox::qt_metacast(param1);
-        } else if (kurlcombobox_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kurlcombobox_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kurlcombobox_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlComboBox::qt_metacast(param1);
         }
+        return KUrlComboBox::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,16 +453,17 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_metacall_isbase) {
             kurlcombobox_metacall_isbase = false;
             return KUrlComboBox::qt_metacall(param1, param2, param3);
-        } else if (kurlcombobox_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kurlcombobox_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kurlcombobox_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboBox::qt_metacall(param1, param2, param3);
         }
+        return KUrlComboBox::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,14 +471,17 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_setcompletionobject_isbase) {
             kurlcombobox_setcompletionobject_isbase = false;
             KUrlComboBox::setCompletionObject(compObj, hsig);
-        } else if (kurlcombobox_setcompletionobject_callback != nullptr) {
+            return;
+        }
+        auto setcompletionobject_cb = kurlcombobox_setcompletionobject_callback;
+        if (setcompletionobject_cb) {
             KCompletion* cbval1 = compObj;
             bool cbval2 = hsig;
 
-            kurlcombobox_setcompletionobject_callback(this, cbval1, cbval2);
-        } else {
-            KUrlComboBox::setCompletionObject(compObj, hsig);
+            setcompletionobject_cb(this, cbval1, cbval2);
+            return;
         }
+        KUrlComboBox::setCompletionObject(compObj, hsig);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -563,13 +489,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_mousepressevent_isbase) {
             kurlcombobox_mousepressevent_isbase = false;
             KUrlComboBox::mousePressEvent(event);
-        } else if (kurlcombobox_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kurlcombobox_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlcombobox_mousepressevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,13 +506,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_mousemoveevent_isbase) {
             kurlcombobox_mousemoveevent_isbase = false;
             KUrlComboBox::mouseMoveEvent(event);
-        } else if (kurlcombobox_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kurlcombobox_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlcombobox_mousemoveevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -591,13 +523,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_setautocompletion_isbase) {
             kurlcombobox_setautocompletion_isbase = false;
             KUrlComboBox::setAutoCompletion(autocomplete);
-        } else if (kurlcombobox_setautocompletion_callback != nullptr) {
+            return;
+        }
+        auto setautocompletion_cb = kurlcombobox_setautocompletion_callback;
+        if (setautocompletion_cb) {
             bool cbval1 = autocomplete;
 
-            kurlcombobox_setautocompletion_callback(this, cbval1);
-        } else {
-            KUrlComboBox::setAutoCompletion(autocomplete);
+            setautocompletion_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::setAutoCompletion(autocomplete);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -605,13 +540,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_setlineedit_isbase) {
             kurlcombobox_setlineedit_isbase = false;
             KUrlComboBox::setLineEdit(lineEdit);
-        } else if (kurlcombobox_setlineedit_callback != nullptr) {
+            return;
+        }
+        auto setlineedit_cb = kurlcombobox_setlineedit_callback;
+        if (setlineedit_cb) {
             QLineEdit* cbval1 = lineEdit;
 
-            kurlcombobox_setlineedit_callback(this, cbval1);
-        } else {
-            KUrlComboBox::setLineEdit(lineEdit);
+            setlineedit_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::setLineEdit(lineEdit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,12 +557,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_minimumsizehint_isbase) {
             kurlcombobox_minimumsizehint_isbase = false;
             return KUrlComboBox::minimumSizeHint();
-        } else if (kurlcombobox_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kurlcombobox_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KUrlComboBox::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kurlcombobox_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KUrlComboBox::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -632,7 +571,10 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_setcompletedtext_isbase) {
             kurlcombobox_setcompletedtext_isbase = false;
             KUrlComboBox::setCompletedText(completedText);
-        } else if (kurlcombobox_setcompletedtext_callback != nullptr) {
+            return;
+        }
+        auto setcompletedtext_cb = kurlcombobox_setcompletedtext_callback;
+        if (setcompletedtext_cb) {
             const QString completedText_ret = completedText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray completedText_b = completedText_ret.toUtf8();
@@ -642,11 +584,11 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             ((char*)completedText_str)[completedText_str_len] = '\0';
             const char* cbval1 = completedText_str;
 
-            kurlcombobox_setcompletedtext_callback(this, cbval1);
+            setcompletedtext_cb(this, cbval1);
             libqt_free(completedText_str);
-        } else {
-            KUrlComboBox::setCompletedText(completedText);
+            return;
         }
+        KUrlComboBox::setCompletedText(completedText);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,7 +596,10 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_setcompleteditems_isbase) {
             kurlcombobox_setcompleteditems_isbase = false;
             KUrlComboBox::setCompletedItems(items, autoSuggest);
-        } else if (kurlcombobox_setcompleteditems_callback != nullptr) {
+            return;
+        }
+        auto setcompleteditems_cb = kurlcombobox_setcompleteditems_callback;
+        if (setcompleteditems_cb) {
             const QList<QString>& items_ret = items;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** items_arr = static_cast<const char**>(malloc(sizeof(const char*) * (items_ret.size() + 1)));
@@ -671,11 +616,11 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
 
-            kurlcombobox_setcompleteditems_callback(this, cbval1, cbval2);
+            setcompleteditems_cb(this, cbval1, cbval2);
             libqt_free(items_arr);
-        } else {
-            KUrlComboBox::setCompletedItems(items, autoSuggest);
+            return;
         }
+        KUrlComboBox::setCompletedItems(items, autoSuggest);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,7 +628,10 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_makecompletion_isbase) {
             kurlcombobox_makecompletion_isbase = false;
             KUrlComboBox::makeCompletion(param1);
-        } else if (kurlcombobox_makecompletion_callback != nullptr) {
+            return;
+        }
+        auto makecompletion_cb = kurlcombobox_makecompletion_callback;
+        if (makecompletion_cb) {
             const QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -693,11 +641,11 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
 
-            kurlcombobox_makecompletion_callback(this, cbval1);
+            makecompletion_cb(this, cbval1);
             libqt_free(param1_str);
-        } else {
-            KUrlComboBox::makeCompletion(param1);
+            return;
         }
+        KUrlComboBox::makeCompletion(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,13 +653,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_setmodel_isbase) {
             kurlcombobox_setmodel_isbase = false;
             KUrlComboBox::setModel(model);
-        } else if (kurlcombobox_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = kurlcombobox_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            kurlcombobox_setmodel_callback(this, cbval1);
-        } else {
-            KUrlComboBox::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,12 +670,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_sizehint_isbase) {
             kurlcombobox_sizehint_isbase = false;
             return KUrlComboBox::sizeHint();
-        } else if (kurlcombobox_sizehint_callback != nullptr) {
-            QSize* callback_ret = kurlcombobox_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KUrlComboBox::sizeHint();
         }
+        auto sizehint_cb = kurlcombobox_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KUrlComboBox::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -732,11 +684,14 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_showpopup_isbase) {
             kurlcombobox_showpopup_isbase = false;
             KUrlComboBox::showPopup();
-        } else if (kurlcombobox_showpopup_callback != nullptr) {
-            kurlcombobox_showpopup_callback();
-        } else {
-            KUrlComboBox::showPopup();
+            return;
         }
+        auto showpopup_cb = kurlcombobox_showpopup_callback;
+        if (showpopup_cb) {
+            showpopup_cb();
+            return;
+        }
+        KUrlComboBox::showPopup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,11 +699,14 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_hidepopup_isbase) {
             kurlcombobox_hidepopup_isbase = false;
             KUrlComboBox::hidePopup();
-        } else if (kurlcombobox_hidepopup_callback != nullptr) {
-            kurlcombobox_hidepopup_callback();
-        } else {
-            KUrlComboBox::hidePopup();
+            return;
         }
+        auto hidepopup_cb = kurlcombobox_hidepopup_callback;
+        if (hidepopup_cb) {
+            hidepopup_cb();
+            return;
+        }
+        KUrlComboBox::hidePopup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,14 +714,15 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_event_isbase) {
             kurlcombobox_event_isbase = false;
             return KUrlComboBox::event(event);
-        } else if (kurlcombobox_event_callback != nullptr) {
+        }
+        auto event_cb = kurlcombobox_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kurlcombobox_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlComboBox::event(event);
         }
+        return KUrlComboBox::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -771,14 +730,15 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_inputmethodquery_isbase) {
             kurlcombobox_inputmethodquery_isbase = false;
             return KUrlComboBox::inputMethodQuery(param1);
-        } else if (kurlcombobox_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kurlcombobox_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kurlcombobox_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KUrlComboBox::inputMethodQuery(param1);
         }
+        return KUrlComboBox::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,13 +746,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_focusinevent_isbase) {
             kurlcombobox_focusinevent_isbase = false;
             KUrlComboBox::focusInEvent(e);
-        } else if (kurlcombobox_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kurlcombobox_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            kurlcombobox_focusinevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::focusInEvent(e);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::focusInEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -800,13 +763,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_focusoutevent_isbase) {
             kurlcombobox_focusoutevent_isbase = false;
             KUrlComboBox::focusOutEvent(e);
-        } else if (kurlcombobox_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kurlcombobox_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            kurlcombobox_focusoutevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::focusOutEvent(e);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::focusOutEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,13 +780,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_changeevent_isbase) {
             kurlcombobox_changeevent_isbase = false;
             KUrlComboBox::changeEvent(e);
-        } else if (kurlcombobox_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kurlcombobox_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            kurlcombobox_changeevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,13 +797,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_resizeevent_isbase) {
             kurlcombobox_resizeevent_isbase = false;
             KUrlComboBox::resizeEvent(e);
-        } else if (kurlcombobox_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kurlcombobox_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
 
-            kurlcombobox_resizeevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::resizeEvent(e);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::resizeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -842,13 +814,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_paintevent_isbase) {
             kurlcombobox_paintevent_isbase = false;
             KUrlComboBox::paintEvent(e);
-        } else if (kurlcombobox_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kurlcombobox_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
 
-            kurlcombobox_paintevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::paintEvent(e);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::paintEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -856,13 +831,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_showevent_isbase) {
             kurlcombobox_showevent_isbase = false;
             KUrlComboBox::showEvent(e);
-        } else if (kurlcombobox_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kurlcombobox_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = e;
 
-            kurlcombobox_showevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::showEvent(e);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::showEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -870,13 +848,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_hideevent_isbase) {
             kurlcombobox_hideevent_isbase = false;
             KUrlComboBox::hideEvent(e);
-        } else if (kurlcombobox_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kurlcombobox_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = e;
 
-            kurlcombobox_hideevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::hideEvent(e);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::hideEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -884,13 +865,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_mousereleaseevent_isbase) {
             kurlcombobox_mousereleaseevent_isbase = false;
             KUrlComboBox::mouseReleaseEvent(e);
-        } else if (kurlcombobox_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kurlcombobox_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kurlcombobox_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,13 +882,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_keypressevent_isbase) {
             kurlcombobox_keypressevent_isbase = false;
             KUrlComboBox::keyPressEvent(e);
-        } else if (kurlcombobox_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kurlcombobox_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kurlcombobox_keypressevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,13 +899,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_keyreleaseevent_isbase) {
             kurlcombobox_keyreleaseevent_isbase = false;
             KUrlComboBox::keyReleaseEvent(e);
-        } else if (kurlcombobox_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kurlcombobox_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kurlcombobox_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,13 +916,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_wheelevent_isbase) {
             kurlcombobox_wheelevent_isbase = false;
             KUrlComboBox::wheelEvent(e);
-        } else if (kurlcombobox_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kurlcombobox_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            kurlcombobox_wheelevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +933,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_contextmenuevent_isbase) {
             kurlcombobox_contextmenuevent_isbase = false;
             KUrlComboBox::contextMenuEvent(e);
-        } else if (kurlcombobox_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kurlcombobox_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
 
-            kurlcombobox_contextmenuevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::contextMenuEvent(e);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::contextMenuEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +950,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_inputmethodevent_isbase) {
             kurlcombobox_inputmethodevent_isbase = false;
             KUrlComboBox::inputMethodEvent(param1);
-        } else if (kurlcombobox_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kurlcombobox_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kurlcombobox_inputmethodevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +967,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_initstyleoption_isbase) {
             kurlcombobox_initstyleoption_isbase = false;
             KUrlComboBox::initStyleOption(option);
-        } else if (kurlcombobox_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kurlcombobox_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionComboBox* cbval1 = option;
 
-            kurlcombobox_initstyleoption_callback(this, cbval1);
-        } else {
-            KUrlComboBox::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,12 +984,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_devtype_isbase) {
             kurlcombobox_devtype_isbase = false;
             return KUrlComboBox::devType();
-        } else if (kurlcombobox_devtype_callback != nullptr) {
-            int callback_ret = kurlcombobox_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboBox::devType();
         }
+        auto devtype_cb = kurlcombobox_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KUrlComboBox::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -995,13 +998,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_setvisible_isbase) {
             kurlcombobox_setvisible_isbase = false;
             KUrlComboBox::setVisible(visible);
-        } else if (kurlcombobox_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kurlcombobox_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kurlcombobox_setvisible_callback(this, cbval1);
-        } else {
-            KUrlComboBox::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,14 +1015,15 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_heightforwidth_isbase) {
             kurlcombobox_heightforwidth_isbase = false;
             return KUrlComboBox::heightForWidth(param1);
-        } else if (kurlcombobox_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kurlcombobox_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kurlcombobox_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboBox::heightForWidth(param1);
         }
+        return KUrlComboBox::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,12 +1031,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_hasheightforwidth_isbase) {
             kurlcombobox_hasheightforwidth_isbase = false;
             return KUrlComboBox::hasHeightForWidth();
-        } else if (kurlcombobox_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kurlcombobox_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboBox::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kurlcombobox_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KUrlComboBox::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,12 +1045,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_paintengine_isbase) {
             kurlcombobox_paintengine_isbase = false;
             return KUrlComboBox::paintEngine();
-        } else if (kurlcombobox_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kurlcombobox_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboBox::paintEngine();
         }
+        auto paintengine_cb = kurlcombobox_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KUrlComboBox::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,13 +1059,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_mousedoubleclickevent_isbase) {
             kurlcombobox_mousedoubleclickevent_isbase = false;
             KUrlComboBox::mouseDoubleClickEvent(event);
-        } else if (kurlcombobox_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kurlcombobox_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlcombobox_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,13 +1076,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_enterevent_isbase) {
             kurlcombobox_enterevent_isbase = false;
             KUrlComboBox::enterEvent(event);
-        } else if (kurlcombobox_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kurlcombobox_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kurlcombobox_enterevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1078,13 +1093,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_leaveevent_isbase) {
             kurlcombobox_leaveevent_isbase = false;
             KUrlComboBox::leaveEvent(event);
-        } else if (kurlcombobox_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kurlcombobox_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kurlcombobox_leaveevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,13 +1110,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_moveevent_isbase) {
             kurlcombobox_moveevent_isbase = false;
             KUrlComboBox::moveEvent(event);
-        } else if (kurlcombobox_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kurlcombobox_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kurlcombobox_moveevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,13 +1127,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_closeevent_isbase) {
             kurlcombobox_closeevent_isbase = false;
             KUrlComboBox::closeEvent(event);
-        } else if (kurlcombobox_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kurlcombobox_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kurlcombobox_closeevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,13 +1144,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_tabletevent_isbase) {
             kurlcombobox_tabletevent_isbase = false;
             KUrlComboBox::tabletEvent(event);
-        } else if (kurlcombobox_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kurlcombobox_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kurlcombobox_tabletevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1134,13 +1161,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_actionevent_isbase) {
             kurlcombobox_actionevent_isbase = false;
             KUrlComboBox::actionEvent(event);
-        } else if (kurlcombobox_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kurlcombobox_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kurlcombobox_actionevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1148,13 +1178,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_dragenterevent_isbase) {
             kurlcombobox_dragenterevent_isbase = false;
             KUrlComboBox::dragEnterEvent(event);
-        } else if (kurlcombobox_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kurlcombobox_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kurlcombobox_dragenterevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1162,13 +1195,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_dragmoveevent_isbase) {
             kurlcombobox_dragmoveevent_isbase = false;
             KUrlComboBox::dragMoveEvent(event);
-        } else if (kurlcombobox_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kurlcombobox_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kurlcombobox_dragmoveevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1176,13 +1212,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_dragleaveevent_isbase) {
             kurlcombobox_dragleaveevent_isbase = false;
             KUrlComboBox::dragLeaveEvent(event);
-        } else if (kurlcombobox_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kurlcombobox_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kurlcombobox_dragleaveevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1190,13 +1229,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_dropevent_isbase) {
             kurlcombobox_dropevent_isbase = false;
             KUrlComboBox::dropEvent(event);
-        } else if (kurlcombobox_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kurlcombobox_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kurlcombobox_dropevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1204,7 +1246,9 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_nativeevent_isbase) {
             kurlcombobox_nativeevent_isbase = false;
             return KUrlComboBox::nativeEvent(eventType, message, result);
-        } else if (kurlcombobox_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kurlcombobox_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1215,12 +1259,11 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kurlcombobox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KUrlComboBox::nativeEvent(eventType, message, result);
         }
+        return KUrlComboBox::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1228,14 +1271,15 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_metric_isbase) {
             kurlcombobox_metric_isbase = false;
             return KUrlComboBox::metric(param1);
-        } else if (kurlcombobox_metric_callback != nullptr) {
+        }
+        auto metric_cb = kurlcombobox_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kurlcombobox_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboBox::metric(param1);
         }
+        return KUrlComboBox::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,13 +1287,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_initpainter_isbase) {
             kurlcombobox_initpainter_isbase = false;
             KUrlComboBox::initPainter(painter);
-        } else if (kurlcombobox_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kurlcombobox_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kurlcombobox_initpainter_callback(this, cbval1);
-        } else {
-            KUrlComboBox::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,14 +1304,15 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_redirected_isbase) {
             kurlcombobox_redirected_isbase = false;
             return KUrlComboBox::redirected(offset);
-        } else if (kurlcombobox_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kurlcombobox_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kurlcombobox_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlComboBox::redirected(offset);
         }
+        return KUrlComboBox::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1272,12 +1320,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_sharedpainter_isbase) {
             kurlcombobox_sharedpainter_isbase = false;
             return KUrlComboBox::sharedPainter();
-        } else if (kurlcombobox_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kurlcombobox_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboBox::sharedPainter();
         }
+        auto sharedpainter_cb = kurlcombobox_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KUrlComboBox::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,14 +1334,15 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_focusnextprevchild_isbase) {
             kurlcombobox_focusnextprevchild_isbase = false;
             return KUrlComboBox::focusNextPrevChild(next);
-        } else if (kurlcombobox_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kurlcombobox_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kurlcombobox_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlComboBox::focusNextPrevChild(next);
         }
+        return KUrlComboBox::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1300,15 +1350,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_eventfilter_isbase) {
             kurlcombobox_eventfilter_isbase = false;
             return KUrlComboBox::eventFilter(watched, event);
-        } else if (kurlcombobox_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kurlcombobox_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kurlcombobox_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KUrlComboBox::eventFilter(watched, event);
         }
+        return KUrlComboBox::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1316,13 +1367,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_timerevent_isbase) {
             kurlcombobox_timerevent_isbase = false;
             KUrlComboBox::timerEvent(event);
-        } else if (kurlcombobox_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kurlcombobox_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kurlcombobox_timerevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1330,13 +1384,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_childevent_isbase) {
             kurlcombobox_childevent_isbase = false;
             KUrlComboBox::childEvent(event);
-        } else if (kurlcombobox_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kurlcombobox_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kurlcombobox_childevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1344,13 +1401,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_customevent_isbase) {
             kurlcombobox_customevent_isbase = false;
             KUrlComboBox::customEvent(event);
-        } else if (kurlcombobox_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kurlcombobox_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kurlcombobox_customevent_callback(this, cbval1);
-        } else {
-            KUrlComboBox::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1358,15 +1418,18 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_connectnotify_isbase) {
             kurlcombobox_connectnotify_isbase = false;
             KUrlComboBox::connectNotify(signal);
-        } else if (kurlcombobox_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kurlcombobox_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kurlcombobox_connectnotify_callback(this, cbval1);
-        } else {
-            KUrlComboBox::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1374,15 +1437,18 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_disconnectnotify_isbase) {
             kurlcombobox_disconnectnotify_isbase = false;
             KUrlComboBox::disconnectNotify(signal);
-        } else if (kurlcombobox_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kurlcombobox_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kurlcombobox_disconnectnotify_callback(this, cbval1);
-        } else {
-            KUrlComboBox::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1390,13 +1456,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_sethandlesignals_isbase) {
             kurlcombobox_sethandlesignals_isbase = false;
             KUrlComboBox::setHandleSignals(handle);
-        } else if (kurlcombobox_sethandlesignals_callback != nullptr) {
+            return;
+        }
+        auto sethandlesignals_cb = kurlcombobox_sethandlesignals_callback;
+        if (sethandlesignals_cb) {
             bool cbval1 = handle;
 
-            kurlcombobox_sethandlesignals_callback(this, cbval1);
-        } else {
-            KUrlComboBox::setHandleSignals(handle);
+            sethandlesignals_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::setHandleSignals(handle);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1404,13 +1473,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_setcompletionmode_isbase) {
             kurlcombobox_setcompletionmode_isbase = false;
             KUrlComboBox::setCompletionMode(mode);
-        } else if (kurlcombobox_setcompletionmode_callback != nullptr) {
+            return;
+        }
+        auto setcompletionmode_cb = kurlcombobox_setcompletionmode_callback;
+        if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            kurlcombobox_setcompletionmode_callback(this, cbval1);
-        } else {
-            KUrlComboBox::setCompletionMode(mode);
+            setcompletionmode_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::setCompletionMode(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1418,14 +1490,17 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_virtualhook_isbase) {
             kurlcombobox_virtualhook_isbase = false;
             KUrlComboBox::virtual_hook(id, data);
-        } else if (kurlcombobox_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kurlcombobox_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kurlcombobox_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KUrlComboBox::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KUrlComboBox::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1433,11 +1508,14 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_updatemicrofocus_isbase) {
             kurlcombobox_updatemicrofocus_isbase = false;
             KUrlComboBox::updateMicroFocus();
-        } else if (kurlcombobox_updatemicrofocus_callback != nullptr) {
-            kurlcombobox_updatemicrofocus_callback();
-        } else {
-            KUrlComboBox::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kurlcombobox_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KUrlComboBox::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1445,11 +1523,14 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_create_isbase) {
             kurlcombobox_create_isbase = false;
             KUrlComboBox::create();
-        } else if (kurlcombobox_create_callback != nullptr) {
-            kurlcombobox_create_callback();
-        } else {
-            KUrlComboBox::create();
+            return;
         }
+        auto create_cb = kurlcombobox_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KUrlComboBox::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1457,11 +1538,14 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_destroy_isbase) {
             kurlcombobox_destroy_isbase = false;
             KUrlComboBox::destroy();
-        } else if (kurlcombobox_destroy_callback != nullptr) {
-            kurlcombobox_destroy_callback();
-        } else {
-            KUrlComboBox::destroy();
+            return;
         }
+        auto destroy_cb = kurlcombobox_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KUrlComboBox::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1469,12 +1553,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_focusnextchild_isbase) {
             kurlcombobox_focusnextchild_isbase = false;
             return KUrlComboBox::focusNextChild();
-        } else if (kurlcombobox_focusnextchild_callback != nullptr) {
-            bool callback_ret = kurlcombobox_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboBox::focusNextChild();
         }
+        auto focusnextchild_cb = kurlcombobox_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KUrlComboBox::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1482,12 +1567,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_focuspreviouschild_isbase) {
             kurlcombobox_focuspreviouschild_isbase = false;
             return KUrlComboBox::focusPreviousChild();
-        } else if (kurlcombobox_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kurlcombobox_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboBox::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kurlcombobox_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KUrlComboBox::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1495,12 +1581,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_sender_isbase) {
             kurlcombobox_sender_isbase = false;
             return KUrlComboBox::sender();
-        } else if (kurlcombobox_sender_callback != nullptr) {
-            QObject* callback_ret = kurlcombobox_sender_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboBox::sender();
         }
+        auto sender_cb = kurlcombobox_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KUrlComboBox::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1508,12 +1595,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_sendersignalindex_isbase) {
             kurlcombobox_sendersignalindex_isbase = false;
             return KUrlComboBox::senderSignalIndex();
-        } else if (kurlcombobox_sendersignalindex_callback != nullptr) {
-            int callback_ret = kurlcombobox_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboBox::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kurlcombobox_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KUrlComboBox::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1521,14 +1609,15 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_receivers_isbase) {
             kurlcombobox_receivers_isbase = false;
             return KUrlComboBox::receivers(signal);
-        } else if (kurlcombobox_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kurlcombobox_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kurlcombobox_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboBox::receivers(signal);
         }
+        return KUrlComboBox::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1536,16 +1625,17 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_issignalconnected_isbase) {
             kurlcombobox_issignalconnected_isbase = false;
             return KUrlComboBox::isSignalConnected(signal);
-        } else if (kurlcombobox_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kurlcombobox_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kurlcombobox_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlComboBox::isSignalConnected(signal);
         }
+        return KUrlComboBox::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1553,15 +1643,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_getdecodedmetricf_isbase) {
             kurlcombobox_getdecodedmetricf_isbase = false;
             return KUrlComboBox::getDecodedMetricF(metricA, metricB);
-        } else if (kurlcombobox_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kurlcombobox_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kurlcombobox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KUrlComboBox::getDecodedMetricF(metricA, metricB);
         }
+        return KUrlComboBox::getDecodedMetricF(metricA, metricB);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1569,8 +1660,10 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_keybindingmap_isbase) {
             kurlcombobox_keybindingmap_isbase = false;
             return KUrlComboBox::keyBindingMap();
-        } else if (kurlcombobox_keybindingmap_callback != nullptr) {
-            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = kurlcombobox_keybindingmap_callback();
+        }
+        auto keybindingmap_cb = kurlcombobox_keybindingmap_callback;
+        if (keybindingmap_cb) {
+            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = keybindingmap_cb();
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
@@ -1584,9 +1677,8 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
                 callback_ret_QMap[static_cast<KCompletionBase::KeyBindingType>(callback_ret_karr[i])] = callback_ret_varr_i_QList;
             }
             return callback_ret_QMap;
-        } else {
-            return KUrlComboBox::keyBindingMap();
         }
+        return KUrlComboBox::keyBindingMap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1594,7 +1686,10 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_setkeybindingmap_isbase) {
             kurlcombobox_setkeybindingmap_isbase = false;
             KUrlComboBox::setKeyBindingMap(keyBindingMap);
-        } else if (kurlcombobox_setkeybindingmap_callback != nullptr) {
+            return;
+        }
+        auto setkeybindingmap_cb = kurlcombobox_setkeybindingmap_callback;
+        if (setkeybindingmap_cb) {
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_ret = keyBindingMap;
             // Convert QMap<> from C++ memory to manually-managed C memory
             int* keyBindingMap_karr = static_cast<int*>(malloc(sizeof(int) * keyBindingMap_ret.size()));
@@ -1620,10 +1715,10 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
             libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
 
-            kurlcombobox_setkeybindingmap_callback(this, cbval1);
-        } else {
-            KUrlComboBox::setKeyBindingMap(keyBindingMap);
+            setkeybindingmap_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::setKeyBindingMap(keyBindingMap);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1631,13 +1726,16 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_setdelegate_isbase) {
             kurlcombobox_setdelegate_isbase = false;
             KUrlComboBox::setDelegate(delegate);
-        } else if (kurlcombobox_setdelegate_callback != nullptr) {
+            return;
+        }
+        auto setdelegate_cb = kurlcombobox_setdelegate_callback;
+        if (setdelegate_cb) {
             KCompletionBase* cbval1 = delegate;
 
-            kurlcombobox_setdelegate_callback(this, cbval1);
-        } else {
-            KUrlComboBox::setDelegate(delegate);
+            setdelegate_cb(this, cbval1);
+            return;
         }
+        KUrlComboBox::setDelegate(delegate);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1645,12 +1743,13 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (kurlcombobox_delegate_isbase) {
             kurlcombobox_delegate_isbase = false;
             return KUrlComboBox::delegate();
-        } else if (kurlcombobox_delegate_callback != nullptr) {
-            KCompletionBase* callback_ret = kurlcombobox_delegate_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboBox::delegate();
         }
+        auto delegate_cb = kurlcombobox_delegate_callback;
+        if (delegate_cb) {
+            KCompletionBase* callback_ret = delegate_cb();
+            return callback_ret;
+        }
+        return KUrlComboBox::delegate();
     }
 
     // Friend functions

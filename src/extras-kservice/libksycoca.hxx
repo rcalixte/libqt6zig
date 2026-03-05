@@ -71,24 +71,6 @@ class VirtualKSycoca final : public KSycoca {
   public:
     VirtualKSycoca() : KSycoca() {};
 
-    ~VirtualKSycoca() {
-        ksycoca_metaobject_callback = nullptr;
-        ksycoca_metacast_callback = nullptr;
-        ksycoca_metacall_callback = nullptr;
-        ksycoca_isbuilding_callback = nullptr;
-        ksycoca_connectnotify_callback = nullptr;
-        ksycoca_event_callback = nullptr;
-        ksycoca_eventfilter_callback = nullptr;
-        ksycoca_timerevent_callback = nullptr;
-        ksycoca_childevent_callback = nullptr;
-        ksycoca_customevent_callback = nullptr;
-        ksycoca_disconnectnotify_callback = nullptr;
-        ksycoca_sender_callback = nullptr;
-        ksycoca_sendersignalindex_callback = nullptr;
-        ksycoca_receivers_callback = nullptr;
-        ksycoca_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSycoca_MetaObject_Callback(KSycoca_MetaObject_Callback cb) { ksycoca_metaobject_callback = cb; }
     inline void setKSycoca_Metacast_Callback(KSycoca_Metacast_Callback cb) { ksycoca_metacast_callback = cb; }
@@ -128,12 +110,13 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_metaobject_isbase) {
             ksycoca_metaobject_isbase = false;
             return KSycoca::metaObject();
-        } else if (ksycoca_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ksycoca_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSycoca::metaObject();
         }
+        auto metaobject_cb = ksycoca_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSycoca::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -141,14 +124,15 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_metacast_isbase) {
             ksycoca_metacast_isbase = false;
             return KSycoca::qt_metacast(param1);
-        } else if (ksycoca_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ksycoca_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ksycoca_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSycoca::qt_metacast(param1);
         }
+        return KSycoca::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,16 +140,17 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_metacall_isbase) {
             ksycoca_metacall_isbase = false;
             return KSycoca::qt_metacall(param1, param2, param3);
-        } else if (ksycoca_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ksycoca_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ksycoca_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSycoca::qt_metacall(param1, param2, param3);
         }
+        return KSycoca::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -173,12 +158,13 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_isbuilding_isbase) {
             ksycoca_isbuilding_isbase = false;
             return KSycoca::isBuilding();
-        } else if (ksycoca_isbuilding_callback != nullptr) {
-            bool callback_ret = ksycoca_isbuilding_callback();
-            return callback_ret;
-        } else {
-            return KSycoca::isBuilding();
         }
+        auto isbuilding_cb = ksycoca_isbuilding_callback;
+        if (isbuilding_cb) {
+            bool callback_ret = isbuilding_cb();
+            return callback_ret;
+        }
+        return KSycoca::isBuilding();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -186,15 +172,18 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_connectnotify_isbase) {
             ksycoca_connectnotify_isbase = false;
             KSycoca::connectNotify(signal);
-        } else if (ksycoca_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ksycoca_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksycoca_connectnotify_callback(this, cbval1);
-        } else {
-            KSycoca::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSycoca::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,14 +191,15 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_event_isbase) {
             ksycoca_event_isbase = false;
             return KSycoca::event(event);
-        } else if (ksycoca_event_callback != nullptr) {
+        }
+        auto event_cb = ksycoca_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ksycoca_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSycoca::event(event);
         }
+        return KSycoca::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,15 +207,16 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_eventfilter_isbase) {
             ksycoca_eventfilter_isbase = false;
             return KSycoca::eventFilter(watched, event);
-        } else if (ksycoca_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ksycoca_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ksycoca_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KSycoca::eventFilter(watched, event);
         }
+        return KSycoca::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +224,16 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_timerevent_isbase) {
             ksycoca_timerevent_isbase = false;
             KSycoca::timerEvent(event);
-        } else if (ksycoca_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ksycoca_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ksycoca_timerevent_callback(this, cbval1);
-        } else {
-            KSycoca::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSycoca::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,13 +241,16 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_childevent_isbase) {
             ksycoca_childevent_isbase = false;
             KSycoca::childEvent(event);
-        } else if (ksycoca_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ksycoca_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ksycoca_childevent_callback(this, cbval1);
-        } else {
-            KSycoca::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSycoca::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,13 +258,16 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_customevent_isbase) {
             ksycoca_customevent_isbase = false;
             KSycoca::customEvent(event);
-        } else if (ksycoca_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ksycoca_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ksycoca_customevent_callback(this, cbval1);
-        } else {
-            KSycoca::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSycoca::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,15 +275,18 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_disconnectnotify_isbase) {
             ksycoca_disconnectnotify_isbase = false;
             KSycoca::disconnectNotify(signal);
-        } else if (ksycoca_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ksycoca_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksycoca_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSycoca::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSycoca::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -291,12 +294,13 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_sender_isbase) {
             ksycoca_sender_isbase = false;
             return KSycoca::sender();
-        } else if (ksycoca_sender_callback != nullptr) {
-            QObject* callback_ret = ksycoca_sender_callback();
-            return callback_ret;
-        } else {
-            return KSycoca::sender();
         }
+        auto sender_cb = ksycoca_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSycoca::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -304,12 +308,13 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_sendersignalindex_isbase) {
             ksycoca_sendersignalindex_isbase = false;
             return KSycoca::senderSignalIndex();
-        } else if (ksycoca_sendersignalindex_callback != nullptr) {
-            int callback_ret = ksycoca_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSycoca::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ksycoca_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSycoca::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,14 +322,15 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_receivers_isbase) {
             ksycoca_receivers_isbase = false;
             return KSycoca::receivers(signal);
-        } else if (ksycoca_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ksycoca_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ksycoca_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSycoca::receivers(signal);
         }
+        return KSycoca::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,16 +338,17 @@ class VirtualKSycoca final : public KSycoca {
         if (ksycoca_issignalconnected_isbase) {
             ksycoca_issignalconnected_isbase = false;
             return KSycoca::isSignalConnected(signal);
-        } else if (ksycoca_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ksycoca_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ksycoca_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSycoca::isSignalConnected(signal);
         }
+        return KSycoca::isSignalConnected(signal);
     }
 
     // Friend functions

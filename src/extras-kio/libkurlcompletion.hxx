@@ -132,44 +132,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     VirtualKUrlCompletion() : KUrlCompletion() {};
     VirtualKUrlCompletion(KUrlCompletion::Mode param1) : KUrlCompletion(param1) {};
 
-    ~VirtualKUrlCompletion() {
-        kurlcompletion_metaobject_callback = nullptr;
-        kurlcompletion_metacast_callback = nullptr;
-        kurlcompletion_metacall_callback = nullptr;
-        kurlcompletion_makecompletion_callback = nullptr;
-        kurlcompletion_setdir_callback = nullptr;
-        kurlcompletion_dir_callback = nullptr;
-        kurlcompletion_isrunning_callback = nullptr;
-        kurlcompletion_stop_callback = nullptr;
-        kurlcompletion_mode_callback = nullptr;
-        kurlcompletion_setmode_callback = nullptr;
-        kurlcompletion_replaceenv_callback = nullptr;
-        kurlcompletion_setreplaceenv_callback = nullptr;
-        kurlcompletion_replacehome_callback = nullptr;
-        kurlcompletion_setreplacehome_callback = nullptr;
-        kurlcompletion_postprocessmatches_callback = nullptr;
-        kurlcompletion_postprocessmatches2_callback = nullptr;
-        kurlcompletion_lastmatch_callback = nullptr;
-        kurlcompletion_setcompletionmode_callback = nullptr;
-        kurlcompletion_setorder_callback = nullptr;
-        kurlcompletion_setignorecase_callback = nullptr;
-        kurlcompletion_setsoundsenabled_callback = nullptr;
-        kurlcompletion_setitems_callback = nullptr;
-        kurlcompletion_clear_callback = nullptr;
-        kurlcompletion_event_callback = nullptr;
-        kurlcompletion_eventfilter_callback = nullptr;
-        kurlcompletion_timerevent_callback = nullptr;
-        kurlcompletion_childevent_callback = nullptr;
-        kurlcompletion_customevent_callback = nullptr;
-        kurlcompletion_connectnotify_callback = nullptr;
-        kurlcompletion_disconnectnotify_callback = nullptr;
-        kurlcompletion_setshouldautosuggest_callback = nullptr;
-        kurlcompletion_sender_callback = nullptr;
-        kurlcompletion_sendersignalindex_callback = nullptr;
-        kurlcompletion_receivers_callback = nullptr;
-        kurlcompletion_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKUrlCompletion_MetaObject_Callback(KUrlCompletion_MetaObject_Callback cb) { kurlcompletion_metaobject_callback = cb; }
     inline void setKUrlCompletion_Metacast_Callback(KUrlCompletion_Metacast_Callback cb) { kurlcompletion_metacast_callback = cb; }
@@ -249,12 +211,13 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_metaobject_isbase) {
             kurlcompletion_metaobject_isbase = false;
             return KUrlCompletion::metaObject();
-        } else if (kurlcompletion_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kurlcompletion_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KUrlCompletion::metaObject();
         }
+        auto metaobject_cb = kurlcompletion_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KUrlCompletion::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -262,14 +225,15 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_metacast_isbase) {
             kurlcompletion_metacast_isbase = false;
             return KUrlCompletion::qt_metacast(param1);
-        } else if (kurlcompletion_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kurlcompletion_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kurlcompletion_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlCompletion::qt_metacast(param1);
         }
+        return KUrlCompletion::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,16 +241,17 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_metacall_isbase) {
             kurlcompletion_metacall_isbase = false;
             return KUrlCompletion::qt_metacall(param1, param2, param3);
-        } else if (kurlcompletion_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kurlcompletion_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kurlcompletion_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlCompletion::qt_metacall(param1, param2, param3);
         }
+        return KUrlCompletion::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -294,7 +259,9 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_makecompletion_isbase) {
             kurlcompletion_makecompletion_isbase = false;
             return KUrlCompletion::makeCompletion(text);
-        } else if (kurlcompletion_makecompletion_callback != nullptr) {
+        }
+        auto makecompletion_cb = kurlcompletion_makecompletion_callback;
+        if (makecompletion_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -304,13 +271,12 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            const char* callback_ret = kurlcompletion_makecompletion_callback(this, cbval1);
+            const char* callback_ret = makecompletion_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(text_str);
             return callback_ret_QString;
-        } else {
-            return KUrlCompletion::makeCompletion(text);
         }
+        return KUrlCompletion::makeCompletion(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,15 +284,18 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_setdir_isbase) {
             kurlcompletion_setdir_isbase = false;
             KUrlCompletion::setDir(dir);
-        } else if (kurlcompletion_setdir_callback != nullptr) {
+            return;
+        }
+        auto setdir_cb = kurlcompletion_setdir_callback;
+        if (setdir_cb) {
             const QUrl& dir_ret = dir;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&dir_ret);
 
-            kurlcompletion_setdir_callback(this, cbval1);
-        } else {
-            KUrlCompletion::setDir(dir);
+            setdir_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::setDir(dir);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -334,12 +303,13 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_dir_isbase) {
             kurlcompletion_dir_isbase = false;
             return KUrlCompletion::dir();
-        } else if (kurlcompletion_dir_callback != nullptr) {
-            QUrl* callback_ret = kurlcompletion_dir_callback();
-            return *callback_ret;
-        } else {
-            return KUrlCompletion::dir();
         }
+        auto dir_cb = kurlcompletion_dir_callback;
+        if (dir_cb) {
+            QUrl* callback_ret = dir_cb();
+            return *callback_ret;
+        }
+        return KUrlCompletion::dir();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -347,12 +317,13 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_isrunning_isbase) {
             kurlcompletion_isrunning_isbase = false;
             return KUrlCompletion::isRunning();
-        } else if (kurlcompletion_isrunning_callback != nullptr) {
-            bool callback_ret = kurlcompletion_isrunning_callback();
-            return callback_ret;
-        } else {
-            return KUrlCompletion::isRunning();
         }
+        auto isrunning_cb = kurlcompletion_isrunning_callback;
+        if (isrunning_cb) {
+            bool callback_ret = isrunning_cb();
+            return callback_ret;
+        }
+        return KUrlCompletion::isRunning();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,11 +331,14 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_stop_isbase) {
             kurlcompletion_stop_isbase = false;
             KUrlCompletion::stop();
-        } else if (kurlcompletion_stop_callback != nullptr) {
-            kurlcompletion_stop_callback();
-        } else {
-            KUrlCompletion::stop();
+            return;
         }
+        auto stop_cb = kurlcompletion_stop_callback;
+        if (stop_cb) {
+            stop_cb();
+            return;
+        }
+        KUrlCompletion::stop();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -372,12 +346,13 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_mode_isbase) {
             kurlcompletion_mode_isbase = false;
             return KUrlCompletion::mode();
-        } else if (kurlcompletion_mode_callback != nullptr) {
-            int callback_ret = kurlcompletion_mode_callback();
-            return static_cast<KUrlCompletion::Mode>(callback_ret);
-        } else {
-            return KUrlCompletion::mode();
         }
+        auto mode_cb = kurlcompletion_mode_callback;
+        if (mode_cb) {
+            int callback_ret = mode_cb();
+            return static_cast<KUrlCompletion::Mode>(callback_ret);
+        }
+        return KUrlCompletion::mode();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -385,13 +360,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_setmode_isbase) {
             kurlcompletion_setmode_isbase = false;
             KUrlCompletion::setMode(mode);
-        } else if (kurlcompletion_setmode_callback != nullptr) {
+            return;
+        }
+        auto setmode_cb = kurlcompletion_setmode_callback;
+        if (setmode_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            kurlcompletion_setmode_callback(this, cbval1);
-        } else {
-            KUrlCompletion::setMode(mode);
+            setmode_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::setMode(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -399,12 +377,13 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_replaceenv_isbase) {
             kurlcompletion_replaceenv_isbase = false;
             return KUrlCompletion::replaceEnv();
-        } else if (kurlcompletion_replaceenv_callback != nullptr) {
-            bool callback_ret = kurlcompletion_replaceenv_callback();
-            return callback_ret;
-        } else {
-            return KUrlCompletion::replaceEnv();
         }
+        auto replaceenv_cb = kurlcompletion_replaceenv_callback;
+        if (replaceenv_cb) {
+            bool callback_ret = replaceenv_cb();
+            return callback_ret;
+        }
+        return KUrlCompletion::replaceEnv();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,13 +391,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_setreplaceenv_isbase) {
             kurlcompletion_setreplaceenv_isbase = false;
             KUrlCompletion::setReplaceEnv(replace);
-        } else if (kurlcompletion_setreplaceenv_callback != nullptr) {
+            return;
+        }
+        auto setreplaceenv_cb = kurlcompletion_setreplaceenv_callback;
+        if (setreplaceenv_cb) {
             bool cbval1 = replace;
 
-            kurlcompletion_setreplaceenv_callback(this, cbval1);
-        } else {
-            KUrlCompletion::setReplaceEnv(replace);
+            setreplaceenv_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::setReplaceEnv(replace);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,12 +408,13 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_replacehome_isbase) {
             kurlcompletion_replacehome_isbase = false;
             return KUrlCompletion::replaceHome();
-        } else if (kurlcompletion_replacehome_callback != nullptr) {
-            bool callback_ret = kurlcompletion_replacehome_callback();
-            return callback_ret;
-        } else {
-            return KUrlCompletion::replaceHome();
         }
+        auto replacehome_cb = kurlcompletion_replacehome_callback;
+        if (replacehome_cb) {
+            bool callback_ret = replacehome_cb();
+            return callback_ret;
+        }
+        return KUrlCompletion::replaceHome();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,13 +422,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_setreplacehome_isbase) {
             kurlcompletion_setreplacehome_isbase = false;
             KUrlCompletion::setReplaceHome(replace);
-        } else if (kurlcompletion_setreplacehome_callback != nullptr) {
+            return;
+        }
+        auto setreplacehome_cb = kurlcompletion_setreplacehome_callback;
+        if (setreplacehome_cb) {
             bool cbval1 = replace;
 
-            kurlcompletion_setreplacehome_callback(this, cbval1);
-        } else {
-            KUrlCompletion::setReplaceHome(replace);
+            setreplacehome_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::setReplaceHome(replace);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -453,7 +439,10 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_postprocessmatches_isbase) {
             kurlcompletion_postprocessmatches_isbase = false;
             KUrlCompletion::postProcessMatches(matches);
-        } else if (kurlcompletion_postprocessmatches_callback != nullptr) {
+            return;
+        }
+        auto postprocessmatches_cb = kurlcompletion_postprocessmatches_callback;
+        if (postprocessmatches_cb) {
             QList<QString>* matches_ret = matches;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** matches_arr = static_cast<const char**>(malloc(sizeof(const char*) * (matches_ret->size() + 1)));
@@ -469,11 +458,11 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             matches_arr[matches_ret->size()] = nullptr;
             const char** cbval1 = matches_arr;
 
-            kurlcompletion_postprocessmatches_callback(this, cbval1);
+            postprocessmatches_cb(this, cbval1);
             libqt_free(matches_arr);
-        } else {
-            KUrlCompletion::postProcessMatches(matches);
+            return;
         }
+        KUrlCompletion::postProcessMatches(matches);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,13 +470,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_postprocessmatches2_isbase) {
             kurlcompletion_postprocessmatches2_isbase = false;
             KUrlCompletion::postProcessMatches(matches);
-        } else if (kurlcompletion_postprocessmatches2_callback != nullptr) {
+            return;
+        }
+        auto postprocessmatches2_cb = kurlcompletion_postprocessmatches2_callback;
+        if (postprocessmatches2_cb) {
             KCompletionMatches* cbval1 = matches;
 
-            kurlcompletion_postprocessmatches2_callback(this, cbval1);
-        } else {
-            KUrlCompletion::postProcessMatches(matches);
+            postprocessmatches2_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::postProcessMatches(matches);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,13 +487,14 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_lastmatch_isbase) {
             kurlcompletion_lastmatch_isbase = false;
             return KUrlCompletion::lastMatch();
-        } else if (kurlcompletion_lastmatch_callback != nullptr) {
-            const char* callback_ret = kurlcompletion_lastmatch_callback();
+        }
+        auto lastmatch_cb = kurlcompletion_lastmatch_callback;
+        if (lastmatch_cb) {
+            const char* callback_ret = lastmatch_cb();
             QString* callback_ret_QString = new QString(QString::fromUtf8(callback_ret));
             return *callback_ret_QString;
-        } else {
-            return KUrlCompletion::lastMatch();
         }
+        return KUrlCompletion::lastMatch();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,13 +502,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_setcompletionmode_isbase) {
             kurlcompletion_setcompletionmode_isbase = false;
             KUrlCompletion::setCompletionMode(mode);
-        } else if (kurlcompletion_setcompletionmode_callback != nullptr) {
+            return;
+        }
+        auto setcompletionmode_cb = kurlcompletion_setcompletionmode_callback;
+        if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            kurlcompletion_setcompletionmode_callback(this, cbval1);
-        } else {
-            KUrlCompletion::setCompletionMode(mode);
+            setcompletionmode_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::setCompletionMode(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,13 +519,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_setorder_isbase) {
             kurlcompletion_setorder_isbase = false;
             KUrlCompletion::setOrder(order);
-        } else if (kurlcompletion_setorder_callback != nullptr) {
+            return;
+        }
+        auto setorder_cb = kurlcompletion_setorder_callback;
+        if (setorder_cb) {
             int cbval1 = static_cast<int>(order);
 
-            kurlcompletion_setorder_callback(this, cbval1);
-        } else {
-            KUrlCompletion::setOrder(order);
+            setorder_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::setOrder(order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,13 +536,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_setignorecase_isbase) {
             kurlcompletion_setignorecase_isbase = false;
             KUrlCompletion::setIgnoreCase(ignoreCase);
-        } else if (kurlcompletion_setignorecase_callback != nullptr) {
+            return;
+        }
+        auto setignorecase_cb = kurlcompletion_setignorecase_callback;
+        if (setignorecase_cb) {
             bool cbval1 = ignoreCase;
 
-            kurlcompletion_setignorecase_callback(this, cbval1);
-        } else {
-            KUrlCompletion::setIgnoreCase(ignoreCase);
+            setignorecase_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::setIgnoreCase(ignoreCase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,13 +553,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_setsoundsenabled_isbase) {
             kurlcompletion_setsoundsenabled_isbase = false;
             KUrlCompletion::setSoundsEnabled(enable);
-        } else if (kurlcompletion_setsoundsenabled_callback != nullptr) {
+            return;
+        }
+        auto setsoundsenabled_cb = kurlcompletion_setsoundsenabled_callback;
+        if (setsoundsenabled_cb) {
             bool cbval1 = enable;
 
-            kurlcompletion_setsoundsenabled_callback(this, cbval1);
-        } else {
-            KUrlCompletion::setSoundsEnabled(enable);
+            setsoundsenabled_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::setSoundsEnabled(enable);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,7 +570,10 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_setitems_isbase) {
             kurlcompletion_setitems_isbase = false;
             KUrlCompletion::setItems(itemList);
-        } else if (kurlcompletion_setitems_callback != nullptr) {
+            return;
+        }
+        auto setitems_cb = kurlcompletion_setitems_callback;
+        if (setitems_cb) {
             const QList<QString>& itemList_ret = itemList;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** itemList_arr = static_cast<const char**>(malloc(sizeof(const char*) * (itemList_ret.size() + 1)));
@@ -581,11 +589,11 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             itemList_arr[itemList_ret.size()] = nullptr;
             const char** cbval1 = itemList_arr;
 
-            kurlcompletion_setitems_callback(this, cbval1);
+            setitems_cb(this, cbval1);
             libqt_free(itemList_arr);
-        } else {
-            KUrlCompletion::setItems(itemList);
+            return;
         }
+        KUrlCompletion::setItems(itemList);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -593,11 +601,14 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_clear_isbase) {
             kurlcompletion_clear_isbase = false;
             KUrlCompletion::clear();
-        } else if (kurlcompletion_clear_callback != nullptr) {
-            kurlcompletion_clear_callback();
-        } else {
-            KUrlCompletion::clear();
+            return;
         }
+        auto clear_cb = kurlcompletion_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        KUrlCompletion::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -605,14 +616,15 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_event_isbase) {
             kurlcompletion_event_isbase = false;
             return KUrlCompletion::event(event);
-        } else if (kurlcompletion_event_callback != nullptr) {
+        }
+        auto event_cb = kurlcompletion_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kurlcompletion_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlCompletion::event(event);
         }
+        return KUrlCompletion::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -620,15 +632,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_eventfilter_isbase) {
             kurlcompletion_eventfilter_isbase = false;
             return KUrlCompletion::eventFilter(watched, event);
-        } else if (kurlcompletion_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kurlcompletion_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kurlcompletion_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KUrlCompletion::eventFilter(watched, event);
         }
+        return KUrlCompletion::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,13 +649,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_timerevent_isbase) {
             kurlcompletion_timerevent_isbase = false;
             KUrlCompletion::timerEvent(event);
-        } else if (kurlcompletion_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kurlcompletion_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kurlcompletion_timerevent_callback(this, cbval1);
-        } else {
-            KUrlCompletion::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -650,13 +666,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_childevent_isbase) {
             kurlcompletion_childevent_isbase = false;
             KUrlCompletion::childEvent(event);
-        } else if (kurlcompletion_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kurlcompletion_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kurlcompletion_childevent_callback(this, cbval1);
-        } else {
-            KUrlCompletion::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -664,13 +683,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_customevent_isbase) {
             kurlcompletion_customevent_isbase = false;
             KUrlCompletion::customEvent(event);
-        } else if (kurlcompletion_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kurlcompletion_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kurlcompletion_customevent_callback(this, cbval1);
-        } else {
-            KUrlCompletion::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -678,15 +700,18 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_connectnotify_isbase) {
             kurlcompletion_connectnotify_isbase = false;
             KUrlCompletion::connectNotify(signal);
-        } else if (kurlcompletion_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kurlcompletion_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kurlcompletion_connectnotify_callback(this, cbval1);
-        } else {
-            KUrlCompletion::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -694,15 +719,18 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_disconnectnotify_isbase) {
             kurlcompletion_disconnectnotify_isbase = false;
             KUrlCompletion::disconnectNotify(signal);
-        } else if (kurlcompletion_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kurlcompletion_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kurlcompletion_disconnectnotify_callback(this, cbval1);
-        } else {
-            KUrlCompletion::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -710,13 +738,16 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_setshouldautosuggest_isbase) {
             kurlcompletion_setshouldautosuggest_isbase = false;
             KUrlCompletion::setShouldAutoSuggest(shouldAutosuggest);
-        } else if (kurlcompletion_setshouldautosuggest_callback != nullptr) {
+            return;
+        }
+        auto setshouldautosuggest_cb = kurlcompletion_setshouldautosuggest_callback;
+        if (setshouldautosuggest_cb) {
             bool cbval1 = shouldAutosuggest;
 
-            kurlcompletion_setshouldautosuggest_callback(this, cbval1);
-        } else {
-            KUrlCompletion::setShouldAutoSuggest(shouldAutosuggest);
+            setshouldautosuggest_cb(this, cbval1);
+            return;
         }
+        KUrlCompletion::setShouldAutoSuggest(shouldAutosuggest);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,12 +755,13 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_sender_isbase) {
             kurlcompletion_sender_isbase = false;
             return KUrlCompletion::sender();
-        } else if (kurlcompletion_sender_callback != nullptr) {
-            QObject* callback_ret = kurlcompletion_sender_callback();
-            return callback_ret;
-        } else {
-            return KUrlCompletion::sender();
         }
+        auto sender_cb = kurlcompletion_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KUrlCompletion::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,12 +769,13 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_sendersignalindex_isbase) {
             kurlcompletion_sendersignalindex_isbase = false;
             return KUrlCompletion::senderSignalIndex();
-        } else if (kurlcompletion_sendersignalindex_callback != nullptr) {
-            int callback_ret = kurlcompletion_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KUrlCompletion::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kurlcompletion_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KUrlCompletion::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -750,14 +783,15 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_receivers_isbase) {
             kurlcompletion_receivers_isbase = false;
             return KUrlCompletion::receivers(signal);
-        } else if (kurlcompletion_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kurlcompletion_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kurlcompletion_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlCompletion::receivers(signal);
         }
+        return KUrlCompletion::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,16 +799,17 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (kurlcompletion_issignalconnected_isbase) {
             kurlcompletion_issignalconnected_isbase = false;
             return KUrlCompletion::isSignalConnected(signal);
-        } else if (kurlcompletion_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kurlcompletion_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kurlcompletion_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlCompletion::isSignalConnected(signal);
         }
+        return KUrlCompletion::isSignalConnected(signal);
     }
 
     // Friend functions

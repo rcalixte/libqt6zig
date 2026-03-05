@@ -258,86 +258,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
     VirtualKFileFilterCombo(QWidget* parent) : KFileFilterCombo(parent) {};
     VirtualKFileFilterCombo() : KFileFilterCombo() {};
 
-    ~VirtualKFileFilterCombo() {
-        kfilefiltercombo_metaobject_callback = nullptr;
-        kfilefiltercombo_metacast_callback = nullptr;
-        kfilefiltercombo_metacall_callback = nullptr;
-        kfilefiltercombo_eventfilter_callback = nullptr;
-        kfilefiltercombo_setautocompletion_callback = nullptr;
-        kfilefiltercombo_setlineedit_callback = nullptr;
-        kfilefiltercombo_minimumsizehint_callback = nullptr;
-        kfilefiltercombo_setcompletedtext_callback = nullptr;
-        kfilefiltercombo_setcompleteditems_callback = nullptr;
-        kfilefiltercombo_makecompletion_callback = nullptr;
-        kfilefiltercombo_setmodel_callback = nullptr;
-        kfilefiltercombo_sizehint_callback = nullptr;
-        kfilefiltercombo_showpopup_callback = nullptr;
-        kfilefiltercombo_hidepopup_callback = nullptr;
-        kfilefiltercombo_event_callback = nullptr;
-        kfilefiltercombo_inputmethodquery_callback = nullptr;
-        kfilefiltercombo_focusinevent_callback = nullptr;
-        kfilefiltercombo_focusoutevent_callback = nullptr;
-        kfilefiltercombo_changeevent_callback = nullptr;
-        kfilefiltercombo_resizeevent_callback = nullptr;
-        kfilefiltercombo_paintevent_callback = nullptr;
-        kfilefiltercombo_showevent_callback = nullptr;
-        kfilefiltercombo_hideevent_callback = nullptr;
-        kfilefiltercombo_mousepressevent_callback = nullptr;
-        kfilefiltercombo_mousereleaseevent_callback = nullptr;
-        kfilefiltercombo_keypressevent_callback = nullptr;
-        kfilefiltercombo_keyreleaseevent_callback = nullptr;
-        kfilefiltercombo_wheelevent_callback = nullptr;
-        kfilefiltercombo_contextmenuevent_callback = nullptr;
-        kfilefiltercombo_inputmethodevent_callback = nullptr;
-        kfilefiltercombo_initstyleoption_callback = nullptr;
-        kfilefiltercombo_devtype_callback = nullptr;
-        kfilefiltercombo_setvisible_callback = nullptr;
-        kfilefiltercombo_heightforwidth_callback = nullptr;
-        kfilefiltercombo_hasheightforwidth_callback = nullptr;
-        kfilefiltercombo_paintengine_callback = nullptr;
-        kfilefiltercombo_mousedoubleclickevent_callback = nullptr;
-        kfilefiltercombo_mousemoveevent_callback = nullptr;
-        kfilefiltercombo_enterevent_callback = nullptr;
-        kfilefiltercombo_leaveevent_callback = nullptr;
-        kfilefiltercombo_moveevent_callback = nullptr;
-        kfilefiltercombo_closeevent_callback = nullptr;
-        kfilefiltercombo_tabletevent_callback = nullptr;
-        kfilefiltercombo_actionevent_callback = nullptr;
-        kfilefiltercombo_dragenterevent_callback = nullptr;
-        kfilefiltercombo_dragmoveevent_callback = nullptr;
-        kfilefiltercombo_dragleaveevent_callback = nullptr;
-        kfilefiltercombo_dropevent_callback = nullptr;
-        kfilefiltercombo_nativeevent_callback = nullptr;
-        kfilefiltercombo_metric_callback = nullptr;
-        kfilefiltercombo_initpainter_callback = nullptr;
-        kfilefiltercombo_redirected_callback = nullptr;
-        kfilefiltercombo_sharedpainter_callback = nullptr;
-        kfilefiltercombo_focusnextprevchild_callback = nullptr;
-        kfilefiltercombo_timerevent_callback = nullptr;
-        kfilefiltercombo_childevent_callback = nullptr;
-        kfilefiltercombo_customevent_callback = nullptr;
-        kfilefiltercombo_connectnotify_callback = nullptr;
-        kfilefiltercombo_disconnectnotify_callback = nullptr;
-        kfilefiltercombo_setcompletionobject_callback = nullptr;
-        kfilefiltercombo_sethandlesignals_callback = nullptr;
-        kfilefiltercombo_setcompletionmode_callback = nullptr;
-        kfilefiltercombo_virtualhook_callback = nullptr;
-        kfilefiltercombo_updatemicrofocus_callback = nullptr;
-        kfilefiltercombo_create_callback = nullptr;
-        kfilefiltercombo_destroy_callback = nullptr;
-        kfilefiltercombo_focusnextchild_callback = nullptr;
-        kfilefiltercombo_focuspreviouschild_callback = nullptr;
-        kfilefiltercombo_sender_callback = nullptr;
-        kfilefiltercombo_sendersignalindex_callback = nullptr;
-        kfilefiltercombo_receivers_callback = nullptr;
-        kfilefiltercombo_issignalconnected_callback = nullptr;
-        kfilefiltercombo_getdecodedmetricf_callback = nullptr;
-        kfilefiltercombo_keybindingmap_callback = nullptr;
-        kfilefiltercombo_setkeybindingmap_callback = nullptr;
-        kfilefiltercombo_setdelegate_callback = nullptr;
-        kfilefiltercombo_delegate_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFileFilterCombo_MetaObject_Callback(KFileFilterCombo_MetaObject_Callback cb) { kfilefiltercombo_metaobject_callback = cb; }
     inline void setKFileFilterCombo_Metacast_Callback(KFileFilterCombo_Metacast_Callback cb) { kfilefiltercombo_metacast_callback = cb; }
@@ -501,12 +421,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_metaobject_isbase) {
             kfilefiltercombo_metaobject_isbase = false;
             return KFileFilterCombo::metaObject();
-        } else if (kfilefiltercombo_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfilefiltercombo_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFileFilterCombo::metaObject();
         }
+        auto metaobject_cb = kfilefiltercombo_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFileFilterCombo::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,14 +435,15 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_metacast_isbase) {
             kfilefiltercombo_metacast_isbase = false;
             return KFileFilterCombo::qt_metacast(param1);
-        } else if (kfilefiltercombo_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfilefiltercombo_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfilefiltercombo_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileFilterCombo::qt_metacast(param1);
         }
+        return KFileFilterCombo::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,16 +451,17 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_metacall_isbase) {
             kfilefiltercombo_metacall_isbase = false;
             return KFileFilterCombo::qt_metacall(param1, param2, param3);
-        } else if (kfilefiltercombo_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfilefiltercombo_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfilefiltercombo_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileFilterCombo::qt_metacall(param1, param2, param3);
         }
+        return KFileFilterCombo::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,15 +469,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_eventfilter_isbase) {
             kfilefiltercombo_eventfilter_isbase = false;
             return KFileFilterCombo::eventFilter(param1, param2);
-        } else if (kfilefiltercombo_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfilefiltercombo_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kfilefiltercombo_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFileFilterCombo::eventFilter(param1, param2);
         }
+        return KFileFilterCombo::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -562,13 +486,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_setautocompletion_isbase) {
             kfilefiltercombo_setautocompletion_isbase = false;
             KFileFilterCombo::setAutoCompletion(autocomplete);
-        } else if (kfilefiltercombo_setautocompletion_callback != nullptr) {
+            return;
+        }
+        auto setautocompletion_cb = kfilefiltercombo_setautocompletion_callback;
+        if (setautocompletion_cb) {
             bool cbval1 = autocomplete;
 
-            kfilefiltercombo_setautocompletion_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::setAutoCompletion(autocomplete);
+            setautocompletion_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::setAutoCompletion(autocomplete);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -576,13 +503,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_setlineedit_isbase) {
             kfilefiltercombo_setlineedit_isbase = false;
             KFileFilterCombo::setLineEdit(lineEdit);
-        } else if (kfilefiltercombo_setlineedit_callback != nullptr) {
+            return;
+        }
+        auto setlineedit_cb = kfilefiltercombo_setlineedit_callback;
+        if (setlineedit_cb) {
             QLineEdit* cbval1 = lineEdit;
 
-            kfilefiltercombo_setlineedit_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::setLineEdit(lineEdit);
+            setlineedit_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::setLineEdit(lineEdit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -590,12 +520,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_minimumsizehint_isbase) {
             kfilefiltercombo_minimumsizehint_isbase = false;
             return KFileFilterCombo::minimumSizeHint();
-        } else if (kfilefiltercombo_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kfilefiltercombo_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFileFilterCombo::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kfilefiltercombo_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KFileFilterCombo::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -603,7 +534,10 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_setcompletedtext_isbase) {
             kfilefiltercombo_setcompletedtext_isbase = false;
             KFileFilterCombo::setCompletedText(completedText);
-        } else if (kfilefiltercombo_setcompletedtext_callback != nullptr) {
+            return;
+        }
+        auto setcompletedtext_cb = kfilefiltercombo_setcompletedtext_callback;
+        if (setcompletedtext_cb) {
             const QString completedText_ret = completedText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray completedText_b = completedText_ret.toUtf8();
@@ -613,11 +547,11 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             ((char*)completedText_str)[completedText_str_len] = '\0';
             const char* cbval1 = completedText_str;
 
-            kfilefiltercombo_setcompletedtext_callback(this, cbval1);
+            setcompletedtext_cb(this, cbval1);
             libqt_free(completedText_str);
-        } else {
-            KFileFilterCombo::setCompletedText(completedText);
+            return;
         }
+        KFileFilterCombo::setCompletedText(completedText);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,7 +559,10 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_setcompleteditems_isbase) {
             kfilefiltercombo_setcompleteditems_isbase = false;
             KFileFilterCombo::setCompletedItems(items, autoSuggest);
-        } else if (kfilefiltercombo_setcompleteditems_callback != nullptr) {
+            return;
+        }
+        auto setcompleteditems_cb = kfilefiltercombo_setcompleteditems_callback;
+        if (setcompleteditems_cb) {
             const QList<QString>& items_ret = items;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** items_arr = static_cast<const char**>(malloc(sizeof(const char*) * (items_ret.size() + 1)));
@@ -642,11 +579,11 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
 
-            kfilefiltercombo_setcompleteditems_callback(this, cbval1, cbval2);
+            setcompleteditems_cb(this, cbval1, cbval2);
             libqt_free(items_arr);
-        } else {
-            KFileFilterCombo::setCompletedItems(items, autoSuggest);
+            return;
         }
+        KFileFilterCombo::setCompletedItems(items, autoSuggest);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,7 +591,10 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_makecompletion_isbase) {
             kfilefiltercombo_makecompletion_isbase = false;
             KFileFilterCombo::makeCompletion(param1);
-        } else if (kfilefiltercombo_makecompletion_callback != nullptr) {
+            return;
+        }
+        auto makecompletion_cb = kfilefiltercombo_makecompletion_callback;
+        if (makecompletion_cb) {
             const QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -664,11 +604,11 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
 
-            kfilefiltercombo_makecompletion_callback(this, cbval1);
+            makecompletion_cb(this, cbval1);
             libqt_free(param1_str);
-        } else {
-            KFileFilterCombo::makeCompletion(param1);
+            return;
         }
+        KFileFilterCombo::makeCompletion(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,13 +616,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_setmodel_isbase) {
             kfilefiltercombo_setmodel_isbase = false;
             KFileFilterCombo::setModel(model);
-        } else if (kfilefiltercombo_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = kfilefiltercombo_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            kfilefiltercombo_setmodel_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,12 +633,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_sizehint_isbase) {
             kfilefiltercombo_sizehint_isbase = false;
             return KFileFilterCombo::sizeHint();
-        } else if (kfilefiltercombo_sizehint_callback != nullptr) {
-            QSize* callback_ret = kfilefiltercombo_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFileFilterCombo::sizeHint();
         }
+        auto sizehint_cb = kfilefiltercombo_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KFileFilterCombo::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,11 +647,14 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_showpopup_isbase) {
             kfilefiltercombo_showpopup_isbase = false;
             KFileFilterCombo::showPopup();
-        } else if (kfilefiltercombo_showpopup_callback != nullptr) {
-            kfilefiltercombo_showpopup_callback();
-        } else {
-            KFileFilterCombo::showPopup();
+            return;
         }
+        auto showpopup_cb = kfilefiltercombo_showpopup_callback;
+        if (showpopup_cb) {
+            showpopup_cb();
+            return;
+        }
+        KFileFilterCombo::showPopup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -715,11 +662,14 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_hidepopup_isbase) {
             kfilefiltercombo_hidepopup_isbase = false;
             KFileFilterCombo::hidePopup();
-        } else if (kfilefiltercombo_hidepopup_callback != nullptr) {
-            kfilefiltercombo_hidepopup_callback();
-        } else {
-            KFileFilterCombo::hidePopup();
+            return;
         }
+        auto hidepopup_cb = kfilefiltercombo_hidepopup_callback;
+        if (hidepopup_cb) {
+            hidepopup_cb();
+            return;
+        }
+        KFileFilterCombo::hidePopup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,14 +677,15 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_event_isbase) {
             kfilefiltercombo_event_isbase = false;
             return KFileFilterCombo::event(event);
-        } else if (kfilefiltercombo_event_callback != nullptr) {
+        }
+        auto event_cb = kfilefiltercombo_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfilefiltercombo_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileFilterCombo::event(event);
         }
+        return KFileFilterCombo::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -742,14 +693,15 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_inputmethodquery_isbase) {
             kfilefiltercombo_inputmethodquery_isbase = false;
             return KFileFilterCombo::inputMethodQuery(param1);
-        } else if (kfilefiltercombo_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kfilefiltercombo_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kfilefiltercombo_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFileFilterCombo::inputMethodQuery(param1);
         }
+        return KFileFilterCombo::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -757,13 +709,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_focusinevent_isbase) {
             kfilefiltercombo_focusinevent_isbase = false;
             KFileFilterCombo::focusInEvent(e);
-        } else if (kfilefiltercombo_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kfilefiltercombo_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            kfilefiltercombo_focusinevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::focusInEvent(e);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::focusInEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -771,13 +726,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_focusoutevent_isbase) {
             kfilefiltercombo_focusoutevent_isbase = false;
             KFileFilterCombo::focusOutEvent(e);
-        } else if (kfilefiltercombo_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kfilefiltercombo_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            kfilefiltercombo_focusoutevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::focusOutEvent(e);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::focusOutEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -785,13 +743,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_changeevent_isbase) {
             kfilefiltercombo_changeevent_isbase = false;
             KFileFilterCombo::changeEvent(e);
-        } else if (kfilefiltercombo_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kfilefiltercombo_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            kfilefiltercombo_changeevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,13 +760,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_resizeevent_isbase) {
             kfilefiltercombo_resizeevent_isbase = false;
             KFileFilterCombo::resizeEvent(e);
-        } else if (kfilefiltercombo_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kfilefiltercombo_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
 
-            kfilefiltercombo_resizeevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::resizeEvent(e);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::resizeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -813,13 +777,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_paintevent_isbase) {
             kfilefiltercombo_paintevent_isbase = false;
             KFileFilterCombo::paintEvent(e);
-        } else if (kfilefiltercombo_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kfilefiltercombo_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
 
-            kfilefiltercombo_paintevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::paintEvent(e);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::paintEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -827,13 +794,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_showevent_isbase) {
             kfilefiltercombo_showevent_isbase = false;
             KFileFilterCombo::showEvent(e);
-        } else if (kfilefiltercombo_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kfilefiltercombo_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = e;
 
-            kfilefiltercombo_showevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::showEvent(e);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::showEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -841,13 +811,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_hideevent_isbase) {
             kfilefiltercombo_hideevent_isbase = false;
             KFileFilterCombo::hideEvent(e);
-        } else if (kfilefiltercombo_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kfilefiltercombo_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = e;
 
-            kfilefiltercombo_hideevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::hideEvent(e);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::hideEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -855,13 +828,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_mousepressevent_isbase) {
             kfilefiltercombo_mousepressevent_isbase = false;
             KFileFilterCombo::mousePressEvent(e);
-        } else if (kfilefiltercombo_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kfilefiltercombo_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kfilefiltercombo_mousepressevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -869,13 +845,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_mousereleaseevent_isbase) {
             kfilefiltercombo_mousereleaseevent_isbase = false;
             KFileFilterCombo::mouseReleaseEvent(e);
-        } else if (kfilefiltercombo_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kfilefiltercombo_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kfilefiltercombo_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -883,13 +862,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_keypressevent_isbase) {
             kfilefiltercombo_keypressevent_isbase = false;
             KFileFilterCombo::keyPressEvent(e);
-        } else if (kfilefiltercombo_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kfilefiltercombo_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kfilefiltercombo_keypressevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -897,13 +879,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_keyreleaseevent_isbase) {
             kfilefiltercombo_keyreleaseevent_isbase = false;
             KFileFilterCombo::keyReleaseEvent(e);
-        } else if (kfilefiltercombo_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kfilefiltercombo_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kfilefiltercombo_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -911,13 +896,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_wheelevent_isbase) {
             kfilefiltercombo_wheelevent_isbase = false;
             KFileFilterCombo::wheelEvent(e);
-        } else if (kfilefiltercombo_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kfilefiltercombo_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            kfilefiltercombo_wheelevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -925,13 +913,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_contextmenuevent_isbase) {
             kfilefiltercombo_contextmenuevent_isbase = false;
             KFileFilterCombo::contextMenuEvent(e);
-        } else if (kfilefiltercombo_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kfilefiltercombo_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
 
-            kfilefiltercombo_contextmenuevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::contextMenuEvent(e);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::contextMenuEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -939,13 +930,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_inputmethodevent_isbase) {
             kfilefiltercombo_inputmethodevent_isbase = false;
             KFileFilterCombo::inputMethodEvent(param1);
-        } else if (kfilefiltercombo_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kfilefiltercombo_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kfilefiltercombo_inputmethodevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,13 +947,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_initstyleoption_isbase) {
             kfilefiltercombo_initstyleoption_isbase = false;
             KFileFilterCombo::initStyleOption(option);
-        } else if (kfilefiltercombo_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kfilefiltercombo_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionComboBox* cbval1 = option;
 
-            kfilefiltercombo_initstyleoption_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,12 +964,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_devtype_isbase) {
             kfilefiltercombo_devtype_isbase = false;
             return KFileFilterCombo::devType();
-        } else if (kfilefiltercombo_devtype_callback != nullptr) {
-            int callback_ret = kfilefiltercombo_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFileFilterCombo::devType();
         }
+        auto devtype_cb = kfilefiltercombo_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFileFilterCombo::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -980,13 +978,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_setvisible_isbase) {
             kfilefiltercombo_setvisible_isbase = false;
             KFileFilterCombo::setVisible(visible);
-        } else if (kfilefiltercombo_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kfilefiltercombo_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kfilefiltercombo_setvisible_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -994,14 +995,15 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_heightforwidth_isbase) {
             kfilefiltercombo_heightforwidth_isbase = false;
             return KFileFilterCombo::heightForWidth(param1);
-        } else if (kfilefiltercombo_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kfilefiltercombo_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kfilefiltercombo_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileFilterCombo::heightForWidth(param1);
         }
+        return KFileFilterCombo::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,12 +1011,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_hasheightforwidth_isbase) {
             kfilefiltercombo_hasheightforwidth_isbase = false;
             return KFileFilterCombo::hasHeightForWidth();
-        } else if (kfilefiltercombo_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kfilefiltercombo_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KFileFilterCombo::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kfilefiltercombo_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KFileFilterCombo::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,12 +1025,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_paintengine_isbase) {
             kfilefiltercombo_paintengine_isbase = false;
             return KFileFilterCombo::paintEngine();
-        } else if (kfilefiltercombo_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kfilefiltercombo_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KFileFilterCombo::paintEngine();
         }
+        auto paintengine_cb = kfilefiltercombo_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KFileFilterCombo::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,13 +1039,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_mousedoubleclickevent_isbase) {
             kfilefiltercombo_mousedoubleclickevent_isbase = false;
             KFileFilterCombo::mouseDoubleClickEvent(event);
-        } else if (kfilefiltercombo_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kfilefiltercombo_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfilefiltercombo_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1049,13 +1056,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_mousemoveevent_isbase) {
             kfilefiltercombo_mousemoveevent_isbase = false;
             KFileFilterCombo::mouseMoveEvent(event);
-        } else if (kfilefiltercombo_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kfilefiltercombo_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfilefiltercombo_mousemoveevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,13 +1073,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_enterevent_isbase) {
             kfilefiltercombo_enterevent_isbase = false;
             KFileFilterCombo::enterEvent(event);
-        } else if (kfilefiltercombo_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kfilefiltercombo_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kfilefiltercombo_enterevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,13 +1090,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_leaveevent_isbase) {
             kfilefiltercombo_leaveevent_isbase = false;
             KFileFilterCombo::leaveEvent(event);
-        } else if (kfilefiltercombo_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kfilefiltercombo_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kfilefiltercombo_leaveevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,13 +1107,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_moveevent_isbase) {
             kfilefiltercombo_moveevent_isbase = false;
             KFileFilterCombo::moveEvent(event);
-        } else if (kfilefiltercombo_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kfilefiltercombo_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kfilefiltercombo_moveevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,13 +1124,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_closeevent_isbase) {
             kfilefiltercombo_closeevent_isbase = false;
             KFileFilterCombo::closeEvent(event);
-        } else if (kfilefiltercombo_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kfilefiltercombo_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kfilefiltercombo_closeevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1119,13 +1141,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_tabletevent_isbase) {
             kfilefiltercombo_tabletevent_isbase = false;
             KFileFilterCombo::tabletEvent(event);
-        } else if (kfilefiltercombo_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kfilefiltercombo_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kfilefiltercombo_tabletevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1133,13 +1158,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_actionevent_isbase) {
             kfilefiltercombo_actionevent_isbase = false;
             KFileFilterCombo::actionEvent(event);
-        } else if (kfilefiltercombo_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kfilefiltercombo_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kfilefiltercombo_actionevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1147,13 +1175,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_dragenterevent_isbase) {
             kfilefiltercombo_dragenterevent_isbase = false;
             KFileFilterCombo::dragEnterEvent(event);
-        } else if (kfilefiltercombo_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kfilefiltercombo_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kfilefiltercombo_dragenterevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1161,13 +1192,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_dragmoveevent_isbase) {
             kfilefiltercombo_dragmoveevent_isbase = false;
             KFileFilterCombo::dragMoveEvent(event);
-        } else if (kfilefiltercombo_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kfilefiltercombo_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kfilefiltercombo_dragmoveevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1175,13 +1209,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_dragleaveevent_isbase) {
             kfilefiltercombo_dragleaveevent_isbase = false;
             KFileFilterCombo::dragLeaveEvent(event);
-        } else if (kfilefiltercombo_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kfilefiltercombo_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kfilefiltercombo_dragleaveevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1189,13 +1226,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_dropevent_isbase) {
             kfilefiltercombo_dropevent_isbase = false;
             KFileFilterCombo::dropEvent(event);
-        } else if (kfilefiltercombo_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kfilefiltercombo_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kfilefiltercombo_dropevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,7 +1243,9 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_nativeevent_isbase) {
             kfilefiltercombo_nativeevent_isbase = false;
             return KFileFilterCombo::nativeEvent(eventType, message, result);
-        } else if (kfilefiltercombo_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kfilefiltercombo_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1214,12 +1256,11 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kfilefiltercombo_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KFileFilterCombo::nativeEvent(eventType, message, result);
         }
+        return KFileFilterCombo::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1227,14 +1268,15 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_metric_isbase) {
             kfilefiltercombo_metric_isbase = false;
             return KFileFilterCombo::metric(param1);
-        } else if (kfilefiltercombo_metric_callback != nullptr) {
+        }
+        auto metric_cb = kfilefiltercombo_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kfilefiltercombo_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileFilterCombo::metric(param1);
         }
+        return KFileFilterCombo::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1242,13 +1284,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_initpainter_isbase) {
             kfilefiltercombo_initpainter_isbase = false;
             KFileFilterCombo::initPainter(painter);
-        } else if (kfilefiltercombo_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kfilefiltercombo_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kfilefiltercombo_initpainter_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,14 +1301,15 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_redirected_isbase) {
             kfilefiltercombo_redirected_isbase = false;
             return KFileFilterCombo::redirected(offset);
-        } else if (kfilefiltercombo_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kfilefiltercombo_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kfilefiltercombo_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileFilterCombo::redirected(offset);
         }
+        return KFileFilterCombo::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1271,12 +1317,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_sharedpainter_isbase) {
             kfilefiltercombo_sharedpainter_isbase = false;
             return KFileFilterCombo::sharedPainter();
-        } else if (kfilefiltercombo_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kfilefiltercombo_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KFileFilterCombo::sharedPainter();
         }
+        auto sharedpainter_cb = kfilefiltercombo_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KFileFilterCombo::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,14 +1331,15 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_focusnextprevchild_isbase) {
             kfilefiltercombo_focusnextprevchild_isbase = false;
             return KFileFilterCombo::focusNextPrevChild(next);
-        } else if (kfilefiltercombo_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kfilefiltercombo_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kfilefiltercombo_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileFilterCombo::focusNextPrevChild(next);
         }
+        return KFileFilterCombo::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1299,13 +1347,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_timerevent_isbase) {
             kfilefiltercombo_timerevent_isbase = false;
             KFileFilterCombo::timerEvent(event);
-        } else if (kfilefiltercombo_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfilefiltercombo_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfilefiltercombo_timerevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1313,13 +1364,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_childevent_isbase) {
             kfilefiltercombo_childevent_isbase = false;
             KFileFilterCombo::childEvent(event);
-        } else if (kfilefiltercombo_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfilefiltercombo_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfilefiltercombo_childevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1327,13 +1381,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_customevent_isbase) {
             kfilefiltercombo_customevent_isbase = false;
             KFileFilterCombo::customEvent(event);
-        } else if (kfilefiltercombo_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfilefiltercombo_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfilefiltercombo_customevent_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1341,15 +1398,18 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_connectnotify_isbase) {
             kfilefiltercombo_connectnotify_isbase = false;
             KFileFilterCombo::connectNotify(signal);
-        } else if (kfilefiltercombo_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfilefiltercombo_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfilefiltercombo_connectnotify_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1357,15 +1417,18 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_disconnectnotify_isbase) {
             kfilefiltercombo_disconnectnotify_isbase = false;
             KFileFilterCombo::disconnectNotify(signal);
-        } else if (kfilefiltercombo_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfilefiltercombo_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfilefiltercombo_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1373,14 +1436,17 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_setcompletionobject_isbase) {
             kfilefiltercombo_setcompletionobject_isbase = false;
             KFileFilterCombo::setCompletionObject(completionObject, handleSignals);
-        } else if (kfilefiltercombo_setcompletionobject_callback != nullptr) {
+            return;
+        }
+        auto setcompletionobject_cb = kfilefiltercombo_setcompletionobject_callback;
+        if (setcompletionobject_cb) {
             KCompletion* cbval1 = completionObject;
             bool cbval2 = handleSignals;
 
-            kfilefiltercombo_setcompletionobject_callback(this, cbval1, cbval2);
-        } else {
-            KFileFilterCombo::setCompletionObject(completionObject, handleSignals);
+            setcompletionobject_cb(this, cbval1, cbval2);
+            return;
         }
+        KFileFilterCombo::setCompletionObject(completionObject, handleSignals);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1388,13 +1454,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_sethandlesignals_isbase) {
             kfilefiltercombo_sethandlesignals_isbase = false;
             KFileFilterCombo::setHandleSignals(handle);
-        } else if (kfilefiltercombo_sethandlesignals_callback != nullptr) {
+            return;
+        }
+        auto sethandlesignals_cb = kfilefiltercombo_sethandlesignals_callback;
+        if (sethandlesignals_cb) {
             bool cbval1 = handle;
 
-            kfilefiltercombo_sethandlesignals_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::setHandleSignals(handle);
+            sethandlesignals_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::setHandleSignals(handle);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1402,13 +1471,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_setcompletionmode_isbase) {
             kfilefiltercombo_setcompletionmode_isbase = false;
             KFileFilterCombo::setCompletionMode(mode);
-        } else if (kfilefiltercombo_setcompletionmode_callback != nullptr) {
+            return;
+        }
+        auto setcompletionmode_cb = kfilefiltercombo_setcompletionmode_callback;
+        if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            kfilefiltercombo_setcompletionmode_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::setCompletionMode(mode);
+            setcompletionmode_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::setCompletionMode(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1416,14 +1488,17 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_virtualhook_isbase) {
             kfilefiltercombo_virtualhook_isbase = false;
             KFileFilterCombo::virtual_hook(id, data);
-        } else if (kfilefiltercombo_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kfilefiltercombo_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kfilefiltercombo_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KFileFilterCombo::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KFileFilterCombo::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1431,11 +1506,14 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_updatemicrofocus_isbase) {
             kfilefiltercombo_updatemicrofocus_isbase = false;
             KFileFilterCombo::updateMicroFocus();
-        } else if (kfilefiltercombo_updatemicrofocus_callback != nullptr) {
-            kfilefiltercombo_updatemicrofocus_callback();
-        } else {
-            KFileFilterCombo::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kfilefiltercombo_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KFileFilterCombo::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1443,11 +1521,14 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_create_isbase) {
             kfilefiltercombo_create_isbase = false;
             KFileFilterCombo::create();
-        } else if (kfilefiltercombo_create_callback != nullptr) {
-            kfilefiltercombo_create_callback();
-        } else {
-            KFileFilterCombo::create();
+            return;
         }
+        auto create_cb = kfilefiltercombo_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KFileFilterCombo::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1455,11 +1536,14 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_destroy_isbase) {
             kfilefiltercombo_destroy_isbase = false;
             KFileFilterCombo::destroy();
-        } else if (kfilefiltercombo_destroy_callback != nullptr) {
-            kfilefiltercombo_destroy_callback();
-        } else {
-            KFileFilterCombo::destroy();
+            return;
         }
+        auto destroy_cb = kfilefiltercombo_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KFileFilterCombo::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1467,12 +1551,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_focusnextchild_isbase) {
             kfilefiltercombo_focusnextchild_isbase = false;
             return KFileFilterCombo::focusNextChild();
-        } else if (kfilefiltercombo_focusnextchild_callback != nullptr) {
-            bool callback_ret = kfilefiltercombo_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KFileFilterCombo::focusNextChild();
         }
+        auto focusnextchild_cb = kfilefiltercombo_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KFileFilterCombo::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1480,12 +1565,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_focuspreviouschild_isbase) {
             kfilefiltercombo_focuspreviouschild_isbase = false;
             return KFileFilterCombo::focusPreviousChild();
-        } else if (kfilefiltercombo_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kfilefiltercombo_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KFileFilterCombo::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kfilefiltercombo_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KFileFilterCombo::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1493,12 +1579,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_sender_isbase) {
             kfilefiltercombo_sender_isbase = false;
             return KFileFilterCombo::sender();
-        } else if (kfilefiltercombo_sender_callback != nullptr) {
-            QObject* callback_ret = kfilefiltercombo_sender_callback();
-            return callback_ret;
-        } else {
-            return KFileFilterCombo::sender();
         }
+        auto sender_cb = kfilefiltercombo_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFileFilterCombo::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1506,12 +1593,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_sendersignalindex_isbase) {
             kfilefiltercombo_sendersignalindex_isbase = false;
             return KFileFilterCombo::senderSignalIndex();
-        } else if (kfilefiltercombo_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfilefiltercombo_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFileFilterCombo::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfilefiltercombo_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFileFilterCombo::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1519,14 +1607,15 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_receivers_isbase) {
             kfilefiltercombo_receivers_isbase = false;
             return KFileFilterCombo::receivers(signal);
-        } else if (kfilefiltercombo_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfilefiltercombo_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfilefiltercombo_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileFilterCombo::receivers(signal);
         }
+        return KFileFilterCombo::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1534,16 +1623,17 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_issignalconnected_isbase) {
             kfilefiltercombo_issignalconnected_isbase = false;
             return KFileFilterCombo::isSignalConnected(signal);
-        } else if (kfilefiltercombo_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfilefiltercombo_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfilefiltercombo_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileFilterCombo::isSignalConnected(signal);
         }
+        return KFileFilterCombo::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1551,15 +1641,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_getdecodedmetricf_isbase) {
             kfilefiltercombo_getdecodedmetricf_isbase = false;
             return KFileFilterCombo::getDecodedMetricF(metricA, metricB);
-        } else if (kfilefiltercombo_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kfilefiltercombo_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kfilefiltercombo_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KFileFilterCombo::getDecodedMetricF(metricA, metricB);
         }
+        return KFileFilterCombo::getDecodedMetricF(metricA, metricB);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1567,8 +1658,10 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_keybindingmap_isbase) {
             kfilefiltercombo_keybindingmap_isbase = false;
             return KFileFilterCombo::keyBindingMap();
-        } else if (kfilefiltercombo_keybindingmap_callback != nullptr) {
-            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = kfilefiltercombo_keybindingmap_callback();
+        }
+        auto keybindingmap_cb = kfilefiltercombo_keybindingmap_callback;
+        if (keybindingmap_cb) {
+            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = keybindingmap_cb();
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
@@ -1582,9 +1675,8 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
                 callback_ret_QMap[static_cast<KCompletionBase::KeyBindingType>(callback_ret_karr[i])] = callback_ret_varr_i_QList;
             }
             return callback_ret_QMap;
-        } else {
-            return KFileFilterCombo::keyBindingMap();
         }
+        return KFileFilterCombo::keyBindingMap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1592,7 +1684,10 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_setkeybindingmap_isbase) {
             kfilefiltercombo_setkeybindingmap_isbase = false;
             KFileFilterCombo::setKeyBindingMap(keyBindingMap);
-        } else if (kfilefiltercombo_setkeybindingmap_callback != nullptr) {
+            return;
+        }
+        auto setkeybindingmap_cb = kfilefiltercombo_setkeybindingmap_callback;
+        if (setkeybindingmap_cb) {
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_ret = keyBindingMap;
             // Convert QMap<> from C++ memory to manually-managed C memory
             int* keyBindingMap_karr = static_cast<int*>(malloc(sizeof(int) * keyBindingMap_ret.size()));
@@ -1618,10 +1713,10 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
             libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
 
-            kfilefiltercombo_setkeybindingmap_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::setKeyBindingMap(keyBindingMap);
+            setkeybindingmap_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::setKeyBindingMap(keyBindingMap);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1629,13 +1724,16 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_setdelegate_isbase) {
             kfilefiltercombo_setdelegate_isbase = false;
             KFileFilterCombo::setDelegate(delegate);
-        } else if (kfilefiltercombo_setdelegate_callback != nullptr) {
+            return;
+        }
+        auto setdelegate_cb = kfilefiltercombo_setdelegate_callback;
+        if (setdelegate_cb) {
             KCompletionBase* cbval1 = delegate;
 
-            kfilefiltercombo_setdelegate_callback(this, cbval1);
-        } else {
-            KFileFilterCombo::setDelegate(delegate);
+            setdelegate_cb(this, cbval1);
+            return;
         }
+        KFileFilterCombo::setDelegate(delegate);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1643,12 +1741,13 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (kfilefiltercombo_delegate_isbase) {
             kfilefiltercombo_delegate_isbase = false;
             return KFileFilterCombo::delegate();
-        } else if (kfilefiltercombo_delegate_callback != nullptr) {
-            KCompletionBase* callback_ret = kfilefiltercombo_delegate_callback();
-            return callback_ret;
-        } else {
-            return KFileFilterCombo::delegate();
         }
+        auto delegate_cb = kfilefiltercombo_delegate_callback;
+        if (delegate_cb) {
+            KCompletionBase* callback_ret = delegate_cb();
+            return callback_ret;
+        }
+        return KFileFilterCombo::delegate();
     }
 
     // Friend functions

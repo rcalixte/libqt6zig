@@ -29,10 +29,6 @@ class VirtualPopplerLink final : public Poppler::Link {
   public:
     VirtualPopplerLink(const QRectF& linkArea) : Poppler::Link(linkArea) {};
 
-    ~VirtualPopplerLink() {
-        poppler__link_linktype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setPoppler__Link_LinkType_Callback(Poppler__Link_LinkType_Callback cb) { poppler__link_linktype_callback = cb; }
 
@@ -44,12 +40,13 @@ class VirtualPopplerLink final : public Poppler::Link {
         if (poppler__link_linktype_isbase) {
             poppler__link_linktype_isbase = false;
             return Poppler__Link::linkType();
-        } else if (poppler__link_linktype_callback != nullptr) {
-            int callback_ret = poppler__link_linktype_callback();
-            return static_cast<Poppler::Link::LinkType>(callback_ret);
-        } else {
-            return Poppler__Link::linkType();
         }
+        auto linktype_cb = poppler__link_linktype_callback;
+        if (linktype_cb) {
+            int callback_ret = linktype_cb();
+            return static_cast<Poppler::Link::LinkType>(callback_ret);
+        }
+        return Poppler__Link::linkType();
     }
 };
 
@@ -73,10 +70,6 @@ class VirtualPopplerLinkGoto final : public Poppler::LinkGoto {
   public:
     VirtualPopplerLinkGoto(const QRectF& linkArea, const QString& extFileName, const Poppler::LinkDestination& destination) : Poppler::LinkGoto(linkArea, extFileName, destination) {};
 
-    ~VirtualPopplerLinkGoto() {
-        poppler__linkgoto_linktype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setPoppler__LinkGoto_LinkType_Callback(Poppler__LinkGoto_LinkType_Callback cb) { poppler__linkgoto_linktype_callback = cb; }
 
@@ -88,12 +81,13 @@ class VirtualPopplerLinkGoto final : public Poppler::LinkGoto {
         if (poppler__linkgoto_linktype_isbase) {
             poppler__linkgoto_linktype_isbase = false;
             return Poppler__LinkGoto::linkType();
-        } else if (poppler__linkgoto_linktype_callback != nullptr) {
-            int callback_ret = poppler__linkgoto_linktype_callback();
-            return static_cast<Poppler::Link::LinkType>(callback_ret);
-        } else {
-            return Poppler__LinkGoto::linkType();
         }
+        auto linktype_cb = poppler__linkgoto_linktype_callback;
+        if (linktype_cb) {
+            int callback_ret = linktype_cb();
+            return static_cast<Poppler::Link::LinkType>(callback_ret);
+        }
+        return Poppler__LinkGoto::linkType();
     }
 };
 
@@ -117,10 +111,6 @@ class VirtualPopplerLinkExecute final : public Poppler::LinkExecute {
   public:
     VirtualPopplerLinkExecute(const QRectF& linkArea, const QString& file, const QString& params) : Poppler::LinkExecute(linkArea, file, params) {};
 
-    ~VirtualPopplerLinkExecute() {
-        poppler__linkexecute_linktype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setPoppler__LinkExecute_LinkType_Callback(Poppler__LinkExecute_LinkType_Callback cb) { poppler__linkexecute_linktype_callback = cb; }
 
@@ -132,12 +122,13 @@ class VirtualPopplerLinkExecute final : public Poppler::LinkExecute {
         if (poppler__linkexecute_linktype_isbase) {
             poppler__linkexecute_linktype_isbase = false;
             return Poppler__LinkExecute::linkType();
-        } else if (poppler__linkexecute_linktype_callback != nullptr) {
-            int callback_ret = poppler__linkexecute_linktype_callback();
-            return static_cast<Poppler::Link::LinkType>(callback_ret);
-        } else {
-            return Poppler__LinkExecute::linkType();
         }
+        auto linktype_cb = poppler__linkexecute_linktype_callback;
+        if (linktype_cb) {
+            int callback_ret = linktype_cb();
+            return static_cast<Poppler::Link::LinkType>(callback_ret);
+        }
+        return Poppler__LinkExecute::linkType();
     }
 };
 
@@ -161,10 +152,6 @@ class VirtualPopplerLinkBrowse final : public Poppler::LinkBrowse {
   public:
     VirtualPopplerLinkBrowse(const QRectF& linkArea, const QString& url) : Poppler::LinkBrowse(linkArea, url) {};
 
-    ~VirtualPopplerLinkBrowse() {
-        poppler__linkbrowse_linktype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setPoppler__LinkBrowse_LinkType_Callback(Poppler__LinkBrowse_LinkType_Callback cb) { poppler__linkbrowse_linktype_callback = cb; }
 
@@ -176,12 +163,13 @@ class VirtualPopplerLinkBrowse final : public Poppler::LinkBrowse {
         if (poppler__linkbrowse_linktype_isbase) {
             poppler__linkbrowse_linktype_isbase = false;
             return Poppler__LinkBrowse::linkType();
-        } else if (poppler__linkbrowse_linktype_callback != nullptr) {
-            int callback_ret = poppler__linkbrowse_linktype_callback();
-            return static_cast<Poppler::Link::LinkType>(callback_ret);
-        } else {
-            return Poppler__LinkBrowse::linkType();
         }
+        auto linktype_cb = poppler__linkbrowse_linktype_callback;
+        if (linktype_cb) {
+            int callback_ret = linktype_cb();
+            return static_cast<Poppler::Link::LinkType>(callback_ret);
+        }
+        return Poppler__LinkBrowse::linkType();
     }
 };
 
@@ -205,10 +193,6 @@ class VirtualPopplerLinkAction final : public Poppler::LinkAction {
   public:
     VirtualPopplerLinkAction(const QRectF& linkArea, Poppler::LinkAction::ActionType actionType) : Poppler::LinkAction(linkArea, actionType) {};
 
-    ~VirtualPopplerLinkAction() {
-        poppler__linkaction_linktype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setPoppler__LinkAction_LinkType_Callback(Poppler__LinkAction_LinkType_Callback cb) { poppler__linkaction_linktype_callback = cb; }
 
@@ -220,12 +204,13 @@ class VirtualPopplerLinkAction final : public Poppler::LinkAction {
         if (poppler__linkaction_linktype_isbase) {
             poppler__linkaction_linktype_isbase = false;
             return Poppler__LinkAction::linkType();
-        } else if (poppler__linkaction_linktype_callback != nullptr) {
-            int callback_ret = poppler__linkaction_linktype_callback();
-            return static_cast<Poppler::Link::LinkType>(callback_ret);
-        } else {
-            return Poppler__LinkAction::linkType();
         }
+        auto linktype_cb = poppler__linkaction_linktype_callback;
+        if (linktype_cb) {
+            int callback_ret = linktype_cb();
+            return static_cast<Poppler::Link::LinkType>(callback_ret);
+        }
+        return Poppler__LinkAction::linkType();
     }
 };
 
@@ -249,10 +234,6 @@ class VirtualPopplerLinkSound final : public Poppler::LinkSound {
   public:
     VirtualPopplerLinkSound(const QRectF& linkArea, double volume, bool sync, bool repeat, bool mix, Poppler::SoundObject* sound) : Poppler::LinkSound(linkArea, volume, sync, repeat, mix, sound) {};
 
-    ~VirtualPopplerLinkSound() {
-        poppler__linksound_linktype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setPoppler__LinkSound_LinkType_Callback(Poppler__LinkSound_LinkType_Callback cb) { poppler__linksound_linktype_callback = cb; }
 
@@ -264,12 +245,13 @@ class VirtualPopplerLinkSound final : public Poppler::LinkSound {
         if (poppler__linksound_linktype_isbase) {
             poppler__linksound_linktype_isbase = false;
             return Poppler__LinkSound::linkType();
-        } else if (poppler__linksound_linktype_callback != nullptr) {
-            int callback_ret = poppler__linksound_linktype_callback();
-            return static_cast<Poppler::Link::LinkType>(callback_ret);
-        } else {
-            return Poppler__LinkSound::linkType();
         }
+        auto linktype_cb = poppler__linksound_linktype_callback;
+        if (linktype_cb) {
+            int callback_ret = linktype_cb();
+            return static_cast<Poppler::Link::LinkType>(callback_ret);
+        }
+        return Poppler__LinkSound::linkType();
     }
 };
 
@@ -293,10 +275,6 @@ class VirtualPopplerLinkJavaScript final : public Poppler::LinkJavaScript {
   public:
     VirtualPopplerLinkJavaScript(const QRectF& linkArea, const QString& js) : Poppler::LinkJavaScript(linkArea, js) {};
 
-    ~VirtualPopplerLinkJavaScript() {
-        poppler__linkjavascript_linktype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setPoppler__LinkJavaScript_LinkType_Callback(Poppler__LinkJavaScript_LinkType_Callback cb) { poppler__linkjavascript_linktype_callback = cb; }
 
@@ -308,12 +286,13 @@ class VirtualPopplerLinkJavaScript final : public Poppler::LinkJavaScript {
         if (poppler__linkjavascript_linktype_isbase) {
             poppler__linkjavascript_linktype_isbase = false;
             return Poppler__LinkJavaScript::linkType();
-        } else if (poppler__linkjavascript_linktype_callback != nullptr) {
-            int callback_ret = poppler__linkjavascript_linktype_callback();
-            return static_cast<Poppler::Link::LinkType>(callback_ret);
-        } else {
-            return Poppler__LinkJavaScript::linkType();
         }
+        auto linktype_cb = poppler__linkjavascript_linktype_callback;
+        if (linktype_cb) {
+            int callback_ret = linktype_cb();
+            return static_cast<Poppler::Link::LinkType>(callback_ret);
+        }
+        return Poppler__LinkJavaScript::linkType();
     }
 };
 

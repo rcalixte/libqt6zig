@@ -78,26 +78,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
     VirtualQExtensionManager() : QExtensionManager() {};
     VirtualQExtensionManager(QObject* parent) : QExtensionManager(parent) {};
 
-    ~VirtualQExtensionManager() {
-        qextensionmanager_metaobject_callback = nullptr;
-        qextensionmanager_metacast_callback = nullptr;
-        qextensionmanager_metacall_callback = nullptr;
-        qextensionmanager_registerextensions_callback = nullptr;
-        qextensionmanager_unregisterextensions_callback = nullptr;
-        qextensionmanager_extension_callback = nullptr;
-        qextensionmanager_event_callback = nullptr;
-        qextensionmanager_eventfilter_callback = nullptr;
-        qextensionmanager_timerevent_callback = nullptr;
-        qextensionmanager_childevent_callback = nullptr;
-        qextensionmanager_customevent_callback = nullptr;
-        qextensionmanager_connectnotify_callback = nullptr;
-        qextensionmanager_disconnectnotify_callback = nullptr;
-        qextensionmanager_sender_callback = nullptr;
-        qextensionmanager_sendersignalindex_callback = nullptr;
-        qextensionmanager_receivers_callback = nullptr;
-        qextensionmanager_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQExtensionManager_MetaObject_Callback(QExtensionManager_MetaObject_Callback cb) { qextensionmanager_metaobject_callback = cb; }
     inline void setQExtensionManager_Metacast_Callback(QExtensionManager_Metacast_Callback cb) { qextensionmanager_metacast_callback = cb; }
@@ -141,12 +121,13 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_metaobject_isbase) {
             qextensionmanager_metaobject_isbase = false;
             return QExtensionManager::metaObject();
-        } else if (qextensionmanager_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qextensionmanager_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QExtensionManager::metaObject();
         }
+        auto metaobject_cb = qextensionmanager_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QExtensionManager::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -154,14 +135,15 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_metacast_isbase) {
             qextensionmanager_metacast_isbase = false;
             return QExtensionManager::qt_metacast(param1);
-        } else if (qextensionmanager_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qextensionmanager_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qextensionmanager_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QExtensionManager::qt_metacast(param1);
         }
+        return QExtensionManager::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -169,16 +151,17 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_metacall_isbase) {
             qextensionmanager_metacall_isbase = false;
             return QExtensionManager::qt_metacall(param1, param2, param3);
-        } else if (qextensionmanager_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qextensionmanager_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qextensionmanager_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QExtensionManager::qt_metacall(param1, param2, param3);
         }
+        return QExtensionManager::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -186,7 +169,10 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_registerextensions_isbase) {
             qextensionmanager_registerextensions_isbase = false;
             QExtensionManager::registerExtensions(factory, iid);
-        } else if (qextensionmanager_registerextensions_callback != nullptr) {
+            return;
+        }
+        auto registerextensions_cb = qextensionmanager_registerextensions_callback;
+        if (registerextensions_cb) {
             QAbstractExtensionFactory* cbval1 = factory;
             const QString iid_ret = iid;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -197,11 +183,11 @@ class VirtualQExtensionManager final : public QExtensionManager {
             ((char*)iid_str)[iid_str_len] = '\0';
             const char* cbval2 = iid_str;
 
-            qextensionmanager_registerextensions_callback(this, cbval1, cbval2);
+            registerextensions_cb(this, cbval1, cbval2);
             libqt_free(iid_str);
-        } else {
-            QExtensionManager::registerExtensions(factory, iid);
+            return;
         }
+        QExtensionManager::registerExtensions(factory, iid);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -209,7 +195,10 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_unregisterextensions_isbase) {
             qextensionmanager_unregisterextensions_isbase = false;
             QExtensionManager::unregisterExtensions(factory, iid);
-        } else if (qextensionmanager_unregisterextensions_callback != nullptr) {
+            return;
+        }
+        auto unregisterextensions_cb = qextensionmanager_unregisterextensions_callback;
+        if (unregisterextensions_cb) {
             QAbstractExtensionFactory* cbval1 = factory;
             const QString iid_ret = iid;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -220,11 +209,11 @@ class VirtualQExtensionManager final : public QExtensionManager {
             ((char*)iid_str)[iid_str_len] = '\0';
             const char* cbval2 = iid_str;
 
-            qextensionmanager_unregisterextensions_callback(this, cbval1, cbval2);
+            unregisterextensions_cb(this, cbval1, cbval2);
             libqt_free(iid_str);
-        } else {
-            QExtensionManager::unregisterExtensions(factory, iid);
+            return;
         }
+        QExtensionManager::unregisterExtensions(factory, iid);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,7 +221,9 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_extension_isbase) {
             qextensionmanager_extension_isbase = false;
             return QExtensionManager::extension(object, iid);
-        } else if (qextensionmanager_extension_callback != nullptr) {
+        }
+        auto extension_cb = qextensionmanager_extension_callback;
+        if (extension_cb) {
             QObject* cbval1 = object;
             const QString iid_ret = iid;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -243,12 +234,11 @@ class VirtualQExtensionManager final : public QExtensionManager {
             ((char*)iid_str)[iid_str_len] = '\0';
             const char* cbval2 = iid_str;
 
-            QObject* callback_ret = qextensionmanager_extension_callback(this, cbval1, cbval2);
+            QObject* callback_ret = extension_cb(this, cbval1, cbval2);
             libqt_free(iid_str);
             return callback_ret;
-        } else {
-            return QExtensionManager::extension(object, iid);
         }
+        return QExtensionManager::extension(object, iid);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,14 +246,15 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_event_isbase) {
             qextensionmanager_event_isbase = false;
             return QExtensionManager::event(event);
-        } else if (qextensionmanager_event_callback != nullptr) {
+        }
+        auto event_cb = qextensionmanager_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qextensionmanager_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QExtensionManager::event(event);
         }
+        return QExtensionManager::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -271,15 +262,16 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_eventfilter_isbase) {
             qextensionmanager_eventfilter_isbase = false;
             return QExtensionManager::eventFilter(watched, event);
-        } else if (qextensionmanager_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qextensionmanager_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qextensionmanager_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QExtensionManager::eventFilter(watched, event);
         }
+        return QExtensionManager::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,13 +279,16 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_timerevent_isbase) {
             qextensionmanager_timerevent_isbase = false;
             QExtensionManager::timerEvent(event);
-        } else if (qextensionmanager_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qextensionmanager_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qextensionmanager_timerevent_callback(this, cbval1);
-        } else {
-            QExtensionManager::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QExtensionManager::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,13 +296,16 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_childevent_isbase) {
             qextensionmanager_childevent_isbase = false;
             QExtensionManager::childEvent(event);
-        } else if (qextensionmanager_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qextensionmanager_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qextensionmanager_childevent_callback(this, cbval1);
-        } else {
-            QExtensionManager::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QExtensionManager::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,13 +313,16 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_customevent_isbase) {
             qextensionmanager_customevent_isbase = false;
             QExtensionManager::customEvent(event);
-        } else if (qextensionmanager_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qextensionmanager_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qextensionmanager_customevent_callback(this, cbval1);
-        } else {
-            QExtensionManager::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QExtensionManager::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,15 +330,18 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_connectnotify_isbase) {
             qextensionmanager_connectnotify_isbase = false;
             QExtensionManager::connectNotify(signal);
-        } else if (qextensionmanager_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qextensionmanager_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qextensionmanager_connectnotify_callback(this, cbval1);
-        } else {
-            QExtensionManager::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QExtensionManager::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -345,15 +349,18 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_disconnectnotify_isbase) {
             qextensionmanager_disconnectnotify_isbase = false;
             QExtensionManager::disconnectNotify(signal);
-        } else if (qextensionmanager_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qextensionmanager_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qextensionmanager_disconnectnotify_callback(this, cbval1);
-        } else {
-            QExtensionManager::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QExtensionManager::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -361,12 +368,13 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_sender_isbase) {
             qextensionmanager_sender_isbase = false;
             return QExtensionManager::sender();
-        } else if (qextensionmanager_sender_callback != nullptr) {
-            QObject* callback_ret = qextensionmanager_sender_callback();
-            return callback_ret;
-        } else {
-            return QExtensionManager::sender();
         }
+        auto sender_cb = qextensionmanager_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QExtensionManager::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -374,12 +382,13 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_sendersignalindex_isbase) {
             qextensionmanager_sendersignalindex_isbase = false;
             return QExtensionManager::senderSignalIndex();
-        } else if (qextensionmanager_sendersignalindex_callback != nullptr) {
-            int callback_ret = qextensionmanager_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QExtensionManager::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qextensionmanager_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QExtensionManager::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,14 +396,15 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_receivers_isbase) {
             qextensionmanager_receivers_isbase = false;
             return QExtensionManager::receivers(signal);
-        } else if (qextensionmanager_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qextensionmanager_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qextensionmanager_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QExtensionManager::receivers(signal);
         }
+        return QExtensionManager::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -402,16 +412,17 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (qextensionmanager_issignalconnected_isbase) {
             qextensionmanager_issignalconnected_isbase = false;
             return QExtensionManager::isSignalConnected(signal);
-        } else if (qextensionmanager_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qextensionmanager_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qextensionmanager_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QExtensionManager::isSignalConnected(signal);
         }
+        return QExtensionManager::isSignalConnected(signal);
     }
 
     // Friend functions

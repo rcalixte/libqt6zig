@@ -99,33 +99,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
     VirtualKPartsPartManager(QWidget* parent) : KParts::PartManager(parent) {};
     VirtualKPartsPartManager(QWidget* topLevel, QObject* parent) : KParts::PartManager(topLevel, parent) {};
 
-    ~VirtualKPartsPartManager() {
-        kparts__partmanager_metaobject_callback = nullptr;
-        kparts__partmanager_metacast_callback = nullptr;
-        kparts__partmanager_metacall_callback = nullptr;
-        kparts__partmanager_eventfilter_callback = nullptr;
-        kparts__partmanager_addpart_callback = nullptr;
-        kparts__partmanager_removepart_callback = nullptr;
-        kparts__partmanager_replacepart_callback = nullptr;
-        kparts__partmanager_setactivepart_callback = nullptr;
-        kparts__partmanager_activepart_callback = nullptr;
-        kparts__partmanager_activewidget_callback = nullptr;
-        kparts__partmanager_event_callback = nullptr;
-        kparts__partmanager_timerevent_callback = nullptr;
-        kparts__partmanager_childevent_callback = nullptr;
-        kparts__partmanager_customevent_callback = nullptr;
-        kparts__partmanager_connectnotify_callback = nullptr;
-        kparts__partmanager_disconnectnotify_callback = nullptr;
-        kparts__partmanager_setignoreexplictfocusrequests_callback = nullptr;
-        kparts__partmanager_slotobjectdestroyed_callback = nullptr;
-        kparts__partmanager_slotwidgetdestroyed_callback = nullptr;
-        kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_callback = nullptr;
-        kparts__partmanager_sender_callback = nullptr;
-        kparts__partmanager_sendersignalindex_callback = nullptr;
-        kparts__partmanager_receivers_callback = nullptr;
-        kparts__partmanager_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKParts__PartManager_MetaObject_Callback(KParts__PartManager_MetaObject_Callback cb) { kparts__partmanager_metaobject_callback = cb; }
     inline void setKParts__PartManager_Metacast_Callback(KParts__PartManager_Metacast_Callback cb) { kparts__partmanager_metacast_callback = cb; }
@@ -183,12 +156,13 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_metaobject_isbase) {
             kparts__partmanager_metaobject_isbase = false;
             return KParts__PartManager::metaObject();
-        } else if (kparts__partmanager_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kparts__partmanager_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KParts__PartManager::metaObject();
         }
+        auto metaobject_cb = kparts__partmanager_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KParts__PartManager::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -196,14 +170,15 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_metacast_isbase) {
             kparts__partmanager_metacast_isbase = false;
             return KParts__PartManager::qt_metacast(param1);
-        } else if (kparts__partmanager_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kparts__partmanager_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kparts__partmanager_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__PartManager::qt_metacast(param1);
         }
+        return KParts__PartManager::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,16 +186,17 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_metacall_isbase) {
             kparts__partmanager_metacall_isbase = false;
             return KParts__PartManager::qt_metacall(param1, param2, param3);
-        } else if (kparts__partmanager_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kparts__partmanager_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kparts__partmanager_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__PartManager::qt_metacall(param1, param2, param3);
         }
+        return KParts__PartManager::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,15 +204,16 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_eventfilter_isbase) {
             kparts__partmanager_eventfilter_isbase = false;
             return KParts__PartManager::eventFilter(obj, ev);
-        } else if (kparts__partmanager_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kparts__partmanager_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = obj;
             QEvent* cbval2 = ev;
 
-            bool callback_ret = kparts__partmanager_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KParts__PartManager::eventFilter(obj, ev);
         }
+        return KParts__PartManager::eventFilter(obj, ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -244,14 +221,17 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_addpart_isbase) {
             kparts__partmanager_addpart_isbase = false;
             KParts__PartManager::addPart(part, setActive);
-        } else if (kparts__partmanager_addpart_callback != nullptr) {
+            return;
+        }
+        auto addpart_cb = kparts__partmanager_addpart_callback;
+        if (addpart_cb) {
             KParts__Part* cbval1 = part;
             bool cbval2 = setActive;
 
-            kparts__partmanager_addpart_callback(this, cbval1, cbval2);
-        } else {
-            KParts__PartManager::addPart(part, setActive);
+            addpart_cb(this, cbval1, cbval2);
+            return;
         }
+        KParts__PartManager::addPart(part, setActive);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,13 +239,16 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_removepart_isbase) {
             kparts__partmanager_removepart_isbase = false;
             KParts__PartManager::removePart(part);
-        } else if (kparts__partmanager_removepart_callback != nullptr) {
+            return;
+        }
+        auto removepart_cb = kparts__partmanager_removepart_callback;
+        if (removepart_cb) {
             KParts__Part* cbval1 = part;
 
-            kparts__partmanager_removepart_callback(this, cbval1);
-        } else {
-            KParts__PartManager::removePart(part);
+            removepart_cb(this, cbval1);
+            return;
         }
+        KParts__PartManager::removePart(part);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,15 +256,18 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_replacepart_isbase) {
             kparts__partmanager_replacepart_isbase = false;
             KParts__PartManager::replacePart(oldPart, newPart, setActive);
-        } else if (kparts__partmanager_replacepart_callback != nullptr) {
+            return;
+        }
+        auto replacepart_cb = kparts__partmanager_replacepart_callback;
+        if (replacepart_cb) {
             KParts__Part* cbval1 = oldPart;
             KParts__Part* cbval2 = newPart;
             bool cbval3 = setActive;
 
-            kparts__partmanager_replacepart_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KParts__PartManager::replacePart(oldPart, newPart, setActive);
+            replacepart_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KParts__PartManager::replacePart(oldPart, newPart, setActive);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -289,14 +275,17 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_setactivepart_isbase) {
             kparts__partmanager_setactivepart_isbase = false;
             KParts__PartManager::setActivePart(part, widget);
-        } else if (kparts__partmanager_setactivepart_callback != nullptr) {
+            return;
+        }
+        auto setactivepart_cb = kparts__partmanager_setactivepart_callback;
+        if (setactivepart_cb) {
             KParts__Part* cbval1 = part;
             QWidget* cbval2 = widget;
 
-            kparts__partmanager_setactivepart_callback(this, cbval1, cbval2);
-        } else {
-            KParts__PartManager::setActivePart(part, widget);
+            setactivepart_cb(this, cbval1, cbval2);
+            return;
         }
+        KParts__PartManager::setActivePart(part, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -304,12 +293,13 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_activepart_isbase) {
             kparts__partmanager_activepart_isbase = false;
             return KParts__PartManager::activePart();
-        } else if (kparts__partmanager_activepart_callback != nullptr) {
-            KParts__Part* callback_ret = kparts__partmanager_activepart_callback();
-            return callback_ret;
-        } else {
-            return KParts__PartManager::activePart();
         }
+        auto activepart_cb = kparts__partmanager_activepart_callback;
+        if (activepart_cb) {
+            KParts__Part* callback_ret = activepart_cb();
+            return callback_ret;
+        }
+        return KParts__PartManager::activePart();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,12 +307,13 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_activewidget_isbase) {
             kparts__partmanager_activewidget_isbase = false;
             return KParts__PartManager::activeWidget();
-        } else if (kparts__partmanager_activewidget_callback != nullptr) {
-            QWidget* callback_ret = kparts__partmanager_activewidget_callback();
-            return callback_ret;
-        } else {
-            return KParts__PartManager::activeWidget();
         }
+        auto activewidget_cb = kparts__partmanager_activewidget_callback;
+        if (activewidget_cb) {
+            QWidget* callback_ret = activewidget_cb();
+            return callback_ret;
+        }
+        return KParts__PartManager::activeWidget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -330,14 +321,15 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_event_isbase) {
             kparts__partmanager_event_isbase = false;
             return KParts__PartManager::event(event);
-        } else if (kparts__partmanager_event_callback != nullptr) {
+        }
+        auto event_cb = kparts__partmanager_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kparts__partmanager_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__PartManager::event(event);
         }
+        return KParts__PartManager::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -345,13 +337,16 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_timerevent_isbase) {
             kparts__partmanager_timerevent_isbase = false;
             KParts__PartManager::timerEvent(event);
-        } else if (kparts__partmanager_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kparts__partmanager_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kparts__partmanager_timerevent_callback(this, cbval1);
-        } else {
-            KParts__PartManager::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KParts__PartManager::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -359,13 +354,16 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_childevent_isbase) {
             kparts__partmanager_childevent_isbase = false;
             KParts__PartManager::childEvent(event);
-        } else if (kparts__partmanager_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kparts__partmanager_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kparts__partmanager_childevent_callback(this, cbval1);
-        } else {
-            KParts__PartManager::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KParts__PartManager::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,13 +371,16 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_customevent_isbase) {
             kparts__partmanager_customevent_isbase = false;
             KParts__PartManager::customEvent(event);
-        } else if (kparts__partmanager_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kparts__partmanager_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kparts__partmanager_customevent_callback(this, cbval1);
-        } else {
-            KParts__PartManager::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KParts__PartManager::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,15 +388,18 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_connectnotify_isbase) {
             kparts__partmanager_connectnotify_isbase = false;
             KParts__PartManager::connectNotify(signal);
-        } else if (kparts__partmanager_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kparts__partmanager_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__partmanager_connectnotify_callback(this, cbval1);
-        } else {
-            KParts__PartManager::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__PartManager::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -403,15 +407,18 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_disconnectnotify_isbase) {
             kparts__partmanager_disconnectnotify_isbase = false;
             KParts__PartManager::disconnectNotify(signal);
-        } else if (kparts__partmanager_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kparts__partmanager_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__partmanager_disconnectnotify_callback(this, cbval1);
-        } else {
-            KParts__PartManager::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__PartManager::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -419,13 +426,16 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_setignoreexplictfocusrequests_isbase) {
             kparts__partmanager_setignoreexplictfocusrequests_isbase = false;
             KParts__PartManager::setIgnoreExplictFocusRequests(ignoreExplictFocusRequests);
-        } else if (kparts__partmanager_setignoreexplictfocusrequests_callback != nullptr) {
+            return;
+        }
+        auto setignoreexplictfocusrequests_cb = kparts__partmanager_setignoreexplictfocusrequests_callback;
+        if (setignoreexplictfocusrequests_cb) {
             bool cbval1 = ignoreExplictFocusRequests;
 
-            kparts__partmanager_setignoreexplictfocusrequests_callback(this, cbval1);
-        } else {
-            KParts__PartManager::setIgnoreExplictFocusRequests(ignoreExplictFocusRequests);
+            setignoreexplictfocusrequests_cb(this, cbval1);
+            return;
         }
+        KParts__PartManager::setIgnoreExplictFocusRequests(ignoreExplictFocusRequests);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -433,11 +443,14 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_slotobjectdestroyed_isbase) {
             kparts__partmanager_slotobjectdestroyed_isbase = false;
             KParts__PartManager::slotObjectDestroyed();
-        } else if (kparts__partmanager_slotobjectdestroyed_callback != nullptr) {
-            kparts__partmanager_slotobjectdestroyed_callback();
-        } else {
-            KParts__PartManager::slotObjectDestroyed();
+            return;
         }
+        auto slotobjectdestroyed_cb = kparts__partmanager_slotobjectdestroyed_callback;
+        if (slotobjectdestroyed_cb) {
+            slotobjectdestroyed_cb();
+            return;
+        }
+        KParts__PartManager::slotObjectDestroyed();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -445,11 +458,14 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_slotwidgetdestroyed_isbase) {
             kparts__partmanager_slotwidgetdestroyed_isbase = false;
             KParts__PartManager::slotWidgetDestroyed();
-        } else if (kparts__partmanager_slotwidgetdestroyed_callback != nullptr) {
-            kparts__partmanager_slotwidgetdestroyed_callback();
-        } else {
-            KParts__PartManager::slotWidgetDestroyed();
+            return;
         }
+        auto slotwidgetdestroyed_cb = kparts__partmanager_slotwidgetdestroyed_callback;
+        if (slotwidgetdestroyed_cb) {
+            slotwidgetdestroyed_cb();
+            return;
+        }
+        KParts__PartManager::slotWidgetDestroyed();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,11 +473,14 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_isbase) {
             kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_isbase = false;
             KParts__PartManager::slotManagedTopLevelWidgetDestroyed();
-        } else if (kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_callback != nullptr) {
-            kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_callback();
-        } else {
-            KParts__PartManager::slotManagedTopLevelWidgetDestroyed();
+            return;
         }
+        auto slotmanagedtoplevelwidgetdestroyed_cb = kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_callback;
+        if (slotmanagedtoplevelwidgetdestroyed_cb) {
+            slotmanagedtoplevelwidgetdestroyed_cb();
+            return;
+        }
+        KParts__PartManager::slotManagedTopLevelWidgetDestroyed();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,12 +488,13 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_sender_isbase) {
             kparts__partmanager_sender_isbase = false;
             return KParts__PartManager::sender();
-        } else if (kparts__partmanager_sender_callback != nullptr) {
-            QObject* callback_ret = kparts__partmanager_sender_callback();
-            return callback_ret;
-        } else {
-            return KParts__PartManager::sender();
         }
+        auto sender_cb = kparts__partmanager_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KParts__PartManager::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,12 +502,13 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_sendersignalindex_isbase) {
             kparts__partmanager_sendersignalindex_isbase = false;
             return KParts__PartManager::senderSignalIndex();
-        } else if (kparts__partmanager_sendersignalindex_callback != nullptr) {
-            int callback_ret = kparts__partmanager_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KParts__PartManager::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kparts__partmanager_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KParts__PartManager::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,14 +516,15 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_receivers_isbase) {
             kparts__partmanager_receivers_isbase = false;
             return KParts__PartManager::receivers(signal);
-        } else if (kparts__partmanager_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kparts__partmanager_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kparts__partmanager_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__PartManager::receivers(signal);
         }
+        return KParts__PartManager::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,16 +532,17 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (kparts__partmanager_issignalconnected_isbase) {
             kparts__partmanager_issignalconnected_isbase = false;
             return KParts__PartManager::isSignalConnected(signal);
-        } else if (kparts__partmanager_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kparts__partmanager_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kparts__partmanager_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__PartManager::isSignalConnected(signal);
         }
+        return KParts__PartManager::isSignalConnected(signal);
     }
 
     // Friend functions

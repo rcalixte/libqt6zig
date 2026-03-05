@@ -229,75 +229,6 @@ class VirtualQFileDialog final : public QFileDialog {
     VirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory) : QFileDialog(parent, caption, directory) {};
     VirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory, const QString& filter) : QFileDialog(parent, caption, directory, filter) {};
 
-    ~VirtualQFileDialog() {
-        qfiledialog_metaobject_callback = nullptr;
-        qfiledialog_metacast_callback = nullptr;
-        qfiledialog_metacall_callback = nullptr;
-        qfiledialog_setvisible_callback = nullptr;
-        qfiledialog_done_callback = nullptr;
-        qfiledialog_accept_callback = nullptr;
-        qfiledialog_changeevent_callback = nullptr;
-        qfiledialog_sizehint_callback = nullptr;
-        qfiledialog_minimumsizehint_callback = nullptr;
-        qfiledialog_open_callback = nullptr;
-        qfiledialog_exec_callback = nullptr;
-        qfiledialog_reject_callback = nullptr;
-        qfiledialog_keypressevent_callback = nullptr;
-        qfiledialog_closeevent_callback = nullptr;
-        qfiledialog_showevent_callback = nullptr;
-        qfiledialog_resizeevent_callback = nullptr;
-        qfiledialog_contextmenuevent_callback = nullptr;
-        qfiledialog_eventfilter_callback = nullptr;
-        qfiledialog_devtype_callback = nullptr;
-        qfiledialog_heightforwidth_callback = nullptr;
-        qfiledialog_hasheightforwidth_callback = nullptr;
-        qfiledialog_paintengine_callback = nullptr;
-        qfiledialog_event_callback = nullptr;
-        qfiledialog_mousepressevent_callback = nullptr;
-        qfiledialog_mousereleaseevent_callback = nullptr;
-        qfiledialog_mousedoubleclickevent_callback = nullptr;
-        qfiledialog_mousemoveevent_callback = nullptr;
-        qfiledialog_wheelevent_callback = nullptr;
-        qfiledialog_keyreleaseevent_callback = nullptr;
-        qfiledialog_focusinevent_callback = nullptr;
-        qfiledialog_focusoutevent_callback = nullptr;
-        qfiledialog_enterevent_callback = nullptr;
-        qfiledialog_leaveevent_callback = nullptr;
-        qfiledialog_paintevent_callback = nullptr;
-        qfiledialog_moveevent_callback = nullptr;
-        qfiledialog_tabletevent_callback = nullptr;
-        qfiledialog_actionevent_callback = nullptr;
-        qfiledialog_dragenterevent_callback = nullptr;
-        qfiledialog_dragmoveevent_callback = nullptr;
-        qfiledialog_dragleaveevent_callback = nullptr;
-        qfiledialog_dropevent_callback = nullptr;
-        qfiledialog_hideevent_callback = nullptr;
-        qfiledialog_nativeevent_callback = nullptr;
-        qfiledialog_metric_callback = nullptr;
-        qfiledialog_initpainter_callback = nullptr;
-        qfiledialog_redirected_callback = nullptr;
-        qfiledialog_sharedpainter_callback = nullptr;
-        qfiledialog_inputmethodevent_callback = nullptr;
-        qfiledialog_inputmethodquery_callback = nullptr;
-        qfiledialog_focusnextprevchild_callback = nullptr;
-        qfiledialog_timerevent_callback = nullptr;
-        qfiledialog_childevent_callback = nullptr;
-        qfiledialog_customevent_callback = nullptr;
-        qfiledialog_connectnotify_callback = nullptr;
-        qfiledialog_disconnectnotify_callback = nullptr;
-        qfiledialog_adjustposition_callback = nullptr;
-        qfiledialog_updatemicrofocus_callback = nullptr;
-        qfiledialog_create_callback = nullptr;
-        qfiledialog_destroy_callback = nullptr;
-        qfiledialog_focusnextchild_callback = nullptr;
-        qfiledialog_focuspreviouschild_callback = nullptr;
-        qfiledialog_sender_callback = nullptr;
-        qfiledialog_sendersignalindex_callback = nullptr;
-        qfiledialog_receivers_callback = nullptr;
-        qfiledialog_issignalconnected_callback = nullptr;
-        qfiledialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQFileDialog_MetaObject_Callback(QFileDialog_MetaObject_Callback cb) { qfiledialog_metaobject_callback = cb; }
     inline void setQFileDialog_Metacast_Callback(QFileDialog_Metacast_Callback cb) { qfiledialog_metacast_callback = cb; }
@@ -439,12 +370,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_metaobject_isbase) {
             qfiledialog_metaobject_isbase = false;
             return QFileDialog::metaObject();
-        } else if (qfiledialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qfiledialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QFileDialog::metaObject();
         }
+        auto metaobject_cb = qfiledialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QFileDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -452,14 +384,15 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_metacast_isbase) {
             qfiledialog_metacast_isbase = false;
             return QFileDialog::qt_metacast(param1);
-        } else if (qfiledialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qfiledialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qfiledialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileDialog::qt_metacast(param1);
         }
+        return QFileDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,16 +400,17 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_metacall_isbase) {
             qfiledialog_metacall_isbase = false;
             return QFileDialog::qt_metacall(param1, param2, param3);
-        } else if (qfiledialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qfiledialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qfiledialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFileDialog::qt_metacall(param1, param2, param3);
         }
+        return QFileDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,13 +418,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_setvisible_isbase) {
             qfiledialog_setvisible_isbase = false;
             QFileDialog::setVisible(visible);
-        } else if (qfiledialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qfiledialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qfiledialog_setvisible_callback(this, cbval1);
-        } else {
-            QFileDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QFileDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,13 +435,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_done_isbase) {
             qfiledialog_done_isbase = false;
             QFileDialog::done(result);
-        } else if (qfiledialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = qfiledialog_done_callback;
+        if (done_cb) {
             int cbval1 = result;
 
-            qfiledialog_done_callback(this, cbval1);
-        } else {
-            QFileDialog::done(result);
+            done_cb(this, cbval1);
+            return;
         }
+        QFileDialog::done(result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,11 +452,14 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_accept_isbase) {
             qfiledialog_accept_isbase = false;
             QFileDialog::accept();
-        } else if (qfiledialog_accept_callback != nullptr) {
-            qfiledialog_accept_callback();
-        } else {
-            QFileDialog::accept();
+            return;
         }
+        auto accept_cb = qfiledialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        QFileDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,13 +467,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_changeevent_isbase) {
             qfiledialog_changeevent_isbase = false;
             QFileDialog::changeEvent(e);
-        } else if (qfiledialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qfiledialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            qfiledialog_changeevent_callback(this, cbval1);
-        } else {
-            QFileDialog::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,12 +484,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_sizehint_isbase) {
             qfiledialog_sizehint_isbase = false;
             return QFileDialog::sizeHint();
-        } else if (qfiledialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = qfiledialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QFileDialog::sizeHint();
         }
+        auto sizehint_cb = qfiledialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QFileDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,12 +498,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_minimumsizehint_isbase) {
             qfiledialog_minimumsizehint_isbase = false;
             return QFileDialog::minimumSizeHint();
-        } else if (qfiledialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qfiledialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QFileDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qfiledialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QFileDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,11 +512,14 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_open_isbase) {
             qfiledialog_open_isbase = false;
             QFileDialog::open();
-        } else if (qfiledialog_open_callback != nullptr) {
-            qfiledialog_open_callback();
-        } else {
-            QFileDialog::open();
+            return;
         }
+        auto open_cb = qfiledialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        QFileDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -576,12 +527,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_exec_isbase) {
             qfiledialog_exec_isbase = false;
             return QFileDialog::exec();
-        } else if (qfiledialog_exec_callback != nullptr) {
-            int callback_ret = qfiledialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFileDialog::exec();
         }
+        auto exec_cb = qfiledialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFileDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -589,11 +541,14 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_reject_isbase) {
             qfiledialog_reject_isbase = false;
             QFileDialog::reject();
-        } else if (qfiledialog_reject_callback != nullptr) {
-            qfiledialog_reject_callback();
-        } else {
-            QFileDialog::reject();
+            return;
         }
+        auto reject_cb = qfiledialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        QFileDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -601,13 +556,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_keypressevent_isbase) {
             qfiledialog_keypressevent_isbase = false;
             QFileDialog::keyPressEvent(param1);
-        } else if (qfiledialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qfiledialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qfiledialog_keypressevent_callback(this, cbval1);
-        } else {
-            QFileDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -615,13 +573,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_closeevent_isbase) {
             qfiledialog_closeevent_isbase = false;
             QFileDialog::closeEvent(param1);
-        } else if (qfiledialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qfiledialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            qfiledialog_closeevent_callback(this, cbval1);
-        } else {
-            QFileDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -629,13 +590,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_showevent_isbase) {
             qfiledialog_showevent_isbase = false;
             QFileDialog::showEvent(param1);
-        } else if (qfiledialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qfiledialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qfiledialog_showevent_callback(this, cbval1);
-        } else {
-            QFileDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -643,13 +607,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_resizeevent_isbase) {
             qfiledialog_resizeevent_isbase = false;
             QFileDialog::resizeEvent(param1);
-        } else if (qfiledialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qfiledialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qfiledialog_resizeevent_callback(this, cbval1);
-        } else {
-            QFileDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -657,13 +624,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_contextmenuevent_isbase) {
             qfiledialog_contextmenuevent_isbase = false;
             QFileDialog::contextMenuEvent(param1);
-        } else if (qfiledialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qfiledialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qfiledialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            QFileDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,15 +641,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_eventfilter_isbase) {
             qfiledialog_eventfilter_isbase = false;
             return QFileDialog::eventFilter(param1, param2);
-        } else if (qfiledialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qfiledialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qfiledialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QFileDialog::eventFilter(param1, param2);
         }
+        return QFileDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -687,12 +658,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_devtype_isbase) {
             qfiledialog_devtype_isbase = false;
             return QFileDialog::devType();
-        } else if (qfiledialog_devtype_callback != nullptr) {
-            int callback_ret = qfiledialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFileDialog::devType();
         }
+        auto devtype_cb = qfiledialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFileDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -700,14 +672,15 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_heightforwidth_isbase) {
             qfiledialog_heightforwidth_isbase = false;
             return QFileDialog::heightForWidth(param1);
-        } else if (qfiledialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qfiledialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qfiledialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFileDialog::heightForWidth(param1);
         }
+        return QFileDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -715,12 +688,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_hasheightforwidth_isbase) {
             qfiledialog_hasheightforwidth_isbase = false;
             return QFileDialog::hasHeightForWidth();
-        } else if (qfiledialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qfiledialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QFileDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qfiledialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QFileDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -728,12 +702,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_paintengine_isbase) {
             qfiledialog_paintengine_isbase = false;
             return QFileDialog::paintEngine();
-        } else if (qfiledialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qfiledialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QFileDialog::paintEngine();
         }
+        auto paintengine_cb = qfiledialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QFileDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -741,14 +716,15 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_event_isbase) {
             qfiledialog_event_isbase = false;
             return QFileDialog::event(event);
-        } else if (qfiledialog_event_callback != nullptr) {
+        }
+        auto event_cb = qfiledialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qfiledialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileDialog::event(event);
         }
+        return QFileDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,13 +732,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_mousepressevent_isbase) {
             qfiledialog_mousepressevent_isbase = false;
             QFileDialog::mousePressEvent(event);
-        } else if (qfiledialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qfiledialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfiledialog_mousepressevent_callback(this, cbval1);
-        } else {
-            QFileDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,13 +749,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_mousereleaseevent_isbase) {
             qfiledialog_mousereleaseevent_isbase = false;
             QFileDialog::mouseReleaseEvent(event);
-        } else if (qfiledialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qfiledialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfiledialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QFileDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,13 +766,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_mousedoubleclickevent_isbase) {
             qfiledialog_mousedoubleclickevent_isbase = false;
             QFileDialog::mouseDoubleClickEvent(event);
-        } else if (qfiledialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qfiledialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfiledialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QFileDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -798,13 +783,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_mousemoveevent_isbase) {
             qfiledialog_mousemoveevent_isbase = false;
             QFileDialog::mouseMoveEvent(event);
-        } else if (qfiledialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qfiledialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfiledialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            QFileDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -812,13 +800,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_wheelevent_isbase) {
             qfiledialog_wheelevent_isbase = false;
             QFileDialog::wheelEvent(event);
-        } else if (qfiledialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qfiledialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qfiledialog_wheelevent_callback(this, cbval1);
-        } else {
-            QFileDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -826,13 +817,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_keyreleaseevent_isbase) {
             qfiledialog_keyreleaseevent_isbase = false;
             QFileDialog::keyReleaseEvent(event);
-        } else if (qfiledialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qfiledialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qfiledialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QFileDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -840,13 +834,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_focusinevent_isbase) {
             qfiledialog_focusinevent_isbase = false;
             QFileDialog::focusInEvent(event);
-        } else if (qfiledialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qfiledialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qfiledialog_focusinevent_callback(this, cbval1);
-        } else {
-            QFileDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,13 +851,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_focusoutevent_isbase) {
             qfiledialog_focusoutevent_isbase = false;
             QFileDialog::focusOutEvent(event);
-        } else if (qfiledialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qfiledialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qfiledialog_focusoutevent_callback(this, cbval1);
-        } else {
-            QFileDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,13 +868,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_enterevent_isbase) {
             qfiledialog_enterevent_isbase = false;
             QFileDialog::enterEvent(event);
-        } else if (qfiledialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qfiledialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qfiledialog_enterevent_callback(this, cbval1);
-        } else {
-            QFileDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,13 +885,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_leaveevent_isbase) {
             qfiledialog_leaveevent_isbase = false;
             QFileDialog::leaveEvent(event);
-        } else if (qfiledialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qfiledialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qfiledialog_leaveevent_callback(this, cbval1);
-        } else {
-            QFileDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -896,13 +902,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_paintevent_isbase) {
             qfiledialog_paintevent_isbase = false;
             QFileDialog::paintEvent(event);
-        } else if (qfiledialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qfiledialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qfiledialog_paintevent_callback(this, cbval1);
-        } else {
-            QFileDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -910,13 +919,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_moveevent_isbase) {
             qfiledialog_moveevent_isbase = false;
             QFileDialog::moveEvent(event);
-        } else if (qfiledialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qfiledialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qfiledialog_moveevent_callback(this, cbval1);
-        } else {
-            QFileDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,13 +936,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_tabletevent_isbase) {
             qfiledialog_tabletevent_isbase = false;
             QFileDialog::tabletEvent(event);
-        } else if (qfiledialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qfiledialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qfiledialog_tabletevent_callback(this, cbval1);
-        } else {
-            QFileDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -938,13 +953,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_actionevent_isbase) {
             qfiledialog_actionevent_isbase = false;
             QFileDialog::actionEvent(event);
-        } else if (qfiledialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qfiledialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qfiledialog_actionevent_callback(this, cbval1);
-        } else {
-            QFileDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -952,13 +970,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_dragenterevent_isbase) {
             qfiledialog_dragenterevent_isbase = false;
             QFileDialog::dragEnterEvent(event);
-        } else if (qfiledialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qfiledialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qfiledialog_dragenterevent_callback(this, cbval1);
-        } else {
-            QFileDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -966,13 +987,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_dragmoveevent_isbase) {
             qfiledialog_dragmoveevent_isbase = false;
             QFileDialog::dragMoveEvent(event);
-        } else if (qfiledialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qfiledialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qfiledialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            QFileDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -980,13 +1004,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_dragleaveevent_isbase) {
             qfiledialog_dragleaveevent_isbase = false;
             QFileDialog::dragLeaveEvent(event);
-        } else if (qfiledialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qfiledialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qfiledialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            QFileDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -994,13 +1021,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_dropevent_isbase) {
             qfiledialog_dropevent_isbase = false;
             QFileDialog::dropEvent(event);
-        } else if (qfiledialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qfiledialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qfiledialog_dropevent_callback(this, cbval1);
-        } else {
-            QFileDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,13 +1038,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_hideevent_isbase) {
             qfiledialog_hideevent_isbase = false;
             QFileDialog::hideEvent(event);
-        } else if (qfiledialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qfiledialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qfiledialog_hideevent_callback(this, cbval1);
-        } else {
-            QFileDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,7 +1055,9 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_nativeevent_isbase) {
             qfiledialog_nativeevent_isbase = false;
             return QFileDialog::nativeEvent(eventType, message, result);
-        } else if (qfiledialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qfiledialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1033,12 +1068,11 @@ class VirtualQFileDialog final : public QFileDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qfiledialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QFileDialog::nativeEvent(eventType, message, result);
         }
+        return QFileDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1046,14 +1080,15 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_metric_isbase) {
             qfiledialog_metric_isbase = false;
             return QFileDialog::metric(param1);
-        } else if (qfiledialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = qfiledialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qfiledialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFileDialog::metric(param1);
         }
+        return QFileDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1061,13 +1096,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_initpainter_isbase) {
             qfiledialog_initpainter_isbase = false;
             QFileDialog::initPainter(painter);
-        } else if (qfiledialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qfiledialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qfiledialog_initpainter_callback(this, cbval1);
-        } else {
-            QFileDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QFileDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1075,14 +1113,15 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_redirected_isbase) {
             qfiledialog_redirected_isbase = false;
             return QFileDialog::redirected(offset);
-        } else if (qfiledialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qfiledialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qfiledialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileDialog::redirected(offset);
         }
+        return QFileDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1090,12 +1129,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_sharedpainter_isbase) {
             qfiledialog_sharedpainter_isbase = false;
             return QFileDialog::sharedPainter();
-        } else if (qfiledialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qfiledialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QFileDialog::sharedPainter();
         }
+        auto sharedpainter_cb = qfiledialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QFileDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,13 +1143,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_inputmethodevent_isbase) {
             qfiledialog_inputmethodevent_isbase = false;
             QFileDialog::inputMethodEvent(param1);
-        } else if (qfiledialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qfiledialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qfiledialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            QFileDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1117,14 +1160,15 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_inputmethodquery_isbase) {
             qfiledialog_inputmethodquery_isbase = false;
             return QFileDialog::inputMethodQuery(param1);
-        } else if (qfiledialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qfiledialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qfiledialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QFileDialog::inputMethodQuery(param1);
         }
+        return QFileDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1132,14 +1176,15 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_focusnextprevchild_isbase) {
             qfiledialog_focusnextprevchild_isbase = false;
             return QFileDialog::focusNextPrevChild(next);
-        } else if (qfiledialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qfiledialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qfiledialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileDialog::focusNextPrevChild(next);
         }
+        return QFileDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1147,13 +1192,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_timerevent_isbase) {
             qfiledialog_timerevent_isbase = false;
             QFileDialog::timerEvent(event);
-        } else if (qfiledialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qfiledialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qfiledialog_timerevent_callback(this, cbval1);
-        } else {
-            QFileDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1161,13 +1209,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_childevent_isbase) {
             qfiledialog_childevent_isbase = false;
             QFileDialog::childEvent(event);
-        } else if (qfiledialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qfiledialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qfiledialog_childevent_callback(this, cbval1);
-        } else {
-            QFileDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1175,13 +1226,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_customevent_isbase) {
             qfiledialog_customevent_isbase = false;
             QFileDialog::customEvent(event);
-        } else if (qfiledialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qfiledialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qfiledialog_customevent_callback(this, cbval1);
-        } else {
-            QFileDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QFileDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1189,15 +1243,18 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_connectnotify_isbase) {
             qfiledialog_connectnotify_isbase = false;
             QFileDialog::connectNotify(signal);
-        } else if (qfiledialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qfiledialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfiledialog_connectnotify_callback(this, cbval1);
-        } else {
-            QFileDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QFileDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,15 +1262,18 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_disconnectnotify_isbase) {
             qfiledialog_disconnectnotify_isbase = false;
             QFileDialog::disconnectNotify(signal);
-        } else if (qfiledialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qfiledialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfiledialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            QFileDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QFileDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,13 +1281,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_adjustposition_isbase) {
             qfiledialog_adjustposition_isbase = false;
             QFileDialog::adjustPosition(param1);
-        } else if (qfiledialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = qfiledialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            qfiledialog_adjustposition_callback(this, cbval1);
-        } else {
-            QFileDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        QFileDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,11 +1298,14 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_updatemicrofocus_isbase) {
             qfiledialog_updatemicrofocus_isbase = false;
             QFileDialog::updateMicroFocus();
-        } else if (qfiledialog_updatemicrofocus_callback != nullptr) {
-            qfiledialog_updatemicrofocus_callback();
-        } else {
-            QFileDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qfiledialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QFileDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,11 +1313,14 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_create_isbase) {
             qfiledialog_create_isbase = false;
             QFileDialog::create();
-        } else if (qfiledialog_create_callback != nullptr) {
-            qfiledialog_create_callback();
-        } else {
-            QFileDialog::create();
+            return;
         }
+        auto create_cb = qfiledialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QFileDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,11 +1328,14 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_destroy_isbase) {
             qfiledialog_destroy_isbase = false;
             QFileDialog::destroy();
-        } else if (qfiledialog_destroy_callback != nullptr) {
-            qfiledialog_destroy_callback();
-        } else {
-            QFileDialog::destroy();
+            return;
         }
+        auto destroy_cb = qfiledialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QFileDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1271,12 +1343,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_focusnextchild_isbase) {
             qfiledialog_focusnextchild_isbase = false;
             return QFileDialog::focusNextChild();
-        } else if (qfiledialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = qfiledialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QFileDialog::focusNextChild();
         }
+        auto focusnextchild_cb = qfiledialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QFileDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,12 +1357,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_focuspreviouschild_isbase) {
             qfiledialog_focuspreviouschild_isbase = false;
             return QFileDialog::focusPreviousChild();
-        } else if (qfiledialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qfiledialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QFileDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qfiledialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QFileDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1297,12 +1371,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_sender_isbase) {
             qfiledialog_sender_isbase = false;
             return QFileDialog::sender();
-        } else if (qfiledialog_sender_callback != nullptr) {
-            QObject* callback_ret = qfiledialog_sender_callback();
-            return callback_ret;
-        } else {
-            return QFileDialog::sender();
         }
+        auto sender_cb = qfiledialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QFileDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1310,12 +1385,13 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_sendersignalindex_isbase) {
             qfiledialog_sendersignalindex_isbase = false;
             return QFileDialog::senderSignalIndex();
-        } else if (qfiledialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = qfiledialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFileDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qfiledialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFileDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1323,14 +1399,15 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_receivers_isbase) {
             qfiledialog_receivers_isbase = false;
             return QFileDialog::receivers(signal);
-        } else if (qfiledialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qfiledialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qfiledialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFileDialog::receivers(signal);
         }
+        return QFileDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1338,16 +1415,17 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_issignalconnected_isbase) {
             qfiledialog_issignalconnected_isbase = false;
             return QFileDialog::isSignalConnected(signal);
-        } else if (qfiledialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qfiledialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qfiledialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileDialog::isSignalConnected(signal);
         }
+        return QFileDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1355,15 +1433,16 @@ class VirtualQFileDialog final : public QFileDialog {
         if (qfiledialog_getdecodedmetricf_isbase) {
             qfiledialog_getdecodedmetricf_isbase = false;
             return QFileDialog::getDecodedMetricF(metricA, metricB);
-        } else if (qfiledialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qfiledialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qfiledialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QFileDialog::getDecodedMetricF(metricA, metricB);
         }
+        return QFileDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -246,82 +246,6 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
     VirtualQSqlQueryModel() : QSqlQueryModel() {};
     VirtualQSqlQueryModel(QObject* parent) : QSqlQueryModel(parent) {};
 
-    ~VirtualQSqlQueryModel() {
-        qsqlquerymodel_metaobject_callback = nullptr;
-        qsqlquerymodel_metacast_callback = nullptr;
-        qsqlquerymodel_metacall_callback = nullptr;
-        qsqlquerymodel_rowcount_callback = nullptr;
-        qsqlquerymodel_columncount_callback = nullptr;
-        qsqlquerymodel_data_callback = nullptr;
-        qsqlquerymodel_headerdata_callback = nullptr;
-        qsqlquerymodel_setheaderdata_callback = nullptr;
-        qsqlquerymodel_insertcolumns_callback = nullptr;
-        qsqlquerymodel_removecolumns_callback = nullptr;
-        qsqlquerymodel_clear_callback = nullptr;
-        qsqlquerymodel_fetchmore_callback = nullptr;
-        qsqlquerymodel_canfetchmore_callback = nullptr;
-        qsqlquerymodel_rolenames_callback = nullptr;
-        qsqlquerymodel_querychange_callback = nullptr;
-        qsqlquerymodel_indexinquery_callback = nullptr;
-        qsqlquerymodel_index_callback = nullptr;
-        qsqlquerymodel_sibling_callback = nullptr;
-        qsqlquerymodel_dropmimedata_callback = nullptr;
-        qsqlquerymodel_flags_callback = nullptr;
-        qsqlquerymodel_setdata_callback = nullptr;
-        qsqlquerymodel_itemdata_callback = nullptr;
-        qsqlquerymodel_setitemdata_callback = nullptr;
-        qsqlquerymodel_clearitemdata_callback = nullptr;
-        qsqlquerymodel_mimetypes_callback = nullptr;
-        qsqlquerymodel_mimedata_callback = nullptr;
-        qsqlquerymodel_candropmimedata_callback = nullptr;
-        qsqlquerymodel_supporteddropactions_callback = nullptr;
-        qsqlquerymodel_supporteddragactions_callback = nullptr;
-        qsqlquerymodel_insertrows_callback = nullptr;
-        qsqlquerymodel_removerows_callback = nullptr;
-        qsqlquerymodel_moverows_callback = nullptr;
-        qsqlquerymodel_movecolumns_callback = nullptr;
-        qsqlquerymodel_sort_callback = nullptr;
-        qsqlquerymodel_buddy_callback = nullptr;
-        qsqlquerymodel_match_callback = nullptr;
-        qsqlquerymodel_span_callback = nullptr;
-        qsqlquerymodel_multidata_callback = nullptr;
-        qsqlquerymodel_submit_callback = nullptr;
-        qsqlquerymodel_revert_callback = nullptr;
-        qsqlquerymodel_resetinternaldata_callback = nullptr;
-        qsqlquerymodel_event_callback = nullptr;
-        qsqlquerymodel_eventfilter_callback = nullptr;
-        qsqlquerymodel_timerevent_callback = nullptr;
-        qsqlquerymodel_childevent_callback = nullptr;
-        qsqlquerymodel_customevent_callback = nullptr;
-        qsqlquerymodel_connectnotify_callback = nullptr;
-        qsqlquerymodel_disconnectnotify_callback = nullptr;
-        qsqlquerymodel_begininsertrows_callback = nullptr;
-        qsqlquerymodel_endinsertrows_callback = nullptr;
-        qsqlquerymodel_beginremoverows_callback = nullptr;
-        qsqlquerymodel_endremoverows_callback = nullptr;
-        qsqlquerymodel_begininsertcolumns_callback = nullptr;
-        qsqlquerymodel_endinsertcolumns_callback = nullptr;
-        qsqlquerymodel_beginremovecolumns_callback = nullptr;
-        qsqlquerymodel_endremovecolumns_callback = nullptr;
-        qsqlquerymodel_beginresetmodel_callback = nullptr;
-        qsqlquerymodel_endresetmodel_callback = nullptr;
-        qsqlquerymodel_setlasterror_callback = nullptr;
-        qsqlquerymodel_createindex_callback = nullptr;
-        qsqlquerymodel_encodedata_callback = nullptr;
-        qsqlquerymodel_decodedata_callback = nullptr;
-        qsqlquerymodel_beginmoverows_callback = nullptr;
-        qsqlquerymodel_endmoverows_callback = nullptr;
-        qsqlquerymodel_beginmovecolumns_callback = nullptr;
-        qsqlquerymodel_endmovecolumns_callback = nullptr;
-        qsqlquerymodel_changepersistentindex_callback = nullptr;
-        qsqlquerymodel_changepersistentindexlist_callback = nullptr;
-        qsqlquerymodel_persistentindexlist_callback = nullptr;
-        qsqlquerymodel_sender_callback = nullptr;
-        qsqlquerymodel_sendersignalindex_callback = nullptr;
-        qsqlquerymodel_receivers_callback = nullptr;
-        qsqlquerymodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSqlQueryModel_MetaObject_Callback(QSqlQueryModel_MetaObject_Callback cb) { qsqlquerymodel_metaobject_callback = cb; }
     inline void setQSqlQueryModel_Metacast_Callback(QSqlQueryModel_Metacast_Callback cb) { qsqlquerymodel_metacast_callback = cb; }
@@ -477,12 +401,13 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_metaobject_isbase) {
             qsqlquerymodel_metaobject_isbase = false;
             return QSqlQueryModel::metaObject();
-        } else if (qsqlquerymodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsqlquerymodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSqlQueryModel::metaObject();
         }
+        auto metaobject_cb = qsqlquerymodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSqlQueryModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -490,14 +415,15 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_metacast_isbase) {
             qsqlquerymodel_metacast_isbase = false;
             return QSqlQueryModel::qt_metacast(param1);
-        } else if (qsqlquerymodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsqlquerymodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsqlquerymodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::qt_metacast(param1);
         }
+        return QSqlQueryModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -505,16 +431,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_metacall_isbase) {
             qsqlquerymodel_metacall_isbase = false;
             return QSqlQueryModel::qt_metacall(param1, param2, param3);
-        } else if (qsqlquerymodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsqlquerymodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsqlquerymodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSqlQueryModel::qt_metacall(param1, param2, param3);
         }
+        return QSqlQueryModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,16 +449,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_rowcount_isbase) {
             qsqlquerymodel_rowcount_isbase = false;
             return QSqlQueryModel::rowCount(parent);
-        } else if (qsqlquerymodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = qsqlquerymodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qsqlquerymodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSqlQueryModel::rowCount(parent);
         }
+        return QSqlQueryModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -539,16 +467,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_columncount_isbase) {
             qsqlquerymodel_columncount_isbase = false;
             return QSqlQueryModel::columnCount(parent);
-        } else if (qsqlquerymodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = qsqlquerymodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qsqlquerymodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSqlQueryModel::columnCount(parent);
         }
+        return QSqlQueryModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,17 +485,18 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_data_isbase) {
             qsqlquerymodel_data_isbase = false;
             return QSqlQueryModel::data(item, role);
-        } else if (qsqlquerymodel_data_callback != nullptr) {
+        }
+        auto data_cb = qsqlquerymodel_data_callback;
+        if (data_cb) {
             const QModelIndex& item_ret = item;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&item_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = qsqlquerymodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QSqlQueryModel::data(item, role);
         }
+        return QSqlQueryModel::data(item, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -574,16 +504,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_headerdata_isbase) {
             qsqlquerymodel_headerdata_isbase = false;
             return QSqlQueryModel::headerData(section, orientation, role);
-        } else if (qsqlquerymodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = qsqlquerymodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = qsqlquerymodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QSqlQueryModel::headerData(section, orientation, role);
         }
+        return QSqlQueryModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -591,7 +522,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_setheaderdata_isbase) {
             qsqlquerymodel_setheaderdata_isbase = false;
             return QSqlQueryModel::setHeaderData(section, orientation, value, role);
-        } else if (qsqlquerymodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = qsqlquerymodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -599,11 +532,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = qsqlquerymodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::setHeaderData(section, orientation, value, role);
         }
+        return QSqlQueryModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,18 +543,19 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_insertcolumns_isbase) {
             qsqlquerymodel_insertcolumns_isbase = false;
             return QSqlQueryModel::insertColumns(column, count, parent);
-        } else if (qsqlquerymodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = qsqlquerymodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlquerymodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::insertColumns(column, count, parent);
         }
+        return QSqlQueryModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -630,18 +563,19 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_removecolumns_isbase) {
             qsqlquerymodel_removecolumns_isbase = false;
             return QSqlQueryModel::removeColumns(column, count, parent);
-        } else if (qsqlquerymodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = qsqlquerymodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlquerymodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::removeColumns(column, count, parent);
         }
+        return QSqlQueryModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,11 +583,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_clear_isbase) {
             qsqlquerymodel_clear_isbase = false;
             QSqlQueryModel::clear();
-        } else if (qsqlquerymodel_clear_callback != nullptr) {
-            qsqlquerymodel_clear_callback();
-        } else {
-            QSqlQueryModel::clear();
+            return;
         }
+        auto clear_cb = qsqlquerymodel_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        QSqlQueryModel::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -661,15 +598,18 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_fetchmore_isbase) {
             qsqlquerymodel_fetchmore_isbase = false;
             QSqlQueryModel::fetchMore(parent);
-        } else if (qsqlquerymodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = qsqlquerymodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            qsqlquerymodel_fetchmore_callback(this, cbval1);
-        } else {
-            QSqlQueryModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        QSqlQueryModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,16 +617,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_canfetchmore_isbase) {
             qsqlquerymodel_canfetchmore_isbase = false;
             return QSqlQueryModel::canFetchMore(parent);
-        } else if (qsqlquerymodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = qsqlquerymodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlquerymodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::canFetchMore(parent);
         }
+        return QSqlQueryModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -694,8 +635,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_rolenames_isbase) {
             qsqlquerymodel_rolenames_isbase = false;
             return QSqlQueryModel::roleNames();
-        } else if (qsqlquerymodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = qsqlquerymodel_rolenames_callback();
+        }
+        auto rolenames_cb = qsqlquerymodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -705,9 +648,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return QSqlQueryModel::roleNames();
         }
+        return QSqlQueryModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -715,11 +657,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_querychange_isbase) {
             qsqlquerymodel_querychange_isbase = false;
             QSqlQueryModel::queryChange();
-        } else if (qsqlquerymodel_querychange_callback != nullptr) {
-            qsqlquerymodel_querychange_callback();
-        } else {
-            QSqlQueryModel::queryChange();
+            return;
         }
+        auto querychange_cb = qsqlquerymodel_querychange_callback;
+        if (querychange_cb) {
+            querychange_cb();
+            return;
+        }
+        QSqlQueryModel::queryChange();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,16 +672,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_indexinquery_isbase) {
             qsqlquerymodel_indexinquery_isbase = false;
             return QSqlQueryModel::indexInQuery(item);
-        } else if (qsqlquerymodel_indexinquery_callback != nullptr) {
+        }
+        auto indexinquery_cb = qsqlquerymodel_indexinquery_callback;
+        if (indexinquery_cb) {
             const QModelIndex& item_ret = item;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&item_ret);
 
-            QModelIndex* callback_ret = qsqlquerymodel_indexinquery_callback(this, cbval1);
+            QModelIndex* callback_ret = indexinquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSqlQueryModel::indexInQuery(item);
         }
+        return QSqlQueryModel::indexInQuery(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,18 +690,19 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_index_isbase) {
             qsqlquerymodel_index_isbase = false;
             return QSqlQueryModel::index(row, column, parent);
-        } else if (qsqlquerymodel_index_callback != nullptr) {
+        }
+        auto index_cb = qsqlquerymodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = qsqlquerymodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QSqlQueryModel::index(row, column, parent);
         }
+        return QSqlQueryModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,18 +710,19 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_sibling_isbase) {
             qsqlquerymodel_sibling_isbase = false;
             return QSqlQueryModel::sibling(row, column, idx);
-        } else if (qsqlquerymodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = qsqlquerymodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = qsqlquerymodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QSqlQueryModel::sibling(row, column, idx);
         }
+        return QSqlQueryModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,7 +730,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_dropmimedata_isbase) {
             qsqlquerymodel_dropmimedata_isbase = false;
             return QSqlQueryModel::dropMimeData(data, action, row, column, parent);
-        } else if (qsqlquerymodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = qsqlquerymodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -791,11 +741,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlquerymodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::dropMimeData(data, action, row, column, parent);
         }
+        return QSqlQueryModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,16 +752,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_flags_isbase) {
             qsqlquerymodel_flags_isbase = false;
             return QSqlQueryModel::flags(index);
-        } else if (qsqlquerymodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = qsqlquerymodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qsqlquerymodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return QSqlQueryModel::flags(index);
         }
+        return QSqlQueryModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -820,7 +770,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_setdata_isbase) {
             qsqlquerymodel_setdata_isbase = false;
             return QSqlQueryModel::setData(index, value, role);
-        } else if (qsqlquerymodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = qsqlquerymodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -829,11 +781,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = qsqlquerymodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::setData(index, value, role);
         }
+        return QSqlQueryModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -841,12 +792,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_itemdata_isbase) {
             qsqlquerymodel_itemdata_isbase = false;
             return QSqlQueryModel::itemData(index);
-        } else if (qsqlquerymodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = qsqlquerymodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = qsqlquerymodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -854,9 +807,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return QSqlQueryModel::itemData(index);
         }
+        return QSqlQueryModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -864,7 +816,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_setitemdata_isbase) {
             qsqlquerymodel_setitemdata_isbase = false;
             return QSqlQueryModel::setItemData(index, roles);
-        } else if (qsqlquerymodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = qsqlquerymodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -884,11 +838,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = qsqlquerymodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::setItemData(index, roles);
         }
+        return QSqlQueryModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -896,16 +849,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_clearitemdata_isbase) {
             qsqlquerymodel_clearitemdata_isbase = false;
             return QSqlQueryModel::clearItemData(index);
-        } else if (qsqlquerymodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = qsqlquerymodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qsqlquerymodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::clearItemData(index);
         }
+        return QSqlQueryModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,8 +867,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_mimetypes_isbase) {
             qsqlquerymodel_mimetypes_isbase = false;
             return QSqlQueryModel::mimeTypes();
-        } else if (qsqlquerymodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = qsqlquerymodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = qsqlquerymodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -925,9 +881,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QSqlQueryModel::mimeTypes();
         }
+        return QSqlQueryModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -935,7 +890,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_mimedata_isbase) {
             qsqlquerymodel_mimedata_isbase = false;
             return QSqlQueryModel::mimeData(indexes);
-        } else if (qsqlquerymodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = qsqlquerymodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -947,12 +904,11 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = qsqlquerymodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::mimeData(indexes);
         }
+        return QSqlQueryModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -960,7 +916,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_candropmimedata_isbase) {
             qsqlquerymodel_candropmimedata_isbase = false;
             return QSqlQueryModel::canDropMimeData(data, action, row, column, parent);
-        } else if (qsqlquerymodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = qsqlquerymodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -969,11 +927,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlquerymodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::canDropMimeData(data, action, row, column, parent);
         }
+        return QSqlQueryModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -981,12 +938,13 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_supporteddropactions_isbase) {
             qsqlquerymodel_supporteddropactions_isbase = false;
             return QSqlQueryModel::supportedDropActions();
-        } else if (qsqlquerymodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = qsqlquerymodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QSqlQueryModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = qsqlquerymodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QSqlQueryModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -994,12 +952,13 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_supporteddragactions_isbase) {
             qsqlquerymodel_supporteddragactions_isbase = false;
             return QSqlQueryModel::supportedDragActions();
-        } else if (qsqlquerymodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = qsqlquerymodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QSqlQueryModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = qsqlquerymodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QSqlQueryModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1007,18 +966,19 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_insertrows_isbase) {
             qsqlquerymodel_insertrows_isbase = false;
             return QSqlQueryModel::insertRows(row, count, parent);
-        } else if (qsqlquerymodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = qsqlquerymodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlquerymodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::insertRows(row, count, parent);
         }
+        return QSqlQueryModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1026,18 +986,19 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_removerows_isbase) {
             qsqlquerymodel_removerows_isbase = false;
             return QSqlQueryModel::removeRows(row, count, parent);
-        } else if (qsqlquerymodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = qsqlquerymodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlquerymodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::removeRows(row, count, parent);
         }
+        return QSqlQueryModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1045,7 +1006,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_moverows_isbase) {
             qsqlquerymodel_moverows_isbase = false;
             return QSqlQueryModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (qsqlquerymodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = qsqlquerymodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1056,11 +1019,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qsqlquerymodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return QSqlQueryModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,7 +1030,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_movecolumns_isbase) {
             qsqlquerymodel_movecolumns_isbase = false;
             return QSqlQueryModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (qsqlquerymodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = qsqlquerymodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1079,11 +1043,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qsqlquerymodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return QSqlQueryModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,14 +1054,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_sort_isbase) {
             qsqlquerymodel_sort_isbase = false;
             QSqlQueryModel::sort(column, order);
-        } else if (qsqlquerymodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = qsqlquerymodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            qsqlquerymodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            QSqlQueryModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        QSqlQueryModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,16 +1072,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_buddy_isbase) {
             qsqlquerymodel_buddy_isbase = false;
             return QSqlQueryModel::buddy(index);
-        } else if (qsqlquerymodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = qsqlquerymodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = qsqlquerymodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSqlQueryModel::buddy(index);
         }
+        return QSqlQueryModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1123,7 +1090,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_match_isbase) {
             qsqlquerymodel_match_isbase = false;
             return QSqlQueryModel::match(start, role, value, hits, flags);
-        } else if (qsqlquerymodel_match_callback != nullptr) {
+        }
+        auto match_cb = qsqlquerymodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1134,7 +1103,7 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qsqlquerymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1143,9 +1112,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QSqlQueryModel::match(start, role, value, hits, flags);
         }
+        return QSqlQueryModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,16 +1121,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_span_isbase) {
             qsqlquerymodel_span_isbase = false;
             return QSqlQueryModel::span(index);
-        } else if (qsqlquerymodel_span_callback != nullptr) {
+        }
+        auto span_cb = qsqlquerymodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = qsqlquerymodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSqlQueryModel::span(index);
         }
+        return QSqlQueryModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1170,16 +1139,19 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_multidata_isbase) {
             qsqlquerymodel_multidata_isbase = false;
             QSqlQueryModel::multiData(index, roleDataSpan);
-        } else if (qsqlquerymodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = qsqlquerymodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            qsqlquerymodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            QSqlQueryModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        QSqlQueryModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,12 +1159,13 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_submit_isbase) {
             qsqlquerymodel_submit_isbase = false;
             return QSqlQueryModel::submit();
-        } else if (qsqlquerymodel_submit_callback != nullptr) {
-            bool callback_ret = qsqlquerymodel_submit_callback();
-            return callback_ret;
-        } else {
-            return QSqlQueryModel::submit();
         }
+        auto submit_cb = qsqlquerymodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return QSqlQueryModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1200,11 +1173,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_revert_isbase) {
             qsqlquerymodel_revert_isbase = false;
             QSqlQueryModel::revert();
-        } else if (qsqlquerymodel_revert_callback != nullptr) {
-            qsqlquerymodel_revert_callback();
-        } else {
-            QSqlQueryModel::revert();
+            return;
         }
+        auto revert_cb = qsqlquerymodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        QSqlQueryModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1212,11 +1188,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_resetinternaldata_isbase) {
             qsqlquerymodel_resetinternaldata_isbase = false;
             QSqlQueryModel::resetInternalData();
-        } else if (qsqlquerymodel_resetinternaldata_callback != nullptr) {
-            qsqlquerymodel_resetinternaldata_callback();
-        } else {
-            QSqlQueryModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = qsqlquerymodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        QSqlQueryModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1224,14 +1203,15 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_event_isbase) {
             qsqlquerymodel_event_isbase = false;
             return QSqlQueryModel::event(event);
-        } else if (qsqlquerymodel_event_callback != nullptr) {
+        }
+        auto event_cb = qsqlquerymodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsqlquerymodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::event(event);
         }
+        return QSqlQueryModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1239,15 +1219,16 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_eventfilter_isbase) {
             qsqlquerymodel_eventfilter_isbase = false;
             return QSqlQueryModel::eventFilter(watched, event);
-        } else if (qsqlquerymodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsqlquerymodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsqlquerymodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::eventFilter(watched, event);
         }
+        return QSqlQueryModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1255,13 +1236,16 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_timerevent_isbase) {
             qsqlquerymodel_timerevent_isbase = false;
             QSqlQueryModel::timerEvent(event);
-        } else if (qsqlquerymodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsqlquerymodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsqlquerymodel_timerevent_callback(this, cbval1);
-        } else {
-            QSqlQueryModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSqlQueryModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,13 +1253,16 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_childevent_isbase) {
             qsqlquerymodel_childevent_isbase = false;
             QSqlQueryModel::childEvent(event);
-        } else if (qsqlquerymodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsqlquerymodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsqlquerymodel_childevent_callback(this, cbval1);
-        } else {
-            QSqlQueryModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSqlQueryModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1283,13 +1270,16 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_customevent_isbase) {
             qsqlquerymodel_customevent_isbase = false;
             QSqlQueryModel::customEvent(event);
-        } else if (qsqlquerymodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsqlquerymodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsqlquerymodel_customevent_callback(this, cbval1);
-        } else {
-            QSqlQueryModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSqlQueryModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1297,15 +1287,18 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_connectnotify_isbase) {
             qsqlquerymodel_connectnotify_isbase = false;
             QSqlQueryModel::connectNotify(signal);
-        } else if (qsqlquerymodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsqlquerymodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsqlquerymodel_connectnotify_callback(this, cbval1);
-        } else {
-            QSqlQueryModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSqlQueryModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1313,15 +1306,18 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_disconnectnotify_isbase) {
             qsqlquerymodel_disconnectnotify_isbase = false;
             QSqlQueryModel::disconnectNotify(signal);
-        } else if (qsqlquerymodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsqlquerymodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsqlquerymodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSqlQueryModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSqlQueryModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1329,17 +1325,20 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_begininsertrows_isbase) {
             qsqlquerymodel_begininsertrows_isbase = false;
             QSqlQueryModel::beginInsertRows(parent, first, last);
-        } else if (qsqlquerymodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = qsqlquerymodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qsqlquerymodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSqlQueryModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSqlQueryModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1347,11 +1346,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_endinsertrows_isbase) {
             qsqlquerymodel_endinsertrows_isbase = false;
             QSqlQueryModel::endInsertRows();
-        } else if (qsqlquerymodel_endinsertrows_callback != nullptr) {
-            qsqlquerymodel_endinsertrows_callback();
-        } else {
-            QSqlQueryModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = qsqlquerymodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        QSqlQueryModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1359,17 +1361,20 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_beginremoverows_isbase) {
             qsqlquerymodel_beginremoverows_isbase = false;
             QSqlQueryModel::beginRemoveRows(parent, first, last);
-        } else if (qsqlquerymodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = qsqlquerymodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qsqlquerymodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSqlQueryModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSqlQueryModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1377,11 +1382,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_endremoverows_isbase) {
             qsqlquerymodel_endremoverows_isbase = false;
             QSqlQueryModel::endRemoveRows();
-        } else if (qsqlquerymodel_endremoverows_callback != nullptr) {
-            qsqlquerymodel_endremoverows_callback();
-        } else {
-            QSqlQueryModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = qsqlquerymodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        QSqlQueryModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1389,17 +1397,20 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_begininsertcolumns_isbase) {
             qsqlquerymodel_begininsertcolumns_isbase = false;
             QSqlQueryModel::beginInsertColumns(parent, first, last);
-        } else if (qsqlquerymodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = qsqlquerymodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qsqlquerymodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSqlQueryModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSqlQueryModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1407,11 +1418,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_endinsertcolumns_isbase) {
             qsqlquerymodel_endinsertcolumns_isbase = false;
             QSqlQueryModel::endInsertColumns();
-        } else if (qsqlquerymodel_endinsertcolumns_callback != nullptr) {
-            qsqlquerymodel_endinsertcolumns_callback();
-        } else {
-            QSqlQueryModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = qsqlquerymodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        QSqlQueryModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1419,17 +1433,20 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_beginremovecolumns_isbase) {
             qsqlquerymodel_beginremovecolumns_isbase = false;
             QSqlQueryModel::beginRemoveColumns(parent, first, last);
-        } else if (qsqlquerymodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = qsqlquerymodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qsqlquerymodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSqlQueryModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSqlQueryModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1437,11 +1454,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_endremovecolumns_isbase) {
             qsqlquerymodel_endremovecolumns_isbase = false;
             QSqlQueryModel::endRemoveColumns();
-        } else if (qsqlquerymodel_endremovecolumns_callback != nullptr) {
-            qsqlquerymodel_endremovecolumns_callback();
-        } else {
-            QSqlQueryModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = qsqlquerymodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        QSqlQueryModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1449,11 +1469,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_beginresetmodel_isbase) {
             qsqlquerymodel_beginresetmodel_isbase = false;
             QSqlQueryModel::beginResetModel();
-        } else if (qsqlquerymodel_beginresetmodel_callback != nullptr) {
-            qsqlquerymodel_beginresetmodel_callback();
-        } else {
-            QSqlQueryModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = qsqlquerymodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        QSqlQueryModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1461,11 +1484,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_endresetmodel_isbase) {
             qsqlquerymodel_endresetmodel_isbase = false;
             QSqlQueryModel::endResetModel();
-        } else if (qsqlquerymodel_endresetmodel_callback != nullptr) {
-            qsqlquerymodel_endresetmodel_callback();
-        } else {
-            QSqlQueryModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = qsqlquerymodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        QSqlQueryModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1473,15 +1499,18 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_setlasterror_isbase) {
             qsqlquerymodel_setlasterror_isbase = false;
             QSqlQueryModel::setLastError(errorVal);
-        } else if (qsqlquerymodel_setlasterror_callback != nullptr) {
+            return;
+        }
+        auto setlasterror_cb = qsqlquerymodel_setlasterror_callback;
+        if (setlasterror_cb) {
             const QSqlError& errorVal_ret = errorVal;
             // Cast returned reference into pointer
             QSqlError* cbval1 = const_cast<QSqlError*>(&errorVal_ret);
 
-            qsqlquerymodel_setlasterror_callback(this, cbval1);
-        } else {
-            QSqlQueryModel::setLastError(errorVal);
+            setlasterror_cb(this, cbval1);
+            return;
         }
+        QSqlQueryModel::setLastError(errorVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1489,15 +1518,16 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_createindex_isbase) {
             qsqlquerymodel_createindex_isbase = false;
             return QSqlQueryModel::createIndex(row, column);
-        } else if (qsqlquerymodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = qsqlquerymodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = qsqlquerymodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QSqlQueryModel::createIndex(row, column);
         }
+        return QSqlQueryModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1505,7 +1535,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_encodedata_isbase) {
             qsqlquerymodel_encodedata_isbase = false;
             QSqlQueryModel::encodeData(indexes, stream);
-        } else if (qsqlquerymodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = qsqlquerymodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1520,11 +1553,11 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            qsqlquerymodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            QSqlQueryModel::encodeData(indexes, stream);
+            return;
         }
+        QSqlQueryModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1532,7 +1565,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_decodedata_isbase) {
             qsqlquerymodel_decodedata_isbase = false;
             return QSqlQueryModel::decodeData(row, column, parent, stream);
-        } else if (qsqlquerymodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = qsqlquerymodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1542,11 +1577,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = qsqlquerymodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::decodeData(row, column, parent, stream);
         }
+        return QSqlQueryModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1554,7 +1588,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_beginmoverows_isbase) {
             qsqlquerymodel_beginmoverows_isbase = false;
             return QSqlQueryModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (qsqlquerymodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = qsqlquerymodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1565,11 +1601,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = qsqlquerymodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return QSqlQueryModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1577,11 +1612,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_endmoverows_isbase) {
             qsqlquerymodel_endmoverows_isbase = false;
             QSqlQueryModel::endMoveRows();
-        } else if (qsqlquerymodel_endmoverows_callback != nullptr) {
-            qsqlquerymodel_endmoverows_callback();
-        } else {
-            QSqlQueryModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = qsqlquerymodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        QSqlQueryModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1589,7 +1627,9 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_beginmovecolumns_isbase) {
             qsqlquerymodel_beginmovecolumns_isbase = false;
             return QSqlQueryModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (qsqlquerymodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = qsqlquerymodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1600,11 +1640,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = qsqlquerymodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return QSqlQueryModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1612,11 +1651,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_endmovecolumns_isbase) {
             qsqlquerymodel_endmovecolumns_isbase = false;
             QSqlQueryModel::endMoveColumns();
-        } else if (qsqlquerymodel_endmovecolumns_callback != nullptr) {
-            qsqlquerymodel_endmovecolumns_callback();
-        } else {
-            QSqlQueryModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = qsqlquerymodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        QSqlQueryModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1624,7 +1666,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_changepersistentindex_isbase) {
             qsqlquerymodel_changepersistentindex_isbase = false;
             QSqlQueryModel::changePersistentIndex(from, to);
-        } else if (qsqlquerymodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = qsqlquerymodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1632,10 +1677,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            qsqlquerymodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            QSqlQueryModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QSqlQueryModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1643,7 +1688,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_changepersistentindexlist_isbase) {
             qsqlquerymodel_changepersistentindexlist_isbase = false;
             QSqlQueryModel::changePersistentIndexList(from, to);
-        } else if (qsqlquerymodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = qsqlquerymodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1665,12 +1713,12 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            qsqlquerymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            QSqlQueryModel::changePersistentIndexList(from, to);
+            return;
         }
+        QSqlQueryModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1678,8 +1726,10 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_persistentindexlist_isbase) {
             qsqlquerymodel_persistentindexlist_isbase = false;
             return QSqlQueryModel::persistentIndexList();
-        } else if (qsqlquerymodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qsqlquerymodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = qsqlquerymodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1688,9 +1738,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QSqlQueryModel::persistentIndexList();
         }
+        return QSqlQueryModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1698,12 +1747,13 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_sender_isbase) {
             qsqlquerymodel_sender_isbase = false;
             return QSqlQueryModel::sender();
-        } else if (qsqlquerymodel_sender_callback != nullptr) {
-            QObject* callback_ret = qsqlquerymodel_sender_callback();
-            return callback_ret;
-        } else {
-            return QSqlQueryModel::sender();
         }
+        auto sender_cb = qsqlquerymodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSqlQueryModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1711,12 +1761,13 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_sendersignalindex_isbase) {
             qsqlquerymodel_sendersignalindex_isbase = false;
             return QSqlQueryModel::senderSignalIndex();
-        } else if (qsqlquerymodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsqlquerymodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSqlQueryModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsqlquerymodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSqlQueryModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1724,14 +1775,15 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_receivers_isbase) {
             qsqlquerymodel_receivers_isbase = false;
             return QSqlQueryModel::receivers(signal);
-        } else if (qsqlquerymodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsqlquerymodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsqlquerymodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSqlQueryModel::receivers(signal);
         }
+        return QSqlQueryModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1739,16 +1791,17 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
         if (qsqlquerymodel_issignalconnected_isbase) {
             qsqlquerymodel_issignalconnected_isbase = false;
             return QSqlQueryModel::isSignalConnected(signal);
-        } else if (qsqlquerymodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsqlquerymodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsqlquerymodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlQueryModel::isSignalConnected(signal);
         }
+        return QSqlQueryModel::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -212,70 +212,6 @@ class VirtualQGroupBox final : public QGroupBox {
     VirtualQGroupBox(const QString& title) : QGroupBox(title) {};
     VirtualQGroupBox(const QString& title, QWidget* parent) : QGroupBox(title, parent) {};
 
-    ~VirtualQGroupBox() {
-        qgroupbox_metaobject_callback = nullptr;
-        qgroupbox_metacast_callback = nullptr;
-        qgroupbox_metacall_callback = nullptr;
-        qgroupbox_minimumsizehint_callback = nullptr;
-        qgroupbox_event_callback = nullptr;
-        qgroupbox_childevent_callback = nullptr;
-        qgroupbox_resizeevent_callback = nullptr;
-        qgroupbox_paintevent_callback = nullptr;
-        qgroupbox_focusinevent_callback = nullptr;
-        qgroupbox_changeevent_callback = nullptr;
-        qgroupbox_mousepressevent_callback = nullptr;
-        qgroupbox_mousemoveevent_callback = nullptr;
-        qgroupbox_mousereleaseevent_callback = nullptr;
-        qgroupbox_initstyleoption_callback = nullptr;
-        qgroupbox_devtype_callback = nullptr;
-        qgroupbox_setvisible_callback = nullptr;
-        qgroupbox_sizehint_callback = nullptr;
-        qgroupbox_heightforwidth_callback = nullptr;
-        qgroupbox_hasheightforwidth_callback = nullptr;
-        qgroupbox_paintengine_callback = nullptr;
-        qgroupbox_mousedoubleclickevent_callback = nullptr;
-        qgroupbox_wheelevent_callback = nullptr;
-        qgroupbox_keypressevent_callback = nullptr;
-        qgroupbox_keyreleaseevent_callback = nullptr;
-        qgroupbox_focusoutevent_callback = nullptr;
-        qgroupbox_enterevent_callback = nullptr;
-        qgroupbox_leaveevent_callback = nullptr;
-        qgroupbox_moveevent_callback = nullptr;
-        qgroupbox_closeevent_callback = nullptr;
-        qgroupbox_contextmenuevent_callback = nullptr;
-        qgroupbox_tabletevent_callback = nullptr;
-        qgroupbox_actionevent_callback = nullptr;
-        qgroupbox_dragenterevent_callback = nullptr;
-        qgroupbox_dragmoveevent_callback = nullptr;
-        qgroupbox_dragleaveevent_callback = nullptr;
-        qgroupbox_dropevent_callback = nullptr;
-        qgroupbox_showevent_callback = nullptr;
-        qgroupbox_hideevent_callback = nullptr;
-        qgroupbox_nativeevent_callback = nullptr;
-        qgroupbox_metric_callback = nullptr;
-        qgroupbox_initpainter_callback = nullptr;
-        qgroupbox_redirected_callback = nullptr;
-        qgroupbox_sharedpainter_callback = nullptr;
-        qgroupbox_inputmethodevent_callback = nullptr;
-        qgroupbox_inputmethodquery_callback = nullptr;
-        qgroupbox_focusnextprevchild_callback = nullptr;
-        qgroupbox_eventfilter_callback = nullptr;
-        qgroupbox_timerevent_callback = nullptr;
-        qgroupbox_customevent_callback = nullptr;
-        qgroupbox_connectnotify_callback = nullptr;
-        qgroupbox_disconnectnotify_callback = nullptr;
-        qgroupbox_updatemicrofocus_callback = nullptr;
-        qgroupbox_create_callback = nullptr;
-        qgroupbox_destroy_callback = nullptr;
-        qgroupbox_focusnextchild_callback = nullptr;
-        qgroupbox_focuspreviouschild_callback = nullptr;
-        qgroupbox_sender_callback = nullptr;
-        qgroupbox_sendersignalindex_callback = nullptr;
-        qgroupbox_receivers_callback = nullptr;
-        qgroupbox_issignalconnected_callback = nullptr;
-        qgroupbox_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGroupBox_MetaObject_Callback(QGroupBox_MetaObject_Callback cb) { qgroupbox_metaobject_callback = cb; }
     inline void setQGroupBox_Metacast_Callback(QGroupBox_Metacast_Callback cb) { qgroupbox_metacast_callback = cb; }
@@ -407,12 +343,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_metaobject_isbase) {
             qgroupbox_metaobject_isbase = false;
             return QGroupBox::metaObject();
-        } else if (qgroupbox_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgroupbox_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGroupBox::metaObject();
         }
+        auto metaobject_cb = qgroupbox_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGroupBox::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -420,14 +357,15 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_metacast_isbase) {
             qgroupbox_metacast_isbase = false;
             return QGroupBox::qt_metacast(param1);
-        } else if (qgroupbox_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgroupbox_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgroupbox_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGroupBox::qt_metacast(param1);
         }
+        return QGroupBox::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -435,16 +373,17 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_metacall_isbase) {
             qgroupbox_metacall_isbase = false;
             return QGroupBox::qt_metacall(param1, param2, param3);
-        } else if (qgroupbox_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgroupbox_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgroupbox_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGroupBox::qt_metacall(param1, param2, param3);
         }
+        return QGroupBox::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -452,12 +391,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_minimumsizehint_isbase) {
             qgroupbox_minimumsizehint_isbase = false;
             return QGroupBox::minimumSizeHint();
-        } else if (qgroupbox_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qgroupbox_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QGroupBox::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qgroupbox_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QGroupBox::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,14 +405,15 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_event_isbase) {
             qgroupbox_event_isbase = false;
             return QGroupBox::event(event);
-        } else if (qgroupbox_event_callback != nullptr) {
+        }
+        auto event_cb = qgroupbox_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgroupbox_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGroupBox::event(event);
         }
+        return QGroupBox::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,13 +421,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_childevent_isbase) {
             qgroupbox_childevent_isbase = false;
             QGroupBox::childEvent(event);
-        } else if (qgroupbox_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgroupbox_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgroupbox_childevent_callback(this, cbval1);
-        } else {
-            QGroupBox::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,13 +438,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_resizeevent_isbase) {
             qgroupbox_resizeevent_isbase = false;
             QGroupBox::resizeEvent(event);
-        } else if (qgroupbox_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qgroupbox_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qgroupbox_resizeevent_callback(this, cbval1);
-        } else {
-            QGroupBox::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -508,13 +455,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_paintevent_isbase) {
             qgroupbox_paintevent_isbase = false;
             QGroupBox::paintEvent(event);
-        } else if (qgroupbox_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qgroupbox_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qgroupbox_paintevent_callback(this, cbval1);
-        } else {
-            QGroupBox::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,13 +472,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_focusinevent_isbase) {
             qgroupbox_focusinevent_isbase = false;
             QGroupBox::focusInEvent(event);
-        } else if (qgroupbox_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qgroupbox_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgroupbox_focusinevent_callback(this, cbval1);
-        } else {
-            QGroupBox::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -536,13 +489,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_changeevent_isbase) {
             qgroupbox_changeevent_isbase = false;
             QGroupBox::changeEvent(event);
-        } else if (qgroupbox_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qgroupbox_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qgroupbox_changeevent_callback(this, cbval1);
-        } else {
-            QGroupBox::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,13 +506,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_mousepressevent_isbase) {
             qgroupbox_mousepressevent_isbase = false;
             QGroupBox::mousePressEvent(event);
-        } else if (qgroupbox_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qgroupbox_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qgroupbox_mousepressevent_callback(this, cbval1);
-        } else {
-            QGroupBox::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,13 +523,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_mousemoveevent_isbase) {
             qgroupbox_mousemoveevent_isbase = false;
             QGroupBox::mouseMoveEvent(event);
-        } else if (qgroupbox_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qgroupbox_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qgroupbox_mousemoveevent_callback(this, cbval1);
-        } else {
-            QGroupBox::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,13 +540,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_mousereleaseevent_isbase) {
             qgroupbox_mousereleaseevent_isbase = false;
             QGroupBox::mouseReleaseEvent(event);
-        } else if (qgroupbox_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qgroupbox_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qgroupbox_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QGroupBox::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,13 +557,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_initstyleoption_isbase) {
             qgroupbox_initstyleoption_isbase = false;
             QGroupBox::initStyleOption(option);
-        } else if (qgroupbox_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qgroupbox_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionGroupBox* cbval1 = option;
 
-            qgroupbox_initstyleoption_callback(this, cbval1);
-        } else {
-            QGroupBox::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QGroupBox::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -606,12 +574,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_devtype_isbase) {
             qgroupbox_devtype_isbase = false;
             return QGroupBox::devType();
-        } else if (qgroupbox_devtype_callback != nullptr) {
-            int callback_ret = qgroupbox_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGroupBox::devType();
         }
+        auto devtype_cb = qgroupbox_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGroupBox::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,13 +588,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_setvisible_isbase) {
             qgroupbox_setvisible_isbase = false;
             QGroupBox::setVisible(visible);
-        } else if (qgroupbox_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qgroupbox_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qgroupbox_setvisible_callback(this, cbval1);
-        } else {
-            QGroupBox::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QGroupBox::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,12 +605,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_sizehint_isbase) {
             qgroupbox_sizehint_isbase = false;
             return QGroupBox::sizeHint();
-        } else if (qgroupbox_sizehint_callback != nullptr) {
-            QSize* callback_ret = qgroupbox_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QGroupBox::sizeHint();
         }
+        auto sizehint_cb = qgroupbox_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QGroupBox::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -646,14 +619,15 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_heightforwidth_isbase) {
             qgroupbox_heightforwidth_isbase = false;
             return QGroupBox::heightForWidth(param1);
-        } else if (qgroupbox_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qgroupbox_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qgroupbox_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGroupBox::heightForWidth(param1);
         }
+        return QGroupBox::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -661,12 +635,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_hasheightforwidth_isbase) {
             qgroupbox_hasheightforwidth_isbase = false;
             return QGroupBox::hasHeightForWidth();
-        } else if (qgroupbox_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qgroupbox_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QGroupBox::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qgroupbox_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QGroupBox::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -674,12 +649,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_paintengine_isbase) {
             qgroupbox_paintengine_isbase = false;
             return QGroupBox::paintEngine();
-        } else if (qgroupbox_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qgroupbox_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QGroupBox::paintEngine();
         }
+        auto paintengine_cb = qgroupbox_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QGroupBox::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -687,13 +663,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_mousedoubleclickevent_isbase) {
             qgroupbox_mousedoubleclickevent_isbase = false;
             QGroupBox::mouseDoubleClickEvent(event);
-        } else if (qgroupbox_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qgroupbox_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qgroupbox_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QGroupBox::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -701,13 +680,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_wheelevent_isbase) {
             qgroupbox_wheelevent_isbase = false;
             QGroupBox::wheelEvent(event);
-        } else if (qgroupbox_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qgroupbox_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qgroupbox_wheelevent_callback(this, cbval1);
-        } else {
-            QGroupBox::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -715,13 +697,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_keypressevent_isbase) {
             qgroupbox_keypressevent_isbase = false;
             QGroupBox::keyPressEvent(event);
-        } else if (qgroupbox_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qgroupbox_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgroupbox_keypressevent_callback(this, cbval1);
-        } else {
-            QGroupBox::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -729,13 +714,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_keyreleaseevent_isbase) {
             qgroupbox_keyreleaseevent_isbase = false;
             QGroupBox::keyReleaseEvent(event);
-        } else if (qgroupbox_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qgroupbox_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qgroupbox_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QGroupBox::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -743,13 +731,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_focusoutevent_isbase) {
             qgroupbox_focusoutevent_isbase = false;
             QGroupBox::focusOutEvent(event);
-        } else if (qgroupbox_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qgroupbox_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qgroupbox_focusoutevent_callback(this, cbval1);
-        } else {
-            QGroupBox::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -757,13 +748,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_enterevent_isbase) {
             qgroupbox_enterevent_isbase = false;
             QGroupBox::enterEvent(event);
-        } else if (qgroupbox_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qgroupbox_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qgroupbox_enterevent_callback(this, cbval1);
-        } else {
-            QGroupBox::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -771,13 +765,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_leaveevent_isbase) {
             qgroupbox_leaveevent_isbase = false;
             QGroupBox::leaveEvent(event);
-        } else if (qgroupbox_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qgroupbox_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qgroupbox_leaveevent_callback(this, cbval1);
-        } else {
-            QGroupBox::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -785,13 +782,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_moveevent_isbase) {
             qgroupbox_moveevent_isbase = false;
             QGroupBox::moveEvent(event);
-        } else if (qgroupbox_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qgroupbox_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qgroupbox_moveevent_callback(this, cbval1);
-        } else {
-            QGroupBox::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,13 +799,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_closeevent_isbase) {
             qgroupbox_closeevent_isbase = false;
             QGroupBox::closeEvent(event);
-        } else if (qgroupbox_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qgroupbox_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qgroupbox_closeevent_callback(this, cbval1);
-        } else {
-            QGroupBox::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -813,13 +816,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_contextmenuevent_isbase) {
             qgroupbox_contextmenuevent_isbase = false;
             QGroupBox::contextMenuEvent(event);
-        } else if (qgroupbox_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qgroupbox_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qgroupbox_contextmenuevent_callback(this, cbval1);
-        } else {
-            QGroupBox::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -827,13 +833,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_tabletevent_isbase) {
             qgroupbox_tabletevent_isbase = false;
             QGroupBox::tabletEvent(event);
-        } else if (qgroupbox_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qgroupbox_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qgroupbox_tabletevent_callback(this, cbval1);
-        } else {
-            QGroupBox::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -841,13 +850,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_actionevent_isbase) {
             qgroupbox_actionevent_isbase = false;
             QGroupBox::actionEvent(event);
-        } else if (qgroupbox_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qgroupbox_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qgroupbox_actionevent_callback(this, cbval1);
-        } else {
-            QGroupBox::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -855,13 +867,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_dragenterevent_isbase) {
             qgroupbox_dragenterevent_isbase = false;
             QGroupBox::dragEnterEvent(event);
-        } else if (qgroupbox_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qgroupbox_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qgroupbox_dragenterevent_callback(this, cbval1);
-        } else {
-            QGroupBox::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -869,13 +884,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_dragmoveevent_isbase) {
             qgroupbox_dragmoveevent_isbase = false;
             QGroupBox::dragMoveEvent(event);
-        } else if (qgroupbox_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qgroupbox_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qgroupbox_dragmoveevent_callback(this, cbval1);
-        } else {
-            QGroupBox::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -883,13 +901,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_dragleaveevent_isbase) {
             qgroupbox_dragleaveevent_isbase = false;
             QGroupBox::dragLeaveEvent(event);
-        } else if (qgroupbox_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qgroupbox_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qgroupbox_dragleaveevent_callback(this, cbval1);
-        } else {
-            QGroupBox::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -897,13 +918,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_dropevent_isbase) {
             qgroupbox_dropevent_isbase = false;
             QGroupBox::dropEvent(event);
-        } else if (qgroupbox_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qgroupbox_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qgroupbox_dropevent_callback(this, cbval1);
-        } else {
-            QGroupBox::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -911,13 +935,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_showevent_isbase) {
             qgroupbox_showevent_isbase = false;
             QGroupBox::showEvent(event);
-        } else if (qgroupbox_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qgroupbox_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qgroupbox_showevent_callback(this, cbval1);
-        } else {
-            QGroupBox::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -925,13 +952,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_hideevent_isbase) {
             qgroupbox_hideevent_isbase = false;
             QGroupBox::hideEvent(event);
-        } else if (qgroupbox_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qgroupbox_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qgroupbox_hideevent_callback(this, cbval1);
-        } else {
-            QGroupBox::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -939,7 +969,9 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_nativeevent_isbase) {
             qgroupbox_nativeevent_isbase = false;
             return QGroupBox::nativeEvent(eventType, message, result);
-        } else if (qgroupbox_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qgroupbox_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -950,12 +982,11 @@ class VirtualQGroupBox final : public QGroupBox {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qgroupbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QGroupBox::nativeEvent(eventType, message, result);
         }
+        return QGroupBox::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -963,14 +994,15 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_metric_isbase) {
             qgroupbox_metric_isbase = false;
             return QGroupBox::metric(param1);
-        } else if (qgroupbox_metric_callback != nullptr) {
+        }
+        auto metric_cb = qgroupbox_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qgroupbox_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGroupBox::metric(param1);
         }
+        return QGroupBox::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -978,13 +1010,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_initpainter_isbase) {
             qgroupbox_initpainter_isbase = false;
             QGroupBox::initPainter(painter);
-        } else if (qgroupbox_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qgroupbox_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qgroupbox_initpainter_callback(this, cbval1);
-        } else {
-            QGroupBox::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QGroupBox::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,14 +1027,15 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_redirected_isbase) {
             qgroupbox_redirected_isbase = false;
             return QGroupBox::redirected(offset);
-        } else if (qgroupbox_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qgroupbox_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qgroupbox_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGroupBox::redirected(offset);
         }
+        return QGroupBox::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1007,12 +1043,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_sharedpainter_isbase) {
             qgroupbox_sharedpainter_isbase = false;
             return QGroupBox::sharedPainter();
-        } else if (qgroupbox_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qgroupbox_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QGroupBox::sharedPainter();
         }
+        auto sharedpainter_cb = qgroupbox_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QGroupBox::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1020,13 +1057,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_inputmethodevent_isbase) {
             qgroupbox_inputmethodevent_isbase = false;
             QGroupBox::inputMethodEvent(param1);
-        } else if (qgroupbox_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qgroupbox_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qgroupbox_inputmethodevent_callback(this, cbval1);
-        } else {
-            QGroupBox::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,14 +1074,15 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_inputmethodquery_isbase) {
             qgroupbox_inputmethodquery_isbase = false;
             return QGroupBox::inputMethodQuery(param1);
-        } else if (qgroupbox_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qgroupbox_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qgroupbox_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGroupBox::inputMethodQuery(param1);
         }
+        return QGroupBox::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1049,14 +1090,15 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_focusnextprevchild_isbase) {
             qgroupbox_focusnextprevchild_isbase = false;
             return QGroupBox::focusNextPrevChild(next);
-        } else if (qgroupbox_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qgroupbox_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qgroupbox_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGroupBox::focusNextPrevChild(next);
         }
+        return QGroupBox::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,15 +1106,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_eventfilter_isbase) {
             qgroupbox_eventfilter_isbase = false;
             return QGroupBox::eventFilter(watched, event);
-        } else if (qgroupbox_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgroupbox_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgroupbox_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGroupBox::eventFilter(watched, event);
         }
+        return QGroupBox::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1080,13 +1123,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_timerevent_isbase) {
             qgroupbox_timerevent_isbase = false;
             QGroupBox::timerEvent(event);
-        } else if (qgroupbox_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgroupbox_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgroupbox_timerevent_callback(this, cbval1);
-        } else {
-            QGroupBox::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1094,13 +1140,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_customevent_isbase) {
             qgroupbox_customevent_isbase = false;
             QGroupBox::customEvent(event);
-        } else if (qgroupbox_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgroupbox_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgroupbox_customevent_callback(this, cbval1);
-        } else {
-            QGroupBox::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGroupBox::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1108,15 +1157,18 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_connectnotify_isbase) {
             qgroupbox_connectnotify_isbase = false;
             QGroupBox::connectNotify(signal);
-        } else if (qgroupbox_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgroupbox_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgroupbox_connectnotify_callback(this, cbval1);
-        } else {
-            QGroupBox::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGroupBox::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1124,15 +1176,18 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_disconnectnotify_isbase) {
             qgroupbox_disconnectnotify_isbase = false;
             QGroupBox::disconnectNotify(signal);
-        } else if (qgroupbox_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgroupbox_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgroupbox_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGroupBox::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGroupBox::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1140,11 +1195,14 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_updatemicrofocus_isbase) {
             qgroupbox_updatemicrofocus_isbase = false;
             QGroupBox::updateMicroFocus();
-        } else if (qgroupbox_updatemicrofocus_callback != nullptr) {
-            qgroupbox_updatemicrofocus_callback();
-        } else {
-            QGroupBox::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qgroupbox_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QGroupBox::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1152,11 +1210,14 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_create_isbase) {
             qgroupbox_create_isbase = false;
             QGroupBox::create();
-        } else if (qgroupbox_create_callback != nullptr) {
-            qgroupbox_create_callback();
-        } else {
-            QGroupBox::create();
+            return;
         }
+        auto create_cb = qgroupbox_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QGroupBox::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1164,11 +1225,14 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_destroy_isbase) {
             qgroupbox_destroy_isbase = false;
             QGroupBox::destroy();
-        } else if (qgroupbox_destroy_callback != nullptr) {
-            qgroupbox_destroy_callback();
-        } else {
-            QGroupBox::destroy();
+            return;
         }
+        auto destroy_cb = qgroupbox_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QGroupBox::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1176,12 +1240,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_focusnextchild_isbase) {
             qgroupbox_focusnextchild_isbase = false;
             return QGroupBox::focusNextChild();
-        } else if (qgroupbox_focusnextchild_callback != nullptr) {
-            bool callback_ret = qgroupbox_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QGroupBox::focusNextChild();
         }
+        auto focusnextchild_cb = qgroupbox_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QGroupBox::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1189,12 +1254,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_focuspreviouschild_isbase) {
             qgroupbox_focuspreviouschild_isbase = false;
             return QGroupBox::focusPreviousChild();
-        } else if (qgroupbox_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qgroupbox_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QGroupBox::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qgroupbox_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QGroupBox::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1202,12 +1268,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_sender_isbase) {
             qgroupbox_sender_isbase = false;
             return QGroupBox::sender();
-        } else if (qgroupbox_sender_callback != nullptr) {
-            QObject* callback_ret = qgroupbox_sender_callback();
-            return callback_ret;
-        } else {
-            return QGroupBox::sender();
         }
+        auto sender_cb = qgroupbox_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGroupBox::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1215,12 +1282,13 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_sendersignalindex_isbase) {
             qgroupbox_sendersignalindex_isbase = false;
             return QGroupBox::senderSignalIndex();
-        } else if (qgroupbox_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgroupbox_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGroupBox::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgroupbox_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGroupBox::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1228,14 +1296,15 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_receivers_isbase) {
             qgroupbox_receivers_isbase = false;
             return QGroupBox::receivers(signal);
-        } else if (qgroupbox_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgroupbox_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgroupbox_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGroupBox::receivers(signal);
         }
+        return QGroupBox::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,16 +1312,17 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_issignalconnected_isbase) {
             qgroupbox_issignalconnected_isbase = false;
             return QGroupBox::isSignalConnected(signal);
-        } else if (qgroupbox_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgroupbox_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgroupbox_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGroupBox::isSignalConnected(signal);
         }
+        return QGroupBox::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1260,15 +1330,16 @@ class VirtualQGroupBox final : public QGroupBox {
         if (qgroupbox_getdecodedmetricf_isbase) {
             qgroupbox_getdecodedmetricf_isbase = false;
             return QGroupBox::getDecodedMetricF(metricA, metricB);
-        } else if (qgroupbox_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qgroupbox_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qgroupbox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QGroupBox::getDecodedMetricF(metricA, metricB);
         }
+        return QGroupBox::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

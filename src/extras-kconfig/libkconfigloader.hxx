@@ -89,29 +89,6 @@ class VirtualKConfigLoader final : public KConfigLoader {
     VirtualKConfigLoader(const QString& configFile, QIODevice* xml, QObject* parent) : KConfigLoader(configFile, xml, parent) {};
     VirtualKConfigLoader(const KConfigGroup& config, QIODevice* xml, QObject* parent) : KConfigLoader(config, xml, parent) {};
 
-    ~VirtualKConfigLoader() {
-        kconfigloader_usrsave_callback = nullptr;
-        kconfigloader_metaobject_callback = nullptr;
-        kconfigloader_metacast_callback = nullptr;
-        kconfigloader_metacall_callback = nullptr;
-        kconfigloader_setdefaults_callback = nullptr;
-        kconfigloader_usedefaults_callback = nullptr;
-        kconfigloader_usrusedefaults_callback = nullptr;
-        kconfigloader_usrsetdefaults_callback = nullptr;
-        kconfigloader_usrread_callback = nullptr;
-        kconfigloader_event_callback = nullptr;
-        kconfigloader_eventfilter_callback = nullptr;
-        kconfigloader_timerevent_callback = nullptr;
-        kconfigloader_childevent_callback = nullptr;
-        kconfigloader_customevent_callback = nullptr;
-        kconfigloader_connectnotify_callback = nullptr;
-        kconfigloader_disconnectnotify_callback = nullptr;
-        kconfigloader_sender_callback = nullptr;
-        kconfigloader_sendersignalindex_callback = nullptr;
-        kconfigloader_receivers_callback = nullptr;
-        kconfigloader_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKConfigLoader_UsrSave_Callback(KConfigLoader_UsrSave_Callback cb) { kconfigloader_usrsave_callback = cb; }
     inline void setKConfigLoader_MetaObject_Callback(KConfigLoader_MetaObject_Callback cb) { kconfigloader_metaobject_callback = cb; }
@@ -161,12 +138,13 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_usrsave_isbase) {
             kconfigloader_usrsave_isbase = false;
             return KConfigLoader::usrSave();
-        } else if (kconfigloader_usrsave_callback != nullptr) {
-            bool callback_ret = kconfigloader_usrsave_callback();
-            return callback_ret;
-        } else {
-            return KConfigLoader::usrSave();
         }
+        auto usrsave_cb = kconfigloader_usrsave_callback;
+        if (usrsave_cb) {
+            bool callback_ret = usrsave_cb();
+            return callback_ret;
+        }
+        return KConfigLoader::usrSave();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,12 +152,13 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_metaobject_isbase) {
             kconfigloader_metaobject_isbase = false;
             return KConfigLoader::metaObject();
-        } else if (kconfigloader_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kconfigloader_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KConfigLoader::metaObject();
         }
+        auto metaobject_cb = kconfigloader_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KConfigLoader::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +166,15 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_metacast_isbase) {
             kconfigloader_metacast_isbase = false;
             return KConfigLoader::qt_metacast(param1);
-        } else if (kconfigloader_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kconfigloader_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kconfigloader_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigLoader::qt_metacast(param1);
         }
+        return KConfigLoader::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,16 +182,17 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_metacall_isbase) {
             kconfigloader_metacall_isbase = false;
             return KConfigLoader::qt_metacall(param1, param2, param3);
-        } else if (kconfigloader_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kconfigloader_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kconfigloader_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KConfigLoader::qt_metacall(param1, param2, param3);
         }
+        return KConfigLoader::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,11 +200,14 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_setdefaults_isbase) {
             kconfigloader_setdefaults_isbase = false;
             KConfigLoader::setDefaults();
-        } else if (kconfigloader_setdefaults_callback != nullptr) {
-            kconfigloader_setdefaults_callback();
-        } else {
-            KConfigLoader::setDefaults();
+            return;
         }
+        auto setdefaults_cb = kconfigloader_setdefaults_callback;
+        if (setdefaults_cb) {
+            setdefaults_cb();
+            return;
+        }
+        KConfigLoader::setDefaults();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -231,14 +215,15 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_usedefaults_isbase) {
             kconfigloader_usedefaults_isbase = false;
             return KConfigLoader::useDefaults(b);
-        } else if (kconfigloader_usedefaults_callback != nullptr) {
+        }
+        auto usedefaults_cb = kconfigloader_usedefaults_callback;
+        if (usedefaults_cb) {
             bool cbval1 = b;
 
-            bool callback_ret = kconfigloader_usedefaults_callback(this, cbval1);
+            bool callback_ret = usedefaults_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigLoader::useDefaults(b);
         }
+        return KConfigLoader::useDefaults(b);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,14 +231,15 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_usrusedefaults_isbase) {
             kconfigloader_usrusedefaults_isbase = false;
             return KConfigLoader::usrUseDefaults(b);
-        } else if (kconfigloader_usrusedefaults_callback != nullptr) {
+        }
+        auto usrusedefaults_cb = kconfigloader_usrusedefaults_callback;
+        if (usrusedefaults_cb) {
             bool cbval1 = b;
 
-            bool callback_ret = kconfigloader_usrusedefaults_callback(this, cbval1);
+            bool callback_ret = usrusedefaults_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigLoader::usrUseDefaults(b);
         }
+        return KConfigLoader::usrUseDefaults(b);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,11 +247,14 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_usrsetdefaults_isbase) {
             kconfigloader_usrsetdefaults_isbase = false;
             KConfigLoader::usrSetDefaults();
-        } else if (kconfigloader_usrsetdefaults_callback != nullptr) {
-            kconfigloader_usrsetdefaults_callback();
-        } else {
-            KConfigLoader::usrSetDefaults();
+            return;
         }
+        auto usrsetdefaults_cb = kconfigloader_usrsetdefaults_callback;
+        if (usrsetdefaults_cb) {
+            usrsetdefaults_cb();
+            return;
+        }
+        KConfigLoader::usrSetDefaults();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,11 +262,14 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_usrread_isbase) {
             kconfigloader_usrread_isbase = false;
             KConfigLoader::usrRead();
-        } else if (kconfigloader_usrread_callback != nullptr) {
-            kconfigloader_usrread_callback();
-        } else {
-            KConfigLoader::usrRead();
+            return;
         }
+        auto usrread_cb = kconfigloader_usrread_callback;
+        if (usrread_cb) {
+            usrread_cb();
+            return;
+        }
+        KConfigLoader::usrRead();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,14 +277,15 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_event_isbase) {
             kconfigloader_event_isbase = false;
             return KConfigLoader::event(event);
-        } else if (kconfigloader_event_callback != nullptr) {
+        }
+        auto event_cb = kconfigloader_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kconfigloader_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigLoader::event(event);
         }
+        return KConfigLoader::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -300,15 +293,16 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_eventfilter_isbase) {
             kconfigloader_eventfilter_isbase = false;
             return KConfigLoader::eventFilter(watched, event);
-        } else if (kconfigloader_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kconfigloader_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kconfigloader_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KConfigLoader::eventFilter(watched, event);
         }
+        return KConfigLoader::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,13 +310,16 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_timerevent_isbase) {
             kconfigloader_timerevent_isbase = false;
             KConfigLoader::timerEvent(event);
-        } else if (kconfigloader_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kconfigloader_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kconfigloader_timerevent_callback(this, cbval1);
-        } else {
-            KConfigLoader::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KConfigLoader::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -330,13 +327,16 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_childevent_isbase) {
             kconfigloader_childevent_isbase = false;
             KConfigLoader::childEvent(event);
-        } else if (kconfigloader_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kconfigloader_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kconfigloader_childevent_callback(this, cbval1);
-        } else {
-            KConfigLoader::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KConfigLoader::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -344,13 +344,16 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_customevent_isbase) {
             kconfigloader_customevent_isbase = false;
             KConfigLoader::customEvent(event);
-        } else if (kconfigloader_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kconfigloader_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kconfigloader_customevent_callback(this, cbval1);
-        } else {
-            KConfigLoader::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KConfigLoader::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,15 +361,18 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_connectnotify_isbase) {
             kconfigloader_connectnotify_isbase = false;
             KConfigLoader::connectNotify(signal);
-        } else if (kconfigloader_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kconfigloader_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kconfigloader_connectnotify_callback(this, cbval1);
-        } else {
-            KConfigLoader::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KConfigLoader::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -374,15 +380,18 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_disconnectnotify_isbase) {
             kconfigloader_disconnectnotify_isbase = false;
             KConfigLoader::disconnectNotify(signal);
-        } else if (kconfigloader_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kconfigloader_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kconfigloader_disconnectnotify_callback(this, cbval1);
-        } else {
-            KConfigLoader::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KConfigLoader::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,12 +399,13 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_sender_isbase) {
             kconfigloader_sender_isbase = false;
             return KConfigLoader::sender();
-        } else if (kconfigloader_sender_callback != nullptr) {
-            QObject* callback_ret = kconfigloader_sender_callback();
-            return callback_ret;
-        } else {
-            return KConfigLoader::sender();
         }
+        auto sender_cb = kconfigloader_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KConfigLoader::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -403,12 +413,13 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_sendersignalindex_isbase) {
             kconfigloader_sendersignalindex_isbase = false;
             return KConfigLoader::senderSignalIndex();
-        } else if (kconfigloader_sendersignalindex_callback != nullptr) {
-            int callback_ret = kconfigloader_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KConfigLoader::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kconfigloader_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KConfigLoader::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -416,14 +427,15 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_receivers_isbase) {
             kconfigloader_receivers_isbase = false;
             return KConfigLoader::receivers(signal);
-        } else if (kconfigloader_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kconfigloader_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kconfigloader_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KConfigLoader::receivers(signal);
         }
+        return KConfigLoader::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -431,16 +443,17 @@ class VirtualKConfigLoader final : public KConfigLoader {
         if (kconfigloader_issignalconnected_isbase) {
             kconfigloader_issignalconnected_isbase = false;
             return KConfigLoader::isSignalConnected(signal);
-        } else if (kconfigloader_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kconfigloader_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kconfigloader_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigLoader::isSignalConnected(signal);
         }
+        return KConfigLoader::isSignalConnected(signal);
     }
 
     // Friend functions

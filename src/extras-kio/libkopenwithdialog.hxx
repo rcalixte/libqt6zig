@@ -230,74 +230,6 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
     VirtualKOpenWithDialog(const QString& mimeType, const QString& value, QWidget* parent) : KOpenWithDialog(mimeType, value, parent) {};
     VirtualKOpenWithDialog(const QList<QUrl>& urls, const QString& mimeType, const QString& text, const QString& value, QWidget* parent) : KOpenWithDialog(urls, mimeType, text, value, parent) {};
 
-    ~VirtualKOpenWithDialog() {
-        kopenwithdialog_metaobject_callback = nullptr;
-        kopenwithdialog_metacast_callback = nullptr;
-        kopenwithdialog_metacall_callback = nullptr;
-        kopenwithdialog_accept_callback = nullptr;
-        kopenwithdialog_setvisible_callback = nullptr;
-        kopenwithdialog_sizehint_callback = nullptr;
-        kopenwithdialog_minimumsizehint_callback = nullptr;
-        kopenwithdialog_open_callback = nullptr;
-        kopenwithdialog_exec_callback = nullptr;
-        kopenwithdialog_done_callback = nullptr;
-        kopenwithdialog_reject_callback = nullptr;
-        kopenwithdialog_keypressevent_callback = nullptr;
-        kopenwithdialog_closeevent_callback = nullptr;
-        kopenwithdialog_showevent_callback = nullptr;
-        kopenwithdialog_resizeevent_callback = nullptr;
-        kopenwithdialog_contextmenuevent_callback = nullptr;
-        kopenwithdialog_devtype_callback = nullptr;
-        kopenwithdialog_heightforwidth_callback = nullptr;
-        kopenwithdialog_hasheightforwidth_callback = nullptr;
-        kopenwithdialog_paintengine_callback = nullptr;
-        kopenwithdialog_event_callback = nullptr;
-        kopenwithdialog_mousepressevent_callback = nullptr;
-        kopenwithdialog_mousereleaseevent_callback = nullptr;
-        kopenwithdialog_mousedoubleclickevent_callback = nullptr;
-        kopenwithdialog_mousemoveevent_callback = nullptr;
-        kopenwithdialog_wheelevent_callback = nullptr;
-        kopenwithdialog_keyreleaseevent_callback = nullptr;
-        kopenwithdialog_focusinevent_callback = nullptr;
-        kopenwithdialog_focusoutevent_callback = nullptr;
-        kopenwithdialog_enterevent_callback = nullptr;
-        kopenwithdialog_leaveevent_callback = nullptr;
-        kopenwithdialog_paintevent_callback = nullptr;
-        kopenwithdialog_moveevent_callback = nullptr;
-        kopenwithdialog_tabletevent_callback = nullptr;
-        kopenwithdialog_actionevent_callback = nullptr;
-        kopenwithdialog_dragenterevent_callback = nullptr;
-        kopenwithdialog_dragmoveevent_callback = nullptr;
-        kopenwithdialog_dragleaveevent_callback = nullptr;
-        kopenwithdialog_dropevent_callback = nullptr;
-        kopenwithdialog_hideevent_callback = nullptr;
-        kopenwithdialog_nativeevent_callback = nullptr;
-        kopenwithdialog_changeevent_callback = nullptr;
-        kopenwithdialog_metric_callback = nullptr;
-        kopenwithdialog_initpainter_callback = nullptr;
-        kopenwithdialog_redirected_callback = nullptr;
-        kopenwithdialog_sharedpainter_callback = nullptr;
-        kopenwithdialog_inputmethodevent_callback = nullptr;
-        kopenwithdialog_inputmethodquery_callback = nullptr;
-        kopenwithdialog_focusnextprevchild_callback = nullptr;
-        kopenwithdialog_timerevent_callback = nullptr;
-        kopenwithdialog_childevent_callback = nullptr;
-        kopenwithdialog_customevent_callback = nullptr;
-        kopenwithdialog_connectnotify_callback = nullptr;
-        kopenwithdialog_disconnectnotify_callback = nullptr;
-        kopenwithdialog_adjustposition_callback = nullptr;
-        kopenwithdialog_updatemicrofocus_callback = nullptr;
-        kopenwithdialog_create_callback = nullptr;
-        kopenwithdialog_destroy_callback = nullptr;
-        kopenwithdialog_focusnextchild_callback = nullptr;
-        kopenwithdialog_focuspreviouschild_callback = nullptr;
-        kopenwithdialog_sender_callback = nullptr;
-        kopenwithdialog_sendersignalindex_callback = nullptr;
-        kopenwithdialog_receivers_callback = nullptr;
-        kopenwithdialog_issignalconnected_callback = nullptr;
-        kopenwithdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKOpenWithDialog_MetaObject_Callback(KOpenWithDialog_MetaObject_Callback cb) { kopenwithdialog_metaobject_callback = cb; }
     inline void setKOpenWithDialog_Metacast_Callback(KOpenWithDialog_Metacast_Callback cb) { kopenwithdialog_metacast_callback = cb; }
@@ -437,12 +369,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_metaobject_isbase) {
             kopenwithdialog_metaobject_isbase = false;
             return KOpenWithDialog::metaObject();
-        } else if (kopenwithdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kopenwithdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KOpenWithDialog::metaObject();
         }
+        auto metaobject_cb = kopenwithdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KOpenWithDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +383,15 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_metacast_isbase) {
             kopenwithdialog_metacast_isbase = false;
             return KOpenWithDialog::qt_metacast(param1);
-        } else if (kopenwithdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kopenwithdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kopenwithdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KOpenWithDialog::qt_metacast(param1);
         }
+        return KOpenWithDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,16 +399,17 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_metacall_isbase) {
             kopenwithdialog_metacall_isbase = false;
             return KOpenWithDialog::qt_metacall(param1, param2, param3);
-        } else if (kopenwithdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kopenwithdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kopenwithdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KOpenWithDialog::qt_metacall(param1, param2, param3);
         }
+        return KOpenWithDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,11 +417,14 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_accept_isbase) {
             kopenwithdialog_accept_isbase = false;
             KOpenWithDialog::accept();
-        } else if (kopenwithdialog_accept_callback != nullptr) {
-            kopenwithdialog_accept_callback();
-        } else {
-            KOpenWithDialog::accept();
+            return;
         }
+        auto accept_cb = kopenwithdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KOpenWithDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,13 +432,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_setvisible_isbase) {
             kopenwithdialog_setvisible_isbase = false;
             KOpenWithDialog::setVisible(visible);
-        } else if (kopenwithdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kopenwithdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kopenwithdialog_setvisible_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -508,12 +449,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_sizehint_isbase) {
             kopenwithdialog_sizehint_isbase = false;
             return KOpenWithDialog::sizeHint();
-        } else if (kopenwithdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kopenwithdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KOpenWithDialog::sizeHint();
         }
+        auto sizehint_cb = kopenwithdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KOpenWithDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -521,12 +463,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_minimumsizehint_isbase) {
             kopenwithdialog_minimumsizehint_isbase = false;
             return KOpenWithDialog::minimumSizeHint();
-        } else if (kopenwithdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kopenwithdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KOpenWithDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kopenwithdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KOpenWithDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -534,11 +477,14 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_open_isbase) {
             kopenwithdialog_open_isbase = false;
             KOpenWithDialog::open();
-        } else if (kopenwithdialog_open_callback != nullptr) {
-            kopenwithdialog_open_callback();
-        } else {
-            KOpenWithDialog::open();
+            return;
         }
+        auto open_cb = kopenwithdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KOpenWithDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,12 +492,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_exec_isbase) {
             kopenwithdialog_exec_isbase = false;
             return KOpenWithDialog::exec();
-        } else if (kopenwithdialog_exec_callback != nullptr) {
-            int callback_ret = kopenwithdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KOpenWithDialog::exec();
         }
+        auto exec_cb = kopenwithdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KOpenWithDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -559,13 +506,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_done_isbase) {
             kopenwithdialog_done_isbase = false;
             KOpenWithDialog::done(param1);
-        } else if (kopenwithdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kopenwithdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kopenwithdialog_done_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,11 +523,14 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_reject_isbase) {
             kopenwithdialog_reject_isbase = false;
             KOpenWithDialog::reject();
-        } else if (kopenwithdialog_reject_callback != nullptr) {
-            kopenwithdialog_reject_callback();
-        } else {
-            KOpenWithDialog::reject();
+            return;
         }
+        auto reject_cb = kopenwithdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KOpenWithDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -585,13 +538,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_keypressevent_isbase) {
             kopenwithdialog_keypressevent_isbase = false;
             KOpenWithDialog::keyPressEvent(param1);
-        } else if (kopenwithdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kopenwithdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kopenwithdialog_keypressevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,13 +555,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_closeevent_isbase) {
             kopenwithdialog_closeevent_isbase = false;
             KOpenWithDialog::closeEvent(param1);
-        } else if (kopenwithdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kopenwithdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kopenwithdialog_closeevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,13 +572,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_showevent_isbase) {
             kopenwithdialog_showevent_isbase = false;
             KOpenWithDialog::showEvent(param1);
-        } else if (kopenwithdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kopenwithdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            kopenwithdialog_showevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +589,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_resizeevent_isbase) {
             kopenwithdialog_resizeevent_isbase = false;
             KOpenWithDialog::resizeEvent(param1);
-        } else if (kopenwithdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kopenwithdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kopenwithdialog_resizeevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +606,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_contextmenuevent_isbase) {
             kopenwithdialog_contextmenuevent_isbase = false;
             KOpenWithDialog::contextMenuEvent(param1);
-        } else if (kopenwithdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kopenwithdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kopenwithdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,12 +623,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_devtype_isbase) {
             kopenwithdialog_devtype_isbase = false;
             return KOpenWithDialog::devType();
-        } else if (kopenwithdialog_devtype_callback != nullptr) {
-            int callback_ret = kopenwithdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KOpenWithDialog::devType();
         }
+        auto devtype_cb = kopenwithdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KOpenWithDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,14 +637,15 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_heightforwidth_isbase) {
             kopenwithdialog_heightforwidth_isbase = false;
             return KOpenWithDialog::heightForWidth(param1);
-        } else if (kopenwithdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kopenwithdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kopenwithdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KOpenWithDialog::heightForWidth(param1);
         }
+        return KOpenWithDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,12 +653,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_hasheightforwidth_isbase) {
             kopenwithdialog_hasheightforwidth_isbase = false;
             return KOpenWithDialog::hasHeightForWidth();
-        } else if (kopenwithdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kopenwithdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KOpenWithDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kopenwithdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KOpenWithDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,12 +667,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_paintengine_isbase) {
             kopenwithdialog_paintengine_isbase = false;
             return KOpenWithDialog::paintEngine();
-        } else if (kopenwithdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kopenwithdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KOpenWithDialog::paintEngine();
         }
+        auto paintengine_cb = kopenwithdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KOpenWithDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,14 +681,15 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_event_isbase) {
             kopenwithdialog_event_isbase = false;
             return KOpenWithDialog::event(event);
-        } else if (kopenwithdialog_event_callback != nullptr) {
+        }
+        auto event_cb = kopenwithdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kopenwithdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KOpenWithDialog::event(event);
         }
+        return KOpenWithDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,13 +697,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_mousepressevent_isbase) {
             kopenwithdialog_mousepressevent_isbase = false;
             KOpenWithDialog::mousePressEvent(event);
-        } else if (kopenwithdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kopenwithdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kopenwithdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -738,13 +714,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_mousereleaseevent_isbase) {
             kopenwithdialog_mousereleaseevent_isbase = false;
             KOpenWithDialog::mouseReleaseEvent(event);
-        } else if (kopenwithdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kopenwithdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kopenwithdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,13 +731,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_mousedoubleclickevent_isbase) {
             kopenwithdialog_mousedoubleclickevent_isbase = false;
             KOpenWithDialog::mouseDoubleClickEvent(event);
-        } else if (kopenwithdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kopenwithdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kopenwithdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -766,13 +748,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_mousemoveevent_isbase) {
             kopenwithdialog_mousemoveevent_isbase = false;
             KOpenWithDialog::mouseMoveEvent(event);
-        } else if (kopenwithdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kopenwithdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kopenwithdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -780,13 +765,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_wheelevent_isbase) {
             kopenwithdialog_wheelevent_isbase = false;
             KOpenWithDialog::wheelEvent(event);
-        } else if (kopenwithdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kopenwithdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kopenwithdialog_wheelevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -794,13 +782,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_keyreleaseevent_isbase) {
             kopenwithdialog_keyreleaseevent_isbase = false;
             KOpenWithDialog::keyReleaseEvent(event);
-        } else if (kopenwithdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kopenwithdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kopenwithdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -808,13 +799,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_focusinevent_isbase) {
             kopenwithdialog_focusinevent_isbase = false;
             KOpenWithDialog::focusInEvent(event);
-        } else if (kopenwithdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kopenwithdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kopenwithdialog_focusinevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -822,13 +816,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_focusoutevent_isbase) {
             kopenwithdialog_focusoutevent_isbase = false;
             KOpenWithDialog::focusOutEvent(event);
-        } else if (kopenwithdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kopenwithdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kopenwithdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -836,13 +833,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_enterevent_isbase) {
             kopenwithdialog_enterevent_isbase = false;
             KOpenWithDialog::enterEvent(event);
-        } else if (kopenwithdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kopenwithdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kopenwithdialog_enterevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -850,13 +850,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_leaveevent_isbase) {
             kopenwithdialog_leaveevent_isbase = false;
             KOpenWithDialog::leaveEvent(event);
-        } else if (kopenwithdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kopenwithdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kopenwithdialog_leaveevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -864,13 +867,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_paintevent_isbase) {
             kopenwithdialog_paintevent_isbase = false;
             KOpenWithDialog::paintEvent(event);
-        } else if (kopenwithdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kopenwithdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kopenwithdialog_paintevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -878,13 +884,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_moveevent_isbase) {
             kopenwithdialog_moveevent_isbase = false;
             KOpenWithDialog::moveEvent(event);
-        } else if (kopenwithdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kopenwithdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kopenwithdialog_moveevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -892,13 +901,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_tabletevent_isbase) {
             kopenwithdialog_tabletevent_isbase = false;
             KOpenWithDialog::tabletEvent(event);
-        } else if (kopenwithdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kopenwithdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kopenwithdialog_tabletevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -906,13 +918,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_actionevent_isbase) {
             kopenwithdialog_actionevent_isbase = false;
             KOpenWithDialog::actionEvent(event);
-        } else if (kopenwithdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kopenwithdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kopenwithdialog_actionevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -920,13 +935,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_dragenterevent_isbase) {
             kopenwithdialog_dragenterevent_isbase = false;
             KOpenWithDialog::dragEnterEvent(event);
-        } else if (kopenwithdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kopenwithdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kopenwithdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -934,13 +952,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_dragmoveevent_isbase) {
             kopenwithdialog_dragmoveevent_isbase = false;
             KOpenWithDialog::dragMoveEvent(event);
-        } else if (kopenwithdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kopenwithdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kopenwithdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -948,13 +969,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_dragleaveevent_isbase) {
             kopenwithdialog_dragleaveevent_isbase = false;
             KOpenWithDialog::dragLeaveEvent(event);
-        } else if (kopenwithdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kopenwithdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kopenwithdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -962,13 +986,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_dropevent_isbase) {
             kopenwithdialog_dropevent_isbase = false;
             KOpenWithDialog::dropEvent(event);
-        } else if (kopenwithdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kopenwithdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kopenwithdialog_dropevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -976,13 +1003,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_hideevent_isbase) {
             kopenwithdialog_hideevent_isbase = false;
             KOpenWithDialog::hideEvent(event);
-        } else if (kopenwithdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kopenwithdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kopenwithdialog_hideevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -990,7 +1020,9 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_nativeevent_isbase) {
             kopenwithdialog_nativeevent_isbase = false;
             return KOpenWithDialog::nativeEvent(eventType, message, result);
-        } else if (kopenwithdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kopenwithdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1001,12 +1033,11 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kopenwithdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KOpenWithDialog::nativeEvent(eventType, message, result);
         }
+        return KOpenWithDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,13 +1045,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_changeevent_isbase) {
             kopenwithdialog_changeevent_isbase = false;
             KOpenWithDialog::changeEvent(param1);
-        } else if (kopenwithdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kopenwithdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kopenwithdialog_changeevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,14 +1062,15 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_metric_isbase) {
             kopenwithdialog_metric_isbase = false;
             return KOpenWithDialog::metric(param1);
-        } else if (kopenwithdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kopenwithdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kopenwithdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KOpenWithDialog::metric(param1);
         }
+        return KOpenWithDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,13 +1078,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_initpainter_isbase) {
             kopenwithdialog_initpainter_isbase = false;
             KOpenWithDialog::initPainter(painter);
-        } else if (kopenwithdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kopenwithdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kopenwithdialog_initpainter_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1057,14 +1095,15 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_redirected_isbase) {
             kopenwithdialog_redirected_isbase = false;
             return KOpenWithDialog::redirected(offset);
-        } else if (kopenwithdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kopenwithdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kopenwithdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KOpenWithDialog::redirected(offset);
         }
+        return KOpenWithDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,12 +1111,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_sharedpainter_isbase) {
             kopenwithdialog_sharedpainter_isbase = false;
             return KOpenWithDialog::sharedPainter();
-        } else if (kopenwithdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kopenwithdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KOpenWithDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kopenwithdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KOpenWithDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1085,13 +1125,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_inputmethodevent_isbase) {
             kopenwithdialog_inputmethodevent_isbase = false;
             KOpenWithDialog::inputMethodEvent(param1);
-        } else if (kopenwithdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kopenwithdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kopenwithdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1099,14 +1142,15 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_inputmethodquery_isbase) {
             kopenwithdialog_inputmethodquery_isbase = false;
             return KOpenWithDialog::inputMethodQuery(param1);
-        } else if (kopenwithdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kopenwithdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kopenwithdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KOpenWithDialog::inputMethodQuery(param1);
         }
+        return KOpenWithDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1114,14 +1158,15 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_focusnextprevchild_isbase) {
             kopenwithdialog_focusnextprevchild_isbase = false;
             return KOpenWithDialog::focusNextPrevChild(next);
-        } else if (kopenwithdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kopenwithdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kopenwithdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KOpenWithDialog::focusNextPrevChild(next);
         }
+        return KOpenWithDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1129,13 +1174,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_timerevent_isbase) {
             kopenwithdialog_timerevent_isbase = false;
             KOpenWithDialog::timerEvent(event);
-        } else if (kopenwithdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kopenwithdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kopenwithdialog_timerevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1143,13 +1191,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_childevent_isbase) {
             kopenwithdialog_childevent_isbase = false;
             KOpenWithDialog::childEvent(event);
-        } else if (kopenwithdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kopenwithdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kopenwithdialog_childevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1157,13 +1208,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_customevent_isbase) {
             kopenwithdialog_customevent_isbase = false;
             KOpenWithDialog::customEvent(event);
-        } else if (kopenwithdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kopenwithdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kopenwithdialog_customevent_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1171,15 +1225,18 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_connectnotify_isbase) {
             kopenwithdialog_connectnotify_isbase = false;
             KOpenWithDialog::connectNotify(signal);
-        } else if (kopenwithdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kopenwithdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kopenwithdialog_connectnotify_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,15 +1244,18 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_disconnectnotify_isbase) {
             kopenwithdialog_disconnectnotify_isbase = false;
             KOpenWithDialog::disconnectNotify(signal);
-        } else if (kopenwithdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kopenwithdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kopenwithdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,13 +1263,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_adjustposition_isbase) {
             kopenwithdialog_adjustposition_isbase = false;
             KOpenWithDialog::adjustPosition(param1);
-        } else if (kopenwithdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kopenwithdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kopenwithdialog_adjustposition_callback(this, cbval1);
-        } else {
-            KOpenWithDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KOpenWithDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1217,11 +1280,14 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_updatemicrofocus_isbase) {
             kopenwithdialog_updatemicrofocus_isbase = false;
             KOpenWithDialog::updateMicroFocus();
-        } else if (kopenwithdialog_updatemicrofocus_callback != nullptr) {
-            kopenwithdialog_updatemicrofocus_callback();
-        } else {
-            KOpenWithDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kopenwithdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KOpenWithDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1229,11 +1295,14 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_create_isbase) {
             kopenwithdialog_create_isbase = false;
             KOpenWithDialog::create();
-        } else if (kopenwithdialog_create_callback != nullptr) {
-            kopenwithdialog_create_callback();
-        } else {
-            KOpenWithDialog::create();
+            return;
         }
+        auto create_cb = kopenwithdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KOpenWithDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,11 +1310,14 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_destroy_isbase) {
             kopenwithdialog_destroy_isbase = false;
             KOpenWithDialog::destroy();
-        } else if (kopenwithdialog_destroy_callback != nullptr) {
-            kopenwithdialog_destroy_callback();
-        } else {
-            KOpenWithDialog::destroy();
+            return;
         }
+        auto destroy_cb = kopenwithdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KOpenWithDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1253,12 +1325,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_focusnextchild_isbase) {
             kopenwithdialog_focusnextchild_isbase = false;
             return KOpenWithDialog::focusNextChild();
-        } else if (kopenwithdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kopenwithdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KOpenWithDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kopenwithdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KOpenWithDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1266,12 +1339,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_focuspreviouschild_isbase) {
             kopenwithdialog_focuspreviouschild_isbase = false;
             return KOpenWithDialog::focusPreviousChild();
-        } else if (kopenwithdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kopenwithdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KOpenWithDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kopenwithdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KOpenWithDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1279,12 +1353,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_sender_isbase) {
             kopenwithdialog_sender_isbase = false;
             return KOpenWithDialog::sender();
-        } else if (kopenwithdialog_sender_callback != nullptr) {
-            QObject* callback_ret = kopenwithdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KOpenWithDialog::sender();
         }
+        auto sender_cb = kopenwithdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KOpenWithDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1292,12 +1367,13 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_sendersignalindex_isbase) {
             kopenwithdialog_sendersignalindex_isbase = false;
             return KOpenWithDialog::senderSignalIndex();
-        } else if (kopenwithdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kopenwithdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KOpenWithDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kopenwithdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KOpenWithDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1305,14 +1381,15 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_receivers_isbase) {
             kopenwithdialog_receivers_isbase = false;
             return KOpenWithDialog::receivers(signal);
-        } else if (kopenwithdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kopenwithdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kopenwithdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KOpenWithDialog::receivers(signal);
         }
+        return KOpenWithDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1320,16 +1397,17 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_issignalconnected_isbase) {
             kopenwithdialog_issignalconnected_isbase = false;
             return KOpenWithDialog::isSignalConnected(signal);
-        } else if (kopenwithdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kopenwithdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kopenwithdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KOpenWithDialog::isSignalConnected(signal);
         }
+        return KOpenWithDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1337,15 +1415,16 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
         if (kopenwithdialog_getdecodedmetricf_isbase) {
             kopenwithdialog_getdecodedmetricf_isbase = false;
             return KOpenWithDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kopenwithdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kopenwithdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kopenwithdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KOpenWithDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KOpenWithDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

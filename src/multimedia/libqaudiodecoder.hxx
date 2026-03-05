@@ -69,23 +69,6 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
     VirtualQAudioDecoder() : QAudioDecoder() {};
     VirtualQAudioDecoder(QObject* parent) : QAudioDecoder(parent) {};
 
-    ~VirtualQAudioDecoder() {
-        qaudiodecoder_metaobject_callback = nullptr;
-        qaudiodecoder_metacast_callback = nullptr;
-        qaudiodecoder_metacall_callback = nullptr;
-        qaudiodecoder_event_callback = nullptr;
-        qaudiodecoder_eventfilter_callback = nullptr;
-        qaudiodecoder_timerevent_callback = nullptr;
-        qaudiodecoder_childevent_callback = nullptr;
-        qaudiodecoder_customevent_callback = nullptr;
-        qaudiodecoder_connectnotify_callback = nullptr;
-        qaudiodecoder_disconnectnotify_callback = nullptr;
-        qaudiodecoder_sender_callback = nullptr;
-        qaudiodecoder_sendersignalindex_callback = nullptr;
-        qaudiodecoder_receivers_callback = nullptr;
-        qaudiodecoder_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAudioDecoder_MetaObject_Callback(QAudioDecoder_MetaObject_Callback cb) { qaudiodecoder_metaobject_callback = cb; }
     inline void setQAudioDecoder_Metacast_Callback(QAudioDecoder_Metacast_Callback cb) { qaudiodecoder_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_metaobject_isbase) {
             qaudiodecoder_metaobject_isbase = false;
             return QAudioDecoder::metaObject();
-        } else if (qaudiodecoder_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qaudiodecoder_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAudioDecoder::metaObject();
         }
+        auto metaobject_cb = qaudiodecoder_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAudioDecoder::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_metacast_isbase) {
             qaudiodecoder_metacast_isbase = false;
             return QAudioDecoder::qt_metacast(param1);
-        } else if (qaudiodecoder_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qaudiodecoder_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qaudiodecoder_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAudioDecoder::qt_metacast(param1);
         }
+        return QAudioDecoder::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_metacall_isbase) {
             qaudiodecoder_metacall_isbase = false;
             return QAudioDecoder::qt_metacall(param1, param2, param3);
-        } else if (qaudiodecoder_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qaudiodecoder_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qaudiodecoder_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAudioDecoder::qt_metacall(param1, param2, param3);
         }
+        return QAudioDecoder::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_event_isbase) {
             qaudiodecoder_event_isbase = false;
             return QAudioDecoder::event(event);
-        } else if (qaudiodecoder_event_callback != nullptr) {
+        }
+        auto event_cb = qaudiodecoder_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qaudiodecoder_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAudioDecoder::event(event);
         }
+        return QAudioDecoder::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_eventfilter_isbase) {
             qaudiodecoder_eventfilter_isbase = false;
             return QAudioDecoder::eventFilter(watched, event);
-        } else if (qaudiodecoder_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qaudiodecoder_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qaudiodecoder_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAudioDecoder::eventFilter(watched, event);
         }
+        return QAudioDecoder::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_timerevent_isbase) {
             qaudiodecoder_timerevent_isbase = false;
             QAudioDecoder::timerEvent(event);
-        } else if (qaudiodecoder_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qaudiodecoder_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qaudiodecoder_timerevent_callback(this, cbval1);
-        } else {
-            QAudioDecoder::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAudioDecoder::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_childevent_isbase) {
             qaudiodecoder_childevent_isbase = false;
             QAudioDecoder::childEvent(event);
-        } else if (qaudiodecoder_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qaudiodecoder_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qaudiodecoder_childevent_callback(this, cbval1);
-        } else {
-            QAudioDecoder::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAudioDecoder::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_customevent_isbase) {
             qaudiodecoder_customevent_isbase = false;
             QAudioDecoder::customEvent(event);
-        } else if (qaudiodecoder_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qaudiodecoder_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qaudiodecoder_customevent_callback(this, cbval1);
-        } else {
-            QAudioDecoder::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAudioDecoder::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_connectnotify_isbase) {
             qaudiodecoder_connectnotify_isbase = false;
             QAudioDecoder::connectNotify(signal);
-        } else if (qaudiodecoder_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qaudiodecoder_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qaudiodecoder_connectnotify_callback(this, cbval1);
-        } else {
-            QAudioDecoder::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAudioDecoder::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_disconnectnotify_isbase) {
             qaudiodecoder_disconnectnotify_isbase = false;
             QAudioDecoder::disconnectNotify(signal);
-        } else if (qaudiodecoder_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qaudiodecoder_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qaudiodecoder_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAudioDecoder::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAudioDecoder::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_sender_isbase) {
             qaudiodecoder_sender_isbase = false;
             return QAudioDecoder::sender();
-        } else if (qaudiodecoder_sender_callback != nullptr) {
-            QObject* callback_ret = qaudiodecoder_sender_callback();
-            return callback_ret;
-        } else {
-            return QAudioDecoder::sender();
         }
+        auto sender_cb = qaudiodecoder_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAudioDecoder::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_sendersignalindex_isbase) {
             qaudiodecoder_sendersignalindex_isbase = false;
             return QAudioDecoder::senderSignalIndex();
-        } else if (qaudiodecoder_sendersignalindex_callback != nullptr) {
-            int callback_ret = qaudiodecoder_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAudioDecoder::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qaudiodecoder_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAudioDecoder::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_receivers_isbase) {
             qaudiodecoder_receivers_isbase = false;
             return QAudioDecoder::receivers(signal);
-        } else if (qaudiodecoder_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qaudiodecoder_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qaudiodecoder_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAudioDecoder::receivers(signal);
         }
+        return QAudioDecoder::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
         if (qaudiodecoder_issignalconnected_isbase) {
             qaudiodecoder_issignalconnected_isbase = false;
             return QAudioDecoder::isSignalConnected(signal);
-        } else if (qaudiodecoder_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qaudiodecoder_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qaudiodecoder_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAudioDecoder::isSignalConnected(signal);
         }
+        return QAudioDecoder::isSignalConnected(signal);
     }
 
     // Friend functions

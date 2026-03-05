@@ -69,23 +69,6 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
     VirtualKLocalizedContext() : KLocalizedContext() {};
     VirtualKLocalizedContext(QObject* parent) : KLocalizedContext(parent) {};
 
-    ~VirtualKLocalizedContext() {
-        klocalizedcontext_metaobject_callback = nullptr;
-        klocalizedcontext_metacast_callback = nullptr;
-        klocalizedcontext_metacall_callback = nullptr;
-        klocalizedcontext_event_callback = nullptr;
-        klocalizedcontext_eventfilter_callback = nullptr;
-        klocalizedcontext_timerevent_callback = nullptr;
-        klocalizedcontext_childevent_callback = nullptr;
-        klocalizedcontext_customevent_callback = nullptr;
-        klocalizedcontext_connectnotify_callback = nullptr;
-        klocalizedcontext_disconnectnotify_callback = nullptr;
-        klocalizedcontext_sender_callback = nullptr;
-        klocalizedcontext_sendersignalindex_callback = nullptr;
-        klocalizedcontext_receivers_callback = nullptr;
-        klocalizedcontext_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKLocalizedContext_MetaObject_Callback(KLocalizedContext_MetaObject_Callback cb) { klocalizedcontext_metaobject_callback = cb; }
     inline void setKLocalizedContext_Metacast_Callback(KLocalizedContext_Metacast_Callback cb) { klocalizedcontext_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_metaobject_isbase) {
             klocalizedcontext_metaobject_isbase = false;
             return KLocalizedContext::metaObject();
-        } else if (klocalizedcontext_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = klocalizedcontext_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KLocalizedContext::metaObject();
         }
+        auto metaobject_cb = klocalizedcontext_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KLocalizedContext::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_metacast_isbase) {
             klocalizedcontext_metacast_isbase = false;
             return KLocalizedContext::qt_metacast(param1);
-        } else if (klocalizedcontext_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = klocalizedcontext_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = klocalizedcontext_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLocalizedContext::qt_metacast(param1);
         }
+        return KLocalizedContext::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_metacall_isbase) {
             klocalizedcontext_metacall_isbase = false;
             return KLocalizedContext::qt_metacall(param1, param2, param3);
-        } else if (klocalizedcontext_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = klocalizedcontext_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = klocalizedcontext_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLocalizedContext::qt_metacall(param1, param2, param3);
         }
+        return KLocalizedContext::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_event_isbase) {
             klocalizedcontext_event_isbase = false;
             return KLocalizedContext::event(event);
-        } else if (klocalizedcontext_event_callback != nullptr) {
+        }
+        auto event_cb = klocalizedcontext_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = klocalizedcontext_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLocalizedContext::event(event);
         }
+        return KLocalizedContext::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_eventfilter_isbase) {
             klocalizedcontext_eventfilter_isbase = false;
             return KLocalizedContext::eventFilter(watched, event);
-        } else if (klocalizedcontext_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = klocalizedcontext_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = klocalizedcontext_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KLocalizedContext::eventFilter(watched, event);
         }
+        return KLocalizedContext::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_timerevent_isbase) {
             klocalizedcontext_timerevent_isbase = false;
             KLocalizedContext::timerEvent(event);
-        } else if (klocalizedcontext_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = klocalizedcontext_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            klocalizedcontext_timerevent_callback(this, cbval1);
-        } else {
-            KLocalizedContext::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KLocalizedContext::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_childevent_isbase) {
             klocalizedcontext_childevent_isbase = false;
             KLocalizedContext::childEvent(event);
-        } else if (klocalizedcontext_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = klocalizedcontext_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            klocalizedcontext_childevent_callback(this, cbval1);
-        } else {
-            KLocalizedContext::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KLocalizedContext::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_customevent_isbase) {
             klocalizedcontext_customevent_isbase = false;
             KLocalizedContext::customEvent(event);
-        } else if (klocalizedcontext_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = klocalizedcontext_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            klocalizedcontext_customevent_callback(this, cbval1);
-        } else {
-            KLocalizedContext::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KLocalizedContext::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_connectnotify_isbase) {
             klocalizedcontext_connectnotify_isbase = false;
             KLocalizedContext::connectNotify(signal);
-        } else if (klocalizedcontext_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = klocalizedcontext_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klocalizedcontext_connectnotify_callback(this, cbval1);
-        } else {
-            KLocalizedContext::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KLocalizedContext::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_disconnectnotify_isbase) {
             klocalizedcontext_disconnectnotify_isbase = false;
             KLocalizedContext::disconnectNotify(signal);
-        } else if (klocalizedcontext_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = klocalizedcontext_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klocalizedcontext_disconnectnotify_callback(this, cbval1);
-        } else {
-            KLocalizedContext::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KLocalizedContext::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_sender_isbase) {
             klocalizedcontext_sender_isbase = false;
             return KLocalizedContext::sender();
-        } else if (klocalizedcontext_sender_callback != nullptr) {
-            QObject* callback_ret = klocalizedcontext_sender_callback();
-            return callback_ret;
-        } else {
-            return KLocalizedContext::sender();
         }
+        auto sender_cb = klocalizedcontext_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KLocalizedContext::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_sendersignalindex_isbase) {
             klocalizedcontext_sendersignalindex_isbase = false;
             return KLocalizedContext::senderSignalIndex();
-        } else if (klocalizedcontext_sendersignalindex_callback != nullptr) {
-            int callback_ret = klocalizedcontext_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KLocalizedContext::senderSignalIndex();
         }
+        auto sendersignalindex_cb = klocalizedcontext_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KLocalizedContext::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_receivers_isbase) {
             klocalizedcontext_receivers_isbase = false;
             return KLocalizedContext::receivers(signal);
-        } else if (klocalizedcontext_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = klocalizedcontext_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = klocalizedcontext_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLocalizedContext::receivers(signal);
         }
+        return KLocalizedContext::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
         if (klocalizedcontext_issignalconnected_isbase) {
             klocalizedcontext_issignalconnected_isbase = false;
             return KLocalizedContext::isSignalConnected(signal);
-        } else if (klocalizedcontext_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = klocalizedcontext_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = klocalizedcontext_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLocalizedContext::isSignalConnected(signal);
         }
+        return KLocalizedContext::isSignalConnected(signal);
     }
 
     // Friend functions

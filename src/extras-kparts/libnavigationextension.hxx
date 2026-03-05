@@ -80,27 +80,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
   public:
     VirtualKPartsNavigationExtension(KParts::ReadOnlyPart* parent) : KParts::NavigationExtension(parent) {};
 
-    ~VirtualKPartsNavigationExtension() {
-        kparts__navigationextension_metaobject_callback = nullptr;
-        kparts__navigationextension_metacast_callback = nullptr;
-        kparts__navigationextension_metacall_callback = nullptr;
-        kparts__navigationextension_xoffset_callback = nullptr;
-        kparts__navigationextension_yoffset_callback = nullptr;
-        kparts__navigationextension_savestate_callback = nullptr;
-        kparts__navigationextension_restorestate_callback = nullptr;
-        kparts__navigationextension_event_callback = nullptr;
-        kparts__navigationextension_eventfilter_callback = nullptr;
-        kparts__navigationextension_timerevent_callback = nullptr;
-        kparts__navigationextension_childevent_callback = nullptr;
-        kparts__navigationextension_customevent_callback = nullptr;
-        kparts__navigationextension_connectnotify_callback = nullptr;
-        kparts__navigationextension_disconnectnotify_callback = nullptr;
-        kparts__navigationextension_sender_callback = nullptr;
-        kparts__navigationextension_sendersignalindex_callback = nullptr;
-        kparts__navigationextension_receivers_callback = nullptr;
-        kparts__navigationextension_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKParts__NavigationExtension_MetaObject_Callback(KParts__NavigationExtension_MetaObject_Callback cb) { kparts__navigationextension_metaobject_callback = cb; }
     inline void setKParts__NavigationExtension_Metacast_Callback(KParts__NavigationExtension_Metacast_Callback cb) { kparts__navigationextension_metacast_callback = cb; }
@@ -146,12 +125,13 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_metaobject_isbase) {
             kparts__navigationextension_metaobject_isbase = false;
             return KParts__NavigationExtension::metaObject();
-        } else if (kparts__navigationextension_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kparts__navigationextension_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KParts__NavigationExtension::metaObject();
         }
+        auto metaobject_cb = kparts__navigationextension_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KParts__NavigationExtension::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -159,14 +139,15 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_metacast_isbase) {
             kparts__navigationextension_metacast_isbase = false;
             return KParts__NavigationExtension::qt_metacast(param1);
-        } else if (kparts__navigationextension_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kparts__navigationextension_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kparts__navigationextension_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__NavigationExtension::qt_metacast(param1);
         }
+        return KParts__NavigationExtension::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,16 +155,17 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_metacall_isbase) {
             kparts__navigationextension_metacall_isbase = false;
             return KParts__NavigationExtension::qt_metacall(param1, param2, param3);
-        } else if (kparts__navigationextension_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kparts__navigationextension_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kparts__navigationextension_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__NavigationExtension::qt_metacall(param1, param2, param3);
         }
+        return KParts__NavigationExtension::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -191,12 +173,13 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_xoffset_isbase) {
             kparts__navigationextension_xoffset_isbase = false;
             return KParts__NavigationExtension::xOffset();
-        } else if (kparts__navigationextension_xoffset_callback != nullptr) {
-            int callback_ret = kparts__navigationextension_xoffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KParts__NavigationExtension::xOffset();
         }
+        auto xoffset_cb = kparts__navigationextension_xoffset_callback;
+        if (xoffset_cb) {
+            int callback_ret = xoffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KParts__NavigationExtension::xOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,12 +187,13 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_yoffset_isbase) {
             kparts__navigationextension_yoffset_isbase = false;
             return KParts__NavigationExtension::yOffset();
-        } else if (kparts__navigationextension_yoffset_callback != nullptr) {
-            int callback_ret = kparts__navigationextension_yoffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KParts__NavigationExtension::yOffset();
         }
+        auto yoffset_cb = kparts__navigationextension_yoffset_callback;
+        if (yoffset_cb) {
+            int callback_ret = yoffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KParts__NavigationExtension::yOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,15 +201,18 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_savestate_isbase) {
             kparts__navigationextension_savestate_isbase = false;
             KParts__NavigationExtension::saveState(stream);
-        } else if (kparts__navigationextension_savestate_callback != nullptr) {
+            return;
+        }
+        auto savestate_cb = kparts__navigationextension_savestate_callback;
+        if (savestate_cb) {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &stream_ret;
 
-            kparts__navigationextension_savestate_callback(this, cbval1);
-        } else {
-            KParts__NavigationExtension::saveState(stream);
+            savestate_cb(this, cbval1);
+            return;
         }
+        KParts__NavigationExtension::saveState(stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,15 +220,18 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_restorestate_isbase) {
             kparts__navigationextension_restorestate_isbase = false;
             KParts__NavigationExtension::restoreState(stream);
-        } else if (kparts__navigationextension_restorestate_callback != nullptr) {
+            return;
+        }
+        auto restorestate_cb = kparts__navigationextension_restorestate_callback;
+        if (restorestate_cb) {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &stream_ret;
 
-            kparts__navigationextension_restorestate_callback(this, cbval1);
-        } else {
-            KParts__NavigationExtension::restoreState(stream);
+            restorestate_cb(this, cbval1);
+            return;
         }
+        KParts__NavigationExtension::restoreState(stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -249,14 +239,15 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_event_isbase) {
             kparts__navigationextension_event_isbase = false;
             return KParts__NavigationExtension::event(event);
-        } else if (kparts__navigationextension_event_callback != nullptr) {
+        }
+        auto event_cb = kparts__navigationextension_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kparts__navigationextension_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__NavigationExtension::event(event);
         }
+        return KParts__NavigationExtension::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -264,15 +255,16 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_eventfilter_isbase) {
             kparts__navigationextension_eventfilter_isbase = false;
             return KParts__NavigationExtension::eventFilter(watched, event);
-        } else if (kparts__navigationextension_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kparts__navigationextension_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kparts__navigationextension_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KParts__NavigationExtension::eventFilter(watched, event);
         }
+        return KParts__NavigationExtension::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -280,13 +272,16 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_timerevent_isbase) {
             kparts__navigationextension_timerevent_isbase = false;
             KParts__NavigationExtension::timerEvent(event);
-        } else if (kparts__navigationextension_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kparts__navigationextension_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kparts__navigationextension_timerevent_callback(this, cbval1);
-        } else {
-            KParts__NavigationExtension::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KParts__NavigationExtension::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -294,13 +289,16 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_childevent_isbase) {
             kparts__navigationextension_childevent_isbase = false;
             KParts__NavigationExtension::childEvent(event);
-        } else if (kparts__navigationextension_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kparts__navigationextension_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kparts__navigationextension_childevent_callback(this, cbval1);
-        } else {
-            KParts__NavigationExtension::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KParts__NavigationExtension::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,13 +306,16 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_customevent_isbase) {
             kparts__navigationextension_customevent_isbase = false;
             KParts__NavigationExtension::customEvent(event);
-        } else if (kparts__navigationextension_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kparts__navigationextension_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kparts__navigationextension_customevent_callback(this, cbval1);
-        } else {
-            KParts__NavigationExtension::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KParts__NavigationExtension::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -322,15 +323,18 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_connectnotify_isbase) {
             kparts__navigationextension_connectnotify_isbase = false;
             KParts__NavigationExtension::connectNotify(signal);
-        } else if (kparts__navigationextension_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kparts__navigationextension_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__navigationextension_connectnotify_callback(this, cbval1);
-        } else {
-            KParts__NavigationExtension::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__NavigationExtension::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -338,15 +342,18 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_disconnectnotify_isbase) {
             kparts__navigationextension_disconnectnotify_isbase = false;
             KParts__NavigationExtension::disconnectNotify(signal);
-        } else if (kparts__navigationextension_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kparts__navigationextension_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__navigationextension_disconnectnotify_callback(this, cbval1);
-        } else {
-            KParts__NavigationExtension::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__NavigationExtension::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -354,12 +361,13 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_sender_isbase) {
             kparts__navigationextension_sender_isbase = false;
             return KParts__NavigationExtension::sender();
-        } else if (kparts__navigationextension_sender_callback != nullptr) {
-            QObject* callback_ret = kparts__navigationextension_sender_callback();
-            return callback_ret;
-        } else {
-            return KParts__NavigationExtension::sender();
         }
+        auto sender_cb = kparts__navigationextension_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KParts__NavigationExtension::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -367,12 +375,13 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_sendersignalindex_isbase) {
             kparts__navigationextension_sendersignalindex_isbase = false;
             return KParts__NavigationExtension::senderSignalIndex();
-        } else if (kparts__navigationextension_sendersignalindex_callback != nullptr) {
-            int callback_ret = kparts__navigationextension_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KParts__NavigationExtension::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kparts__navigationextension_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KParts__NavigationExtension::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,14 +389,15 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_receivers_isbase) {
             kparts__navigationextension_receivers_isbase = false;
             return KParts__NavigationExtension::receivers(signal);
-        } else if (kparts__navigationextension_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kparts__navigationextension_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kparts__navigationextension_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__NavigationExtension::receivers(signal);
         }
+        return KParts__NavigationExtension::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -395,16 +405,17 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (kparts__navigationextension_issignalconnected_isbase) {
             kparts__navigationextension_issignalconnected_isbase = false;
             return KParts__NavigationExtension::isSignalConnected(signal);
-        } else if (kparts__navigationextension_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kparts__navigationextension_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kparts__navigationextension_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__NavigationExtension::isSignalConnected(signal);
         }
+        return KParts__NavigationExtension::isSignalConnected(signal);
     }
 
     // Friend functions

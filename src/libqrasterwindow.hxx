@@ -162,54 +162,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
     VirtualQRasterWindow() : QRasterWindow() {};
     VirtualQRasterWindow(QWindow* parent) : QRasterWindow(parent) {};
 
-    ~VirtualQRasterWindow() {
-        qrasterwindow_metaobject_callback = nullptr;
-        qrasterwindow_metacast_callback = nullptr;
-        qrasterwindow_metacall_callback = nullptr;
-        qrasterwindow_metric_callback = nullptr;
-        qrasterwindow_redirected_callback = nullptr;
-        qrasterwindow_resizeevent_callback = nullptr;
-        qrasterwindow_exposeevent_callback = nullptr;
-        qrasterwindow_paintevent_callback = nullptr;
-        qrasterwindow_event_callback = nullptr;
-        qrasterwindow_surfacetype_callback = nullptr;
-        qrasterwindow_format_callback = nullptr;
-        qrasterwindow_size_callback = nullptr;
-        qrasterwindow_accessibleroot_callback = nullptr;
-        qrasterwindow_focusobject_callback = nullptr;
-        qrasterwindow_moveevent_callback = nullptr;
-        qrasterwindow_focusinevent_callback = nullptr;
-        qrasterwindow_focusoutevent_callback = nullptr;
-        qrasterwindow_showevent_callback = nullptr;
-        qrasterwindow_hideevent_callback = nullptr;
-        qrasterwindow_closeevent_callback = nullptr;
-        qrasterwindow_keypressevent_callback = nullptr;
-        qrasterwindow_keyreleaseevent_callback = nullptr;
-        qrasterwindow_mousepressevent_callback = nullptr;
-        qrasterwindow_mousereleaseevent_callback = nullptr;
-        qrasterwindow_mousedoubleclickevent_callback = nullptr;
-        qrasterwindow_mousemoveevent_callback = nullptr;
-        qrasterwindow_wheelevent_callback = nullptr;
-        qrasterwindow_touchevent_callback = nullptr;
-        qrasterwindow_tabletevent_callback = nullptr;
-        qrasterwindow_nativeevent_callback = nullptr;
-        qrasterwindow_eventfilter_callback = nullptr;
-        qrasterwindow_timerevent_callback = nullptr;
-        qrasterwindow_childevent_callback = nullptr;
-        qrasterwindow_customevent_callback = nullptr;
-        qrasterwindow_connectnotify_callback = nullptr;
-        qrasterwindow_disconnectnotify_callback = nullptr;
-        qrasterwindow_devtype_callback = nullptr;
-        qrasterwindow_initpainter_callback = nullptr;
-        qrasterwindow_sharedpainter_callback = nullptr;
-        qrasterwindow_resolveinterface_callback = nullptr;
-        qrasterwindow_sender_callback = nullptr;
-        qrasterwindow_sendersignalindex_callback = nullptr;
-        qrasterwindow_receivers_callback = nullptr;
-        qrasterwindow_issignalconnected_callback = nullptr;
-        qrasterwindow_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQRasterWindow_MetaObject_Callback(QRasterWindow_MetaObject_Callback cb) { qrasterwindow_metaobject_callback = cb; }
     inline void setQRasterWindow_Metacast_Callback(QRasterWindow_Metacast_Callback cb) { qrasterwindow_metacast_callback = cb; }
@@ -309,12 +261,13 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_metaobject_isbase) {
             qrasterwindow_metaobject_isbase = false;
             return QRasterWindow::metaObject();
-        } else if (qrasterwindow_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qrasterwindow_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QRasterWindow::metaObject();
         }
+        auto metaobject_cb = qrasterwindow_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QRasterWindow::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -322,14 +275,15 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_metacast_isbase) {
             qrasterwindow_metacast_isbase = false;
             return QRasterWindow::qt_metacast(param1);
-        } else if (qrasterwindow_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qrasterwindow_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qrasterwindow_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRasterWindow::qt_metacast(param1);
         }
+        return QRasterWindow::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,16 +291,17 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_metacall_isbase) {
             qrasterwindow_metacall_isbase = false;
             return QRasterWindow::qt_metacall(param1, param2, param3);
-        } else if (qrasterwindow_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qrasterwindow_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qrasterwindow_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRasterWindow::qt_metacall(param1, param2, param3);
         }
+        return QRasterWindow::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -354,14 +309,15 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_metric_isbase) {
             qrasterwindow_metric_isbase = false;
             return QRasterWindow::metric(metric);
-        } else if (qrasterwindow_metric_callback != nullptr) {
+        }
+        auto metric_cb = qrasterwindow_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(metric);
 
-            int callback_ret = qrasterwindow_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRasterWindow::metric(metric);
         }
+        return QRasterWindow::metric(metric);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -369,14 +325,15 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_redirected_isbase) {
             qrasterwindow_redirected_isbase = false;
             return QRasterWindow::redirected(param1);
-        } else if (qrasterwindow_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qrasterwindow_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = param1;
 
-            QPaintDevice* callback_ret = qrasterwindow_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRasterWindow::redirected(param1);
         }
+        return QRasterWindow::redirected(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -384,13 +341,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_resizeevent_isbase) {
             qrasterwindow_resizeevent_isbase = false;
             QRasterWindow::resizeEvent(event);
-        } else if (qrasterwindow_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qrasterwindow_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qrasterwindow_resizeevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -398,13 +358,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_exposeevent_isbase) {
             qrasterwindow_exposeevent_isbase = false;
             QRasterWindow::exposeEvent(param1);
-        } else if (qrasterwindow_exposeevent_callback != nullptr) {
+            return;
+        }
+        auto exposeevent_cb = qrasterwindow_exposeevent_callback;
+        if (exposeevent_cb) {
             QExposeEvent* cbval1 = param1;
 
-            qrasterwindow_exposeevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::exposeEvent(param1);
+            exposeevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::exposeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,13 +375,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_paintevent_isbase) {
             qrasterwindow_paintevent_isbase = false;
             QRasterWindow::paintEvent(event);
-        } else if (qrasterwindow_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qrasterwindow_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qrasterwindow_paintevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,14 +392,15 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_event_isbase) {
             qrasterwindow_event_isbase = false;
             return QRasterWindow::event(event);
-        } else if (qrasterwindow_event_callback != nullptr) {
+        }
+        auto event_cb = qrasterwindow_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qrasterwindow_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRasterWindow::event(event);
         }
+        return QRasterWindow::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,12 +408,13 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_surfacetype_isbase) {
             qrasterwindow_surfacetype_isbase = false;
             return QRasterWindow::surfaceType();
-        } else if (qrasterwindow_surfacetype_callback != nullptr) {
-            int callback_ret = qrasterwindow_surfacetype_callback();
-            return static_cast<QSurface::SurfaceType>(callback_ret);
-        } else {
-            return QRasterWindow::surfaceType();
         }
+        auto surfacetype_cb = qrasterwindow_surfacetype_callback;
+        if (surfacetype_cb) {
+            int callback_ret = surfacetype_cb();
+            return static_cast<QSurface::SurfaceType>(callback_ret);
+        }
+        return QRasterWindow::surfaceType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,12 +422,13 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_format_isbase) {
             qrasterwindow_format_isbase = false;
             return QRasterWindow::format();
-        } else if (qrasterwindow_format_callback != nullptr) {
-            QSurfaceFormat* callback_ret = qrasterwindow_format_callback();
-            return *callback_ret;
-        } else {
-            return QRasterWindow::format();
         }
+        auto format_cb = qrasterwindow_format_callback;
+        if (format_cb) {
+            QSurfaceFormat* callback_ret = format_cb();
+            return *callback_ret;
+        }
+        return QRasterWindow::format();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,12 +436,13 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_size_isbase) {
             qrasterwindow_size_isbase = false;
             return QRasterWindow::size();
-        } else if (qrasterwindow_size_callback != nullptr) {
-            QSize* callback_ret = qrasterwindow_size_callback();
-            return *callback_ret;
-        } else {
-            return QRasterWindow::size();
         }
+        auto size_cb = qrasterwindow_size_callback;
+        if (size_cb) {
+            QSize* callback_ret = size_cb();
+            return *callback_ret;
+        }
+        return QRasterWindow::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,12 +450,13 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_accessibleroot_isbase) {
             qrasterwindow_accessibleroot_isbase = false;
             return QRasterWindow::accessibleRoot();
-        } else if (qrasterwindow_accessibleroot_callback != nullptr) {
-            QAccessibleInterface* callback_ret = qrasterwindow_accessibleroot_callback();
-            return callback_ret;
-        } else {
-            return QRasterWindow::accessibleRoot();
         }
+        auto accessibleroot_cb = qrasterwindow_accessibleroot_callback;
+        if (accessibleroot_cb) {
+            QAccessibleInterface* callback_ret = accessibleroot_cb();
+            return callback_ret;
+        }
+        return QRasterWindow::accessibleRoot();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,12 +464,13 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_focusobject_isbase) {
             qrasterwindow_focusobject_isbase = false;
             return QRasterWindow::focusObject();
-        } else if (qrasterwindow_focusobject_callback != nullptr) {
-            QObject* callback_ret = qrasterwindow_focusobject_callback();
-            return callback_ret;
-        } else {
-            return QRasterWindow::focusObject();
         }
+        auto focusobject_cb = qrasterwindow_focusobject_callback;
+        if (focusobject_cb) {
+            QObject* callback_ret = focusobject_cb();
+            return callback_ret;
+        }
+        return QRasterWindow::focusObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -506,13 +478,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_moveevent_isbase) {
             qrasterwindow_moveevent_isbase = false;
             QRasterWindow::moveEvent(param1);
-        } else if (qrasterwindow_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qrasterwindow_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = param1;
 
-            qrasterwindow_moveevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::moveEvent(param1);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::moveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -520,13 +495,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_focusinevent_isbase) {
             qrasterwindow_focusinevent_isbase = false;
             QRasterWindow::focusInEvent(param1);
-        } else if (qrasterwindow_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qrasterwindow_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            qrasterwindow_focusinevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::focusInEvent(param1);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::focusInEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -534,13 +512,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_focusoutevent_isbase) {
             qrasterwindow_focusoutevent_isbase = false;
             QRasterWindow::focusOutEvent(param1);
-        } else if (qrasterwindow_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qrasterwindow_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            qrasterwindow_focusoutevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::focusOutEvent(param1);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::focusOutEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,13 +529,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_showevent_isbase) {
             qrasterwindow_showevent_isbase = false;
             QRasterWindow::showEvent(param1);
-        } else if (qrasterwindow_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qrasterwindow_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qrasterwindow_showevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -562,13 +546,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_hideevent_isbase) {
             qrasterwindow_hideevent_isbase = false;
             QRasterWindow::hideEvent(param1);
-        } else if (qrasterwindow_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qrasterwindow_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
 
-            qrasterwindow_hideevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::hideEvent(param1);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::hideEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -576,13 +563,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_closeevent_isbase) {
             qrasterwindow_closeevent_isbase = false;
             QRasterWindow::closeEvent(param1);
-        } else if (qrasterwindow_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qrasterwindow_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            qrasterwindow_closeevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -590,13 +580,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_keypressevent_isbase) {
             qrasterwindow_keypressevent_isbase = false;
             QRasterWindow::keyPressEvent(param1);
-        } else if (qrasterwindow_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qrasterwindow_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qrasterwindow_keypressevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -604,13 +597,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_keyreleaseevent_isbase) {
             qrasterwindow_keyreleaseevent_isbase = false;
             QRasterWindow::keyReleaseEvent(param1);
-        } else if (qrasterwindow_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qrasterwindow_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qrasterwindow_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::keyReleaseEvent(param1);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::keyReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -618,13 +614,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_mousepressevent_isbase) {
             qrasterwindow_mousepressevent_isbase = false;
             QRasterWindow::mousePressEvent(param1);
-        } else if (qrasterwindow_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qrasterwindow_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qrasterwindow_mousepressevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -632,13 +631,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_mousereleaseevent_isbase) {
             qrasterwindow_mousereleaseevent_isbase = false;
             QRasterWindow::mouseReleaseEvent(param1);
-        } else if (qrasterwindow_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qrasterwindow_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qrasterwindow_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -646,13 +648,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_mousedoubleclickevent_isbase) {
             qrasterwindow_mousedoubleclickevent_isbase = false;
             QRasterWindow::mouseDoubleClickEvent(param1);
-        } else if (qrasterwindow_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qrasterwindow_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qrasterwindow_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::mouseDoubleClickEvent(param1);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::mouseDoubleClickEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -660,13 +665,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_mousemoveevent_isbase) {
             qrasterwindow_mousemoveevent_isbase = false;
             QRasterWindow::mouseMoveEvent(param1);
-        } else if (qrasterwindow_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qrasterwindow_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qrasterwindow_mousemoveevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -674,13 +682,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_wheelevent_isbase) {
             qrasterwindow_wheelevent_isbase = false;
             QRasterWindow::wheelEvent(param1);
-        } else if (qrasterwindow_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qrasterwindow_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            qrasterwindow_wheelevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,13 +699,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_touchevent_isbase) {
             qrasterwindow_touchevent_isbase = false;
             QRasterWindow::touchEvent(param1);
-        } else if (qrasterwindow_touchevent_callback != nullptr) {
+            return;
+        }
+        auto touchevent_cb = qrasterwindow_touchevent_callback;
+        if (touchevent_cb) {
             QTouchEvent* cbval1 = param1;
 
-            qrasterwindow_touchevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::touchEvent(param1);
+            touchevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::touchEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -702,13 +716,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_tabletevent_isbase) {
             qrasterwindow_tabletevent_isbase = false;
             QRasterWindow::tabletEvent(param1);
-        } else if (qrasterwindow_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qrasterwindow_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = param1;
 
-            qrasterwindow_tabletevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::tabletEvent(param1);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::tabletEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,7 +733,9 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_nativeevent_isbase) {
             qrasterwindow_nativeevent_isbase = false;
             return QRasterWindow::nativeEvent(eventType, message, result);
-        } else if (qrasterwindow_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qrasterwindow_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -727,12 +746,11 @@ class VirtualQRasterWindow final : public QRasterWindow {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qrasterwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QRasterWindow::nativeEvent(eventType, message, result);
         }
+        return QRasterWindow::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,15 +758,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_eventfilter_isbase) {
             qrasterwindow_eventfilter_isbase = false;
             return QRasterWindow::eventFilter(watched, event);
-        } else if (qrasterwindow_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qrasterwindow_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qrasterwindow_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QRasterWindow::eventFilter(watched, event);
         }
+        return QRasterWindow::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,13 +775,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_timerevent_isbase) {
             qrasterwindow_timerevent_isbase = false;
             QRasterWindow::timerEvent(event);
-        } else if (qrasterwindow_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qrasterwindow_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qrasterwindow_timerevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,13 +792,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_childevent_isbase) {
             qrasterwindow_childevent_isbase = false;
             QRasterWindow::childEvent(event);
-        } else if (qrasterwindow_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qrasterwindow_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qrasterwindow_childevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,13 +809,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_customevent_isbase) {
             qrasterwindow_customevent_isbase = false;
             QRasterWindow::customEvent(event);
-        } else if (qrasterwindow_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qrasterwindow_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qrasterwindow_customevent_callback(this, cbval1);
-        } else {
-            QRasterWindow::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -798,15 +826,18 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_connectnotify_isbase) {
             qrasterwindow_connectnotify_isbase = false;
             QRasterWindow::connectNotify(signal);
-        } else if (qrasterwindow_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qrasterwindow_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qrasterwindow_connectnotify_callback(this, cbval1);
-        } else {
-            QRasterWindow::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,15 +845,18 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_disconnectnotify_isbase) {
             qrasterwindow_disconnectnotify_isbase = false;
             QRasterWindow::disconnectNotify(signal);
-        } else if (qrasterwindow_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qrasterwindow_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qrasterwindow_disconnectnotify_callback(this, cbval1);
-        } else {
-            QRasterWindow::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,12 +864,13 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_devtype_isbase) {
             qrasterwindow_devtype_isbase = false;
             return QRasterWindow::devType();
-        } else if (qrasterwindow_devtype_callback != nullptr) {
-            int callback_ret = qrasterwindow_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QRasterWindow::devType();
         }
+        auto devtype_cb = qrasterwindow_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QRasterWindow::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +878,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_initpainter_isbase) {
             qrasterwindow_initpainter_isbase = false;
             QRasterWindow::initPainter(painter);
-        } else if (qrasterwindow_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qrasterwindow_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qrasterwindow_initpainter_callback(this, cbval1);
-        } else {
-            QRasterWindow::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QRasterWindow::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,12 +895,13 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_sharedpainter_isbase) {
             qrasterwindow_sharedpainter_isbase = false;
             return QRasterWindow::sharedPainter();
-        } else if (qrasterwindow_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qrasterwindow_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QRasterWindow::sharedPainter();
         }
+        auto sharedpainter_cb = qrasterwindow_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QRasterWindow::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -870,15 +909,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_resolveinterface_isbase) {
             qrasterwindow_resolveinterface_isbase = false;
             return QRasterWindow::resolveInterface(name, revision);
-        } else if (qrasterwindow_resolveinterface_callback != nullptr) {
+        }
+        auto resolveinterface_cb = qrasterwindow_resolveinterface_callback;
+        if (resolveinterface_cb) {
             const char* cbval1 = (const char*)name;
             int cbval2 = revision;
 
-            void* callback_ret = qrasterwindow_resolveinterface_callback(this, cbval1, cbval2);
+            void* callback_ret = resolveinterface_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QRasterWindow::resolveInterface(name, revision);
         }
+        return QRasterWindow::resolveInterface(name, revision);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -886,12 +926,13 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_sender_isbase) {
             qrasterwindow_sender_isbase = false;
             return QRasterWindow::sender();
-        } else if (qrasterwindow_sender_callback != nullptr) {
-            QObject* callback_ret = qrasterwindow_sender_callback();
-            return callback_ret;
-        } else {
-            return QRasterWindow::sender();
         }
+        auto sender_cb = qrasterwindow_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QRasterWindow::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,12 +940,13 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_sendersignalindex_isbase) {
             qrasterwindow_sendersignalindex_isbase = false;
             return QRasterWindow::senderSignalIndex();
-        } else if (qrasterwindow_sendersignalindex_callback != nullptr) {
-            int callback_ret = qrasterwindow_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QRasterWindow::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qrasterwindow_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QRasterWindow::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,14 +954,15 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_receivers_isbase) {
             qrasterwindow_receivers_isbase = false;
             return QRasterWindow::receivers(signal);
-        } else if (qrasterwindow_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qrasterwindow_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qrasterwindow_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRasterWindow::receivers(signal);
         }
+        return QRasterWindow::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,16 +970,17 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_issignalconnected_isbase) {
             qrasterwindow_issignalconnected_isbase = false;
             return QRasterWindow::isSignalConnected(signal);
-        } else if (qrasterwindow_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qrasterwindow_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qrasterwindow_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRasterWindow::isSignalConnected(signal);
         }
+        return QRasterWindow::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,15 +988,16 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (qrasterwindow_getdecodedmetricf_isbase) {
             qrasterwindow_getdecodedmetricf_isbase = false;
             return QRasterWindow::getDecodedMetricF(metricA, metricB);
-        } else if (qrasterwindow_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qrasterwindow_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qrasterwindow_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QRasterWindow::getDecodedMetricF(metricA, metricB);
         }
+        return QRasterWindow::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

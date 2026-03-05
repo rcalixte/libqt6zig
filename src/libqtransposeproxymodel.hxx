@@ -258,86 +258,6 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
     VirtualQTransposeProxyModel() : QTransposeProxyModel() {};
     VirtualQTransposeProxyModel(QObject* parent) : QTransposeProxyModel(parent) {};
 
-    ~VirtualQTransposeProxyModel() {
-        qtransposeproxymodel_metaobject_callback = nullptr;
-        qtransposeproxymodel_metacast_callback = nullptr;
-        qtransposeproxymodel_metacall_callback = nullptr;
-        qtransposeproxymodel_setsourcemodel_callback = nullptr;
-        qtransposeproxymodel_rowcount_callback = nullptr;
-        qtransposeproxymodel_columncount_callback = nullptr;
-        qtransposeproxymodel_headerdata_callback = nullptr;
-        qtransposeproxymodel_setheaderdata_callback = nullptr;
-        qtransposeproxymodel_setitemdata_callback = nullptr;
-        qtransposeproxymodel_span_callback = nullptr;
-        qtransposeproxymodel_itemdata_callback = nullptr;
-        qtransposeproxymodel_mapfromsource_callback = nullptr;
-        qtransposeproxymodel_maptosource_callback = nullptr;
-        qtransposeproxymodel_parent_callback = nullptr;
-        qtransposeproxymodel_index_callback = nullptr;
-        qtransposeproxymodel_insertrows_callback = nullptr;
-        qtransposeproxymodel_removerows_callback = nullptr;
-        qtransposeproxymodel_moverows_callback = nullptr;
-        qtransposeproxymodel_insertcolumns_callback = nullptr;
-        qtransposeproxymodel_removecolumns_callback = nullptr;
-        qtransposeproxymodel_movecolumns_callback = nullptr;
-        qtransposeproxymodel_sort_callback = nullptr;
-        qtransposeproxymodel_mapselectiontosource_callback = nullptr;
-        qtransposeproxymodel_mapselectionfromsource_callback = nullptr;
-        qtransposeproxymodel_submit_callback = nullptr;
-        qtransposeproxymodel_revert_callback = nullptr;
-        qtransposeproxymodel_data_callback = nullptr;
-        qtransposeproxymodel_flags_callback = nullptr;
-        qtransposeproxymodel_setdata_callback = nullptr;
-        qtransposeproxymodel_clearitemdata_callback = nullptr;
-        qtransposeproxymodel_buddy_callback = nullptr;
-        qtransposeproxymodel_canfetchmore_callback = nullptr;
-        qtransposeproxymodel_fetchmore_callback = nullptr;
-        qtransposeproxymodel_haschildren_callback = nullptr;
-        qtransposeproxymodel_sibling_callback = nullptr;
-        qtransposeproxymodel_mimedata_callback = nullptr;
-        qtransposeproxymodel_candropmimedata_callback = nullptr;
-        qtransposeproxymodel_dropmimedata_callback = nullptr;
-        qtransposeproxymodel_mimetypes_callback = nullptr;
-        qtransposeproxymodel_supporteddragactions_callback = nullptr;
-        qtransposeproxymodel_supporteddropactions_callback = nullptr;
-        qtransposeproxymodel_rolenames_callback = nullptr;
-        qtransposeproxymodel_match_callback = nullptr;
-        qtransposeproxymodel_multidata_callback = nullptr;
-        qtransposeproxymodel_resetinternaldata_callback = nullptr;
-        qtransposeproxymodel_event_callback = nullptr;
-        qtransposeproxymodel_eventfilter_callback = nullptr;
-        qtransposeproxymodel_timerevent_callback = nullptr;
-        qtransposeproxymodel_childevent_callback = nullptr;
-        qtransposeproxymodel_customevent_callback = nullptr;
-        qtransposeproxymodel_connectnotify_callback = nullptr;
-        qtransposeproxymodel_disconnectnotify_callback = nullptr;
-        qtransposeproxymodel_createsourceindex_callback = nullptr;
-        qtransposeproxymodel_createindex_callback = nullptr;
-        qtransposeproxymodel_encodedata_callback = nullptr;
-        qtransposeproxymodel_decodedata_callback = nullptr;
-        qtransposeproxymodel_begininsertrows_callback = nullptr;
-        qtransposeproxymodel_endinsertrows_callback = nullptr;
-        qtransposeproxymodel_beginremoverows_callback = nullptr;
-        qtransposeproxymodel_endremoverows_callback = nullptr;
-        qtransposeproxymodel_beginmoverows_callback = nullptr;
-        qtransposeproxymodel_endmoverows_callback = nullptr;
-        qtransposeproxymodel_begininsertcolumns_callback = nullptr;
-        qtransposeproxymodel_endinsertcolumns_callback = nullptr;
-        qtransposeproxymodel_beginremovecolumns_callback = nullptr;
-        qtransposeproxymodel_endremovecolumns_callback = nullptr;
-        qtransposeproxymodel_beginmovecolumns_callback = nullptr;
-        qtransposeproxymodel_endmovecolumns_callback = nullptr;
-        qtransposeproxymodel_beginresetmodel_callback = nullptr;
-        qtransposeproxymodel_endresetmodel_callback = nullptr;
-        qtransposeproxymodel_changepersistentindex_callback = nullptr;
-        qtransposeproxymodel_changepersistentindexlist_callback = nullptr;
-        qtransposeproxymodel_persistentindexlist_callback = nullptr;
-        qtransposeproxymodel_sender_callback = nullptr;
-        qtransposeproxymodel_sendersignalindex_callback = nullptr;
-        qtransposeproxymodel_receivers_callback = nullptr;
-        qtransposeproxymodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTransposeProxyModel_MetaObject_Callback(QTransposeProxyModel_MetaObject_Callback cb) { qtransposeproxymodel_metaobject_callback = cb; }
     inline void setQTransposeProxyModel_Metacast_Callback(QTransposeProxyModel_Metacast_Callback cb) { qtransposeproxymodel_metacast_callback = cb; }
@@ -501,12 +421,13 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_metaobject_isbase) {
             qtransposeproxymodel_metaobject_isbase = false;
             return QTransposeProxyModel::metaObject();
-        } else if (qtransposeproxymodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtransposeproxymodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTransposeProxyModel::metaObject();
         }
+        auto metaobject_cb = qtransposeproxymodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTransposeProxyModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,14 +435,15 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_metacast_isbase) {
             qtransposeproxymodel_metacast_isbase = false;
             return QTransposeProxyModel::qt_metacast(param1);
-        } else if (qtransposeproxymodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtransposeproxymodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtransposeproxymodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::qt_metacast(param1);
         }
+        return QTransposeProxyModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,16 +451,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_metacall_isbase) {
             qtransposeproxymodel_metacall_isbase = false;
             return QTransposeProxyModel::qt_metacall(param1, param2, param3);
-        } else if (qtransposeproxymodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtransposeproxymodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtransposeproxymodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTransposeProxyModel::qt_metacall(param1, param2, param3);
         }
+        return QTransposeProxyModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,13 +469,16 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_setsourcemodel_isbase) {
             qtransposeproxymodel_setsourcemodel_isbase = false;
             QTransposeProxyModel::setSourceModel(newSourceModel);
-        } else if (qtransposeproxymodel_setsourcemodel_callback != nullptr) {
+            return;
+        }
+        auto setsourcemodel_cb = qtransposeproxymodel_setsourcemodel_callback;
+        if (setsourcemodel_cb) {
             QAbstractItemModel* cbval1 = newSourceModel;
 
-            qtransposeproxymodel_setsourcemodel_callback(this, cbval1);
-        } else {
-            QTransposeProxyModel::setSourceModel(newSourceModel);
+            setsourcemodel_cb(this, cbval1);
+            return;
         }
+        QTransposeProxyModel::setSourceModel(newSourceModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,16 +486,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_rowcount_isbase) {
             qtransposeproxymodel_rowcount_isbase = false;
             return QTransposeProxyModel::rowCount(parent);
-        } else if (qtransposeproxymodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = qtransposeproxymodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qtransposeproxymodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTransposeProxyModel::rowCount(parent);
         }
+        return QTransposeProxyModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,16 +504,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_columncount_isbase) {
             qtransposeproxymodel_columncount_isbase = false;
             return QTransposeProxyModel::columnCount(parent);
-        } else if (qtransposeproxymodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = qtransposeproxymodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qtransposeproxymodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTransposeProxyModel::columnCount(parent);
         }
+        return QTransposeProxyModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,16 +522,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_headerdata_isbase) {
             qtransposeproxymodel_headerdata_isbase = false;
             return QTransposeProxyModel::headerData(section, orientation, role);
-        } else if (qtransposeproxymodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = qtransposeproxymodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = qtransposeproxymodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::headerData(section, orientation, role);
         }
+        return QTransposeProxyModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,7 +540,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_setheaderdata_isbase) {
             qtransposeproxymodel_setheaderdata_isbase = false;
             return QTransposeProxyModel::setHeaderData(section, orientation, value, role);
-        } else if (qtransposeproxymodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = qtransposeproxymodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -619,11 +550,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = qtransposeproxymodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::setHeaderData(section, orientation, value, role);
         }
+        return QTransposeProxyModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,7 +561,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_setitemdata_isbase) {
             qtransposeproxymodel_setitemdata_isbase = false;
             return QTransposeProxyModel::setItemData(index, roles);
-        } else if (qtransposeproxymodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = qtransposeproxymodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -651,11 +583,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = qtransposeproxymodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::setItemData(index, roles);
         }
+        return QTransposeProxyModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,16 +594,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_span_isbase) {
             qtransposeproxymodel_span_isbase = false;
             return QTransposeProxyModel::span(index);
-        } else if (qtransposeproxymodel_span_callback != nullptr) {
+        }
+        auto span_cb = qtransposeproxymodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = qtransposeproxymodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::span(index);
         }
+        return QTransposeProxyModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,12 +612,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_itemdata_isbase) {
             qtransposeproxymodel_itemdata_isbase = false;
             return QTransposeProxyModel::itemData(index);
-        } else if (qtransposeproxymodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = qtransposeproxymodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = qtransposeproxymodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -693,9 +627,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return QTransposeProxyModel::itemData(index);
         }
+        return QTransposeProxyModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,16 +636,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_mapfromsource_isbase) {
             qtransposeproxymodel_mapfromsource_isbase = false;
             return QTransposeProxyModel::mapFromSource(sourceIndex);
-        } else if (qtransposeproxymodel_mapfromsource_callback != nullptr) {
+        }
+        auto mapfromsource_cb = qtransposeproxymodel_mapfromsource_callback;
+        if (mapfromsource_cb) {
             const QModelIndex& sourceIndex_ret = sourceIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceIndex_ret);
 
-            QModelIndex* callback_ret = qtransposeproxymodel_mapfromsource_callback(this, cbval1);
+            QModelIndex* callback_ret = mapfromsource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::mapFromSource(sourceIndex);
         }
+        return QTransposeProxyModel::mapFromSource(sourceIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -720,16 +654,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_maptosource_isbase) {
             qtransposeproxymodel_maptosource_isbase = false;
             return QTransposeProxyModel::mapToSource(proxyIndex);
-        } else if (qtransposeproxymodel_maptosource_callback != nullptr) {
+        }
+        auto maptosource_cb = qtransposeproxymodel_maptosource_callback;
+        if (maptosource_cb) {
             const QModelIndex& proxyIndex_ret = proxyIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
 
-            QModelIndex* callback_ret = qtransposeproxymodel_maptosource_callback(this, cbval1);
+            QModelIndex* callback_ret = maptosource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::mapToSource(proxyIndex);
         }
+        return QTransposeProxyModel::mapToSource(proxyIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,16 +672,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_parent_isbase) {
             qtransposeproxymodel_parent_isbase = false;
             return QTransposeProxyModel::parent(index);
-        } else if (qtransposeproxymodel_parent_callback != nullptr) {
+        }
+        auto parent_cb = qtransposeproxymodel_parent_callback;
+        if (parent_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = qtransposeproxymodel_parent_callback(this, cbval1);
+            QModelIndex* callback_ret = parent_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::parent(index);
         }
+        return QTransposeProxyModel::parent(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,18 +690,19 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_index_isbase) {
             qtransposeproxymodel_index_isbase = false;
             return QTransposeProxyModel::index(row, column, parent);
-        } else if (qtransposeproxymodel_index_callback != nullptr) {
+        }
+        auto index_cb = qtransposeproxymodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = qtransposeproxymodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::index(row, column, parent);
         }
+        return QTransposeProxyModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,18 +710,19 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_insertrows_isbase) {
             qtransposeproxymodel_insertrows_isbase = false;
             return QTransposeProxyModel::insertRows(row, count, parent);
-        } else if (qtransposeproxymodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = qtransposeproxymodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qtransposeproxymodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::insertRows(row, count, parent);
         }
+        return QTransposeProxyModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -792,18 +730,19 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_removerows_isbase) {
             qtransposeproxymodel_removerows_isbase = false;
             return QTransposeProxyModel::removeRows(row, count, parent);
-        } else if (qtransposeproxymodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = qtransposeproxymodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qtransposeproxymodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::removeRows(row, count, parent);
         }
+        return QTransposeProxyModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -811,7 +750,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_moverows_isbase) {
             qtransposeproxymodel_moverows_isbase = false;
             return QTransposeProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (qtransposeproxymodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = qtransposeproxymodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -822,11 +763,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qtransposeproxymodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return QTransposeProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -834,18 +774,19 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_insertcolumns_isbase) {
             qtransposeproxymodel_insertcolumns_isbase = false;
             return QTransposeProxyModel::insertColumns(column, count, parent);
-        } else if (qtransposeproxymodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = qtransposeproxymodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qtransposeproxymodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::insertColumns(column, count, parent);
         }
+        return QTransposeProxyModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -853,18 +794,19 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_removecolumns_isbase) {
             qtransposeproxymodel_removecolumns_isbase = false;
             return QTransposeProxyModel::removeColumns(column, count, parent);
-        } else if (qtransposeproxymodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = qtransposeproxymodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qtransposeproxymodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::removeColumns(column, count, parent);
         }
+        return QTransposeProxyModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -872,7 +814,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_movecolumns_isbase) {
             qtransposeproxymodel_movecolumns_isbase = false;
             return QTransposeProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (qtransposeproxymodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = qtransposeproxymodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -883,11 +827,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qtransposeproxymodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return QTransposeProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -895,14 +838,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_sort_isbase) {
             qtransposeproxymodel_sort_isbase = false;
             QTransposeProxyModel::sort(column, order);
-        } else if (qtransposeproxymodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = qtransposeproxymodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            qtransposeproxymodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            QTransposeProxyModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        QTransposeProxyModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -910,16 +856,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_mapselectiontosource_isbase) {
             qtransposeproxymodel_mapselectiontosource_isbase = false;
             return QTransposeProxyModel::mapSelectionToSource(selection);
-        } else if (qtransposeproxymodel_mapselectiontosource_callback != nullptr) {
+        }
+        auto mapselectiontosource_cb = qtransposeproxymodel_mapselectiontosource_callback;
+        if (mapselectiontosource_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QItemSelection* callback_ret = qtransposeproxymodel_mapselectiontosource_callback(this, cbval1);
+            QItemSelection* callback_ret = mapselectiontosource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::mapSelectionToSource(selection);
         }
+        return QTransposeProxyModel::mapSelectionToSource(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,16 +874,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_mapselectionfromsource_isbase) {
             qtransposeproxymodel_mapselectionfromsource_isbase = false;
             return QTransposeProxyModel::mapSelectionFromSource(selection);
-        } else if (qtransposeproxymodel_mapselectionfromsource_callback != nullptr) {
+        }
+        auto mapselectionfromsource_cb = qtransposeproxymodel_mapselectionfromsource_callback;
+        if (mapselectionfromsource_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QItemSelection* callback_ret = qtransposeproxymodel_mapselectionfromsource_callback(this, cbval1);
+            QItemSelection* callback_ret = mapselectionfromsource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::mapSelectionFromSource(selection);
         }
+        return QTransposeProxyModel::mapSelectionFromSource(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,12 +892,13 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_submit_isbase) {
             qtransposeproxymodel_submit_isbase = false;
             return QTransposeProxyModel::submit();
-        } else if (qtransposeproxymodel_submit_callback != nullptr) {
-            bool callback_ret = qtransposeproxymodel_submit_callback();
-            return callback_ret;
-        } else {
-            return QTransposeProxyModel::submit();
         }
+        auto submit_cb = qtransposeproxymodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return QTransposeProxyModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -957,11 +906,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_revert_isbase) {
             qtransposeproxymodel_revert_isbase = false;
             QTransposeProxyModel::revert();
-        } else if (qtransposeproxymodel_revert_callback != nullptr) {
-            qtransposeproxymodel_revert_callback();
-        } else {
-            QTransposeProxyModel::revert();
+            return;
         }
+        auto revert_cb = qtransposeproxymodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        QTransposeProxyModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,17 +921,18 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_data_isbase) {
             qtransposeproxymodel_data_isbase = false;
             return QTransposeProxyModel::data(proxyIndex, role);
-        } else if (qtransposeproxymodel_data_callback != nullptr) {
+        }
+        auto data_cb = qtransposeproxymodel_data_callback;
+        if (data_cb) {
             const QModelIndex& proxyIndex_ret = proxyIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = qtransposeproxymodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::data(proxyIndex, role);
         }
+        return QTransposeProxyModel::data(proxyIndex, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -987,16 +940,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_flags_isbase) {
             qtransposeproxymodel_flags_isbase = false;
             return QTransposeProxyModel::flags(index);
-        } else if (qtransposeproxymodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = qtransposeproxymodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qtransposeproxymodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return QTransposeProxyModel::flags(index);
         }
+        return QTransposeProxyModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1004,7 +958,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_setdata_isbase) {
             qtransposeproxymodel_setdata_isbase = false;
             return QTransposeProxyModel::setData(index, value, role);
-        } else if (qtransposeproxymodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = qtransposeproxymodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -1013,11 +969,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = qtransposeproxymodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::setData(index, value, role);
         }
+        return QTransposeProxyModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1025,16 +980,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_clearitemdata_isbase) {
             qtransposeproxymodel_clearitemdata_isbase = false;
             return QTransposeProxyModel::clearItemData(index);
-        } else if (qtransposeproxymodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = qtransposeproxymodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qtransposeproxymodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::clearItemData(index);
         }
+        return QTransposeProxyModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1042,16 +998,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_buddy_isbase) {
             qtransposeproxymodel_buddy_isbase = false;
             return QTransposeProxyModel::buddy(index);
-        } else if (qtransposeproxymodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = qtransposeproxymodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = qtransposeproxymodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::buddy(index);
         }
+        return QTransposeProxyModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,16 +1016,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_canfetchmore_isbase) {
             qtransposeproxymodel_canfetchmore_isbase = false;
             return QTransposeProxyModel::canFetchMore(parent);
-        } else if (qtransposeproxymodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = qtransposeproxymodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qtransposeproxymodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::canFetchMore(parent);
         }
+        return QTransposeProxyModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1076,15 +1034,18 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_fetchmore_isbase) {
             qtransposeproxymodel_fetchmore_isbase = false;
             QTransposeProxyModel::fetchMore(parent);
-        } else if (qtransposeproxymodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = qtransposeproxymodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            qtransposeproxymodel_fetchmore_callback(this, cbval1);
-        } else {
-            QTransposeProxyModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        QTransposeProxyModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,16 +1053,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_haschildren_isbase) {
             qtransposeproxymodel_haschildren_isbase = false;
             return QTransposeProxyModel::hasChildren(parent);
-        } else if (qtransposeproxymodel_haschildren_callback != nullptr) {
+        }
+        auto haschildren_cb = qtransposeproxymodel_haschildren_callback;
+        if (haschildren_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qtransposeproxymodel_haschildren_callback(this, cbval1);
+            bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::hasChildren(parent);
         }
+        return QTransposeProxyModel::hasChildren(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1109,18 +1071,19 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_sibling_isbase) {
             qtransposeproxymodel_sibling_isbase = false;
             return QTransposeProxyModel::sibling(row, column, idx);
-        } else if (qtransposeproxymodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = qtransposeproxymodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = qtransposeproxymodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::sibling(row, column, idx);
         }
+        return QTransposeProxyModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1128,7 +1091,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_mimedata_isbase) {
             qtransposeproxymodel_mimedata_isbase = false;
             return QTransposeProxyModel::mimeData(indexes);
-        } else if (qtransposeproxymodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = qtransposeproxymodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1140,12 +1105,11 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = qtransposeproxymodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::mimeData(indexes);
         }
+        return QTransposeProxyModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,7 +1117,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_candropmimedata_isbase) {
             qtransposeproxymodel_candropmimedata_isbase = false;
             return QTransposeProxyModel::canDropMimeData(data, action, row, column, parent);
-        } else if (qtransposeproxymodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = qtransposeproxymodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1162,11 +1128,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qtransposeproxymodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::canDropMimeData(data, action, row, column, parent);
         }
+        return QTransposeProxyModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1174,7 +1139,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_dropmimedata_isbase) {
             qtransposeproxymodel_dropmimedata_isbase = false;
             return QTransposeProxyModel::dropMimeData(data, action, row, column, parent);
-        } else if (qtransposeproxymodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = qtransposeproxymodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1183,11 +1150,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qtransposeproxymodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::dropMimeData(data, action, row, column, parent);
         }
+        return QTransposeProxyModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,8 +1161,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_mimetypes_isbase) {
             qtransposeproxymodel_mimetypes_isbase = false;
             return QTransposeProxyModel::mimeTypes();
-        } else if (qtransposeproxymodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = qtransposeproxymodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = qtransposeproxymodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1207,9 +1175,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QTransposeProxyModel::mimeTypes();
         }
+        return QTransposeProxyModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1217,12 +1184,13 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_supporteddragactions_isbase) {
             qtransposeproxymodel_supporteddragactions_isbase = false;
             return QTransposeProxyModel::supportedDragActions();
-        } else if (qtransposeproxymodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = qtransposeproxymodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QTransposeProxyModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = qtransposeproxymodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QTransposeProxyModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1230,12 +1198,13 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_supporteddropactions_isbase) {
             qtransposeproxymodel_supporteddropactions_isbase = false;
             return QTransposeProxyModel::supportedDropActions();
-        } else if (qtransposeproxymodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = qtransposeproxymodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QTransposeProxyModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = qtransposeproxymodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QTransposeProxyModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,8 +1212,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_rolenames_isbase) {
             qtransposeproxymodel_rolenames_isbase = false;
             return QTransposeProxyModel::roleNames();
-        } else if (qtransposeproxymodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = qtransposeproxymodel_rolenames_callback();
+        }
+        auto rolenames_cb = qtransposeproxymodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -1254,9 +1225,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return QTransposeProxyModel::roleNames();
         }
+        return QTransposeProxyModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1264,7 +1234,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_match_isbase) {
             qtransposeproxymodel_match_isbase = false;
             return QTransposeProxyModel::match(start, role, value, hits, flags);
-        } else if (qtransposeproxymodel_match_callback != nullptr) {
+        }
+        auto match_cb = qtransposeproxymodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1275,7 +1247,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qtransposeproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1284,9 +1256,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QTransposeProxyModel::match(start, role, value, hits, flags);
         }
+        return QTransposeProxyModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,16 +1265,19 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_multidata_isbase) {
             qtransposeproxymodel_multidata_isbase = false;
             QTransposeProxyModel::multiData(index, roleDataSpan);
-        } else if (qtransposeproxymodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = qtransposeproxymodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            qtransposeproxymodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            QTransposeProxyModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        QTransposeProxyModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1311,11 +1285,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_resetinternaldata_isbase) {
             qtransposeproxymodel_resetinternaldata_isbase = false;
             QTransposeProxyModel::resetInternalData();
-        } else if (qtransposeproxymodel_resetinternaldata_callback != nullptr) {
-            qtransposeproxymodel_resetinternaldata_callback();
-        } else {
-            QTransposeProxyModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = qtransposeproxymodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        QTransposeProxyModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1323,14 +1300,15 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_event_isbase) {
             qtransposeproxymodel_event_isbase = false;
             return QTransposeProxyModel::event(event);
-        } else if (qtransposeproxymodel_event_callback != nullptr) {
+        }
+        auto event_cb = qtransposeproxymodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtransposeproxymodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::event(event);
         }
+        return QTransposeProxyModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1338,15 +1316,16 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_eventfilter_isbase) {
             qtransposeproxymodel_eventfilter_isbase = false;
             return QTransposeProxyModel::eventFilter(watched, event);
-        } else if (qtransposeproxymodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtransposeproxymodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtransposeproxymodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::eventFilter(watched, event);
         }
+        return QTransposeProxyModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1354,13 +1333,16 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_timerevent_isbase) {
             qtransposeproxymodel_timerevent_isbase = false;
             QTransposeProxyModel::timerEvent(event);
-        } else if (qtransposeproxymodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtransposeproxymodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtransposeproxymodel_timerevent_callback(this, cbval1);
-        } else {
-            QTransposeProxyModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTransposeProxyModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1368,13 +1350,16 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_childevent_isbase) {
             qtransposeproxymodel_childevent_isbase = false;
             QTransposeProxyModel::childEvent(event);
-        } else if (qtransposeproxymodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtransposeproxymodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtransposeproxymodel_childevent_callback(this, cbval1);
-        } else {
-            QTransposeProxyModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTransposeProxyModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1382,13 +1367,16 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_customevent_isbase) {
             qtransposeproxymodel_customevent_isbase = false;
             QTransposeProxyModel::customEvent(event);
-        } else if (qtransposeproxymodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtransposeproxymodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtransposeproxymodel_customevent_callback(this, cbval1);
-        } else {
-            QTransposeProxyModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTransposeProxyModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1396,15 +1384,18 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_connectnotify_isbase) {
             qtransposeproxymodel_connectnotify_isbase = false;
             QTransposeProxyModel::connectNotify(signal);
-        } else if (qtransposeproxymodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtransposeproxymodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtransposeproxymodel_connectnotify_callback(this, cbval1);
-        } else {
-            QTransposeProxyModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTransposeProxyModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1412,15 +1403,18 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_disconnectnotify_isbase) {
             qtransposeproxymodel_disconnectnotify_isbase = false;
             QTransposeProxyModel::disconnectNotify(signal);
-        } else if (qtransposeproxymodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtransposeproxymodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtransposeproxymodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTransposeProxyModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTransposeProxyModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1428,16 +1422,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_createsourceindex_isbase) {
             qtransposeproxymodel_createsourceindex_isbase = false;
             return QTransposeProxyModel::createSourceIndex(row, col, internalPtr);
-        } else if (qtransposeproxymodel_createsourceindex_callback != nullptr) {
+        }
+        auto createsourceindex_cb = qtransposeproxymodel_createsourceindex_callback;
+        if (createsourceindex_cb) {
             int cbval1 = row;
             int cbval2 = col;
             void* cbval3 = internalPtr;
 
-            QModelIndex* callback_ret = qtransposeproxymodel_createsourceindex_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = createsourceindex_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::createSourceIndex(row, col, internalPtr);
         }
+        return QTransposeProxyModel::createSourceIndex(row, col, internalPtr);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1445,15 +1440,16 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_createindex_isbase) {
             qtransposeproxymodel_createindex_isbase = false;
             return QTransposeProxyModel::createIndex(row, column);
-        } else if (qtransposeproxymodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = qtransposeproxymodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = qtransposeproxymodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QTransposeProxyModel::createIndex(row, column);
         }
+        return QTransposeProxyModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1461,7 +1457,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_encodedata_isbase) {
             qtransposeproxymodel_encodedata_isbase = false;
             QTransposeProxyModel::encodeData(indexes, stream);
-        } else if (qtransposeproxymodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = qtransposeproxymodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1476,11 +1475,11 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            qtransposeproxymodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            QTransposeProxyModel::encodeData(indexes, stream);
+            return;
         }
+        QTransposeProxyModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1488,7 +1487,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_decodedata_isbase) {
             qtransposeproxymodel_decodedata_isbase = false;
             return QTransposeProxyModel::decodeData(row, column, parent, stream);
-        } else if (qtransposeproxymodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = qtransposeproxymodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1498,11 +1499,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = qtransposeproxymodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::decodeData(row, column, parent, stream);
         }
+        return QTransposeProxyModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1510,17 +1510,20 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_begininsertrows_isbase) {
             qtransposeproxymodel_begininsertrows_isbase = false;
             QTransposeProxyModel::beginInsertRows(parent, first, last);
-        } else if (qtransposeproxymodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = qtransposeproxymodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qtransposeproxymodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTransposeProxyModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTransposeProxyModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1528,11 +1531,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_endinsertrows_isbase) {
             qtransposeproxymodel_endinsertrows_isbase = false;
             QTransposeProxyModel::endInsertRows();
-        } else if (qtransposeproxymodel_endinsertrows_callback != nullptr) {
-            qtransposeproxymodel_endinsertrows_callback();
-        } else {
-            QTransposeProxyModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = qtransposeproxymodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        QTransposeProxyModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1540,17 +1546,20 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_beginremoverows_isbase) {
             qtransposeproxymodel_beginremoverows_isbase = false;
             QTransposeProxyModel::beginRemoveRows(parent, first, last);
-        } else if (qtransposeproxymodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = qtransposeproxymodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qtransposeproxymodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTransposeProxyModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTransposeProxyModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1558,11 +1567,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_endremoverows_isbase) {
             qtransposeproxymodel_endremoverows_isbase = false;
             QTransposeProxyModel::endRemoveRows();
-        } else if (qtransposeproxymodel_endremoverows_callback != nullptr) {
-            qtransposeproxymodel_endremoverows_callback();
-        } else {
-            QTransposeProxyModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = qtransposeproxymodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        QTransposeProxyModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1570,7 +1582,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_beginmoverows_isbase) {
             qtransposeproxymodel_beginmoverows_isbase = false;
             return QTransposeProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (qtransposeproxymodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = qtransposeproxymodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1581,11 +1595,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = qtransposeproxymodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return QTransposeProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1593,11 +1606,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_endmoverows_isbase) {
             qtransposeproxymodel_endmoverows_isbase = false;
             QTransposeProxyModel::endMoveRows();
-        } else if (qtransposeproxymodel_endmoverows_callback != nullptr) {
-            qtransposeproxymodel_endmoverows_callback();
-        } else {
-            QTransposeProxyModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = qtransposeproxymodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        QTransposeProxyModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1605,17 +1621,20 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_begininsertcolumns_isbase) {
             qtransposeproxymodel_begininsertcolumns_isbase = false;
             QTransposeProxyModel::beginInsertColumns(parent, first, last);
-        } else if (qtransposeproxymodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = qtransposeproxymodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qtransposeproxymodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTransposeProxyModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTransposeProxyModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1623,11 +1642,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_endinsertcolumns_isbase) {
             qtransposeproxymodel_endinsertcolumns_isbase = false;
             QTransposeProxyModel::endInsertColumns();
-        } else if (qtransposeproxymodel_endinsertcolumns_callback != nullptr) {
-            qtransposeproxymodel_endinsertcolumns_callback();
-        } else {
-            QTransposeProxyModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = qtransposeproxymodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        QTransposeProxyModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1635,17 +1657,20 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_beginremovecolumns_isbase) {
             qtransposeproxymodel_beginremovecolumns_isbase = false;
             QTransposeProxyModel::beginRemoveColumns(parent, first, last);
-        } else if (qtransposeproxymodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = qtransposeproxymodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qtransposeproxymodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTransposeProxyModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTransposeProxyModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1653,11 +1678,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_endremovecolumns_isbase) {
             qtransposeproxymodel_endremovecolumns_isbase = false;
             QTransposeProxyModel::endRemoveColumns();
-        } else if (qtransposeproxymodel_endremovecolumns_callback != nullptr) {
-            qtransposeproxymodel_endremovecolumns_callback();
-        } else {
-            QTransposeProxyModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = qtransposeproxymodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        QTransposeProxyModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1665,7 +1693,9 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_beginmovecolumns_isbase) {
             qtransposeproxymodel_beginmovecolumns_isbase = false;
             return QTransposeProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (qtransposeproxymodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = qtransposeproxymodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1676,11 +1706,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = qtransposeproxymodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return QTransposeProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1688,11 +1717,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_endmovecolumns_isbase) {
             qtransposeproxymodel_endmovecolumns_isbase = false;
             QTransposeProxyModel::endMoveColumns();
-        } else if (qtransposeproxymodel_endmovecolumns_callback != nullptr) {
-            qtransposeproxymodel_endmovecolumns_callback();
-        } else {
-            QTransposeProxyModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = qtransposeproxymodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        QTransposeProxyModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1700,11 +1732,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_beginresetmodel_isbase) {
             qtransposeproxymodel_beginresetmodel_isbase = false;
             QTransposeProxyModel::beginResetModel();
-        } else if (qtransposeproxymodel_beginresetmodel_callback != nullptr) {
-            qtransposeproxymodel_beginresetmodel_callback();
-        } else {
-            QTransposeProxyModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = qtransposeproxymodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        QTransposeProxyModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1712,11 +1747,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_endresetmodel_isbase) {
             qtransposeproxymodel_endresetmodel_isbase = false;
             QTransposeProxyModel::endResetModel();
-        } else if (qtransposeproxymodel_endresetmodel_callback != nullptr) {
-            qtransposeproxymodel_endresetmodel_callback();
-        } else {
-            QTransposeProxyModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = qtransposeproxymodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        QTransposeProxyModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1724,7 +1762,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_changepersistentindex_isbase) {
             qtransposeproxymodel_changepersistentindex_isbase = false;
             QTransposeProxyModel::changePersistentIndex(from, to);
-        } else if (qtransposeproxymodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = qtransposeproxymodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1732,10 +1773,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            qtransposeproxymodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            QTransposeProxyModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QTransposeProxyModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1743,7 +1784,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_changepersistentindexlist_isbase) {
             qtransposeproxymodel_changepersistentindexlist_isbase = false;
             QTransposeProxyModel::changePersistentIndexList(from, to);
-        } else if (qtransposeproxymodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = qtransposeproxymodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1765,12 +1809,12 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            qtransposeproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            QTransposeProxyModel::changePersistentIndexList(from, to);
+            return;
         }
+        QTransposeProxyModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1778,8 +1822,10 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_persistentindexlist_isbase) {
             qtransposeproxymodel_persistentindexlist_isbase = false;
             return QTransposeProxyModel::persistentIndexList();
-        } else if (qtransposeproxymodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qtransposeproxymodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = qtransposeproxymodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1788,9 +1834,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QTransposeProxyModel::persistentIndexList();
         }
+        return QTransposeProxyModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1798,12 +1843,13 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_sender_isbase) {
             qtransposeproxymodel_sender_isbase = false;
             return QTransposeProxyModel::sender();
-        } else if (qtransposeproxymodel_sender_callback != nullptr) {
-            QObject* callback_ret = qtransposeproxymodel_sender_callback();
-            return callback_ret;
-        } else {
-            return QTransposeProxyModel::sender();
         }
+        auto sender_cb = qtransposeproxymodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTransposeProxyModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1811,12 +1857,13 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_sendersignalindex_isbase) {
             qtransposeproxymodel_sendersignalindex_isbase = false;
             return QTransposeProxyModel::senderSignalIndex();
-        } else if (qtransposeproxymodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtransposeproxymodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTransposeProxyModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtransposeproxymodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTransposeProxyModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1824,14 +1871,15 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_receivers_isbase) {
             qtransposeproxymodel_receivers_isbase = false;
             return QTransposeProxyModel::receivers(signal);
-        } else if (qtransposeproxymodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtransposeproxymodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtransposeproxymodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTransposeProxyModel::receivers(signal);
         }
+        return QTransposeProxyModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1839,16 +1887,17 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
         if (qtransposeproxymodel_issignalconnected_isbase) {
             qtransposeproxymodel_issignalconnected_isbase = false;
             return QTransposeProxyModel::isSignalConnected(signal);
-        } else if (qtransposeproxymodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtransposeproxymodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtransposeproxymodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTransposeProxyModel::isSignalConnected(signal);
         }
+        return QTransposeProxyModel::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -143,47 +143,6 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
     VirtualKAutoSaveFile(const QUrl& filename, QObject* parent) : KAutoSaveFile(filename, parent) {};
     VirtualKAutoSaveFile(QObject* parent) : KAutoSaveFile(parent) {};
 
-    ~VirtualKAutoSaveFile() {
-        kautosavefile_metaobject_callback = nullptr;
-        kautosavefile_metacast_callback = nullptr;
-        kautosavefile_metacall_callback = nullptr;
-        kautosavefile_releaselock_callback = nullptr;
-        kautosavefile_open_callback = nullptr;
-        kautosavefile_filename_callback = nullptr;
-        kautosavefile_size_callback = nullptr;
-        kautosavefile_resize_callback = nullptr;
-        kautosavefile_permissions_callback = nullptr;
-        kautosavefile_setpermissions_callback = nullptr;
-        kautosavefile_close_callback = nullptr;
-        kautosavefile_issequential_callback = nullptr;
-        kautosavefile_pos_callback = nullptr;
-        kautosavefile_seek_callback = nullptr;
-        kautosavefile_atend_callback = nullptr;
-        kautosavefile_readdata_callback = nullptr;
-        kautosavefile_writedata_callback = nullptr;
-        kautosavefile_readlinedata_callback = nullptr;
-        kautosavefile_reset_callback = nullptr;
-        kautosavefile_bytesavailable_callback = nullptr;
-        kautosavefile_bytestowrite_callback = nullptr;
-        kautosavefile_canreadline_callback = nullptr;
-        kautosavefile_waitforreadyread_callback = nullptr;
-        kautosavefile_waitforbyteswritten_callback = nullptr;
-        kautosavefile_skipdata_callback = nullptr;
-        kautosavefile_event_callback = nullptr;
-        kautosavefile_eventfilter_callback = nullptr;
-        kautosavefile_timerevent_callback = nullptr;
-        kautosavefile_childevent_callback = nullptr;
-        kautosavefile_customevent_callback = nullptr;
-        kautosavefile_connectnotify_callback = nullptr;
-        kautosavefile_disconnectnotify_callback = nullptr;
-        kautosavefile_setopenmode_callback = nullptr;
-        kautosavefile_seterrorstring_callback = nullptr;
-        kautosavefile_sender_callback = nullptr;
-        kautosavefile_sendersignalindex_callback = nullptr;
-        kautosavefile_receivers_callback = nullptr;
-        kautosavefile_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKAutoSaveFile_MetaObject_Callback(KAutoSaveFile_MetaObject_Callback cb) { kautosavefile_metaobject_callback = cb; }
     inline void setKAutoSaveFile_Metacast_Callback(KAutoSaveFile_Metacast_Callback cb) { kautosavefile_metacast_callback = cb; }
@@ -269,12 +228,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_metaobject_isbase) {
             kautosavefile_metaobject_isbase = false;
             return KAutoSaveFile::metaObject();
-        } else if (kautosavefile_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kautosavefile_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KAutoSaveFile::metaObject();
         }
+        auto metaobject_cb = kautosavefile_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KAutoSaveFile::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,14 +242,15 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_metacast_isbase) {
             kautosavefile_metacast_isbase = false;
             return KAutoSaveFile::qt_metacast(param1);
-        } else if (kautosavefile_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kautosavefile_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kautosavefile_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAutoSaveFile::qt_metacast(param1);
         }
+        return KAutoSaveFile::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -297,16 +258,17 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_metacall_isbase) {
             kautosavefile_metacall_isbase = false;
             return KAutoSaveFile::qt_metacall(param1, param2, param3);
-        } else if (kautosavefile_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kautosavefile_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kautosavefile_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAutoSaveFile::qt_metacall(param1, param2, param3);
         }
+        return KAutoSaveFile::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,11 +276,14 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_releaselock_isbase) {
             kautosavefile_releaselock_isbase = false;
             KAutoSaveFile::releaseLock();
-        } else if (kautosavefile_releaselock_callback != nullptr) {
-            kautosavefile_releaselock_callback();
-        } else {
-            KAutoSaveFile::releaseLock();
+            return;
         }
+        auto releaselock_cb = kautosavefile_releaselock_callback;
+        if (releaselock_cb) {
+            releaselock_cb();
+            return;
+        }
+        KAutoSaveFile::releaseLock();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -326,14 +291,15 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_open_isbase) {
             kautosavefile_open_isbase = false;
             return KAutoSaveFile::open(openmode);
-        } else if (kautosavefile_open_callback != nullptr) {
+        }
+        auto open_cb = kautosavefile_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(openmode);
 
-            bool callback_ret = kautosavefile_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAutoSaveFile::open(openmode);
         }
+        return KAutoSaveFile::open(openmode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -341,13 +307,14 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_filename_isbase) {
             kautosavefile_filename_isbase = false;
             return KAutoSaveFile::fileName();
-        } else if (kautosavefile_filename_callback != nullptr) {
-            const char* callback_ret = kautosavefile_filename_callback();
+        }
+        auto filename_cb = kautosavefile_filename_callback;
+        if (filename_cb) {
+            const char* callback_ret = filename_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KAutoSaveFile::fileName();
         }
+        return KAutoSaveFile::fileName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -355,12 +322,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_size_isbase) {
             kautosavefile_size_isbase = false;
             return KAutoSaveFile::size();
-        } else if (kautosavefile_size_callback != nullptr) {
-            long long callback_ret = kautosavefile_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KAutoSaveFile::size();
         }
+        auto size_cb = kautosavefile_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KAutoSaveFile::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -368,14 +336,15 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_resize_isbase) {
             kautosavefile_resize_isbase = false;
             return KAutoSaveFile::resize(sz);
-        } else if (kautosavefile_resize_callback != nullptr) {
+        }
+        auto resize_cb = kautosavefile_resize_callback;
+        if (resize_cb) {
             long long cbval1 = static_cast<long long>(sz);
 
-            bool callback_ret = kautosavefile_resize_callback(this, cbval1);
+            bool callback_ret = resize_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAutoSaveFile::resize(sz);
         }
+        return KAutoSaveFile::resize(sz);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -383,12 +352,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_permissions_isbase) {
             kautosavefile_permissions_isbase = false;
             return KAutoSaveFile::permissions();
-        } else if (kautosavefile_permissions_callback != nullptr) {
-            int callback_ret = kautosavefile_permissions_callback();
-            return static_cast<QFileDevice::Permissions>(callback_ret);
-        } else {
-            return KAutoSaveFile::permissions();
         }
+        auto permissions_cb = kautosavefile_permissions_callback;
+        if (permissions_cb) {
+            int callback_ret = permissions_cb();
+            return static_cast<QFileDevice::Permissions>(callback_ret);
+        }
+        return KAutoSaveFile::permissions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -396,14 +366,15 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_setpermissions_isbase) {
             kautosavefile_setpermissions_isbase = false;
             return KAutoSaveFile::setPermissions(permissionSpec);
-        } else if (kautosavefile_setpermissions_callback != nullptr) {
+        }
+        auto setpermissions_cb = kautosavefile_setpermissions_callback;
+        if (setpermissions_cb) {
             int cbval1 = static_cast<int>(permissionSpec);
 
-            bool callback_ret = kautosavefile_setpermissions_callback(this, cbval1);
+            bool callback_ret = setpermissions_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAutoSaveFile::setPermissions(permissionSpec);
         }
+        return KAutoSaveFile::setPermissions(permissionSpec);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -411,11 +382,14 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_close_isbase) {
             kautosavefile_close_isbase = false;
             KAutoSaveFile::close();
-        } else if (kautosavefile_close_callback != nullptr) {
-            kautosavefile_close_callback();
-        } else {
-            KAutoSaveFile::close();
+            return;
         }
+        auto close_cb = kautosavefile_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        KAutoSaveFile::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,12 +397,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_issequential_isbase) {
             kautosavefile_issequential_isbase = false;
             return KAutoSaveFile::isSequential();
-        } else if (kautosavefile_issequential_callback != nullptr) {
-            bool callback_ret = kautosavefile_issequential_callback();
-            return callback_ret;
-        } else {
-            return KAutoSaveFile::isSequential();
         }
+        auto issequential_cb = kautosavefile_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return KAutoSaveFile::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,12 +411,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_pos_isbase) {
             kautosavefile_pos_isbase = false;
             return KAutoSaveFile::pos();
-        } else if (kautosavefile_pos_callback != nullptr) {
-            long long callback_ret = kautosavefile_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KAutoSaveFile::pos();
         }
+        auto pos_cb = kautosavefile_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KAutoSaveFile::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -449,14 +425,15 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_seek_isbase) {
             kautosavefile_seek_isbase = false;
             return KAutoSaveFile::seek(offset);
-        } else if (kautosavefile_seek_callback != nullptr) {
+        }
+        auto seek_cb = kautosavefile_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(offset);
 
-            bool callback_ret = kautosavefile_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAutoSaveFile::seek(offset);
         }
+        return KAutoSaveFile::seek(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,12 +441,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_atend_isbase) {
             kautosavefile_atend_isbase = false;
             return KAutoSaveFile::atEnd();
-        } else if (kautosavefile_atend_callback != nullptr) {
-            bool callback_ret = kautosavefile_atend_callback();
-            return callback_ret;
-        } else {
-            return KAutoSaveFile::atEnd();
         }
+        auto atend_cb = kautosavefile_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return KAutoSaveFile::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -477,15 +455,16 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_readdata_isbase) {
             kautosavefile_readdata_isbase = false;
             return KAutoSaveFile::readData(data, maxlen);
-        } else if (kautosavefile_readdata_callback != nullptr) {
+        }
+        auto readdata_cb = kautosavefile_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = kautosavefile_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KAutoSaveFile::readData(data, maxlen);
         }
+        return KAutoSaveFile::readData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,15 +472,16 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_writedata_isbase) {
             kautosavefile_writedata_isbase = false;
             return KAutoSaveFile::writeData(data, lenVal);
-        } else if (kautosavefile_writedata_callback != nullptr) {
+        }
+        auto writedata_cb = kautosavefile_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = kautosavefile_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KAutoSaveFile::writeData(data, lenVal);
         }
+        return KAutoSaveFile::writeData(data, lenVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,15 +489,16 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_readlinedata_isbase) {
             kautosavefile_readlinedata_isbase = false;
             return KAutoSaveFile::readLineData(data, maxlen);
-        } else if (kautosavefile_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = kautosavefile_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = kautosavefile_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KAutoSaveFile::readLineData(data, maxlen);
         }
+        return KAutoSaveFile::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,12 +506,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_reset_isbase) {
             kautosavefile_reset_isbase = false;
             return KAutoSaveFile::reset();
-        } else if (kautosavefile_reset_callback != nullptr) {
-            bool callback_ret = kautosavefile_reset_callback();
-            return callback_ret;
-        } else {
-            return KAutoSaveFile::reset();
         }
+        auto reset_cb = kautosavefile_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return KAutoSaveFile::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,12 +520,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_bytesavailable_isbase) {
             kautosavefile_bytesavailable_isbase = false;
             return KAutoSaveFile::bytesAvailable();
-        } else if (kautosavefile_bytesavailable_callback != nullptr) {
-            long long callback_ret = kautosavefile_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KAutoSaveFile::bytesAvailable();
         }
+        auto bytesavailable_cb = kautosavefile_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KAutoSaveFile::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,12 +534,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_bytestowrite_isbase) {
             kautosavefile_bytestowrite_isbase = false;
             return KAutoSaveFile::bytesToWrite();
-        } else if (kautosavefile_bytestowrite_callback != nullptr) {
-            long long callback_ret = kautosavefile_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KAutoSaveFile::bytesToWrite();
         }
+        auto bytestowrite_cb = kautosavefile_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KAutoSaveFile::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,12 +548,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_canreadline_isbase) {
             kautosavefile_canreadline_isbase = false;
             return KAutoSaveFile::canReadLine();
-        } else if (kautosavefile_canreadline_callback != nullptr) {
-            bool callback_ret = kautosavefile_canreadline_callback();
-            return callback_ret;
-        } else {
-            return KAutoSaveFile::canReadLine();
         }
+        auto canreadline_cb = kautosavefile_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return KAutoSaveFile::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,14 +562,15 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_waitforreadyread_isbase) {
             kautosavefile_waitforreadyread_isbase = false;
             return KAutoSaveFile::waitForReadyRead(msecs);
-        } else if (kautosavefile_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = kautosavefile_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = kautosavefile_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAutoSaveFile::waitForReadyRead(msecs);
         }
+        return KAutoSaveFile::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,14 +578,15 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_waitforbyteswritten_isbase) {
             kautosavefile_waitforbyteswritten_isbase = false;
             return KAutoSaveFile::waitForBytesWritten(msecs);
-        } else if (kautosavefile_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = kautosavefile_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = kautosavefile_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAutoSaveFile::waitForBytesWritten(msecs);
         }
+        return KAutoSaveFile::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,14 +594,15 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_skipdata_isbase) {
             kautosavefile_skipdata_isbase = false;
             return KAutoSaveFile::skipData(maxSize);
-        } else if (kautosavefile_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = kautosavefile_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = kautosavefile_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KAutoSaveFile::skipData(maxSize);
         }
+        return KAutoSaveFile::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,14 +610,15 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_event_isbase) {
             kautosavefile_event_isbase = false;
             return KAutoSaveFile::event(event);
-        } else if (kautosavefile_event_callback != nullptr) {
+        }
+        auto event_cb = kautosavefile_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kautosavefile_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAutoSaveFile::event(event);
         }
+        return KAutoSaveFile::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,15 +626,16 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_eventfilter_isbase) {
             kautosavefile_eventfilter_isbase = false;
             return KAutoSaveFile::eventFilter(watched, event);
-        } else if (kautosavefile_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kautosavefile_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kautosavefile_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KAutoSaveFile::eventFilter(watched, event);
         }
+        return KAutoSaveFile::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +643,16 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_timerevent_isbase) {
             kautosavefile_timerevent_isbase = false;
             KAutoSaveFile::timerEvent(event);
-        } else if (kautosavefile_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kautosavefile_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kautosavefile_timerevent_callback(this, cbval1);
-        } else {
-            KAutoSaveFile::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KAutoSaveFile::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,13 +660,16 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_childevent_isbase) {
             kautosavefile_childevent_isbase = false;
             KAutoSaveFile::childEvent(event);
-        } else if (kautosavefile_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kautosavefile_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kautosavefile_childevent_callback(this, cbval1);
-        } else {
-            KAutoSaveFile::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KAutoSaveFile::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,13 +677,16 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_customevent_isbase) {
             kautosavefile_customevent_isbase = false;
             KAutoSaveFile::customEvent(event);
-        } else if (kautosavefile_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kautosavefile_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kautosavefile_customevent_callback(this, cbval1);
-        } else {
-            KAutoSaveFile::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KAutoSaveFile::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,15 +694,18 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_connectnotify_isbase) {
             kautosavefile_connectnotify_isbase = false;
             KAutoSaveFile::connectNotify(signal);
-        } else if (kautosavefile_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kautosavefile_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kautosavefile_connectnotify_callback(this, cbval1);
-        } else {
-            KAutoSaveFile::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KAutoSaveFile::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,15 +713,18 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_disconnectnotify_isbase) {
             kautosavefile_disconnectnotify_isbase = false;
             KAutoSaveFile::disconnectNotify(signal);
-        } else if (kautosavefile_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kautosavefile_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kautosavefile_disconnectnotify_callback(this, cbval1);
-        } else {
-            KAutoSaveFile::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KAutoSaveFile::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,13 +732,16 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_setopenmode_isbase) {
             kautosavefile_setopenmode_isbase = false;
             KAutoSaveFile::setOpenMode(openMode);
-        } else if (kautosavefile_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = kautosavefile_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            kautosavefile_setopenmode_callback(this, cbval1);
-        } else {
-            KAutoSaveFile::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        KAutoSaveFile::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -741,7 +749,10 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_seterrorstring_isbase) {
             kautosavefile_seterrorstring_isbase = false;
             KAutoSaveFile::setErrorString(errorString);
-        } else if (kautosavefile_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = kautosavefile_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -751,11 +762,11 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            kautosavefile_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            KAutoSaveFile::setErrorString(errorString);
+            return;
         }
+        KAutoSaveFile::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,12 +774,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_sender_isbase) {
             kautosavefile_sender_isbase = false;
             return KAutoSaveFile::sender();
-        } else if (kautosavefile_sender_callback != nullptr) {
-            QObject* callback_ret = kautosavefile_sender_callback();
-            return callback_ret;
-        } else {
-            return KAutoSaveFile::sender();
         }
+        auto sender_cb = kautosavefile_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KAutoSaveFile::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,12 +788,13 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_sendersignalindex_isbase) {
             kautosavefile_sendersignalindex_isbase = false;
             return KAutoSaveFile::senderSignalIndex();
-        } else if (kautosavefile_sendersignalindex_callback != nullptr) {
-            int callback_ret = kautosavefile_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAutoSaveFile::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kautosavefile_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAutoSaveFile::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,14 +802,15 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_receivers_isbase) {
             kautosavefile_receivers_isbase = false;
             return KAutoSaveFile::receivers(signal);
-        } else if (kautosavefile_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kautosavefile_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kautosavefile_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAutoSaveFile::receivers(signal);
         }
+        return KAutoSaveFile::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,16 +818,17 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
         if (kautosavefile_issignalconnected_isbase) {
             kautosavefile_issignalconnected_isbase = false;
             return KAutoSaveFile::isSignalConnected(signal);
-        } else if (kautosavefile_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kautosavefile_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kautosavefile_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAutoSaveFile::isSignalConnected(signal);
         }
+        return KAutoSaveFile::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -77,26 +77,6 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
   public:
     VirtualKHamburgerMenu(QObject* parent) : KHamburgerMenu(parent) {};
 
-    ~VirtualKHamburgerMenu() {
-        khamburgermenu_metaobject_callback = nullptr;
-        khamburgermenu_metacast_callback = nullptr;
-        khamburgermenu_metacall_callback = nullptr;
-        khamburgermenu_createwidget_callback = nullptr;
-        khamburgermenu_event_callback = nullptr;
-        khamburgermenu_eventfilter_callback = nullptr;
-        khamburgermenu_deletewidget_callback = nullptr;
-        khamburgermenu_timerevent_callback = nullptr;
-        khamburgermenu_childevent_callback = nullptr;
-        khamburgermenu_customevent_callback = nullptr;
-        khamburgermenu_connectnotify_callback = nullptr;
-        khamburgermenu_disconnectnotify_callback = nullptr;
-        khamburgermenu_createdwidgets_callback = nullptr;
-        khamburgermenu_sender_callback = nullptr;
-        khamburgermenu_sendersignalindex_callback = nullptr;
-        khamburgermenu_receivers_callback = nullptr;
-        khamburgermenu_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKHamburgerMenu_MetaObject_Callback(KHamburgerMenu_MetaObject_Callback cb) { khamburgermenu_metaobject_callback = cb; }
     inline void setKHamburgerMenu_Metacast_Callback(KHamburgerMenu_Metacast_Callback cb) { khamburgermenu_metacast_callback = cb; }
@@ -140,12 +120,13 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_metaobject_isbase) {
             khamburgermenu_metaobject_isbase = false;
             return KHamburgerMenu::metaObject();
-        } else if (khamburgermenu_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = khamburgermenu_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KHamburgerMenu::metaObject();
         }
+        auto metaobject_cb = khamburgermenu_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KHamburgerMenu::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,14 +134,15 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_metacast_isbase) {
             khamburgermenu_metacast_isbase = false;
             return KHamburgerMenu::qt_metacast(param1);
-        } else if (khamburgermenu_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = khamburgermenu_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = khamburgermenu_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KHamburgerMenu::qt_metacast(param1);
         }
+        return KHamburgerMenu::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,16 +150,17 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_metacall_isbase) {
             khamburgermenu_metacall_isbase = false;
             return KHamburgerMenu::qt_metacall(param1, param2, param3);
-        } else if (khamburgermenu_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = khamburgermenu_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = khamburgermenu_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KHamburgerMenu::qt_metacall(param1, param2, param3);
         }
+        return KHamburgerMenu::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,14 +168,15 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_createwidget_isbase) {
             khamburgermenu_createwidget_isbase = false;
             return KHamburgerMenu::createWidget(parent);
-        } else if (khamburgermenu_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = khamburgermenu_createwidget_callback;
+        if (createwidget_cb) {
             QWidget* cbval1 = parent;
 
-            QWidget* callback_ret = khamburgermenu_createwidget_callback(this, cbval1);
+            QWidget* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KHamburgerMenu::createWidget(parent);
         }
+        return KHamburgerMenu::createWidget(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -200,14 +184,15 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_event_isbase) {
             khamburgermenu_event_isbase = false;
             return KHamburgerMenu::event(param1);
-        } else if (khamburgermenu_event_callback != nullptr) {
+        }
+        auto event_cb = khamburgermenu_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = khamburgermenu_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KHamburgerMenu::event(param1);
         }
+        return KHamburgerMenu::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,15 +200,16 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_eventfilter_isbase) {
             khamburgermenu_eventfilter_isbase = false;
             return KHamburgerMenu::eventFilter(param1, param2);
-        } else if (khamburgermenu_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = khamburgermenu_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = khamburgermenu_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KHamburgerMenu::eventFilter(param1, param2);
         }
+        return KHamburgerMenu::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -231,13 +217,16 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_deletewidget_isbase) {
             khamburgermenu_deletewidget_isbase = false;
             KHamburgerMenu::deleteWidget(widget);
-        } else if (khamburgermenu_deletewidget_callback != nullptr) {
+            return;
+        }
+        auto deletewidget_cb = khamburgermenu_deletewidget_callback;
+        if (deletewidget_cb) {
             QWidget* cbval1 = widget;
 
-            khamburgermenu_deletewidget_callback(this, cbval1);
-        } else {
-            KHamburgerMenu::deleteWidget(widget);
+            deletewidget_cb(this, cbval1);
+            return;
         }
+        KHamburgerMenu::deleteWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -245,13 +234,16 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_timerevent_isbase) {
             khamburgermenu_timerevent_isbase = false;
             KHamburgerMenu::timerEvent(event);
-        } else if (khamburgermenu_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = khamburgermenu_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            khamburgermenu_timerevent_callback(this, cbval1);
-        } else {
-            KHamburgerMenu::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KHamburgerMenu::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,13 +251,16 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_childevent_isbase) {
             khamburgermenu_childevent_isbase = false;
             KHamburgerMenu::childEvent(event);
-        } else if (khamburgermenu_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = khamburgermenu_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            khamburgermenu_childevent_callback(this, cbval1);
-        } else {
-            KHamburgerMenu::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KHamburgerMenu::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,13 +268,16 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_customevent_isbase) {
             khamburgermenu_customevent_isbase = false;
             KHamburgerMenu::customEvent(event);
-        } else if (khamburgermenu_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = khamburgermenu_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            khamburgermenu_customevent_callback(this, cbval1);
-        } else {
-            KHamburgerMenu::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KHamburgerMenu::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,15 +285,18 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_connectnotify_isbase) {
             khamburgermenu_connectnotify_isbase = false;
             KHamburgerMenu::connectNotify(signal);
-        } else if (khamburgermenu_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = khamburgermenu_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            khamburgermenu_connectnotify_callback(this, cbval1);
-        } else {
-            KHamburgerMenu::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KHamburgerMenu::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,15 +304,18 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_disconnectnotify_isbase) {
             khamburgermenu_disconnectnotify_isbase = false;
             KHamburgerMenu::disconnectNotify(signal);
-        } else if (khamburgermenu_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = khamburgermenu_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            khamburgermenu_disconnectnotify_callback(this, cbval1);
-        } else {
-            KHamburgerMenu::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KHamburgerMenu::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,8 +323,10 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_createdwidgets_isbase) {
             khamburgermenu_createdwidgets_isbase = false;
             return KHamburgerMenu::createdWidgets();
-        } else if (khamburgermenu_createdwidgets_callback != nullptr) {
-            libqt_list /* of QWidget* */ callback_ret = khamburgermenu_createdwidgets_callback();
+        }
+        auto createdwidgets_cb = khamburgermenu_createdwidgets_callback;
+        if (createdwidgets_cb) {
+            libqt_list /* of QWidget* */ callback_ret = createdwidgets_cb();
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
@@ -329,9 +335,8 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KHamburgerMenu::createdWidgets();
         }
+        return KHamburgerMenu::createdWidgets();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,12 +344,13 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_sender_isbase) {
             khamburgermenu_sender_isbase = false;
             return KHamburgerMenu::sender();
-        } else if (khamburgermenu_sender_callback != nullptr) {
-            QObject* callback_ret = khamburgermenu_sender_callback();
-            return callback_ret;
-        } else {
-            return KHamburgerMenu::sender();
         }
+        auto sender_cb = khamburgermenu_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KHamburgerMenu::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,12 +358,13 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_sendersignalindex_isbase) {
             khamburgermenu_sendersignalindex_isbase = false;
             return KHamburgerMenu::senderSignalIndex();
-        } else if (khamburgermenu_sendersignalindex_callback != nullptr) {
-            int callback_ret = khamburgermenu_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KHamburgerMenu::senderSignalIndex();
         }
+        auto sendersignalindex_cb = khamburgermenu_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KHamburgerMenu::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -365,14 +372,15 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_receivers_isbase) {
             khamburgermenu_receivers_isbase = false;
             return KHamburgerMenu::receivers(signal);
-        } else if (khamburgermenu_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = khamburgermenu_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = khamburgermenu_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KHamburgerMenu::receivers(signal);
         }
+        return KHamburgerMenu::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,16 +388,17 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
         if (khamburgermenu_issignalconnected_isbase) {
             khamburgermenu_issignalconnected_isbase = false;
             return KHamburgerMenu::isSignalConnected(signal);
-        } else if (khamburgermenu_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = khamburgermenu_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = khamburgermenu_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KHamburgerMenu::isSignalConnected(signal);
         }
+        return KHamburgerMenu::isSignalConnected(signal);
     }
 
     // Friend functions

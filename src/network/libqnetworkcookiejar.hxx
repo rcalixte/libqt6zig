@@ -93,31 +93,6 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
     VirtualQNetworkCookieJar() : QNetworkCookieJar() {};
     VirtualQNetworkCookieJar(QObject* parent) : QNetworkCookieJar(parent) {};
 
-    ~VirtualQNetworkCookieJar() {
-        qnetworkcookiejar_metaobject_callback = nullptr;
-        qnetworkcookiejar_metacast_callback = nullptr;
-        qnetworkcookiejar_metacall_callback = nullptr;
-        qnetworkcookiejar_cookiesforurl_callback = nullptr;
-        qnetworkcookiejar_setcookiesfromurl_callback = nullptr;
-        qnetworkcookiejar_insertcookie_callback = nullptr;
-        qnetworkcookiejar_updatecookie_callback = nullptr;
-        qnetworkcookiejar_deletecookie_callback = nullptr;
-        qnetworkcookiejar_validatecookie_callback = nullptr;
-        qnetworkcookiejar_event_callback = nullptr;
-        qnetworkcookiejar_eventfilter_callback = nullptr;
-        qnetworkcookiejar_timerevent_callback = nullptr;
-        qnetworkcookiejar_childevent_callback = nullptr;
-        qnetworkcookiejar_customevent_callback = nullptr;
-        qnetworkcookiejar_connectnotify_callback = nullptr;
-        qnetworkcookiejar_disconnectnotify_callback = nullptr;
-        qnetworkcookiejar_allcookies_callback = nullptr;
-        qnetworkcookiejar_setallcookies_callback = nullptr;
-        qnetworkcookiejar_sender_callback = nullptr;
-        qnetworkcookiejar_sendersignalindex_callback = nullptr;
-        qnetworkcookiejar_receivers_callback = nullptr;
-        qnetworkcookiejar_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQNetworkCookieJar_MetaObject_Callback(QNetworkCookieJar_MetaObject_Callback cb) { qnetworkcookiejar_metaobject_callback = cb; }
     inline void setQNetworkCookieJar_Metacast_Callback(QNetworkCookieJar_Metacast_Callback cb) { qnetworkcookiejar_metacast_callback = cb; }
@@ -171,12 +146,13 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_metaobject_isbase) {
             qnetworkcookiejar_metaobject_isbase = false;
             return QNetworkCookieJar::metaObject();
-        } else if (qnetworkcookiejar_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qnetworkcookiejar_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QNetworkCookieJar::metaObject();
         }
+        auto metaobject_cb = qnetworkcookiejar_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QNetworkCookieJar::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -184,14 +160,15 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_metacast_isbase) {
             qnetworkcookiejar_metacast_isbase = false;
             return QNetworkCookieJar::qt_metacast(param1);
-        } else if (qnetworkcookiejar_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qnetworkcookiejar_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qnetworkcookiejar_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNetworkCookieJar::qt_metacast(param1);
         }
+        return QNetworkCookieJar::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,16 +176,17 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_metacall_isbase) {
             qnetworkcookiejar_metacall_isbase = false;
             return QNetworkCookieJar::qt_metacall(param1, param2, param3);
-        } else if (qnetworkcookiejar_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qnetworkcookiejar_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qnetworkcookiejar_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QNetworkCookieJar::qt_metacall(param1, param2, param3);
         }
+        return QNetworkCookieJar::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -216,12 +194,14 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_cookiesforurl_isbase) {
             qnetworkcookiejar_cookiesforurl_isbase = false;
             return QNetworkCookieJar::cookiesForUrl(url);
-        } else if (qnetworkcookiejar_cookiesforurl_callback != nullptr) {
+        }
+        auto cookiesforurl_cb = qnetworkcookiejar_cookiesforurl_callback;
+        if (cookiesforurl_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            libqt_list /* of QNetworkCookie* */ callback_ret = qnetworkcookiejar_cookiesforurl_callback(this, cbval1);
+            libqt_list /* of QNetworkCookie* */ callback_ret = cookiesforurl_cb(this, cbval1);
             QList<QNetworkCookie> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QNetworkCookie** callback_ret_arr = static_cast<QNetworkCookie**>(callback_ret.data);
@@ -230,9 +210,8 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QNetworkCookieJar::cookiesForUrl(url);
         }
+        return QNetworkCookieJar::cookiesForUrl(url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,7 +219,9 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_setcookiesfromurl_isbase) {
             qnetworkcookiejar_setcookiesfromurl_isbase = false;
             return QNetworkCookieJar::setCookiesFromUrl(cookieList, url);
-        } else if (qnetworkcookiejar_setcookiesfromurl_callback != nullptr) {
+        }
+        auto setcookiesfromurl_cb = qnetworkcookiejar_setcookiesfromurl_callback;
+        if (setcookiesfromurl_cb) {
             const QList<QNetworkCookie>& cookieList_ret = cookieList;
             // Convert QList<> from C++ memory to manually-managed C memory
             QNetworkCookie** cookieList_arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (cookieList_ret.size())));
@@ -255,12 +236,11 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&url_ret);
 
-            bool callback_ret = qnetworkcookiejar_setcookiesfromurl_callback(this, cbval1, cbval2);
+            bool callback_ret = setcookiesfromurl_cb(this, cbval1, cbval2);
             free(cookieList_arr);
             return callback_ret;
-        } else {
-            return QNetworkCookieJar::setCookiesFromUrl(cookieList, url);
         }
+        return QNetworkCookieJar::setCookiesFromUrl(cookieList, url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -268,16 +248,17 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_insertcookie_isbase) {
             qnetworkcookiejar_insertcookie_isbase = false;
             return QNetworkCookieJar::insertCookie(cookie);
-        } else if (qnetworkcookiejar_insertcookie_callback != nullptr) {
+        }
+        auto insertcookie_cb = qnetworkcookiejar_insertcookie_callback;
+        if (insertcookie_cb) {
             const QNetworkCookie& cookie_ret = cookie;
             // Cast returned reference into pointer
             QNetworkCookie* cbval1 = const_cast<QNetworkCookie*>(&cookie_ret);
 
-            bool callback_ret = qnetworkcookiejar_insertcookie_callback(this, cbval1);
+            bool callback_ret = insertcookie_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNetworkCookieJar::insertCookie(cookie);
         }
+        return QNetworkCookieJar::insertCookie(cookie);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,16 +266,17 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_updatecookie_isbase) {
             qnetworkcookiejar_updatecookie_isbase = false;
             return QNetworkCookieJar::updateCookie(cookie);
-        } else if (qnetworkcookiejar_updatecookie_callback != nullptr) {
+        }
+        auto updatecookie_cb = qnetworkcookiejar_updatecookie_callback;
+        if (updatecookie_cb) {
             const QNetworkCookie& cookie_ret = cookie;
             // Cast returned reference into pointer
             QNetworkCookie* cbval1 = const_cast<QNetworkCookie*>(&cookie_ret);
 
-            bool callback_ret = qnetworkcookiejar_updatecookie_callback(this, cbval1);
+            bool callback_ret = updatecookie_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNetworkCookieJar::updateCookie(cookie);
         }
+        return QNetworkCookieJar::updateCookie(cookie);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,16 +284,17 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_deletecookie_isbase) {
             qnetworkcookiejar_deletecookie_isbase = false;
             return QNetworkCookieJar::deleteCookie(cookie);
-        } else if (qnetworkcookiejar_deletecookie_callback != nullptr) {
+        }
+        auto deletecookie_cb = qnetworkcookiejar_deletecookie_callback;
+        if (deletecookie_cb) {
             const QNetworkCookie& cookie_ret = cookie;
             // Cast returned reference into pointer
             QNetworkCookie* cbval1 = const_cast<QNetworkCookie*>(&cookie_ret);
 
-            bool callback_ret = qnetworkcookiejar_deletecookie_callback(this, cbval1);
+            bool callback_ret = deletecookie_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNetworkCookieJar::deleteCookie(cookie);
         }
+        return QNetworkCookieJar::deleteCookie(cookie);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,7 +302,9 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_validatecookie_isbase) {
             qnetworkcookiejar_validatecookie_isbase = false;
             return QNetworkCookieJar::validateCookie(cookie, url);
-        } else if (qnetworkcookiejar_validatecookie_callback != nullptr) {
+        }
+        auto validatecookie_cb = qnetworkcookiejar_validatecookie_callback;
+        if (validatecookie_cb) {
             const QNetworkCookie& cookie_ret = cookie;
             // Cast returned reference into pointer
             QNetworkCookie* cbval1 = const_cast<QNetworkCookie*>(&cookie_ret);
@@ -327,11 +312,10 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&url_ret);
 
-            bool callback_ret = qnetworkcookiejar_validatecookie_callback(this, cbval1, cbval2);
+            bool callback_ret = validatecookie_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QNetworkCookieJar::validateCookie(cookie, url);
         }
+        return QNetworkCookieJar::validateCookie(cookie, url);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,14 +323,15 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_event_isbase) {
             qnetworkcookiejar_event_isbase = false;
             return QNetworkCookieJar::event(event);
-        } else if (qnetworkcookiejar_event_callback != nullptr) {
+        }
+        auto event_cb = qnetworkcookiejar_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qnetworkcookiejar_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNetworkCookieJar::event(event);
         }
+        return QNetworkCookieJar::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -354,15 +339,16 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_eventfilter_isbase) {
             qnetworkcookiejar_eventfilter_isbase = false;
             return QNetworkCookieJar::eventFilter(watched, event);
-        } else if (qnetworkcookiejar_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qnetworkcookiejar_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qnetworkcookiejar_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QNetworkCookieJar::eventFilter(watched, event);
         }
+        return QNetworkCookieJar::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -370,13 +356,16 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_timerevent_isbase) {
             qnetworkcookiejar_timerevent_isbase = false;
             QNetworkCookieJar::timerEvent(event);
-        } else if (qnetworkcookiejar_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qnetworkcookiejar_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qnetworkcookiejar_timerevent_callback(this, cbval1);
-        } else {
-            QNetworkCookieJar::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QNetworkCookieJar::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -384,13 +373,16 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_childevent_isbase) {
             qnetworkcookiejar_childevent_isbase = false;
             QNetworkCookieJar::childEvent(event);
-        } else if (qnetworkcookiejar_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qnetworkcookiejar_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qnetworkcookiejar_childevent_callback(this, cbval1);
-        } else {
-            QNetworkCookieJar::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QNetworkCookieJar::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -398,13 +390,16 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_customevent_isbase) {
             qnetworkcookiejar_customevent_isbase = false;
             QNetworkCookieJar::customEvent(event);
-        } else if (qnetworkcookiejar_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qnetworkcookiejar_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qnetworkcookiejar_customevent_callback(this, cbval1);
-        } else {
-            QNetworkCookieJar::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QNetworkCookieJar::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,15 +407,18 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_connectnotify_isbase) {
             qnetworkcookiejar_connectnotify_isbase = false;
             QNetworkCookieJar::connectNotify(signal);
-        } else if (qnetworkcookiejar_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qnetworkcookiejar_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qnetworkcookiejar_connectnotify_callback(this, cbval1);
-        } else {
-            QNetworkCookieJar::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QNetworkCookieJar::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -428,15 +426,18 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_disconnectnotify_isbase) {
             qnetworkcookiejar_disconnectnotify_isbase = false;
             QNetworkCookieJar::disconnectNotify(signal);
-        } else if (qnetworkcookiejar_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qnetworkcookiejar_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qnetworkcookiejar_disconnectnotify_callback(this, cbval1);
-        } else {
-            QNetworkCookieJar::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QNetworkCookieJar::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,8 +445,10 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_allcookies_isbase) {
             qnetworkcookiejar_allcookies_isbase = false;
             return QNetworkCookieJar::allCookies();
-        } else if (qnetworkcookiejar_allcookies_callback != nullptr) {
-            libqt_list /* of QNetworkCookie* */ callback_ret = qnetworkcookiejar_allcookies_callback();
+        }
+        auto allcookies_cb = qnetworkcookiejar_allcookies_callback;
+        if (allcookies_cb) {
+            libqt_list /* of QNetworkCookie* */ callback_ret = allcookies_cb();
             QList<QNetworkCookie> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QNetworkCookie** callback_ret_arr = static_cast<QNetworkCookie**>(callback_ret.data);
@@ -454,9 +457,8 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QNetworkCookieJar::allCookies();
         }
+        return QNetworkCookieJar::allCookies();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,7 +466,10 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_setallcookies_isbase) {
             qnetworkcookiejar_setallcookies_isbase = false;
             QNetworkCookieJar::setAllCookies(cookieList);
-        } else if (qnetworkcookiejar_setallcookies_callback != nullptr) {
+            return;
+        }
+        auto setallcookies_cb = qnetworkcookiejar_setallcookies_callback;
+        if (setallcookies_cb) {
             const QList<QNetworkCookie>& cookieList_ret = cookieList;
             // Convert QList<> from C++ memory to manually-managed C memory
             QNetworkCookie** cookieList_arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (cookieList_ret.size())));
@@ -476,11 +481,11 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             cookieList_out.data = static_cast<void*>(cookieList_arr);
             libqt_list /* of QNetworkCookie* */ cbval1 = cookieList_out;
 
-            qnetworkcookiejar_setallcookies_callback(this, cbval1);
+            setallcookies_cb(this, cbval1);
             free(cookieList_arr);
-        } else {
-            QNetworkCookieJar::setAllCookies(cookieList);
+            return;
         }
+        QNetworkCookieJar::setAllCookies(cookieList);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -488,12 +493,13 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_sender_isbase) {
             qnetworkcookiejar_sender_isbase = false;
             return QNetworkCookieJar::sender();
-        } else if (qnetworkcookiejar_sender_callback != nullptr) {
-            QObject* callback_ret = qnetworkcookiejar_sender_callback();
-            return callback_ret;
-        } else {
-            return QNetworkCookieJar::sender();
         }
+        auto sender_cb = qnetworkcookiejar_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QNetworkCookieJar::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -501,12 +507,13 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_sendersignalindex_isbase) {
             qnetworkcookiejar_sendersignalindex_isbase = false;
             return QNetworkCookieJar::senderSignalIndex();
-        } else if (qnetworkcookiejar_sendersignalindex_callback != nullptr) {
-            int callback_ret = qnetworkcookiejar_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QNetworkCookieJar::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qnetworkcookiejar_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QNetworkCookieJar::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,14 +521,15 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_receivers_isbase) {
             qnetworkcookiejar_receivers_isbase = false;
             return QNetworkCookieJar::receivers(signal);
-        } else if (qnetworkcookiejar_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qnetworkcookiejar_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qnetworkcookiejar_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QNetworkCookieJar::receivers(signal);
         }
+        return QNetworkCookieJar::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,16 +537,17 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         if (qnetworkcookiejar_issignalconnected_isbase) {
             qnetworkcookiejar_issignalconnected_isbase = false;
             return QNetworkCookieJar::isSignalConnected(signal);
-        } else if (qnetworkcookiejar_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qnetworkcookiejar_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qnetworkcookiejar_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QNetworkCookieJar::isSignalConnected(signal);
         }
+        return QNetworkCookieJar::isSignalConnected(signal);
     }
 
     // Friend functions

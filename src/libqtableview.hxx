@@ -402,133 +402,6 @@ class VirtualQTableView final : public QTableView {
     VirtualQTableView(QWidget* parent) : QTableView(parent) {};
     VirtualQTableView() : QTableView() {};
 
-    ~VirtualQTableView() {
-        qtableview_metaobject_callback = nullptr;
-        qtableview_metacast_callback = nullptr;
-        qtableview_metacall_callback = nullptr;
-        qtableview_setmodel_callback = nullptr;
-        qtableview_setrootindex_callback = nullptr;
-        qtableview_setselectionmodel_callback = nullptr;
-        qtableview_doitemslayout_callback = nullptr;
-        qtableview_visualrect_callback = nullptr;
-        qtableview_scrollto_callback = nullptr;
-        qtableview_indexat_callback = nullptr;
-        qtableview_scrollcontentsby_callback = nullptr;
-        qtableview_initviewitemoption_callback = nullptr;
-        qtableview_paintevent_callback = nullptr;
-        qtableview_timerevent_callback = nullptr;
-        qtableview_dropevent_callback = nullptr;
-        qtableview_horizontaloffset_callback = nullptr;
-        qtableview_verticaloffset_callback = nullptr;
-        qtableview_movecursor_callback = nullptr;
-        qtableview_setselection_callback = nullptr;
-        qtableview_visualregionforselection_callback = nullptr;
-        qtableview_selectedindexes_callback = nullptr;
-        qtableview_updategeometries_callback = nullptr;
-        qtableview_viewportsizehint_callback = nullptr;
-        qtableview_sizehintforrow_callback = nullptr;
-        qtableview_sizehintforcolumn_callback = nullptr;
-        qtableview_verticalscrollbaraction_callback = nullptr;
-        qtableview_horizontalscrollbaraction_callback = nullptr;
-        qtableview_isindexhidden_callback = nullptr;
-        qtableview_selectionchanged_callback = nullptr;
-        qtableview_currentchanged_callback = nullptr;
-        qtableview_keyboardsearch_callback = nullptr;
-        qtableview_itemdelegateforindex_callback = nullptr;
-        qtableview_inputmethodquery_callback = nullptr;
-        qtableview_reset_callback = nullptr;
-        qtableview_selectall_callback = nullptr;
-        qtableview_datachanged_callback = nullptr;
-        qtableview_rowsinserted_callback = nullptr;
-        qtableview_rowsabouttoberemoved_callback = nullptr;
-        qtableview_updateeditordata_callback = nullptr;
-        qtableview_updateeditorgeometries_callback = nullptr;
-        qtableview_verticalscrollbarvaluechanged_callback = nullptr;
-        qtableview_horizontalscrollbarvaluechanged_callback = nullptr;
-        qtableview_closeeditor_callback = nullptr;
-        qtableview_commitdata_callback = nullptr;
-        qtableview_editordestroyed_callback = nullptr;
-        qtableview_edit2_callback = nullptr;
-        qtableview_selectioncommand_callback = nullptr;
-        qtableview_startdrag_callback = nullptr;
-        qtableview_focusnextprevchild_callback = nullptr;
-        qtableview_event_callback = nullptr;
-        qtableview_viewportevent_callback = nullptr;
-        qtableview_mousepressevent_callback = nullptr;
-        qtableview_mousemoveevent_callback = nullptr;
-        qtableview_mousereleaseevent_callback = nullptr;
-        qtableview_mousedoubleclickevent_callback = nullptr;
-        qtableview_dragenterevent_callback = nullptr;
-        qtableview_dragmoveevent_callback = nullptr;
-        qtableview_dragleaveevent_callback = nullptr;
-        qtableview_focusinevent_callback = nullptr;
-        qtableview_focusoutevent_callback = nullptr;
-        qtableview_keypressevent_callback = nullptr;
-        qtableview_resizeevent_callback = nullptr;
-        qtableview_inputmethodevent_callback = nullptr;
-        qtableview_eventfilter_callback = nullptr;
-        qtableview_minimumsizehint_callback = nullptr;
-        qtableview_sizehint_callback = nullptr;
-        qtableview_setupviewport_callback = nullptr;
-        qtableview_wheelevent_callback = nullptr;
-        qtableview_contextmenuevent_callback = nullptr;
-        qtableview_changeevent_callback = nullptr;
-        qtableview_initstyleoption_callback = nullptr;
-        qtableview_devtype_callback = nullptr;
-        qtableview_setvisible_callback = nullptr;
-        qtableview_heightforwidth_callback = nullptr;
-        qtableview_hasheightforwidth_callback = nullptr;
-        qtableview_paintengine_callback = nullptr;
-        qtableview_keyreleaseevent_callback = nullptr;
-        qtableview_enterevent_callback = nullptr;
-        qtableview_leaveevent_callback = nullptr;
-        qtableview_moveevent_callback = nullptr;
-        qtableview_closeevent_callback = nullptr;
-        qtableview_tabletevent_callback = nullptr;
-        qtableview_actionevent_callback = nullptr;
-        qtableview_showevent_callback = nullptr;
-        qtableview_hideevent_callback = nullptr;
-        qtableview_nativeevent_callback = nullptr;
-        qtableview_metric_callback = nullptr;
-        qtableview_initpainter_callback = nullptr;
-        qtableview_redirected_callback = nullptr;
-        qtableview_sharedpainter_callback = nullptr;
-        qtableview_childevent_callback = nullptr;
-        qtableview_customevent_callback = nullptr;
-        qtableview_connectnotify_callback = nullptr;
-        qtableview_disconnectnotify_callback = nullptr;
-        qtableview_rowmoved_callback = nullptr;
-        qtableview_columnmoved_callback = nullptr;
-        qtableview_rowresized_callback = nullptr;
-        qtableview_columnresized_callback = nullptr;
-        qtableview_rowcountchanged_callback = nullptr;
-        qtableview_columncountchanged_callback = nullptr;
-        qtableview_state_callback = nullptr;
-        qtableview_setstate_callback = nullptr;
-        qtableview_scheduledelayeditemslayout_callback = nullptr;
-        qtableview_executedelayeditemslayout_callback = nullptr;
-        qtableview_setdirtyregion_callback = nullptr;
-        qtableview_scrolldirtyregion_callback = nullptr;
-        qtableview_dirtyregionoffset_callback = nullptr;
-        qtableview_startautoscroll_callback = nullptr;
-        qtableview_stopautoscroll_callback = nullptr;
-        qtableview_doautoscroll_callback = nullptr;
-        qtableview_dropindicatorposition_callback = nullptr;
-        qtableview_setviewportmargins_callback = nullptr;
-        qtableview_viewportmargins_callback = nullptr;
-        qtableview_drawframe_callback = nullptr;
-        qtableview_updatemicrofocus_callback = nullptr;
-        qtableview_create_callback = nullptr;
-        qtableview_destroy_callback = nullptr;
-        qtableview_focusnextchild_callback = nullptr;
-        qtableview_focuspreviouschild_callback = nullptr;
-        qtableview_sender_callback = nullptr;
-        qtableview_sendersignalindex_callback = nullptr;
-        qtableview_receivers_callback = nullptr;
-        qtableview_issignalconnected_callback = nullptr;
-        qtableview_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTableView_MetaObject_Callback(QTableView_MetaObject_Callback cb) { qtableview_metaobject_callback = cb; }
     inline void setQTableView_Metacast_Callback(QTableView_Metacast_Callback cb) { qtableview_metacast_callback = cb; }
@@ -786,12 +659,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_metaobject_isbase) {
             qtableview_metaobject_isbase = false;
             return QTableView::metaObject();
-        } else if (qtableview_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtableview_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTableView::metaObject();
         }
+        auto metaobject_cb = qtableview_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTableView::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,14 +673,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_metacast_isbase) {
             qtableview_metacast_isbase = false;
             return QTableView::qt_metacast(param1);
-        } else if (qtableview_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtableview_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtableview_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTableView::qt_metacast(param1);
         }
+        return QTableView::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,16 +689,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_metacall_isbase) {
             qtableview_metacall_isbase = false;
             return QTableView::qt_metacall(param1, param2, param3);
-        } else if (qtableview_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtableview_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtableview_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTableView::qt_metacall(param1, param2, param3);
         }
+        return QTableView::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -831,13 +707,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_setmodel_isbase) {
             qtableview_setmodel_isbase = false;
             QTableView::setModel(model);
-        } else if (qtableview_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = qtableview_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            qtableview_setmodel_callback(this, cbval1);
-        } else {
-            QTableView::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        QTableView::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,15 +724,18 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_setrootindex_isbase) {
             qtableview_setrootindex_isbase = false;
             QTableView::setRootIndex(index);
-        } else if (qtableview_setrootindex_callback != nullptr) {
+            return;
+        }
+        auto setrootindex_cb = qtableview_setrootindex_callback;
+        if (setrootindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            qtableview_setrootindex_callback(this, cbval1);
-        } else {
-            QTableView::setRootIndex(index);
+            setrootindex_cb(this, cbval1);
+            return;
         }
+        QTableView::setRootIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,13 +743,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_setselectionmodel_isbase) {
             qtableview_setselectionmodel_isbase = false;
             QTableView::setSelectionModel(selectionModel);
-        } else if (qtableview_setselectionmodel_callback != nullptr) {
+            return;
+        }
+        auto setselectionmodel_cb = qtableview_setselectionmodel_callback;
+        if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
 
-            qtableview_setselectionmodel_callback(this, cbval1);
-        } else {
-            QTableView::setSelectionModel(selectionModel);
+            setselectionmodel_cb(this, cbval1);
+            return;
         }
+        QTableView::setSelectionModel(selectionModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -875,11 +760,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_doitemslayout_isbase) {
             qtableview_doitemslayout_isbase = false;
             QTableView::doItemsLayout();
-        } else if (qtableview_doitemslayout_callback != nullptr) {
-            qtableview_doitemslayout_callback();
-        } else {
-            QTableView::doItemsLayout();
+            return;
         }
+        auto doitemslayout_cb = qtableview_doitemslayout_callback;
+        if (doitemslayout_cb) {
+            doitemslayout_cb();
+            return;
+        }
+        QTableView::doItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -887,16 +775,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_visualrect_isbase) {
             qtableview_visualrect_isbase = false;
             return QTableView::visualRect(index);
-        } else if (qtableview_visualrect_callback != nullptr) {
+        }
+        auto visualrect_cb = qtableview_visualrect_callback;
+        if (visualrect_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = qtableview_visualrect_callback(this, cbval1);
+            QRect* callback_ret = visualrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTableView::visualRect(index);
         }
+        return QTableView::visualRect(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -904,16 +793,19 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_scrollto_isbase) {
             qtableview_scrollto_isbase = false;
             QTableView::scrollTo(index, hint);
-        } else if (qtableview_scrollto_callback != nullptr) {
+            return;
+        }
+        auto scrollto_cb = qtableview_scrollto_callback;
+        if (scrollto_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
 
-            qtableview_scrollto_callback(this, cbval1, cbval2);
-        } else {
-            QTableView::scrollTo(index, hint);
+            scrollto_cb(this, cbval1, cbval2);
+            return;
         }
+        QTableView::scrollTo(index, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -921,16 +813,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_indexat_isbase) {
             qtableview_indexat_isbase = false;
             return QTableView::indexAt(p);
-        } else if (qtableview_indexat_callback != nullptr) {
+        }
+        auto indexat_cb = qtableview_indexat_callback;
+        if (indexat_cb) {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
 
-            QModelIndex* callback_ret = qtableview_indexat_callback(this, cbval1);
+            QModelIndex* callback_ret = indexat_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTableView::indexAt(p);
         }
+        return QTableView::indexAt(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -938,14 +831,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_scrollcontentsby_isbase) {
             qtableview_scrollcontentsby_isbase = false;
             QTableView::scrollContentsBy(dx, dy);
-        } else if (qtableview_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = qtableview_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qtableview_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            QTableView::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        QTableView::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,13 +849,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_initviewitemoption_isbase) {
             qtableview_initviewitemoption_isbase = false;
             QTableView::initViewItemOption(option);
-        } else if (qtableview_initviewitemoption_callback != nullptr) {
+            return;
+        }
+        auto initviewitemoption_cb = qtableview_initviewitemoption_callback;
+        if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
 
-            qtableview_initviewitemoption_callback(this, cbval1);
-        } else {
-            QTableView::initViewItemOption(option);
+            initviewitemoption_cb(this, cbval1);
+            return;
         }
+        QTableView::initViewItemOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,13 +866,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_paintevent_isbase) {
             qtableview_paintevent_isbase = false;
             QTableView::paintEvent(e);
-        } else if (qtableview_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qtableview_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
 
-            qtableview_paintevent_callback(this, cbval1);
-        } else {
-            QTableView::paintEvent(e);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QTableView::paintEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -981,13 +883,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_timerevent_isbase) {
             qtableview_timerevent_isbase = false;
             QTableView::timerEvent(event);
-        } else if (qtableview_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtableview_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtableview_timerevent_callback(this, cbval1);
-        } else {
-            QTableView::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTableView::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -995,13 +900,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_dropevent_isbase) {
             qtableview_dropevent_isbase = false;
             QTableView::dropEvent(event);
-        } else if (qtableview_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qtableview_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qtableview_dropevent_callback(this, cbval1);
-        } else {
-            QTableView::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QTableView::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,12 +917,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_horizontaloffset_isbase) {
             qtableview_horizontaloffset_isbase = false;
             return QTableView::horizontalOffset();
-        } else if (qtableview_horizontaloffset_callback != nullptr) {
-            int callback_ret = qtableview_horizontaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTableView::horizontalOffset();
         }
+        auto horizontaloffset_cb = qtableview_horizontaloffset_callback;
+        if (horizontaloffset_cb) {
+            int callback_ret = horizontaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTableView::horizontalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,12 +931,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_verticaloffset_isbase) {
             qtableview_verticaloffset_isbase = false;
             return QTableView::verticalOffset();
-        } else if (qtableview_verticaloffset_callback != nullptr) {
-            int callback_ret = qtableview_verticaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTableView::verticalOffset();
         }
+        auto verticaloffset_cb = qtableview_verticaloffset_callback;
+        if (verticaloffset_cb) {
+            int callback_ret = verticaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTableView::verticalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,15 +945,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_movecursor_isbase) {
             qtableview_movecursor_isbase = false;
             return QTableView::moveCursor(cursorAction, modifiers);
-        } else if (qtableview_movecursor_callback != nullptr) {
+        }
+        auto movecursor_cb = qtableview_movecursor_callback;
+        if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
 
-            QModelIndex* callback_ret = qtableview_movecursor_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QTableView::moveCursor(cursorAction, modifiers);
         }
+        return QTableView::moveCursor(cursorAction, modifiers);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1051,16 +962,19 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_setselection_isbase) {
             qtableview_setselection_isbase = false;
             QTableView::setSelection(rect, command);
-        } else if (qtableview_setselection_callback != nullptr) {
+            return;
+        }
+        auto setselection_cb = qtableview_setselection_callback;
+        if (setselection_cb) {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
 
-            qtableview_setselection_callback(this, cbval1, cbval2);
-        } else {
-            QTableView::setSelection(rect, command);
+            setselection_cb(this, cbval1, cbval2);
+            return;
         }
+        QTableView::setSelection(rect, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,16 +982,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_visualregionforselection_isbase) {
             qtableview_visualregionforselection_isbase = false;
             return QTableView::visualRegionForSelection(selection);
-        } else if (qtableview_visualregionforselection_callback != nullptr) {
+        }
+        auto visualregionforselection_cb = qtableview_visualregionforselection_callback;
+        if (visualregionforselection_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QRegion* callback_ret = qtableview_visualregionforselection_callback(this, cbval1);
+            QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTableView::visualRegionForSelection(selection);
         }
+        return QTableView::visualRegionForSelection(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1085,8 +1000,10 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_selectedindexes_isbase) {
             qtableview_selectedindexes_isbase = false;
             return QTableView::selectedIndexes();
-        } else if (qtableview_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qtableview_selectedindexes_callback();
+        }
+        auto selectedindexes_cb = qtableview_selectedindexes_callback;
+        if (selectedindexes_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = selectedindexes_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1095,9 +1012,8 @@ class VirtualQTableView final : public QTableView {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QTableView::selectedIndexes();
         }
+        return QTableView::selectedIndexes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,11 +1021,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_updategeometries_isbase) {
             qtableview_updategeometries_isbase = false;
             QTableView::updateGeometries();
-        } else if (qtableview_updategeometries_callback != nullptr) {
-            qtableview_updategeometries_callback();
-        } else {
-            QTableView::updateGeometries();
+            return;
         }
+        auto updategeometries_cb = qtableview_updategeometries_callback;
+        if (updategeometries_cb) {
+            updategeometries_cb();
+            return;
+        }
+        QTableView::updateGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1117,12 +1036,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_viewportsizehint_isbase) {
             qtableview_viewportsizehint_isbase = false;
             return QTableView::viewportSizeHint();
-        } else if (qtableview_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = qtableview_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTableView::viewportSizeHint();
         }
+        auto viewportsizehint_cb = qtableview_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return QTableView::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,14 +1050,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_sizehintforrow_isbase) {
             qtableview_sizehintforrow_isbase = false;
             return QTableView::sizeHintForRow(row);
-        } else if (qtableview_sizehintforrow_callback != nullptr) {
+        }
+        auto sizehintforrow_cb = qtableview_sizehintforrow_callback;
+        if (sizehintforrow_cb) {
             int cbval1 = row;
 
-            int callback_ret = qtableview_sizehintforrow_callback(this, cbval1);
+            int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTableView::sizeHintForRow(row);
         }
+        return QTableView::sizeHintForRow(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1145,14 +1066,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_sizehintforcolumn_isbase) {
             qtableview_sizehintforcolumn_isbase = false;
             return QTableView::sizeHintForColumn(column);
-        } else if (qtableview_sizehintforcolumn_callback != nullptr) {
+        }
+        auto sizehintforcolumn_cb = qtableview_sizehintforcolumn_callback;
+        if (sizehintforcolumn_cb) {
             int cbval1 = column;
 
-            int callback_ret = qtableview_sizehintforcolumn_callback(this, cbval1);
+            int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTableView::sizeHintForColumn(column);
         }
+        return QTableView::sizeHintForColumn(column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1160,13 +1082,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_verticalscrollbaraction_isbase) {
             qtableview_verticalscrollbaraction_isbase = false;
             QTableView::verticalScrollbarAction(action);
-        } else if (qtableview_verticalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbaraction_cb = qtableview_verticalscrollbaraction_callback;
+        if (verticalscrollbaraction_cb) {
             int cbval1 = action;
 
-            qtableview_verticalscrollbaraction_callback(this, cbval1);
-        } else {
-            QTableView::verticalScrollbarAction(action);
+            verticalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        QTableView::verticalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1174,13 +1099,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_horizontalscrollbaraction_isbase) {
             qtableview_horizontalscrollbaraction_isbase = false;
             QTableView::horizontalScrollbarAction(action);
-        } else if (qtableview_horizontalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbaraction_cb = qtableview_horizontalscrollbaraction_callback;
+        if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
 
-            qtableview_horizontalscrollbaraction_callback(this, cbval1);
-        } else {
-            QTableView::horizontalScrollbarAction(action);
+            horizontalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        QTableView::horizontalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1188,16 +1116,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_isindexhidden_isbase) {
             qtableview_isindexhidden_isbase = false;
             return QTableView::isIndexHidden(index);
-        } else if (qtableview_isindexhidden_callback != nullptr) {
+        }
+        auto isindexhidden_cb = qtableview_isindexhidden_callback;
+        if (isindexhidden_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qtableview_isindexhidden_callback(this, cbval1);
+            bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTableView::isIndexHidden(index);
         }
+        return QTableView::isIndexHidden(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,7 +1134,10 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_selectionchanged_isbase) {
             qtableview_selectionchanged_isbase = false;
             QTableView::selectionChanged(selected, deselected);
-        } else if (qtableview_selectionchanged_callback != nullptr) {
+            return;
+        }
+        auto selectionchanged_cb = qtableview_selectionchanged_callback;
+        if (selectionchanged_cb) {
             const QItemSelection& selected_ret = selected;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
@@ -1213,10 +1145,10 @@ class VirtualQTableView final : public QTableView {
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
 
-            qtableview_selectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            QTableView::selectionChanged(selected, deselected);
+            selectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QTableView::selectionChanged(selected, deselected);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1224,7 +1156,10 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_currentchanged_isbase) {
             qtableview_currentchanged_isbase = false;
             QTableView::currentChanged(current, previous);
-        } else if (qtableview_currentchanged_callback != nullptr) {
+            return;
+        }
+        auto currentchanged_cb = qtableview_currentchanged_callback;
+        if (currentchanged_cb) {
             const QModelIndex& current_ret = current;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
@@ -1232,10 +1167,10 @@ class VirtualQTableView final : public QTableView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
 
-            qtableview_currentchanged_callback(this, cbval1, cbval2);
-        } else {
-            QTableView::currentChanged(current, previous);
+            currentchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QTableView::currentChanged(current, previous);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,7 +1178,10 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_keyboardsearch_isbase) {
             qtableview_keyboardsearch_isbase = false;
             QTableView::keyboardSearch(search);
-        } else if (qtableview_keyboardsearch_callback != nullptr) {
+            return;
+        }
+        auto keyboardsearch_cb = qtableview_keyboardsearch_callback;
+        if (keyboardsearch_cb) {
             const QString search_ret = search;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
@@ -1253,11 +1191,11 @@ class VirtualQTableView final : public QTableView {
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
 
-            qtableview_keyboardsearch_callback(this, cbval1);
+            keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
-        } else {
-            QTableView::keyboardSearch(search);
+            return;
         }
+        QTableView::keyboardSearch(search);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1265,16 +1203,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_itemdelegateforindex_isbase) {
             qtableview_itemdelegateforindex_isbase = false;
             return QTableView::itemDelegateForIndex(index);
-        } else if (qtableview_itemdelegateforindex_callback != nullptr) {
+        }
+        auto itemdelegateforindex_cb = qtableview_itemdelegateforindex_callback;
+        if (itemdelegateforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QAbstractItemDelegate* callback_ret = qtableview_itemdelegateforindex_callback(this, cbval1);
+            QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTableView::itemDelegateForIndex(index);
         }
+        return QTableView::itemDelegateForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,14 +1221,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_inputmethodquery_isbase) {
             qtableview_inputmethodquery_isbase = false;
             return QTableView::inputMethodQuery(query);
-        } else if (qtableview_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qtableview_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qtableview_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTableView::inputMethodQuery(query);
         }
+        return QTableView::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1297,11 +1237,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_reset_isbase) {
             qtableview_reset_isbase = false;
             QTableView::reset();
-        } else if (qtableview_reset_callback != nullptr) {
-            qtableview_reset_callback();
-        } else {
-            QTableView::reset();
+            return;
         }
+        auto reset_cb = qtableview_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        QTableView::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1309,11 +1252,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_selectall_isbase) {
             qtableview_selectall_isbase = false;
             QTableView::selectAll();
-        } else if (qtableview_selectall_callback != nullptr) {
-            qtableview_selectall_callback();
-        } else {
-            QTableView::selectAll();
+            return;
         }
+        auto selectall_cb = qtableview_selectall_callback;
+        if (selectall_cb) {
+            selectall_cb();
+            return;
+        }
+        QTableView::selectAll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,7 +1267,10 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_datachanged_isbase) {
             qtableview_datachanged_isbase = false;
             QTableView::dataChanged(topLeft, bottomRight, roles);
-        } else if (qtableview_datachanged_callback != nullptr) {
+            return;
+        }
+        auto datachanged_cb = qtableview_datachanged_callback;
+        if (datachanged_cb) {
             const QModelIndex& topLeft_ret = topLeft;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
@@ -1339,11 +1288,11 @@ class VirtualQTableView final : public QTableView {
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
-            qtableview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
-        } else {
-            QTableView::dataChanged(topLeft, bottomRight, roles);
+            return;
         }
+        QTableView::dataChanged(topLeft, bottomRight, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1351,17 +1300,20 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_rowsinserted_isbase) {
             qtableview_rowsinserted_isbase = false;
             QTableView::rowsInserted(parent, start, end);
-        } else if (qtableview_rowsinserted_callback != nullptr) {
+            return;
+        }
+        auto rowsinserted_cb = qtableview_rowsinserted_callback;
+        if (rowsinserted_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            qtableview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTableView::rowsInserted(parent, start, end);
+            rowsinserted_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTableView::rowsInserted(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1369,17 +1321,20 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_rowsabouttoberemoved_isbase) {
             qtableview_rowsabouttoberemoved_isbase = false;
             QTableView::rowsAboutToBeRemoved(parent, start, end);
-        } else if (qtableview_rowsabouttoberemoved_callback != nullptr) {
+            return;
+        }
+        auto rowsabouttoberemoved_cb = qtableview_rowsabouttoberemoved_callback;
+        if (rowsabouttoberemoved_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            qtableview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTableView::rowsAboutToBeRemoved(parent, start, end);
+            rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTableView::rowsAboutToBeRemoved(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1387,11 +1342,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_updateeditordata_isbase) {
             qtableview_updateeditordata_isbase = false;
             QTableView::updateEditorData();
-        } else if (qtableview_updateeditordata_callback != nullptr) {
-            qtableview_updateeditordata_callback();
-        } else {
-            QTableView::updateEditorData();
+            return;
         }
+        auto updateeditordata_cb = qtableview_updateeditordata_callback;
+        if (updateeditordata_cb) {
+            updateeditordata_cb();
+            return;
+        }
+        QTableView::updateEditorData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1399,11 +1357,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_updateeditorgeometries_isbase) {
             qtableview_updateeditorgeometries_isbase = false;
             QTableView::updateEditorGeometries();
-        } else if (qtableview_updateeditorgeometries_callback != nullptr) {
-            qtableview_updateeditorgeometries_callback();
-        } else {
-            QTableView::updateEditorGeometries();
+            return;
         }
+        auto updateeditorgeometries_cb = qtableview_updateeditorgeometries_callback;
+        if (updateeditorgeometries_cb) {
+            updateeditorgeometries_cb();
+            return;
+        }
+        QTableView::updateEditorGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1411,13 +1372,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_verticalscrollbarvaluechanged_isbase) {
             qtableview_verticalscrollbarvaluechanged_isbase = false;
             QTableView::verticalScrollbarValueChanged(value);
-        } else if (qtableview_verticalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbarvaluechanged_cb = qtableview_verticalscrollbarvaluechanged_callback;
+        if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            qtableview_verticalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            QTableView::verticalScrollbarValueChanged(value);
+            verticalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        QTableView::verticalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1425,13 +1389,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_horizontalscrollbarvaluechanged_isbase) {
             qtableview_horizontalscrollbarvaluechanged_isbase = false;
             QTableView::horizontalScrollbarValueChanged(value);
-        } else if (qtableview_horizontalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbarvaluechanged_cb = qtableview_horizontalscrollbarvaluechanged_callback;
+        if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            qtableview_horizontalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            QTableView::horizontalScrollbarValueChanged(value);
+            horizontalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        QTableView::horizontalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1439,14 +1406,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_closeeditor_isbase) {
             qtableview_closeeditor_isbase = false;
             QTableView::closeEditor(editor, hint);
-        } else if (qtableview_closeeditor_callback != nullptr) {
+            return;
+        }
+        auto closeeditor_cb = qtableview_closeeditor_callback;
+        if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
 
-            qtableview_closeeditor_callback(this, cbval1, cbval2);
-        } else {
-            QTableView::closeEditor(editor, hint);
+            closeeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        QTableView::closeEditor(editor, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1454,13 +1424,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_commitdata_isbase) {
             qtableview_commitdata_isbase = false;
             QTableView::commitData(editor);
-        } else if (qtableview_commitdata_callback != nullptr) {
+            return;
+        }
+        auto commitdata_cb = qtableview_commitdata_callback;
+        if (commitdata_cb) {
             QWidget* cbval1 = editor;
 
-            qtableview_commitdata_callback(this, cbval1);
-        } else {
-            QTableView::commitData(editor);
+            commitdata_cb(this, cbval1);
+            return;
         }
+        QTableView::commitData(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1468,13 +1441,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_editordestroyed_isbase) {
             qtableview_editordestroyed_isbase = false;
             QTableView::editorDestroyed(editor);
-        } else if (qtableview_editordestroyed_callback != nullptr) {
+            return;
+        }
+        auto editordestroyed_cb = qtableview_editordestroyed_callback;
+        if (editordestroyed_cb) {
             QObject* cbval1 = editor;
 
-            qtableview_editordestroyed_callback(this, cbval1);
-        } else {
-            QTableView::editorDestroyed(editor);
+            editordestroyed_cb(this, cbval1);
+            return;
         }
+        QTableView::editorDestroyed(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1482,18 +1458,19 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_edit2_isbase) {
             qtableview_edit2_isbase = false;
             return QTableView::edit(index, trigger, event);
-        } else if (qtableview_edit2_callback != nullptr) {
+        }
+        auto edit2_cb = qtableview_edit2_callback;
+        if (edit2_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
 
-            bool callback_ret = qtableview_edit2_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QTableView::edit(index, trigger, event);
         }
+        return QTableView::edit(index, trigger, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1501,17 +1478,18 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_selectioncommand_isbase) {
             qtableview_selectioncommand_isbase = false;
             return QTableView::selectionCommand(index, event);
-        } else if (qtableview_selectioncommand_callback != nullptr) {
+        }
+        auto selectioncommand_cb = qtableview_selectioncommand_callback;
+        if (selectioncommand_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
 
-            int callback_ret = qtableview_selectioncommand_callback(this, cbval1, cbval2);
+            int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
-        } else {
-            return QTableView::selectionCommand(index, event);
         }
+        return QTableView::selectionCommand(index, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1519,13 +1497,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_startdrag_isbase) {
             qtableview_startdrag_isbase = false;
             QTableView::startDrag(supportedActions);
-        } else if (qtableview_startdrag_callback != nullptr) {
+            return;
+        }
+        auto startdrag_cb = qtableview_startdrag_callback;
+        if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
 
-            qtableview_startdrag_callback(this, cbval1);
-        } else {
-            QTableView::startDrag(supportedActions);
+            startdrag_cb(this, cbval1);
+            return;
         }
+        QTableView::startDrag(supportedActions);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1533,14 +1514,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_focusnextprevchild_isbase) {
             qtableview_focusnextprevchild_isbase = false;
             return QTableView::focusNextPrevChild(next);
-        } else if (qtableview_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qtableview_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qtableview_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTableView::focusNextPrevChild(next);
         }
+        return QTableView::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1548,14 +1530,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_event_isbase) {
             qtableview_event_isbase = false;
             return QTableView::event(event);
-        } else if (qtableview_event_callback != nullptr) {
+        }
+        auto event_cb = qtableview_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtableview_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTableView::event(event);
         }
+        return QTableView::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1563,14 +1546,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_viewportevent_isbase) {
             qtableview_viewportevent_isbase = false;
             return QTableView::viewportEvent(event);
-        } else if (qtableview_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = qtableview_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtableview_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTableView::viewportEvent(event);
         }
+        return QTableView::viewportEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1578,13 +1562,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_mousepressevent_isbase) {
             qtableview_mousepressevent_isbase = false;
             QTableView::mousePressEvent(event);
-        } else if (qtableview_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qtableview_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtableview_mousepressevent_callback(this, cbval1);
-        } else {
-            QTableView::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QTableView::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1592,13 +1579,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_mousemoveevent_isbase) {
             qtableview_mousemoveevent_isbase = false;
             QTableView::mouseMoveEvent(event);
-        } else if (qtableview_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qtableview_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtableview_mousemoveevent_callback(this, cbval1);
-        } else {
-            QTableView::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QTableView::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1606,13 +1596,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_mousereleaseevent_isbase) {
             qtableview_mousereleaseevent_isbase = false;
             QTableView::mouseReleaseEvent(event);
-        } else if (qtableview_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qtableview_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtableview_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QTableView::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QTableView::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1620,13 +1613,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_mousedoubleclickevent_isbase) {
             qtableview_mousedoubleclickevent_isbase = false;
             QTableView::mouseDoubleClickEvent(event);
-        } else if (qtableview_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qtableview_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtableview_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QTableView::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QTableView::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1634,13 +1630,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_dragenterevent_isbase) {
             qtableview_dragenterevent_isbase = false;
             QTableView::dragEnterEvent(event);
-        } else if (qtableview_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qtableview_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qtableview_dragenterevent_callback(this, cbval1);
-        } else {
-            QTableView::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QTableView::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1648,13 +1647,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_dragmoveevent_isbase) {
             qtableview_dragmoveevent_isbase = false;
             QTableView::dragMoveEvent(event);
-        } else if (qtableview_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qtableview_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qtableview_dragmoveevent_callback(this, cbval1);
-        } else {
-            QTableView::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QTableView::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1662,13 +1664,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_dragleaveevent_isbase) {
             qtableview_dragleaveevent_isbase = false;
             QTableView::dragLeaveEvent(event);
-        } else if (qtableview_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qtableview_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qtableview_dragleaveevent_callback(this, cbval1);
-        } else {
-            QTableView::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QTableView::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1676,13 +1681,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_focusinevent_isbase) {
             qtableview_focusinevent_isbase = false;
             QTableView::focusInEvent(event);
-        } else if (qtableview_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qtableview_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qtableview_focusinevent_callback(this, cbval1);
-        } else {
-            QTableView::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QTableView::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1690,13 +1698,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_focusoutevent_isbase) {
             qtableview_focusoutevent_isbase = false;
             QTableView::focusOutEvent(event);
-        } else if (qtableview_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qtableview_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qtableview_focusoutevent_callback(this, cbval1);
-        } else {
-            QTableView::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QTableView::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1704,13 +1715,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_keypressevent_isbase) {
             qtableview_keypressevent_isbase = false;
             QTableView::keyPressEvent(event);
-        } else if (qtableview_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qtableview_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qtableview_keypressevent_callback(this, cbval1);
-        } else {
-            QTableView::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QTableView::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1718,13 +1732,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_resizeevent_isbase) {
             qtableview_resizeevent_isbase = false;
             QTableView::resizeEvent(event);
-        } else if (qtableview_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qtableview_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qtableview_resizeevent_callback(this, cbval1);
-        } else {
-            QTableView::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QTableView::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1732,13 +1749,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_inputmethodevent_isbase) {
             qtableview_inputmethodevent_isbase = false;
             QTableView::inputMethodEvent(event);
-        } else if (qtableview_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qtableview_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qtableview_inputmethodevent_callback(this, cbval1);
-        } else {
-            QTableView::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QTableView::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1746,15 +1766,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_eventfilter_isbase) {
             qtableview_eventfilter_isbase = false;
             return QTableView::eventFilter(object, event);
-        } else if (qtableview_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtableview_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtableview_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTableView::eventFilter(object, event);
         }
+        return QTableView::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1762,12 +1783,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_minimumsizehint_isbase) {
             qtableview_minimumsizehint_isbase = false;
             return QTableView::minimumSizeHint();
-        } else if (qtableview_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qtableview_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTableView::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qtableview_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QTableView::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1775,12 +1797,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_sizehint_isbase) {
             qtableview_sizehint_isbase = false;
             return QTableView::sizeHint();
-        } else if (qtableview_sizehint_callback != nullptr) {
-            QSize* callback_ret = qtableview_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTableView::sizeHint();
         }
+        auto sizehint_cb = qtableview_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QTableView::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1788,13 +1811,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_setupviewport_isbase) {
             qtableview_setupviewport_isbase = false;
             QTableView::setupViewport(viewport);
-        } else if (qtableview_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = qtableview_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            qtableview_setupviewport_callback(this, cbval1);
-        } else {
-            QTableView::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        QTableView::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1802,13 +1828,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_wheelevent_isbase) {
             qtableview_wheelevent_isbase = false;
             QTableView::wheelEvent(param1);
-        } else if (qtableview_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qtableview_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            qtableview_wheelevent_callback(this, cbval1);
-        } else {
-            QTableView::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QTableView::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1816,13 +1845,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_contextmenuevent_isbase) {
             qtableview_contextmenuevent_isbase = false;
             QTableView::contextMenuEvent(param1);
-        } else if (qtableview_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qtableview_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qtableview_contextmenuevent_callback(this, cbval1);
-        } else {
-            QTableView::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QTableView::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1830,13 +1862,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_changeevent_isbase) {
             qtableview_changeevent_isbase = false;
             QTableView::changeEvent(param1);
-        } else if (qtableview_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qtableview_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qtableview_changeevent_callback(this, cbval1);
-        } else {
-            QTableView::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QTableView::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1844,13 +1879,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_initstyleoption_isbase) {
             qtableview_initstyleoption_isbase = false;
             QTableView::initStyleOption(option);
-        } else if (qtableview_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qtableview_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qtableview_initstyleoption_callback(this, cbval1);
-        } else {
-            QTableView::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QTableView::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1858,12 +1896,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_devtype_isbase) {
             qtableview_devtype_isbase = false;
             return QTableView::devType();
-        } else if (qtableview_devtype_callback != nullptr) {
-            int callback_ret = qtableview_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTableView::devType();
         }
+        auto devtype_cb = qtableview_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTableView::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1871,13 +1910,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_setvisible_isbase) {
             qtableview_setvisible_isbase = false;
             QTableView::setVisible(visible);
-        } else if (qtableview_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qtableview_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qtableview_setvisible_callback(this, cbval1);
-        } else {
-            QTableView::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QTableView::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1885,14 +1927,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_heightforwidth_isbase) {
             qtableview_heightforwidth_isbase = false;
             return QTableView::heightForWidth(param1);
-        } else if (qtableview_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qtableview_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qtableview_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTableView::heightForWidth(param1);
         }
+        return QTableView::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1900,12 +1943,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_hasheightforwidth_isbase) {
             qtableview_hasheightforwidth_isbase = false;
             return QTableView::hasHeightForWidth();
-        } else if (qtableview_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qtableview_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QTableView::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qtableview_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QTableView::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1913,12 +1957,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_paintengine_isbase) {
             qtableview_paintengine_isbase = false;
             return QTableView::paintEngine();
-        } else if (qtableview_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qtableview_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QTableView::paintEngine();
         }
+        auto paintengine_cb = qtableview_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QTableView::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1926,13 +1971,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_keyreleaseevent_isbase) {
             qtableview_keyreleaseevent_isbase = false;
             QTableView::keyReleaseEvent(event);
-        } else if (qtableview_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qtableview_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qtableview_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QTableView::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QTableView::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1940,13 +1988,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_enterevent_isbase) {
             qtableview_enterevent_isbase = false;
             QTableView::enterEvent(event);
-        } else if (qtableview_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qtableview_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qtableview_enterevent_callback(this, cbval1);
-        } else {
-            QTableView::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QTableView::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1954,13 +2005,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_leaveevent_isbase) {
             qtableview_leaveevent_isbase = false;
             QTableView::leaveEvent(event);
-        } else if (qtableview_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qtableview_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qtableview_leaveevent_callback(this, cbval1);
-        } else {
-            QTableView::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QTableView::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1968,13 +2022,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_moveevent_isbase) {
             qtableview_moveevent_isbase = false;
             QTableView::moveEvent(event);
-        } else if (qtableview_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qtableview_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qtableview_moveevent_callback(this, cbval1);
-        } else {
-            QTableView::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QTableView::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1982,13 +2039,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_closeevent_isbase) {
             qtableview_closeevent_isbase = false;
             QTableView::closeEvent(event);
-        } else if (qtableview_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qtableview_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qtableview_closeevent_callback(this, cbval1);
-        } else {
-            QTableView::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QTableView::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1996,13 +2056,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_tabletevent_isbase) {
             qtableview_tabletevent_isbase = false;
             QTableView::tabletEvent(event);
-        } else if (qtableview_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qtableview_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qtableview_tabletevent_callback(this, cbval1);
-        } else {
-            QTableView::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QTableView::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2010,13 +2073,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_actionevent_isbase) {
             qtableview_actionevent_isbase = false;
             QTableView::actionEvent(event);
-        } else if (qtableview_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qtableview_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qtableview_actionevent_callback(this, cbval1);
-        } else {
-            QTableView::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QTableView::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2024,13 +2090,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_showevent_isbase) {
             qtableview_showevent_isbase = false;
             QTableView::showEvent(event);
-        } else if (qtableview_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qtableview_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qtableview_showevent_callback(this, cbval1);
-        } else {
-            QTableView::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QTableView::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2038,13 +2107,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_hideevent_isbase) {
             qtableview_hideevent_isbase = false;
             QTableView::hideEvent(event);
-        } else if (qtableview_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qtableview_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qtableview_hideevent_callback(this, cbval1);
-        } else {
-            QTableView::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QTableView::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2052,7 +2124,9 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_nativeevent_isbase) {
             qtableview_nativeevent_isbase = false;
             return QTableView::nativeEvent(eventType, message, result);
-        } else if (qtableview_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qtableview_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2063,12 +2137,11 @@ class VirtualQTableView final : public QTableView {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qtableview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QTableView::nativeEvent(eventType, message, result);
         }
+        return QTableView::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2076,14 +2149,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_metric_isbase) {
             qtableview_metric_isbase = false;
             return QTableView::metric(param1);
-        } else if (qtableview_metric_callback != nullptr) {
+        }
+        auto metric_cb = qtableview_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qtableview_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTableView::metric(param1);
         }
+        return QTableView::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2091,13 +2165,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_initpainter_isbase) {
             qtableview_initpainter_isbase = false;
             QTableView::initPainter(painter);
-        } else if (qtableview_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qtableview_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qtableview_initpainter_callback(this, cbval1);
-        } else {
-            QTableView::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QTableView::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2105,14 +2182,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_redirected_isbase) {
             qtableview_redirected_isbase = false;
             return QTableView::redirected(offset);
-        } else if (qtableview_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qtableview_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qtableview_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTableView::redirected(offset);
         }
+        return QTableView::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2120,12 +2198,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_sharedpainter_isbase) {
             qtableview_sharedpainter_isbase = false;
             return QTableView::sharedPainter();
-        } else if (qtableview_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qtableview_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QTableView::sharedPainter();
         }
+        auto sharedpainter_cb = qtableview_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QTableView::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2133,13 +2212,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_childevent_isbase) {
             qtableview_childevent_isbase = false;
             QTableView::childEvent(event);
-        } else if (qtableview_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtableview_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtableview_childevent_callback(this, cbval1);
-        } else {
-            QTableView::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTableView::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2147,13 +2229,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_customevent_isbase) {
             qtableview_customevent_isbase = false;
             QTableView::customEvent(event);
-        } else if (qtableview_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtableview_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtableview_customevent_callback(this, cbval1);
-        } else {
-            QTableView::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTableView::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2161,15 +2246,18 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_connectnotify_isbase) {
             qtableview_connectnotify_isbase = false;
             QTableView::connectNotify(signal);
-        } else if (qtableview_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtableview_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtableview_connectnotify_callback(this, cbval1);
-        } else {
-            QTableView::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTableView::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2177,15 +2265,18 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_disconnectnotify_isbase) {
             qtableview_disconnectnotify_isbase = false;
             QTableView::disconnectNotify(signal);
-        } else if (qtableview_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtableview_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtableview_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTableView::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTableView::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2193,15 +2284,18 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_rowmoved_isbase) {
             qtableview_rowmoved_isbase = false;
             QTableView::rowMoved(row, oldIndex, newIndex);
-        } else if (qtableview_rowmoved_callback != nullptr) {
+            return;
+        }
+        auto rowmoved_cb = qtableview_rowmoved_callback;
+        if (rowmoved_cb) {
             int cbval1 = row;
             int cbval2 = oldIndex;
             int cbval3 = newIndex;
 
-            qtableview_rowmoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTableView::rowMoved(row, oldIndex, newIndex);
+            rowmoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTableView::rowMoved(row, oldIndex, newIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2209,15 +2303,18 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_columnmoved_isbase) {
             qtableview_columnmoved_isbase = false;
             QTableView::columnMoved(column, oldIndex, newIndex);
-        } else if (qtableview_columnmoved_callback != nullptr) {
+            return;
+        }
+        auto columnmoved_cb = qtableview_columnmoved_callback;
+        if (columnmoved_cb) {
             int cbval1 = column;
             int cbval2 = oldIndex;
             int cbval3 = newIndex;
 
-            qtableview_columnmoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTableView::columnMoved(column, oldIndex, newIndex);
+            columnmoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTableView::columnMoved(column, oldIndex, newIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2225,15 +2322,18 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_rowresized_isbase) {
             qtableview_rowresized_isbase = false;
             QTableView::rowResized(row, oldHeight, newHeight);
-        } else if (qtableview_rowresized_callback != nullptr) {
+            return;
+        }
+        auto rowresized_cb = qtableview_rowresized_callback;
+        if (rowresized_cb) {
             int cbval1 = row;
             int cbval2 = oldHeight;
             int cbval3 = newHeight;
 
-            qtableview_rowresized_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTableView::rowResized(row, oldHeight, newHeight);
+            rowresized_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTableView::rowResized(row, oldHeight, newHeight);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2241,15 +2341,18 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_columnresized_isbase) {
             qtableview_columnresized_isbase = false;
             QTableView::columnResized(column, oldWidth, newWidth);
-        } else if (qtableview_columnresized_callback != nullptr) {
+            return;
+        }
+        auto columnresized_cb = qtableview_columnresized_callback;
+        if (columnresized_cb) {
             int cbval1 = column;
             int cbval2 = oldWidth;
             int cbval3 = newWidth;
 
-            qtableview_columnresized_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QTableView::columnResized(column, oldWidth, newWidth);
+            columnresized_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QTableView::columnResized(column, oldWidth, newWidth);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2257,14 +2360,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_rowcountchanged_isbase) {
             qtableview_rowcountchanged_isbase = false;
             QTableView::rowCountChanged(oldCount, newCount);
-        } else if (qtableview_rowcountchanged_callback != nullptr) {
+            return;
+        }
+        auto rowcountchanged_cb = qtableview_rowcountchanged_callback;
+        if (rowcountchanged_cb) {
             int cbval1 = oldCount;
             int cbval2 = newCount;
 
-            qtableview_rowcountchanged_callback(this, cbval1, cbval2);
-        } else {
-            QTableView::rowCountChanged(oldCount, newCount);
+            rowcountchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QTableView::rowCountChanged(oldCount, newCount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2272,14 +2378,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_columncountchanged_isbase) {
             qtableview_columncountchanged_isbase = false;
             QTableView::columnCountChanged(oldCount, newCount);
-        } else if (qtableview_columncountchanged_callback != nullptr) {
+            return;
+        }
+        auto columncountchanged_cb = qtableview_columncountchanged_callback;
+        if (columncountchanged_cb) {
             int cbval1 = oldCount;
             int cbval2 = newCount;
 
-            qtableview_columncountchanged_callback(this, cbval1, cbval2);
-        } else {
-            QTableView::columnCountChanged(oldCount, newCount);
+            columncountchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QTableView::columnCountChanged(oldCount, newCount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2287,12 +2396,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_state_isbase) {
             qtableview_state_isbase = false;
             return QTableView::state();
-        } else if (qtableview_state_callback != nullptr) {
-            int callback_ret = qtableview_state_callback();
-            return static_cast<VirtualQTableView::State>(callback_ret);
-        } else {
-            return QTableView::state();
         }
+        auto state_cb = qtableview_state_callback;
+        if (state_cb) {
+            int callback_ret = state_cb();
+            return static_cast<VirtualQTableView::State>(callback_ret);
+        }
+        return QTableView::state();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2300,13 +2410,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_setstate_isbase) {
             qtableview_setstate_isbase = false;
             QTableView::setState(state);
-        } else if (qtableview_setstate_callback != nullptr) {
+            return;
+        }
+        auto setstate_cb = qtableview_setstate_callback;
+        if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            qtableview_setstate_callback(this, cbval1);
-        } else {
-            QTableView::setState(state);
+            setstate_cb(this, cbval1);
+            return;
         }
+        QTableView::setState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2314,11 +2427,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_scheduledelayeditemslayout_isbase) {
             qtableview_scheduledelayeditemslayout_isbase = false;
             QTableView::scheduleDelayedItemsLayout();
-        } else if (qtableview_scheduledelayeditemslayout_callback != nullptr) {
-            qtableview_scheduledelayeditemslayout_callback();
-        } else {
-            QTableView::scheduleDelayedItemsLayout();
+            return;
         }
+        auto scheduledelayeditemslayout_cb = qtableview_scheduledelayeditemslayout_callback;
+        if (scheduledelayeditemslayout_cb) {
+            scheduledelayeditemslayout_cb();
+            return;
+        }
+        QTableView::scheduleDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2326,11 +2442,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_executedelayeditemslayout_isbase) {
             qtableview_executedelayeditemslayout_isbase = false;
             QTableView::executeDelayedItemsLayout();
-        } else if (qtableview_executedelayeditemslayout_callback != nullptr) {
-            qtableview_executedelayeditemslayout_callback();
-        } else {
-            QTableView::executeDelayedItemsLayout();
+            return;
         }
+        auto executedelayeditemslayout_cb = qtableview_executedelayeditemslayout_callback;
+        if (executedelayeditemslayout_cb) {
+            executedelayeditemslayout_cb();
+            return;
+        }
+        QTableView::executeDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2338,15 +2457,18 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_setdirtyregion_isbase) {
             qtableview_setdirtyregion_isbase = false;
             QTableView::setDirtyRegion(region);
-        } else if (qtableview_setdirtyregion_callback != nullptr) {
+            return;
+        }
+        auto setdirtyregion_cb = qtableview_setdirtyregion_callback;
+        if (setdirtyregion_cb) {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
 
-            qtableview_setdirtyregion_callback(this, cbval1);
-        } else {
-            QTableView::setDirtyRegion(region);
+            setdirtyregion_cb(this, cbval1);
+            return;
         }
+        QTableView::setDirtyRegion(region);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2354,14 +2476,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_scrolldirtyregion_isbase) {
             qtableview_scrolldirtyregion_isbase = false;
             QTableView::scrollDirtyRegion(dx, dy);
-        } else if (qtableview_scrolldirtyregion_callback != nullptr) {
+            return;
+        }
+        auto scrolldirtyregion_cb = qtableview_scrolldirtyregion_callback;
+        if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qtableview_scrolldirtyregion_callback(this, cbval1, cbval2);
-        } else {
-            QTableView::scrollDirtyRegion(dx, dy);
+            scrolldirtyregion_cb(this, cbval1, cbval2);
+            return;
         }
+        QTableView::scrollDirtyRegion(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2369,12 +2494,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_dirtyregionoffset_isbase) {
             qtableview_dirtyregionoffset_isbase = false;
             return QTableView::dirtyRegionOffset();
-        } else if (qtableview_dirtyregionoffset_callback != nullptr) {
-            QPoint* callback_ret = qtableview_dirtyregionoffset_callback();
-            return *callback_ret;
-        } else {
-            return QTableView::dirtyRegionOffset();
         }
+        auto dirtyregionoffset_cb = qtableview_dirtyregionoffset_callback;
+        if (dirtyregionoffset_cb) {
+            QPoint* callback_ret = dirtyregionoffset_cb();
+            return *callback_ret;
+        }
+        return QTableView::dirtyRegionOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2382,11 +2508,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_startautoscroll_isbase) {
             qtableview_startautoscroll_isbase = false;
             QTableView::startAutoScroll();
-        } else if (qtableview_startautoscroll_callback != nullptr) {
-            qtableview_startautoscroll_callback();
-        } else {
-            QTableView::startAutoScroll();
+            return;
         }
+        auto startautoscroll_cb = qtableview_startautoscroll_callback;
+        if (startautoscroll_cb) {
+            startautoscroll_cb();
+            return;
+        }
+        QTableView::startAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2394,11 +2523,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_stopautoscroll_isbase) {
             qtableview_stopautoscroll_isbase = false;
             QTableView::stopAutoScroll();
-        } else if (qtableview_stopautoscroll_callback != nullptr) {
-            qtableview_stopautoscroll_callback();
-        } else {
-            QTableView::stopAutoScroll();
+            return;
         }
+        auto stopautoscroll_cb = qtableview_stopautoscroll_callback;
+        if (stopautoscroll_cb) {
+            stopautoscroll_cb();
+            return;
+        }
+        QTableView::stopAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2406,11 +2538,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_doautoscroll_isbase) {
             qtableview_doautoscroll_isbase = false;
             QTableView::doAutoScroll();
-        } else if (qtableview_doautoscroll_callback != nullptr) {
-            qtableview_doautoscroll_callback();
-        } else {
-            QTableView::doAutoScroll();
+            return;
         }
+        auto doautoscroll_cb = qtableview_doautoscroll_callback;
+        if (doautoscroll_cb) {
+            doautoscroll_cb();
+            return;
+        }
+        QTableView::doAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2418,12 +2553,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_dropindicatorposition_isbase) {
             qtableview_dropindicatorposition_isbase = false;
             return QTableView::dropIndicatorPosition();
-        } else if (qtableview_dropindicatorposition_callback != nullptr) {
-            int callback_ret = qtableview_dropindicatorposition_callback();
-            return static_cast<VirtualQTableView::DropIndicatorPosition>(callback_ret);
-        } else {
-            return QTableView::dropIndicatorPosition();
         }
+        auto dropindicatorposition_cb = qtableview_dropindicatorposition_callback;
+        if (dropindicatorposition_cb) {
+            int callback_ret = dropindicatorposition_cb();
+            return static_cast<VirtualQTableView::DropIndicatorPosition>(callback_ret);
+        }
+        return QTableView::dropIndicatorPosition();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2431,16 +2567,19 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_setviewportmargins_isbase) {
             qtableview_setviewportmargins_isbase = false;
             QTableView::setViewportMargins(left, top, right, bottom);
-        } else if (qtableview_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = qtableview_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            qtableview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QTableView::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QTableView::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2448,12 +2587,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_viewportmargins_isbase) {
             qtableview_viewportmargins_isbase = false;
             return QTableView::viewportMargins();
-        } else if (qtableview_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = qtableview_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return QTableView::viewportMargins();
         }
+        auto viewportmargins_cb = qtableview_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return QTableView::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2461,13 +2601,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_drawframe_isbase) {
             qtableview_drawframe_isbase = false;
             QTableView::drawFrame(param1);
-        } else if (qtableview_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qtableview_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qtableview_drawframe_callback(this, cbval1);
-        } else {
-            QTableView::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QTableView::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2475,11 +2618,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_updatemicrofocus_isbase) {
             qtableview_updatemicrofocus_isbase = false;
             QTableView::updateMicroFocus();
-        } else if (qtableview_updatemicrofocus_callback != nullptr) {
-            qtableview_updatemicrofocus_callback();
-        } else {
-            QTableView::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qtableview_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QTableView::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2487,11 +2633,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_create_isbase) {
             qtableview_create_isbase = false;
             QTableView::create();
-        } else if (qtableview_create_callback != nullptr) {
-            qtableview_create_callback();
-        } else {
-            QTableView::create();
+            return;
         }
+        auto create_cb = qtableview_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QTableView::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2499,11 +2648,14 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_destroy_isbase) {
             qtableview_destroy_isbase = false;
             QTableView::destroy();
-        } else if (qtableview_destroy_callback != nullptr) {
-            qtableview_destroy_callback();
-        } else {
-            QTableView::destroy();
+            return;
         }
+        auto destroy_cb = qtableview_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QTableView::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2511,12 +2663,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_focusnextchild_isbase) {
             qtableview_focusnextchild_isbase = false;
             return QTableView::focusNextChild();
-        } else if (qtableview_focusnextchild_callback != nullptr) {
-            bool callback_ret = qtableview_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QTableView::focusNextChild();
         }
+        auto focusnextchild_cb = qtableview_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QTableView::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2524,12 +2677,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_focuspreviouschild_isbase) {
             qtableview_focuspreviouschild_isbase = false;
             return QTableView::focusPreviousChild();
-        } else if (qtableview_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qtableview_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QTableView::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qtableview_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QTableView::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2537,12 +2691,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_sender_isbase) {
             qtableview_sender_isbase = false;
             return QTableView::sender();
-        } else if (qtableview_sender_callback != nullptr) {
-            QObject* callback_ret = qtableview_sender_callback();
-            return callback_ret;
-        } else {
-            return QTableView::sender();
         }
+        auto sender_cb = qtableview_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTableView::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2550,12 +2705,13 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_sendersignalindex_isbase) {
             qtableview_sendersignalindex_isbase = false;
             return QTableView::senderSignalIndex();
-        } else if (qtableview_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtableview_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTableView::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtableview_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTableView::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2563,14 +2719,15 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_receivers_isbase) {
             qtableview_receivers_isbase = false;
             return QTableView::receivers(signal);
-        } else if (qtableview_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtableview_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtableview_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTableView::receivers(signal);
         }
+        return QTableView::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2578,16 +2735,17 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_issignalconnected_isbase) {
             qtableview_issignalconnected_isbase = false;
             return QTableView::isSignalConnected(signal);
-        } else if (qtableview_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtableview_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtableview_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTableView::isSignalConnected(signal);
         }
+        return QTableView::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2595,15 +2753,16 @@ class VirtualQTableView final : public QTableView {
         if (qtableview_getdecodedmetricf_isbase) {
             qtableview_getdecodedmetricf_isbase = false;
             return QTableView::getDecodedMetricF(metricA, metricB);
-        } else if (qtableview_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qtableview_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qtableview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QTableView::getDecodedMetricF(metricA, metricB);
         }
+        return QTableView::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

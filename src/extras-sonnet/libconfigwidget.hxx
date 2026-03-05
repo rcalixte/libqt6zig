@@ -212,71 +212,6 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
   public:
     VirtualSonnetConfigWidget(QWidget* parent) : Sonnet::ConfigWidget(parent) {};
 
-    ~VirtualSonnetConfigWidget() {
-        sonnet__configwidget_metaobject_callback = nullptr;
-        sonnet__configwidget_metacast_callback = nullptr;
-        sonnet__configwidget_metacall_callback = nullptr;
-        sonnet__configwidget_devtype_callback = nullptr;
-        sonnet__configwidget_setvisible_callback = nullptr;
-        sonnet__configwidget_sizehint_callback = nullptr;
-        sonnet__configwidget_minimumsizehint_callback = nullptr;
-        sonnet__configwidget_heightforwidth_callback = nullptr;
-        sonnet__configwidget_hasheightforwidth_callback = nullptr;
-        sonnet__configwidget_paintengine_callback = nullptr;
-        sonnet__configwidget_event_callback = nullptr;
-        sonnet__configwidget_mousepressevent_callback = nullptr;
-        sonnet__configwidget_mousereleaseevent_callback = nullptr;
-        sonnet__configwidget_mousedoubleclickevent_callback = nullptr;
-        sonnet__configwidget_mousemoveevent_callback = nullptr;
-        sonnet__configwidget_wheelevent_callback = nullptr;
-        sonnet__configwidget_keypressevent_callback = nullptr;
-        sonnet__configwidget_keyreleaseevent_callback = nullptr;
-        sonnet__configwidget_focusinevent_callback = nullptr;
-        sonnet__configwidget_focusoutevent_callback = nullptr;
-        sonnet__configwidget_enterevent_callback = nullptr;
-        sonnet__configwidget_leaveevent_callback = nullptr;
-        sonnet__configwidget_paintevent_callback = nullptr;
-        sonnet__configwidget_moveevent_callback = nullptr;
-        sonnet__configwidget_resizeevent_callback = nullptr;
-        sonnet__configwidget_closeevent_callback = nullptr;
-        sonnet__configwidget_contextmenuevent_callback = nullptr;
-        sonnet__configwidget_tabletevent_callback = nullptr;
-        sonnet__configwidget_actionevent_callback = nullptr;
-        sonnet__configwidget_dragenterevent_callback = nullptr;
-        sonnet__configwidget_dragmoveevent_callback = nullptr;
-        sonnet__configwidget_dragleaveevent_callback = nullptr;
-        sonnet__configwidget_dropevent_callback = nullptr;
-        sonnet__configwidget_showevent_callback = nullptr;
-        sonnet__configwidget_hideevent_callback = nullptr;
-        sonnet__configwidget_nativeevent_callback = nullptr;
-        sonnet__configwidget_changeevent_callback = nullptr;
-        sonnet__configwidget_metric_callback = nullptr;
-        sonnet__configwidget_initpainter_callback = nullptr;
-        sonnet__configwidget_redirected_callback = nullptr;
-        sonnet__configwidget_sharedpainter_callback = nullptr;
-        sonnet__configwidget_inputmethodevent_callback = nullptr;
-        sonnet__configwidget_inputmethodquery_callback = nullptr;
-        sonnet__configwidget_focusnextprevchild_callback = nullptr;
-        sonnet__configwidget_eventfilter_callback = nullptr;
-        sonnet__configwidget_timerevent_callback = nullptr;
-        sonnet__configwidget_childevent_callback = nullptr;
-        sonnet__configwidget_customevent_callback = nullptr;
-        sonnet__configwidget_connectnotify_callback = nullptr;
-        sonnet__configwidget_disconnectnotify_callback = nullptr;
-        sonnet__configwidget_slotignorewordremoved_callback = nullptr;
-        sonnet__configwidget_slotignorewordadded_callback = nullptr;
-        sonnet__configwidget_updatemicrofocus_callback = nullptr;
-        sonnet__configwidget_create_callback = nullptr;
-        sonnet__configwidget_destroy_callback = nullptr;
-        sonnet__configwidget_focusnextchild_callback = nullptr;
-        sonnet__configwidget_focuspreviouschild_callback = nullptr;
-        sonnet__configwidget_sender_callback = nullptr;
-        sonnet__configwidget_sendersignalindex_callback = nullptr;
-        sonnet__configwidget_receivers_callback = nullptr;
-        sonnet__configwidget_issignalconnected_callback = nullptr;
-        sonnet__configwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setSonnet__ConfigWidget_MetaObject_Callback(Sonnet__ConfigWidget_MetaObject_Callback cb) { sonnet__configwidget_metaobject_callback = cb; }
     inline void setSonnet__ConfigWidget_Metacast_Callback(Sonnet__ConfigWidget_Metacast_Callback cb) { sonnet__configwidget_metacast_callback = cb; }
@@ -410,12 +345,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_metaobject_isbase) {
             sonnet__configwidget_metaobject_isbase = false;
             return Sonnet__ConfigWidget::metaObject();
-        } else if (sonnet__configwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = sonnet__configwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::metaObject();
         }
+        auto metaobject_cb = sonnet__configwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Sonnet__ConfigWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,14 +359,15 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_metacast_isbase) {
             sonnet__configwidget_metacast_isbase = false;
             return Sonnet__ConfigWidget::qt_metacast(param1);
-        } else if (sonnet__configwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = sonnet__configwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = sonnet__configwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::qt_metacast(param1);
         }
+        return Sonnet__ConfigWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -438,16 +375,17 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_metacall_isbase) {
             sonnet__configwidget_metacall_isbase = false;
             return Sonnet__ConfigWidget::qt_metacall(param1, param2, param3);
-        } else if (sonnet__configwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = sonnet__configwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = sonnet__configwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__ConfigWidget::qt_metacall(param1, param2, param3);
         }
+        return Sonnet__ConfigWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -455,12 +393,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_devtype_isbase) {
             sonnet__configwidget_devtype_isbase = false;
             return Sonnet__ConfigWidget::devType();
-        } else if (sonnet__configwidget_devtype_callback != nullptr) {
-            int callback_ret = sonnet__configwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__ConfigWidget::devType();
         }
+        auto devtype_cb = sonnet__configwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Sonnet__ConfigWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,13 +407,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_setvisible_isbase) {
             sonnet__configwidget_setvisible_isbase = false;
             Sonnet__ConfigWidget::setVisible(visible);
-        } else if (sonnet__configwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = sonnet__configwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            sonnet__configwidget_setvisible_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,12 +424,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_sizehint_isbase) {
             sonnet__configwidget_sizehint_isbase = false;
             return Sonnet__ConfigWidget::sizeHint();
-        } else if (sonnet__configwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = sonnet__configwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::sizeHint();
         }
+        auto sizehint_cb = sonnet__configwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return Sonnet__ConfigWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,12 +438,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_minimumsizehint_isbase) {
             sonnet__configwidget_minimumsizehint_isbase = false;
             return Sonnet__ConfigWidget::minimumSizeHint();
-        } else if (sonnet__configwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = sonnet__configwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = sonnet__configwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return Sonnet__ConfigWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -508,14 +452,15 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_heightforwidth_isbase) {
             sonnet__configwidget_heightforwidth_isbase = false;
             return Sonnet__ConfigWidget::heightForWidth(param1);
-        } else if (sonnet__configwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = sonnet__configwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = sonnet__configwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__ConfigWidget::heightForWidth(param1);
         }
+        return Sonnet__ConfigWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,12 +468,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_hasheightforwidth_isbase) {
             sonnet__configwidget_hasheightforwidth_isbase = false;
             return Sonnet__ConfigWidget::hasHeightForWidth();
-        } else if (sonnet__configwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = sonnet__configwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = sonnet__configwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return Sonnet__ConfigWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -536,12 +482,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_paintengine_isbase) {
             sonnet__configwidget_paintengine_isbase = false;
             return Sonnet__ConfigWidget::paintEngine();
-        } else if (sonnet__configwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = sonnet__configwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::paintEngine();
         }
+        auto paintengine_cb = sonnet__configwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return Sonnet__ConfigWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -549,14 +496,15 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_event_isbase) {
             sonnet__configwidget_event_isbase = false;
             return Sonnet__ConfigWidget::event(event);
-        } else if (sonnet__configwidget_event_callback != nullptr) {
+        }
+        auto event_cb = sonnet__configwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = sonnet__configwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::event(event);
         }
+        return Sonnet__ConfigWidget::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,13 +512,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_mousepressevent_isbase) {
             sonnet__configwidget_mousepressevent_isbase = false;
             Sonnet__ConfigWidget::mousePressEvent(event);
-        } else if (sonnet__configwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = sonnet__configwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            sonnet__configwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,13 +529,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_mousereleaseevent_isbase) {
             sonnet__configwidget_mousereleaseevent_isbase = false;
             Sonnet__ConfigWidget::mouseReleaseEvent(event);
-        } else if (sonnet__configwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = sonnet__configwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            sonnet__configwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,13 +546,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_mousedoubleclickevent_isbase) {
             sonnet__configwidget_mousedoubleclickevent_isbase = false;
             Sonnet__ConfigWidget::mouseDoubleClickEvent(event);
-        } else if (sonnet__configwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = sonnet__configwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            sonnet__configwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -606,13 +563,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_mousemoveevent_isbase) {
             sonnet__configwidget_mousemoveevent_isbase = false;
             Sonnet__ConfigWidget::mouseMoveEvent(event);
-        } else if (sonnet__configwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = sonnet__configwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            sonnet__configwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -620,13 +580,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_wheelevent_isbase) {
             sonnet__configwidget_wheelevent_isbase = false;
             Sonnet__ConfigWidget::wheelEvent(event);
-        } else if (sonnet__configwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = sonnet__configwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            sonnet__configwidget_wheelevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,13 +597,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_keypressevent_isbase) {
             sonnet__configwidget_keypressevent_isbase = false;
             Sonnet__ConfigWidget::keyPressEvent(event);
-        } else if (sonnet__configwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = sonnet__configwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            sonnet__configwidget_keypressevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -648,13 +614,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_keyreleaseevent_isbase) {
             sonnet__configwidget_keyreleaseevent_isbase = false;
             Sonnet__ConfigWidget::keyReleaseEvent(event);
-        } else if (sonnet__configwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = sonnet__configwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            sonnet__configwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,13 +631,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_focusinevent_isbase) {
             sonnet__configwidget_focusinevent_isbase = false;
             Sonnet__ConfigWidget::focusInEvent(event);
-        } else if (sonnet__configwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = sonnet__configwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            sonnet__configwidget_focusinevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,13 +648,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_focusoutevent_isbase) {
             sonnet__configwidget_focusoutevent_isbase = false;
             Sonnet__ConfigWidget::focusOutEvent(event);
-        } else if (sonnet__configwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = sonnet__configwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            sonnet__configwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,13 +665,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_enterevent_isbase) {
             sonnet__configwidget_enterevent_isbase = false;
             Sonnet__ConfigWidget::enterEvent(event);
-        } else if (sonnet__configwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = sonnet__configwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            sonnet__configwidget_enterevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -704,13 +682,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_leaveevent_isbase) {
             sonnet__configwidget_leaveevent_isbase = false;
             Sonnet__ConfigWidget::leaveEvent(event);
-        } else if (sonnet__configwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = sonnet__configwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            sonnet__configwidget_leaveevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -718,13 +699,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_paintevent_isbase) {
             sonnet__configwidget_paintevent_isbase = false;
             Sonnet__ConfigWidget::paintEvent(event);
-        } else if (sonnet__configwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = sonnet__configwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            sonnet__configwidget_paintevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -732,13 +716,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_moveevent_isbase) {
             sonnet__configwidget_moveevent_isbase = false;
             Sonnet__ConfigWidget::moveEvent(event);
-        } else if (sonnet__configwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = sonnet__configwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            sonnet__configwidget_moveevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -746,13 +733,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_resizeevent_isbase) {
             sonnet__configwidget_resizeevent_isbase = false;
             Sonnet__ConfigWidget::resizeEvent(event);
-        } else if (sonnet__configwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = sonnet__configwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            sonnet__configwidget_resizeevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -760,13 +750,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_closeevent_isbase) {
             sonnet__configwidget_closeevent_isbase = false;
             Sonnet__ConfigWidget::closeEvent(event);
-        } else if (sonnet__configwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = sonnet__configwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            sonnet__configwidget_closeevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -774,13 +767,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_contextmenuevent_isbase) {
             sonnet__configwidget_contextmenuevent_isbase = false;
             Sonnet__ConfigWidget::contextMenuEvent(event);
-        } else if (sonnet__configwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = sonnet__configwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            sonnet__configwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,13 +784,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_tabletevent_isbase) {
             sonnet__configwidget_tabletevent_isbase = false;
             Sonnet__ConfigWidget::tabletEvent(event);
-        } else if (sonnet__configwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = sonnet__configwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            sonnet__configwidget_tabletevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,13 +801,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_actionevent_isbase) {
             sonnet__configwidget_actionevent_isbase = false;
             Sonnet__ConfigWidget::actionEvent(event);
-        } else if (sonnet__configwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = sonnet__configwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            sonnet__configwidget_actionevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -816,13 +818,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_dragenterevent_isbase) {
             sonnet__configwidget_dragenterevent_isbase = false;
             Sonnet__ConfigWidget::dragEnterEvent(event);
-        } else if (sonnet__configwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = sonnet__configwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            sonnet__configwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,13 +835,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_dragmoveevent_isbase) {
             sonnet__configwidget_dragmoveevent_isbase = false;
             Sonnet__ConfigWidget::dragMoveEvent(event);
-        } else if (sonnet__configwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = sonnet__configwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            sonnet__configwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -844,13 +852,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_dragleaveevent_isbase) {
             sonnet__configwidget_dragleaveevent_isbase = false;
             Sonnet__ConfigWidget::dragLeaveEvent(event);
-        } else if (sonnet__configwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = sonnet__configwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            sonnet__configwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -858,13 +869,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_dropevent_isbase) {
             sonnet__configwidget_dropevent_isbase = false;
             Sonnet__ConfigWidget::dropEvent(event);
-        } else if (sonnet__configwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = sonnet__configwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            sonnet__configwidget_dropevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -872,13 +886,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_showevent_isbase) {
             sonnet__configwidget_showevent_isbase = false;
             Sonnet__ConfigWidget::showEvent(event);
-        } else if (sonnet__configwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = sonnet__configwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            sonnet__configwidget_showevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -886,13 +903,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_hideevent_isbase) {
             sonnet__configwidget_hideevent_isbase = false;
             Sonnet__ConfigWidget::hideEvent(event);
-        } else if (sonnet__configwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = sonnet__configwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            sonnet__configwidget_hideevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -900,7 +920,9 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_nativeevent_isbase) {
             sonnet__configwidget_nativeevent_isbase = false;
             return Sonnet__ConfigWidget::nativeEvent(eventType, message, result);
-        } else if (sonnet__configwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = sonnet__configwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -911,12 +933,11 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = sonnet__configwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::nativeEvent(eventType, message, result);
         }
+        return Sonnet__ConfigWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,13 +945,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_changeevent_isbase) {
             sonnet__configwidget_changeevent_isbase = false;
             Sonnet__ConfigWidget::changeEvent(param1);
-        } else if (sonnet__configwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = sonnet__configwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            sonnet__configwidget_changeevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -938,14 +962,15 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_metric_isbase) {
             sonnet__configwidget_metric_isbase = false;
             return Sonnet__ConfigWidget::metric(param1);
-        } else if (sonnet__configwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = sonnet__configwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = sonnet__configwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__ConfigWidget::metric(param1);
         }
+        return Sonnet__ConfigWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,13 +978,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_initpainter_isbase) {
             sonnet__configwidget_initpainter_isbase = false;
             Sonnet__ConfigWidget::initPainter(painter);
-        } else if (sonnet__configwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = sonnet__configwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            sonnet__configwidget_initpainter_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,14 +995,15 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_redirected_isbase) {
             sonnet__configwidget_redirected_isbase = false;
             return Sonnet__ConfigWidget::redirected(offset);
-        } else if (sonnet__configwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = sonnet__configwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = sonnet__configwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::redirected(offset);
         }
+        return Sonnet__ConfigWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,12 +1011,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_sharedpainter_isbase) {
             sonnet__configwidget_sharedpainter_isbase = false;
             return Sonnet__ConfigWidget::sharedPainter();
-        } else if (sonnet__configwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = sonnet__configwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::sharedPainter();
         }
+        auto sharedpainter_cb = sonnet__configwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return Sonnet__ConfigWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -995,13 +1025,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_inputmethodevent_isbase) {
             sonnet__configwidget_inputmethodevent_isbase = false;
             Sonnet__ConfigWidget::inputMethodEvent(param1);
-        } else if (sonnet__configwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = sonnet__configwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            sonnet__configwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,14 +1042,15 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_inputmethodquery_isbase) {
             sonnet__configwidget_inputmethodquery_isbase = false;
             return Sonnet__ConfigWidget::inputMethodQuery(param1);
-        } else if (sonnet__configwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = sonnet__configwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = sonnet__configwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::inputMethodQuery(param1);
         }
+        return Sonnet__ConfigWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,14 +1058,15 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_focusnextprevchild_isbase) {
             sonnet__configwidget_focusnextprevchild_isbase = false;
             return Sonnet__ConfigWidget::focusNextPrevChild(next);
-        } else if (sonnet__configwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = sonnet__configwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = sonnet__configwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::focusNextPrevChild(next);
         }
+        return Sonnet__ConfigWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1039,15 +1074,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_eventfilter_isbase) {
             sonnet__configwidget_eventfilter_isbase = false;
             return Sonnet__ConfigWidget::eventFilter(watched, event);
-        } else if (sonnet__configwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = sonnet__configwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = sonnet__configwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::eventFilter(watched, event);
         }
+        return Sonnet__ConfigWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,13 +1091,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_timerevent_isbase) {
             sonnet__configwidget_timerevent_isbase = false;
             Sonnet__ConfigWidget::timerEvent(event);
-        } else if (sonnet__configwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = sonnet__configwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            sonnet__configwidget_timerevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1069,13 +1108,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_childevent_isbase) {
             sonnet__configwidget_childevent_isbase = false;
             Sonnet__ConfigWidget::childEvent(event);
-        } else if (sonnet__configwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = sonnet__configwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            sonnet__configwidget_childevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1083,13 +1125,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_customevent_isbase) {
             sonnet__configwidget_customevent_isbase = false;
             Sonnet__ConfigWidget::customEvent(event);
-        } else if (sonnet__configwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = sonnet__configwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            sonnet__configwidget_customevent_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1097,15 +1142,18 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_connectnotify_isbase) {
             sonnet__configwidget_connectnotify_isbase = false;
             Sonnet__ConfigWidget::connectNotify(signal);
-        } else if (sonnet__configwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = sonnet__configwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            sonnet__configwidget_connectnotify_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1113,15 +1161,18 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_disconnectnotify_isbase) {
             sonnet__configwidget_disconnectnotify_isbase = false;
             Sonnet__ConfigWidget::disconnectNotify(signal);
-        } else if (sonnet__configwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = sonnet__configwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            sonnet__configwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            Sonnet__ConfigWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Sonnet__ConfigWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1129,11 +1180,14 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_slotignorewordremoved_isbase) {
             sonnet__configwidget_slotignorewordremoved_isbase = false;
             Sonnet__ConfigWidget::slotIgnoreWordRemoved();
-        } else if (sonnet__configwidget_slotignorewordremoved_callback != nullptr) {
-            sonnet__configwidget_slotignorewordremoved_callback();
-        } else {
-            Sonnet__ConfigWidget::slotIgnoreWordRemoved();
+            return;
         }
+        auto slotignorewordremoved_cb = sonnet__configwidget_slotignorewordremoved_callback;
+        if (slotignorewordremoved_cb) {
+            slotignorewordremoved_cb();
+            return;
+        }
+        Sonnet__ConfigWidget::slotIgnoreWordRemoved();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1141,11 +1195,14 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_slotignorewordadded_isbase) {
             sonnet__configwidget_slotignorewordadded_isbase = false;
             Sonnet__ConfigWidget::slotIgnoreWordAdded();
-        } else if (sonnet__configwidget_slotignorewordadded_callback != nullptr) {
-            sonnet__configwidget_slotignorewordadded_callback();
-        } else {
-            Sonnet__ConfigWidget::slotIgnoreWordAdded();
+            return;
         }
+        auto slotignorewordadded_cb = sonnet__configwidget_slotignorewordadded_callback;
+        if (slotignorewordadded_cb) {
+            slotignorewordadded_cb();
+            return;
+        }
+        Sonnet__ConfigWidget::slotIgnoreWordAdded();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,11 +1210,14 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_updatemicrofocus_isbase) {
             sonnet__configwidget_updatemicrofocus_isbase = false;
             Sonnet__ConfigWidget::updateMicroFocus();
-        } else if (sonnet__configwidget_updatemicrofocus_callback != nullptr) {
-            sonnet__configwidget_updatemicrofocus_callback();
-        } else {
-            Sonnet__ConfigWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = sonnet__configwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        Sonnet__ConfigWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1165,11 +1225,14 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_create_isbase) {
             sonnet__configwidget_create_isbase = false;
             Sonnet__ConfigWidget::create();
-        } else if (sonnet__configwidget_create_callback != nullptr) {
-            sonnet__configwidget_create_callback();
-        } else {
-            Sonnet__ConfigWidget::create();
+            return;
         }
+        auto create_cb = sonnet__configwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        Sonnet__ConfigWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1177,11 +1240,14 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_destroy_isbase) {
             sonnet__configwidget_destroy_isbase = false;
             Sonnet__ConfigWidget::destroy();
-        } else if (sonnet__configwidget_destroy_callback != nullptr) {
-            sonnet__configwidget_destroy_callback();
-        } else {
-            Sonnet__ConfigWidget::destroy();
+            return;
         }
+        auto destroy_cb = sonnet__configwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        Sonnet__ConfigWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1189,12 +1255,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_focusnextchild_isbase) {
             sonnet__configwidget_focusnextchild_isbase = false;
             return Sonnet__ConfigWidget::focusNextChild();
-        } else if (sonnet__configwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = sonnet__configwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::focusNextChild();
         }
+        auto focusnextchild_cb = sonnet__configwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return Sonnet__ConfigWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1202,12 +1269,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_focuspreviouschild_isbase) {
             sonnet__configwidget_focuspreviouschild_isbase = false;
             return Sonnet__ConfigWidget::focusPreviousChild();
-        } else if (sonnet__configwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = sonnet__configwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = sonnet__configwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return Sonnet__ConfigWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1215,12 +1283,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_sender_isbase) {
             sonnet__configwidget_sender_isbase = false;
             return Sonnet__ConfigWidget::sender();
-        } else if (sonnet__configwidget_sender_callback != nullptr) {
-            QObject* callback_ret = sonnet__configwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::sender();
         }
+        auto sender_cb = sonnet__configwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Sonnet__ConfigWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1228,12 +1297,13 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_sendersignalindex_isbase) {
             sonnet__configwidget_sendersignalindex_isbase = false;
             return Sonnet__ConfigWidget::senderSignalIndex();
-        } else if (sonnet__configwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = sonnet__configwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__ConfigWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = sonnet__configwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Sonnet__ConfigWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,14 +1311,15 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_receivers_isbase) {
             sonnet__configwidget_receivers_isbase = false;
             return Sonnet__ConfigWidget::receivers(signal);
-        } else if (sonnet__configwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = sonnet__configwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = sonnet__configwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Sonnet__ConfigWidget::receivers(signal);
         }
+        return Sonnet__ConfigWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,16 +1327,17 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_issignalconnected_isbase) {
             sonnet__configwidget_issignalconnected_isbase = false;
             return Sonnet__ConfigWidget::isSignalConnected(signal);
-        } else if (sonnet__configwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = sonnet__configwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = sonnet__configwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Sonnet__ConfigWidget::isSignalConnected(signal);
         }
+        return Sonnet__ConfigWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1273,15 +1345,16 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
         if (sonnet__configwidget_getdecodedmetricf_isbase) {
             sonnet__configwidget_getdecodedmetricf_isbase = false;
             return Sonnet__ConfigWidget::getDecodedMetricF(metricA, metricB);
-        } else if (sonnet__configwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = sonnet__configwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = sonnet__configwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return Sonnet__ConfigWidget::getDecodedMetricF(metricA, metricB);
         }
+        return Sonnet__ConfigWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

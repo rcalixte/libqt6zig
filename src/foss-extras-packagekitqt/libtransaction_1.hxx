@@ -71,24 +71,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
   public:
     VirtualPackageKitTransaction(const QDBusObjectPath& tid) : PackageKit::Transaction(tid) {};
 
-    ~VirtualPackageKitTransaction() {
-        packagekit__transaction_metaobject_callback = nullptr;
-        packagekit__transaction_metacast_callback = nullptr;
-        packagekit__transaction_metacall_callback = nullptr;
-        packagekit__transaction_connectnotify_callback = nullptr;
-        packagekit__transaction_disconnectnotify_callback = nullptr;
-        packagekit__transaction_event_callback = nullptr;
-        packagekit__transaction_eventfilter_callback = nullptr;
-        packagekit__transaction_timerevent_callback = nullptr;
-        packagekit__transaction_childevent_callback = nullptr;
-        packagekit__transaction_customevent_callback = nullptr;
-        packagekit__transaction_parseerror_callback = nullptr;
-        packagekit__transaction_sender_callback = nullptr;
-        packagekit__transaction_sendersignalindex_callback = nullptr;
-        packagekit__transaction_receivers_callback = nullptr;
-        packagekit__transaction_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setPackageKit__Transaction_MetaObject_Callback(PackageKit__Transaction_MetaObject_Callback cb) { packagekit__transaction_metaobject_callback = cb; }
     inline void setPackageKit__Transaction_Metacast_Callback(PackageKit__Transaction_Metacast_Callback cb) { packagekit__transaction_metacast_callback = cb; }
@@ -128,12 +110,13 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_metaobject_isbase) {
             packagekit__transaction_metaobject_isbase = false;
             return PackageKit__Transaction::metaObject();
-        } else if (packagekit__transaction_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = packagekit__transaction_metaobject_callback();
-            return callback_ret;
-        } else {
-            return PackageKit__Transaction::metaObject();
         }
+        auto metaobject_cb = packagekit__transaction_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return PackageKit__Transaction::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -141,14 +124,15 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_metacast_isbase) {
             packagekit__transaction_metacast_isbase = false;
             return PackageKit__Transaction::qt_metacast(param1);
-        } else if (packagekit__transaction_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = packagekit__transaction_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = packagekit__transaction_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return PackageKit__Transaction::qt_metacast(param1);
         }
+        return PackageKit__Transaction::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,16 +140,17 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_metacall_isbase) {
             packagekit__transaction_metacall_isbase = false;
             return PackageKit__Transaction::qt_metacall(param1, param2, param3);
-        } else if (packagekit__transaction_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = packagekit__transaction_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = packagekit__transaction_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return PackageKit__Transaction::qt_metacall(param1, param2, param3);
         }
+        return PackageKit__Transaction::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -173,15 +158,18 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_connectnotify_isbase) {
             packagekit__transaction_connectnotify_isbase = false;
             PackageKit__Transaction::connectNotify(signal);
-        } else if (packagekit__transaction_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = packagekit__transaction_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            packagekit__transaction_connectnotify_callback(this, cbval1);
-        } else {
-            PackageKit__Transaction::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        PackageKit__Transaction::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -189,15 +177,18 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_disconnectnotify_isbase) {
             packagekit__transaction_disconnectnotify_isbase = false;
             PackageKit__Transaction::disconnectNotify(signal);
-        } else if (packagekit__transaction_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = packagekit__transaction_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            packagekit__transaction_disconnectnotify_callback(this, cbval1);
-        } else {
-            PackageKit__Transaction::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        PackageKit__Transaction::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,14 +196,15 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_event_isbase) {
             packagekit__transaction_event_isbase = false;
             return PackageKit__Transaction::event(event);
-        } else if (packagekit__transaction_event_callback != nullptr) {
+        }
+        auto event_cb = packagekit__transaction_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = packagekit__transaction_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return PackageKit__Transaction::event(event);
         }
+        return PackageKit__Transaction::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -220,15 +212,16 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_eventfilter_isbase) {
             packagekit__transaction_eventfilter_isbase = false;
             return PackageKit__Transaction::eventFilter(watched, event);
-        } else if (packagekit__transaction_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = packagekit__transaction_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = packagekit__transaction_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return PackageKit__Transaction::eventFilter(watched, event);
         }
+        return PackageKit__Transaction::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -236,13 +229,16 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_timerevent_isbase) {
             packagekit__transaction_timerevent_isbase = false;
             PackageKit__Transaction::timerEvent(event);
-        } else if (packagekit__transaction_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = packagekit__transaction_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            packagekit__transaction_timerevent_callback(this, cbval1);
-        } else {
-            PackageKit__Transaction::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        PackageKit__Transaction::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,13 +246,16 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_childevent_isbase) {
             packagekit__transaction_childevent_isbase = false;
             PackageKit__Transaction::childEvent(event);
-        } else if (packagekit__transaction_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = packagekit__transaction_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            packagekit__transaction_childevent_callback(this, cbval1);
-        } else {
-            PackageKit__Transaction::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        PackageKit__Transaction::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -264,13 +263,16 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_customevent_isbase) {
             packagekit__transaction_customevent_isbase = false;
             PackageKit__Transaction::customEvent(event);
-        } else if (packagekit__transaction_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = packagekit__transaction_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            packagekit__transaction_customevent_callback(this, cbval1);
-        } else {
-            PackageKit__Transaction::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        PackageKit__Transaction::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -278,7 +280,9 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_parseerror_isbase) {
             packagekit__transaction_parseerror_isbase = false;
             return PackageKit__Transaction::parseError(errorName);
-        } else if (packagekit__transaction_parseerror_callback != nullptr) {
+        }
+        auto parseerror_cb = packagekit__transaction_parseerror_callback;
+        if (parseerror_cb) {
             const QString errorName_ret = errorName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorName_b = errorName_ret.toUtf8();
@@ -288,12 +292,11 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
             ((char*)errorName_str)[errorName_str_len] = '\0';
             const char* cbval1 = errorName_str;
 
-            int callback_ret = packagekit__transaction_parseerror_callback(this, cbval1);
+            int callback_ret = parseerror_cb(this, cbval1);
             libqt_free(errorName_str);
             return static_cast<PackageKit::Transaction::InternalError>(callback_ret);
-        } else {
-            return PackageKit__Transaction::parseError(errorName);
         }
+        return PackageKit__Transaction::parseError(errorName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,12 +304,13 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_sender_isbase) {
             packagekit__transaction_sender_isbase = false;
             return PackageKit__Transaction::sender();
-        } else if (packagekit__transaction_sender_callback != nullptr) {
-            QObject* callback_ret = packagekit__transaction_sender_callback();
-            return callback_ret;
-        } else {
-            return PackageKit__Transaction::sender();
         }
+        auto sender_cb = packagekit__transaction_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return PackageKit__Transaction::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,12 +318,13 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_sendersignalindex_isbase) {
             packagekit__transaction_sendersignalindex_isbase = false;
             return PackageKit__Transaction::senderSignalIndex();
-        } else if (packagekit__transaction_sendersignalindex_callback != nullptr) {
-            int callback_ret = packagekit__transaction_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return PackageKit__Transaction::senderSignalIndex();
         }
+        auto sendersignalindex_cb = packagekit__transaction_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return PackageKit__Transaction::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -327,14 +332,15 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_receivers_isbase) {
             packagekit__transaction_receivers_isbase = false;
             return PackageKit__Transaction::receivers(signal);
-        } else if (packagekit__transaction_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = packagekit__transaction_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = packagekit__transaction_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return PackageKit__Transaction::receivers(signal);
         }
+        return PackageKit__Transaction::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -342,16 +348,17 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (packagekit__transaction_issignalconnected_isbase) {
             packagekit__transaction_issignalconnected_isbase = false;
             return PackageKit__Transaction::isSignalConnected(signal);
-        } else if (packagekit__transaction_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = packagekit__transaction_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = packagekit__transaction_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return PackageKit__Transaction::isSignalConnected(signal);
         }
+        return PackageKit__Transaction::isSignalConnected(signal);
     }
 
     // Friend functions

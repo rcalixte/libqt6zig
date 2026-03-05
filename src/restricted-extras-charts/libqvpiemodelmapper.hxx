@@ -99,33 +99,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
     VirtualQVPieModelMapper() : QVPieModelMapper() {};
     VirtualQVPieModelMapper(QObject* parent) : QVPieModelMapper(parent) {};
 
-    ~VirtualQVPieModelMapper() {
-        qvpiemodelmapper_metaobject_callback = nullptr;
-        qvpiemodelmapper_metacast_callback = nullptr;
-        qvpiemodelmapper_metacall_callback = nullptr;
-        qvpiemodelmapper_event_callback = nullptr;
-        qvpiemodelmapper_eventfilter_callback = nullptr;
-        qvpiemodelmapper_timerevent_callback = nullptr;
-        qvpiemodelmapper_childevent_callback = nullptr;
-        qvpiemodelmapper_customevent_callback = nullptr;
-        qvpiemodelmapper_connectnotify_callback = nullptr;
-        qvpiemodelmapper_disconnectnotify_callback = nullptr;
-        qvpiemodelmapper_first_callback = nullptr;
-        qvpiemodelmapper_setfirst_callback = nullptr;
-        qvpiemodelmapper_count_callback = nullptr;
-        qvpiemodelmapper_setcount_callback = nullptr;
-        qvpiemodelmapper_valuessection_callback = nullptr;
-        qvpiemodelmapper_setvaluessection_callback = nullptr;
-        qvpiemodelmapper_labelssection_callback = nullptr;
-        qvpiemodelmapper_setlabelssection_callback = nullptr;
-        qvpiemodelmapper_orientation_callback = nullptr;
-        qvpiemodelmapper_setorientation_callback = nullptr;
-        qvpiemodelmapper_sender_callback = nullptr;
-        qvpiemodelmapper_sendersignalindex_callback = nullptr;
-        qvpiemodelmapper_receivers_callback = nullptr;
-        qvpiemodelmapper_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQVPieModelMapper_MetaObject_Callback(QVPieModelMapper_MetaObject_Callback cb) { qvpiemodelmapper_metaobject_callback = cb; }
     inline void setQVPieModelMapper_Metacast_Callback(QVPieModelMapper_Metacast_Callback cb) { qvpiemodelmapper_metacast_callback = cb; }
@@ -183,12 +156,13 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_metaobject_isbase) {
             qvpiemodelmapper_metaobject_isbase = false;
             return QVPieModelMapper::metaObject();
-        } else if (qvpiemodelmapper_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qvpiemodelmapper_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QVPieModelMapper::metaObject();
         }
+        auto metaobject_cb = qvpiemodelmapper_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QVPieModelMapper::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -196,14 +170,15 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_metacast_isbase) {
             qvpiemodelmapper_metacast_isbase = false;
             return QVPieModelMapper::qt_metacast(param1);
-        } else if (qvpiemodelmapper_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qvpiemodelmapper_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qvpiemodelmapper_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVPieModelMapper::qt_metacast(param1);
         }
+        return QVPieModelMapper::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,16 +186,17 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_metacall_isbase) {
             qvpiemodelmapper_metacall_isbase = false;
             return QVPieModelMapper::qt_metacall(param1, param2, param3);
-        } else if (qvpiemodelmapper_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qvpiemodelmapper_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qvpiemodelmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QVPieModelMapper::qt_metacall(param1, param2, param3);
         }
+        return QVPieModelMapper::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,14 +204,15 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_event_isbase) {
             qvpiemodelmapper_event_isbase = false;
             return QVPieModelMapper::event(event);
-        } else if (qvpiemodelmapper_event_callback != nullptr) {
+        }
+        auto event_cb = qvpiemodelmapper_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qvpiemodelmapper_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVPieModelMapper::event(event);
         }
+        return QVPieModelMapper::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +220,16 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_eventfilter_isbase) {
             qvpiemodelmapper_eventfilter_isbase = false;
             return QVPieModelMapper::eventFilter(watched, event);
-        } else if (qvpiemodelmapper_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qvpiemodelmapper_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qvpiemodelmapper_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QVPieModelMapper::eventFilter(watched, event);
         }
+        return QVPieModelMapper::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,13 +237,16 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_timerevent_isbase) {
             qvpiemodelmapper_timerevent_isbase = false;
             QVPieModelMapper::timerEvent(event);
-        } else if (qvpiemodelmapper_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qvpiemodelmapper_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qvpiemodelmapper_timerevent_callback(this, cbval1);
-        } else {
-            QVPieModelMapper::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QVPieModelMapper::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,13 +254,16 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_childevent_isbase) {
             qvpiemodelmapper_childevent_isbase = false;
             QVPieModelMapper::childEvent(event);
-        } else if (qvpiemodelmapper_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qvpiemodelmapper_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qvpiemodelmapper_childevent_callback(this, cbval1);
-        } else {
-            QVPieModelMapper::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QVPieModelMapper::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,13 +271,16 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_customevent_isbase) {
             qvpiemodelmapper_customevent_isbase = false;
             QVPieModelMapper::customEvent(event);
-        } else if (qvpiemodelmapper_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qvpiemodelmapper_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qvpiemodelmapper_customevent_callback(this, cbval1);
-        } else {
-            QVPieModelMapper::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QVPieModelMapper::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,15 +288,18 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_connectnotify_isbase) {
             qvpiemodelmapper_connectnotify_isbase = false;
             QVPieModelMapper::connectNotify(signal);
-        } else if (qvpiemodelmapper_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qvpiemodelmapper_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvpiemodelmapper_connectnotify_callback(this, cbval1);
-        } else {
-            QVPieModelMapper::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QVPieModelMapper::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,15 +307,18 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_disconnectnotify_isbase) {
             qvpiemodelmapper_disconnectnotify_isbase = false;
             QVPieModelMapper::disconnectNotify(signal);
-        } else if (qvpiemodelmapper_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qvpiemodelmapper_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvpiemodelmapper_disconnectnotify_callback(this, cbval1);
-        } else {
-            QVPieModelMapper::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QVPieModelMapper::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,12 +326,13 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_first_isbase) {
             qvpiemodelmapper_first_isbase = false;
             return QVPieModelMapper::first();
-        } else if (qvpiemodelmapper_first_callback != nullptr) {
-            int callback_ret = qvpiemodelmapper_first_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVPieModelMapper::first();
         }
+        auto first_cb = qvpiemodelmapper_first_callback;
+        if (first_cb) {
+            int callback_ret = first_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVPieModelMapper::first();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,13 +340,16 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_setfirst_isbase) {
             qvpiemodelmapper_setfirst_isbase = false;
             QVPieModelMapper::setFirst(first);
-        } else if (qvpiemodelmapper_setfirst_callback != nullptr) {
+            return;
+        }
+        auto setfirst_cb = qvpiemodelmapper_setfirst_callback;
+        if (setfirst_cb) {
             int cbval1 = first;
 
-            qvpiemodelmapper_setfirst_callback(this, cbval1);
-        } else {
-            QVPieModelMapper::setFirst(first);
+            setfirst_cb(this, cbval1);
+            return;
         }
+        QVPieModelMapper::setFirst(first);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,12 +357,13 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_count_isbase) {
             qvpiemodelmapper_count_isbase = false;
             return QVPieModelMapper::count();
-        } else if (qvpiemodelmapper_count_callback != nullptr) {
-            int callback_ret = qvpiemodelmapper_count_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVPieModelMapper::count();
         }
+        auto count_cb = qvpiemodelmapper_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVPieModelMapper::count();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,13 +371,16 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_setcount_isbase) {
             qvpiemodelmapper_setcount_isbase = false;
             QVPieModelMapper::setCount(count);
-        } else if (qvpiemodelmapper_setcount_callback != nullptr) {
+            return;
+        }
+        auto setcount_cb = qvpiemodelmapper_setcount_callback;
+        if (setcount_cb) {
             int cbval1 = count;
 
-            qvpiemodelmapper_setcount_callback(this, cbval1);
-        } else {
-            QVPieModelMapper::setCount(count);
+            setcount_cb(this, cbval1);
+            return;
         }
+        QVPieModelMapper::setCount(count);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,12 +388,13 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_valuessection_isbase) {
             qvpiemodelmapper_valuessection_isbase = false;
             return QVPieModelMapper::valuesSection();
-        } else if (qvpiemodelmapper_valuessection_callback != nullptr) {
-            int callback_ret = qvpiemodelmapper_valuessection_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVPieModelMapper::valuesSection();
         }
+        auto valuessection_cb = qvpiemodelmapper_valuessection_callback;
+        if (valuessection_cb) {
+            int callback_ret = valuessection_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVPieModelMapper::valuesSection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -400,13 +402,16 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_setvaluessection_isbase) {
             qvpiemodelmapper_setvaluessection_isbase = false;
             QVPieModelMapper::setValuesSection(valuesSection);
-        } else if (qvpiemodelmapper_setvaluessection_callback != nullptr) {
+            return;
+        }
+        auto setvaluessection_cb = qvpiemodelmapper_setvaluessection_callback;
+        if (setvaluessection_cb) {
             int cbval1 = valuesSection;
 
-            qvpiemodelmapper_setvaluessection_callback(this, cbval1);
-        } else {
-            QVPieModelMapper::setValuesSection(valuesSection);
+            setvaluessection_cb(this, cbval1);
+            return;
         }
+        QVPieModelMapper::setValuesSection(valuesSection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,12 +419,13 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_labelssection_isbase) {
             qvpiemodelmapper_labelssection_isbase = false;
             return QVPieModelMapper::labelsSection();
-        } else if (qvpiemodelmapper_labelssection_callback != nullptr) {
-            int callback_ret = qvpiemodelmapper_labelssection_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVPieModelMapper::labelsSection();
         }
+        auto labelssection_cb = qvpiemodelmapper_labelssection_callback;
+        if (labelssection_cb) {
+            int callback_ret = labelssection_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVPieModelMapper::labelsSection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,13 +433,16 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_setlabelssection_isbase) {
             qvpiemodelmapper_setlabelssection_isbase = false;
             QVPieModelMapper::setLabelsSection(labelsSection);
-        } else if (qvpiemodelmapper_setlabelssection_callback != nullptr) {
+            return;
+        }
+        auto setlabelssection_cb = qvpiemodelmapper_setlabelssection_callback;
+        if (setlabelssection_cb) {
             int cbval1 = labelsSection;
 
-            qvpiemodelmapper_setlabelssection_callback(this, cbval1);
-        } else {
-            QVPieModelMapper::setLabelsSection(labelsSection);
+            setlabelssection_cb(this, cbval1);
+            return;
         }
+        QVPieModelMapper::setLabelsSection(labelsSection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,12 +450,13 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_orientation_isbase) {
             qvpiemodelmapper_orientation_isbase = false;
             return QVPieModelMapper::orientation();
-        } else if (qvpiemodelmapper_orientation_callback != nullptr) {
-            int callback_ret = qvpiemodelmapper_orientation_callback();
-            return static_cast<Qt::Orientation>(callback_ret);
-        } else {
-            return QVPieModelMapper::orientation();
         }
+        auto orientation_cb = qvpiemodelmapper_orientation_callback;
+        if (orientation_cb) {
+            int callback_ret = orientation_cb();
+            return static_cast<Qt::Orientation>(callback_ret);
+        }
+        return QVPieModelMapper::orientation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,13 +464,16 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_setorientation_isbase) {
             qvpiemodelmapper_setorientation_isbase = false;
             QVPieModelMapper::setOrientation(orientation);
-        } else if (qvpiemodelmapper_setorientation_callback != nullptr) {
+            return;
+        }
+        auto setorientation_cb = qvpiemodelmapper_setorientation_callback;
+        if (setorientation_cb) {
             int cbval1 = static_cast<int>(orientation);
 
-            qvpiemodelmapper_setorientation_callback(this, cbval1);
-        } else {
-            QVPieModelMapper::setOrientation(orientation);
+            setorientation_cb(this, cbval1);
+            return;
         }
+        QVPieModelMapper::setOrientation(orientation);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,12 +481,13 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_sender_isbase) {
             qvpiemodelmapper_sender_isbase = false;
             return QVPieModelMapper::sender();
-        } else if (qvpiemodelmapper_sender_callback != nullptr) {
-            QObject* callback_ret = qvpiemodelmapper_sender_callback();
-            return callback_ret;
-        } else {
-            return QVPieModelMapper::sender();
         }
+        auto sender_cb = qvpiemodelmapper_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QVPieModelMapper::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,12 +495,13 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_sendersignalindex_isbase) {
             qvpiemodelmapper_sendersignalindex_isbase = false;
             return QVPieModelMapper::senderSignalIndex();
-        } else if (qvpiemodelmapper_sendersignalindex_callback != nullptr) {
-            int callback_ret = qvpiemodelmapper_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVPieModelMapper::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qvpiemodelmapper_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVPieModelMapper::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,14 +509,15 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_receivers_isbase) {
             qvpiemodelmapper_receivers_isbase = false;
             return QVPieModelMapper::receivers(signal);
-        } else if (qvpiemodelmapper_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qvpiemodelmapper_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qvpiemodelmapper_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QVPieModelMapper::receivers(signal);
         }
+        return QVPieModelMapper::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,16 +525,17 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (qvpiemodelmapper_issignalconnected_isbase) {
             qvpiemodelmapper_issignalconnected_isbase = false;
             return QVPieModelMapper::isSignalConnected(signal);
-        } else if (qvpiemodelmapper_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qvpiemodelmapper_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qvpiemodelmapper_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVPieModelMapper::isSignalConnected(signal);
         }
+        return QVPieModelMapper::isSignalConnected(signal);
     }
 
     // Friend functions

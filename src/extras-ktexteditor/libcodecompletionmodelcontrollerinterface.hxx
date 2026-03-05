@@ -53,18 +53,6 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
   public:
     VirtualKTextEditorCodeCompletionModelControllerInterface() : KTextEditor::CodeCompletionModelControllerInterface() {};
 
-    ~VirtualKTextEditorCodeCompletionModelControllerInterface() {
-        ktexteditor__codecompletionmodelcontrollerinterface_shouldstartcompletion_callback = nullptr;
-        ktexteditor__codecompletionmodelcontrollerinterface_completionrange_callback = nullptr;
-        ktexteditor__codecompletionmodelcontrollerinterface_updatecompletionrange_callback = nullptr;
-        ktexteditor__codecompletionmodelcontrollerinterface_filterstring_callback = nullptr;
-        ktexteditor__codecompletionmodelcontrollerinterface_shouldabortcompletion_callback = nullptr;
-        ktexteditor__codecompletionmodelcontrollerinterface_shouldexecute_callback = nullptr;
-        ktexteditor__codecompletionmodelcontrollerinterface_aborted_callback = nullptr;
-        ktexteditor__codecompletionmodelcontrollerinterface_matchingitem_callback = nullptr;
-        ktexteditor__codecompletionmodelcontrollerinterface_shouldhideitemswithequalnames_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKTextEditor__CodeCompletionModelControllerInterface_ShouldStartCompletion_Callback(KTextEditor__CodeCompletionModelControllerInterface_ShouldStartCompletion_Callback cb) { ktexteditor__codecompletionmodelcontrollerinterface_shouldstartcompletion_callback = cb; }
     inline void setKTextEditor__CodeCompletionModelControllerInterface_CompletionRange_Callback(KTextEditor__CodeCompletionModelControllerInterface_CompletionRange_Callback cb) { ktexteditor__codecompletionmodelcontrollerinterface_completionrange_callback = cb; }
@@ -92,7 +80,9 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         if (ktexteditor__codecompletionmodelcontrollerinterface_shouldstartcompletion_isbase) {
             ktexteditor__codecompletionmodelcontrollerinterface_shouldstartcompletion_isbase = false;
             return KTextEditor__CodeCompletionModelControllerInterface::shouldStartCompletion(view, insertedText, userInsertion, position);
-        } else if (ktexteditor__codecompletionmodelcontrollerinterface_shouldstartcompletion_callback != nullptr) {
+        }
+        auto shouldstartcompletion_cb = ktexteditor__codecompletionmodelcontrollerinterface_shouldstartcompletion_callback;
+        if (shouldstartcompletion_cb) {
             KTextEditor__View* cbval1 = view;
             const QString insertedText_ret = insertedText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -107,12 +97,11 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             // Cast returned reference into pointer
             KTextEditor__Cursor* cbval4 = const_cast<KTextEditor::Cursor*>(&position_ret);
 
-            bool callback_ret = ktexteditor__codecompletionmodelcontrollerinterface_shouldstartcompletion_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = shouldstartcompletion_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(insertedText_str);
             return callback_ret;
-        } else {
-            return KTextEditor__CodeCompletionModelControllerInterface::shouldStartCompletion(view, insertedText, userInsertion, position);
         }
+        return KTextEditor__CodeCompletionModelControllerInterface::shouldStartCompletion(view, insertedText, userInsertion, position);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -120,17 +109,18 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         if (ktexteditor__codecompletionmodelcontrollerinterface_completionrange_isbase) {
             ktexteditor__codecompletionmodelcontrollerinterface_completionrange_isbase = false;
             return KTextEditor__CodeCompletionModelControllerInterface::completionRange(view, position);
-        } else if (ktexteditor__codecompletionmodelcontrollerinterface_completionrange_callback != nullptr) {
+        }
+        auto completionrange_cb = ktexteditor__codecompletionmodelcontrollerinterface_completionrange_callback;
+        if (completionrange_cb) {
             KTextEditor__View* cbval1 = view;
             const KTextEditor::Cursor& position_ret = position;
             // Cast returned reference into pointer
             KTextEditor__Cursor* cbval2 = const_cast<KTextEditor::Cursor*>(&position_ret);
 
-            KTextEditor__Range* callback_ret = ktexteditor__codecompletionmodelcontrollerinterface_completionrange_callback(this, cbval1, cbval2);
+            KTextEditor__Range* callback_ret = completionrange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KTextEditor__CodeCompletionModelControllerInterface::completionRange(view, position);
         }
+        return KTextEditor__CodeCompletionModelControllerInterface::completionRange(view, position);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,17 +128,18 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         if (ktexteditor__codecompletionmodelcontrollerinterface_updatecompletionrange_isbase) {
             ktexteditor__codecompletionmodelcontrollerinterface_updatecompletionrange_isbase = false;
             return KTextEditor__CodeCompletionModelControllerInterface::updateCompletionRange(view, range);
-        } else if (ktexteditor__codecompletionmodelcontrollerinterface_updatecompletionrange_callback != nullptr) {
+        }
+        auto updatecompletionrange_cb = ktexteditor__codecompletionmodelcontrollerinterface_updatecompletionrange_callback;
+        if (updatecompletionrange_cb) {
             KTextEditor__View* cbval1 = view;
             const KTextEditor::Range& range_ret = range;
             // Cast returned reference into pointer
             KTextEditor__Range* cbval2 = const_cast<KTextEditor::Range*>(&range_ret);
 
-            KTextEditor__Range* callback_ret = ktexteditor__codecompletionmodelcontrollerinterface_updatecompletionrange_callback(this, cbval1, cbval2);
+            KTextEditor__Range* callback_ret = updatecompletionrange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KTextEditor__CodeCompletionModelControllerInterface::updateCompletionRange(view, range);
         }
+        return KTextEditor__CodeCompletionModelControllerInterface::updateCompletionRange(view, range);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,7 +147,9 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         if (ktexteditor__codecompletionmodelcontrollerinterface_filterstring_isbase) {
             ktexteditor__codecompletionmodelcontrollerinterface_filterstring_isbase = false;
             return KTextEditor__CodeCompletionModelControllerInterface::filterString(view, range, position);
-        } else if (ktexteditor__codecompletionmodelcontrollerinterface_filterstring_callback != nullptr) {
+        }
+        auto filterstring_cb = ktexteditor__codecompletionmodelcontrollerinterface_filterstring_callback;
+        if (filterstring_cb) {
             KTextEditor__View* cbval1 = view;
             const KTextEditor::Range& range_ret = range;
             // Cast returned reference into pointer
@@ -165,12 +158,11 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             // Cast returned reference into pointer
             KTextEditor__Cursor* cbval3 = const_cast<KTextEditor::Cursor*>(&position_ret);
 
-            const char* callback_ret = ktexteditor__codecompletionmodelcontrollerinterface_filterstring_callback(this, cbval1, cbval2, cbval3);
+            const char* callback_ret = filterstring_cb(this, cbval1, cbval2, cbval3);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KTextEditor__CodeCompletionModelControllerInterface::filterString(view, range, position);
         }
+        return KTextEditor__CodeCompletionModelControllerInterface::filterString(view, range, position);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -178,7 +170,9 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         if (ktexteditor__codecompletionmodelcontrollerinterface_shouldabortcompletion_isbase) {
             ktexteditor__codecompletionmodelcontrollerinterface_shouldabortcompletion_isbase = false;
             return KTextEditor__CodeCompletionModelControllerInterface::shouldAbortCompletion(view, range, currentCompletion);
-        } else if (ktexteditor__codecompletionmodelcontrollerinterface_shouldabortcompletion_callback != nullptr) {
+        }
+        auto shouldabortcompletion_cb = ktexteditor__codecompletionmodelcontrollerinterface_shouldabortcompletion_callback;
+        if (shouldabortcompletion_cb) {
             KTextEditor__View* cbval1 = view;
             const KTextEditor::Range& range_ret = range;
             // Cast returned reference into pointer
@@ -192,12 +186,11 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             ((char*)currentCompletion_str)[currentCompletion_str_len] = '\0';
             const char* cbval3 = currentCompletion_str;
 
-            bool callback_ret = ktexteditor__codecompletionmodelcontrollerinterface_shouldabortcompletion_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = shouldabortcompletion_cb(this, cbval1, cbval2, cbval3);
             libqt_free(currentCompletion_str);
             return callback_ret;
-        } else {
-            return KTextEditor__CodeCompletionModelControllerInterface::shouldAbortCompletion(view, range, currentCompletion);
         }
+        return KTextEditor__CodeCompletionModelControllerInterface::shouldAbortCompletion(view, range, currentCompletion);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,17 +198,18 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         if (ktexteditor__codecompletionmodelcontrollerinterface_shouldexecute_isbase) {
             ktexteditor__codecompletionmodelcontrollerinterface_shouldexecute_isbase = false;
             return KTextEditor__CodeCompletionModelControllerInterface::shouldExecute(selected, inserted);
-        } else if (ktexteditor__codecompletionmodelcontrollerinterface_shouldexecute_callback != nullptr) {
+        }
+        auto shouldexecute_cb = ktexteditor__codecompletionmodelcontrollerinterface_shouldexecute_callback;
+        if (shouldexecute_cb) {
             const QModelIndex& selected_ret = selected;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&selected_ret);
             QChar* cbval2 = new QChar(inserted);
 
-            bool callback_ret = ktexteditor__codecompletionmodelcontrollerinterface_shouldexecute_callback(this, cbval1, cbval2);
+            bool callback_ret = shouldexecute_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KTextEditor__CodeCompletionModelControllerInterface::shouldExecute(selected, inserted);
         }
+        return KTextEditor__CodeCompletionModelControllerInterface::shouldExecute(selected, inserted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -223,13 +217,16 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         if (ktexteditor__codecompletionmodelcontrollerinterface_aborted_isbase) {
             ktexteditor__codecompletionmodelcontrollerinterface_aborted_isbase = false;
             KTextEditor__CodeCompletionModelControllerInterface::aborted(view);
-        } else if (ktexteditor__codecompletionmodelcontrollerinterface_aborted_callback != nullptr) {
+            return;
+        }
+        auto aborted_cb = ktexteditor__codecompletionmodelcontrollerinterface_aborted_callback;
+        if (aborted_cb) {
             KTextEditor__View* cbval1 = view;
 
-            ktexteditor__codecompletionmodelcontrollerinterface_aborted_callback(this, cbval1);
-        } else {
-            KTextEditor__CodeCompletionModelControllerInterface::aborted(view);
+            aborted_cb(this, cbval1);
+            return;
         }
+        KTextEditor__CodeCompletionModelControllerInterface::aborted(view);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -237,16 +234,17 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         if (ktexteditor__codecompletionmodelcontrollerinterface_matchingitem_isbase) {
             ktexteditor__codecompletionmodelcontrollerinterface_matchingitem_isbase = false;
             return KTextEditor__CodeCompletionModelControllerInterface::matchingItem(matched);
-        } else if (ktexteditor__codecompletionmodelcontrollerinterface_matchingitem_callback != nullptr) {
+        }
+        auto matchingitem_cb = ktexteditor__codecompletionmodelcontrollerinterface_matchingitem_callback;
+        if (matchingitem_cb) {
             const QModelIndex& matched_ret = matched;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&matched_ret);
 
-            int callback_ret = ktexteditor__codecompletionmodelcontrollerinterface_matchingitem_callback(this, cbval1);
+            int callback_ret = matchingitem_cb(this, cbval1);
             return static_cast<KTextEditor::CodeCompletionModelControllerInterface::MatchReaction>(callback_ret);
-        } else {
-            return KTextEditor__CodeCompletionModelControllerInterface::matchingItem(matched);
         }
+        return KTextEditor__CodeCompletionModelControllerInterface::matchingItem(matched);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -254,12 +252,13 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         if (ktexteditor__codecompletionmodelcontrollerinterface_shouldhideitemswithequalnames_isbase) {
             ktexteditor__codecompletionmodelcontrollerinterface_shouldhideitemswithequalnames_isbase = false;
             return KTextEditor__CodeCompletionModelControllerInterface::shouldHideItemsWithEqualNames();
-        } else if (ktexteditor__codecompletionmodelcontrollerinterface_shouldhideitemswithequalnames_callback != nullptr) {
-            bool callback_ret = ktexteditor__codecompletionmodelcontrollerinterface_shouldhideitemswithequalnames_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__CodeCompletionModelControllerInterface::shouldHideItemsWithEqualNames();
         }
+        auto shouldhideitemswithequalnames_cb = ktexteditor__codecompletionmodelcontrollerinterface_shouldhideitemswithequalnames_callback;
+        if (shouldhideitemswithequalnames_cb) {
+            bool callback_ret = shouldhideitemswithequalnames_cb();
+            return callback_ret;
+        }
+        return KTextEditor__CodeCompletionModelControllerInterface::shouldHideItemsWithEqualNames();
     }
 };
 

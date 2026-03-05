@@ -75,25 +75,6 @@ class VirtualQThread final : public QThread {
     VirtualQThread() : QThread() {};
     VirtualQThread(QObject* parent) : QThread(parent) {};
 
-    ~VirtualQThread() {
-        qthread_metaobject_callback = nullptr;
-        qthread_metacast_callback = nullptr;
-        qthread_metacall_callback = nullptr;
-        qthread_event_callback = nullptr;
-        qthread_run_callback = nullptr;
-        qthread_eventfilter_callback = nullptr;
-        qthread_timerevent_callback = nullptr;
-        qthread_childevent_callback = nullptr;
-        qthread_customevent_callback = nullptr;
-        qthread_connectnotify_callback = nullptr;
-        qthread_disconnectnotify_callback = nullptr;
-        qthread_exec_callback = nullptr;
-        qthread_sender_callback = nullptr;
-        qthread_sendersignalindex_callback = nullptr;
-        qthread_receivers_callback = nullptr;
-        qthread_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQThread_MetaObject_Callback(QThread_MetaObject_Callback cb) { qthread_metaobject_callback = cb; }
     inline void setQThread_Metacast_Callback(QThread_Metacast_Callback cb) { qthread_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualQThread final : public QThread {
         if (qthread_metaobject_isbase) {
             qthread_metaobject_isbase = false;
             return QThread::metaObject();
-        } else if (qthread_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qthread_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QThread::metaObject();
         }
+        auto metaobject_cb = qthread_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QThread::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualQThread final : public QThread {
         if (qthread_metacast_isbase) {
             qthread_metacast_isbase = false;
             return QThread::qt_metacast(param1);
-        } else if (qthread_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qthread_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qthread_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QThread::qt_metacast(param1);
         }
+        return QThread::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,16 +146,17 @@ class VirtualQThread final : public QThread {
         if (qthread_metacall_isbase) {
             qthread_metacall_isbase = false;
             return QThread::qt_metacall(param1, param2, param3);
-        } else if (qthread_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qthread_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qthread_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QThread::qt_metacall(param1, param2, param3);
         }
+        return QThread::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,14 +164,15 @@ class VirtualQThread final : public QThread {
         if (qthread_event_isbase) {
             qthread_event_isbase = false;
             return QThread::event(event);
-        } else if (qthread_event_callback != nullptr) {
+        }
+        auto event_cb = qthread_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qthread_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QThread::event(event);
         }
+        return QThread::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -195,11 +180,14 @@ class VirtualQThread final : public QThread {
         if (qthread_run_isbase) {
             qthread_run_isbase = false;
             QThread::run();
-        } else if (qthread_run_callback != nullptr) {
-            qthread_run_callback();
-        } else {
-            QThread::run();
+            return;
         }
+        auto run_cb = qthread_run_callback;
+        if (run_cb) {
+            run_cb();
+            return;
+        }
+        QThread::run();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -207,15 +195,16 @@ class VirtualQThread final : public QThread {
         if (qthread_eventfilter_isbase) {
             qthread_eventfilter_isbase = false;
             return QThread::eventFilter(watched, event);
-        } else if (qthread_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qthread_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qthread_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QThread::eventFilter(watched, event);
         }
+        return QThread::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -223,13 +212,16 @@ class VirtualQThread final : public QThread {
         if (qthread_timerevent_isbase) {
             qthread_timerevent_isbase = false;
             QThread::timerEvent(event);
-        } else if (qthread_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qthread_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qthread_timerevent_callback(this, cbval1);
-        } else {
-            QThread::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QThread::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -237,13 +229,16 @@ class VirtualQThread final : public QThread {
         if (qthread_childevent_isbase) {
             qthread_childevent_isbase = false;
             QThread::childEvent(event);
-        } else if (qthread_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qthread_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qthread_childevent_callback(this, cbval1);
-        } else {
-            QThread::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QThread::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -251,13 +246,16 @@ class VirtualQThread final : public QThread {
         if (qthread_customevent_isbase) {
             qthread_customevent_isbase = false;
             QThread::customEvent(event);
-        } else if (qthread_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qthread_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qthread_customevent_callback(this, cbval1);
-        } else {
-            QThread::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QThread::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,15 +263,18 @@ class VirtualQThread final : public QThread {
         if (qthread_connectnotify_isbase) {
             qthread_connectnotify_isbase = false;
             QThread::connectNotify(signal);
-        } else if (qthread_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qthread_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qthread_connectnotify_callback(this, cbval1);
-        } else {
-            QThread::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QThread::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -281,15 +282,18 @@ class VirtualQThread final : public QThread {
         if (qthread_disconnectnotify_isbase) {
             qthread_disconnectnotify_isbase = false;
             QThread::disconnectNotify(signal);
-        } else if (qthread_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qthread_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qthread_disconnectnotify_callback(this, cbval1);
-        } else {
-            QThread::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QThread::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -297,12 +301,13 @@ class VirtualQThread final : public QThread {
         if (qthread_exec_isbase) {
             qthread_exec_isbase = false;
             return QThread::exec();
-        } else if (qthread_exec_callback != nullptr) {
-            int callback_ret = qthread_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QThread::exec();
         }
+        auto exec_cb = qthread_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QThread::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -310,12 +315,13 @@ class VirtualQThread final : public QThread {
         if (qthread_sender_isbase) {
             qthread_sender_isbase = false;
             return QThread::sender();
-        } else if (qthread_sender_callback != nullptr) {
-            QObject* callback_ret = qthread_sender_callback();
-            return callback_ret;
-        } else {
-            return QThread::sender();
         }
+        auto sender_cb = qthread_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QThread::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -323,12 +329,13 @@ class VirtualQThread final : public QThread {
         if (qthread_sendersignalindex_isbase) {
             qthread_sendersignalindex_isbase = false;
             return QThread::senderSignalIndex();
-        } else if (qthread_sendersignalindex_callback != nullptr) {
-            int callback_ret = qthread_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QThread::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qthread_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QThread::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -336,14 +343,15 @@ class VirtualQThread final : public QThread {
         if (qthread_receivers_isbase) {
             qthread_receivers_isbase = false;
             return QThread::receivers(signal);
-        } else if (qthread_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qthread_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qthread_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QThread::receivers(signal);
         }
+        return QThread::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -351,16 +359,17 @@ class VirtualQThread final : public QThread {
         if (qthread_issignalconnected_isbase) {
             qthread_issignalconnected_isbase = false;
             return QThread::isSignalConnected(signal);
-        } else if (qthread_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qthread_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qthread_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QThread::isSignalConnected(signal);
         }
+        return QThread::isSignalConnected(signal);
     }
 
     // Friend functions

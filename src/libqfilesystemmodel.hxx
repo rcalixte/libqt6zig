@@ -240,80 +240,6 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
     VirtualQFileSystemModel() : QFileSystemModel() {};
     VirtualQFileSystemModel(QObject* parent) : QFileSystemModel(parent) {};
 
-    ~VirtualQFileSystemModel() {
-        qfilesystemmodel_metaobject_callback = nullptr;
-        qfilesystemmodel_metacast_callback = nullptr;
-        qfilesystemmodel_metacall_callback = nullptr;
-        qfilesystemmodel_index_callback = nullptr;
-        qfilesystemmodel_parent_callback = nullptr;
-        qfilesystemmodel_sibling_callback = nullptr;
-        qfilesystemmodel_haschildren_callback = nullptr;
-        qfilesystemmodel_canfetchmore_callback = nullptr;
-        qfilesystemmodel_fetchmore_callback = nullptr;
-        qfilesystemmodel_rowcount_callback = nullptr;
-        qfilesystemmodel_columncount_callback = nullptr;
-        qfilesystemmodel_data_callback = nullptr;
-        qfilesystemmodel_setdata_callback = nullptr;
-        qfilesystemmodel_headerdata_callback = nullptr;
-        qfilesystemmodel_flags_callback = nullptr;
-        qfilesystemmodel_sort_callback = nullptr;
-        qfilesystemmodel_mimetypes_callback = nullptr;
-        qfilesystemmodel_mimedata_callback = nullptr;
-        qfilesystemmodel_dropmimedata_callback = nullptr;
-        qfilesystemmodel_supporteddropactions_callback = nullptr;
-        qfilesystemmodel_rolenames_callback = nullptr;
-        qfilesystemmodel_timerevent_callback = nullptr;
-        qfilesystemmodel_event_callback = nullptr;
-        qfilesystemmodel_setheaderdata_callback = nullptr;
-        qfilesystemmodel_itemdata_callback = nullptr;
-        qfilesystemmodel_setitemdata_callback = nullptr;
-        qfilesystemmodel_clearitemdata_callback = nullptr;
-        qfilesystemmodel_candropmimedata_callback = nullptr;
-        qfilesystemmodel_supporteddragactions_callback = nullptr;
-        qfilesystemmodel_insertrows_callback = nullptr;
-        qfilesystemmodel_insertcolumns_callback = nullptr;
-        qfilesystemmodel_removerows_callback = nullptr;
-        qfilesystemmodel_removecolumns_callback = nullptr;
-        qfilesystemmodel_moverows_callback = nullptr;
-        qfilesystemmodel_movecolumns_callback = nullptr;
-        qfilesystemmodel_buddy_callback = nullptr;
-        qfilesystemmodel_match_callback = nullptr;
-        qfilesystemmodel_span_callback = nullptr;
-        qfilesystemmodel_multidata_callback = nullptr;
-        qfilesystemmodel_submit_callback = nullptr;
-        qfilesystemmodel_revert_callback = nullptr;
-        qfilesystemmodel_resetinternaldata_callback = nullptr;
-        qfilesystemmodel_eventfilter_callback = nullptr;
-        qfilesystemmodel_childevent_callback = nullptr;
-        qfilesystemmodel_customevent_callback = nullptr;
-        qfilesystemmodel_connectnotify_callback = nullptr;
-        qfilesystemmodel_disconnectnotify_callback = nullptr;
-        qfilesystemmodel_createindex_callback = nullptr;
-        qfilesystemmodel_encodedata_callback = nullptr;
-        qfilesystemmodel_decodedata_callback = nullptr;
-        qfilesystemmodel_begininsertrows_callback = nullptr;
-        qfilesystemmodel_endinsertrows_callback = nullptr;
-        qfilesystemmodel_beginremoverows_callback = nullptr;
-        qfilesystemmodel_endremoverows_callback = nullptr;
-        qfilesystemmodel_beginmoverows_callback = nullptr;
-        qfilesystemmodel_endmoverows_callback = nullptr;
-        qfilesystemmodel_begininsertcolumns_callback = nullptr;
-        qfilesystemmodel_endinsertcolumns_callback = nullptr;
-        qfilesystemmodel_beginremovecolumns_callback = nullptr;
-        qfilesystemmodel_endremovecolumns_callback = nullptr;
-        qfilesystemmodel_beginmovecolumns_callback = nullptr;
-        qfilesystemmodel_endmovecolumns_callback = nullptr;
-        qfilesystemmodel_beginresetmodel_callback = nullptr;
-        qfilesystemmodel_endresetmodel_callback = nullptr;
-        qfilesystemmodel_changepersistentindex_callback = nullptr;
-        qfilesystemmodel_changepersistentindexlist_callback = nullptr;
-        qfilesystemmodel_persistentindexlist_callback = nullptr;
-        qfilesystemmodel_sender_callback = nullptr;
-        qfilesystemmodel_sendersignalindex_callback = nullptr;
-        qfilesystemmodel_receivers_callback = nullptr;
-        qfilesystemmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQFileSystemModel_MetaObject_Callback(QFileSystemModel_MetaObject_Callback cb) { qfilesystemmodel_metaobject_callback = cb; }
     inline void setQFileSystemModel_Metacast_Callback(QFileSystemModel_Metacast_Callback cb) { qfilesystemmodel_metacast_callback = cb; }
@@ -465,12 +391,13 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_metaobject_isbase) {
             qfilesystemmodel_metaobject_isbase = false;
             return QFileSystemModel::metaObject();
-        } else if (qfilesystemmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qfilesystemmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QFileSystemModel::metaObject();
         }
+        auto metaobject_cb = qfilesystemmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QFileSystemModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -478,14 +405,15 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_metacast_isbase) {
             qfilesystemmodel_metacast_isbase = false;
             return QFileSystemModel::qt_metacast(param1);
-        } else if (qfilesystemmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qfilesystemmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qfilesystemmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileSystemModel::qt_metacast(param1);
         }
+        return QFileSystemModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,16 +421,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_metacall_isbase) {
             qfilesystemmodel_metacall_isbase = false;
             return QFileSystemModel::qt_metacall(param1, param2, param3);
-        } else if (qfilesystemmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qfilesystemmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qfilesystemmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFileSystemModel::qt_metacall(param1, param2, param3);
         }
+        return QFileSystemModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,18 +439,19 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_index_isbase) {
             qfilesystemmodel_index_isbase = false;
             return QFileSystemModel::index(row, column, parent);
-        } else if (qfilesystemmodel_index_callback != nullptr) {
+        }
+        auto index_cb = qfilesystemmodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = qfilesystemmodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QFileSystemModel::index(row, column, parent);
         }
+        return QFileSystemModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,16 +459,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_parent_isbase) {
             qfilesystemmodel_parent_isbase = false;
             return QFileSystemModel::parent(child);
-        } else if (qfilesystemmodel_parent_callback != nullptr) {
+        }
+        auto parent_cb = qfilesystemmodel_parent_callback;
+        if (parent_cb) {
             const QModelIndex& child_ret = child;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
 
-            QModelIndex* callback_ret = qfilesystemmodel_parent_callback(this, cbval1);
+            QModelIndex* callback_ret = parent_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QFileSystemModel::parent(child);
         }
+        return QFileSystemModel::parent(child);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,18 +477,19 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_sibling_isbase) {
             qfilesystemmodel_sibling_isbase = false;
             return QFileSystemModel::sibling(row, column, idx);
-        } else if (qfilesystemmodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = qfilesystemmodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = qfilesystemmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QFileSystemModel::sibling(row, column, idx);
         }
+        return QFileSystemModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,16 +497,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_haschildren_isbase) {
             qfilesystemmodel_haschildren_isbase = false;
             return QFileSystemModel::hasChildren(parent);
-        } else if (qfilesystemmodel_haschildren_callback != nullptr) {
+        }
+        auto haschildren_cb = qfilesystemmodel_haschildren_callback;
+        if (haschildren_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qfilesystemmodel_haschildren_callback(this, cbval1);
+            bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileSystemModel::hasChildren(parent);
         }
+        return QFileSystemModel::hasChildren(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,16 +515,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_canfetchmore_isbase) {
             qfilesystemmodel_canfetchmore_isbase = false;
             return QFileSystemModel::canFetchMore(parent);
-        } else if (qfilesystemmodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = qfilesystemmodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qfilesystemmodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileSystemModel::canFetchMore(parent);
         }
+        return QFileSystemModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,15 +533,18 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_fetchmore_isbase) {
             qfilesystemmodel_fetchmore_isbase = false;
             QFileSystemModel::fetchMore(parent);
-        } else if (qfilesystemmodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = qfilesystemmodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            qfilesystemmodel_fetchmore_callback(this, cbval1);
-        } else {
-            QFileSystemModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        QFileSystemModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -615,16 +552,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_rowcount_isbase) {
             qfilesystemmodel_rowcount_isbase = false;
             return QFileSystemModel::rowCount(parent);
-        } else if (qfilesystemmodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = qfilesystemmodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qfilesystemmodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFileSystemModel::rowCount(parent);
         }
+        return QFileSystemModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -632,16 +570,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_columncount_isbase) {
             qfilesystemmodel_columncount_isbase = false;
             return QFileSystemModel::columnCount(parent);
-        } else if (qfilesystemmodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = qfilesystemmodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qfilesystemmodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFileSystemModel::columnCount(parent);
         }
+        return QFileSystemModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,17 +588,18 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_data_isbase) {
             qfilesystemmodel_data_isbase = false;
             return QFileSystemModel::data(index, role);
-        } else if (qfilesystemmodel_data_callback != nullptr) {
+        }
+        auto data_cb = qfilesystemmodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = qfilesystemmodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QFileSystemModel::data(index, role);
         }
+        return QFileSystemModel::data(index, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,7 +607,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_setdata_isbase) {
             qfilesystemmodel_setdata_isbase = false;
             return QFileSystemModel::setData(index, value, role);
-        } else if (qfilesystemmodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = qfilesystemmodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -676,11 +618,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = qfilesystemmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QFileSystemModel::setData(index, value, role);
         }
+        return QFileSystemModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,16 +629,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_headerdata_isbase) {
             qfilesystemmodel_headerdata_isbase = false;
             return QFileSystemModel::headerData(section, orientation, role);
-        } else if (qfilesystemmodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = qfilesystemmodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = qfilesystemmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QFileSystemModel::headerData(section, orientation, role);
         }
+        return QFileSystemModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,16 +647,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_flags_isbase) {
             qfilesystemmodel_flags_isbase = false;
             return QFileSystemModel::flags(index);
-        } else if (qfilesystemmodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = qfilesystemmodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qfilesystemmodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return QFileSystemModel::flags(index);
         }
+        return QFileSystemModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -722,14 +665,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_sort_isbase) {
             qfilesystemmodel_sort_isbase = false;
             QFileSystemModel::sort(column, order);
-        } else if (qfilesystemmodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = qfilesystemmodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            qfilesystemmodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            QFileSystemModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        QFileSystemModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,8 +683,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_mimetypes_isbase) {
             qfilesystemmodel_mimetypes_isbase = false;
             return QFileSystemModel::mimeTypes();
-        } else if (qfilesystemmodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = qfilesystemmodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = qfilesystemmodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -749,9 +697,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QFileSystemModel::mimeTypes();
         }
+        return QFileSystemModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,7 +706,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_mimedata_isbase) {
             qfilesystemmodel_mimedata_isbase = false;
             return QFileSystemModel::mimeData(indexes);
-        } else if (qfilesystemmodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = qfilesystemmodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -771,12 +720,11 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = qfilesystemmodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return QFileSystemModel::mimeData(indexes);
         }
+        return QFileSystemModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,7 +732,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_dropmimedata_isbase) {
             qfilesystemmodel_dropmimedata_isbase = false;
             return QFileSystemModel::dropMimeData(data, action, row, column, parent);
-        } else if (qfilesystemmodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = qfilesystemmodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -793,11 +743,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qfilesystemmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QFileSystemModel::dropMimeData(data, action, row, column, parent);
         }
+        return QFileSystemModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -805,12 +754,13 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_supporteddropactions_isbase) {
             qfilesystemmodel_supporteddropactions_isbase = false;
             return QFileSystemModel::supportedDropActions();
-        } else if (qfilesystemmodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = qfilesystemmodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QFileSystemModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = qfilesystemmodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QFileSystemModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -818,8 +768,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_rolenames_isbase) {
             qfilesystemmodel_rolenames_isbase = false;
             return QFileSystemModel::roleNames();
-        } else if (qfilesystemmodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = qfilesystemmodel_rolenames_callback();
+        }
+        auto rolenames_cb = qfilesystemmodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -829,9 +781,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return QFileSystemModel::roleNames();
         }
+        return QFileSystemModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -839,13 +790,16 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_timerevent_isbase) {
             qfilesystemmodel_timerevent_isbase = false;
             QFileSystemModel::timerEvent(event);
-        } else if (qfilesystemmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qfilesystemmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qfilesystemmodel_timerevent_callback(this, cbval1);
-        } else {
-            QFileSystemModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QFileSystemModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -853,14 +807,15 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_event_isbase) {
             qfilesystemmodel_event_isbase = false;
             return QFileSystemModel::event(event);
-        } else if (qfilesystemmodel_event_callback != nullptr) {
+        }
+        auto event_cb = qfilesystemmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qfilesystemmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileSystemModel::event(event);
         }
+        return QFileSystemModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,7 +823,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_setheaderdata_isbase) {
             qfilesystemmodel_setheaderdata_isbase = false;
             return QFileSystemModel::setHeaderData(section, orientation, value, role);
-        } else if (qfilesystemmodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = qfilesystemmodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -876,11 +833,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = qfilesystemmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QFileSystemModel::setHeaderData(section, orientation, value, role);
         }
+        return QFileSystemModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -888,12 +844,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_itemdata_isbase) {
             qfilesystemmodel_itemdata_isbase = false;
             return QFileSystemModel::itemData(index);
-        } else if (qfilesystemmodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = qfilesystemmodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = qfilesystemmodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -901,9 +859,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return QFileSystemModel::itemData(index);
         }
+        return QFileSystemModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -911,7 +868,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_setitemdata_isbase) {
             qfilesystemmodel_setitemdata_isbase = false;
             return QFileSystemModel::setItemData(index, roles);
-        } else if (qfilesystemmodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = qfilesystemmodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -931,11 +890,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = qfilesystemmodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QFileSystemModel::setItemData(index, roles);
         }
+        return QFileSystemModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -943,16 +901,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_clearitemdata_isbase) {
             qfilesystemmodel_clearitemdata_isbase = false;
             return QFileSystemModel::clearItemData(index);
-        } else if (qfilesystemmodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = qfilesystemmodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qfilesystemmodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileSystemModel::clearItemData(index);
         }
+        return QFileSystemModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -960,7 +919,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_candropmimedata_isbase) {
             qfilesystemmodel_candropmimedata_isbase = false;
             return QFileSystemModel::canDropMimeData(data, action, row, column, parent);
-        } else if (qfilesystemmodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = qfilesystemmodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -969,11 +930,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qfilesystemmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QFileSystemModel::canDropMimeData(data, action, row, column, parent);
         }
+        return QFileSystemModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -981,12 +941,13 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_supporteddragactions_isbase) {
             qfilesystemmodel_supporteddragactions_isbase = false;
             return QFileSystemModel::supportedDragActions();
-        } else if (qfilesystemmodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = qfilesystemmodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QFileSystemModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = qfilesystemmodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QFileSystemModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -994,18 +955,19 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_insertrows_isbase) {
             qfilesystemmodel_insertrows_isbase = false;
             return QFileSystemModel::insertRows(row, count, parent);
-        } else if (qfilesystemmodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = qfilesystemmodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qfilesystemmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QFileSystemModel::insertRows(row, count, parent);
         }
+        return QFileSystemModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1013,18 +975,19 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_insertcolumns_isbase) {
             qfilesystemmodel_insertcolumns_isbase = false;
             return QFileSystemModel::insertColumns(column, count, parent);
-        } else if (qfilesystemmodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = qfilesystemmodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qfilesystemmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QFileSystemModel::insertColumns(column, count, parent);
         }
+        return QFileSystemModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1032,18 +995,19 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_removerows_isbase) {
             qfilesystemmodel_removerows_isbase = false;
             return QFileSystemModel::removeRows(row, count, parent);
-        } else if (qfilesystemmodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = qfilesystemmodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qfilesystemmodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QFileSystemModel::removeRows(row, count, parent);
         }
+        return QFileSystemModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1051,18 +1015,19 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_removecolumns_isbase) {
             qfilesystemmodel_removecolumns_isbase = false;
             return QFileSystemModel::removeColumns(column, count, parent);
-        } else if (qfilesystemmodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = qfilesystemmodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qfilesystemmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QFileSystemModel::removeColumns(column, count, parent);
         }
+        return QFileSystemModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,7 +1035,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_moverows_isbase) {
             qfilesystemmodel_moverows_isbase = false;
             return QFileSystemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (qfilesystemmodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = qfilesystemmodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1081,11 +1048,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qfilesystemmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QFileSystemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return QFileSystemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1093,7 +1059,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_movecolumns_isbase) {
             qfilesystemmodel_movecolumns_isbase = false;
             return QFileSystemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (qfilesystemmodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = qfilesystemmodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1104,11 +1072,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qfilesystemmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QFileSystemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return QFileSystemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1116,16 +1083,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_buddy_isbase) {
             qfilesystemmodel_buddy_isbase = false;
             return QFileSystemModel::buddy(index);
-        } else if (qfilesystemmodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = qfilesystemmodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = qfilesystemmodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QFileSystemModel::buddy(index);
         }
+        return QFileSystemModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1133,7 +1101,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_match_isbase) {
             qfilesystemmodel_match_isbase = false;
             return QFileSystemModel::match(start, role, value, hits, flags);
-        } else if (qfilesystemmodel_match_callback != nullptr) {
+        }
+        auto match_cb = qfilesystemmodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1144,7 +1114,7 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qfilesystemmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1153,9 +1123,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QFileSystemModel::match(start, role, value, hits, flags);
         }
+        return QFileSystemModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1163,16 +1132,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_span_isbase) {
             qfilesystemmodel_span_isbase = false;
             return QFileSystemModel::span(index);
-        } else if (qfilesystemmodel_span_callback != nullptr) {
+        }
+        auto span_cb = qfilesystemmodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = qfilesystemmodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QFileSystemModel::span(index);
         }
+        return QFileSystemModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,16 +1150,19 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_multidata_isbase) {
             qfilesystemmodel_multidata_isbase = false;
             QFileSystemModel::multiData(index, roleDataSpan);
-        } else if (qfilesystemmodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = qfilesystemmodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            qfilesystemmodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            QFileSystemModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        QFileSystemModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1197,12 +1170,13 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_submit_isbase) {
             qfilesystemmodel_submit_isbase = false;
             return QFileSystemModel::submit();
-        } else if (qfilesystemmodel_submit_callback != nullptr) {
-            bool callback_ret = qfilesystemmodel_submit_callback();
-            return callback_ret;
-        } else {
-            return QFileSystemModel::submit();
         }
+        auto submit_cb = qfilesystemmodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return QFileSystemModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,11 +1184,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_revert_isbase) {
             qfilesystemmodel_revert_isbase = false;
             QFileSystemModel::revert();
-        } else if (qfilesystemmodel_revert_callback != nullptr) {
-            qfilesystemmodel_revert_callback();
-        } else {
-            QFileSystemModel::revert();
+            return;
         }
+        auto revert_cb = qfilesystemmodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        QFileSystemModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,11 +1199,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_resetinternaldata_isbase) {
             qfilesystemmodel_resetinternaldata_isbase = false;
             QFileSystemModel::resetInternalData();
-        } else if (qfilesystemmodel_resetinternaldata_callback != nullptr) {
-            qfilesystemmodel_resetinternaldata_callback();
-        } else {
-            QFileSystemModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = qfilesystemmodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        QFileSystemModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,15 +1214,16 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_eventfilter_isbase) {
             qfilesystemmodel_eventfilter_isbase = false;
             return QFileSystemModel::eventFilter(watched, event);
-        } else if (qfilesystemmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qfilesystemmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qfilesystemmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QFileSystemModel::eventFilter(watched, event);
         }
+        return QFileSystemModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1250,13 +1231,16 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_childevent_isbase) {
             qfilesystemmodel_childevent_isbase = false;
             QFileSystemModel::childEvent(event);
-        } else if (qfilesystemmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qfilesystemmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qfilesystemmodel_childevent_callback(this, cbval1);
-        } else {
-            QFileSystemModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QFileSystemModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1264,13 +1248,16 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_customevent_isbase) {
             qfilesystemmodel_customevent_isbase = false;
             QFileSystemModel::customEvent(event);
-        } else if (qfilesystemmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qfilesystemmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qfilesystemmodel_customevent_callback(this, cbval1);
-        } else {
-            QFileSystemModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QFileSystemModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,15 +1265,18 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_connectnotify_isbase) {
             qfilesystemmodel_connectnotify_isbase = false;
             QFileSystemModel::connectNotify(signal);
-        } else if (qfilesystemmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qfilesystemmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfilesystemmodel_connectnotify_callback(this, cbval1);
-        } else {
-            QFileSystemModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QFileSystemModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,15 +1284,18 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_disconnectnotify_isbase) {
             qfilesystemmodel_disconnectnotify_isbase = false;
             QFileSystemModel::disconnectNotify(signal);
-        } else if (qfilesystemmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qfilesystemmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfilesystemmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QFileSystemModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QFileSystemModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1310,15 +1303,16 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_createindex_isbase) {
             qfilesystemmodel_createindex_isbase = false;
             return QFileSystemModel::createIndex(row, column);
-        } else if (qfilesystemmodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = qfilesystemmodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = qfilesystemmodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QFileSystemModel::createIndex(row, column);
         }
+        return QFileSystemModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1326,7 +1320,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_encodedata_isbase) {
             qfilesystemmodel_encodedata_isbase = false;
             QFileSystemModel::encodeData(indexes, stream);
-        } else if (qfilesystemmodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = qfilesystemmodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1341,11 +1338,11 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            qfilesystemmodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            QFileSystemModel::encodeData(indexes, stream);
+            return;
         }
+        QFileSystemModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,7 +1350,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_decodedata_isbase) {
             qfilesystemmodel_decodedata_isbase = false;
             return QFileSystemModel::decodeData(row, column, parent, stream);
-        } else if (qfilesystemmodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = qfilesystemmodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1363,11 +1362,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = qfilesystemmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QFileSystemModel::decodeData(row, column, parent, stream);
         }
+        return QFileSystemModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1375,17 +1373,20 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_begininsertrows_isbase) {
             qfilesystemmodel_begininsertrows_isbase = false;
             QFileSystemModel::beginInsertRows(parent, first, last);
-        } else if (qfilesystemmodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = qfilesystemmodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qfilesystemmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QFileSystemModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QFileSystemModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1393,11 +1394,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_endinsertrows_isbase) {
             qfilesystemmodel_endinsertrows_isbase = false;
             QFileSystemModel::endInsertRows();
-        } else if (qfilesystemmodel_endinsertrows_callback != nullptr) {
-            qfilesystemmodel_endinsertrows_callback();
-        } else {
-            QFileSystemModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = qfilesystemmodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        QFileSystemModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1405,17 +1409,20 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_beginremoverows_isbase) {
             qfilesystemmodel_beginremoverows_isbase = false;
             QFileSystemModel::beginRemoveRows(parent, first, last);
-        } else if (qfilesystemmodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = qfilesystemmodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qfilesystemmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QFileSystemModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QFileSystemModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1423,11 +1430,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_endremoverows_isbase) {
             qfilesystemmodel_endremoverows_isbase = false;
             QFileSystemModel::endRemoveRows();
-        } else if (qfilesystemmodel_endremoverows_callback != nullptr) {
-            qfilesystemmodel_endremoverows_callback();
-        } else {
-            QFileSystemModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = qfilesystemmodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        QFileSystemModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1435,7 +1445,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_beginmoverows_isbase) {
             qfilesystemmodel_beginmoverows_isbase = false;
             return QFileSystemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (qfilesystemmodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = qfilesystemmodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1446,11 +1458,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = qfilesystemmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QFileSystemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return QFileSystemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1458,11 +1469,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_endmoverows_isbase) {
             qfilesystemmodel_endmoverows_isbase = false;
             QFileSystemModel::endMoveRows();
-        } else if (qfilesystemmodel_endmoverows_callback != nullptr) {
-            qfilesystemmodel_endmoverows_callback();
-        } else {
-            QFileSystemModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = qfilesystemmodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        QFileSystemModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1470,17 +1484,20 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_begininsertcolumns_isbase) {
             qfilesystemmodel_begininsertcolumns_isbase = false;
             QFileSystemModel::beginInsertColumns(parent, first, last);
-        } else if (qfilesystemmodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = qfilesystemmodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qfilesystemmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QFileSystemModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QFileSystemModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1488,11 +1505,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_endinsertcolumns_isbase) {
             qfilesystemmodel_endinsertcolumns_isbase = false;
             QFileSystemModel::endInsertColumns();
-        } else if (qfilesystemmodel_endinsertcolumns_callback != nullptr) {
-            qfilesystemmodel_endinsertcolumns_callback();
-        } else {
-            QFileSystemModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = qfilesystemmodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        QFileSystemModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1500,17 +1520,20 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_beginremovecolumns_isbase) {
             qfilesystemmodel_beginremovecolumns_isbase = false;
             QFileSystemModel::beginRemoveColumns(parent, first, last);
-        } else if (qfilesystemmodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = qfilesystemmodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qfilesystemmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QFileSystemModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QFileSystemModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1518,11 +1541,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_endremovecolumns_isbase) {
             qfilesystemmodel_endremovecolumns_isbase = false;
             QFileSystemModel::endRemoveColumns();
-        } else if (qfilesystemmodel_endremovecolumns_callback != nullptr) {
-            qfilesystemmodel_endremovecolumns_callback();
-        } else {
-            QFileSystemModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = qfilesystemmodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        QFileSystemModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1530,7 +1556,9 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_beginmovecolumns_isbase) {
             qfilesystemmodel_beginmovecolumns_isbase = false;
             return QFileSystemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (qfilesystemmodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = qfilesystemmodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1541,11 +1569,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = qfilesystemmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QFileSystemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return QFileSystemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1553,11 +1580,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_endmovecolumns_isbase) {
             qfilesystemmodel_endmovecolumns_isbase = false;
             QFileSystemModel::endMoveColumns();
-        } else if (qfilesystemmodel_endmovecolumns_callback != nullptr) {
-            qfilesystemmodel_endmovecolumns_callback();
-        } else {
-            QFileSystemModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = qfilesystemmodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        QFileSystemModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1565,11 +1595,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_beginresetmodel_isbase) {
             qfilesystemmodel_beginresetmodel_isbase = false;
             QFileSystemModel::beginResetModel();
-        } else if (qfilesystemmodel_beginresetmodel_callback != nullptr) {
-            qfilesystemmodel_beginresetmodel_callback();
-        } else {
-            QFileSystemModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = qfilesystemmodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        QFileSystemModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1577,11 +1610,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_endresetmodel_isbase) {
             qfilesystemmodel_endresetmodel_isbase = false;
             QFileSystemModel::endResetModel();
-        } else if (qfilesystemmodel_endresetmodel_callback != nullptr) {
-            qfilesystemmodel_endresetmodel_callback();
-        } else {
-            QFileSystemModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = qfilesystemmodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        QFileSystemModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1589,7 +1625,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_changepersistentindex_isbase) {
             qfilesystemmodel_changepersistentindex_isbase = false;
             QFileSystemModel::changePersistentIndex(from, to);
-        } else if (qfilesystemmodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = qfilesystemmodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1597,10 +1636,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            qfilesystemmodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            QFileSystemModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QFileSystemModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1608,7 +1647,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_changepersistentindexlist_isbase) {
             qfilesystemmodel_changepersistentindexlist_isbase = false;
             QFileSystemModel::changePersistentIndexList(from, to);
-        } else if (qfilesystemmodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = qfilesystemmodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1630,12 +1672,12 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            qfilesystemmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            QFileSystemModel::changePersistentIndexList(from, to);
+            return;
         }
+        QFileSystemModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1643,8 +1685,10 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_persistentindexlist_isbase) {
             qfilesystemmodel_persistentindexlist_isbase = false;
             return QFileSystemModel::persistentIndexList();
-        } else if (qfilesystemmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qfilesystemmodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = qfilesystemmodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1653,9 +1697,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QFileSystemModel::persistentIndexList();
         }
+        return QFileSystemModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1663,12 +1706,13 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_sender_isbase) {
             qfilesystemmodel_sender_isbase = false;
             return QFileSystemModel::sender();
-        } else if (qfilesystemmodel_sender_callback != nullptr) {
-            QObject* callback_ret = qfilesystemmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return QFileSystemModel::sender();
         }
+        auto sender_cb = qfilesystemmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QFileSystemModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1676,12 +1720,13 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_sendersignalindex_isbase) {
             qfilesystemmodel_sendersignalindex_isbase = false;
             return QFileSystemModel::senderSignalIndex();
-        } else if (qfilesystemmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qfilesystemmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFileSystemModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qfilesystemmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFileSystemModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1689,14 +1734,15 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_receivers_isbase) {
             qfilesystemmodel_receivers_isbase = false;
             return QFileSystemModel::receivers(signal);
-        } else if (qfilesystemmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qfilesystemmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qfilesystemmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFileSystemModel::receivers(signal);
         }
+        return QFileSystemModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1704,16 +1750,17 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
         if (qfilesystemmodel_issignalconnected_isbase) {
             qfilesystemmodel_issignalconnected_isbase = false;
             return QFileSystemModel::isSignalConnected(signal);
-        } else if (qfilesystemmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qfilesystemmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qfilesystemmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileSystemModel::isSignalConnected(signal);
         }
+        return QFileSystemModel::isSignalConnected(signal);
     }
 
     // Friend functions

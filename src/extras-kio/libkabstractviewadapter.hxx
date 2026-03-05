@@ -86,29 +86,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
   public:
     VirtualKAbstractViewAdapter(QObject* parent) : KAbstractViewAdapter(parent) {};
 
-    ~VirtualKAbstractViewAdapter() {
-        kabstractviewadapter_model_callback = nullptr;
-        kabstractviewadapter_iconsize_callback = nullptr;
-        kabstractviewadapter_palette_callback = nullptr;
-        kabstractviewadapter_visiblearea_callback = nullptr;
-        kabstractviewadapter_visualrect_callback = nullptr;
-        kabstractviewadapter_connect_callback = nullptr;
-        kabstractviewadapter_metaobject_callback = nullptr;
-        kabstractviewadapter_metacast_callback = nullptr;
-        kabstractviewadapter_metacall_callback = nullptr;
-        kabstractviewadapter_event_callback = nullptr;
-        kabstractviewadapter_eventfilter_callback = nullptr;
-        kabstractviewadapter_timerevent_callback = nullptr;
-        kabstractviewadapter_childevent_callback = nullptr;
-        kabstractviewadapter_customevent_callback = nullptr;
-        kabstractviewadapter_connectnotify_callback = nullptr;
-        kabstractviewadapter_disconnectnotify_callback = nullptr;
-        kabstractviewadapter_sender_callback = nullptr;
-        kabstractviewadapter_sendersignalindex_callback = nullptr;
-        kabstractviewadapter_receivers_callback = nullptr;
-        kabstractviewadapter_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKAbstractViewAdapter_Model_Callback(KAbstractViewAdapter_Model_Callback cb) { kabstractviewadapter_model_callback = cb; }
     inline void setKAbstractViewAdapter_IconSize_Callback(KAbstractViewAdapter_IconSize_Callback cb) { kabstractviewadapter_iconsize_callback = cb; }
@@ -155,66 +132,67 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
 
     // Virtual method for C ABI access and custom callback
     virtual QAbstractItemModel* model() const override {
-        if (kabstractviewadapter_model_callback != nullptr) {
-            QAbstractItemModel* callback_ret = kabstractviewadapter_model_callback();
+        auto model_cb = kabstractviewadapter_model_callback;
+        if (model_cb) {
+            QAbstractItemModel* callback_ret = model_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize iconSize() const override {
-        if (kabstractviewadapter_iconsize_callback != nullptr) {
-            QSize* callback_ret = kabstractviewadapter_iconsize_callback();
+        auto iconsize_cb = kabstractviewadapter_iconsize_callback;
+        if (iconsize_cb) {
+            QSize* callback_ret = iconsize_cb();
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QPalette palette() const override {
-        if (kabstractviewadapter_palette_callback != nullptr) {
-            QPalette* callback_ret = kabstractviewadapter_palette_callback();
+        auto palette_cb = kabstractviewadapter_palette_callback;
+        if (palette_cb) {
+            QPalette* callback_ret = palette_cb();
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRect visibleArea() const override {
-        if (kabstractviewadapter_visiblearea_callback != nullptr) {
-            QRect* callback_ret = kabstractviewadapter_visiblearea_callback();
+        auto visiblearea_cb = kabstractviewadapter_visiblearea_callback;
+        if (visiblearea_cb) {
+            QRect* callback_ret = visiblearea_cb();
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRect visualRect(const QModelIndex& index) const override {
-        if (kabstractviewadapter_visualrect_callback != nullptr) {
+        auto visualrect_cb = kabstractviewadapter_visualrect_callback;
+        if (visualrect_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = kabstractviewadapter_visualrect_callback(this, cbval1);
+            QRect* callback_ret = visualrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void connect(KAbstractViewAdapter::Signal signal, QObject* receiver, const char* slot) override {
-        if (kabstractviewadapter_connect_callback != nullptr) {
+        auto connect_cb = kabstractviewadapter_connect_callback;
+        if (connect_cb) {
             int cbval1 = static_cast<int>(signal);
             QObject* cbval2 = receiver;
             const char* cbval3 = (const char*)slot;
 
-            kabstractviewadapter_connect_callback(this, cbval1, cbval2, cbval3);
+            connect_cb(this, cbval1, cbval2, cbval3);
         }
     }
 
@@ -223,12 +201,13 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_metaobject_isbase) {
             kabstractviewadapter_metaobject_isbase = false;
             return KAbstractViewAdapter::metaObject();
-        } else if (kabstractviewadapter_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kabstractviewadapter_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KAbstractViewAdapter::metaObject();
         }
+        auto metaobject_cb = kabstractviewadapter_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KAbstractViewAdapter::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -236,14 +215,15 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_metacast_isbase) {
             kabstractviewadapter_metacast_isbase = false;
             return KAbstractViewAdapter::qt_metacast(param1);
-        } else if (kabstractviewadapter_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kabstractviewadapter_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kabstractviewadapter_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAbstractViewAdapter::qt_metacast(param1);
         }
+        return KAbstractViewAdapter::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -251,16 +231,17 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_metacall_isbase) {
             kabstractviewadapter_metacall_isbase = false;
             return KAbstractViewAdapter::qt_metacall(param1, param2, param3);
-        } else if (kabstractviewadapter_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kabstractviewadapter_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kabstractviewadapter_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAbstractViewAdapter::qt_metacall(param1, param2, param3);
         }
+        return KAbstractViewAdapter::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -268,14 +249,15 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_event_isbase) {
             kabstractviewadapter_event_isbase = false;
             return KAbstractViewAdapter::event(event);
-        } else if (kabstractviewadapter_event_callback != nullptr) {
+        }
+        auto event_cb = kabstractviewadapter_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kabstractviewadapter_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAbstractViewAdapter::event(event);
         }
+        return KAbstractViewAdapter::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -283,15 +265,16 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_eventfilter_isbase) {
             kabstractviewadapter_eventfilter_isbase = false;
             return KAbstractViewAdapter::eventFilter(watched, event);
-        } else if (kabstractviewadapter_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kabstractviewadapter_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kabstractviewadapter_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KAbstractViewAdapter::eventFilter(watched, event);
         }
+        return KAbstractViewAdapter::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,13 +282,16 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_timerevent_isbase) {
             kabstractviewadapter_timerevent_isbase = false;
             KAbstractViewAdapter::timerEvent(event);
-        } else if (kabstractviewadapter_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kabstractviewadapter_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kabstractviewadapter_timerevent_callback(this, cbval1);
-        } else {
-            KAbstractViewAdapter::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KAbstractViewAdapter::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,13 +299,16 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_childevent_isbase) {
             kabstractviewadapter_childevent_isbase = false;
             KAbstractViewAdapter::childEvent(event);
-        } else if (kabstractviewadapter_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kabstractviewadapter_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kabstractviewadapter_childevent_callback(this, cbval1);
-        } else {
-            KAbstractViewAdapter::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KAbstractViewAdapter::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -327,13 +316,16 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_customevent_isbase) {
             kabstractviewadapter_customevent_isbase = false;
             KAbstractViewAdapter::customEvent(event);
-        } else if (kabstractviewadapter_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kabstractviewadapter_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kabstractviewadapter_customevent_callback(this, cbval1);
-        } else {
-            KAbstractViewAdapter::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KAbstractViewAdapter::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -341,15 +333,18 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_connectnotify_isbase) {
             kabstractviewadapter_connectnotify_isbase = false;
             KAbstractViewAdapter::connectNotify(signal);
-        } else if (kabstractviewadapter_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kabstractviewadapter_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kabstractviewadapter_connectnotify_callback(this, cbval1);
-        } else {
-            KAbstractViewAdapter::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KAbstractViewAdapter::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,15 +352,18 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_disconnectnotify_isbase) {
             kabstractviewadapter_disconnectnotify_isbase = false;
             KAbstractViewAdapter::disconnectNotify(signal);
-        } else if (kabstractviewadapter_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kabstractviewadapter_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kabstractviewadapter_disconnectnotify_callback(this, cbval1);
-        } else {
-            KAbstractViewAdapter::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KAbstractViewAdapter::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,12 +371,13 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_sender_isbase) {
             kabstractviewadapter_sender_isbase = false;
             return KAbstractViewAdapter::sender();
-        } else if (kabstractviewadapter_sender_callback != nullptr) {
-            QObject* callback_ret = kabstractviewadapter_sender_callback();
-            return callback_ret;
-        } else {
-            return KAbstractViewAdapter::sender();
         }
+        auto sender_cb = kabstractviewadapter_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KAbstractViewAdapter::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -386,12 +385,13 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_sendersignalindex_isbase) {
             kabstractviewadapter_sendersignalindex_isbase = false;
             return KAbstractViewAdapter::senderSignalIndex();
-        } else if (kabstractviewadapter_sendersignalindex_callback != nullptr) {
-            int callback_ret = kabstractviewadapter_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAbstractViewAdapter::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kabstractviewadapter_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAbstractViewAdapter::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -399,14 +399,15 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_receivers_isbase) {
             kabstractviewadapter_receivers_isbase = false;
             return KAbstractViewAdapter::receivers(signal);
-        } else if (kabstractviewadapter_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kabstractviewadapter_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kabstractviewadapter_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAbstractViewAdapter::receivers(signal);
         }
+        return KAbstractViewAdapter::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,16 +415,17 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (kabstractviewadapter_issignalconnected_isbase) {
             kabstractviewadapter_issignalconnected_isbase = false;
             return KAbstractViewAdapter::isSignalConnected(signal);
-        } else if (kabstractviewadapter_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kabstractviewadapter_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kabstractviewadapter_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAbstractViewAdapter::isSignalConnected(signal);
         }
+        return KAbstractViewAdapter::isSignalConnected(signal);
     }
 
     // Friend functions

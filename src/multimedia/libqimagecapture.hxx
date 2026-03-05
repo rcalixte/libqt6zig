@@ -69,23 +69,6 @@ class VirtualQImageCapture final : public QImageCapture {
     VirtualQImageCapture() : QImageCapture() {};
     VirtualQImageCapture(QObject* parent) : QImageCapture(parent) {};
 
-    ~VirtualQImageCapture() {
-        qimagecapture_metaobject_callback = nullptr;
-        qimagecapture_metacast_callback = nullptr;
-        qimagecapture_metacall_callback = nullptr;
-        qimagecapture_event_callback = nullptr;
-        qimagecapture_eventfilter_callback = nullptr;
-        qimagecapture_timerevent_callback = nullptr;
-        qimagecapture_childevent_callback = nullptr;
-        qimagecapture_customevent_callback = nullptr;
-        qimagecapture_connectnotify_callback = nullptr;
-        qimagecapture_disconnectnotify_callback = nullptr;
-        qimagecapture_sender_callback = nullptr;
-        qimagecapture_sendersignalindex_callback = nullptr;
-        qimagecapture_receivers_callback = nullptr;
-        qimagecapture_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQImageCapture_MetaObject_Callback(QImageCapture_MetaObject_Callback cb) { qimagecapture_metaobject_callback = cb; }
     inline void setQImageCapture_Metacast_Callback(QImageCapture_Metacast_Callback cb) { qimagecapture_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_metaobject_isbase) {
             qimagecapture_metaobject_isbase = false;
             return QImageCapture::metaObject();
-        } else if (qimagecapture_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qimagecapture_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QImageCapture::metaObject();
         }
+        auto metaobject_cb = qimagecapture_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QImageCapture::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_metacast_isbase) {
             qimagecapture_metacast_isbase = false;
             return QImageCapture::qt_metacast(param1);
-        } else if (qimagecapture_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qimagecapture_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qimagecapture_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QImageCapture::qt_metacast(param1);
         }
+        return QImageCapture::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_metacall_isbase) {
             qimagecapture_metacall_isbase = false;
             return QImageCapture::qt_metacall(param1, param2, param3);
-        } else if (qimagecapture_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qimagecapture_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qimagecapture_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QImageCapture::qt_metacall(param1, param2, param3);
         }
+        return QImageCapture::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_event_isbase) {
             qimagecapture_event_isbase = false;
             return QImageCapture::event(event);
-        } else if (qimagecapture_event_callback != nullptr) {
+        }
+        auto event_cb = qimagecapture_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qimagecapture_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QImageCapture::event(event);
         }
+        return QImageCapture::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_eventfilter_isbase) {
             qimagecapture_eventfilter_isbase = false;
             return QImageCapture::eventFilter(watched, event);
-        } else if (qimagecapture_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qimagecapture_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qimagecapture_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QImageCapture::eventFilter(watched, event);
         }
+        return QImageCapture::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_timerevent_isbase) {
             qimagecapture_timerevent_isbase = false;
             QImageCapture::timerEvent(event);
-        } else if (qimagecapture_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qimagecapture_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qimagecapture_timerevent_callback(this, cbval1);
-        } else {
-            QImageCapture::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QImageCapture::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_childevent_isbase) {
             qimagecapture_childevent_isbase = false;
             QImageCapture::childEvent(event);
-        } else if (qimagecapture_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qimagecapture_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qimagecapture_childevent_callback(this, cbval1);
-        } else {
-            QImageCapture::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QImageCapture::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_customevent_isbase) {
             qimagecapture_customevent_isbase = false;
             QImageCapture::customEvent(event);
-        } else if (qimagecapture_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qimagecapture_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qimagecapture_customevent_callback(this, cbval1);
-        } else {
-            QImageCapture::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QImageCapture::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_connectnotify_isbase) {
             qimagecapture_connectnotify_isbase = false;
             QImageCapture::connectNotify(signal);
-        } else if (qimagecapture_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qimagecapture_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qimagecapture_connectnotify_callback(this, cbval1);
-        } else {
-            QImageCapture::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QImageCapture::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_disconnectnotify_isbase) {
             qimagecapture_disconnectnotify_isbase = false;
             QImageCapture::disconnectNotify(signal);
-        } else if (qimagecapture_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qimagecapture_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qimagecapture_disconnectnotify_callback(this, cbval1);
-        } else {
-            QImageCapture::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QImageCapture::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_sender_isbase) {
             qimagecapture_sender_isbase = false;
             return QImageCapture::sender();
-        } else if (qimagecapture_sender_callback != nullptr) {
-            QObject* callback_ret = qimagecapture_sender_callback();
-            return callback_ret;
-        } else {
-            return QImageCapture::sender();
         }
+        auto sender_cb = qimagecapture_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QImageCapture::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_sendersignalindex_isbase) {
             qimagecapture_sendersignalindex_isbase = false;
             return QImageCapture::senderSignalIndex();
-        } else if (qimagecapture_sendersignalindex_callback != nullptr) {
-            int callback_ret = qimagecapture_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QImageCapture::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qimagecapture_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QImageCapture::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_receivers_isbase) {
             qimagecapture_receivers_isbase = false;
             return QImageCapture::receivers(signal);
-        } else if (qimagecapture_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qimagecapture_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qimagecapture_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QImageCapture::receivers(signal);
         }
+        return QImageCapture::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQImageCapture final : public QImageCapture {
         if (qimagecapture_issignalconnected_isbase) {
             qimagecapture_issignalconnected_isbase = false;
             return QImageCapture::isSignalConnected(signal);
-        } else if (qimagecapture_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qimagecapture_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qimagecapture_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QImageCapture::isSignalConnected(signal);
         }
+        return QImageCapture::isSignalConnected(signal);
     }
 
     // Friend functions

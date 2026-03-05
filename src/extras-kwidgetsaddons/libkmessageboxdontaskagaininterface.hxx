@@ -47,16 +47,6 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
   public:
     VirtualKMessageBoxDontAskAgainInterface() : KMessageBoxDontAskAgainInterface() {};
 
-    ~VirtualKMessageBoxDontAskAgainInterface() {
-        kmessageboxdontaskagaininterface_shouldbeshowntwoactions_callback = nullptr;
-        kmessageboxdontaskagaininterface_shouldbeshowncontinue_callback = nullptr;
-        kmessageboxdontaskagaininterface_savedontshowagaintwoactions_callback = nullptr;
-        kmessageboxdontaskagaininterface_savedontshowagaincontinue_callback = nullptr;
-        kmessageboxdontaskagaininterface_enableallmessages_callback = nullptr;
-        kmessageboxdontaskagaininterface_enablemessage_callback = nullptr;
-        kmessageboxdontaskagaininterface_setconfig_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKMessageBoxDontAskAgainInterface_ShouldBeShownTwoActions_Callback(KMessageBoxDontAskAgainInterface_ShouldBeShownTwoActions_Callback cb) { kmessageboxdontaskagaininterface_shouldbeshowntwoactions_callback = cb; }
     inline void setKMessageBoxDontAskAgainInterface_ShouldBeShownContinue_Callback(KMessageBoxDontAskAgainInterface_ShouldBeShownContinue_Callback cb) { kmessageboxdontaskagaininterface_shouldbeshowncontinue_callback = cb; }
@@ -77,7 +67,8 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
 
     // Virtual method for C ABI access and custom callback
     virtual bool shouldBeShownTwoActions(const QString& dontShowAgainName, KMessageBox::ButtonCode& result) override {
-        if (kmessageboxdontaskagaininterface_shouldbeshowntwoactions_callback != nullptr) {
+        auto shouldbeshowntwoactions_cb = kmessageboxdontaskagaininterface_shouldbeshowntwoactions_callback;
+        if (shouldbeshowntwoactions_cb) {
             const QString dontShowAgainName_ret = dontShowAgainName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontShowAgainName_b = dontShowAgainName_ret.toUtf8();
@@ -89,17 +80,17 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             KMessageBox::ButtonCode& result_ret = result;
             int* cbval2 = reinterpret_cast<int*>(&result);
 
-            bool callback_ret = kmessageboxdontaskagaininterface_shouldbeshowntwoactions_callback(this, cbval1, cbval2);
+            bool callback_ret = shouldbeshowntwoactions_cb(this, cbval1, cbval2);
             libqt_free(dontShowAgainName_str);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool shouldBeShownContinue(const QString& dontShowAgainName) override {
-        if (kmessageboxdontaskagaininterface_shouldbeshowncontinue_callback != nullptr) {
+        auto shouldbeshowncontinue_cb = kmessageboxdontaskagaininterface_shouldbeshowncontinue_callback;
+        if (shouldbeshowncontinue_cb) {
             const QString dontShowAgainName_ret = dontShowAgainName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontShowAgainName_b = dontShowAgainName_ret.toUtf8();
@@ -109,17 +100,17 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
             const char* cbval1 = dontShowAgainName_str;
 
-            bool callback_ret = kmessageboxdontaskagaininterface_shouldbeshowncontinue_callback(this, cbval1);
+            bool callback_ret = shouldbeshowncontinue_cb(this, cbval1);
             libqt_free(dontShowAgainName_str);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void saveDontShowAgainTwoActions(const QString& dontShowAgainName, KMessageBox::ButtonCode result) override {
-        if (kmessageboxdontaskagaininterface_savedontshowagaintwoactions_callback != nullptr) {
+        auto savedontshowagaintwoactions_cb = kmessageboxdontaskagaininterface_savedontshowagaintwoactions_callback;
+        if (savedontshowagaintwoactions_cb) {
             const QString dontShowAgainName_ret = dontShowAgainName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontShowAgainName_b = dontShowAgainName_ret.toUtf8();
@@ -130,14 +121,15 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             const char* cbval1 = dontShowAgainName_str;
             int cbval2 = static_cast<int>(result);
 
-            kmessageboxdontaskagaininterface_savedontshowagaintwoactions_callback(this, cbval1, cbval2);
+            savedontshowagaintwoactions_cb(this, cbval1, cbval2);
             libqt_free(dontShowAgainName_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void saveDontShowAgainContinue(const QString& dontShowAgainName) override {
-        if (kmessageboxdontaskagaininterface_savedontshowagaincontinue_callback != nullptr) {
+        auto savedontshowagaincontinue_cb = kmessageboxdontaskagaininterface_savedontshowagaincontinue_callback;
+        if (savedontshowagaincontinue_cb) {
             const QString dontShowAgainName_ret = dontShowAgainName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontShowAgainName_b = dontShowAgainName_ret.toUtf8();
@@ -147,21 +139,23 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
             const char* cbval1 = dontShowAgainName_str;
 
-            kmessageboxdontaskagaininterface_savedontshowagaincontinue_callback(this, cbval1);
+            savedontshowagaincontinue_cb(this, cbval1);
             libqt_free(dontShowAgainName_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void enableAllMessages() override {
-        if (kmessageboxdontaskagaininterface_enableallmessages_callback != nullptr) {
-            kmessageboxdontaskagaininterface_enableallmessages_callback();
+        auto enableallmessages_cb = kmessageboxdontaskagaininterface_enableallmessages_callback;
+        if (enableallmessages_cb) {
+            enableallmessages_cb();
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void enableMessage(const QString& dontShowAgainName) override {
-        if (kmessageboxdontaskagaininterface_enablemessage_callback != nullptr) {
+        auto enablemessage_cb = kmessageboxdontaskagaininterface_enablemessage_callback;
+        if (enablemessage_cb) {
             const QString dontShowAgainName_ret = dontShowAgainName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontShowAgainName_b = dontShowAgainName_ret.toUtf8();
@@ -171,17 +165,18 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
             const char* cbval1 = dontShowAgainName_str;
 
-            kmessageboxdontaskagaininterface_enablemessage_callback(this, cbval1);
+            enablemessage_cb(this, cbval1);
             libqt_free(dontShowAgainName_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setConfig(KConfig* config) override {
-        if (kmessageboxdontaskagaininterface_setconfig_callback != nullptr) {
+        auto setconfig_cb = kmessageboxdontaskagaininterface_setconfig_callback;
+        if (setconfig_cb) {
             KConfig* cbval1 = config;
 
-            kmessageboxdontaskagaininterface_setconfig_callback(this, cbval1);
+            setconfig_cb(this, cbval1);
         }
     }
 };

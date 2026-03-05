@@ -260,86 +260,6 @@ class VirtualQPolarChart final : public QPolarChart {
     VirtualQPolarChart(QGraphicsItem* parent) : QPolarChart(parent) {};
     VirtualQPolarChart(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QPolarChart(parent, wFlags) {};
 
-    ~VirtualQPolarChart() {
-        qpolarchart_metaobject_callback = nullptr;
-        qpolarchart_metacast_callback = nullptr;
-        qpolarchart_metacall_callback = nullptr;
-        qpolarchart_setgeometry_callback = nullptr;
-        qpolarchart_getcontentsmargins_callback = nullptr;
-        qpolarchart_type_callback = nullptr;
-        qpolarchart_paint_callback = nullptr;
-        qpolarchart_paintwindowframe_callback = nullptr;
-        qpolarchart_boundingrect_callback = nullptr;
-        qpolarchart_shape_callback = nullptr;
-        qpolarchart_initstyleoption_callback = nullptr;
-        qpolarchart_sizehint_callback = nullptr;
-        qpolarchart_updategeometry_callback = nullptr;
-        qpolarchart_itemchange_callback = nullptr;
-        qpolarchart_propertychange_callback = nullptr;
-        qpolarchart_sceneevent_callback = nullptr;
-        qpolarchart_windowframeevent_callback = nullptr;
-        qpolarchart_windowframesectionat_callback = nullptr;
-        qpolarchart_event_callback = nullptr;
-        qpolarchart_changeevent_callback = nullptr;
-        qpolarchart_closeevent_callback = nullptr;
-        qpolarchart_focusinevent_callback = nullptr;
-        qpolarchart_focusnextprevchild_callback = nullptr;
-        qpolarchart_focusoutevent_callback = nullptr;
-        qpolarchart_hideevent_callback = nullptr;
-        qpolarchart_moveevent_callback = nullptr;
-        qpolarchart_polishevent_callback = nullptr;
-        qpolarchart_resizeevent_callback = nullptr;
-        qpolarchart_showevent_callback = nullptr;
-        qpolarchart_hovermoveevent_callback = nullptr;
-        qpolarchart_hoverleaveevent_callback = nullptr;
-        qpolarchart_grabmouseevent_callback = nullptr;
-        qpolarchart_ungrabmouseevent_callback = nullptr;
-        qpolarchart_grabkeyboardevent_callback = nullptr;
-        qpolarchart_ungrabkeyboardevent_callback = nullptr;
-        qpolarchart_eventfilter_callback = nullptr;
-        qpolarchart_timerevent_callback = nullptr;
-        qpolarchart_childevent_callback = nullptr;
-        qpolarchart_customevent_callback = nullptr;
-        qpolarchart_connectnotify_callback = nullptr;
-        qpolarchart_disconnectnotify_callback = nullptr;
-        qpolarchart_advance_callback = nullptr;
-        qpolarchart_contains_callback = nullptr;
-        qpolarchart_collideswithitem_callback = nullptr;
-        qpolarchart_collideswithpath_callback = nullptr;
-        qpolarchart_isobscuredby_callback = nullptr;
-        qpolarchart_opaquearea_callback = nullptr;
-        qpolarchart_sceneeventfilter_callback = nullptr;
-        qpolarchart_contextmenuevent_callback = nullptr;
-        qpolarchart_dragenterevent_callback = nullptr;
-        qpolarchart_dragleaveevent_callback = nullptr;
-        qpolarchart_dragmoveevent_callback = nullptr;
-        qpolarchart_dropevent_callback = nullptr;
-        qpolarchart_hoverenterevent_callback = nullptr;
-        qpolarchart_keypressevent_callback = nullptr;
-        qpolarchart_keyreleaseevent_callback = nullptr;
-        qpolarchart_mousepressevent_callback = nullptr;
-        qpolarchart_mousemoveevent_callback = nullptr;
-        qpolarchart_mousereleaseevent_callback = nullptr;
-        qpolarchart_mousedoubleclickevent_callback = nullptr;
-        qpolarchart_wheelevent_callback = nullptr;
-        qpolarchart_inputmethodevent_callback = nullptr;
-        qpolarchart_inputmethodquery_callback = nullptr;
-        qpolarchart_supportsextension_callback = nullptr;
-        qpolarchart_setextension_callback = nullptr;
-        qpolarchart_extension_callback = nullptr;
-        qpolarchart_isempty_callback = nullptr;
-        qpolarchart_updatemicrofocus_callback = nullptr;
-        qpolarchart_sender_callback = nullptr;
-        qpolarchart_sendersignalindex_callback = nullptr;
-        qpolarchart_receivers_callback = nullptr;
-        qpolarchart_issignalconnected_callback = nullptr;
-        qpolarchart_addtoindex_callback = nullptr;
-        qpolarchart_removefromindex_callback = nullptr;
-        qpolarchart_preparegeometrychange_callback = nullptr;
-        qpolarchart_setgraphicsitem_callback = nullptr;
-        qpolarchart_setownedbylayout_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPolarChart_MetaObject_Callback(QPolarChart_MetaObject_Callback cb) { qpolarchart_metaobject_callback = cb; }
     inline void setQPolarChart_Metacast_Callback(QPolarChart_Metacast_Callback cb) { qpolarchart_metacast_callback = cb; }
@@ -503,12 +423,13 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_metaobject_isbase) {
             qpolarchart_metaobject_isbase = false;
             return QPolarChart::metaObject();
-        } else if (qpolarchart_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qpolarchart_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPolarChart::metaObject();
         }
+        auto metaobject_cb = qpolarchart_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPolarChart::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -516,14 +437,15 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_metacast_isbase) {
             qpolarchart_metacast_isbase = false;
             return QPolarChart::qt_metacast(param1);
-        } else if (qpolarchart_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qpolarchart_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qpolarchart_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPolarChart::qt_metacast(param1);
         }
+        return QPolarChart::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,16 +453,17 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_metacall_isbase) {
             qpolarchart_metacall_isbase = false;
             return QPolarChart::qt_metacall(param1, param2, param3);
-        } else if (qpolarchart_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qpolarchart_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qpolarchart_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPolarChart::qt_metacall(param1, param2, param3);
         }
+        return QPolarChart::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,15 +471,18 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_setgeometry_isbase) {
             qpolarchart_setgeometry_isbase = false;
             QPolarChart::setGeometry(rect);
-        } else if (qpolarchart_setgeometry_callback != nullptr) {
+            return;
+        }
+        auto setgeometry_cb = qpolarchart_setgeometry_callback;
+        if (setgeometry_cb) {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
 
-            qpolarchart_setgeometry_callback(this, cbval1);
-        } else {
-            QPolarChart::setGeometry(rect);
+            setgeometry_cb(this, cbval1);
+            return;
         }
+        QPolarChart::setGeometry(rect);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,16 +490,19 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_getcontentsmargins_isbase) {
             qpolarchart_getcontentsmargins_isbase = false;
             QPolarChart::getContentsMargins(left, top, right, bottom);
-        } else if (qpolarchart_getcontentsmargins_callback != nullptr) {
+            return;
+        }
+        auto getcontentsmargins_cb = qpolarchart_getcontentsmargins_callback;
+        if (getcontentsmargins_cb) {
             double* cbval1 = static_cast<double*>(left);
             double* cbval2 = static_cast<double*>(top);
             double* cbval3 = static_cast<double*>(right);
             double* cbval4 = static_cast<double*>(bottom);
 
-            qpolarchart_getcontentsmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QPolarChart::getContentsMargins(left, top, right, bottom);
+            getcontentsmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QPolarChart::getContentsMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,12 +510,13 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_type_isbase) {
             qpolarchart_type_isbase = false;
             return QPolarChart::type();
-        } else if (qpolarchart_type_callback != nullptr) {
-            int callback_ret = qpolarchart_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPolarChart::type();
         }
+        auto type_cb = qpolarchart_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPolarChart::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,15 +524,18 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_paint_isbase) {
             qpolarchart_paint_isbase = false;
             QPolarChart::paint(painter, option, widget);
-        } else if (qpolarchart_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = qpolarchart_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qpolarchart_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QPolarChart::paint(painter, option, widget);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QPolarChart::paint(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -610,15 +543,18 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_paintwindowframe_isbase) {
             qpolarchart_paintwindowframe_isbase = false;
             QPolarChart::paintWindowFrame(painter, option, widget);
-        } else if (qpolarchart_paintwindowframe_callback != nullptr) {
+            return;
+        }
+        auto paintwindowframe_cb = qpolarchart_paintwindowframe_callback;
+        if (paintwindowframe_cb) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
 
-            qpolarchart_paintwindowframe_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QPolarChart::paintWindowFrame(painter, option, widget);
+            paintwindowframe_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QPolarChart::paintWindowFrame(painter, option, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,12 +562,13 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_boundingrect_isbase) {
             qpolarchart_boundingrect_isbase = false;
             return QPolarChart::boundingRect();
-        } else if (qpolarchart_boundingrect_callback != nullptr) {
-            QRectF* callback_ret = qpolarchart_boundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QPolarChart::boundingRect();
         }
+        auto boundingrect_cb = qpolarchart_boundingrect_callback;
+        if (boundingrect_cb) {
+            QRectF* callback_ret = boundingrect_cb();
+            return *callback_ret;
+        }
+        return QPolarChart::boundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,12 +576,13 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_shape_isbase) {
             qpolarchart_shape_isbase = false;
             return QPolarChart::shape();
-        } else if (qpolarchart_shape_callback != nullptr) {
-            QPainterPath* callback_ret = qpolarchart_shape_callback();
-            return *callback_ret;
-        } else {
-            return QPolarChart::shape();
         }
+        auto shape_cb = qpolarchart_shape_callback;
+        if (shape_cb) {
+            QPainterPath* callback_ret = shape_cb();
+            return *callback_ret;
+        }
+        return QPolarChart::shape();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -652,13 +590,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_initstyleoption_isbase) {
             qpolarchart_initstyleoption_isbase = false;
             QPolarChart::initStyleOption(option);
-        } else if (qpolarchart_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qpolarchart_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOption* cbval1 = option;
 
-            qpolarchart_initstyleoption_callback(this, cbval1);
-        } else {
-            QPolarChart::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QPolarChart::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -666,17 +607,18 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_sizehint_isbase) {
             qpolarchart_sizehint_isbase = false;
             return QPolarChart::sizeHint(which, constraint);
-        } else if (qpolarchart_sizehint_callback != nullptr) {
+        }
+        auto sizehint_cb = qpolarchart_sizehint_callback;
+        if (sizehint_cb) {
             int cbval1 = static_cast<int>(which);
             const QSizeF& constraint_ret = constraint;
             // Cast returned reference into pointer
             QSizeF* cbval2 = const_cast<QSizeF*>(&constraint_ret);
 
-            QSizeF* callback_ret = qpolarchart_sizehint_callback(this, cbval1, cbval2);
+            QSizeF* callback_ret = sizehint_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QPolarChart::sizeHint(which, constraint);
         }
+        return QPolarChart::sizeHint(which, constraint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,11 +626,14 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_updategeometry_isbase) {
             qpolarchart_updategeometry_isbase = false;
             QPolarChart::updateGeometry();
-        } else if (qpolarchart_updategeometry_callback != nullptr) {
-            qpolarchart_updategeometry_callback();
-        } else {
-            QPolarChart::updateGeometry();
+            return;
         }
+        auto updategeometry_cb = qpolarchart_updategeometry_callback;
+        if (updategeometry_cb) {
+            updategeometry_cb();
+            return;
+        }
+        QPolarChart::updateGeometry();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,17 +641,18 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_itemchange_isbase) {
             qpolarchart_itemchange_isbase = false;
             return QPolarChart::itemChange(change, value);
-        } else if (qpolarchart_itemchange_callback != nullptr) {
+        }
+        auto itemchange_cb = qpolarchart_itemchange_callback;
+        if (itemchange_cb) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qpolarchart_itemchange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QPolarChart::itemChange(change, value);
         }
+        return QPolarChart::itemChange(change, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,7 +660,9 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_propertychange_isbase) {
             qpolarchart_propertychange_isbase = false;
             return QPolarChart::propertyChange(propertyName, value);
-        } else if (qpolarchart_propertychange_callback != nullptr) {
+        }
+        auto propertychange_cb = qpolarchart_propertychange_callback;
+        if (propertychange_cb) {
             const QString propertyName_ret = propertyName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
@@ -727,12 +675,11 @@ class VirtualQPolarChart final : public QPolarChart {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            QVariant* callback_ret = qpolarchart_propertychange_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = propertychange_cb(this, cbval1, cbval2);
             libqt_free(propertyName_str);
             return *callback_ret;
-        } else {
-            return QPolarChart::propertyChange(propertyName, value);
         }
+        return QPolarChart::propertyChange(propertyName, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,14 +687,15 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_sceneevent_isbase) {
             qpolarchart_sceneevent_isbase = false;
             return QPolarChart::sceneEvent(event);
-        } else if (qpolarchart_sceneevent_callback != nullptr) {
+        }
+        auto sceneevent_cb = qpolarchart_sceneevent_callback;
+        if (sceneevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qpolarchart_sceneevent_callback(this, cbval1);
+            bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPolarChart::sceneEvent(event);
         }
+        return QPolarChart::sceneEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -755,14 +703,15 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_windowframeevent_isbase) {
             qpolarchart_windowframeevent_isbase = false;
             return QPolarChart::windowFrameEvent(e);
-        } else if (qpolarchart_windowframeevent_callback != nullptr) {
+        }
+        auto windowframeevent_cb = qpolarchart_windowframeevent_callback;
+        if (windowframeevent_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qpolarchart_windowframeevent_callback(this, cbval1);
+            bool callback_ret = windowframeevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPolarChart::windowFrameEvent(e);
         }
+        return QPolarChart::windowFrameEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,16 +719,17 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_windowframesectionat_isbase) {
             qpolarchart_windowframesectionat_isbase = false;
             return QPolarChart::windowFrameSectionAt(pos);
-        } else if (qpolarchart_windowframesectionat_callback != nullptr) {
+        }
+        auto windowframesectionat_cb = qpolarchart_windowframesectionat_callback;
+        if (windowframesectionat_cb) {
             const QPointF& pos_ret = pos;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
 
-            int callback_ret = qpolarchart_windowframesectionat_callback(this, cbval1);
+            int callback_ret = windowframesectionat_cb(this, cbval1);
             return static_cast<Qt::WindowFrameSection>(callback_ret);
-        } else {
-            return QPolarChart::windowFrameSectionAt(pos);
         }
+        return QPolarChart::windowFrameSectionAt(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,14 +737,15 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_event_isbase) {
             qpolarchart_event_isbase = false;
             return QPolarChart::event(event);
-        } else if (qpolarchart_event_callback != nullptr) {
+        }
+        auto event_cb = qpolarchart_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qpolarchart_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPolarChart::event(event);
         }
+        return QPolarChart::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,13 +753,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_changeevent_isbase) {
             qpolarchart_changeevent_isbase = false;
             QPolarChart::changeEvent(event);
-        } else if (qpolarchart_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qpolarchart_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qpolarchart_changeevent_callback(this, cbval1);
-        } else {
-            QPolarChart::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -816,13 +770,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_closeevent_isbase) {
             qpolarchart_closeevent_isbase = false;
             QPolarChart::closeEvent(event);
-        } else if (qpolarchart_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qpolarchart_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qpolarchart_closeevent_callback(this, cbval1);
-        } else {
-            QPolarChart::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,13 +787,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_focusinevent_isbase) {
             qpolarchart_focusinevent_isbase = false;
             QPolarChart::focusInEvent(event);
-        } else if (qpolarchart_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qpolarchart_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qpolarchart_focusinevent_callback(this, cbval1);
-        } else {
-            QPolarChart::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -844,14 +804,15 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_focusnextprevchild_isbase) {
             qpolarchart_focusnextprevchild_isbase = false;
             return QPolarChart::focusNextPrevChild(next);
-        } else if (qpolarchart_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qpolarchart_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qpolarchart_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPolarChart::focusNextPrevChild(next);
         }
+        return QPolarChart::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -859,13 +820,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_focusoutevent_isbase) {
             qpolarchart_focusoutevent_isbase = false;
             QPolarChart::focusOutEvent(event);
-        } else if (qpolarchart_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qpolarchart_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qpolarchart_focusoutevent_callback(this, cbval1);
-        } else {
-            QPolarChart::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,13 +837,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_hideevent_isbase) {
             qpolarchart_hideevent_isbase = false;
             QPolarChart::hideEvent(event);
-        } else if (qpolarchart_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qpolarchart_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qpolarchart_hideevent_callback(this, cbval1);
-        } else {
-            QPolarChart::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -887,13 +854,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_moveevent_isbase) {
             qpolarchart_moveevent_isbase = false;
             QPolarChart::moveEvent(event);
-        } else if (qpolarchart_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qpolarchart_moveevent_callback;
+        if (moveevent_cb) {
             QGraphicsSceneMoveEvent* cbval1 = event;
 
-            qpolarchart_moveevent_callback(this, cbval1);
-        } else {
-            QPolarChart::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -901,11 +871,14 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_polishevent_isbase) {
             qpolarchart_polishevent_isbase = false;
             QPolarChart::polishEvent();
-        } else if (qpolarchart_polishevent_callback != nullptr) {
-            qpolarchart_polishevent_callback();
-        } else {
-            QPolarChart::polishEvent();
+            return;
         }
+        auto polishevent_cb = qpolarchart_polishevent_callback;
+        if (polishevent_cb) {
+            polishevent_cb();
+            return;
+        }
+        QPolarChart::polishEvent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +886,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_resizeevent_isbase) {
             qpolarchart_resizeevent_isbase = false;
             QPolarChart::resizeEvent(event);
-        } else if (qpolarchart_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qpolarchart_resizeevent_callback;
+        if (resizeevent_cb) {
             QGraphicsSceneResizeEvent* cbval1 = event;
 
-            qpolarchart_resizeevent_callback(this, cbval1);
-        } else {
-            QPolarChart::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +903,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_showevent_isbase) {
             qpolarchart_showevent_isbase = false;
             QPolarChart::showEvent(event);
-        } else if (qpolarchart_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qpolarchart_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qpolarchart_showevent_callback(this, cbval1);
-        } else {
-            QPolarChart::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +920,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_hovermoveevent_isbase) {
             qpolarchart_hovermoveevent_isbase = false;
             QPolarChart::hoverMoveEvent(event);
-        } else if (qpolarchart_hovermoveevent_callback != nullptr) {
+            return;
+        }
+        auto hovermoveevent_cb = qpolarchart_hovermoveevent_callback;
+        if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qpolarchart_hovermoveevent_callback(this, cbval1);
-        } else {
-            QPolarChart::hoverMoveEvent(event);
+            hovermoveevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::hoverMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,13 +937,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_hoverleaveevent_isbase) {
             qpolarchart_hoverleaveevent_isbase = false;
             QPolarChart::hoverLeaveEvent(event);
-        } else if (qpolarchart_hoverleaveevent_callback != nullptr) {
+            return;
+        }
+        auto hoverleaveevent_cb = qpolarchart_hoverleaveevent_callback;
+        if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qpolarchart_hoverleaveevent_callback(this, cbval1);
-        } else {
-            QPolarChart::hoverLeaveEvent(event);
+            hoverleaveevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::hoverLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,13 +954,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_grabmouseevent_isbase) {
             qpolarchart_grabmouseevent_isbase = false;
             QPolarChart::grabMouseEvent(event);
-        } else if (qpolarchart_grabmouseevent_callback != nullptr) {
+            return;
+        }
+        auto grabmouseevent_cb = qpolarchart_grabmouseevent_callback;
+        if (grabmouseevent_cb) {
             QEvent* cbval1 = event;
 
-            qpolarchart_grabmouseevent_callback(this, cbval1);
-        } else {
-            QPolarChart::grabMouseEvent(event);
+            grabmouseevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::grabMouseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,13 +971,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_ungrabmouseevent_isbase) {
             qpolarchart_ungrabmouseevent_isbase = false;
             QPolarChart::ungrabMouseEvent(event);
-        } else if (qpolarchart_ungrabmouseevent_callback != nullptr) {
+            return;
+        }
+        auto ungrabmouseevent_cb = qpolarchart_ungrabmouseevent_callback;
+        if (ungrabmouseevent_cb) {
             QEvent* cbval1 = event;
 
-            qpolarchart_ungrabmouseevent_callback(this, cbval1);
-        } else {
-            QPolarChart::ungrabMouseEvent(event);
+            ungrabmouseevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::ungrabMouseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,13 +988,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_grabkeyboardevent_isbase) {
             qpolarchart_grabkeyboardevent_isbase = false;
             QPolarChart::grabKeyboardEvent(event);
-        } else if (qpolarchart_grabkeyboardevent_callback != nullptr) {
+            return;
+        }
+        auto grabkeyboardevent_cb = qpolarchart_grabkeyboardevent_callback;
+        if (grabkeyboardevent_cb) {
             QEvent* cbval1 = event;
 
-            qpolarchart_grabkeyboardevent_callback(this, cbval1);
-        } else {
-            QPolarChart::grabKeyboardEvent(event);
+            grabkeyboardevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::grabKeyboardEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1011,13 +1005,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_ungrabkeyboardevent_isbase) {
             qpolarchart_ungrabkeyboardevent_isbase = false;
             QPolarChart::ungrabKeyboardEvent(event);
-        } else if (qpolarchart_ungrabkeyboardevent_callback != nullptr) {
+            return;
+        }
+        auto ungrabkeyboardevent_cb = qpolarchart_ungrabkeyboardevent_callback;
+        if (ungrabkeyboardevent_cb) {
             QEvent* cbval1 = event;
 
-            qpolarchart_ungrabkeyboardevent_callback(this, cbval1);
-        } else {
-            QPolarChart::ungrabKeyboardEvent(event);
+            ungrabkeyboardevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::ungrabKeyboardEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1025,15 +1022,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_eventfilter_isbase) {
             qpolarchart_eventfilter_isbase = false;
             return QPolarChart::eventFilter(watched, event);
-        } else if (qpolarchart_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qpolarchart_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qpolarchart_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPolarChart::eventFilter(watched, event);
         }
+        return QPolarChart::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1041,13 +1039,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_timerevent_isbase) {
             qpolarchart_timerevent_isbase = false;
             QPolarChart::timerEvent(event);
-        } else if (qpolarchart_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qpolarchart_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qpolarchart_timerevent_callback(this, cbval1);
-        } else {
-            QPolarChart::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,13 +1056,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_childevent_isbase) {
             qpolarchart_childevent_isbase = false;
             QPolarChart::childEvent(event);
-        } else if (qpolarchart_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qpolarchart_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qpolarchart_childevent_callback(this, cbval1);
-        } else {
-            QPolarChart::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1069,13 +1073,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_customevent_isbase) {
             qpolarchart_customevent_isbase = false;
             QPolarChart::customEvent(event);
-        } else if (qpolarchart_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qpolarchart_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qpolarchart_customevent_callback(this, cbval1);
-        } else {
-            QPolarChart::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1083,15 +1090,18 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_connectnotify_isbase) {
             qpolarchart_connectnotify_isbase = false;
             QPolarChart::connectNotify(signal);
-        } else if (qpolarchart_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qpolarchart_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpolarchart_connectnotify_callback(this, cbval1);
-        } else {
-            QPolarChart::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPolarChart::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1099,15 +1109,18 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_disconnectnotify_isbase) {
             qpolarchart_disconnectnotify_isbase = false;
             QPolarChart::disconnectNotify(signal);
-        } else if (qpolarchart_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qpolarchart_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpolarchart_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPolarChart::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPolarChart::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,13 +1128,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_advance_isbase) {
             qpolarchart_advance_isbase = false;
             QPolarChart::advance(phase);
-        } else if (qpolarchart_advance_callback != nullptr) {
+            return;
+        }
+        auto advance_cb = qpolarchart_advance_callback;
+        if (advance_cb) {
             int cbval1 = phase;
 
-            qpolarchart_advance_callback(this, cbval1);
-        } else {
-            QPolarChart::advance(phase);
+            advance_cb(this, cbval1);
+            return;
         }
+        QPolarChart::advance(phase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1129,16 +1145,17 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_contains_isbase) {
             qpolarchart_contains_isbase = false;
             return QPolarChart::contains(point);
-        } else if (qpolarchart_contains_callback != nullptr) {
+        }
+        auto contains_cb = qpolarchart_contains_callback;
+        if (contains_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
 
-            bool callback_ret = qpolarchart_contains_callback(this, cbval1);
+            bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPolarChart::contains(point);
         }
+        return QPolarChart::contains(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1146,15 +1163,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_collideswithitem_isbase) {
             qpolarchart_collideswithitem_isbase = false;
             return QPolarChart::collidesWithItem(other, mode);
-        } else if (qpolarchart_collideswithitem_callback != nullptr) {
+        }
+        auto collideswithitem_cb = qpolarchart_collideswithitem_callback;
+        if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qpolarchart_collideswithitem_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPolarChart::collidesWithItem(other, mode);
         }
+        return QPolarChart::collidesWithItem(other, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1162,17 +1180,18 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_collideswithpath_isbase) {
             qpolarchart_collideswithpath_isbase = false;
             return QPolarChart::collidesWithPath(path, mode);
-        } else if (qpolarchart_collideswithpath_callback != nullptr) {
+        }
+        auto collideswithpath_cb = qpolarchart_collideswithpath_callback;
+        if (collideswithpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qpolarchart_collideswithpath_callback(this, cbval1, cbval2);
+            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPolarChart::collidesWithPath(path, mode);
         }
+        return QPolarChart::collidesWithPath(path, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,14 +1199,15 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_isobscuredby_isbase) {
             qpolarchart_isobscuredby_isbase = false;
             return QPolarChart::isObscuredBy(item);
-        } else if (qpolarchart_isobscuredby_callback != nullptr) {
+        }
+        auto isobscuredby_cb = qpolarchart_isobscuredby_callback;
+        if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
 
-            bool callback_ret = qpolarchart_isobscuredby_callback(this, cbval1);
+            bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPolarChart::isObscuredBy(item);
         }
+        return QPolarChart::isObscuredBy(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,12 +1215,13 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_opaquearea_isbase) {
             qpolarchart_opaquearea_isbase = false;
             return QPolarChart::opaqueArea();
-        } else if (qpolarchart_opaquearea_callback != nullptr) {
-            QPainterPath* callback_ret = qpolarchart_opaquearea_callback();
-            return *callback_ret;
-        } else {
-            return QPolarChart::opaqueArea();
         }
+        auto opaquearea_cb = qpolarchart_opaquearea_callback;
+        if (opaquearea_cb) {
+            QPainterPath* callback_ret = opaquearea_cb();
+            return *callback_ret;
+        }
+        return QPolarChart::opaqueArea();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1208,15 +1229,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_sceneeventfilter_isbase) {
             qpolarchart_sceneeventfilter_isbase = false;
             return QPolarChart::sceneEventFilter(watched, event);
-        } else if (qpolarchart_sceneeventfilter_callback != nullptr) {
+        }
+        auto sceneeventfilter_cb = qpolarchart_sceneeventfilter_callback;
+        if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qpolarchart_sceneeventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPolarChart::sceneEventFilter(watched, event);
         }
+        return QPolarChart::sceneEventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1224,13 +1246,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_contextmenuevent_isbase) {
             qpolarchart_contextmenuevent_isbase = false;
             QPolarChart::contextMenuEvent(event);
-        } else if (qpolarchart_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qpolarchart_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
 
-            qpolarchart_contextmenuevent_callback(this, cbval1);
-        } else {
-            QPolarChart::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,13 +1263,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_dragenterevent_isbase) {
             qpolarchart_dragenterevent_isbase = false;
             QPolarChart::dragEnterEvent(event);
-        } else if (qpolarchart_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qpolarchart_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qpolarchart_dragenterevent_callback(this, cbval1);
-        } else {
-            QPolarChart::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1252,13 +1280,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_dragleaveevent_isbase) {
             qpolarchart_dragleaveevent_isbase = false;
             QPolarChart::dragLeaveEvent(event);
-        } else if (qpolarchart_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qpolarchart_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qpolarchart_dragleaveevent_callback(this, cbval1);
-        } else {
-            QPolarChart::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1266,13 +1297,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_dragmoveevent_isbase) {
             qpolarchart_dragmoveevent_isbase = false;
             QPolarChart::dragMoveEvent(event);
-        } else if (qpolarchart_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qpolarchart_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qpolarchart_dragmoveevent_callback(this, cbval1);
-        } else {
-            QPolarChart::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1280,13 +1314,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_dropevent_isbase) {
             qpolarchart_dropevent_isbase = false;
             QPolarChart::dropEvent(event);
-        } else if (qpolarchart_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qpolarchart_dropevent_callback;
+        if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
 
-            qpolarchart_dropevent_callback(this, cbval1);
-        } else {
-            QPolarChart::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,13 +1331,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_hoverenterevent_isbase) {
             qpolarchart_hoverenterevent_isbase = false;
             QPolarChart::hoverEnterEvent(event);
-        } else if (qpolarchart_hoverenterevent_callback != nullptr) {
+            return;
+        }
+        auto hoverenterevent_cb = qpolarchart_hoverenterevent_callback;
+        if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
 
-            qpolarchart_hoverenterevent_callback(this, cbval1);
-        } else {
-            QPolarChart::hoverEnterEvent(event);
+            hoverenterevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::hoverEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,13 +1348,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_keypressevent_isbase) {
             qpolarchart_keypressevent_isbase = false;
             QPolarChart::keyPressEvent(event);
-        } else if (qpolarchart_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qpolarchart_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qpolarchart_keypressevent_callback(this, cbval1);
-        } else {
-            QPolarChart::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1322,13 +1365,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_keyreleaseevent_isbase) {
             qpolarchart_keyreleaseevent_isbase = false;
             QPolarChart::keyReleaseEvent(event);
-        } else if (qpolarchart_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qpolarchart_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qpolarchart_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QPolarChart::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,13 +1382,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_mousepressevent_isbase) {
             qpolarchart_mousepressevent_isbase = false;
             QPolarChart::mousePressEvent(event);
-        } else if (qpolarchart_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qpolarchart_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qpolarchart_mousepressevent_callback(this, cbval1);
-        } else {
-            QPolarChart::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1350,13 +1399,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_mousemoveevent_isbase) {
             qpolarchart_mousemoveevent_isbase = false;
             QPolarChart::mouseMoveEvent(event);
-        } else if (qpolarchart_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qpolarchart_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qpolarchart_mousemoveevent_callback(this, cbval1);
-        } else {
-            QPolarChart::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1364,13 +1416,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_mousereleaseevent_isbase) {
             qpolarchart_mousereleaseevent_isbase = false;
             QPolarChart::mouseReleaseEvent(event);
-        } else if (qpolarchart_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qpolarchart_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qpolarchart_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QPolarChart::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1378,13 +1433,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_mousedoubleclickevent_isbase) {
             qpolarchart_mousedoubleclickevent_isbase = false;
             QPolarChart::mouseDoubleClickEvent(event);
-        } else if (qpolarchart_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qpolarchart_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
 
-            qpolarchart_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QPolarChart::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1392,13 +1450,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_wheelevent_isbase) {
             qpolarchart_wheelevent_isbase = false;
             QPolarChart::wheelEvent(event);
-        } else if (qpolarchart_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qpolarchart_wheelevent_callback;
+        if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
 
-            qpolarchart_wheelevent_callback(this, cbval1);
-        } else {
-            QPolarChart::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1406,13 +1467,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_inputmethodevent_isbase) {
             qpolarchart_inputmethodevent_isbase = false;
             QPolarChart::inputMethodEvent(event);
-        } else if (qpolarchart_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qpolarchart_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qpolarchart_inputmethodevent_callback(this, cbval1);
-        } else {
-            QPolarChart::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QPolarChart::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1420,14 +1484,15 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_inputmethodquery_isbase) {
             qpolarchart_inputmethodquery_isbase = false;
             return QPolarChart::inputMethodQuery(query);
-        } else if (qpolarchart_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qpolarchart_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qpolarchart_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QPolarChart::inputMethodQuery(query);
         }
+        return QPolarChart::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1435,14 +1500,15 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_supportsextension_isbase) {
             qpolarchart_supportsextension_isbase = false;
             return QPolarChart::supportsExtension(extension);
-        } else if (qpolarchart_supportsextension_callback != nullptr) {
+        }
+        auto supportsextension_cb = qpolarchart_supportsextension_callback;
+        if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
 
-            bool callback_ret = qpolarchart_supportsextension_callback(this, cbval1);
+            bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPolarChart::supportsExtension(extension);
         }
+        return QPolarChart::supportsExtension(extension);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1450,16 +1516,19 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_setextension_isbase) {
             qpolarchart_setextension_isbase = false;
             QPolarChart::setExtension(extension, variant);
-        } else if (qpolarchart_setextension_callback != nullptr) {
+            return;
+        }
+        auto setextension_cb = qpolarchart_setextension_callback;
+        if (setextension_cb) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
 
-            qpolarchart_setextension_callback(this, cbval1, cbval2);
-        } else {
-            QPolarChart::setExtension(extension, variant);
+            setextension_cb(this, cbval1, cbval2);
+            return;
         }
+        QPolarChart::setExtension(extension, variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1467,16 +1536,17 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_extension_isbase) {
             qpolarchart_extension_isbase = false;
             return QPolarChart::extension(variant);
-        } else if (qpolarchart_extension_callback != nullptr) {
+        }
+        auto extension_cb = qpolarchart_extension_callback;
+        if (extension_cb) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
 
-            QVariant* callback_ret = qpolarchart_extension_callback(this, cbval1);
+            QVariant* callback_ret = extension_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QPolarChart::extension(variant);
         }
+        return QPolarChart::extension(variant);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1484,12 +1554,13 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_isempty_isbase) {
             qpolarchart_isempty_isbase = false;
             return QPolarChart::isEmpty();
-        } else if (qpolarchart_isempty_callback != nullptr) {
-            bool callback_ret = qpolarchart_isempty_callback();
-            return callback_ret;
-        } else {
-            return QPolarChart::isEmpty();
         }
+        auto isempty_cb = qpolarchart_isempty_callback;
+        if (isempty_cb) {
+            bool callback_ret = isempty_cb();
+            return callback_ret;
+        }
+        return QPolarChart::isEmpty();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1497,11 +1568,14 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_updatemicrofocus_isbase) {
             qpolarchart_updatemicrofocus_isbase = false;
             QPolarChart::updateMicroFocus();
-        } else if (qpolarchart_updatemicrofocus_callback != nullptr) {
-            qpolarchart_updatemicrofocus_callback();
-        } else {
-            QPolarChart::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qpolarchart_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QPolarChart::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1509,12 +1583,13 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_sender_isbase) {
             qpolarchart_sender_isbase = false;
             return QPolarChart::sender();
-        } else if (qpolarchart_sender_callback != nullptr) {
-            QObject* callback_ret = qpolarchart_sender_callback();
-            return callback_ret;
-        } else {
-            return QPolarChart::sender();
         }
+        auto sender_cb = qpolarchart_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPolarChart::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1522,12 +1597,13 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_sendersignalindex_isbase) {
             qpolarchart_sendersignalindex_isbase = false;
             return QPolarChart::senderSignalIndex();
-        } else if (qpolarchart_sendersignalindex_callback != nullptr) {
-            int callback_ret = qpolarchart_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPolarChart::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qpolarchart_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPolarChart::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1535,14 +1611,15 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_receivers_isbase) {
             qpolarchart_receivers_isbase = false;
             return QPolarChart::receivers(signal);
-        } else if (qpolarchart_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qpolarchart_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qpolarchart_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPolarChart::receivers(signal);
         }
+        return QPolarChart::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1550,16 +1627,17 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_issignalconnected_isbase) {
             qpolarchart_issignalconnected_isbase = false;
             return QPolarChart::isSignalConnected(signal);
-        } else if (qpolarchart_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qpolarchart_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qpolarchart_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPolarChart::isSignalConnected(signal);
         }
+        return QPolarChart::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1567,11 +1645,14 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_addtoindex_isbase) {
             qpolarchart_addtoindex_isbase = false;
             QPolarChart::addToIndex();
-        } else if (qpolarchart_addtoindex_callback != nullptr) {
-            qpolarchart_addtoindex_callback();
-        } else {
-            QPolarChart::addToIndex();
+            return;
         }
+        auto addtoindex_cb = qpolarchart_addtoindex_callback;
+        if (addtoindex_cb) {
+            addtoindex_cb();
+            return;
+        }
+        QPolarChart::addToIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1579,11 +1660,14 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_removefromindex_isbase) {
             qpolarchart_removefromindex_isbase = false;
             QPolarChart::removeFromIndex();
-        } else if (qpolarchart_removefromindex_callback != nullptr) {
-            qpolarchart_removefromindex_callback();
-        } else {
-            QPolarChart::removeFromIndex();
+            return;
         }
+        auto removefromindex_cb = qpolarchart_removefromindex_callback;
+        if (removefromindex_cb) {
+            removefromindex_cb();
+            return;
+        }
+        QPolarChart::removeFromIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1591,11 +1675,14 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_preparegeometrychange_isbase) {
             qpolarchart_preparegeometrychange_isbase = false;
             QPolarChart::prepareGeometryChange();
-        } else if (qpolarchart_preparegeometrychange_callback != nullptr) {
-            qpolarchart_preparegeometrychange_callback();
-        } else {
-            QPolarChart::prepareGeometryChange();
+            return;
         }
+        auto preparegeometrychange_cb = qpolarchart_preparegeometrychange_callback;
+        if (preparegeometrychange_cb) {
+            preparegeometrychange_cb();
+            return;
+        }
+        QPolarChart::prepareGeometryChange();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1603,13 +1690,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_setgraphicsitem_isbase) {
             qpolarchart_setgraphicsitem_isbase = false;
             QPolarChart::setGraphicsItem(item);
-        } else if (qpolarchart_setgraphicsitem_callback != nullptr) {
+            return;
+        }
+        auto setgraphicsitem_cb = qpolarchart_setgraphicsitem_callback;
+        if (setgraphicsitem_cb) {
             QGraphicsItem* cbval1 = item;
 
-            qpolarchart_setgraphicsitem_callback(this, cbval1);
-        } else {
-            QPolarChart::setGraphicsItem(item);
+            setgraphicsitem_cb(this, cbval1);
+            return;
         }
+        QPolarChart::setGraphicsItem(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1617,13 +1707,16 @@ class VirtualQPolarChart final : public QPolarChart {
         if (qpolarchart_setownedbylayout_isbase) {
             qpolarchart_setownedbylayout_isbase = false;
             QPolarChart::setOwnedByLayout(ownedByLayout);
-        } else if (qpolarchart_setownedbylayout_callback != nullptr) {
+            return;
+        }
+        auto setownedbylayout_cb = qpolarchart_setownedbylayout_callback;
+        if (setownedbylayout_cb) {
             bool cbval1 = ownedByLayout;
 
-            qpolarchart_setownedbylayout_callback(this, cbval1);
-        } else {
-            QPolarChart::setOwnedByLayout(ownedByLayout);
+            setownedbylayout_cb(this, cbval1);
+            return;
         }
+        QPolarChart::setOwnedByLayout(ownedByLayout);
     }
 
     // Friend functions

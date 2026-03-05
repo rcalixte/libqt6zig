@@ -77,26 +77,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
   public:
     VirtualKFileMetaDataExtractorPlugin(QObject* parent) : KFileMetaData::ExtractorPlugin(parent) {};
 
-    ~VirtualKFileMetaDataExtractorPlugin() {
-        kfilemetadata__extractorplugin_metaobject_callback = nullptr;
-        kfilemetadata__extractorplugin_metacast_callback = nullptr;
-        kfilemetadata__extractorplugin_metacall_callback = nullptr;
-        kfilemetadata__extractorplugin_mimetypes_callback = nullptr;
-        kfilemetadata__extractorplugin_extract_callback = nullptr;
-        kfilemetadata__extractorplugin_event_callback = nullptr;
-        kfilemetadata__extractorplugin_eventfilter_callback = nullptr;
-        kfilemetadata__extractorplugin_timerevent_callback = nullptr;
-        kfilemetadata__extractorplugin_childevent_callback = nullptr;
-        kfilemetadata__extractorplugin_customevent_callback = nullptr;
-        kfilemetadata__extractorplugin_connectnotify_callback = nullptr;
-        kfilemetadata__extractorplugin_disconnectnotify_callback = nullptr;
-        kfilemetadata__extractorplugin_getsupportedmimetype_callback = nullptr;
-        kfilemetadata__extractorplugin_sender_callback = nullptr;
-        kfilemetadata__extractorplugin_sendersignalindex_callback = nullptr;
-        kfilemetadata__extractorplugin_receivers_callback = nullptr;
-        kfilemetadata__extractorplugin_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFileMetaData__ExtractorPlugin_MetaObject_Callback(KFileMetaData__ExtractorPlugin_MetaObject_Callback cb) { kfilemetadata__extractorplugin_metaobject_callback = cb; }
     inline void setKFileMetaData__ExtractorPlugin_Metacast_Callback(KFileMetaData__ExtractorPlugin_Metacast_Callback cb) { kfilemetadata__extractorplugin_metacast_callback = cb; }
@@ -140,12 +120,13 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_metaobject_isbase) {
             kfilemetadata__extractorplugin_metaobject_isbase = false;
             return KFileMetaData__ExtractorPlugin::metaObject();
-        } else if (kfilemetadata__extractorplugin_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfilemetadata__extractorplugin_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFileMetaData__ExtractorPlugin::metaObject();
         }
+        auto metaobject_cb = kfilemetadata__extractorplugin_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFileMetaData__ExtractorPlugin::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,14 +134,15 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_metacast_isbase) {
             kfilemetadata__extractorplugin_metacast_isbase = false;
             return KFileMetaData__ExtractorPlugin::qt_metacast(param1);
-        } else if (kfilemetadata__extractorplugin_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfilemetadata__extractorplugin_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfilemetadata__extractorplugin_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileMetaData__ExtractorPlugin::qt_metacast(param1);
         }
+        return KFileMetaData__ExtractorPlugin::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,22 +150,24 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_metacall_isbase) {
             kfilemetadata__extractorplugin_metacall_isbase = false;
             return KFileMetaData__ExtractorPlugin::qt_metacall(param1, param2, param3);
-        } else if (kfilemetadata__extractorplugin_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfilemetadata__extractorplugin_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfilemetadata__extractorplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileMetaData__ExtractorPlugin::qt_metacall(param1, param2, param3);
         }
+        return KFileMetaData__ExtractorPlugin::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QString> mimetypes() const override {
-        if (kfilemetadata__extractorplugin_mimetypes_callback != nullptr) {
-            const char** callback_ret = kfilemetadata__extractorplugin_mimetypes_callback();
+        auto mimetypes_cb = kfilemetadata__extractorplugin_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -194,17 +178,17 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void extract(KFileMetaData::ExtractionResult* result) override {
-        if (kfilemetadata__extractorplugin_extract_callback != nullptr) {
+        auto extract_cb = kfilemetadata__extractorplugin_extract_callback;
+        if (extract_cb) {
             KFileMetaData__ExtractionResult* cbval1 = result;
 
-            kfilemetadata__extractorplugin_extract_callback(this, cbval1);
+            extract_cb(this, cbval1);
         }
     }
 
@@ -213,14 +197,15 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_event_isbase) {
             kfilemetadata__extractorplugin_event_isbase = false;
             return KFileMetaData__ExtractorPlugin::event(event);
-        } else if (kfilemetadata__extractorplugin_event_callback != nullptr) {
+        }
+        auto event_cb = kfilemetadata__extractorplugin_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfilemetadata__extractorplugin_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileMetaData__ExtractorPlugin::event(event);
         }
+        return KFileMetaData__ExtractorPlugin::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,15 +213,16 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_eventfilter_isbase) {
             kfilemetadata__extractorplugin_eventfilter_isbase = false;
             return KFileMetaData__ExtractorPlugin::eventFilter(watched, event);
-        } else if (kfilemetadata__extractorplugin_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfilemetadata__extractorplugin_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kfilemetadata__extractorplugin_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFileMetaData__ExtractorPlugin::eventFilter(watched, event);
         }
+        return KFileMetaData__ExtractorPlugin::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -244,13 +230,16 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_timerevent_isbase) {
             kfilemetadata__extractorplugin_timerevent_isbase = false;
             KFileMetaData__ExtractorPlugin::timerEvent(event);
-        } else if (kfilemetadata__extractorplugin_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfilemetadata__extractorplugin_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfilemetadata__extractorplugin_timerevent_callback(this, cbval1);
-        } else {
-            KFileMetaData__ExtractorPlugin::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFileMetaData__ExtractorPlugin::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,13 +247,16 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_childevent_isbase) {
             kfilemetadata__extractorplugin_childevent_isbase = false;
             KFileMetaData__ExtractorPlugin::childEvent(event);
-        } else if (kfilemetadata__extractorplugin_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfilemetadata__extractorplugin_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfilemetadata__extractorplugin_childevent_callback(this, cbval1);
-        } else {
-            KFileMetaData__ExtractorPlugin::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFileMetaData__ExtractorPlugin::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,13 +264,16 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_customevent_isbase) {
             kfilemetadata__extractorplugin_customevent_isbase = false;
             KFileMetaData__ExtractorPlugin::customEvent(event);
-        } else if (kfilemetadata__extractorplugin_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfilemetadata__extractorplugin_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfilemetadata__extractorplugin_customevent_callback(this, cbval1);
-        } else {
-            KFileMetaData__ExtractorPlugin::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFileMetaData__ExtractorPlugin::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,15 +281,18 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_connectnotify_isbase) {
             kfilemetadata__extractorplugin_connectnotify_isbase = false;
             KFileMetaData__ExtractorPlugin::connectNotify(signal);
-        } else if (kfilemetadata__extractorplugin_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfilemetadata__extractorplugin_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfilemetadata__extractorplugin_connectnotify_callback(this, cbval1);
-        } else {
-            KFileMetaData__ExtractorPlugin::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFileMetaData__ExtractorPlugin::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,15 +300,18 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_disconnectnotify_isbase) {
             kfilemetadata__extractorplugin_disconnectnotify_isbase = false;
             KFileMetaData__ExtractorPlugin::disconnectNotify(signal);
-        } else if (kfilemetadata__extractorplugin_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfilemetadata__extractorplugin_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfilemetadata__extractorplugin_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFileMetaData__ExtractorPlugin::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFileMetaData__ExtractorPlugin::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,7 +319,9 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_getsupportedmimetype_isbase) {
             kfilemetadata__extractorplugin_getsupportedmimetype_isbase = false;
             return KFileMetaData__ExtractorPlugin::getSupportedMimeType(mimetype);
-        } else if (kfilemetadata__extractorplugin_getsupportedmimetype_callback != nullptr) {
+        }
+        auto getsupportedmimetype_cb = kfilemetadata__extractorplugin_getsupportedmimetype_callback;
+        if (getsupportedmimetype_cb) {
             const QString mimetype_ret = mimetype;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray mimetype_b = mimetype_ret.toUtf8();
@@ -328,13 +331,12 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
             ((char*)mimetype_str)[mimetype_str_len] = '\0';
             const char* cbval1 = mimetype_str;
 
-            const char* callback_ret = kfilemetadata__extractorplugin_getsupportedmimetype_callback(this, cbval1);
+            const char* callback_ret = getsupportedmimetype_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(mimetype_str);
             return callback_ret_QString;
-        } else {
-            return KFileMetaData__ExtractorPlugin::getSupportedMimeType(mimetype);
         }
+        return KFileMetaData__ExtractorPlugin::getSupportedMimeType(mimetype);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -342,12 +344,13 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_sender_isbase) {
             kfilemetadata__extractorplugin_sender_isbase = false;
             return KFileMetaData__ExtractorPlugin::sender();
-        } else if (kfilemetadata__extractorplugin_sender_callback != nullptr) {
-            QObject* callback_ret = kfilemetadata__extractorplugin_sender_callback();
-            return callback_ret;
-        } else {
-            return KFileMetaData__ExtractorPlugin::sender();
         }
+        auto sender_cb = kfilemetadata__extractorplugin_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFileMetaData__ExtractorPlugin::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -355,12 +358,13 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_sendersignalindex_isbase) {
             kfilemetadata__extractorplugin_sendersignalindex_isbase = false;
             return KFileMetaData__ExtractorPlugin::senderSignalIndex();
-        } else if (kfilemetadata__extractorplugin_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfilemetadata__extractorplugin_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFileMetaData__ExtractorPlugin::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfilemetadata__extractorplugin_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFileMetaData__ExtractorPlugin::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -368,14 +372,15 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_receivers_isbase) {
             kfilemetadata__extractorplugin_receivers_isbase = false;
             return KFileMetaData__ExtractorPlugin::receivers(signal);
-        } else if (kfilemetadata__extractorplugin_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfilemetadata__extractorplugin_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfilemetadata__extractorplugin_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileMetaData__ExtractorPlugin::receivers(signal);
         }
+        return KFileMetaData__ExtractorPlugin::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -383,16 +388,17 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (kfilemetadata__extractorplugin_issignalconnected_isbase) {
             kfilemetadata__extractorplugin_issignalconnected_isbase = false;
             return KFileMetaData__ExtractorPlugin::isSignalConnected(signal);
-        } else if (kfilemetadata__extractorplugin_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfilemetadata__extractorplugin_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfilemetadata__extractorplugin_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileMetaData__ExtractorPlugin::isSignalConnected(signal);
         }
+        return KFileMetaData__ExtractorPlugin::isSignalConnected(signal);
     }
 
     // Friend functions

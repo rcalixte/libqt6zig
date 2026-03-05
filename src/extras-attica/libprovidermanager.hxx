@@ -69,23 +69,6 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
     VirtualAtticaProviderManager() : Attica::ProviderManager() {};
     VirtualAtticaProviderManager(const Attica::ProviderManager::ProviderFlags& flags) : Attica::ProviderManager(flags) {};
 
-    ~VirtualAtticaProviderManager() {
-        attica__providermanager_metaobject_callback = nullptr;
-        attica__providermanager_metacast_callback = nullptr;
-        attica__providermanager_metacall_callback = nullptr;
-        attica__providermanager_event_callback = nullptr;
-        attica__providermanager_eventfilter_callback = nullptr;
-        attica__providermanager_timerevent_callback = nullptr;
-        attica__providermanager_childevent_callback = nullptr;
-        attica__providermanager_customevent_callback = nullptr;
-        attica__providermanager_connectnotify_callback = nullptr;
-        attica__providermanager_disconnectnotify_callback = nullptr;
-        attica__providermanager_sender_callback = nullptr;
-        attica__providermanager_sendersignalindex_callback = nullptr;
-        attica__providermanager_receivers_callback = nullptr;
-        attica__providermanager_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setAttica__ProviderManager_MetaObject_Callback(Attica__ProviderManager_MetaObject_Callback cb) { attica__providermanager_metaobject_callback = cb; }
     inline void setAttica__ProviderManager_Metacast_Callback(Attica__ProviderManager_Metacast_Callback cb) { attica__providermanager_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_metaobject_isbase) {
             attica__providermanager_metaobject_isbase = false;
             return Attica__ProviderManager::metaObject();
-        } else if (attica__providermanager_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = attica__providermanager_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Attica__ProviderManager::metaObject();
         }
+        auto metaobject_cb = attica__providermanager_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Attica__ProviderManager::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_metacast_isbase) {
             attica__providermanager_metacast_isbase = false;
             return Attica__ProviderManager::qt_metacast(param1);
-        } else if (attica__providermanager_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = attica__providermanager_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = attica__providermanager_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Attica__ProviderManager::qt_metacast(param1);
         }
+        return Attica__ProviderManager::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_metacall_isbase) {
             attica__providermanager_metacall_isbase = false;
             return Attica__ProviderManager::qt_metacall(param1, param2, param3);
-        } else if (attica__providermanager_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = attica__providermanager_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = attica__providermanager_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Attica__ProviderManager::qt_metacall(param1, param2, param3);
         }
+        return Attica__ProviderManager::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_event_isbase) {
             attica__providermanager_event_isbase = false;
             return Attica__ProviderManager::event(event);
-        } else if (attica__providermanager_event_callback != nullptr) {
+        }
+        auto event_cb = attica__providermanager_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = attica__providermanager_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Attica__ProviderManager::event(event);
         }
+        return Attica__ProviderManager::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_eventfilter_isbase) {
             attica__providermanager_eventfilter_isbase = false;
             return Attica__ProviderManager::eventFilter(watched, event);
-        } else if (attica__providermanager_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = attica__providermanager_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = attica__providermanager_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Attica__ProviderManager::eventFilter(watched, event);
         }
+        return Attica__ProviderManager::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_timerevent_isbase) {
             attica__providermanager_timerevent_isbase = false;
             Attica__ProviderManager::timerEvent(event);
-        } else if (attica__providermanager_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = attica__providermanager_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            attica__providermanager_timerevent_callback(this, cbval1);
-        } else {
-            Attica__ProviderManager::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Attica__ProviderManager::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_childevent_isbase) {
             attica__providermanager_childevent_isbase = false;
             Attica__ProviderManager::childEvent(event);
-        } else if (attica__providermanager_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = attica__providermanager_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            attica__providermanager_childevent_callback(this, cbval1);
-        } else {
-            Attica__ProviderManager::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Attica__ProviderManager::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_customevent_isbase) {
             attica__providermanager_customevent_isbase = false;
             Attica__ProviderManager::customEvent(event);
-        } else if (attica__providermanager_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = attica__providermanager_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            attica__providermanager_customevent_callback(this, cbval1);
-        } else {
-            Attica__ProviderManager::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Attica__ProviderManager::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_connectnotify_isbase) {
             attica__providermanager_connectnotify_isbase = false;
             Attica__ProviderManager::connectNotify(signal);
-        } else if (attica__providermanager_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = attica__providermanager_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            attica__providermanager_connectnotify_callback(this, cbval1);
-        } else {
-            Attica__ProviderManager::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Attica__ProviderManager::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_disconnectnotify_isbase) {
             attica__providermanager_disconnectnotify_isbase = false;
             Attica__ProviderManager::disconnectNotify(signal);
-        } else if (attica__providermanager_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = attica__providermanager_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            attica__providermanager_disconnectnotify_callback(this, cbval1);
-        } else {
-            Attica__ProviderManager::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Attica__ProviderManager::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_sender_isbase) {
             attica__providermanager_sender_isbase = false;
             return Attica__ProviderManager::sender();
-        } else if (attica__providermanager_sender_callback != nullptr) {
-            QObject* callback_ret = attica__providermanager_sender_callback();
-            return callback_ret;
-        } else {
-            return Attica__ProviderManager::sender();
         }
+        auto sender_cb = attica__providermanager_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Attica__ProviderManager::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_sendersignalindex_isbase) {
             attica__providermanager_sendersignalindex_isbase = false;
             return Attica__ProviderManager::senderSignalIndex();
-        } else if (attica__providermanager_sendersignalindex_callback != nullptr) {
-            int callback_ret = attica__providermanager_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Attica__ProviderManager::senderSignalIndex();
         }
+        auto sendersignalindex_cb = attica__providermanager_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Attica__ProviderManager::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_receivers_isbase) {
             attica__providermanager_receivers_isbase = false;
             return Attica__ProviderManager::receivers(signal);
-        } else if (attica__providermanager_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = attica__providermanager_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = attica__providermanager_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Attica__ProviderManager::receivers(signal);
         }
+        return Attica__ProviderManager::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
         if (attica__providermanager_issignalconnected_isbase) {
             attica__providermanager_issignalconnected_isbase = false;
             return Attica__ProviderManager::isSignalConnected(signal);
-        } else if (attica__providermanager_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = attica__providermanager_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = attica__providermanager_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Attica__ProviderManager::isSignalConnected(signal);
         }
+        return Attica__ProviderManager::isSignalConnected(signal);
     }
 
     // Friend functions

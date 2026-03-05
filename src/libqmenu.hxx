@@ -215,71 +215,6 @@ class VirtualQMenu final : public QMenu {
     VirtualQMenu(const QString& title) : QMenu(title) {};
     VirtualQMenu(const QString& title, QWidget* parent) : QMenu(title, parent) {};
 
-    ~VirtualQMenu() {
-        qmenu_metaobject_callback = nullptr;
-        qmenu_metacast_callback = nullptr;
-        qmenu_metacall_callback = nullptr;
-        qmenu_sizehint_callback = nullptr;
-        qmenu_changeevent_callback = nullptr;
-        qmenu_keypressevent_callback = nullptr;
-        qmenu_mousereleaseevent_callback = nullptr;
-        qmenu_mousepressevent_callback = nullptr;
-        qmenu_mousemoveevent_callback = nullptr;
-        qmenu_wheelevent_callback = nullptr;
-        qmenu_enterevent_callback = nullptr;
-        qmenu_leaveevent_callback = nullptr;
-        qmenu_hideevent_callback = nullptr;
-        qmenu_paintevent_callback = nullptr;
-        qmenu_actionevent_callback = nullptr;
-        qmenu_timerevent_callback = nullptr;
-        qmenu_event_callback = nullptr;
-        qmenu_focusnextprevchild_callback = nullptr;
-        qmenu_initstyleoption_callback = nullptr;
-        qmenu_devtype_callback = nullptr;
-        qmenu_setvisible_callback = nullptr;
-        qmenu_minimumsizehint_callback = nullptr;
-        qmenu_heightforwidth_callback = nullptr;
-        qmenu_hasheightforwidth_callback = nullptr;
-        qmenu_paintengine_callback = nullptr;
-        qmenu_mousedoubleclickevent_callback = nullptr;
-        qmenu_keyreleaseevent_callback = nullptr;
-        qmenu_focusinevent_callback = nullptr;
-        qmenu_focusoutevent_callback = nullptr;
-        qmenu_moveevent_callback = nullptr;
-        qmenu_resizeevent_callback = nullptr;
-        qmenu_closeevent_callback = nullptr;
-        qmenu_contextmenuevent_callback = nullptr;
-        qmenu_tabletevent_callback = nullptr;
-        qmenu_dragenterevent_callback = nullptr;
-        qmenu_dragmoveevent_callback = nullptr;
-        qmenu_dragleaveevent_callback = nullptr;
-        qmenu_dropevent_callback = nullptr;
-        qmenu_showevent_callback = nullptr;
-        qmenu_nativeevent_callback = nullptr;
-        qmenu_metric_callback = nullptr;
-        qmenu_initpainter_callback = nullptr;
-        qmenu_redirected_callback = nullptr;
-        qmenu_sharedpainter_callback = nullptr;
-        qmenu_inputmethodevent_callback = nullptr;
-        qmenu_inputmethodquery_callback = nullptr;
-        qmenu_eventfilter_callback = nullptr;
-        qmenu_childevent_callback = nullptr;
-        qmenu_customevent_callback = nullptr;
-        qmenu_connectnotify_callback = nullptr;
-        qmenu_disconnectnotify_callback = nullptr;
-        qmenu_columncount_callback = nullptr;
-        qmenu_updatemicrofocus_callback = nullptr;
-        qmenu_create_callback = nullptr;
-        qmenu_destroy_callback = nullptr;
-        qmenu_focusnextchild_callback = nullptr;
-        qmenu_focuspreviouschild_callback = nullptr;
-        qmenu_sender_callback = nullptr;
-        qmenu_sendersignalindex_callback = nullptr;
-        qmenu_receivers_callback = nullptr;
-        qmenu_issignalconnected_callback = nullptr;
-        qmenu_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMenu_MetaObject_Callback(QMenu_MetaObject_Callback cb) { qmenu_metaobject_callback = cb; }
     inline void setQMenu_Metacast_Callback(QMenu_Metacast_Callback cb) { qmenu_metacast_callback = cb; }
@@ -413,12 +348,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_metaobject_isbase) {
             qmenu_metaobject_isbase = false;
             return QMenu::metaObject();
-        } else if (qmenu_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qmenu_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QMenu::metaObject();
         }
+        auto metaobject_cb = qmenu_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QMenu::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,14 +362,15 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_metacast_isbase) {
             qmenu_metacast_isbase = false;
             return QMenu::qt_metacast(param1);
-        } else if (qmenu_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qmenu_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qmenu_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMenu::qt_metacast(param1);
         }
+        return QMenu::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,16 +378,17 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_metacall_isbase) {
             qmenu_metacall_isbase = false;
             return QMenu::qt_metacall(param1, param2, param3);
-        } else if (qmenu_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qmenu_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qmenu_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMenu::qt_metacall(param1, param2, param3);
         }
+        return QMenu::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,12 +396,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_sizehint_isbase) {
             qmenu_sizehint_isbase = false;
             return QMenu::sizeHint();
-        } else if (qmenu_sizehint_callback != nullptr) {
-            QSize* callback_ret = qmenu_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QMenu::sizeHint();
         }
+        auto sizehint_cb = qmenu_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QMenu::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,13 +410,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_changeevent_isbase) {
             qmenu_changeevent_isbase = false;
             QMenu::changeEvent(param1);
-        } else if (qmenu_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qmenu_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qmenu_changeevent_callback(this, cbval1);
-        } else {
-            QMenu::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QMenu::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -485,13 +427,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_keypressevent_isbase) {
             qmenu_keypressevent_isbase = false;
             QMenu::keyPressEvent(param1);
-        } else if (qmenu_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qmenu_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qmenu_keypressevent_callback(this, cbval1);
-        } else {
-            QMenu::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QMenu::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,13 +444,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_mousereleaseevent_isbase) {
             qmenu_mousereleaseevent_isbase = false;
             QMenu::mouseReleaseEvent(param1);
-        } else if (qmenu_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qmenu_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qmenu_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QMenu::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QMenu::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,13 +461,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_mousepressevent_isbase) {
             qmenu_mousepressevent_isbase = false;
             QMenu::mousePressEvent(param1);
-        } else if (qmenu_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qmenu_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qmenu_mousepressevent_callback(this, cbval1);
-        } else {
-            QMenu::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QMenu::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,13 +478,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_mousemoveevent_isbase) {
             qmenu_mousemoveevent_isbase = false;
             QMenu::mouseMoveEvent(param1);
-        } else if (qmenu_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qmenu_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qmenu_mousemoveevent_callback(this, cbval1);
-        } else {
-            QMenu::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QMenu::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,13 +495,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_wheelevent_isbase) {
             qmenu_wheelevent_isbase = false;
             QMenu::wheelEvent(param1);
-        } else if (qmenu_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qmenu_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            qmenu_wheelevent_callback(this, cbval1);
-        } else {
-            QMenu::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QMenu::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,13 +512,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_enterevent_isbase) {
             qmenu_enterevent_isbase = false;
             QMenu::enterEvent(param1);
-        } else if (qmenu_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qmenu_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = param1;
 
-            qmenu_enterevent_callback(this, cbval1);
-        } else {
-            QMenu::enterEvent(param1);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QMenu::enterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,13 +529,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_leaveevent_isbase) {
             qmenu_leaveevent_isbase = false;
             QMenu::leaveEvent(param1);
-        } else if (qmenu_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qmenu_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = param1;
 
-            qmenu_leaveevent_callback(this, cbval1);
-        } else {
-            QMenu::leaveEvent(param1);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QMenu::leaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -583,13 +546,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_hideevent_isbase) {
             qmenu_hideevent_isbase = false;
             QMenu::hideEvent(param1);
-        } else if (qmenu_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qmenu_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
 
-            qmenu_hideevent_callback(this, cbval1);
-        } else {
-            QMenu::hideEvent(param1);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QMenu::hideEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,13 +563,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_paintevent_isbase) {
             qmenu_paintevent_isbase = false;
             QMenu::paintEvent(param1);
-        } else if (qmenu_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qmenu_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qmenu_paintevent_callback(this, cbval1);
-        } else {
-            QMenu::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QMenu::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +580,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_actionevent_isbase) {
             qmenu_actionevent_isbase = false;
             QMenu::actionEvent(param1);
-        } else if (qmenu_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qmenu_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
 
-            qmenu_actionevent_callback(this, cbval1);
-        } else {
-            QMenu::actionEvent(param1);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QMenu::actionEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,13 +597,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_timerevent_isbase) {
             qmenu_timerevent_isbase = false;
             QMenu::timerEvent(param1);
-        } else if (qmenu_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qmenu_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            qmenu_timerevent_callback(this, cbval1);
-        } else {
-            QMenu::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QMenu::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,14 +614,15 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_event_isbase) {
             qmenu_event_isbase = false;
             return QMenu::event(param1);
-        } else if (qmenu_event_callback != nullptr) {
+        }
+        auto event_cb = qmenu_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qmenu_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMenu::event(param1);
         }
+        return QMenu::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,14 +630,15 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_focusnextprevchild_isbase) {
             qmenu_focusnextprevchild_isbase = false;
             return QMenu::focusNextPrevChild(next);
-        } else if (qmenu_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qmenu_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qmenu_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMenu::focusNextPrevChild(next);
         }
+        return QMenu::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,14 +646,17 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_initstyleoption_isbase) {
             qmenu_initstyleoption_isbase = false;
             QMenu::initStyleOption(option, action);
-        } else if (qmenu_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qmenu_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionMenuItem* cbval1 = option;
             QAction* cbval2 = (QAction*)action;
 
-            qmenu_initstyleoption_callback(this, cbval1, cbval2);
-        } else {
-            QMenu::initStyleOption(option, action);
+            initstyleoption_cb(this, cbval1, cbval2);
+            return;
         }
+        QMenu::initStyleOption(option, action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,12 +664,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_devtype_isbase) {
             qmenu_devtype_isbase = false;
             return QMenu::devType();
-        } else if (qmenu_devtype_callback != nullptr) {
-            int callback_ret = qmenu_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMenu::devType();
         }
+        auto devtype_cb = qmenu_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMenu::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -697,13 +678,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_setvisible_isbase) {
             qmenu_setvisible_isbase = false;
             QMenu::setVisible(visible);
-        } else if (qmenu_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qmenu_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qmenu_setvisible_callback(this, cbval1);
-        } else {
-            QMenu::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QMenu::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,12 +695,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_minimumsizehint_isbase) {
             qmenu_minimumsizehint_isbase = false;
             return QMenu::minimumSizeHint();
-        } else if (qmenu_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qmenu_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QMenu::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qmenu_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QMenu::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,14 +709,15 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_heightforwidth_isbase) {
             qmenu_heightforwidth_isbase = false;
             return QMenu::heightForWidth(param1);
-        } else if (qmenu_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qmenu_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qmenu_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMenu::heightForWidth(param1);
         }
+        return QMenu::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,12 +725,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_hasheightforwidth_isbase) {
             qmenu_hasheightforwidth_isbase = false;
             return QMenu::hasHeightForWidth();
-        } else if (qmenu_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qmenu_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QMenu::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qmenu_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QMenu::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,12 +739,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_paintengine_isbase) {
             qmenu_paintengine_isbase = false;
             return QMenu::paintEngine();
-        } else if (qmenu_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qmenu_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QMenu::paintEngine();
         }
+        auto paintengine_cb = qmenu_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QMenu::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +753,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_mousedoubleclickevent_isbase) {
             qmenu_mousedoubleclickevent_isbase = false;
             QMenu::mouseDoubleClickEvent(event);
-        } else if (qmenu_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qmenu_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qmenu_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QMenu::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QMenu::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +770,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_keyreleaseevent_isbase) {
             qmenu_keyreleaseevent_isbase = false;
             QMenu::keyReleaseEvent(event);
-        } else if (qmenu_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qmenu_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qmenu_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QMenu::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QMenu::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +787,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_focusinevent_isbase) {
             qmenu_focusinevent_isbase = false;
             QMenu::focusInEvent(event);
-        } else if (qmenu_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qmenu_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qmenu_focusinevent_callback(this, cbval1);
-        } else {
-            QMenu::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QMenu::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +804,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_focusoutevent_isbase) {
             qmenu_focusoutevent_isbase = false;
             QMenu::focusOutEvent(event);
-        } else if (qmenu_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qmenu_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qmenu_focusoutevent_callback(this, cbval1);
-        } else {
-            QMenu::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QMenu::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +821,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_moveevent_isbase) {
             qmenu_moveevent_isbase = false;
             QMenu::moveEvent(event);
-        } else if (qmenu_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qmenu_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qmenu_moveevent_callback(this, cbval1);
-        } else {
-            QMenu::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QMenu::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +838,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_resizeevent_isbase) {
             qmenu_resizeevent_isbase = false;
             QMenu::resizeEvent(event);
-        } else if (qmenu_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qmenu_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qmenu_resizeevent_callback(this, cbval1);
-        } else {
-            QMenu::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QMenu::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +855,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_closeevent_isbase) {
             qmenu_closeevent_isbase = false;
             QMenu::closeEvent(event);
-        } else if (qmenu_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qmenu_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qmenu_closeevent_callback(this, cbval1);
-        } else {
-            QMenu::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QMenu::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +872,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_contextmenuevent_isbase) {
             qmenu_contextmenuevent_isbase = false;
             QMenu::contextMenuEvent(event);
-        } else if (qmenu_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qmenu_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qmenu_contextmenuevent_callback(this, cbval1);
-        } else {
-            QMenu::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QMenu::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +889,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_tabletevent_isbase) {
             qmenu_tabletevent_isbase = false;
             QMenu::tabletEvent(event);
-        } else if (qmenu_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qmenu_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qmenu_tabletevent_callback(this, cbval1);
-        } else {
-            QMenu::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QMenu::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +906,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_dragenterevent_isbase) {
             qmenu_dragenterevent_isbase = false;
             QMenu::dragEnterEvent(event);
-        } else if (qmenu_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qmenu_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qmenu_dragenterevent_callback(this, cbval1);
-        } else {
-            QMenu::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QMenu::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +923,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_dragmoveevent_isbase) {
             qmenu_dragmoveevent_isbase = false;
             QMenu::dragMoveEvent(event);
-        } else if (qmenu_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qmenu_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qmenu_dragmoveevent_callback(this, cbval1);
-        } else {
-            QMenu::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QMenu::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,13 +940,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_dragleaveevent_isbase) {
             qmenu_dragleaveevent_isbase = false;
             QMenu::dragLeaveEvent(event);
-        } else if (qmenu_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qmenu_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qmenu_dragleaveevent_callback(this, cbval1);
-        } else {
-            QMenu::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QMenu::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +957,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_dropevent_isbase) {
             qmenu_dropevent_isbase = false;
             QMenu::dropEvent(event);
-        } else if (qmenu_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qmenu_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qmenu_dropevent_callback(this, cbval1);
-        } else {
-            QMenu::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QMenu::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +974,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_showevent_isbase) {
             qmenu_showevent_isbase = false;
             QMenu::showEvent(event);
-        } else if (qmenu_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qmenu_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qmenu_showevent_callback(this, cbval1);
-        } else {
-            QMenu::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QMenu::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,7 +991,9 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_nativeevent_isbase) {
             qmenu_nativeevent_isbase = false;
             return QMenu::nativeEvent(eventType, message, result);
-        } else if (qmenu_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qmenu_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -972,12 +1004,11 @@ class VirtualQMenu final : public QMenu {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qmenu_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QMenu::nativeEvent(eventType, message, result);
         }
+        return QMenu::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -985,14 +1016,15 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_metric_isbase) {
             qmenu_metric_isbase = false;
             return QMenu::metric(param1);
-        } else if (qmenu_metric_callback != nullptr) {
+        }
+        auto metric_cb = qmenu_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qmenu_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMenu::metric(param1);
         }
+        return QMenu::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,13 +1032,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_initpainter_isbase) {
             qmenu_initpainter_isbase = false;
             QMenu::initPainter(painter);
-        } else if (qmenu_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qmenu_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qmenu_initpainter_callback(this, cbval1);
-        } else {
-            QMenu::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QMenu::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,14 +1049,15 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_redirected_isbase) {
             qmenu_redirected_isbase = false;
             return QMenu::redirected(offset);
-        } else if (qmenu_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qmenu_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qmenu_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMenu::redirected(offset);
         }
+        return QMenu::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,12 +1065,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_sharedpainter_isbase) {
             qmenu_sharedpainter_isbase = false;
             return QMenu::sharedPainter();
-        } else if (qmenu_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qmenu_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QMenu::sharedPainter();
         }
+        auto sharedpainter_cb = qmenu_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QMenu::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1042,13 +1079,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_inputmethodevent_isbase) {
             qmenu_inputmethodevent_isbase = false;
             QMenu::inputMethodEvent(param1);
-        } else if (qmenu_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qmenu_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qmenu_inputmethodevent_callback(this, cbval1);
-        } else {
-            QMenu::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QMenu::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,14 +1096,15 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_inputmethodquery_isbase) {
             qmenu_inputmethodquery_isbase = false;
             return QMenu::inputMethodQuery(param1);
-        } else if (qmenu_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qmenu_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qmenu_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QMenu::inputMethodQuery(param1);
         }
+        return QMenu::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1071,15 +1112,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_eventfilter_isbase) {
             qmenu_eventfilter_isbase = false;
             return QMenu::eventFilter(watched, event);
-        } else if (qmenu_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qmenu_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qmenu_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QMenu::eventFilter(watched, event);
         }
+        return QMenu::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1087,13 +1129,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_childevent_isbase) {
             qmenu_childevent_isbase = false;
             QMenu::childEvent(event);
-        } else if (qmenu_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qmenu_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qmenu_childevent_callback(this, cbval1);
-        } else {
-            QMenu::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QMenu::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1146,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_customevent_isbase) {
             qmenu_customevent_isbase = false;
             QMenu::customEvent(event);
-        } else if (qmenu_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qmenu_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qmenu_customevent_callback(this, cbval1);
-        } else {
-            QMenu::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QMenu::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,15 +1163,18 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_connectnotify_isbase) {
             qmenu_connectnotify_isbase = false;
             QMenu::connectNotify(signal);
-        } else if (qmenu_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qmenu_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmenu_connectnotify_callback(this, cbval1);
-        } else {
-            QMenu::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QMenu::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1131,15 +1182,18 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_disconnectnotify_isbase) {
             qmenu_disconnectnotify_isbase = false;
             QMenu::disconnectNotify(signal);
-        } else if (qmenu_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qmenu_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmenu_disconnectnotify_callback(this, cbval1);
-        } else {
-            QMenu::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QMenu::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1147,12 +1201,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_columncount_isbase) {
             qmenu_columncount_isbase = false;
             return QMenu::columnCount();
-        } else if (qmenu_columncount_callback != nullptr) {
-            int callback_ret = qmenu_columncount_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMenu::columnCount();
         }
+        auto columncount_cb = qmenu_columncount_callback;
+        if (columncount_cb) {
+            int callback_ret = columncount_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMenu::columnCount();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1160,11 +1215,14 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_updatemicrofocus_isbase) {
             qmenu_updatemicrofocus_isbase = false;
             QMenu::updateMicroFocus();
-        } else if (qmenu_updatemicrofocus_callback != nullptr) {
-            qmenu_updatemicrofocus_callback();
-        } else {
-            QMenu::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qmenu_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QMenu::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,11 +1230,14 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_create_isbase) {
             qmenu_create_isbase = false;
             QMenu::create();
-        } else if (qmenu_create_callback != nullptr) {
-            qmenu_create_callback();
-        } else {
-            QMenu::create();
+            return;
         }
+        auto create_cb = qmenu_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QMenu::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,11 +1245,14 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_destroy_isbase) {
             qmenu_destroy_isbase = false;
             QMenu::destroy();
-        } else if (qmenu_destroy_callback != nullptr) {
-            qmenu_destroy_callback();
-        } else {
-            QMenu::destroy();
+            return;
         }
+        auto destroy_cb = qmenu_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QMenu::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1196,12 +1260,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_focusnextchild_isbase) {
             qmenu_focusnextchild_isbase = false;
             return QMenu::focusNextChild();
-        } else if (qmenu_focusnextchild_callback != nullptr) {
-            bool callback_ret = qmenu_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QMenu::focusNextChild();
         }
+        auto focusnextchild_cb = qmenu_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QMenu::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1209,12 +1274,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_focuspreviouschild_isbase) {
             qmenu_focuspreviouschild_isbase = false;
             return QMenu::focusPreviousChild();
-        } else if (qmenu_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qmenu_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QMenu::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qmenu_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QMenu::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,12 +1288,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_sender_isbase) {
             qmenu_sender_isbase = false;
             return QMenu::sender();
-        } else if (qmenu_sender_callback != nullptr) {
-            QObject* callback_ret = qmenu_sender_callback();
-            return callback_ret;
-        } else {
-            return QMenu::sender();
         }
+        auto sender_cb = qmenu_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QMenu::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,12 +1302,13 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_sendersignalindex_isbase) {
             qmenu_sendersignalindex_isbase = false;
             return QMenu::senderSignalIndex();
-        } else if (qmenu_sendersignalindex_callback != nullptr) {
-            int callback_ret = qmenu_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMenu::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qmenu_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMenu::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1248,14 +1316,15 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_receivers_isbase) {
             qmenu_receivers_isbase = false;
             return QMenu::receivers(signal);
-        } else if (qmenu_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qmenu_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qmenu_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMenu::receivers(signal);
         }
+        return QMenu::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1263,16 +1332,17 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_issignalconnected_isbase) {
             qmenu_issignalconnected_isbase = false;
             return QMenu::isSignalConnected(signal);
-        } else if (qmenu_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qmenu_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qmenu_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMenu::isSignalConnected(signal);
         }
+        return QMenu::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1280,15 +1350,16 @@ class VirtualQMenu final : public QMenu {
         if (qmenu_getdecodedmetricf_isbase) {
             qmenu_getdecodedmetricf_isbase = false;
             return QMenu::getDecodedMetricF(metricA, metricB);
-        } else if (qmenu_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qmenu_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qmenu_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QMenu::getDecodedMetricF(metricA, metricB);
         }
+        return QMenu::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

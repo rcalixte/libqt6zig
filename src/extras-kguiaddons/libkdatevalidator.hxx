@@ -75,25 +75,6 @@ class VirtualKDateValidator final : public KDateValidator {
     VirtualKDateValidator() : KDateValidator() {};
     VirtualKDateValidator(QObject* parent) : KDateValidator(parent) {};
 
-    ~VirtualKDateValidator() {
-        kdatevalidator_metaobject_callback = nullptr;
-        kdatevalidator_metacast_callback = nullptr;
-        kdatevalidator_metacall_callback = nullptr;
-        kdatevalidator_validate_callback = nullptr;
-        kdatevalidator_fixup_callback = nullptr;
-        kdatevalidator_event_callback = nullptr;
-        kdatevalidator_eventfilter_callback = nullptr;
-        kdatevalidator_timerevent_callback = nullptr;
-        kdatevalidator_childevent_callback = nullptr;
-        kdatevalidator_customevent_callback = nullptr;
-        kdatevalidator_connectnotify_callback = nullptr;
-        kdatevalidator_disconnectnotify_callback = nullptr;
-        kdatevalidator_sender_callback = nullptr;
-        kdatevalidator_sendersignalindex_callback = nullptr;
-        kdatevalidator_receivers_callback = nullptr;
-        kdatevalidator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKDateValidator_MetaObject_Callback(KDateValidator_MetaObject_Callback cb) { kdatevalidator_metaobject_callback = cb; }
     inline void setKDateValidator_Metacast_Callback(KDateValidator_Metacast_Callback cb) { kdatevalidator_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_metaobject_isbase) {
             kdatevalidator_metaobject_isbase = false;
             return KDateValidator::metaObject();
-        } else if (kdatevalidator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kdatevalidator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KDateValidator::metaObject();
         }
+        auto metaobject_cb = kdatevalidator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KDateValidator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_metacast_isbase) {
             kdatevalidator_metacast_isbase = false;
             return KDateValidator::qt_metacast(param1);
-        } else if (kdatevalidator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kdatevalidator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kdatevalidator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDateValidator::qt_metacast(param1);
         }
+        return KDateValidator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,16 +146,17 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_metacall_isbase) {
             kdatevalidator_metacall_isbase = false;
             return KDateValidator::qt_metacall(param1, param2, param3);
-        } else if (kdatevalidator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kdatevalidator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kdatevalidator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDateValidator::qt_metacall(param1, param2, param3);
         }
+        return KDateValidator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,7 +164,9 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_validate_isbase) {
             kdatevalidator_validate_isbase = false;
             return KDateValidator::validate(text, e);
-        } else if (kdatevalidator_validate_callback != nullptr) {
+        }
+        auto validate_cb = kdatevalidator_validate_callback;
+        if (validate_cb) {
             QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -191,12 +177,11 @@ class VirtualKDateValidator final : public KDateValidator {
             const char* cbval1 = text_str;
             int* cbval2 = &e;
 
-            int callback_ret = kdatevalidator_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(text_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return KDateValidator::validate(text, e);
         }
+        return KDateValidator::validate(text, e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,7 +189,10 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_fixup_isbase) {
             kdatevalidator_fixup_isbase = false;
             KDateValidator::fixup(input);
-        } else if (kdatevalidator_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = kdatevalidator_fixup_callback;
+        if (fixup_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -214,11 +202,11 @@ class VirtualKDateValidator final : public KDateValidator {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
 
-            kdatevalidator_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(input_str);
-        } else {
-            KDateValidator::fixup(input);
+            return;
         }
+        KDateValidator::fixup(input);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,14 +214,15 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_event_isbase) {
             kdatevalidator_event_isbase = false;
             return KDateValidator::event(event);
-        } else if (kdatevalidator_event_callback != nullptr) {
+        }
+        auto event_cb = kdatevalidator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kdatevalidator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDateValidator::event(event);
         }
+        return KDateValidator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +230,16 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_eventfilter_isbase) {
             kdatevalidator_eventfilter_isbase = false;
             return KDateValidator::eventFilter(watched, event);
-        } else if (kdatevalidator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kdatevalidator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kdatevalidator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KDateValidator::eventFilter(watched, event);
         }
+        return KDateValidator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,13 +247,16 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_timerevent_isbase) {
             kdatevalidator_timerevent_isbase = false;
             KDateValidator::timerEvent(event);
-        } else if (kdatevalidator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kdatevalidator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kdatevalidator_timerevent_callback(this, cbval1);
-        } else {
-            KDateValidator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KDateValidator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -271,13 +264,16 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_childevent_isbase) {
             kdatevalidator_childevent_isbase = false;
             KDateValidator::childEvent(event);
-        } else if (kdatevalidator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kdatevalidator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kdatevalidator_childevent_callback(this, cbval1);
-        } else {
-            KDateValidator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KDateValidator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,13 +281,16 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_customevent_isbase) {
             kdatevalidator_customevent_isbase = false;
             KDateValidator::customEvent(event);
-        } else if (kdatevalidator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kdatevalidator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kdatevalidator_customevent_callback(this, cbval1);
-        } else {
-            KDateValidator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KDateValidator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,15 +298,18 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_connectnotify_isbase) {
             kdatevalidator_connectnotify_isbase = false;
             KDateValidator::connectNotify(signal);
-        } else if (kdatevalidator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kdatevalidator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdatevalidator_connectnotify_callback(this, cbval1);
-        } else {
-            KDateValidator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KDateValidator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,15 +317,18 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_disconnectnotify_isbase) {
             kdatevalidator_disconnectnotify_isbase = false;
             KDateValidator::disconnectNotify(signal);
-        } else if (kdatevalidator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kdatevalidator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdatevalidator_disconnectnotify_callback(this, cbval1);
-        } else {
-            KDateValidator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KDateValidator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,12 +336,13 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_sender_isbase) {
             kdatevalidator_sender_isbase = false;
             return KDateValidator::sender();
-        } else if (kdatevalidator_sender_callback != nullptr) {
-            QObject* callback_ret = kdatevalidator_sender_callback();
-            return callback_ret;
-        } else {
-            return KDateValidator::sender();
         }
+        auto sender_cb = kdatevalidator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KDateValidator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -344,12 +350,13 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_sendersignalindex_isbase) {
             kdatevalidator_sendersignalindex_isbase = false;
             return KDateValidator::senderSignalIndex();
-        } else if (kdatevalidator_sendersignalindex_callback != nullptr) {
-            int callback_ret = kdatevalidator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDateValidator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kdatevalidator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDateValidator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,14 +364,15 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_receivers_isbase) {
             kdatevalidator_receivers_isbase = false;
             return KDateValidator::receivers(signal);
-        } else if (kdatevalidator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kdatevalidator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kdatevalidator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDateValidator::receivers(signal);
         }
+        return KDateValidator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -372,16 +380,17 @@ class VirtualKDateValidator final : public KDateValidator {
         if (kdatevalidator_issignalconnected_isbase) {
             kdatevalidator_issignalconnected_isbase = false;
             return KDateValidator::isSignalConnected(signal);
-        } else if (kdatevalidator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kdatevalidator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kdatevalidator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDateValidator::isSignalConnected(signal);
         }
+        return KDateValidator::isSignalConnected(signal);
     }
 
     // Friend functions

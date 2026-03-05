@@ -81,27 +81,6 @@ class VirtualQUiLoader final : public QUiLoader {
     VirtualQUiLoader() : QUiLoader() {};
     VirtualQUiLoader(QObject* parent) : QUiLoader(parent) {};
 
-    ~VirtualQUiLoader() {
-        quiloader_metaobject_callback = nullptr;
-        quiloader_metacast_callback = nullptr;
-        quiloader_metacall_callback = nullptr;
-        quiloader_createwidget_callback = nullptr;
-        quiloader_createlayout_callback = nullptr;
-        quiloader_createactiongroup_callback = nullptr;
-        quiloader_createaction_callback = nullptr;
-        quiloader_event_callback = nullptr;
-        quiloader_eventfilter_callback = nullptr;
-        quiloader_timerevent_callback = nullptr;
-        quiloader_childevent_callback = nullptr;
-        quiloader_customevent_callback = nullptr;
-        quiloader_connectnotify_callback = nullptr;
-        quiloader_disconnectnotify_callback = nullptr;
-        quiloader_sender_callback = nullptr;
-        quiloader_sendersignalindex_callback = nullptr;
-        quiloader_receivers_callback = nullptr;
-        quiloader_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQUiLoader_MetaObject_Callback(QUiLoader_MetaObject_Callback cb) { quiloader_metaobject_callback = cb; }
     inline void setQUiLoader_Metacast_Callback(QUiLoader_Metacast_Callback cb) { quiloader_metacast_callback = cb; }
@@ -147,12 +126,13 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_metaobject_isbase) {
             quiloader_metaobject_isbase = false;
             return QUiLoader::metaObject();
-        } else if (quiloader_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = quiloader_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QUiLoader::metaObject();
         }
+        auto metaobject_cb = quiloader_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QUiLoader::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -160,14 +140,15 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_metacast_isbase) {
             quiloader_metacast_isbase = false;
             return QUiLoader::qt_metacast(param1);
-        } else if (quiloader_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = quiloader_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = quiloader_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QUiLoader::qt_metacast(param1);
         }
+        return QUiLoader::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -175,16 +156,17 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_metacall_isbase) {
             quiloader_metacall_isbase = false;
             return QUiLoader::qt_metacall(param1, param2, param3);
-        } else if (quiloader_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = quiloader_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = quiloader_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QUiLoader::qt_metacall(param1, param2, param3);
         }
+        return QUiLoader::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -192,7 +174,9 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_createwidget_isbase) {
             quiloader_createwidget_isbase = false;
             return QUiLoader::createWidget(className, parent, name);
-        } else if (quiloader_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = quiloader_createwidget_callback;
+        if (createwidget_cb) {
             const QString className_ret = className;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
@@ -211,13 +195,12 @@ class VirtualQUiLoader final : public QUiLoader {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
 
-            QWidget* callback_ret = quiloader_createwidget_callback(this, cbval1, cbval2, cbval3);
+            QWidget* callback_ret = createwidget_cb(this, cbval1, cbval2, cbval3);
             libqt_free(className_str);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QUiLoader::createWidget(className, parent, name);
         }
+        return QUiLoader::createWidget(className, parent, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -225,7 +208,9 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_createlayout_isbase) {
             quiloader_createlayout_isbase = false;
             return QUiLoader::createLayout(className, parent, name);
-        } else if (quiloader_createlayout_callback != nullptr) {
+        }
+        auto createlayout_cb = quiloader_createlayout_callback;
+        if (createlayout_cb) {
             const QString className_ret = className;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
@@ -244,13 +229,12 @@ class VirtualQUiLoader final : public QUiLoader {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
 
-            QLayout* callback_ret = quiloader_createlayout_callback(this, cbval1, cbval2, cbval3);
+            QLayout* callback_ret = createlayout_cb(this, cbval1, cbval2, cbval3);
             libqt_free(className_str);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QUiLoader::createLayout(className, parent, name);
         }
+        return QUiLoader::createLayout(className, parent, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,7 +242,9 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_createactiongroup_isbase) {
             quiloader_createactiongroup_isbase = false;
             return QUiLoader::createActionGroup(parent, name);
-        } else if (quiloader_createactiongroup_callback != nullptr) {
+        }
+        auto createactiongroup_cb = quiloader_createactiongroup_callback;
+        if (createactiongroup_cb) {
             QObject* cbval1 = parent;
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -269,12 +255,11 @@ class VirtualQUiLoader final : public QUiLoader {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
 
-            QActionGroup* callback_ret = quiloader_createactiongroup_callback(this, cbval1, cbval2);
+            QActionGroup* callback_ret = createactiongroup_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QUiLoader::createActionGroup(parent, name);
         }
+        return QUiLoader::createActionGroup(parent, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,7 +267,9 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_createaction_isbase) {
             quiloader_createaction_isbase = false;
             return QUiLoader::createAction(parent, name);
-        } else if (quiloader_createaction_callback != nullptr) {
+        }
+        auto createaction_cb = quiloader_createaction_callback;
+        if (createaction_cb) {
             QObject* cbval1 = parent;
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -293,12 +280,11 @@ class VirtualQUiLoader final : public QUiLoader {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
 
-            QAction* callback_ret = quiloader_createaction_callback(this, cbval1, cbval2);
+            QAction* callback_ret = createaction_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QUiLoader::createAction(parent, name);
         }
+        return QUiLoader::createAction(parent, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -306,14 +292,15 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_event_isbase) {
             quiloader_event_isbase = false;
             return QUiLoader::event(event);
-        } else if (quiloader_event_callback != nullptr) {
+        }
+        auto event_cb = quiloader_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = quiloader_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QUiLoader::event(event);
         }
+        return QUiLoader::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,15 +308,16 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_eventfilter_isbase) {
             quiloader_eventfilter_isbase = false;
             return QUiLoader::eventFilter(watched, event);
-        } else if (quiloader_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = quiloader_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = quiloader_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QUiLoader::eventFilter(watched, event);
         }
+        return QUiLoader::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,13 +325,16 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_timerevent_isbase) {
             quiloader_timerevent_isbase = false;
             QUiLoader::timerEvent(event);
-        } else if (quiloader_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = quiloader_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            quiloader_timerevent_callback(this, cbval1);
-        } else {
-            QUiLoader::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QUiLoader::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -351,13 +342,16 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_childevent_isbase) {
             quiloader_childevent_isbase = false;
             QUiLoader::childEvent(event);
-        } else if (quiloader_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = quiloader_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            quiloader_childevent_callback(this, cbval1);
-        } else {
-            QUiLoader::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QUiLoader::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -365,13 +359,16 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_customevent_isbase) {
             quiloader_customevent_isbase = false;
             QUiLoader::customEvent(event);
-        } else if (quiloader_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = quiloader_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            quiloader_customevent_callback(this, cbval1);
-        } else {
-            QUiLoader::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QUiLoader::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -379,15 +376,18 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_connectnotify_isbase) {
             quiloader_connectnotify_isbase = false;
             QUiLoader::connectNotify(signal);
-        } else if (quiloader_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = quiloader_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            quiloader_connectnotify_callback(this, cbval1);
-        } else {
-            QUiLoader::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QUiLoader::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -395,15 +395,18 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_disconnectnotify_isbase) {
             quiloader_disconnectnotify_isbase = false;
             QUiLoader::disconnectNotify(signal);
-        } else if (quiloader_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = quiloader_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            quiloader_disconnectnotify_callback(this, cbval1);
-        } else {
-            QUiLoader::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QUiLoader::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -411,12 +414,13 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_sender_isbase) {
             quiloader_sender_isbase = false;
             return QUiLoader::sender();
-        } else if (quiloader_sender_callback != nullptr) {
-            QObject* callback_ret = quiloader_sender_callback();
-            return callback_ret;
-        } else {
-            return QUiLoader::sender();
         }
+        auto sender_cb = quiloader_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QUiLoader::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,12 +428,13 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_sendersignalindex_isbase) {
             quiloader_sendersignalindex_isbase = false;
             return QUiLoader::senderSignalIndex();
-        } else if (quiloader_sendersignalindex_callback != nullptr) {
-            int callback_ret = quiloader_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QUiLoader::senderSignalIndex();
         }
+        auto sendersignalindex_cb = quiloader_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QUiLoader::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -437,14 +442,15 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_receivers_isbase) {
             quiloader_receivers_isbase = false;
             return QUiLoader::receivers(signal);
-        } else if (quiloader_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = quiloader_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = quiloader_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QUiLoader::receivers(signal);
         }
+        return QUiLoader::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -452,16 +458,17 @@ class VirtualQUiLoader final : public QUiLoader {
         if (quiloader_issignalconnected_isbase) {
             quiloader_issignalconnected_isbase = false;
             return QUiLoader::isSignalConnected(signal);
-        } else if (quiloader_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = quiloader_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = quiloader_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QUiLoader::isSignalConnected(signal);
         }
+        return QUiLoader::isSignalConnected(signal);
     }
 
     // Friend functions

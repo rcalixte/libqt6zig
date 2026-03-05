@@ -227,75 +227,6 @@ class VirtualQColorDialog final : public QColorDialog {
     VirtualQColorDialog(const QColor& initial) : QColorDialog(initial) {};
     VirtualQColorDialog(const QColor& initial, QWidget* parent) : QColorDialog(initial, parent) {};
 
-    ~VirtualQColorDialog() {
-        qcolordialog_metaobject_callback = nullptr;
-        qcolordialog_metacast_callback = nullptr;
-        qcolordialog_metacall_callback = nullptr;
-        qcolordialog_setvisible_callback = nullptr;
-        qcolordialog_changeevent_callback = nullptr;
-        qcolordialog_done_callback = nullptr;
-        qcolordialog_sizehint_callback = nullptr;
-        qcolordialog_minimumsizehint_callback = nullptr;
-        qcolordialog_open_callback = nullptr;
-        qcolordialog_exec_callback = nullptr;
-        qcolordialog_accept_callback = nullptr;
-        qcolordialog_reject_callback = nullptr;
-        qcolordialog_keypressevent_callback = nullptr;
-        qcolordialog_closeevent_callback = nullptr;
-        qcolordialog_showevent_callback = nullptr;
-        qcolordialog_resizeevent_callback = nullptr;
-        qcolordialog_contextmenuevent_callback = nullptr;
-        qcolordialog_eventfilter_callback = nullptr;
-        qcolordialog_devtype_callback = nullptr;
-        qcolordialog_heightforwidth_callback = nullptr;
-        qcolordialog_hasheightforwidth_callback = nullptr;
-        qcolordialog_paintengine_callback = nullptr;
-        qcolordialog_event_callback = nullptr;
-        qcolordialog_mousepressevent_callback = nullptr;
-        qcolordialog_mousereleaseevent_callback = nullptr;
-        qcolordialog_mousedoubleclickevent_callback = nullptr;
-        qcolordialog_mousemoveevent_callback = nullptr;
-        qcolordialog_wheelevent_callback = nullptr;
-        qcolordialog_keyreleaseevent_callback = nullptr;
-        qcolordialog_focusinevent_callback = nullptr;
-        qcolordialog_focusoutevent_callback = nullptr;
-        qcolordialog_enterevent_callback = nullptr;
-        qcolordialog_leaveevent_callback = nullptr;
-        qcolordialog_paintevent_callback = nullptr;
-        qcolordialog_moveevent_callback = nullptr;
-        qcolordialog_tabletevent_callback = nullptr;
-        qcolordialog_actionevent_callback = nullptr;
-        qcolordialog_dragenterevent_callback = nullptr;
-        qcolordialog_dragmoveevent_callback = nullptr;
-        qcolordialog_dragleaveevent_callback = nullptr;
-        qcolordialog_dropevent_callback = nullptr;
-        qcolordialog_hideevent_callback = nullptr;
-        qcolordialog_nativeevent_callback = nullptr;
-        qcolordialog_metric_callback = nullptr;
-        qcolordialog_initpainter_callback = nullptr;
-        qcolordialog_redirected_callback = nullptr;
-        qcolordialog_sharedpainter_callback = nullptr;
-        qcolordialog_inputmethodevent_callback = nullptr;
-        qcolordialog_inputmethodquery_callback = nullptr;
-        qcolordialog_focusnextprevchild_callback = nullptr;
-        qcolordialog_timerevent_callback = nullptr;
-        qcolordialog_childevent_callback = nullptr;
-        qcolordialog_customevent_callback = nullptr;
-        qcolordialog_connectnotify_callback = nullptr;
-        qcolordialog_disconnectnotify_callback = nullptr;
-        qcolordialog_adjustposition_callback = nullptr;
-        qcolordialog_updatemicrofocus_callback = nullptr;
-        qcolordialog_create_callback = nullptr;
-        qcolordialog_destroy_callback = nullptr;
-        qcolordialog_focusnextchild_callback = nullptr;
-        qcolordialog_focuspreviouschild_callback = nullptr;
-        qcolordialog_sender_callback = nullptr;
-        qcolordialog_sendersignalindex_callback = nullptr;
-        qcolordialog_receivers_callback = nullptr;
-        qcolordialog_issignalconnected_callback = nullptr;
-        qcolordialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQColorDialog_MetaObject_Callback(QColorDialog_MetaObject_Callback cb) { qcolordialog_metaobject_callback = cb; }
     inline void setQColorDialog_Metacast_Callback(QColorDialog_Metacast_Callback cb) { qcolordialog_metacast_callback = cb; }
@@ -437,12 +368,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_metaobject_isbase) {
             qcolordialog_metaobject_isbase = false;
             return QColorDialog::metaObject();
-        } else if (qcolordialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qcolordialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QColorDialog::metaObject();
         }
+        auto metaobject_cb = qcolordialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QColorDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +382,15 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_metacast_isbase) {
             qcolordialog_metacast_isbase = false;
             return QColorDialog::qt_metacast(param1);
-        } else if (qcolordialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qcolordialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qcolordialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColorDialog::qt_metacast(param1);
         }
+        return QColorDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,16 +398,17 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_metacall_isbase) {
             qcolordialog_metacall_isbase = false;
             return QColorDialog::qt_metacall(param1, param2, param3);
-        } else if (qcolordialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qcolordialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qcolordialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QColorDialog::qt_metacall(param1, param2, param3);
         }
+        return QColorDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,13 +416,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_setvisible_isbase) {
             qcolordialog_setvisible_isbase = false;
             QColorDialog::setVisible(visible);
-        } else if (qcolordialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qcolordialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qcolordialog_setvisible_callback(this, cbval1);
-        } else {
-            QColorDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QColorDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,13 +433,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_changeevent_isbase) {
             qcolordialog_changeevent_isbase = false;
             QColorDialog::changeEvent(event);
-        } else if (qcolordialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qcolordialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qcolordialog_changeevent_callback(this, cbval1);
-        } else {
-            QColorDialog::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,13 +450,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_done_isbase) {
             qcolordialog_done_isbase = false;
             QColorDialog::done(result);
-        } else if (qcolordialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = qcolordialog_done_callback;
+        if (done_cb) {
             int cbval1 = result;
 
-            qcolordialog_done_callback(this, cbval1);
-        } else {
-            QColorDialog::done(result);
+            done_cb(this, cbval1);
+            return;
         }
+        QColorDialog::done(result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,12 +467,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_sizehint_isbase) {
             qcolordialog_sizehint_isbase = false;
             return QColorDialog::sizeHint();
-        } else if (qcolordialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = qcolordialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QColorDialog::sizeHint();
         }
+        auto sizehint_cb = qcolordialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QColorDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,12 +481,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_minimumsizehint_isbase) {
             qcolordialog_minimumsizehint_isbase = false;
             return QColorDialog::minimumSizeHint();
-        } else if (qcolordialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qcolordialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QColorDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qcolordialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QColorDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,11 +495,14 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_open_isbase) {
             qcolordialog_open_isbase = false;
             QColorDialog::open();
-        } else if (qcolordialog_open_callback != nullptr) {
-            qcolordialog_open_callback();
-        } else {
-            QColorDialog::open();
+            return;
         }
+        auto open_cb = qcolordialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        QColorDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -562,12 +510,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_exec_isbase) {
             qcolordialog_exec_isbase = false;
             return QColorDialog::exec();
-        } else if (qcolordialog_exec_callback != nullptr) {
-            int callback_ret = qcolordialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QColorDialog::exec();
         }
+        auto exec_cb = qcolordialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QColorDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -575,11 +524,14 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_accept_isbase) {
             qcolordialog_accept_isbase = false;
             QColorDialog::accept();
-        } else if (qcolordialog_accept_callback != nullptr) {
-            qcolordialog_accept_callback();
-        } else {
-            QColorDialog::accept();
+            return;
         }
+        auto accept_cb = qcolordialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        QColorDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,11 +539,14 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_reject_isbase) {
             qcolordialog_reject_isbase = false;
             QColorDialog::reject();
-        } else if (qcolordialog_reject_callback != nullptr) {
-            qcolordialog_reject_callback();
-        } else {
-            QColorDialog::reject();
+            return;
         }
+        auto reject_cb = qcolordialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        QColorDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,13 +554,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_keypressevent_isbase) {
             qcolordialog_keypressevent_isbase = false;
             QColorDialog::keyPressEvent(param1);
-        } else if (qcolordialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qcolordialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qcolordialog_keypressevent_callback(this, cbval1);
-        } else {
-            QColorDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,13 +571,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_closeevent_isbase) {
             qcolordialog_closeevent_isbase = false;
             QColorDialog::closeEvent(param1);
-        } else if (qcolordialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qcolordialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            qcolordialog_closeevent_callback(this, cbval1);
-        } else {
-            QColorDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +588,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_showevent_isbase) {
             qcolordialog_showevent_isbase = false;
             QColorDialog::showEvent(param1);
-        } else if (qcolordialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qcolordialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qcolordialog_showevent_callback(this, cbval1);
-        } else {
-            QColorDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +605,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_resizeevent_isbase) {
             qcolordialog_resizeevent_isbase = false;
             QColorDialog::resizeEvent(param1);
-        } else if (qcolordialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qcolordialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qcolordialog_resizeevent_callback(this, cbval1);
-        } else {
-            QColorDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,13 +622,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_contextmenuevent_isbase) {
             qcolordialog_contextmenuevent_isbase = false;
             QColorDialog::contextMenuEvent(param1);
-        } else if (qcolordialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qcolordialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qcolordialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            QColorDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,15 +639,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_eventfilter_isbase) {
             qcolordialog_eventfilter_isbase = false;
             return QColorDialog::eventFilter(param1, param2);
-        } else if (qcolordialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qcolordialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qcolordialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QColorDialog::eventFilter(param1, param2);
         }
+        return QColorDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -685,12 +656,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_devtype_isbase) {
             qcolordialog_devtype_isbase = false;
             return QColorDialog::devType();
-        } else if (qcolordialog_devtype_callback != nullptr) {
-            int callback_ret = qcolordialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QColorDialog::devType();
         }
+        auto devtype_cb = qcolordialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QColorDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,14 +670,15 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_heightforwidth_isbase) {
             qcolordialog_heightforwidth_isbase = false;
             return QColorDialog::heightForWidth(param1);
-        } else if (qcolordialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qcolordialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qcolordialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QColorDialog::heightForWidth(param1);
         }
+        return QColorDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -713,12 +686,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_hasheightforwidth_isbase) {
             qcolordialog_hasheightforwidth_isbase = false;
             return QColorDialog::hasHeightForWidth();
-        } else if (qcolordialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qcolordialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QColorDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qcolordialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QColorDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -726,12 +700,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_paintengine_isbase) {
             qcolordialog_paintengine_isbase = false;
             return QColorDialog::paintEngine();
-        } else if (qcolordialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qcolordialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QColorDialog::paintEngine();
         }
+        auto paintengine_cb = qcolordialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QColorDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,14 +714,15 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_event_isbase) {
             qcolordialog_event_isbase = false;
             return QColorDialog::event(event);
-        } else if (qcolordialog_event_callback != nullptr) {
+        }
+        auto event_cb = qcolordialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qcolordialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColorDialog::event(event);
         }
+        return QColorDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,13 +730,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_mousepressevent_isbase) {
             qcolordialog_mousepressevent_isbase = false;
             QColorDialog::mousePressEvent(event);
-        } else if (qcolordialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qcolordialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcolordialog_mousepressevent_callback(this, cbval1);
-        } else {
-            QColorDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,13 +747,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_mousereleaseevent_isbase) {
             qcolordialog_mousereleaseevent_isbase = false;
             QColorDialog::mouseReleaseEvent(event);
-        } else if (qcolordialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qcolordialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcolordialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QColorDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,13 +764,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_mousedoubleclickevent_isbase) {
             qcolordialog_mousedoubleclickevent_isbase = false;
             QColorDialog::mouseDoubleClickEvent(event);
-        } else if (qcolordialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qcolordialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcolordialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QColorDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,13 +781,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_mousemoveevent_isbase) {
             qcolordialog_mousemoveevent_isbase = false;
             QColorDialog::mouseMoveEvent(event);
-        } else if (qcolordialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qcolordialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcolordialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            QColorDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -810,13 +798,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_wheelevent_isbase) {
             qcolordialog_wheelevent_isbase = false;
             QColorDialog::wheelEvent(event);
-        } else if (qcolordialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qcolordialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qcolordialog_wheelevent_callback(this, cbval1);
-        } else {
-            QColorDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -824,13 +815,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_keyreleaseevent_isbase) {
             qcolordialog_keyreleaseevent_isbase = false;
             QColorDialog::keyReleaseEvent(event);
-        } else if (qcolordialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qcolordialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qcolordialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QColorDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,13 +832,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_focusinevent_isbase) {
             qcolordialog_focusinevent_isbase = false;
             QColorDialog::focusInEvent(event);
-        } else if (qcolordialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qcolordialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qcolordialog_focusinevent_callback(this, cbval1);
-        } else {
-            QColorDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,13 +849,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_focusoutevent_isbase) {
             qcolordialog_focusoutevent_isbase = false;
             QColorDialog::focusOutEvent(event);
-        } else if (qcolordialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qcolordialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qcolordialog_focusoutevent_callback(this, cbval1);
-        } else {
-            QColorDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,13 +866,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_enterevent_isbase) {
             qcolordialog_enterevent_isbase = false;
             QColorDialog::enterEvent(event);
-        } else if (qcolordialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qcolordialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qcolordialog_enterevent_callback(this, cbval1);
-        } else {
-            QColorDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -880,13 +883,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_leaveevent_isbase) {
             qcolordialog_leaveevent_isbase = false;
             QColorDialog::leaveEvent(event);
-        } else if (qcolordialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qcolordialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qcolordialog_leaveevent_callback(this, cbval1);
-        } else {
-            QColorDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -894,13 +900,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_paintevent_isbase) {
             qcolordialog_paintevent_isbase = false;
             QColorDialog::paintEvent(event);
-        } else if (qcolordialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qcolordialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qcolordialog_paintevent_callback(this, cbval1);
-        } else {
-            QColorDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -908,13 +917,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_moveevent_isbase) {
             qcolordialog_moveevent_isbase = false;
             QColorDialog::moveEvent(event);
-        } else if (qcolordialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qcolordialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qcolordialog_moveevent_callback(this, cbval1);
-        } else {
-            QColorDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -922,13 +934,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_tabletevent_isbase) {
             qcolordialog_tabletevent_isbase = false;
             QColorDialog::tabletEvent(event);
-        } else if (qcolordialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qcolordialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qcolordialog_tabletevent_callback(this, cbval1);
-        } else {
-            QColorDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -936,13 +951,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_actionevent_isbase) {
             qcolordialog_actionevent_isbase = false;
             QColorDialog::actionEvent(event);
-        } else if (qcolordialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qcolordialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qcolordialog_actionevent_callback(this, cbval1);
-        } else {
-            QColorDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -950,13 +968,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_dragenterevent_isbase) {
             qcolordialog_dragenterevent_isbase = false;
             QColorDialog::dragEnterEvent(event);
-        } else if (qcolordialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qcolordialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qcolordialog_dragenterevent_callback(this, cbval1);
-        } else {
-            QColorDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -964,13 +985,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_dragmoveevent_isbase) {
             qcolordialog_dragmoveevent_isbase = false;
             QColorDialog::dragMoveEvent(event);
-        } else if (qcolordialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qcolordialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qcolordialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            QColorDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -978,13 +1002,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_dragleaveevent_isbase) {
             qcolordialog_dragleaveevent_isbase = false;
             QColorDialog::dragLeaveEvent(event);
-        } else if (qcolordialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qcolordialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qcolordialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            QColorDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,13 +1019,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_dropevent_isbase) {
             qcolordialog_dropevent_isbase = false;
             QColorDialog::dropEvent(event);
-        } else if (qcolordialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qcolordialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qcolordialog_dropevent_callback(this, cbval1);
-        } else {
-            QColorDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,13 +1036,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_hideevent_isbase) {
             qcolordialog_hideevent_isbase = false;
             QColorDialog::hideEvent(event);
-        } else if (qcolordialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qcolordialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qcolordialog_hideevent_callback(this, cbval1);
-        } else {
-            QColorDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1020,7 +1053,9 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_nativeevent_isbase) {
             qcolordialog_nativeevent_isbase = false;
             return QColorDialog::nativeEvent(eventType, message, result);
-        } else if (qcolordialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qcolordialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1031,12 +1066,11 @@ class VirtualQColorDialog final : public QColorDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qcolordialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QColorDialog::nativeEvent(eventType, message, result);
         }
+        return QColorDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,14 +1078,15 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_metric_isbase) {
             qcolordialog_metric_isbase = false;
             return QColorDialog::metric(param1);
-        } else if (qcolordialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = qcolordialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qcolordialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QColorDialog::metric(param1);
         }
+        return QColorDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,13 +1094,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_initpainter_isbase) {
             qcolordialog_initpainter_isbase = false;
             QColorDialog::initPainter(painter);
-        } else if (qcolordialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qcolordialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qcolordialog_initpainter_callback(this, cbval1);
-        } else {
-            QColorDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QColorDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1073,14 +1111,15 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_redirected_isbase) {
             qcolordialog_redirected_isbase = false;
             return QColorDialog::redirected(offset);
-        } else if (qcolordialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qcolordialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qcolordialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColorDialog::redirected(offset);
         }
+        return QColorDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,12 +1127,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_sharedpainter_isbase) {
             qcolordialog_sharedpainter_isbase = false;
             return QColorDialog::sharedPainter();
-        } else if (qcolordialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qcolordialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QColorDialog::sharedPainter();
         }
+        auto sharedpainter_cb = qcolordialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QColorDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1141,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_inputmethodevent_isbase) {
             qcolordialog_inputmethodevent_isbase = false;
             QColorDialog::inputMethodEvent(param1);
-        } else if (qcolordialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qcolordialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qcolordialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            QColorDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,14 +1158,15 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_inputmethodquery_isbase) {
             qcolordialog_inputmethodquery_isbase = false;
             return QColorDialog::inputMethodQuery(param1);
-        } else if (qcolordialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qcolordialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qcolordialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QColorDialog::inputMethodQuery(param1);
         }
+        return QColorDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,14 +1174,15 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_focusnextprevchild_isbase) {
             qcolordialog_focusnextprevchild_isbase = false;
             return QColorDialog::focusNextPrevChild(next);
-        } else if (qcolordialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qcolordialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qcolordialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColorDialog::focusNextPrevChild(next);
         }
+        return QColorDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1145,13 +1190,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_timerevent_isbase) {
             qcolordialog_timerevent_isbase = false;
             QColorDialog::timerEvent(event);
-        } else if (qcolordialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qcolordialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qcolordialog_timerevent_callback(this, cbval1);
-        } else {
-            QColorDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,13 +1207,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_childevent_isbase) {
             qcolordialog_childevent_isbase = false;
             QColorDialog::childEvent(event);
-        } else if (qcolordialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qcolordialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qcolordialog_childevent_callback(this, cbval1);
-        } else {
-            QColorDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1173,13 +1224,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_customevent_isbase) {
             qcolordialog_customevent_isbase = false;
             QColorDialog::customEvent(event);
-        } else if (qcolordialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qcolordialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qcolordialog_customevent_callback(this, cbval1);
-        } else {
-            QColorDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QColorDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,15 +1241,18 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_connectnotify_isbase) {
             qcolordialog_connectnotify_isbase = false;
             QColorDialog::connectNotify(signal);
-        } else if (qcolordialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qcolordialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcolordialog_connectnotify_callback(this, cbval1);
-        } else {
-            QColorDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QColorDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,15 +1260,18 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_disconnectnotify_isbase) {
             qcolordialog_disconnectnotify_isbase = false;
             QColorDialog::disconnectNotify(signal);
-        } else if (qcolordialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qcolordialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcolordialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            QColorDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QColorDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,13 +1279,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_adjustposition_isbase) {
             qcolordialog_adjustposition_isbase = false;
             QColorDialog::adjustPosition(param1);
-        } else if (qcolordialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = qcolordialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            qcolordialog_adjustposition_callback(this, cbval1);
-        } else {
-            QColorDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        QColorDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,11 +1296,14 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_updatemicrofocus_isbase) {
             qcolordialog_updatemicrofocus_isbase = false;
             QColorDialog::updateMicroFocus();
-        } else if (qcolordialog_updatemicrofocus_callback != nullptr) {
-            qcolordialog_updatemicrofocus_callback();
-        } else {
-            QColorDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qcolordialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QColorDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,11 +1311,14 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_create_isbase) {
             qcolordialog_create_isbase = false;
             QColorDialog::create();
-        } else if (qcolordialog_create_callback != nullptr) {
-            qcolordialog_create_callback();
-        } else {
-            QColorDialog::create();
+            return;
         }
+        auto create_cb = qcolordialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QColorDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,11 +1326,14 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_destroy_isbase) {
             qcolordialog_destroy_isbase = false;
             QColorDialog::destroy();
-        } else if (qcolordialog_destroy_callback != nullptr) {
-            qcolordialog_destroy_callback();
-        } else {
-            QColorDialog::destroy();
+            return;
         }
+        auto destroy_cb = qcolordialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QColorDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,12 +1341,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_focusnextchild_isbase) {
             qcolordialog_focusnextchild_isbase = false;
             return QColorDialog::focusNextChild();
-        } else if (qcolordialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = qcolordialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QColorDialog::focusNextChild();
         }
+        auto focusnextchild_cb = qcolordialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QColorDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,12 +1355,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_focuspreviouschild_isbase) {
             qcolordialog_focuspreviouschild_isbase = false;
             return QColorDialog::focusPreviousChild();
-        } else if (qcolordialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qcolordialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QColorDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qcolordialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QColorDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,12 +1369,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_sender_isbase) {
             qcolordialog_sender_isbase = false;
             return QColorDialog::sender();
-        } else if (qcolordialog_sender_callback != nullptr) {
-            QObject* callback_ret = qcolordialog_sender_callback();
-            return callback_ret;
-        } else {
-            return QColorDialog::sender();
         }
+        auto sender_cb = qcolordialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QColorDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,12 +1383,13 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_sendersignalindex_isbase) {
             qcolordialog_sendersignalindex_isbase = false;
             return QColorDialog::senderSignalIndex();
-        } else if (qcolordialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = qcolordialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QColorDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qcolordialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QColorDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,14 +1397,15 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_receivers_isbase) {
             qcolordialog_receivers_isbase = false;
             return QColorDialog::receivers(signal);
-        } else if (qcolordialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qcolordialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qcolordialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QColorDialog::receivers(signal);
         }
+        return QColorDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,16 +1413,17 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_issignalconnected_isbase) {
             qcolordialog_issignalconnected_isbase = false;
             return QColorDialog::isSignalConnected(signal);
-        } else if (qcolordialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qcolordialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qcolordialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QColorDialog::isSignalConnected(signal);
         }
+        return QColorDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,15 +1431,16 @@ class VirtualQColorDialog final : public QColorDialog {
         if (qcolordialog_getdecodedmetricf_isbase) {
             qcolordialog_getdecodedmetricf_isbase = false;
             return QColorDialog::getDecodedMetricF(metricA, metricB);
-        } else if (qcolordialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qcolordialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qcolordialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QColorDialog::getDecodedMetricF(metricA, metricB);
         }
+        return QColorDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

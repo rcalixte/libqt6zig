@@ -65,22 +65,6 @@ class VirtualQImageIOHandler : public QImageIOHandler {
   public:
     VirtualQImageIOHandler() : QImageIOHandler() {};
 
-    ~VirtualQImageIOHandler() {
-        qimageiohandler_canread_callback = nullptr;
-        qimageiohandler_read_callback = nullptr;
-        qimageiohandler_write_callback = nullptr;
-        qimageiohandler_option_callback = nullptr;
-        qimageiohandler_setoption_callback = nullptr;
-        qimageiohandler_supportsoption_callback = nullptr;
-        qimageiohandler_jumptonextimage_callback = nullptr;
-        qimageiohandler_jumptoimage_callback = nullptr;
-        qimageiohandler_loopcount_callback = nullptr;
-        qimageiohandler_imagecount_callback = nullptr;
-        qimageiohandler_nextimagedelay_callback = nullptr;
-        qimageiohandler_currentimagenumber_callback = nullptr;
-        qimageiohandler_currentimagerect_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQImageIOHandler_CanRead_Callback(QImageIOHandler_CanRead_Callback cb) { qimageiohandler_canread_callback = cb; }
     inline void setQImageIOHandler_Read_Callback(QImageIOHandler_Read_Callback cb) { qimageiohandler_read_callback = cb; }
@@ -113,24 +97,24 @@ class VirtualQImageIOHandler : public QImageIOHandler {
 
     // Virtual method for C ABI access and custom callback
     virtual bool canRead() const override {
-        if (qimageiohandler_canread_callback != nullptr) {
-            bool callback_ret = qimageiohandler_canread_callback();
+        auto canread_cb = qimageiohandler_canread_callback;
+        if (canread_cb) {
+            bool callback_ret = canread_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool read(QImage* image) override {
-        if (qimageiohandler_read_callback != nullptr) {
+        auto read_cb = qimageiohandler_read_callback;
+        if (read_cb) {
             QImage* cbval1 = image;
 
-            bool callback_ret = qimageiohandler_read_callback(this, cbval1);
+            bool callback_ret = read_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,16 +122,17 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_write_isbase) {
             qimageiohandler_write_isbase = false;
             return QImageIOHandler::write(image);
-        } else if (qimageiohandler_write_callback != nullptr) {
+        }
+        auto write_cb = qimageiohandler_write_callback;
+        if (write_cb) {
             const QImage& image_ret = image;
             // Cast returned reference into pointer
             QImage* cbval1 = const_cast<QImage*>(&image_ret);
 
-            bool callback_ret = qimageiohandler_write_callback(this, cbval1);
+            bool callback_ret = write_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QImageIOHandler::write(image);
         }
+        return QImageIOHandler::write(image);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -155,14 +140,15 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_option_isbase) {
             qimageiohandler_option_isbase = false;
             return QImageIOHandler::option(option);
-        } else if (qimageiohandler_option_callback != nullptr) {
+        }
+        auto option_cb = qimageiohandler_option_callback;
+        if (option_cb) {
             int cbval1 = static_cast<int>(option);
 
-            QVariant* callback_ret = qimageiohandler_option_callback(this, cbval1);
+            QVariant* callback_ret = option_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QImageIOHandler::option(option);
         }
+        return QImageIOHandler::option(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,16 +156,19 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_setoption_isbase) {
             qimageiohandler_setoption_isbase = false;
             QImageIOHandler::setOption(option, value);
-        } else if (qimageiohandler_setoption_callback != nullptr) {
+            return;
+        }
+        auto setoption_cb = qimageiohandler_setoption_callback;
+        if (setoption_cb) {
             int cbval1 = static_cast<int>(option);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            qimageiohandler_setoption_callback(this, cbval1, cbval2);
-        } else {
-            QImageIOHandler::setOption(option, value);
+            setoption_cb(this, cbval1, cbval2);
+            return;
         }
+        QImageIOHandler::setOption(option, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +176,15 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_supportsoption_isbase) {
             qimageiohandler_supportsoption_isbase = false;
             return QImageIOHandler::supportsOption(option);
-        } else if (qimageiohandler_supportsoption_callback != nullptr) {
+        }
+        auto supportsoption_cb = qimageiohandler_supportsoption_callback;
+        if (supportsoption_cb) {
             int cbval1 = static_cast<int>(option);
 
-            bool callback_ret = qimageiohandler_supportsoption_callback(this, cbval1);
+            bool callback_ret = supportsoption_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QImageIOHandler::supportsOption(option);
         }
+        return QImageIOHandler::supportsOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,12 +192,13 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_jumptonextimage_isbase) {
             qimageiohandler_jumptonextimage_isbase = false;
             return QImageIOHandler::jumpToNextImage();
-        } else if (qimageiohandler_jumptonextimage_callback != nullptr) {
-            bool callback_ret = qimageiohandler_jumptonextimage_callback();
-            return callback_ret;
-        } else {
-            return QImageIOHandler::jumpToNextImage();
         }
+        auto jumptonextimage_cb = qimageiohandler_jumptonextimage_callback;
+        if (jumptonextimage_cb) {
+            bool callback_ret = jumptonextimage_cb();
+            return callback_ret;
+        }
+        return QImageIOHandler::jumpToNextImage();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,14 +206,15 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_jumptoimage_isbase) {
             qimageiohandler_jumptoimage_isbase = false;
             return QImageIOHandler::jumpToImage(imageNumber);
-        } else if (qimageiohandler_jumptoimage_callback != nullptr) {
+        }
+        auto jumptoimage_cb = qimageiohandler_jumptoimage_callback;
+        if (jumptoimage_cb) {
             int cbval1 = imageNumber;
 
-            bool callback_ret = qimageiohandler_jumptoimage_callback(this, cbval1);
+            bool callback_ret = jumptoimage_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QImageIOHandler::jumpToImage(imageNumber);
         }
+        return QImageIOHandler::jumpToImage(imageNumber);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -230,12 +222,13 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_loopcount_isbase) {
             qimageiohandler_loopcount_isbase = false;
             return QImageIOHandler::loopCount();
-        } else if (qimageiohandler_loopcount_callback != nullptr) {
-            int callback_ret = qimageiohandler_loopcount_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QImageIOHandler::loopCount();
         }
+        auto loopcount_cb = qimageiohandler_loopcount_callback;
+        if (loopcount_cb) {
+            int callback_ret = loopcount_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QImageIOHandler::loopCount();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,12 +236,13 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_imagecount_isbase) {
             qimageiohandler_imagecount_isbase = false;
             return QImageIOHandler::imageCount();
-        } else if (qimageiohandler_imagecount_callback != nullptr) {
-            int callback_ret = qimageiohandler_imagecount_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QImageIOHandler::imageCount();
         }
+        auto imagecount_cb = qimageiohandler_imagecount_callback;
+        if (imagecount_cb) {
+            int callback_ret = imagecount_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QImageIOHandler::imageCount();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,12 +250,13 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_nextimagedelay_isbase) {
             qimageiohandler_nextimagedelay_isbase = false;
             return QImageIOHandler::nextImageDelay();
-        } else if (qimageiohandler_nextimagedelay_callback != nullptr) {
-            int callback_ret = qimageiohandler_nextimagedelay_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QImageIOHandler::nextImageDelay();
         }
+        auto nextimagedelay_cb = qimageiohandler_nextimagedelay_callback;
+        if (nextimagedelay_cb) {
+            int callback_ret = nextimagedelay_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QImageIOHandler::nextImageDelay();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -269,12 +264,13 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_currentimagenumber_isbase) {
             qimageiohandler_currentimagenumber_isbase = false;
             return QImageIOHandler::currentImageNumber();
-        } else if (qimageiohandler_currentimagenumber_callback != nullptr) {
-            int callback_ret = qimageiohandler_currentimagenumber_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QImageIOHandler::currentImageNumber();
         }
+        auto currentimagenumber_cb = qimageiohandler_currentimagenumber_callback;
+        if (currentimagenumber_cb) {
+            int callback_ret = currentimagenumber_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QImageIOHandler::currentImageNumber();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,12 +278,13 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         if (qimageiohandler_currentimagerect_isbase) {
             qimageiohandler_currentimagerect_isbase = false;
             return QImageIOHandler::currentImageRect();
-        } else if (qimageiohandler_currentimagerect_callback != nullptr) {
-            QRect* callback_ret = qimageiohandler_currentimagerect_callback();
-            return *callback_ret;
-        } else {
-            return QImageIOHandler::currentImageRect();
         }
+        auto currentimagerect_cb = qimageiohandler_currentimagerect_callback;
+        if (currentimagerect_cb) {
+            QRect* callback_ret = currentimagerect_cb();
+            return *callback_ret;
+        }
+        return QImageIOHandler::currentImageRect();
     }
 };
 
@@ -357,25 +354,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
     VirtualQImageIOPlugin() : QImageIOPlugin() {};
     VirtualQImageIOPlugin(QObject* parent) : QImageIOPlugin(parent) {};
 
-    ~VirtualQImageIOPlugin() {
-        qimageioplugin_metaobject_callback = nullptr;
-        qimageioplugin_metacast_callback = nullptr;
-        qimageioplugin_metacall_callback = nullptr;
-        qimageioplugin_capabilities_callback = nullptr;
-        qimageioplugin_create_callback = nullptr;
-        qimageioplugin_event_callback = nullptr;
-        qimageioplugin_eventfilter_callback = nullptr;
-        qimageioplugin_timerevent_callback = nullptr;
-        qimageioplugin_childevent_callback = nullptr;
-        qimageioplugin_customevent_callback = nullptr;
-        qimageioplugin_connectnotify_callback = nullptr;
-        qimageioplugin_disconnectnotify_callback = nullptr;
-        qimageioplugin_sender_callback = nullptr;
-        qimageioplugin_sendersignalindex_callback = nullptr;
-        qimageioplugin_receivers_callback = nullptr;
-        qimageioplugin_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQImageIOPlugin_MetaObject_Callback(QImageIOPlugin_MetaObject_Callback cb) { qimageioplugin_metaobject_callback = cb; }
     inline void setQImageIOPlugin_Metacast_Callback(QImageIOPlugin_Metacast_Callback cb) { qimageioplugin_metacast_callback = cb; }
@@ -417,12 +395,13 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_metaobject_isbase) {
             qimageioplugin_metaobject_isbase = false;
             return QImageIOPlugin::metaObject();
-        } else if (qimageioplugin_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qimageioplugin_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QImageIOPlugin::metaObject();
         }
+        auto metaobject_cb = qimageioplugin_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QImageIOPlugin::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -430,14 +409,15 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_metacast_isbase) {
             qimageioplugin_metacast_isbase = false;
             return QImageIOPlugin::qt_metacast(param1);
-        } else if (qimageioplugin_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qimageioplugin_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qimageioplugin_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QImageIOPlugin::qt_metacast(param1);
         }
+        return QImageIOPlugin::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -445,21 +425,23 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_metacall_isbase) {
             qimageioplugin_metacall_isbase = false;
             return QImageIOPlugin::qt_metacall(param1, param2, param3);
-        } else if (qimageioplugin_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qimageioplugin_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qimageioplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QImageIOPlugin::qt_metacall(param1, param2, param3);
         }
+        return QImageIOPlugin::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QImageIOPlugin::Capabilities capabilities(QIODevice* device, const QByteArray& format) const override {
-        if (qimageioplugin_capabilities_callback != nullptr) {
+        auto capabilities_cb = qimageioplugin_capabilities_callback;
+        if (capabilities_cb) {
             QIODevice* cbval1 = device;
             const QByteArray format_qb = format;
             libqt_string format_str;
@@ -468,17 +450,17 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
             memcpy((void*)format_str.data, format_qb.data(), format_str.len);
             libqt_string cbval2 = format_str;
 
-            int callback_ret = qimageioplugin_capabilities_callback(this, cbval1, cbval2);
+            int callback_ret = capabilities_cb(this, cbval1, cbval2);
             libqt_free(format_str.data);
             return static_cast<QImageIOPlugin::Capabilities>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QImageIOHandler* create(QIODevice* device, const QByteArray& format) const override {
-        if (qimageioplugin_create_callback != nullptr) {
+        auto create_cb = qimageioplugin_create_callback;
+        if (create_cb) {
             QIODevice* cbval1 = device;
             const QByteArray format_qb = format;
             libqt_string format_str;
@@ -487,12 +469,11 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
             memcpy((void*)format_str.data, format_qb.data(), format_str.len);
             libqt_string cbval2 = format_str;
 
-            QImageIOHandler* callback_ret = qimageioplugin_create_callback(this, cbval1, cbval2);
+            QImageIOHandler* callback_ret = create_cb(this, cbval1, cbval2);
             libqt_free(format_str.data);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -500,14 +481,15 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_event_isbase) {
             qimageioplugin_event_isbase = false;
             return QImageIOPlugin::event(event);
-        } else if (qimageioplugin_event_callback != nullptr) {
+        }
+        auto event_cb = qimageioplugin_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qimageioplugin_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QImageIOPlugin::event(event);
         }
+        return QImageIOPlugin::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,15 +497,16 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_eventfilter_isbase) {
             qimageioplugin_eventfilter_isbase = false;
             return QImageIOPlugin::eventFilter(watched, event);
-        } else if (qimageioplugin_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qimageioplugin_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qimageioplugin_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QImageIOPlugin::eventFilter(watched, event);
         }
+        return QImageIOPlugin::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,13 +514,16 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_timerevent_isbase) {
             qimageioplugin_timerevent_isbase = false;
             QImageIOPlugin::timerEvent(event);
-        } else if (qimageioplugin_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qimageioplugin_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qimageioplugin_timerevent_callback(this, cbval1);
-        } else {
-            QImageIOPlugin::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QImageIOPlugin::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -545,13 +531,16 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_childevent_isbase) {
             qimageioplugin_childevent_isbase = false;
             QImageIOPlugin::childEvent(event);
-        } else if (qimageioplugin_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qimageioplugin_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qimageioplugin_childevent_callback(this, cbval1);
-        } else {
-            QImageIOPlugin::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QImageIOPlugin::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -559,13 +548,16 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_customevent_isbase) {
             qimageioplugin_customevent_isbase = false;
             QImageIOPlugin::customEvent(event);
-        } else if (qimageioplugin_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qimageioplugin_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qimageioplugin_customevent_callback(this, cbval1);
-        } else {
-            QImageIOPlugin::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QImageIOPlugin::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,15 +565,18 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_connectnotify_isbase) {
             qimageioplugin_connectnotify_isbase = false;
             QImageIOPlugin::connectNotify(signal);
-        } else if (qimageioplugin_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qimageioplugin_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qimageioplugin_connectnotify_callback(this, cbval1);
-        } else {
-            QImageIOPlugin::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QImageIOPlugin::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -589,15 +584,18 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_disconnectnotify_isbase) {
             qimageioplugin_disconnectnotify_isbase = false;
             QImageIOPlugin::disconnectNotify(signal);
-        } else if (qimageioplugin_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qimageioplugin_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qimageioplugin_disconnectnotify_callback(this, cbval1);
-        } else {
-            QImageIOPlugin::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QImageIOPlugin::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -605,12 +603,13 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_sender_isbase) {
             qimageioplugin_sender_isbase = false;
             return QImageIOPlugin::sender();
-        } else if (qimageioplugin_sender_callback != nullptr) {
-            QObject* callback_ret = qimageioplugin_sender_callback();
-            return callback_ret;
-        } else {
-            return QImageIOPlugin::sender();
         }
+        auto sender_cb = qimageioplugin_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QImageIOPlugin::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -618,12 +617,13 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_sendersignalindex_isbase) {
             qimageioplugin_sendersignalindex_isbase = false;
             return QImageIOPlugin::senderSignalIndex();
-        } else if (qimageioplugin_sendersignalindex_callback != nullptr) {
-            int callback_ret = qimageioplugin_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QImageIOPlugin::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qimageioplugin_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QImageIOPlugin::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,14 +631,15 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_receivers_isbase) {
             qimageioplugin_receivers_isbase = false;
             return QImageIOPlugin::receivers(signal);
-        } else if (qimageioplugin_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qimageioplugin_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qimageioplugin_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QImageIOPlugin::receivers(signal);
         }
+        return QImageIOPlugin::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -646,16 +647,17 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (qimageioplugin_issignalconnected_isbase) {
             qimageioplugin_issignalconnected_isbase = false;
             return QImageIOPlugin::isSignalConnected(signal);
-        } else if (qimageioplugin_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qimageioplugin_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qimageioplugin_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QImageIOPlugin::isSignalConnected(signal);
         }
+        return QImageIOPlugin::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -91,30 +91,6 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
     VirtualQItemSelectionModel(QAbstractItemModel* model, QObject* parent) : QItemSelectionModel(model, parent) {};
     VirtualQItemSelectionModel(QAbstractItemModel* model) : QItemSelectionModel(model) {};
 
-    ~VirtualQItemSelectionModel() {
-        qitemselectionmodel_metaobject_callback = nullptr;
-        qitemselectionmodel_metacast_callback = nullptr;
-        qitemselectionmodel_metacall_callback = nullptr;
-        qitemselectionmodel_setcurrentindex_callback = nullptr;
-        qitemselectionmodel_select_callback = nullptr;
-        qitemselectionmodel_select2_callback = nullptr;
-        qitemselectionmodel_clear_callback = nullptr;
-        qitemselectionmodel_reset_callback = nullptr;
-        qitemselectionmodel_clearcurrentindex_callback = nullptr;
-        qitemselectionmodel_event_callback = nullptr;
-        qitemselectionmodel_eventfilter_callback = nullptr;
-        qitemselectionmodel_timerevent_callback = nullptr;
-        qitemselectionmodel_childevent_callback = nullptr;
-        qitemselectionmodel_customevent_callback = nullptr;
-        qitemselectionmodel_connectnotify_callback = nullptr;
-        qitemselectionmodel_disconnectnotify_callback = nullptr;
-        qitemselectionmodel_emitselectionchanged_callback = nullptr;
-        qitemselectionmodel_sender_callback = nullptr;
-        qitemselectionmodel_sendersignalindex_callback = nullptr;
-        qitemselectionmodel_receivers_callback = nullptr;
-        qitemselectionmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQItemSelectionModel_MetaObject_Callback(QItemSelectionModel_MetaObject_Callback cb) { qitemselectionmodel_metaobject_callback = cb; }
     inline void setQItemSelectionModel_Metacast_Callback(QItemSelectionModel_Metacast_Callback cb) { qitemselectionmodel_metacast_callback = cb; }
@@ -166,12 +142,13 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_metaobject_isbase) {
             qitemselectionmodel_metaobject_isbase = false;
             return QItemSelectionModel::metaObject();
-        } else if (qitemselectionmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qitemselectionmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QItemSelectionModel::metaObject();
         }
+        auto metaobject_cb = qitemselectionmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QItemSelectionModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -179,14 +156,15 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_metacast_isbase) {
             qitemselectionmodel_metacast_isbase = false;
             return QItemSelectionModel::qt_metacast(param1);
-        } else if (qitemselectionmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qitemselectionmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qitemselectionmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QItemSelectionModel::qt_metacast(param1);
         }
+        return QItemSelectionModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,16 +172,17 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_metacall_isbase) {
             qitemselectionmodel_metacall_isbase = false;
             return QItemSelectionModel::qt_metacall(param1, param2, param3);
-        } else if (qitemselectionmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qitemselectionmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qitemselectionmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QItemSelectionModel::qt_metacall(param1, param2, param3);
         }
+        return QItemSelectionModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,16 +190,19 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_setcurrentindex_isbase) {
             qitemselectionmodel_setcurrentindex_isbase = false;
             QItemSelectionModel::setCurrentIndex(index, command);
-        } else if (qitemselectionmodel_setcurrentindex_callback != nullptr) {
+            return;
+        }
+        auto setcurrentindex_cb = qitemselectionmodel_setcurrentindex_callback;
+        if (setcurrentindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(command);
 
-            qitemselectionmodel_setcurrentindex_callback(this, cbval1, cbval2);
-        } else {
-            QItemSelectionModel::setCurrentIndex(index, command);
+            setcurrentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QItemSelectionModel::setCurrentIndex(index, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,16 +210,19 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_select_isbase) {
             qitemselectionmodel_select_isbase = false;
             QItemSelectionModel::select(index, command);
-        } else if (qitemselectionmodel_select_callback != nullptr) {
+            return;
+        }
+        auto select_cb = qitemselectionmodel_select_callback;
+        if (select_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(command);
 
-            qitemselectionmodel_select_callback(this, cbval1, cbval2);
-        } else {
-            QItemSelectionModel::select(index, command);
+            select_cb(this, cbval1, cbval2);
+            return;
         }
+        QItemSelectionModel::select(index, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -245,16 +230,19 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_select2_isbase) {
             qitemselectionmodel_select2_isbase = false;
             QItemSelectionModel::select(selection, command);
-        } else if (qitemselectionmodel_select2_callback != nullptr) {
+            return;
+        }
+        auto select2_cb = qitemselectionmodel_select2_callback;
+        if (select2_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
             int cbval2 = static_cast<int>(command);
 
-            qitemselectionmodel_select2_callback(this, cbval1, cbval2);
-        } else {
-            QItemSelectionModel::select(selection, command);
+            select2_cb(this, cbval1, cbval2);
+            return;
         }
+        QItemSelectionModel::select(selection, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -262,11 +250,14 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_clear_isbase) {
             qitemselectionmodel_clear_isbase = false;
             QItemSelectionModel::clear();
-        } else if (qitemselectionmodel_clear_callback != nullptr) {
-            qitemselectionmodel_clear_callback();
-        } else {
-            QItemSelectionModel::clear();
+            return;
         }
+        auto clear_cb = qitemselectionmodel_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        QItemSelectionModel::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -274,11 +265,14 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_reset_isbase) {
             qitemselectionmodel_reset_isbase = false;
             QItemSelectionModel::reset();
-        } else if (qitemselectionmodel_reset_callback != nullptr) {
-            qitemselectionmodel_reset_callback();
-        } else {
-            QItemSelectionModel::reset();
+            return;
         }
+        auto reset_cb = qitemselectionmodel_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        QItemSelectionModel::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,11 +280,14 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_clearcurrentindex_isbase) {
             qitemselectionmodel_clearcurrentindex_isbase = false;
             QItemSelectionModel::clearCurrentIndex();
-        } else if (qitemselectionmodel_clearcurrentindex_callback != nullptr) {
-            qitemselectionmodel_clearcurrentindex_callback();
-        } else {
-            QItemSelectionModel::clearCurrentIndex();
+            return;
         }
+        auto clearcurrentindex_cb = qitemselectionmodel_clearcurrentindex_callback;
+        if (clearcurrentindex_cb) {
+            clearcurrentindex_cb();
+            return;
+        }
+        QItemSelectionModel::clearCurrentIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,14 +295,15 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_event_isbase) {
             qitemselectionmodel_event_isbase = false;
             return QItemSelectionModel::event(event);
-        } else if (qitemselectionmodel_event_callback != nullptr) {
+        }
+        auto event_cb = qitemselectionmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qitemselectionmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QItemSelectionModel::event(event);
         }
+        return QItemSelectionModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,15 +311,16 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_eventfilter_isbase) {
             qitemselectionmodel_eventfilter_isbase = false;
             return QItemSelectionModel::eventFilter(watched, event);
-        } else if (qitemselectionmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qitemselectionmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qitemselectionmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QItemSelectionModel::eventFilter(watched, event);
         }
+        return QItemSelectionModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,13 +328,16 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_timerevent_isbase) {
             qitemselectionmodel_timerevent_isbase = false;
             QItemSelectionModel::timerEvent(event);
-        } else if (qitemselectionmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qitemselectionmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qitemselectionmodel_timerevent_callback(this, cbval1);
-        } else {
-            QItemSelectionModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QItemSelectionModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,13 +345,16 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_childevent_isbase) {
             qitemselectionmodel_childevent_isbase = false;
             QItemSelectionModel::childEvent(event);
-        } else if (qitemselectionmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qitemselectionmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qitemselectionmodel_childevent_callback(this, cbval1);
-        } else {
-            QItemSelectionModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QItemSelectionModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,13 +362,16 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_customevent_isbase) {
             qitemselectionmodel_customevent_isbase = false;
             QItemSelectionModel::customEvent(event);
-        } else if (qitemselectionmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qitemselectionmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qitemselectionmodel_customevent_callback(this, cbval1);
-        } else {
-            QItemSelectionModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QItemSelectionModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -371,15 +379,18 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_connectnotify_isbase) {
             qitemselectionmodel_connectnotify_isbase = false;
             QItemSelectionModel::connectNotify(signal);
-        } else if (qitemselectionmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qitemselectionmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qitemselectionmodel_connectnotify_callback(this, cbval1);
-        } else {
-            QItemSelectionModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QItemSelectionModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,15 +398,18 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_disconnectnotify_isbase) {
             qitemselectionmodel_disconnectnotify_isbase = false;
             QItemSelectionModel::disconnectNotify(signal);
-        } else if (qitemselectionmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qitemselectionmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qitemselectionmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QItemSelectionModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QItemSelectionModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -403,7 +417,10 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_emitselectionchanged_isbase) {
             qitemselectionmodel_emitselectionchanged_isbase = false;
             QItemSelectionModel::emitSelectionChanged(newSelection, oldSelection);
-        } else if (qitemselectionmodel_emitselectionchanged_callback != nullptr) {
+            return;
+        }
+        auto emitselectionchanged_cb = qitemselectionmodel_emitselectionchanged_callback;
+        if (emitselectionchanged_cb) {
             const QItemSelection& newSelection_ret = newSelection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&newSelection_ret);
@@ -411,10 +428,10 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&oldSelection_ret);
 
-            qitemselectionmodel_emitselectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            QItemSelectionModel::emitSelectionChanged(newSelection, oldSelection);
+            emitselectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QItemSelectionModel::emitSelectionChanged(newSelection, oldSelection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -422,12 +439,13 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_sender_isbase) {
             qitemselectionmodel_sender_isbase = false;
             return QItemSelectionModel::sender();
-        } else if (qitemselectionmodel_sender_callback != nullptr) {
-            QObject* callback_ret = qitemselectionmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return QItemSelectionModel::sender();
         }
+        auto sender_cb = qitemselectionmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QItemSelectionModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -435,12 +453,13 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_sendersignalindex_isbase) {
             qitemselectionmodel_sendersignalindex_isbase = false;
             return QItemSelectionModel::senderSignalIndex();
-        } else if (qitemselectionmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qitemselectionmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QItemSelectionModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qitemselectionmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QItemSelectionModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -448,14 +467,15 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_receivers_isbase) {
             qitemselectionmodel_receivers_isbase = false;
             return QItemSelectionModel::receivers(signal);
-        } else if (qitemselectionmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qitemselectionmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qitemselectionmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QItemSelectionModel::receivers(signal);
         }
+        return QItemSelectionModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -463,16 +483,17 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
         if (qitemselectionmodel_issignalconnected_isbase) {
             qitemselectionmodel_issignalconnected_isbase = false;
             return QItemSelectionModel::isSignalConnected(signal);
-        } else if (qitemselectionmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qitemselectionmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qitemselectionmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QItemSelectionModel::isSignalConnected(signal);
         }
+        return QItemSelectionModel::isSignalConnected(signal);
     }
 
     // Friend functions

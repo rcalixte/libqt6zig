@@ -41,13 +41,6 @@ class VirtualQUndoCommand final : public QUndoCommand {
     VirtualQUndoCommand(QUndoCommand* parent) : QUndoCommand(parent) {};
     VirtualQUndoCommand(const QString& text, QUndoCommand* parent) : QUndoCommand(text, parent) {};
 
-    ~VirtualQUndoCommand() {
-        qundocommand_undo_callback = nullptr;
-        qundocommand_redo_callback = nullptr;
-        qundocommand_id_callback = nullptr;
-        qundocommand_mergewith_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQUndoCommand_Undo_Callback(QUndoCommand_Undo_Callback cb) { qundocommand_undo_callback = cb; }
     inline void setQUndoCommand_Redo_Callback(QUndoCommand_Redo_Callback cb) { qundocommand_redo_callback = cb; }
@@ -65,11 +58,14 @@ class VirtualQUndoCommand final : public QUndoCommand {
         if (qundocommand_undo_isbase) {
             qundocommand_undo_isbase = false;
             QUndoCommand::undo();
-        } else if (qundocommand_undo_callback != nullptr) {
-            qundocommand_undo_callback();
-        } else {
-            QUndoCommand::undo();
+            return;
         }
+        auto undo_cb = qundocommand_undo_callback;
+        if (undo_cb) {
+            undo_cb();
+            return;
+        }
+        QUndoCommand::undo();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -77,11 +73,14 @@ class VirtualQUndoCommand final : public QUndoCommand {
         if (qundocommand_redo_isbase) {
             qundocommand_redo_isbase = false;
             QUndoCommand::redo();
-        } else if (qundocommand_redo_callback != nullptr) {
-            qundocommand_redo_callback();
-        } else {
-            QUndoCommand::redo();
+            return;
         }
+        auto redo_cb = qundocommand_redo_callback;
+        if (redo_cb) {
+            redo_cb();
+            return;
+        }
+        QUndoCommand::redo();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -89,12 +88,13 @@ class VirtualQUndoCommand final : public QUndoCommand {
         if (qundocommand_id_isbase) {
             qundocommand_id_isbase = false;
             return QUndoCommand::id();
-        } else if (qundocommand_id_callback != nullptr) {
-            int callback_ret = qundocommand_id_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QUndoCommand::id();
         }
+        auto id_cb = qundocommand_id_callback;
+        if (id_cb) {
+            int callback_ret = id_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QUndoCommand::id();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -102,14 +102,15 @@ class VirtualQUndoCommand final : public QUndoCommand {
         if (qundocommand_mergewith_isbase) {
             qundocommand_mergewith_isbase = false;
             return QUndoCommand::mergeWith(other);
-        } else if (qundocommand_mergewith_callback != nullptr) {
+        }
+        auto mergewith_cb = qundocommand_mergewith_callback;
+        if (mergewith_cb) {
             QUndoCommand* cbval1 = (QUndoCommand*)other;
 
-            bool callback_ret = qundocommand_mergewith_callback(this, cbval1);
+            bool callback_ret = mergewith_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QUndoCommand::mergeWith(other);
         }
+        return QUndoCommand::mergeWith(other);
     }
 };
 
@@ -173,23 +174,6 @@ class VirtualQUndoStack final : public QUndoStack {
     VirtualQUndoStack() : QUndoStack() {};
     VirtualQUndoStack(QObject* parent) : QUndoStack(parent) {};
 
-    ~VirtualQUndoStack() {
-        qundostack_metaobject_callback = nullptr;
-        qundostack_metacast_callback = nullptr;
-        qundostack_metacall_callback = nullptr;
-        qundostack_event_callback = nullptr;
-        qundostack_eventfilter_callback = nullptr;
-        qundostack_timerevent_callback = nullptr;
-        qundostack_childevent_callback = nullptr;
-        qundostack_customevent_callback = nullptr;
-        qundostack_connectnotify_callback = nullptr;
-        qundostack_disconnectnotify_callback = nullptr;
-        qundostack_sender_callback = nullptr;
-        qundostack_sendersignalindex_callback = nullptr;
-        qundostack_receivers_callback = nullptr;
-        qundostack_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQUndoStack_MetaObject_Callback(QUndoStack_MetaObject_Callback cb) { qundostack_metaobject_callback = cb; }
     inline void setQUndoStack_Metacast_Callback(QUndoStack_Metacast_Callback cb) { qundostack_metacast_callback = cb; }
@@ -227,12 +211,13 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_metaobject_isbase) {
             qundostack_metaobject_isbase = false;
             return QUndoStack::metaObject();
-        } else if (qundostack_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qundostack_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QUndoStack::metaObject();
         }
+        auto metaobject_cb = qundostack_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QUndoStack::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,14 +225,15 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_metacast_isbase) {
             qundostack_metacast_isbase = false;
             return QUndoStack::qt_metacast(param1);
-        } else if (qundostack_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qundostack_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qundostack_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QUndoStack::qt_metacast(param1);
         }
+        return QUndoStack::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -255,16 +241,17 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_metacall_isbase) {
             qundostack_metacall_isbase = false;
             return QUndoStack::qt_metacall(param1, param2, param3);
-        } else if (qundostack_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qundostack_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qundostack_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QUndoStack::qt_metacall(param1, param2, param3);
         }
+        return QUndoStack::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,14 +259,15 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_event_isbase) {
             qundostack_event_isbase = false;
             return QUndoStack::event(event);
-        } else if (qundostack_event_callback != nullptr) {
+        }
+        auto event_cb = qundostack_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qundostack_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QUndoStack::event(event);
         }
+        return QUndoStack::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,15 +275,16 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_eventfilter_isbase) {
             qundostack_eventfilter_isbase = false;
             return QUndoStack::eventFilter(watched, event);
-        } else if (qundostack_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qundostack_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qundostack_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QUndoStack::eventFilter(watched, event);
         }
+        return QUndoStack::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,13 +292,16 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_timerevent_isbase) {
             qundostack_timerevent_isbase = false;
             QUndoStack::timerEvent(event);
-        } else if (qundostack_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qundostack_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qundostack_timerevent_callback(this, cbval1);
-        } else {
-            QUndoStack::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QUndoStack::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,13 +309,16 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_childevent_isbase) {
             qundostack_childevent_isbase = false;
             QUndoStack::childEvent(event);
-        } else if (qundostack_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qundostack_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qundostack_childevent_callback(this, cbval1);
-        } else {
-            QUndoStack::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QUndoStack::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,13 +326,16 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_customevent_isbase) {
             qundostack_customevent_isbase = false;
             QUndoStack::customEvent(event);
-        } else if (qundostack_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qundostack_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qundostack_customevent_callback(this, cbval1);
-        } else {
-            QUndoStack::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QUndoStack::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -345,15 +343,18 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_connectnotify_isbase) {
             qundostack_connectnotify_isbase = false;
             QUndoStack::connectNotify(signal);
-        } else if (qundostack_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qundostack_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qundostack_connectnotify_callback(this, cbval1);
-        } else {
-            QUndoStack::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QUndoStack::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -361,15 +362,18 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_disconnectnotify_isbase) {
             qundostack_disconnectnotify_isbase = false;
             QUndoStack::disconnectNotify(signal);
-        } else if (qundostack_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qundostack_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qundostack_disconnectnotify_callback(this, cbval1);
-        } else {
-            QUndoStack::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QUndoStack::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -377,12 +381,13 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_sender_isbase) {
             qundostack_sender_isbase = false;
             return QUndoStack::sender();
-        } else if (qundostack_sender_callback != nullptr) {
-            QObject* callback_ret = qundostack_sender_callback();
-            return callback_ret;
-        } else {
-            return QUndoStack::sender();
         }
+        auto sender_cb = qundostack_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QUndoStack::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,12 +395,13 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_sendersignalindex_isbase) {
             qundostack_sendersignalindex_isbase = false;
             return QUndoStack::senderSignalIndex();
-        } else if (qundostack_sendersignalindex_callback != nullptr) {
-            int callback_ret = qundostack_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QUndoStack::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qundostack_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QUndoStack::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -403,14 +409,15 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_receivers_isbase) {
             qundostack_receivers_isbase = false;
             return QUndoStack::receivers(signal);
-        } else if (qundostack_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qundostack_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qundostack_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QUndoStack::receivers(signal);
         }
+        return QUndoStack::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -418,16 +425,17 @@ class VirtualQUndoStack final : public QUndoStack {
         if (qundostack_issignalconnected_isbase) {
             qundostack_issignalconnected_isbase = false;
             return QUndoStack::isSignalConnected(signal);
-        } else if (qundostack_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qundostack_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qundostack_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QUndoStack::isSignalConnected(signal);
         }
+        return QUndoStack::isSignalConnected(signal);
     }
 
     // Friend functions

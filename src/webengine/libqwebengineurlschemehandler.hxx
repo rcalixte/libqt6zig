@@ -72,24 +72,6 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
     VirtualQWebEngineUrlSchemeHandler() : QWebEngineUrlSchemeHandler() {};
     VirtualQWebEngineUrlSchemeHandler(QObject* parent) : QWebEngineUrlSchemeHandler(parent) {};
 
-    ~VirtualQWebEngineUrlSchemeHandler() {
-        qwebengineurlschemehandler_metaobject_callback = nullptr;
-        qwebengineurlschemehandler_metacast_callback = nullptr;
-        qwebengineurlschemehandler_metacall_callback = nullptr;
-        qwebengineurlschemehandler_requeststarted_callback = nullptr;
-        qwebengineurlschemehandler_event_callback = nullptr;
-        qwebengineurlschemehandler_eventfilter_callback = nullptr;
-        qwebengineurlschemehandler_timerevent_callback = nullptr;
-        qwebengineurlschemehandler_childevent_callback = nullptr;
-        qwebengineurlschemehandler_customevent_callback = nullptr;
-        qwebengineurlschemehandler_connectnotify_callback = nullptr;
-        qwebengineurlschemehandler_disconnectnotify_callback = nullptr;
-        qwebengineurlschemehandler_sender_callback = nullptr;
-        qwebengineurlschemehandler_sendersignalindex_callback = nullptr;
-        qwebengineurlschemehandler_receivers_callback = nullptr;
-        qwebengineurlschemehandler_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQWebEngineUrlSchemeHandler_MetaObject_Callback(QWebEngineUrlSchemeHandler_MetaObject_Callback cb) { qwebengineurlschemehandler_metaobject_callback = cb; }
     inline void setQWebEngineUrlSchemeHandler_Metacast_Callback(QWebEngineUrlSchemeHandler_Metacast_Callback cb) { qwebengineurlschemehandler_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_metaobject_isbase) {
             qwebengineurlschemehandler_metaobject_isbase = false;
             return QWebEngineUrlSchemeHandler::metaObject();
-        } else if (qwebengineurlschemehandler_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qwebengineurlschemehandler_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineUrlSchemeHandler::metaObject();
         }
+        auto metaobject_cb = qwebengineurlschemehandler_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QWebEngineUrlSchemeHandler::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_metacast_isbase) {
             qwebengineurlschemehandler_metacast_isbase = false;
             return QWebEngineUrlSchemeHandler::qt_metacast(param1);
-        } else if (qwebengineurlschemehandler_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qwebengineurlschemehandler_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qwebengineurlschemehandler_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineUrlSchemeHandler::qt_metacast(param1);
         }
+        return QWebEngineUrlSchemeHandler::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,24 +141,26 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_metacall_isbase) {
             qwebengineurlschemehandler_metacall_isbase = false;
             return QWebEngineUrlSchemeHandler::qt_metacall(param1, param2, param3);
-        } else if (qwebengineurlschemehandler_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qwebengineurlschemehandler_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qwebengineurlschemehandler_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineUrlSchemeHandler::qt_metacall(param1, param2, param3);
         }
+        return QWebEngineUrlSchemeHandler::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void requestStarted(QWebEngineUrlRequestJob* param1) override {
-        if (qwebengineurlschemehandler_requeststarted_callback != nullptr) {
+        auto requeststarted_cb = qwebengineurlschemehandler_requeststarted_callback;
+        if (requeststarted_cb) {
             QWebEngineUrlRequestJob* cbval1 = param1;
 
-            qwebengineurlschemehandler_requeststarted_callback(this, cbval1);
+            requeststarted_cb(this, cbval1);
         }
     }
 
@@ -183,14 +169,15 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_event_isbase) {
             qwebengineurlschemehandler_event_isbase = false;
             return QWebEngineUrlSchemeHandler::event(event);
-        } else if (qwebengineurlschemehandler_event_callback != nullptr) {
+        }
+        auto event_cb = qwebengineurlschemehandler_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qwebengineurlschemehandler_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineUrlSchemeHandler::event(event);
         }
+        return QWebEngineUrlSchemeHandler::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -198,15 +185,16 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_eventfilter_isbase) {
             qwebengineurlschemehandler_eventfilter_isbase = false;
             return QWebEngineUrlSchemeHandler::eventFilter(watched, event);
-        } else if (qwebengineurlschemehandler_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qwebengineurlschemehandler_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qwebengineurlschemehandler_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QWebEngineUrlSchemeHandler::eventFilter(watched, event);
         }
+        return QWebEngineUrlSchemeHandler::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -214,13 +202,16 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_timerevent_isbase) {
             qwebengineurlschemehandler_timerevent_isbase = false;
             QWebEngineUrlSchemeHandler::timerEvent(event);
-        } else if (qwebengineurlschemehandler_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qwebengineurlschemehandler_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qwebengineurlschemehandler_timerevent_callback(this, cbval1);
-        } else {
-            QWebEngineUrlSchemeHandler::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineUrlSchemeHandler::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,13 +219,16 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_childevent_isbase) {
             qwebengineurlschemehandler_childevent_isbase = false;
             QWebEngineUrlSchemeHandler::childEvent(event);
-        } else if (qwebengineurlschemehandler_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qwebengineurlschemehandler_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qwebengineurlschemehandler_childevent_callback(this, cbval1);
-        } else {
-            QWebEngineUrlSchemeHandler::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineUrlSchemeHandler::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,13 +236,16 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_customevent_isbase) {
             qwebengineurlschemehandler_customevent_isbase = false;
             QWebEngineUrlSchemeHandler::customEvent(event);
-        } else if (qwebengineurlschemehandler_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qwebengineurlschemehandler_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qwebengineurlschemehandler_customevent_callback(this, cbval1);
-        } else {
-            QWebEngineUrlSchemeHandler::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineUrlSchemeHandler::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,15 +253,18 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_connectnotify_isbase) {
             qwebengineurlschemehandler_connectnotify_isbase = false;
             QWebEngineUrlSchemeHandler::connectNotify(signal);
-        } else if (qwebengineurlschemehandler_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qwebengineurlschemehandler_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebengineurlschemehandler_connectnotify_callback(this, cbval1);
-        } else {
-            QWebEngineUrlSchemeHandler::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QWebEngineUrlSchemeHandler::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,15 +272,18 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_disconnectnotify_isbase) {
             qwebengineurlschemehandler_disconnectnotify_isbase = false;
             QWebEngineUrlSchemeHandler::disconnectNotify(signal);
-        } else if (qwebengineurlschemehandler_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qwebengineurlschemehandler_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebengineurlschemehandler_disconnectnotify_callback(this, cbval1);
-        } else {
-            QWebEngineUrlSchemeHandler::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QWebEngineUrlSchemeHandler::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,12 +291,13 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_sender_isbase) {
             qwebengineurlschemehandler_sender_isbase = false;
             return QWebEngineUrlSchemeHandler::sender();
-        } else if (qwebengineurlschemehandler_sender_callback != nullptr) {
-            QObject* callback_ret = qwebengineurlschemehandler_sender_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineUrlSchemeHandler::sender();
         }
+        auto sender_cb = qwebengineurlschemehandler_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QWebEngineUrlSchemeHandler::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,12 +305,13 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_sendersignalindex_isbase) {
             qwebengineurlschemehandler_sendersignalindex_isbase = false;
             return QWebEngineUrlSchemeHandler::senderSignalIndex();
-        } else if (qwebengineurlschemehandler_sendersignalindex_callback != nullptr) {
-            int callback_ret = qwebengineurlschemehandler_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineUrlSchemeHandler::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qwebengineurlschemehandler_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QWebEngineUrlSchemeHandler::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,14 +319,15 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_receivers_isbase) {
             qwebengineurlschemehandler_receivers_isbase = false;
             return QWebEngineUrlSchemeHandler::receivers(signal);
-        } else if (qwebengineurlschemehandler_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qwebengineurlschemehandler_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qwebengineurlschemehandler_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineUrlSchemeHandler::receivers(signal);
         }
+        return QWebEngineUrlSchemeHandler::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,16 +335,17 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
         if (qwebengineurlschemehandler_issignalconnected_isbase) {
             qwebengineurlschemehandler_issignalconnected_isbase = false;
             return QWebEngineUrlSchemeHandler::isSignalConnected(signal);
-        } else if (qwebengineurlschemehandler_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qwebengineurlschemehandler_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qwebengineurlschemehandler_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineUrlSchemeHandler::isSignalConnected(signal);
         }
+        return QWebEngineUrlSchemeHandler::isSignalConnected(signal);
     }
 
     // Friend functions

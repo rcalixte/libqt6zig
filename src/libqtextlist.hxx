@@ -80,27 +80,6 @@ class VirtualQTextList final : public QTextList {
   public:
     VirtualQTextList(QTextDocument* doc) : QTextList(doc) {};
 
-    ~VirtualQTextList() {
-        qtextlist_metaobject_callback = nullptr;
-        qtextlist_metacast_callback = nullptr;
-        qtextlist_metacall_callback = nullptr;
-        qtextlist_blockinserted_callback = nullptr;
-        qtextlist_blockremoved_callback = nullptr;
-        qtextlist_blockformatchanged_callback = nullptr;
-        qtextlist_event_callback = nullptr;
-        qtextlist_eventfilter_callback = nullptr;
-        qtextlist_timerevent_callback = nullptr;
-        qtextlist_childevent_callback = nullptr;
-        qtextlist_customevent_callback = nullptr;
-        qtextlist_connectnotify_callback = nullptr;
-        qtextlist_disconnectnotify_callback = nullptr;
-        qtextlist_blocklist_callback = nullptr;
-        qtextlist_sender_callback = nullptr;
-        qtextlist_sendersignalindex_callback = nullptr;
-        qtextlist_receivers_callback = nullptr;
-        qtextlist_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTextList_MetaObject_Callback(QTextList_MetaObject_Callback cb) { qtextlist_metaobject_callback = cb; }
     inline void setQTextList_Metacast_Callback(QTextList_Metacast_Callback cb) { qtextlist_metacast_callback = cb; }
@@ -146,12 +125,13 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_metaobject_isbase) {
             qtextlist_metaobject_isbase = false;
             return QTextList::metaObject();
-        } else if (qtextlist_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtextlist_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTextList::metaObject();
         }
+        auto metaobject_cb = qtextlist_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTextList::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -159,14 +139,15 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_metacast_isbase) {
             qtextlist_metacast_isbase = false;
             return QTextList::qt_metacast(param1);
-        } else if (qtextlist_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtextlist_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtextlist_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextList::qt_metacast(param1);
         }
+        return QTextList::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,16 +155,17 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_metacall_isbase) {
             qtextlist_metacall_isbase = false;
             return QTextList::qt_metacall(param1, param2, param3);
-        } else if (qtextlist_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtextlist_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtextlist_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTextList::qt_metacall(param1, param2, param3);
         }
+        return QTextList::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -191,15 +173,18 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_blockinserted_isbase) {
             qtextlist_blockinserted_isbase = false;
             QTextList::blockInserted(block);
-        } else if (qtextlist_blockinserted_callback != nullptr) {
+            return;
+        }
+        auto blockinserted_cb = qtextlist_blockinserted_callback;
+        if (blockinserted_cb) {
             const QTextBlock& block_ret = block;
             // Cast returned reference into pointer
             QTextBlock* cbval1 = const_cast<QTextBlock*>(&block_ret);
 
-            qtextlist_blockinserted_callback(this, cbval1);
-        } else {
-            QTextList::blockInserted(block);
+            blockinserted_cb(this, cbval1);
+            return;
         }
+        QTextList::blockInserted(block);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -207,15 +192,18 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_blockremoved_isbase) {
             qtextlist_blockremoved_isbase = false;
             QTextList::blockRemoved(block);
-        } else if (qtextlist_blockremoved_callback != nullptr) {
+            return;
+        }
+        auto blockremoved_cb = qtextlist_blockremoved_callback;
+        if (blockremoved_cb) {
             const QTextBlock& block_ret = block;
             // Cast returned reference into pointer
             QTextBlock* cbval1 = const_cast<QTextBlock*>(&block_ret);
 
-            qtextlist_blockremoved_callback(this, cbval1);
-        } else {
-            QTextList::blockRemoved(block);
+            blockremoved_cb(this, cbval1);
+            return;
         }
+        QTextList::blockRemoved(block);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -223,15 +211,18 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_blockformatchanged_isbase) {
             qtextlist_blockformatchanged_isbase = false;
             QTextList::blockFormatChanged(block);
-        } else if (qtextlist_blockformatchanged_callback != nullptr) {
+            return;
+        }
+        auto blockformatchanged_cb = qtextlist_blockformatchanged_callback;
+        if (blockformatchanged_cb) {
             const QTextBlock& block_ret = block;
             // Cast returned reference into pointer
             QTextBlock* cbval1 = const_cast<QTextBlock*>(&block_ret);
 
-            qtextlist_blockformatchanged_callback(this, cbval1);
-        } else {
-            QTextList::blockFormatChanged(block);
+            blockformatchanged_cb(this, cbval1);
+            return;
         }
+        QTextList::blockFormatChanged(block);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -239,14 +230,15 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_event_isbase) {
             qtextlist_event_isbase = false;
             return QTextList::event(event);
-        } else if (qtextlist_event_callback != nullptr) {
+        }
+        auto event_cb = qtextlist_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtextlist_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextList::event(event);
         }
+        return QTextList::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -254,15 +246,16 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_eventfilter_isbase) {
             qtextlist_eventfilter_isbase = false;
             return QTextList::eventFilter(watched, event);
-        } else if (qtextlist_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtextlist_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtextlist_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTextList::eventFilter(watched, event);
         }
+        return QTextList::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,13 +263,16 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_timerevent_isbase) {
             qtextlist_timerevent_isbase = false;
             QTextList::timerEvent(event);
-        } else if (qtextlist_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtextlist_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtextlist_timerevent_callback(this, cbval1);
-        } else {
-            QTextList::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTextList::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -284,13 +280,16 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_childevent_isbase) {
             qtextlist_childevent_isbase = false;
             QTextList::childEvent(event);
-        } else if (qtextlist_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtextlist_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtextlist_childevent_callback(this, cbval1);
-        } else {
-            QTextList::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTextList::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,13 +297,16 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_customevent_isbase) {
             qtextlist_customevent_isbase = false;
             QTextList::customEvent(event);
-        } else if (qtextlist_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtextlist_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtextlist_customevent_callback(this, cbval1);
-        } else {
-            QTextList::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTextList::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,15 +314,18 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_connectnotify_isbase) {
             qtextlist_connectnotify_isbase = false;
             QTextList::connectNotify(signal);
-        } else if (qtextlist_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtextlist_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtextlist_connectnotify_callback(this, cbval1);
-        } else {
-            QTextList::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTextList::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -328,15 +333,18 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_disconnectnotify_isbase) {
             qtextlist_disconnectnotify_isbase = false;
             QTextList::disconnectNotify(signal);
-        } else if (qtextlist_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtextlist_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtextlist_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTextList::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTextList::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -344,8 +352,10 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_blocklist_isbase) {
             qtextlist_blocklist_isbase = false;
             return QTextList::blockList();
-        } else if (qtextlist_blocklist_callback != nullptr) {
-            libqt_list /* of QTextBlock* */ callback_ret = qtextlist_blocklist_callback();
+        }
+        auto blocklist_cb = qtextlist_blocklist_callback;
+        if (blocklist_cb) {
+            libqt_list /* of QTextBlock* */ callback_ret = blocklist_cb();
             QList<QTextBlock> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QTextBlock** callback_ret_arr = static_cast<QTextBlock**>(callback_ret.data);
@@ -354,9 +364,8 @@ class VirtualQTextList final : public QTextList {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QTextList::blockList();
         }
+        return QTextList::blockList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -364,12 +373,13 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_sender_isbase) {
             qtextlist_sender_isbase = false;
             return QTextList::sender();
-        } else if (qtextlist_sender_callback != nullptr) {
-            QObject* callback_ret = qtextlist_sender_callback();
-            return callback_ret;
-        } else {
-            return QTextList::sender();
         }
+        auto sender_cb = qtextlist_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTextList::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -377,12 +387,13 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_sendersignalindex_isbase) {
             qtextlist_sendersignalindex_isbase = false;
             return QTextList::senderSignalIndex();
-        } else if (qtextlist_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtextlist_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTextList::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtextlist_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTextList::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,14 +401,15 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_receivers_isbase) {
             qtextlist_receivers_isbase = false;
             return QTextList::receivers(signal);
-        } else if (qtextlist_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtextlist_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtextlist_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTextList::receivers(signal);
         }
+        return QTextList::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -405,16 +417,17 @@ class VirtualQTextList final : public QTextList {
         if (qtextlist_issignalconnected_isbase) {
             qtextlist_issignalconnected_isbase = false;
             return QTextList::isSignalConnected(signal);
-        } else if (qtextlist_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtextlist_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtextlist_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextList::isSignalConnected(signal);
         }
+        return QTextList::isSignalConnected(signal);
     }
 
     // Friend functions

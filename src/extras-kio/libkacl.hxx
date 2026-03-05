@@ -32,10 +32,6 @@ class VirtualKACL final : public KACL {
     VirtualKACL(mode_t basicPermissions) : KACL(basicPermissions) {};
     VirtualKACL() : KACL() {};
 
-    ~VirtualKACL() {
-        kacl_virtualhook_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKACL_VirtualHook_Callback(KACL_VirtualHook_Callback cb) { kacl_virtualhook_callback = cb; }
 
@@ -47,14 +43,17 @@ class VirtualKACL final : public KACL {
         if (kacl_virtualhook_isbase) {
             kacl_virtualhook_isbase = false;
             KACL::virtual_hook(id, data);
-        } else if (kacl_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kacl_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kacl_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KACL::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KACL::virtual_hook(id, data);
     }
 
     // Friend functions

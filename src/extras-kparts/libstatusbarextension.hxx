@@ -69,23 +69,6 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
     VirtualKPartsStatusBarExtension(KParts::Part* parent) : KParts::StatusBarExtension(parent) {};
     VirtualKPartsStatusBarExtension(KParts::ReadOnlyPart* parent) : KParts::StatusBarExtension(parent) {};
 
-    ~VirtualKPartsStatusBarExtension() {
-        kparts__statusbarextension_metaobject_callback = nullptr;
-        kparts__statusbarextension_metacast_callback = nullptr;
-        kparts__statusbarextension_metacall_callback = nullptr;
-        kparts__statusbarextension_eventfilter_callback = nullptr;
-        kparts__statusbarextension_event_callback = nullptr;
-        kparts__statusbarextension_timerevent_callback = nullptr;
-        kparts__statusbarextension_childevent_callback = nullptr;
-        kparts__statusbarextension_customevent_callback = nullptr;
-        kparts__statusbarextension_connectnotify_callback = nullptr;
-        kparts__statusbarextension_disconnectnotify_callback = nullptr;
-        kparts__statusbarextension_sender_callback = nullptr;
-        kparts__statusbarextension_sendersignalindex_callback = nullptr;
-        kparts__statusbarextension_receivers_callback = nullptr;
-        kparts__statusbarextension_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKParts__StatusBarExtension_MetaObject_Callback(KParts__StatusBarExtension_MetaObject_Callback cb) { kparts__statusbarextension_metaobject_callback = cb; }
     inline void setKParts__StatusBarExtension_Metacast_Callback(KParts__StatusBarExtension_Metacast_Callback cb) { kparts__statusbarextension_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_metaobject_isbase) {
             kparts__statusbarextension_metaobject_isbase = false;
             return KParts__StatusBarExtension::metaObject();
-        } else if (kparts__statusbarextension_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kparts__statusbarextension_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KParts__StatusBarExtension::metaObject();
         }
+        auto metaobject_cb = kparts__statusbarextension_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KParts__StatusBarExtension::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_metacast_isbase) {
             kparts__statusbarextension_metacast_isbase = false;
             return KParts__StatusBarExtension::qt_metacast(param1);
-        } else if (kparts__statusbarextension_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kparts__statusbarextension_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kparts__statusbarextension_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__StatusBarExtension::qt_metacast(param1);
         }
+        return KParts__StatusBarExtension::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_metacall_isbase) {
             kparts__statusbarextension_metacall_isbase = false;
             return KParts__StatusBarExtension::qt_metacall(param1, param2, param3);
-        } else if (kparts__statusbarextension_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kparts__statusbarextension_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kparts__statusbarextension_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__StatusBarExtension::qt_metacall(param1, param2, param3);
         }
+        return KParts__StatusBarExtension::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,15 +154,16 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_eventfilter_isbase) {
             kparts__statusbarextension_eventfilter_isbase = false;
             return KParts__StatusBarExtension::eventFilter(watched, ev);
-        } else if (kparts__statusbarextension_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kparts__statusbarextension_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = ev;
 
-            bool callback_ret = kparts__statusbarextension_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KParts__StatusBarExtension::eventFilter(watched, ev);
         }
+        return KParts__StatusBarExtension::eventFilter(watched, ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -184,14 +171,15 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_event_isbase) {
             kparts__statusbarextension_event_isbase = false;
             return KParts__StatusBarExtension::event(event);
-        } else if (kparts__statusbarextension_event_callback != nullptr) {
+        }
+        auto event_cb = kparts__statusbarextension_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kparts__statusbarextension_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__StatusBarExtension::event(event);
         }
+        return KParts__StatusBarExtension::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_timerevent_isbase) {
             kparts__statusbarextension_timerevent_isbase = false;
             KParts__StatusBarExtension::timerEvent(event);
-        } else if (kparts__statusbarextension_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kparts__statusbarextension_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kparts__statusbarextension_timerevent_callback(this, cbval1);
-        } else {
-            KParts__StatusBarExtension::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KParts__StatusBarExtension::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_childevent_isbase) {
             kparts__statusbarextension_childevent_isbase = false;
             KParts__StatusBarExtension::childEvent(event);
-        } else if (kparts__statusbarextension_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kparts__statusbarextension_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kparts__statusbarextension_childevent_callback(this, cbval1);
-        } else {
-            KParts__StatusBarExtension::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KParts__StatusBarExtension::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_customevent_isbase) {
             kparts__statusbarextension_customevent_isbase = false;
             KParts__StatusBarExtension::customEvent(event);
-        } else if (kparts__statusbarextension_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kparts__statusbarextension_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kparts__statusbarextension_customevent_callback(this, cbval1);
-        } else {
-            KParts__StatusBarExtension::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KParts__StatusBarExtension::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_connectnotify_isbase) {
             kparts__statusbarextension_connectnotify_isbase = false;
             KParts__StatusBarExtension::connectNotify(signal);
-        } else if (kparts__statusbarextension_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kparts__statusbarextension_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__statusbarextension_connectnotify_callback(this, cbval1);
-        } else {
-            KParts__StatusBarExtension::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__StatusBarExtension::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_disconnectnotify_isbase) {
             kparts__statusbarextension_disconnectnotify_isbase = false;
             KParts__StatusBarExtension::disconnectNotify(signal);
-        } else if (kparts__statusbarextension_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kparts__statusbarextension_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__statusbarextension_disconnectnotify_callback(this, cbval1);
-        } else {
-            KParts__StatusBarExtension::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__StatusBarExtension::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_sender_isbase) {
             kparts__statusbarextension_sender_isbase = false;
             return KParts__StatusBarExtension::sender();
-        } else if (kparts__statusbarextension_sender_callback != nullptr) {
-            QObject* callback_ret = kparts__statusbarextension_sender_callback();
-            return callback_ret;
-        } else {
-            return KParts__StatusBarExtension::sender();
         }
+        auto sender_cb = kparts__statusbarextension_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KParts__StatusBarExtension::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_sendersignalindex_isbase) {
             kparts__statusbarextension_sendersignalindex_isbase = false;
             return KParts__StatusBarExtension::senderSignalIndex();
-        } else if (kparts__statusbarextension_sendersignalindex_callback != nullptr) {
-            int callback_ret = kparts__statusbarextension_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KParts__StatusBarExtension::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kparts__statusbarextension_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KParts__StatusBarExtension::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_receivers_isbase) {
             kparts__statusbarextension_receivers_isbase = false;
             return KParts__StatusBarExtension::receivers(signal);
-        } else if (kparts__statusbarextension_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kparts__statusbarextension_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kparts__statusbarextension_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__StatusBarExtension::receivers(signal);
         }
+        return KParts__StatusBarExtension::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
         if (kparts__statusbarextension_issignalconnected_isbase) {
             kparts__statusbarextension_issignalconnected_isbase = false;
             return KParts__StatusBarExtension::isSignalConnected(signal);
-        } else if (kparts__statusbarextension_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kparts__statusbarextension_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kparts__statusbarextension_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__StatusBarExtension::isSignalConnected(signal);
         }
+        return KParts__StatusBarExtension::isSignalConnected(signal);
     }
 
     // Friend functions

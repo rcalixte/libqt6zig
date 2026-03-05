@@ -35,12 +35,6 @@ class VirtualKIOFileUndoManagerUiInterface final : public KIO::FileUndoManager::
   public:
     VirtualKIOFileUndoManagerUiInterface() : KIO::FileUndoManager::UiInterface() {};
 
-    ~VirtualKIOFileUndoManagerUiInterface() {
-        kio__fileundomanager__uiinterface_joberror_callback = nullptr;
-        kio__fileundomanager__uiinterface_copiedfilewasmodified_callback = nullptr;
-        kio__fileundomanager__uiinterface_virtualhook_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKIO__FileUndoManager__UiInterface_JobError_Callback(KIO__FileUndoManager__UiInterface_JobError_Callback cb) { kio__fileundomanager__uiinterface_joberror_callback = cb; }
     inline void setKIO__FileUndoManager__UiInterface_CopiedFileWasModified_Callback(KIO__FileUndoManager__UiInterface_CopiedFileWasModified_Callback cb) { kio__fileundomanager__uiinterface_copiedfilewasmodified_callback = cb; }
@@ -56,13 +50,16 @@ class VirtualKIOFileUndoManagerUiInterface final : public KIO::FileUndoManager::
         if (kio__fileundomanager__uiinterface_joberror_isbase) {
             kio__fileundomanager__uiinterface_joberror_isbase = false;
             KIO__FileUndoManager__UiInterface::jobError(job);
-        } else if (kio__fileundomanager__uiinterface_joberror_callback != nullptr) {
+            return;
+        }
+        auto joberror_cb = kio__fileundomanager__uiinterface_joberror_callback;
+        if (joberror_cb) {
             KIO__Job* cbval1 = job;
 
-            kio__fileundomanager__uiinterface_joberror_callback(this, cbval1);
-        } else {
-            KIO__FileUndoManager__UiInterface::jobError(job);
+            joberror_cb(this, cbval1);
+            return;
         }
+        KIO__FileUndoManager__UiInterface::jobError(job);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -70,7 +67,9 @@ class VirtualKIOFileUndoManagerUiInterface final : public KIO::FileUndoManager::
         if (kio__fileundomanager__uiinterface_copiedfilewasmodified_isbase) {
             kio__fileundomanager__uiinterface_copiedfilewasmodified_isbase = false;
             return KIO__FileUndoManager__UiInterface::copiedFileWasModified(src, dest, srcTime, destTime);
-        } else if (kio__fileundomanager__uiinterface_copiedfilewasmodified_callback != nullptr) {
+        }
+        auto copiedfilewasmodified_cb = kio__fileundomanager__uiinterface_copiedfilewasmodified_callback;
+        if (copiedfilewasmodified_cb) {
             const QUrl& src_ret = src;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&src_ret);
@@ -84,11 +83,10 @@ class VirtualKIOFileUndoManagerUiInterface final : public KIO::FileUndoManager::
             // Cast returned reference into pointer
             QDateTime* cbval4 = const_cast<QDateTime*>(&destTime_ret);
 
-            bool callback_ret = kio__fileundomanager__uiinterface_copiedfilewasmodified_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = copiedfilewasmodified_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KIO__FileUndoManager__UiInterface::copiedFileWasModified(src, dest, srcTime, destTime);
         }
+        return KIO__FileUndoManager__UiInterface::copiedFileWasModified(src, dest, srcTime, destTime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -96,14 +94,17 @@ class VirtualKIOFileUndoManagerUiInterface final : public KIO::FileUndoManager::
         if (kio__fileundomanager__uiinterface_virtualhook_isbase) {
             kio__fileundomanager__uiinterface_virtualhook_isbase = false;
             KIO__FileUndoManager__UiInterface::virtual_hook(id, data);
-        } else if (kio__fileundomanager__uiinterface_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kio__fileundomanager__uiinterface_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kio__fileundomanager__uiinterface_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KIO__FileUndoManager__UiInterface::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__FileUndoManager__UiInterface::virtual_hook(id, data);
     }
 };
 

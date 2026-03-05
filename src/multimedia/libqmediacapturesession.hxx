@@ -69,23 +69,6 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
     VirtualQMediaCaptureSession() : QMediaCaptureSession() {};
     VirtualQMediaCaptureSession(QObject* parent) : QMediaCaptureSession(parent) {};
 
-    ~VirtualQMediaCaptureSession() {
-        qmediacapturesession_metaobject_callback = nullptr;
-        qmediacapturesession_metacast_callback = nullptr;
-        qmediacapturesession_metacall_callback = nullptr;
-        qmediacapturesession_event_callback = nullptr;
-        qmediacapturesession_eventfilter_callback = nullptr;
-        qmediacapturesession_timerevent_callback = nullptr;
-        qmediacapturesession_childevent_callback = nullptr;
-        qmediacapturesession_customevent_callback = nullptr;
-        qmediacapturesession_connectnotify_callback = nullptr;
-        qmediacapturesession_disconnectnotify_callback = nullptr;
-        qmediacapturesession_sender_callback = nullptr;
-        qmediacapturesession_sendersignalindex_callback = nullptr;
-        qmediacapturesession_receivers_callback = nullptr;
-        qmediacapturesession_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMediaCaptureSession_MetaObject_Callback(QMediaCaptureSession_MetaObject_Callback cb) { qmediacapturesession_metaobject_callback = cb; }
     inline void setQMediaCaptureSession_Metacast_Callback(QMediaCaptureSession_Metacast_Callback cb) { qmediacapturesession_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_metaobject_isbase) {
             qmediacapturesession_metaobject_isbase = false;
             return QMediaCaptureSession::metaObject();
-        } else if (qmediacapturesession_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qmediacapturesession_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QMediaCaptureSession::metaObject();
         }
+        auto metaobject_cb = qmediacapturesession_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QMediaCaptureSession::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_metacast_isbase) {
             qmediacapturesession_metacast_isbase = false;
             return QMediaCaptureSession::qt_metacast(param1);
-        } else if (qmediacapturesession_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qmediacapturesession_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qmediacapturesession_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMediaCaptureSession::qt_metacast(param1);
         }
+        return QMediaCaptureSession::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_metacall_isbase) {
             qmediacapturesession_metacall_isbase = false;
             return QMediaCaptureSession::qt_metacall(param1, param2, param3);
-        } else if (qmediacapturesession_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qmediacapturesession_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qmediacapturesession_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMediaCaptureSession::qt_metacall(param1, param2, param3);
         }
+        return QMediaCaptureSession::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_event_isbase) {
             qmediacapturesession_event_isbase = false;
             return QMediaCaptureSession::event(event);
-        } else if (qmediacapturesession_event_callback != nullptr) {
+        }
+        auto event_cb = qmediacapturesession_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qmediacapturesession_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMediaCaptureSession::event(event);
         }
+        return QMediaCaptureSession::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_eventfilter_isbase) {
             qmediacapturesession_eventfilter_isbase = false;
             return QMediaCaptureSession::eventFilter(watched, event);
-        } else if (qmediacapturesession_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qmediacapturesession_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qmediacapturesession_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QMediaCaptureSession::eventFilter(watched, event);
         }
+        return QMediaCaptureSession::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_timerevent_isbase) {
             qmediacapturesession_timerevent_isbase = false;
             QMediaCaptureSession::timerEvent(event);
-        } else if (qmediacapturesession_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qmediacapturesession_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qmediacapturesession_timerevent_callback(this, cbval1);
-        } else {
-            QMediaCaptureSession::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QMediaCaptureSession::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_childevent_isbase) {
             qmediacapturesession_childevent_isbase = false;
             QMediaCaptureSession::childEvent(event);
-        } else if (qmediacapturesession_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qmediacapturesession_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qmediacapturesession_childevent_callback(this, cbval1);
-        } else {
-            QMediaCaptureSession::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QMediaCaptureSession::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_customevent_isbase) {
             qmediacapturesession_customevent_isbase = false;
             QMediaCaptureSession::customEvent(event);
-        } else if (qmediacapturesession_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qmediacapturesession_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qmediacapturesession_customevent_callback(this, cbval1);
-        } else {
-            QMediaCaptureSession::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QMediaCaptureSession::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_connectnotify_isbase) {
             qmediacapturesession_connectnotify_isbase = false;
             QMediaCaptureSession::connectNotify(signal);
-        } else if (qmediacapturesession_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qmediacapturesession_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmediacapturesession_connectnotify_callback(this, cbval1);
-        } else {
-            QMediaCaptureSession::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QMediaCaptureSession::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_disconnectnotify_isbase) {
             qmediacapturesession_disconnectnotify_isbase = false;
             QMediaCaptureSession::disconnectNotify(signal);
-        } else if (qmediacapturesession_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qmediacapturesession_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmediacapturesession_disconnectnotify_callback(this, cbval1);
-        } else {
-            QMediaCaptureSession::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QMediaCaptureSession::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_sender_isbase) {
             qmediacapturesession_sender_isbase = false;
             return QMediaCaptureSession::sender();
-        } else if (qmediacapturesession_sender_callback != nullptr) {
-            QObject* callback_ret = qmediacapturesession_sender_callback();
-            return callback_ret;
-        } else {
-            return QMediaCaptureSession::sender();
         }
+        auto sender_cb = qmediacapturesession_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QMediaCaptureSession::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_sendersignalindex_isbase) {
             qmediacapturesession_sendersignalindex_isbase = false;
             return QMediaCaptureSession::senderSignalIndex();
-        } else if (qmediacapturesession_sendersignalindex_callback != nullptr) {
-            int callback_ret = qmediacapturesession_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMediaCaptureSession::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qmediacapturesession_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMediaCaptureSession::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_receivers_isbase) {
             qmediacapturesession_receivers_isbase = false;
             return QMediaCaptureSession::receivers(signal);
-        } else if (qmediacapturesession_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qmediacapturesession_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qmediacapturesession_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMediaCaptureSession::receivers(signal);
         }
+        return QMediaCaptureSession::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
         if (qmediacapturesession_issignalconnected_isbase) {
             qmediacapturesession_issignalconnected_isbase = false;
             return QMediaCaptureSession::isSignalConnected(signal);
-        } else if (qmediacapturesession_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qmediacapturesession_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qmediacapturesession_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMediaCaptureSession::isSignalConnected(signal);
         }
+        return QMediaCaptureSession::isSignalConnected(signal);
     }
 
     // Friend functions

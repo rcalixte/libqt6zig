@@ -91,30 +91,6 @@ class VirtualKReplace final : public KReplace {
     VirtualKReplace(const QString& pattern, const QString& replacement, long options, QWidget* parent, QWidget* replaceDialog) : KReplace(pattern, replacement, options, parent, replaceDialog) {};
     VirtualKReplace(const QString& pattern, const QString& replacement, long options, QWidget* parent) : KReplace(pattern, replacement, options, parent) {};
 
-    ~VirtualKReplace() {
-        kreplace_metaobject_callback = nullptr;
-        kreplace_metacast_callback = nullptr;
-        kreplace_metacall_callback = nullptr;
-        kreplace_resetcounts_callback = nullptr;
-        kreplace_shouldrestart_callback = nullptr;
-        kreplace_displayfinaldialog_callback = nullptr;
-        kreplace_setoptions_callback = nullptr;
-        kreplace_validatematch_callback = nullptr;
-        kreplace_event_callback = nullptr;
-        kreplace_eventfilter_callback = nullptr;
-        kreplace_timerevent_callback = nullptr;
-        kreplace_childevent_callback = nullptr;
-        kreplace_customevent_callback = nullptr;
-        kreplace_connectnotify_callback = nullptr;
-        kreplace_disconnectnotify_callback = nullptr;
-        kreplace_parentwidget_callback = nullptr;
-        kreplace_dialogsparent_callback = nullptr;
-        kreplace_sender_callback = nullptr;
-        kreplace_sendersignalindex_callback = nullptr;
-        kreplace_receivers_callback = nullptr;
-        kreplace_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKReplace_MetaObject_Callback(KReplace_MetaObject_Callback cb) { kreplace_metaobject_callback = cb; }
     inline void setKReplace_Metacast_Callback(KReplace_Metacast_Callback cb) { kreplace_metacast_callback = cb; }
@@ -166,12 +142,13 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_metaobject_isbase) {
             kreplace_metaobject_isbase = false;
             return KReplace::metaObject();
-        } else if (kreplace_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kreplace_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KReplace::metaObject();
         }
+        auto metaobject_cb = kreplace_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KReplace::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -179,14 +156,15 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_metacast_isbase) {
             kreplace_metacast_isbase = false;
             return KReplace::qt_metacast(param1);
-        } else if (kreplace_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kreplace_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kreplace_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KReplace::qt_metacast(param1);
         }
+        return KReplace::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,16 +172,17 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_metacall_isbase) {
             kreplace_metacall_isbase = false;
             return KReplace::qt_metacall(param1, param2, param3);
-        } else if (kreplace_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kreplace_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kreplace_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KReplace::qt_metacall(param1, param2, param3);
         }
+        return KReplace::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,11 +190,14 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_resetcounts_isbase) {
             kreplace_resetcounts_isbase = false;
             KReplace::resetCounts();
-        } else if (kreplace_resetcounts_callback != nullptr) {
-            kreplace_resetcounts_callback();
-        } else {
-            KReplace::resetCounts();
+            return;
         }
+        auto resetcounts_cb = kreplace_resetcounts_callback;
+        if (resetcounts_cb) {
+            resetcounts_cb();
+            return;
+        }
+        KReplace::resetCounts();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -223,15 +205,16 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_shouldrestart_isbase) {
             kreplace_shouldrestart_isbase = false;
             return KReplace::shouldRestart(forceAsking, showNumMatches);
-        } else if (kreplace_shouldrestart_callback != nullptr) {
+        }
+        auto shouldrestart_cb = kreplace_shouldrestart_callback;
+        if (shouldrestart_cb) {
             bool cbval1 = forceAsking;
             bool cbval2 = showNumMatches;
 
-            bool callback_ret = kreplace_shouldrestart_callback(this, cbval1, cbval2);
+            bool callback_ret = shouldrestart_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KReplace::shouldRestart(forceAsking, showNumMatches);
         }
+        return KReplace::shouldRestart(forceAsking, showNumMatches);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -239,11 +222,14 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_displayfinaldialog_isbase) {
             kreplace_displayfinaldialog_isbase = false;
             KReplace::displayFinalDialog();
-        } else if (kreplace_displayfinaldialog_callback != nullptr) {
-            kreplace_displayfinaldialog_callback();
-        } else {
-            KReplace::displayFinalDialog();
+            return;
         }
+        auto displayfinaldialog_cb = kreplace_displayfinaldialog_callback;
+        if (displayfinaldialog_cb) {
+            displayfinaldialog_cb();
+            return;
+        }
+        KReplace::displayFinalDialog();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -251,13 +237,16 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_setoptions_isbase) {
             kreplace_setoptions_isbase = false;
             KReplace::setOptions(options);
-        } else if (kreplace_setoptions_callback != nullptr) {
+            return;
+        }
+        auto setoptions_cb = kreplace_setoptions_callback;
+        if (setoptions_cb) {
             long cbval1 = options;
 
-            kreplace_setoptions_callback(this, cbval1);
-        } else {
-            KReplace::setOptions(options);
+            setoptions_cb(this, cbval1);
+            return;
         }
+        KReplace::setOptions(options);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,7 +254,9 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_validatematch_isbase) {
             kreplace_validatematch_isbase = false;
             return KReplace::validateMatch(text, index, matchedlength);
-        } else if (kreplace_validatematch_callback != nullptr) {
+        }
+        auto validatematch_cb = kreplace_validatematch_callback;
+        if (validatematch_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -277,12 +268,11 @@ class VirtualKReplace final : public KReplace {
             int cbval2 = index;
             int cbval3 = matchedlength;
 
-            bool callback_ret = kreplace_validatematch_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = validatematch_cb(this, cbval1, cbval2, cbval3);
             libqt_free(text_str);
             return callback_ret;
-        } else {
-            return KReplace::validateMatch(text, index, matchedlength);
         }
+        return KReplace::validateMatch(text, index, matchedlength);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -290,14 +280,15 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_event_isbase) {
             kreplace_event_isbase = false;
             return KReplace::event(event);
-        } else if (kreplace_event_callback != nullptr) {
+        }
+        auto event_cb = kreplace_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kreplace_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KReplace::event(event);
         }
+        return KReplace::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,15 +296,16 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_eventfilter_isbase) {
             kreplace_eventfilter_isbase = false;
             return KReplace::eventFilter(watched, event);
-        } else if (kreplace_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kreplace_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kreplace_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KReplace::eventFilter(watched, event);
         }
+        return KReplace::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,13 +313,16 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_timerevent_isbase) {
             kreplace_timerevent_isbase = false;
             KReplace::timerEvent(event);
-        } else if (kreplace_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kreplace_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kreplace_timerevent_callback(this, cbval1);
-        } else {
-            KReplace::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KReplace::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,13 +330,16 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_childevent_isbase) {
             kreplace_childevent_isbase = false;
             KReplace::childEvent(event);
-        } else if (kreplace_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kreplace_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kreplace_childevent_callback(this, cbval1);
-        } else {
-            KReplace::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KReplace::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -349,13 +347,16 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_customevent_isbase) {
             kreplace_customevent_isbase = false;
             KReplace::customEvent(event);
-        } else if (kreplace_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kreplace_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kreplace_customevent_callback(this, cbval1);
-        } else {
-            KReplace::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KReplace::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -363,15 +364,18 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_connectnotify_isbase) {
             kreplace_connectnotify_isbase = false;
             KReplace::connectNotify(signal);
-        } else if (kreplace_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kreplace_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kreplace_connectnotify_callback(this, cbval1);
-        } else {
-            KReplace::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KReplace::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -379,15 +383,18 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_disconnectnotify_isbase) {
             kreplace_disconnectnotify_isbase = false;
             KReplace::disconnectNotify(signal);
-        } else if (kreplace_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kreplace_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kreplace_disconnectnotify_callback(this, cbval1);
-        } else {
-            KReplace::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KReplace::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -395,12 +402,13 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_parentwidget_isbase) {
             kreplace_parentwidget_isbase = false;
             return KReplace::parentWidget();
-        } else if (kreplace_parentwidget_callback != nullptr) {
-            QWidget* callback_ret = kreplace_parentwidget_callback();
-            return callback_ret;
-        } else {
-            return KReplace::parentWidget();
         }
+        auto parentwidget_cb = kreplace_parentwidget_callback;
+        if (parentwidget_cb) {
+            QWidget* callback_ret = parentwidget_cb();
+            return callback_ret;
+        }
+        return KReplace::parentWidget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -408,12 +416,13 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_dialogsparent_isbase) {
             kreplace_dialogsparent_isbase = false;
             return KReplace::dialogsParent();
-        } else if (kreplace_dialogsparent_callback != nullptr) {
-            QWidget* callback_ret = kreplace_dialogsparent_callback();
-            return callback_ret;
-        } else {
-            return KReplace::dialogsParent();
         }
+        auto dialogsparent_cb = kreplace_dialogsparent_callback;
+        if (dialogsparent_cb) {
+            QWidget* callback_ret = dialogsparent_cb();
+            return callback_ret;
+        }
+        return KReplace::dialogsParent();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -421,12 +430,13 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_sender_isbase) {
             kreplace_sender_isbase = false;
             return KReplace::sender();
-        } else if (kreplace_sender_callback != nullptr) {
-            QObject* callback_ret = kreplace_sender_callback();
-            return callback_ret;
-        } else {
-            return KReplace::sender();
         }
+        auto sender_cb = kreplace_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KReplace::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -434,12 +444,13 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_sendersignalindex_isbase) {
             kreplace_sendersignalindex_isbase = false;
             return KReplace::senderSignalIndex();
-        } else if (kreplace_sendersignalindex_callback != nullptr) {
-            int callback_ret = kreplace_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KReplace::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kreplace_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KReplace::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -447,14 +458,15 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_receivers_isbase) {
             kreplace_receivers_isbase = false;
             return KReplace::receivers(signal);
-        } else if (kreplace_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kreplace_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kreplace_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KReplace::receivers(signal);
         }
+        return KReplace::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -462,16 +474,17 @@ class VirtualKReplace final : public KReplace {
         if (kreplace_issignalconnected_isbase) {
             kreplace_issignalconnected_isbase = false;
             return KReplace::isSignalConnected(signal);
-        } else if (kreplace_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kreplace_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kreplace_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KReplace::isSignalConnected(signal);
         }
+        return KReplace::isSignalConnected(signal);
     }
 
     // Friend functions

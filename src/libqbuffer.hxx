@@ -126,42 +126,6 @@ class VirtualQBuffer final : public QBuffer {
     VirtualQBuffer() : QBuffer() {};
     VirtualQBuffer(QObject* parent) : QBuffer(parent) {};
 
-    ~VirtualQBuffer() {
-        qbuffer_metaobject_callback = nullptr;
-        qbuffer_metacast_callback = nullptr;
-        qbuffer_metacall_callback = nullptr;
-        qbuffer_open_callback = nullptr;
-        qbuffer_close_callback = nullptr;
-        qbuffer_size_callback = nullptr;
-        qbuffer_pos_callback = nullptr;
-        qbuffer_seek_callback = nullptr;
-        qbuffer_atend_callback = nullptr;
-        qbuffer_canreadline_callback = nullptr;
-        qbuffer_connectnotify_callback = nullptr;
-        qbuffer_disconnectnotify_callback = nullptr;
-        qbuffer_readdata_callback = nullptr;
-        qbuffer_writedata_callback = nullptr;
-        qbuffer_issequential_callback = nullptr;
-        qbuffer_reset_callback = nullptr;
-        qbuffer_bytesavailable_callback = nullptr;
-        qbuffer_bytestowrite_callback = nullptr;
-        qbuffer_waitforreadyread_callback = nullptr;
-        qbuffer_waitforbyteswritten_callback = nullptr;
-        qbuffer_readlinedata_callback = nullptr;
-        qbuffer_skipdata_callback = nullptr;
-        qbuffer_event_callback = nullptr;
-        qbuffer_eventfilter_callback = nullptr;
-        qbuffer_timerevent_callback = nullptr;
-        qbuffer_childevent_callback = nullptr;
-        qbuffer_customevent_callback = nullptr;
-        qbuffer_setopenmode_callback = nullptr;
-        qbuffer_seterrorstring_callback = nullptr;
-        qbuffer_sender_callback = nullptr;
-        qbuffer_sendersignalindex_callback = nullptr;
-        qbuffer_receivers_callback = nullptr;
-        qbuffer_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQBuffer_MetaObject_Callback(QBuffer_MetaObject_Callback cb) { qbuffer_metaobject_callback = cb; }
     inline void setQBuffer_Metacast_Callback(QBuffer_Metacast_Callback cb) { qbuffer_metacast_callback = cb; }
@@ -237,12 +201,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_metaobject_isbase) {
             qbuffer_metaobject_isbase = false;
             return QBuffer::metaObject();
-        } else if (qbuffer_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qbuffer_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QBuffer::metaObject();
         }
+        auto metaobject_cb = qbuffer_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QBuffer::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,14 +215,15 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_metacast_isbase) {
             qbuffer_metacast_isbase = false;
             return QBuffer::qt_metacast(param1);
-        } else if (qbuffer_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qbuffer_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qbuffer_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBuffer::qt_metacast(param1);
         }
+        return QBuffer::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,16 +231,17 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_metacall_isbase) {
             qbuffer_metacall_isbase = false;
             return QBuffer::qt_metacall(param1, param2, param3);
-        } else if (qbuffer_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qbuffer_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qbuffer_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QBuffer::qt_metacall(param1, param2, param3);
         }
+        return QBuffer::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,14 +249,15 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_open_isbase) {
             qbuffer_open_isbase = false;
             return QBuffer::open(openMode);
-        } else if (qbuffer_open_callback != nullptr) {
+        }
+        auto open_cb = qbuffer_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            bool callback_ret = qbuffer_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBuffer::open(openMode);
         }
+        return QBuffer::open(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -297,11 +265,14 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_close_isbase) {
             qbuffer_close_isbase = false;
             QBuffer::close();
-        } else if (qbuffer_close_callback != nullptr) {
-            qbuffer_close_callback();
-        } else {
-            QBuffer::close();
+            return;
         }
+        auto close_cb = qbuffer_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        QBuffer::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -309,12 +280,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_size_isbase) {
             qbuffer_size_isbase = false;
             return QBuffer::size();
-        } else if (qbuffer_size_callback != nullptr) {
-            long long callback_ret = qbuffer_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QBuffer::size();
         }
+        auto size_cb = qbuffer_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QBuffer::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -322,12 +294,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_pos_isbase) {
             qbuffer_pos_isbase = false;
             return QBuffer::pos();
-        } else if (qbuffer_pos_callback != nullptr) {
-            long long callback_ret = qbuffer_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QBuffer::pos();
         }
+        auto pos_cb = qbuffer_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QBuffer::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,14 +308,15 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_seek_isbase) {
             qbuffer_seek_isbase = false;
             return QBuffer::seek(off);
-        } else if (qbuffer_seek_callback != nullptr) {
+        }
+        auto seek_cb = qbuffer_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(off);
 
-            bool callback_ret = qbuffer_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBuffer::seek(off);
         }
+        return QBuffer::seek(off);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -350,12 +324,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_atend_isbase) {
             qbuffer_atend_isbase = false;
             return QBuffer::atEnd();
-        } else if (qbuffer_atend_callback != nullptr) {
-            bool callback_ret = qbuffer_atend_callback();
-            return callback_ret;
-        } else {
-            return QBuffer::atEnd();
         }
+        auto atend_cb = qbuffer_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return QBuffer::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -363,12 +338,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_canreadline_isbase) {
             qbuffer_canreadline_isbase = false;
             return QBuffer::canReadLine();
-        } else if (qbuffer_canreadline_callback != nullptr) {
-            bool callback_ret = qbuffer_canreadline_callback();
-            return callback_ret;
-        } else {
-            return QBuffer::canReadLine();
         }
+        auto canreadline_cb = qbuffer_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return QBuffer::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -376,15 +352,18 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_connectnotify_isbase) {
             qbuffer_connectnotify_isbase = false;
             QBuffer::connectNotify(param1);
-        } else if (qbuffer_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qbuffer_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& param1_ret = param1;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&param1_ret);
 
-            qbuffer_connectnotify_callback(this, cbval1);
-        } else {
-            QBuffer::connectNotify(param1);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QBuffer::connectNotify(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -392,15 +371,18 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_disconnectnotify_isbase) {
             qbuffer_disconnectnotify_isbase = false;
             QBuffer::disconnectNotify(param1);
-        } else if (qbuffer_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qbuffer_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& param1_ret = param1;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&param1_ret);
 
-            qbuffer_disconnectnotify_callback(this, cbval1);
-        } else {
-            QBuffer::disconnectNotify(param1);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QBuffer::disconnectNotify(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -408,15 +390,16 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_readdata_isbase) {
             qbuffer_readdata_isbase = false;
             return QBuffer::readData(data, maxlen);
-        } else if (qbuffer_readdata_callback != nullptr) {
+        }
+        auto readdata_cb = qbuffer_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qbuffer_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QBuffer::readData(data, maxlen);
         }
+        return QBuffer::readData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,15 +407,16 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_writedata_isbase) {
             qbuffer_writedata_isbase = false;
             return QBuffer::writeData(data, lenVal);
-        } else if (qbuffer_writedata_callback != nullptr) {
+        }
+        auto writedata_cb = qbuffer_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = qbuffer_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QBuffer::writeData(data, lenVal);
         }
+        return QBuffer::writeData(data, lenVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -440,12 +424,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_issequential_isbase) {
             qbuffer_issequential_isbase = false;
             return QBuffer::isSequential();
-        } else if (qbuffer_issequential_callback != nullptr) {
-            bool callback_ret = qbuffer_issequential_callback();
-            return callback_ret;
-        } else {
-            return QBuffer::isSequential();
         }
+        auto issequential_cb = qbuffer_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return QBuffer::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -453,12 +438,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_reset_isbase) {
             qbuffer_reset_isbase = false;
             return QBuffer::reset();
-        } else if (qbuffer_reset_callback != nullptr) {
-            bool callback_ret = qbuffer_reset_callback();
-            return callback_ret;
-        } else {
-            return QBuffer::reset();
         }
+        auto reset_cb = qbuffer_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return QBuffer::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -466,12 +452,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_bytesavailable_isbase) {
             qbuffer_bytesavailable_isbase = false;
             return QBuffer::bytesAvailable();
-        } else if (qbuffer_bytesavailable_callback != nullptr) {
-            long long callback_ret = qbuffer_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QBuffer::bytesAvailable();
         }
+        auto bytesavailable_cb = qbuffer_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QBuffer::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -479,12 +466,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_bytestowrite_isbase) {
             qbuffer_bytestowrite_isbase = false;
             return QBuffer::bytesToWrite();
-        } else if (qbuffer_bytestowrite_callback != nullptr) {
-            long long callback_ret = qbuffer_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QBuffer::bytesToWrite();
         }
+        auto bytestowrite_cb = qbuffer_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QBuffer::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,14 +480,15 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_waitforreadyread_isbase) {
             qbuffer_waitforreadyread_isbase = false;
             return QBuffer::waitForReadyRead(msecs);
-        } else if (qbuffer_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = qbuffer_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qbuffer_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBuffer::waitForReadyRead(msecs);
         }
+        return QBuffer::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -507,14 +496,15 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_waitforbyteswritten_isbase) {
             qbuffer_waitforbyteswritten_isbase = false;
             return QBuffer::waitForBytesWritten(msecs);
-        } else if (qbuffer_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = qbuffer_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qbuffer_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBuffer::waitForBytesWritten(msecs);
         }
+        return QBuffer::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,15 +512,16 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_readlinedata_isbase) {
             qbuffer_readlinedata_isbase = false;
             return QBuffer::readLineData(data, maxlen);
-        } else if (qbuffer_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = qbuffer_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qbuffer_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QBuffer::readLineData(data, maxlen);
         }
+        return QBuffer::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,14 +529,15 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_skipdata_isbase) {
             qbuffer_skipdata_isbase = false;
             return QBuffer::skipData(maxSize);
-        } else if (qbuffer_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = qbuffer_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = qbuffer_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QBuffer::skipData(maxSize);
         }
+        return QBuffer::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,14 +545,15 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_event_isbase) {
             qbuffer_event_isbase = false;
             return QBuffer::event(event);
-        } else if (qbuffer_event_callback != nullptr) {
+        }
+        auto event_cb = qbuffer_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qbuffer_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBuffer::event(event);
         }
+        return QBuffer::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,15 +561,16 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_eventfilter_isbase) {
             qbuffer_eventfilter_isbase = false;
             return QBuffer::eventFilter(watched, event);
-        } else if (qbuffer_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qbuffer_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qbuffer_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QBuffer::eventFilter(watched, event);
         }
+        return QBuffer::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,13 +578,16 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_timerevent_isbase) {
             qbuffer_timerevent_isbase = false;
             QBuffer::timerEvent(event);
-        } else if (qbuffer_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qbuffer_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qbuffer_timerevent_callback(this, cbval1);
-        } else {
-            QBuffer::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QBuffer::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,13 +595,16 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_childevent_isbase) {
             qbuffer_childevent_isbase = false;
             QBuffer::childEvent(event);
-        } else if (qbuffer_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qbuffer_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qbuffer_childevent_callback(this, cbval1);
-        } else {
-            QBuffer::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QBuffer::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,13 +612,16 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_customevent_isbase) {
             qbuffer_customevent_isbase = false;
             QBuffer::customEvent(event);
-        } else if (qbuffer_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qbuffer_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qbuffer_customevent_callback(this, cbval1);
-        } else {
-            QBuffer::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QBuffer::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,13 +629,16 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_setopenmode_isbase) {
             qbuffer_setopenmode_isbase = false;
             QBuffer::setOpenMode(openMode);
-        } else if (qbuffer_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = qbuffer_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            qbuffer_setopenmode_callback(this, cbval1);
-        } else {
-            QBuffer::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        QBuffer::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,7 +646,10 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_seterrorstring_isbase) {
             qbuffer_seterrorstring_isbase = false;
             QBuffer::setErrorString(errorString);
-        } else if (qbuffer_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = qbuffer_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -650,11 +659,11 @@ class VirtualQBuffer final : public QBuffer {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            qbuffer_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            QBuffer::setErrorString(errorString);
+            return;
         }
+        QBuffer::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,12 +671,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_sender_isbase) {
             qbuffer_sender_isbase = false;
             return QBuffer::sender();
-        } else if (qbuffer_sender_callback != nullptr) {
-            QObject* callback_ret = qbuffer_sender_callback();
-            return callback_ret;
-        } else {
-            return QBuffer::sender();
         }
+        auto sender_cb = qbuffer_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QBuffer::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,12 +685,13 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_sendersignalindex_isbase) {
             qbuffer_sendersignalindex_isbase = false;
             return QBuffer::senderSignalIndex();
-        } else if (qbuffer_sendersignalindex_callback != nullptr) {
-            int callback_ret = qbuffer_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QBuffer::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qbuffer_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QBuffer::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,14 +699,15 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_receivers_isbase) {
             qbuffer_receivers_isbase = false;
             return QBuffer::receivers(signal);
-        } else if (qbuffer_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qbuffer_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qbuffer_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QBuffer::receivers(signal);
         }
+        return QBuffer::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,16 +715,17 @@ class VirtualQBuffer final : public QBuffer {
         if (qbuffer_issignalconnected_isbase) {
             qbuffer_issignalconnected_isbase = false;
             return QBuffer::isSignalConnected(signal);
-        } else if (qbuffer_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qbuffer_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qbuffer_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBuffer::isSignalConnected(signal);
         }
+        return QBuffer::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -96,32 +96,6 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
     VirtualQPlaceContentReply() : QPlaceContentReply() {};
     VirtualQPlaceContentReply(QObject* parent) : QPlaceContentReply(parent) {};
 
-    ~VirtualQPlaceContentReply() {
-        qplacecontentreply_metaobject_callback = nullptr;
-        qplacecontentreply_metacast_callback = nullptr;
-        qplacecontentreply_metacall_callback = nullptr;
-        qplacecontentreply_type_callback = nullptr;
-        qplacecontentreply_abort_callback = nullptr;
-        qplacecontentreply_event_callback = nullptr;
-        qplacecontentreply_eventfilter_callback = nullptr;
-        qplacecontentreply_timerevent_callback = nullptr;
-        qplacecontentreply_childevent_callback = nullptr;
-        qplacecontentreply_customevent_callback = nullptr;
-        qplacecontentreply_connectnotify_callback = nullptr;
-        qplacecontentreply_disconnectnotify_callback = nullptr;
-        qplacecontentreply_setcontent_callback = nullptr;
-        qplacecontentreply_settotalcount_callback = nullptr;
-        qplacecontentreply_setrequest_callback = nullptr;
-        qplacecontentreply_setpreviouspagerequest_callback = nullptr;
-        qplacecontentreply_setnextpagerequest_callback = nullptr;
-        qplacecontentreply_setfinished_callback = nullptr;
-        qplacecontentreply_seterror_callback = nullptr;
-        qplacecontentreply_sender_callback = nullptr;
-        qplacecontentreply_sendersignalindex_callback = nullptr;
-        qplacecontentreply_receivers_callback = nullptr;
-        qplacecontentreply_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPlaceContentReply_MetaObject_Callback(QPlaceContentReply_MetaObject_Callback cb) { qplacecontentreply_metaobject_callback = cb; }
     inline void setQPlaceContentReply_Metacast_Callback(QPlaceContentReply_Metacast_Callback cb) { qplacecontentreply_metacast_callback = cb; }
@@ -177,12 +151,13 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_metaobject_isbase) {
             qplacecontentreply_metaobject_isbase = false;
             return QPlaceContentReply::metaObject();
-        } else if (qplacecontentreply_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qplacecontentreply_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPlaceContentReply::metaObject();
         }
+        auto metaobject_cb = qplacecontentreply_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPlaceContentReply::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -190,14 +165,15 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_metacast_isbase) {
             qplacecontentreply_metacast_isbase = false;
             return QPlaceContentReply::qt_metacast(param1);
-        } else if (qplacecontentreply_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qplacecontentreply_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qplacecontentreply_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceContentReply::qt_metacast(param1);
         }
+        return QPlaceContentReply::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,16 +181,17 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_metacall_isbase) {
             qplacecontentreply_metacall_isbase = false;
             return QPlaceContentReply::qt_metacall(param1, param2, param3);
-        } else if (qplacecontentreply_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qplacecontentreply_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qplacecontentreply_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPlaceContentReply::qt_metacall(param1, param2, param3);
         }
+        return QPlaceContentReply::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -222,12 +199,13 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_type_isbase) {
             qplacecontentreply_type_isbase = false;
             return QPlaceContentReply::type();
-        } else if (qplacecontentreply_type_callback != nullptr) {
-            int callback_ret = qplacecontentreply_type_callback();
-            return static_cast<QPlaceReply::Type>(callback_ret);
-        } else {
-            return QPlaceContentReply::type();
         }
+        auto type_cb = qplacecontentreply_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QPlaceReply::Type>(callback_ret);
+        }
+        return QPlaceContentReply::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -235,11 +213,14 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_abort_isbase) {
             qplacecontentreply_abort_isbase = false;
             QPlaceContentReply::abort();
-        } else if (qplacecontentreply_abort_callback != nullptr) {
-            qplacecontentreply_abort_callback();
-        } else {
-            QPlaceContentReply::abort();
+            return;
         }
+        auto abort_cb = qplacecontentreply_abort_callback;
+        if (abort_cb) {
+            abort_cb();
+            return;
+        }
+        QPlaceContentReply::abort();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,14 +228,15 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_event_isbase) {
             qplacecontentreply_event_isbase = false;
             return QPlaceContentReply::event(event);
-        } else if (qplacecontentreply_event_callback != nullptr) {
+        }
+        auto event_cb = qplacecontentreply_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qplacecontentreply_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceContentReply::event(event);
         }
+        return QPlaceContentReply::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -262,15 +244,16 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_eventfilter_isbase) {
             qplacecontentreply_eventfilter_isbase = false;
             return QPlaceContentReply::eventFilter(watched, event);
-        } else if (qplacecontentreply_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qplacecontentreply_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qplacecontentreply_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPlaceContentReply::eventFilter(watched, event);
         }
+        return QPlaceContentReply::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -278,13 +261,16 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_timerevent_isbase) {
             qplacecontentreply_timerevent_isbase = false;
             QPlaceContentReply::timerEvent(event);
-        } else if (qplacecontentreply_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qplacecontentreply_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qplacecontentreply_timerevent_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,13 +278,16 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_childevent_isbase) {
             qplacecontentreply_childevent_isbase = false;
             QPlaceContentReply::childEvent(event);
-        } else if (qplacecontentreply_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qplacecontentreply_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qplacecontentreply_childevent_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -306,13 +295,16 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_customevent_isbase) {
             qplacecontentreply_customevent_isbase = false;
             QPlaceContentReply::customEvent(event);
-        } else if (qplacecontentreply_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qplacecontentreply_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qplacecontentreply_customevent_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,15 +312,18 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_connectnotify_isbase) {
             qplacecontentreply_connectnotify_isbase = false;
             QPlaceContentReply::connectNotify(signal);
-        } else if (qplacecontentreply_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qplacecontentreply_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qplacecontentreply_connectnotify_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -336,15 +331,18 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_disconnectnotify_isbase) {
             qplacecontentreply_disconnectnotify_isbase = false;
             QPlaceContentReply::disconnectNotify(signal);
-        } else if (qplacecontentreply_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qplacecontentreply_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qplacecontentreply_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,7 +350,10 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_setcontent_isbase) {
             qplacecontentreply_setcontent_isbase = false;
             QPlaceContentReply::setContent(content);
-        } else if (qplacecontentreply_setcontent_callback != nullptr) {
+            return;
+        }
+        auto setcontent_cb = qplacecontentreply_setcontent_callback;
+        if (setcontent_cb) {
             const QMap<int, QPlaceContent>& content_ret = content;
             // Convert QMap<> from C++ memory to manually-managed C memory
             int* content_karr = static_cast<int*>(malloc(sizeof(int) * content_ret.size()));
@@ -369,10 +370,10 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
             content_out.values = static_cast<void*>(content_varr);
             libqt_map /* of int to QPlaceContent* */ cbval1 = content_out;
 
-            qplacecontentreply_setcontent_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::setContent(content);
+            setcontent_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::setContent(content);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,13 +381,16 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_settotalcount_isbase) {
             qplacecontentreply_settotalcount_isbase = false;
             QPlaceContentReply::setTotalCount(total);
-        } else if (qplacecontentreply_settotalcount_callback != nullptr) {
+            return;
+        }
+        auto settotalcount_cb = qplacecontentreply_settotalcount_callback;
+        if (settotalcount_cb) {
             int cbval1 = total;
 
-            qplacecontentreply_settotalcount_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::setTotalCount(total);
+            settotalcount_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::setTotalCount(total);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,15 +398,18 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_setrequest_isbase) {
             qplacecontentreply_setrequest_isbase = false;
             QPlaceContentReply::setRequest(request);
-        } else if (qplacecontentreply_setrequest_callback != nullptr) {
+            return;
+        }
+        auto setrequest_cb = qplacecontentreply_setrequest_callback;
+        if (setrequest_cb) {
             const QPlaceContentRequest& request_ret = request;
             // Cast returned reference into pointer
             QPlaceContentRequest* cbval1 = const_cast<QPlaceContentRequest*>(&request_ret);
 
-            qplacecontentreply_setrequest_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::setRequest(request);
+            setrequest_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::setRequest(request);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -410,15 +417,18 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_setpreviouspagerequest_isbase) {
             qplacecontentreply_setpreviouspagerequest_isbase = false;
             QPlaceContentReply::setPreviousPageRequest(previous);
-        } else if (qplacecontentreply_setpreviouspagerequest_callback != nullptr) {
+            return;
+        }
+        auto setpreviouspagerequest_cb = qplacecontentreply_setpreviouspagerequest_callback;
+        if (setpreviouspagerequest_cb) {
             const QPlaceContentRequest& previous_ret = previous;
             // Cast returned reference into pointer
             QPlaceContentRequest* cbval1 = const_cast<QPlaceContentRequest*>(&previous_ret);
 
-            qplacecontentreply_setpreviouspagerequest_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::setPreviousPageRequest(previous);
+            setpreviouspagerequest_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::setPreviousPageRequest(previous);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,15 +436,18 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_setnextpagerequest_isbase) {
             qplacecontentreply_setnextpagerequest_isbase = false;
             QPlaceContentReply::setNextPageRequest(next);
-        } else if (qplacecontentreply_setnextpagerequest_callback != nullptr) {
+            return;
+        }
+        auto setnextpagerequest_cb = qplacecontentreply_setnextpagerequest_callback;
+        if (setnextpagerequest_cb) {
             const QPlaceContentRequest& next_ret = next;
             // Cast returned reference into pointer
             QPlaceContentRequest* cbval1 = const_cast<QPlaceContentRequest*>(&next_ret);
 
-            qplacecontentreply_setnextpagerequest_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::setNextPageRequest(next);
+            setnextpagerequest_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::setNextPageRequest(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -442,13 +455,16 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_setfinished_isbase) {
             qplacecontentreply_setfinished_isbase = false;
             QPlaceContentReply::setFinished(finished);
-        } else if (qplacecontentreply_setfinished_callback != nullptr) {
+            return;
+        }
+        auto setfinished_cb = qplacecontentreply_setfinished_callback;
+        if (setfinished_cb) {
             bool cbval1 = finished;
 
-            qplacecontentreply_setfinished_callback(this, cbval1);
-        } else {
-            QPlaceContentReply::setFinished(finished);
+            setfinished_cb(this, cbval1);
+            return;
         }
+        QPlaceContentReply::setFinished(finished);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -456,7 +472,10 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_seterror_isbase) {
             qplacecontentreply_seterror_isbase = false;
             QPlaceContentReply::setError(errorVal, errorString);
-        } else if (qplacecontentreply_seterror_callback != nullptr) {
+            return;
+        }
+        auto seterror_cb = qplacecontentreply_seterror_callback;
+        if (seterror_cb) {
             int cbval1 = static_cast<int>(errorVal);
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -467,11 +486,11 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval2 = errorString_str;
 
-            qplacecontentreply_seterror_callback(this, cbval1, cbval2);
+            seterror_cb(this, cbval1, cbval2);
             libqt_free(errorString_str);
-        } else {
-            QPlaceContentReply::setError(errorVal, errorString);
+            return;
         }
+        QPlaceContentReply::setError(errorVal, errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -479,12 +498,13 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_sender_isbase) {
             qplacecontentreply_sender_isbase = false;
             return QPlaceContentReply::sender();
-        } else if (qplacecontentreply_sender_callback != nullptr) {
-            QObject* callback_ret = qplacecontentreply_sender_callback();
-            return callback_ret;
-        } else {
-            return QPlaceContentReply::sender();
         }
+        auto sender_cb = qplacecontentreply_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPlaceContentReply::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,12 +512,13 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_sendersignalindex_isbase) {
             qplacecontentreply_sendersignalindex_isbase = false;
             return QPlaceContentReply::senderSignalIndex();
-        } else if (qplacecontentreply_sendersignalindex_callback != nullptr) {
-            int callback_ret = qplacecontentreply_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPlaceContentReply::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qplacecontentreply_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPlaceContentReply::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -505,14 +526,15 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_receivers_isbase) {
             qplacecontentreply_receivers_isbase = false;
             return QPlaceContentReply::receivers(signal);
-        } else if (qplacecontentreply_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qplacecontentreply_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qplacecontentreply_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPlaceContentReply::receivers(signal);
         }
+        return QPlaceContentReply::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -520,16 +542,17 @@ class VirtualQPlaceContentReply final : public QPlaceContentReply {
         if (qplacecontentreply_issignalconnected_isbase) {
             qplacecontentreply_issignalconnected_isbase = false;
             return QPlaceContentReply::isSignalConnected(signal);
-        } else if (qplacecontentreply_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qplacecontentreply_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qplacecontentreply_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceContentReply::isSignalConnected(signal);
         }
+        return QPlaceContentReply::isSignalConnected(signal);
     }
 
     // Friend functions

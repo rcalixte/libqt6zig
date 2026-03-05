@@ -221,73 +221,6 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
     VirtualKSqueezedTextLabel(const QString& text) : KSqueezedTextLabel(text) {};
     VirtualKSqueezedTextLabel(const QString& text, QWidget* parent) : KSqueezedTextLabel(text, parent) {};
 
-    ~VirtualKSqueezedTextLabel() {
-        ksqueezedtextlabel_metaobject_callback = nullptr;
-        ksqueezedtextlabel_metacast_callback = nullptr;
-        ksqueezedtextlabel_metacall_callback = nullptr;
-        ksqueezedtextlabel_minimumsizehint_callback = nullptr;
-        ksqueezedtextlabel_sizehint_callback = nullptr;
-        ksqueezedtextlabel_setalignment_callback = nullptr;
-        ksqueezedtextlabel_mousereleaseevent_callback = nullptr;
-        ksqueezedtextlabel_resizeevent_callback = nullptr;
-        ksqueezedtextlabel_contextmenuevent_callback = nullptr;
-        ksqueezedtextlabel_heightforwidth_callback = nullptr;
-        ksqueezedtextlabel_event_callback = nullptr;
-        ksqueezedtextlabel_keypressevent_callback = nullptr;
-        ksqueezedtextlabel_paintevent_callback = nullptr;
-        ksqueezedtextlabel_changeevent_callback = nullptr;
-        ksqueezedtextlabel_mousepressevent_callback = nullptr;
-        ksqueezedtextlabel_mousemoveevent_callback = nullptr;
-        ksqueezedtextlabel_focusinevent_callback = nullptr;
-        ksqueezedtextlabel_focusoutevent_callback = nullptr;
-        ksqueezedtextlabel_focusnextprevchild_callback = nullptr;
-        ksqueezedtextlabel_initstyleoption_callback = nullptr;
-        ksqueezedtextlabel_devtype_callback = nullptr;
-        ksqueezedtextlabel_setvisible_callback = nullptr;
-        ksqueezedtextlabel_hasheightforwidth_callback = nullptr;
-        ksqueezedtextlabel_paintengine_callback = nullptr;
-        ksqueezedtextlabel_mousedoubleclickevent_callback = nullptr;
-        ksqueezedtextlabel_wheelevent_callback = nullptr;
-        ksqueezedtextlabel_keyreleaseevent_callback = nullptr;
-        ksqueezedtextlabel_enterevent_callback = nullptr;
-        ksqueezedtextlabel_leaveevent_callback = nullptr;
-        ksqueezedtextlabel_moveevent_callback = nullptr;
-        ksqueezedtextlabel_closeevent_callback = nullptr;
-        ksqueezedtextlabel_tabletevent_callback = nullptr;
-        ksqueezedtextlabel_actionevent_callback = nullptr;
-        ksqueezedtextlabel_dragenterevent_callback = nullptr;
-        ksqueezedtextlabel_dragmoveevent_callback = nullptr;
-        ksqueezedtextlabel_dragleaveevent_callback = nullptr;
-        ksqueezedtextlabel_dropevent_callback = nullptr;
-        ksqueezedtextlabel_showevent_callback = nullptr;
-        ksqueezedtextlabel_hideevent_callback = nullptr;
-        ksqueezedtextlabel_nativeevent_callback = nullptr;
-        ksqueezedtextlabel_metric_callback = nullptr;
-        ksqueezedtextlabel_initpainter_callback = nullptr;
-        ksqueezedtextlabel_redirected_callback = nullptr;
-        ksqueezedtextlabel_sharedpainter_callback = nullptr;
-        ksqueezedtextlabel_inputmethodevent_callback = nullptr;
-        ksqueezedtextlabel_inputmethodquery_callback = nullptr;
-        ksqueezedtextlabel_eventfilter_callback = nullptr;
-        ksqueezedtextlabel_timerevent_callback = nullptr;
-        ksqueezedtextlabel_childevent_callback = nullptr;
-        ksqueezedtextlabel_customevent_callback = nullptr;
-        ksqueezedtextlabel_connectnotify_callback = nullptr;
-        ksqueezedtextlabel_disconnectnotify_callback = nullptr;
-        ksqueezedtextlabel_squeezetexttolabel_callback = nullptr;
-        ksqueezedtextlabel_drawframe_callback = nullptr;
-        ksqueezedtextlabel_updatemicrofocus_callback = nullptr;
-        ksqueezedtextlabel_create_callback = nullptr;
-        ksqueezedtextlabel_destroy_callback = nullptr;
-        ksqueezedtextlabel_focusnextchild_callback = nullptr;
-        ksqueezedtextlabel_focuspreviouschild_callback = nullptr;
-        ksqueezedtextlabel_sender_callback = nullptr;
-        ksqueezedtextlabel_sendersignalindex_callback = nullptr;
-        ksqueezedtextlabel_receivers_callback = nullptr;
-        ksqueezedtextlabel_issignalconnected_callback = nullptr;
-        ksqueezedtextlabel_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSqueezedTextLabel_MetaObject_Callback(KSqueezedTextLabel_MetaObject_Callback cb) { ksqueezedtextlabel_metaobject_callback = cb; }
     inline void setKSqueezedTextLabel_Metacast_Callback(KSqueezedTextLabel_Metacast_Callback cb) { ksqueezedtextlabel_metacast_callback = cb; }
@@ -425,12 +358,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_metaobject_isbase) {
             ksqueezedtextlabel_metaobject_isbase = false;
             return KSqueezedTextLabel::metaObject();
-        } else if (ksqueezedtextlabel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ksqueezedtextlabel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSqueezedTextLabel::metaObject();
         }
+        auto metaobject_cb = ksqueezedtextlabel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSqueezedTextLabel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -438,14 +372,15 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_metacast_isbase) {
             ksqueezedtextlabel_metacast_isbase = false;
             return KSqueezedTextLabel::qt_metacast(param1);
-        } else if (ksqueezedtextlabel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ksqueezedtextlabel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ksqueezedtextlabel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSqueezedTextLabel::qt_metacast(param1);
         }
+        return KSqueezedTextLabel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -453,16 +388,17 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_metacall_isbase) {
             ksqueezedtextlabel_metacall_isbase = false;
             return KSqueezedTextLabel::qt_metacall(param1, param2, param3);
-        } else if (ksqueezedtextlabel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ksqueezedtextlabel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ksqueezedtextlabel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSqueezedTextLabel::qt_metacall(param1, param2, param3);
         }
+        return KSqueezedTextLabel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,12 +406,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_minimumsizehint_isbase) {
             ksqueezedtextlabel_minimumsizehint_isbase = false;
             return KSqueezedTextLabel::minimumSizeHint();
-        } else if (ksqueezedtextlabel_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = ksqueezedtextlabel_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KSqueezedTextLabel::minimumSizeHint();
         }
+        auto minimumsizehint_cb = ksqueezedtextlabel_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KSqueezedTextLabel::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,12 +420,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_sizehint_isbase) {
             ksqueezedtextlabel_sizehint_isbase = false;
             return KSqueezedTextLabel::sizeHint();
-        } else if (ksqueezedtextlabel_sizehint_callback != nullptr) {
-            QSize* callback_ret = ksqueezedtextlabel_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KSqueezedTextLabel::sizeHint();
         }
+        auto sizehint_cb = ksqueezedtextlabel_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KSqueezedTextLabel::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,13 +434,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_setalignment_isbase) {
             ksqueezedtextlabel_setalignment_isbase = false;
             KSqueezedTextLabel::setAlignment(alignment);
-        } else if (ksqueezedtextlabel_setalignment_callback != nullptr) {
+            return;
+        }
+        auto setalignment_cb = ksqueezedtextlabel_setalignment_callback;
+        if (setalignment_cb) {
             int cbval1 = static_cast<int>(alignment);
 
-            ksqueezedtextlabel_setalignment_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::setAlignment(alignment);
+            setalignment_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::setAlignment(alignment);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,13 +451,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_mousereleaseevent_isbase) {
             ksqueezedtextlabel_mousereleaseevent_isbase = false;
             KSqueezedTextLabel::mouseReleaseEvent(param1);
-        } else if (ksqueezedtextlabel_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = ksqueezedtextlabel_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            ksqueezedtextlabel_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,13 +468,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_resizeevent_isbase) {
             ksqueezedtextlabel_resizeevent_isbase = false;
             KSqueezedTextLabel::resizeEvent(param1);
-        } else if (ksqueezedtextlabel_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = ksqueezedtextlabel_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            ksqueezedtextlabel_resizeevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,13 +485,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_contextmenuevent_isbase) {
             ksqueezedtextlabel_contextmenuevent_isbase = false;
             KSqueezedTextLabel::contextMenuEvent(param1);
-        } else if (ksqueezedtextlabel_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = ksqueezedtextlabel_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            ksqueezedtextlabel_contextmenuevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,14 +502,15 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_heightforwidth_isbase) {
             ksqueezedtextlabel_heightforwidth_isbase = false;
             return KSqueezedTextLabel::heightForWidth(param1);
-        } else if (ksqueezedtextlabel_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = ksqueezedtextlabel_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = ksqueezedtextlabel_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSqueezedTextLabel::heightForWidth(param1);
         }
+        return KSqueezedTextLabel::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,14 +518,15 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_event_isbase) {
             ksqueezedtextlabel_event_isbase = false;
             return KSqueezedTextLabel::event(e);
-        } else if (ksqueezedtextlabel_event_callback != nullptr) {
+        }
+        auto event_cb = ksqueezedtextlabel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = ksqueezedtextlabel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSqueezedTextLabel::event(e);
         }
+        return KSqueezedTextLabel::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,13 +534,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_keypressevent_isbase) {
             ksqueezedtextlabel_keypressevent_isbase = false;
             KSqueezedTextLabel::keyPressEvent(ev);
-        } else if (ksqueezedtextlabel_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = ksqueezedtextlabel_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
 
-            ksqueezedtextlabel_keypressevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::keyPressEvent(ev);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::keyPressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -596,13 +551,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_paintevent_isbase) {
             ksqueezedtextlabel_paintevent_isbase = false;
             KSqueezedTextLabel::paintEvent(param1);
-        } else if (ksqueezedtextlabel_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = ksqueezedtextlabel_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            ksqueezedtextlabel_paintevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -610,13 +568,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_changeevent_isbase) {
             ksqueezedtextlabel_changeevent_isbase = false;
             KSqueezedTextLabel::changeEvent(param1);
-        } else if (ksqueezedtextlabel_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = ksqueezedtextlabel_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            ksqueezedtextlabel_changeevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,13 +585,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_mousepressevent_isbase) {
             ksqueezedtextlabel_mousepressevent_isbase = false;
             KSqueezedTextLabel::mousePressEvent(ev);
-        } else if (ksqueezedtextlabel_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = ksqueezedtextlabel_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = ev;
 
-            ksqueezedtextlabel_mousepressevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::mousePressEvent(ev);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::mousePressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -638,13 +602,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_mousemoveevent_isbase) {
             ksqueezedtextlabel_mousemoveevent_isbase = false;
             KSqueezedTextLabel::mouseMoveEvent(ev);
-        } else if (ksqueezedtextlabel_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = ksqueezedtextlabel_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = ev;
 
-            ksqueezedtextlabel_mousemoveevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::mouseMoveEvent(ev);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::mouseMoveEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -652,13 +619,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_focusinevent_isbase) {
             ksqueezedtextlabel_focusinevent_isbase = false;
             KSqueezedTextLabel::focusInEvent(ev);
-        } else if (ksqueezedtextlabel_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = ksqueezedtextlabel_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = ev;
 
-            ksqueezedtextlabel_focusinevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::focusInEvent(ev);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::focusInEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -666,13 +636,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_focusoutevent_isbase) {
             ksqueezedtextlabel_focusoutevent_isbase = false;
             KSqueezedTextLabel::focusOutEvent(ev);
-        } else if (ksqueezedtextlabel_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = ksqueezedtextlabel_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = ev;
 
-            ksqueezedtextlabel_focusoutevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::focusOutEvent(ev);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::focusOutEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,14 +653,15 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_focusnextprevchild_isbase) {
             ksqueezedtextlabel_focusnextprevchild_isbase = false;
             return KSqueezedTextLabel::focusNextPrevChild(next);
-        } else if (ksqueezedtextlabel_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = ksqueezedtextlabel_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = ksqueezedtextlabel_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSqueezedTextLabel::focusNextPrevChild(next);
         }
+        return KSqueezedTextLabel::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,13 +669,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_initstyleoption_isbase) {
             ksqueezedtextlabel_initstyleoption_isbase = false;
             KSqueezedTextLabel::initStyleOption(option);
-        } else if (ksqueezedtextlabel_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = ksqueezedtextlabel_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            ksqueezedtextlabel_initstyleoption_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,12 +686,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_devtype_isbase) {
             ksqueezedtextlabel_devtype_isbase = false;
             return KSqueezedTextLabel::devType();
-        } else if (ksqueezedtextlabel_devtype_callback != nullptr) {
-            int callback_ret = ksqueezedtextlabel_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSqueezedTextLabel::devType();
         }
+        auto devtype_cb = ksqueezedtextlabel_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSqueezedTextLabel::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -722,13 +700,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_setvisible_isbase) {
             ksqueezedtextlabel_setvisible_isbase = false;
             KSqueezedTextLabel::setVisible(visible);
-        } else if (ksqueezedtextlabel_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = ksqueezedtextlabel_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            ksqueezedtextlabel_setvisible_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -736,12 +717,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_hasheightforwidth_isbase) {
             ksqueezedtextlabel_hasheightforwidth_isbase = false;
             return KSqueezedTextLabel::hasHeightForWidth();
-        } else if (ksqueezedtextlabel_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = ksqueezedtextlabel_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KSqueezedTextLabel::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = ksqueezedtextlabel_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KSqueezedTextLabel::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,12 +731,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_paintengine_isbase) {
             ksqueezedtextlabel_paintengine_isbase = false;
             return KSqueezedTextLabel::paintEngine();
-        } else if (ksqueezedtextlabel_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = ksqueezedtextlabel_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KSqueezedTextLabel::paintEngine();
         }
+        auto paintengine_cb = ksqueezedtextlabel_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KSqueezedTextLabel::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -762,13 +745,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_mousedoubleclickevent_isbase) {
             ksqueezedtextlabel_mousedoubleclickevent_isbase = false;
             KSqueezedTextLabel::mouseDoubleClickEvent(event);
-        } else if (ksqueezedtextlabel_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = ksqueezedtextlabel_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ksqueezedtextlabel_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,13 +762,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_wheelevent_isbase) {
             ksqueezedtextlabel_wheelevent_isbase = false;
             KSqueezedTextLabel::wheelEvent(event);
-        } else if (ksqueezedtextlabel_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = ksqueezedtextlabel_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            ksqueezedtextlabel_wheelevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -790,13 +779,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_keyreleaseevent_isbase) {
             ksqueezedtextlabel_keyreleaseevent_isbase = false;
             KSqueezedTextLabel::keyReleaseEvent(event);
-        } else if (ksqueezedtextlabel_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = ksqueezedtextlabel_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            ksqueezedtextlabel_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,13 +796,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_enterevent_isbase) {
             ksqueezedtextlabel_enterevent_isbase = false;
             KSqueezedTextLabel::enterEvent(event);
-        } else if (ksqueezedtextlabel_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = ksqueezedtextlabel_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            ksqueezedtextlabel_enterevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -818,13 +813,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_leaveevent_isbase) {
             ksqueezedtextlabel_leaveevent_isbase = false;
             KSqueezedTextLabel::leaveEvent(event);
-        } else if (ksqueezedtextlabel_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = ksqueezedtextlabel_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            ksqueezedtextlabel_leaveevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -832,13 +830,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_moveevent_isbase) {
             ksqueezedtextlabel_moveevent_isbase = false;
             KSqueezedTextLabel::moveEvent(event);
-        } else if (ksqueezedtextlabel_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = ksqueezedtextlabel_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            ksqueezedtextlabel_moveevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -846,13 +847,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_closeevent_isbase) {
             ksqueezedtextlabel_closeevent_isbase = false;
             KSqueezedTextLabel::closeEvent(event);
-        } else if (ksqueezedtextlabel_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = ksqueezedtextlabel_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            ksqueezedtextlabel_closeevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -860,13 +864,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_tabletevent_isbase) {
             ksqueezedtextlabel_tabletevent_isbase = false;
             KSqueezedTextLabel::tabletEvent(event);
-        } else if (ksqueezedtextlabel_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = ksqueezedtextlabel_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            ksqueezedtextlabel_tabletevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -874,13 +881,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_actionevent_isbase) {
             ksqueezedtextlabel_actionevent_isbase = false;
             KSqueezedTextLabel::actionEvent(event);
-        } else if (ksqueezedtextlabel_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = ksqueezedtextlabel_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            ksqueezedtextlabel_actionevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -888,13 +898,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_dragenterevent_isbase) {
             ksqueezedtextlabel_dragenterevent_isbase = false;
             KSqueezedTextLabel::dragEnterEvent(event);
-        } else if (ksqueezedtextlabel_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = ksqueezedtextlabel_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            ksqueezedtextlabel_dragenterevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -902,13 +915,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_dragmoveevent_isbase) {
             ksqueezedtextlabel_dragmoveevent_isbase = false;
             KSqueezedTextLabel::dragMoveEvent(event);
-        } else if (ksqueezedtextlabel_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = ksqueezedtextlabel_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            ksqueezedtextlabel_dragmoveevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -916,13 +932,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_dragleaveevent_isbase) {
             ksqueezedtextlabel_dragleaveevent_isbase = false;
             KSqueezedTextLabel::dragLeaveEvent(event);
-        } else if (ksqueezedtextlabel_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = ksqueezedtextlabel_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            ksqueezedtextlabel_dragleaveevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,13 +949,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_dropevent_isbase) {
             ksqueezedtextlabel_dropevent_isbase = false;
             KSqueezedTextLabel::dropEvent(event);
-        } else if (ksqueezedtextlabel_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = ksqueezedtextlabel_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            ksqueezedtextlabel_dropevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,13 +966,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_showevent_isbase) {
             ksqueezedtextlabel_showevent_isbase = false;
             KSqueezedTextLabel::showEvent(event);
-        } else if (ksqueezedtextlabel_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = ksqueezedtextlabel_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            ksqueezedtextlabel_showevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +983,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_hideevent_isbase) {
             ksqueezedtextlabel_hideevent_isbase = false;
             KSqueezedTextLabel::hideEvent(event);
-        } else if (ksqueezedtextlabel_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = ksqueezedtextlabel_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            ksqueezedtextlabel_hideevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,7 +1000,9 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_nativeevent_isbase) {
             ksqueezedtextlabel_nativeevent_isbase = false;
             return KSqueezedTextLabel::nativeEvent(eventType, message, result);
-        } else if (ksqueezedtextlabel_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = ksqueezedtextlabel_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -983,12 +1013,11 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = ksqueezedtextlabel_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KSqueezedTextLabel::nativeEvent(eventType, message, result);
         }
+        return KSqueezedTextLabel::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,14 +1025,15 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_metric_isbase) {
             ksqueezedtextlabel_metric_isbase = false;
             return KSqueezedTextLabel::metric(param1);
-        } else if (ksqueezedtextlabel_metric_callback != nullptr) {
+        }
+        auto metric_cb = ksqueezedtextlabel_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = ksqueezedtextlabel_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSqueezedTextLabel::metric(param1);
         }
+        return KSqueezedTextLabel::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1011,13 +1041,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_initpainter_isbase) {
             ksqueezedtextlabel_initpainter_isbase = false;
             KSqueezedTextLabel::initPainter(painter);
-        } else if (ksqueezedtextlabel_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = ksqueezedtextlabel_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            ksqueezedtextlabel_initpainter_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1025,14 +1058,15 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_redirected_isbase) {
             ksqueezedtextlabel_redirected_isbase = false;
             return KSqueezedTextLabel::redirected(offset);
-        } else if (ksqueezedtextlabel_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = ksqueezedtextlabel_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = ksqueezedtextlabel_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSqueezedTextLabel::redirected(offset);
         }
+        return KSqueezedTextLabel::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1040,12 +1074,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_sharedpainter_isbase) {
             ksqueezedtextlabel_sharedpainter_isbase = false;
             return KSqueezedTextLabel::sharedPainter();
-        } else if (ksqueezedtextlabel_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = ksqueezedtextlabel_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KSqueezedTextLabel::sharedPainter();
         }
+        auto sharedpainter_cb = ksqueezedtextlabel_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KSqueezedTextLabel::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1053,13 +1088,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_inputmethodevent_isbase) {
             ksqueezedtextlabel_inputmethodevent_isbase = false;
             KSqueezedTextLabel::inputMethodEvent(param1);
-        } else if (ksqueezedtextlabel_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = ksqueezedtextlabel_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            ksqueezedtextlabel_inputmethodevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1067,14 +1105,15 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_inputmethodquery_isbase) {
             ksqueezedtextlabel_inputmethodquery_isbase = false;
             return KSqueezedTextLabel::inputMethodQuery(param1);
-        } else if (ksqueezedtextlabel_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = ksqueezedtextlabel_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = ksqueezedtextlabel_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KSqueezedTextLabel::inputMethodQuery(param1);
         }
+        return KSqueezedTextLabel::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1082,15 +1121,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_eventfilter_isbase) {
             ksqueezedtextlabel_eventfilter_isbase = false;
             return KSqueezedTextLabel::eventFilter(watched, event);
-        } else if (ksqueezedtextlabel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ksqueezedtextlabel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ksqueezedtextlabel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KSqueezedTextLabel::eventFilter(watched, event);
         }
+        return KSqueezedTextLabel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1098,13 +1138,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_timerevent_isbase) {
             ksqueezedtextlabel_timerevent_isbase = false;
             KSqueezedTextLabel::timerEvent(event);
-        } else if (ksqueezedtextlabel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ksqueezedtextlabel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ksqueezedtextlabel_timerevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,13 +1155,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_childevent_isbase) {
             ksqueezedtextlabel_childevent_isbase = false;
             KSqueezedTextLabel::childEvent(event);
-        } else if (ksqueezedtextlabel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ksqueezedtextlabel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ksqueezedtextlabel_childevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1126,13 +1172,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_customevent_isbase) {
             ksqueezedtextlabel_customevent_isbase = false;
             KSqueezedTextLabel::customEvent(event);
-        } else if (ksqueezedtextlabel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ksqueezedtextlabel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ksqueezedtextlabel_customevent_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1140,15 +1189,18 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_connectnotify_isbase) {
             ksqueezedtextlabel_connectnotify_isbase = false;
             KSqueezedTextLabel::connectNotify(signal);
-        } else if (ksqueezedtextlabel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ksqueezedtextlabel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksqueezedtextlabel_connectnotify_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1156,15 +1208,18 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_disconnectnotify_isbase) {
             ksqueezedtextlabel_disconnectnotify_isbase = false;
             KSqueezedTextLabel::disconnectNotify(signal);
-        } else if (ksqueezedtextlabel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ksqueezedtextlabel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksqueezedtextlabel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,11 +1227,14 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_squeezetexttolabel_isbase) {
             ksqueezedtextlabel_squeezetexttolabel_isbase = false;
             KSqueezedTextLabel::squeezeTextToLabel();
-        } else if (ksqueezedtextlabel_squeezetexttolabel_callback != nullptr) {
-            ksqueezedtextlabel_squeezetexttolabel_callback();
-        } else {
-            KSqueezedTextLabel::squeezeTextToLabel();
+            return;
         }
+        auto squeezetexttolabel_cb = ksqueezedtextlabel_squeezetexttolabel_callback;
+        if (squeezetexttolabel_cb) {
+            squeezetexttolabel_cb();
+            return;
+        }
+        KSqueezedTextLabel::squeezeTextToLabel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,13 +1242,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_drawframe_isbase) {
             ksqueezedtextlabel_drawframe_isbase = false;
             KSqueezedTextLabel::drawFrame(param1);
-        } else if (ksqueezedtextlabel_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = ksqueezedtextlabel_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            ksqueezedtextlabel_drawframe_callback(this, cbval1);
-        } else {
-            KSqueezedTextLabel::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KSqueezedTextLabel::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1198,11 +1259,14 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_updatemicrofocus_isbase) {
             ksqueezedtextlabel_updatemicrofocus_isbase = false;
             KSqueezedTextLabel::updateMicroFocus();
-        } else if (ksqueezedtextlabel_updatemicrofocus_callback != nullptr) {
-            ksqueezedtextlabel_updatemicrofocus_callback();
-        } else {
-            KSqueezedTextLabel::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = ksqueezedtextlabel_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KSqueezedTextLabel::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,11 +1274,14 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_create_isbase) {
             ksqueezedtextlabel_create_isbase = false;
             KSqueezedTextLabel::create();
-        } else if (ksqueezedtextlabel_create_callback != nullptr) {
-            ksqueezedtextlabel_create_callback();
-        } else {
-            KSqueezedTextLabel::create();
+            return;
         }
+        auto create_cb = ksqueezedtextlabel_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KSqueezedTextLabel::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,11 +1289,14 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_destroy_isbase) {
             ksqueezedtextlabel_destroy_isbase = false;
             KSqueezedTextLabel::destroy();
-        } else if (ksqueezedtextlabel_destroy_callback != nullptr) {
-            ksqueezedtextlabel_destroy_callback();
-        } else {
-            KSqueezedTextLabel::destroy();
+            return;
         }
+        auto destroy_cb = ksqueezedtextlabel_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KSqueezedTextLabel::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,12 +1304,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_focusnextchild_isbase) {
             ksqueezedtextlabel_focusnextchild_isbase = false;
             return KSqueezedTextLabel::focusNextChild();
-        } else if (ksqueezedtextlabel_focusnextchild_callback != nullptr) {
-            bool callback_ret = ksqueezedtextlabel_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KSqueezedTextLabel::focusNextChild();
         }
+        auto focusnextchild_cb = ksqueezedtextlabel_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KSqueezedTextLabel::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,12 +1318,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_focuspreviouschild_isbase) {
             ksqueezedtextlabel_focuspreviouschild_isbase = false;
             return KSqueezedTextLabel::focusPreviousChild();
-        } else if (ksqueezedtextlabel_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = ksqueezedtextlabel_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KSqueezedTextLabel::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = ksqueezedtextlabel_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KSqueezedTextLabel::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1260,12 +1332,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_sender_isbase) {
             ksqueezedtextlabel_sender_isbase = false;
             return KSqueezedTextLabel::sender();
-        } else if (ksqueezedtextlabel_sender_callback != nullptr) {
-            QObject* callback_ret = ksqueezedtextlabel_sender_callback();
-            return callback_ret;
-        } else {
-            return KSqueezedTextLabel::sender();
         }
+        auto sender_cb = ksqueezedtextlabel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSqueezedTextLabel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1273,12 +1346,13 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_sendersignalindex_isbase) {
             ksqueezedtextlabel_sendersignalindex_isbase = false;
             return KSqueezedTextLabel::senderSignalIndex();
-        } else if (ksqueezedtextlabel_sendersignalindex_callback != nullptr) {
-            int callback_ret = ksqueezedtextlabel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSqueezedTextLabel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ksqueezedtextlabel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSqueezedTextLabel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1286,14 +1360,15 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_receivers_isbase) {
             ksqueezedtextlabel_receivers_isbase = false;
             return KSqueezedTextLabel::receivers(signal);
-        } else if (ksqueezedtextlabel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ksqueezedtextlabel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ksqueezedtextlabel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSqueezedTextLabel::receivers(signal);
         }
+        return KSqueezedTextLabel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1301,16 +1376,17 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_issignalconnected_isbase) {
             ksqueezedtextlabel_issignalconnected_isbase = false;
             return KSqueezedTextLabel::isSignalConnected(signal);
-        } else if (ksqueezedtextlabel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ksqueezedtextlabel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ksqueezedtextlabel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSqueezedTextLabel::isSignalConnected(signal);
         }
+        return KSqueezedTextLabel::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1318,15 +1394,16 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
         if (ksqueezedtextlabel_getdecodedmetricf_isbase) {
             ksqueezedtextlabel_getdecodedmetricf_isbase = false;
             return KSqueezedTextLabel::getDecodedMetricF(metricA, metricB);
-        } else if (ksqueezedtextlabel_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = ksqueezedtextlabel_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = ksqueezedtextlabel_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KSqueezedTextLabel::getDecodedMetricF(metricA, metricB);
         }
+        return KSqueezedTextLabel::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

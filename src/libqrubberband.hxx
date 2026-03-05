@@ -210,70 +210,6 @@ class VirtualQRubberBand final : public QRubberBand {
     VirtualQRubberBand(QRubberBand::Shape param1) : QRubberBand(param1) {};
     VirtualQRubberBand(QRubberBand::Shape param1, QWidget* param2) : QRubberBand(param1, param2) {};
 
-    ~VirtualQRubberBand() {
-        qrubberband_metaobject_callback = nullptr;
-        qrubberband_metacast_callback = nullptr;
-        qrubberband_metacall_callback = nullptr;
-        qrubberband_event_callback = nullptr;
-        qrubberband_paintevent_callback = nullptr;
-        qrubberband_changeevent_callback = nullptr;
-        qrubberband_showevent_callback = nullptr;
-        qrubberband_resizeevent_callback = nullptr;
-        qrubberband_moveevent_callback = nullptr;
-        qrubberband_initstyleoption_callback = nullptr;
-        qrubberband_devtype_callback = nullptr;
-        qrubberband_setvisible_callback = nullptr;
-        qrubberband_sizehint_callback = nullptr;
-        qrubberband_minimumsizehint_callback = nullptr;
-        qrubberband_heightforwidth_callback = nullptr;
-        qrubberband_hasheightforwidth_callback = nullptr;
-        qrubberband_paintengine_callback = nullptr;
-        qrubberband_mousepressevent_callback = nullptr;
-        qrubberband_mousereleaseevent_callback = nullptr;
-        qrubberband_mousedoubleclickevent_callback = nullptr;
-        qrubberband_mousemoveevent_callback = nullptr;
-        qrubberband_wheelevent_callback = nullptr;
-        qrubberband_keypressevent_callback = nullptr;
-        qrubberband_keyreleaseevent_callback = nullptr;
-        qrubberband_focusinevent_callback = nullptr;
-        qrubberband_focusoutevent_callback = nullptr;
-        qrubberband_enterevent_callback = nullptr;
-        qrubberband_leaveevent_callback = nullptr;
-        qrubberband_closeevent_callback = nullptr;
-        qrubberband_contextmenuevent_callback = nullptr;
-        qrubberband_tabletevent_callback = nullptr;
-        qrubberband_actionevent_callback = nullptr;
-        qrubberband_dragenterevent_callback = nullptr;
-        qrubberband_dragmoveevent_callback = nullptr;
-        qrubberband_dragleaveevent_callback = nullptr;
-        qrubberband_dropevent_callback = nullptr;
-        qrubberband_hideevent_callback = nullptr;
-        qrubberband_nativeevent_callback = nullptr;
-        qrubberband_metric_callback = nullptr;
-        qrubberband_initpainter_callback = nullptr;
-        qrubberband_redirected_callback = nullptr;
-        qrubberband_sharedpainter_callback = nullptr;
-        qrubberband_inputmethodevent_callback = nullptr;
-        qrubberband_inputmethodquery_callback = nullptr;
-        qrubberband_focusnextprevchild_callback = nullptr;
-        qrubberband_eventfilter_callback = nullptr;
-        qrubberband_timerevent_callback = nullptr;
-        qrubberband_childevent_callback = nullptr;
-        qrubberband_customevent_callback = nullptr;
-        qrubberband_connectnotify_callback = nullptr;
-        qrubberband_disconnectnotify_callback = nullptr;
-        qrubberband_updatemicrofocus_callback = nullptr;
-        qrubberband_create_callback = nullptr;
-        qrubberband_destroy_callback = nullptr;
-        qrubberband_focusnextchild_callback = nullptr;
-        qrubberband_focuspreviouschild_callback = nullptr;
-        qrubberband_sender_callback = nullptr;
-        qrubberband_sendersignalindex_callback = nullptr;
-        qrubberband_receivers_callback = nullptr;
-        qrubberband_issignalconnected_callback = nullptr;
-        qrubberband_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQRubberBand_MetaObject_Callback(QRubberBand_MetaObject_Callback cb) { qrubberband_metaobject_callback = cb; }
     inline void setQRubberBand_Metacast_Callback(QRubberBand_Metacast_Callback cb) { qrubberband_metacast_callback = cb; }
@@ -405,12 +341,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_metaobject_isbase) {
             qrubberband_metaobject_isbase = false;
             return QRubberBand::metaObject();
-        } else if (qrubberband_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qrubberband_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QRubberBand::metaObject();
         }
+        auto metaobject_cb = qrubberband_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QRubberBand::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -418,14 +355,15 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_metacast_isbase) {
             qrubberband_metacast_isbase = false;
             return QRubberBand::qt_metacast(param1);
-        } else if (qrubberband_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qrubberband_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qrubberband_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRubberBand::qt_metacast(param1);
         }
+        return QRubberBand::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -433,16 +371,17 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_metacall_isbase) {
             qrubberband_metacall_isbase = false;
             return QRubberBand::qt_metacall(param1, param2, param3);
-        } else if (qrubberband_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qrubberband_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qrubberband_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRubberBand::qt_metacall(param1, param2, param3);
         }
+        return QRubberBand::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +389,15 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_event_isbase) {
             qrubberband_event_isbase = false;
             return QRubberBand::event(e);
-        } else if (qrubberband_event_callback != nullptr) {
+        }
+        auto event_cb = qrubberband_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qrubberband_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRubberBand::event(e);
         }
+        return QRubberBand::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,13 +405,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_paintevent_isbase) {
             qrubberband_paintevent_isbase = false;
             QRubberBand::paintEvent(param1);
-        } else if (qrubberband_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qrubberband_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qrubberband_paintevent_callback(this, cbval1);
-        } else {
-            QRubberBand::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -479,13 +422,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_changeevent_isbase) {
             qrubberband_changeevent_isbase = false;
             QRubberBand::changeEvent(param1);
-        } else if (qrubberband_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qrubberband_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qrubberband_changeevent_callback(this, cbval1);
-        } else {
-            QRubberBand::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,13 +439,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_showevent_isbase) {
             qrubberband_showevent_isbase = false;
             QRubberBand::showEvent(param1);
-        } else if (qrubberband_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qrubberband_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qrubberband_showevent_callback(this, cbval1);
-        } else {
-            QRubberBand::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -507,13 +456,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_resizeevent_isbase) {
             qrubberband_resizeevent_isbase = false;
             QRubberBand::resizeEvent(param1);
-        } else if (qrubberband_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qrubberband_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qrubberband_resizeevent_callback(this, cbval1);
-        } else {
-            QRubberBand::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -521,13 +473,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_moveevent_isbase) {
             qrubberband_moveevent_isbase = false;
             QRubberBand::moveEvent(param1);
-        } else if (qrubberband_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qrubberband_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = param1;
 
-            qrubberband_moveevent_callback(this, cbval1);
-        } else {
-            QRubberBand::moveEvent(param1);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::moveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -535,13 +490,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_initstyleoption_isbase) {
             qrubberband_initstyleoption_isbase = false;
             QRubberBand::initStyleOption(option);
-        } else if (qrubberband_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qrubberband_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionRubberBand* cbval1 = option;
 
-            qrubberband_initstyleoption_callback(this, cbval1);
-        } else {
-            QRubberBand::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QRubberBand::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -549,12 +507,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_devtype_isbase) {
             qrubberband_devtype_isbase = false;
             return QRubberBand::devType();
-        } else if (qrubberband_devtype_callback != nullptr) {
-            int callback_ret = qrubberband_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QRubberBand::devType();
         }
+        auto devtype_cb = qrubberband_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QRubberBand::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -562,13 +521,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_setvisible_isbase) {
             qrubberband_setvisible_isbase = false;
             QRubberBand::setVisible(visible);
-        } else if (qrubberband_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qrubberband_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qrubberband_setvisible_callback(this, cbval1);
-        } else {
-            QRubberBand::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QRubberBand::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -576,12 +538,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_sizehint_isbase) {
             qrubberband_sizehint_isbase = false;
             return QRubberBand::sizeHint();
-        } else if (qrubberband_sizehint_callback != nullptr) {
-            QSize* callback_ret = qrubberband_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QRubberBand::sizeHint();
         }
+        auto sizehint_cb = qrubberband_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QRubberBand::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -589,12 +552,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_minimumsizehint_isbase) {
             qrubberband_minimumsizehint_isbase = false;
             return QRubberBand::minimumSizeHint();
-        } else if (qrubberband_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qrubberband_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QRubberBand::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qrubberband_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QRubberBand::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,14 +566,15 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_heightforwidth_isbase) {
             qrubberband_heightforwidth_isbase = false;
             return QRubberBand::heightForWidth(param1);
-        } else if (qrubberband_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qrubberband_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qrubberband_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRubberBand::heightForWidth(param1);
         }
+        return QRubberBand::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,12 +582,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_hasheightforwidth_isbase) {
             qrubberband_hasheightforwidth_isbase = false;
             return QRubberBand::hasHeightForWidth();
-        } else if (qrubberband_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qrubberband_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QRubberBand::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qrubberband_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QRubberBand::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -630,12 +596,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_paintengine_isbase) {
             qrubberband_paintengine_isbase = false;
             return QRubberBand::paintEngine();
-        } else if (qrubberband_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qrubberband_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QRubberBand::paintEngine();
         }
+        auto paintengine_cb = qrubberband_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QRubberBand::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -643,13 +610,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_mousepressevent_isbase) {
             qrubberband_mousepressevent_isbase = false;
             QRubberBand::mousePressEvent(event);
-        } else if (qrubberband_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qrubberband_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qrubberband_mousepressevent_callback(this, cbval1);
-        } else {
-            QRubberBand::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -657,13 +627,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_mousereleaseevent_isbase) {
             qrubberband_mousereleaseevent_isbase = false;
             QRubberBand::mouseReleaseEvent(event);
-        } else if (qrubberband_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qrubberband_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qrubberband_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QRubberBand::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,13 +644,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_mousedoubleclickevent_isbase) {
             qrubberband_mousedoubleclickevent_isbase = false;
             QRubberBand::mouseDoubleClickEvent(event);
-        } else if (qrubberband_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qrubberband_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qrubberband_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QRubberBand::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -685,13 +661,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_mousemoveevent_isbase) {
             qrubberband_mousemoveevent_isbase = false;
             QRubberBand::mouseMoveEvent(event);
-        } else if (qrubberband_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qrubberband_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qrubberband_mousemoveevent_callback(this, cbval1);
-        } else {
-            QRubberBand::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -699,13 +678,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_wheelevent_isbase) {
             qrubberband_wheelevent_isbase = false;
             QRubberBand::wheelEvent(event);
-        } else if (qrubberband_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qrubberband_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qrubberband_wheelevent_callback(this, cbval1);
-        } else {
-            QRubberBand::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -713,13 +695,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_keypressevent_isbase) {
             qrubberband_keypressevent_isbase = false;
             QRubberBand::keyPressEvent(event);
-        } else if (qrubberband_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qrubberband_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qrubberband_keypressevent_callback(this, cbval1);
-        } else {
-            QRubberBand::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,13 +712,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_keyreleaseevent_isbase) {
             qrubberband_keyreleaseevent_isbase = false;
             QRubberBand::keyReleaseEvent(event);
-        } else if (qrubberband_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qrubberband_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qrubberband_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QRubberBand::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -741,13 +729,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_focusinevent_isbase) {
             qrubberband_focusinevent_isbase = false;
             QRubberBand::focusInEvent(event);
-        } else if (qrubberband_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qrubberband_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qrubberband_focusinevent_callback(this, cbval1);
-        } else {
-            QRubberBand::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -755,13 +746,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_focusoutevent_isbase) {
             qrubberband_focusoutevent_isbase = false;
             QRubberBand::focusOutEvent(event);
-        } else if (qrubberband_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qrubberband_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qrubberband_focusoutevent_callback(this, cbval1);
-        } else {
-            QRubberBand::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -769,13 +763,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_enterevent_isbase) {
             qrubberband_enterevent_isbase = false;
             QRubberBand::enterEvent(event);
-        } else if (qrubberband_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qrubberband_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qrubberband_enterevent_callback(this, cbval1);
-        } else {
-            QRubberBand::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -783,13 +780,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_leaveevent_isbase) {
             qrubberband_leaveevent_isbase = false;
             QRubberBand::leaveEvent(event);
-        } else if (qrubberband_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qrubberband_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qrubberband_leaveevent_callback(this, cbval1);
-        } else {
-            QRubberBand::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -797,13 +797,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_closeevent_isbase) {
             qrubberband_closeevent_isbase = false;
             QRubberBand::closeEvent(event);
-        } else if (qrubberband_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qrubberband_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qrubberband_closeevent_callback(this, cbval1);
-        } else {
-            QRubberBand::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -811,13 +814,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_contextmenuevent_isbase) {
             qrubberband_contextmenuevent_isbase = false;
             QRubberBand::contextMenuEvent(event);
-        } else if (qrubberband_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qrubberband_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qrubberband_contextmenuevent_callback(this, cbval1);
-        } else {
-            QRubberBand::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -825,13 +831,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_tabletevent_isbase) {
             qrubberband_tabletevent_isbase = false;
             QRubberBand::tabletEvent(event);
-        } else if (qrubberband_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qrubberband_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qrubberband_tabletevent_callback(this, cbval1);
-        } else {
-            QRubberBand::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -839,13 +848,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_actionevent_isbase) {
             qrubberband_actionevent_isbase = false;
             QRubberBand::actionEvent(event);
-        } else if (qrubberband_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qrubberband_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qrubberband_actionevent_callback(this, cbval1);
-        } else {
-            QRubberBand::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -853,13 +865,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_dragenterevent_isbase) {
             qrubberband_dragenterevent_isbase = false;
             QRubberBand::dragEnterEvent(event);
-        } else if (qrubberband_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qrubberband_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qrubberband_dragenterevent_callback(this, cbval1);
-        } else {
-            QRubberBand::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,13 +882,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_dragmoveevent_isbase) {
             qrubberband_dragmoveevent_isbase = false;
             QRubberBand::dragMoveEvent(event);
-        } else if (qrubberband_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qrubberband_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qrubberband_dragmoveevent_callback(this, cbval1);
-        } else {
-            QRubberBand::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -881,13 +899,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_dragleaveevent_isbase) {
             qrubberband_dragleaveevent_isbase = false;
             QRubberBand::dragLeaveEvent(event);
-        } else if (qrubberband_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qrubberband_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qrubberband_dragleaveevent_callback(this, cbval1);
-        } else {
-            QRubberBand::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -895,13 +916,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_dropevent_isbase) {
             qrubberband_dropevent_isbase = false;
             QRubberBand::dropEvent(event);
-        } else if (qrubberband_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qrubberband_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qrubberband_dropevent_callback(this, cbval1);
-        } else {
-            QRubberBand::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -909,13 +933,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_hideevent_isbase) {
             qrubberband_hideevent_isbase = false;
             QRubberBand::hideEvent(event);
-        } else if (qrubberband_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qrubberband_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qrubberband_hideevent_callback(this, cbval1);
-        } else {
-            QRubberBand::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -923,7 +950,9 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_nativeevent_isbase) {
             qrubberband_nativeevent_isbase = false;
             return QRubberBand::nativeEvent(eventType, message, result);
-        } else if (qrubberband_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qrubberband_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -934,12 +963,11 @@ class VirtualQRubberBand final : public QRubberBand {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qrubberband_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QRubberBand::nativeEvent(eventType, message, result);
         }
+        return QRubberBand::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,14 +975,15 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_metric_isbase) {
             qrubberband_metric_isbase = false;
             return QRubberBand::metric(param1);
-        } else if (qrubberband_metric_callback != nullptr) {
+        }
+        auto metric_cb = qrubberband_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qrubberband_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRubberBand::metric(param1);
         }
+        return QRubberBand::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -962,13 +991,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_initpainter_isbase) {
             qrubberband_initpainter_isbase = false;
             QRubberBand::initPainter(painter);
-        } else if (qrubberband_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qrubberband_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qrubberband_initpainter_callback(this, cbval1);
-        } else {
-            QRubberBand::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QRubberBand::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -976,14 +1008,15 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_redirected_isbase) {
             qrubberband_redirected_isbase = false;
             return QRubberBand::redirected(offset);
-        } else if (qrubberband_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qrubberband_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qrubberband_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRubberBand::redirected(offset);
         }
+        return QRubberBand::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,12 +1024,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_sharedpainter_isbase) {
             qrubberband_sharedpainter_isbase = false;
             return QRubberBand::sharedPainter();
-        } else if (qrubberband_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qrubberband_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QRubberBand::sharedPainter();
         }
+        auto sharedpainter_cb = qrubberband_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QRubberBand::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1004,13 +1038,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_inputmethodevent_isbase) {
             qrubberband_inputmethodevent_isbase = false;
             QRubberBand::inputMethodEvent(param1);
-        } else if (qrubberband_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qrubberband_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qrubberband_inputmethodevent_callback(this, cbval1);
-        } else {
-            QRubberBand::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1018,14 +1055,15 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_inputmethodquery_isbase) {
             qrubberband_inputmethodquery_isbase = false;
             return QRubberBand::inputMethodQuery(param1);
-        } else if (qrubberband_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qrubberband_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qrubberband_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QRubberBand::inputMethodQuery(param1);
         }
+        return QRubberBand::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1033,14 +1071,15 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_focusnextprevchild_isbase) {
             qrubberband_focusnextprevchild_isbase = false;
             return QRubberBand::focusNextPrevChild(next);
-        } else if (qrubberband_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qrubberband_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qrubberband_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRubberBand::focusNextPrevChild(next);
         }
+        return QRubberBand::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,15 +1087,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_eventfilter_isbase) {
             qrubberband_eventfilter_isbase = false;
             return QRubberBand::eventFilter(watched, event);
-        } else if (qrubberband_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qrubberband_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qrubberband_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QRubberBand::eventFilter(watched, event);
         }
+        return QRubberBand::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,13 +1104,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_timerevent_isbase) {
             qrubberband_timerevent_isbase = false;
             QRubberBand::timerEvent(event);
-        } else if (qrubberband_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qrubberband_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qrubberband_timerevent_callback(this, cbval1);
-        } else {
-            QRubberBand::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1078,13 +1121,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_childevent_isbase) {
             qrubberband_childevent_isbase = false;
             QRubberBand::childEvent(event);
-        } else if (qrubberband_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qrubberband_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qrubberband_childevent_callback(this, cbval1);
-        } else {
-            QRubberBand::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,13 +1138,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_customevent_isbase) {
             qrubberband_customevent_isbase = false;
             QRubberBand::customEvent(event);
-        } else if (qrubberband_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qrubberband_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qrubberband_customevent_callback(this, cbval1);
-        } else {
-            QRubberBand::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QRubberBand::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,15 +1155,18 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_connectnotify_isbase) {
             qrubberband_connectnotify_isbase = false;
             QRubberBand::connectNotify(signal);
-        } else if (qrubberband_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qrubberband_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qrubberband_connectnotify_callback(this, cbval1);
-        } else {
-            QRubberBand::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QRubberBand::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1122,15 +1174,18 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_disconnectnotify_isbase) {
             qrubberband_disconnectnotify_isbase = false;
             QRubberBand::disconnectNotify(signal);
-        } else if (qrubberband_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qrubberband_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qrubberband_disconnectnotify_callback(this, cbval1);
-        } else {
-            QRubberBand::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QRubberBand::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1138,11 +1193,14 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_updatemicrofocus_isbase) {
             qrubberband_updatemicrofocus_isbase = false;
             QRubberBand::updateMicroFocus();
-        } else if (qrubberband_updatemicrofocus_callback != nullptr) {
-            qrubberband_updatemicrofocus_callback();
-        } else {
-            QRubberBand::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qrubberband_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QRubberBand::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,11 +1208,14 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_create_isbase) {
             qrubberband_create_isbase = false;
             QRubberBand::create();
-        } else if (qrubberband_create_callback != nullptr) {
-            qrubberband_create_callback();
-        } else {
-            QRubberBand::create();
+            return;
         }
+        auto create_cb = qrubberband_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QRubberBand::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1162,11 +1223,14 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_destroy_isbase) {
             qrubberband_destroy_isbase = false;
             QRubberBand::destroy();
-        } else if (qrubberband_destroy_callback != nullptr) {
-            qrubberband_destroy_callback();
-        } else {
-            QRubberBand::destroy();
+            return;
         }
+        auto destroy_cb = qrubberband_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QRubberBand::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1174,12 +1238,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_focusnextchild_isbase) {
             qrubberband_focusnextchild_isbase = false;
             return QRubberBand::focusNextChild();
-        } else if (qrubberband_focusnextchild_callback != nullptr) {
-            bool callback_ret = qrubberband_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QRubberBand::focusNextChild();
         }
+        auto focusnextchild_cb = qrubberband_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QRubberBand::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,12 +1252,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_focuspreviouschild_isbase) {
             qrubberband_focuspreviouschild_isbase = false;
             return QRubberBand::focusPreviousChild();
-        } else if (qrubberband_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qrubberband_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QRubberBand::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qrubberband_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QRubberBand::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1200,12 +1266,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_sender_isbase) {
             qrubberband_sender_isbase = false;
             return QRubberBand::sender();
-        } else if (qrubberband_sender_callback != nullptr) {
-            QObject* callback_ret = qrubberband_sender_callback();
-            return callback_ret;
-        } else {
-            return QRubberBand::sender();
         }
+        auto sender_cb = qrubberband_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QRubberBand::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1213,12 +1280,13 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_sendersignalindex_isbase) {
             qrubberband_sendersignalindex_isbase = false;
             return QRubberBand::senderSignalIndex();
-        } else if (qrubberband_sendersignalindex_callback != nullptr) {
-            int callback_ret = qrubberband_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QRubberBand::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qrubberband_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QRubberBand::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1226,14 +1294,15 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_receivers_isbase) {
             qrubberband_receivers_isbase = false;
             return QRubberBand::receivers(signal);
-        } else if (qrubberband_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qrubberband_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qrubberband_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QRubberBand::receivers(signal);
         }
+        return QRubberBand::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,16 +1310,17 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_issignalconnected_isbase) {
             qrubberband_issignalconnected_isbase = false;
             return QRubberBand::isSignalConnected(signal);
-        } else if (qrubberband_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qrubberband_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qrubberband_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QRubberBand::isSignalConnected(signal);
         }
+        return QRubberBand::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1258,15 +1328,16 @@ class VirtualQRubberBand final : public QRubberBand {
         if (qrubberband_getdecodedmetricf_isbase) {
             qrubberband_getdecodedmetricf_isbase = false;
             return QRubberBand::getDecodedMetricF(metricA, metricB);
-        } else if (qrubberband_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qrubberband_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qrubberband_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QRubberBand::getDecodedMetricF(metricA, metricB);
         }
+        return QRubberBand::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

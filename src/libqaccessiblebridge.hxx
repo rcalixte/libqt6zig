@@ -72,24 +72,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
     VirtualQAccessibleBridgePlugin() : QAccessibleBridgePlugin() {};
     VirtualQAccessibleBridgePlugin(QObject* parent) : QAccessibleBridgePlugin(parent) {};
 
-    ~VirtualQAccessibleBridgePlugin() {
-        qaccessiblebridgeplugin_metaobject_callback = nullptr;
-        qaccessiblebridgeplugin_metacast_callback = nullptr;
-        qaccessiblebridgeplugin_metacall_callback = nullptr;
-        qaccessiblebridgeplugin_create_callback = nullptr;
-        qaccessiblebridgeplugin_event_callback = nullptr;
-        qaccessiblebridgeplugin_eventfilter_callback = nullptr;
-        qaccessiblebridgeplugin_timerevent_callback = nullptr;
-        qaccessiblebridgeplugin_childevent_callback = nullptr;
-        qaccessiblebridgeplugin_customevent_callback = nullptr;
-        qaccessiblebridgeplugin_connectnotify_callback = nullptr;
-        qaccessiblebridgeplugin_disconnectnotify_callback = nullptr;
-        qaccessiblebridgeplugin_sender_callback = nullptr;
-        qaccessiblebridgeplugin_sendersignalindex_callback = nullptr;
-        qaccessiblebridgeplugin_receivers_callback = nullptr;
-        qaccessiblebridgeplugin_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAccessibleBridgePlugin_MetaObject_Callback(QAccessibleBridgePlugin_MetaObject_Callback cb) { qaccessiblebridgeplugin_metaobject_callback = cb; }
     inline void setQAccessibleBridgePlugin_Metacast_Callback(QAccessibleBridgePlugin_Metacast_Callback cb) { qaccessiblebridgeplugin_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_metaobject_isbase) {
             qaccessiblebridgeplugin_metaobject_isbase = false;
             return QAccessibleBridgePlugin::metaObject();
-        } else if (qaccessiblebridgeplugin_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qaccessiblebridgeplugin_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleBridgePlugin::metaObject();
         }
+        auto metaobject_cb = qaccessiblebridgeplugin_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAccessibleBridgePlugin::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_metacast_isbase) {
             qaccessiblebridgeplugin_metacast_isbase = false;
             return QAccessibleBridgePlugin::qt_metacast(param1);
-        } else if (qaccessiblebridgeplugin_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qaccessiblebridgeplugin_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qaccessiblebridgeplugin_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAccessibleBridgePlugin::qt_metacast(param1);
         }
+        return QAccessibleBridgePlugin::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,21 +141,23 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_metacall_isbase) {
             qaccessiblebridgeplugin_metacall_isbase = false;
             return QAccessibleBridgePlugin::qt_metacall(param1, param2, param3);
-        } else if (qaccessiblebridgeplugin_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qaccessiblebridgeplugin_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qaccessiblebridgeplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAccessibleBridgePlugin::qt_metacall(param1, param2, param3);
         }
+        return QAccessibleBridgePlugin::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QAccessibleBridge* create(const QString& key) override {
-        if (qaccessiblebridgeplugin_create_callback != nullptr) {
+        auto create_cb = qaccessiblebridgeplugin_create_callback;
+        if (create_cb) {
             const QString key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -181,12 +167,11 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval1 = key_str;
 
-            QAccessibleBridge* callback_ret = qaccessiblebridgeplugin_create_callback(this, cbval1);
+            QAccessibleBridge* callback_ret = create_cb(this, cbval1);
             libqt_free(key_str);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,14 +179,15 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_event_isbase) {
             qaccessiblebridgeplugin_event_isbase = false;
             return QAccessibleBridgePlugin::event(event);
-        } else if (qaccessiblebridgeplugin_event_callback != nullptr) {
+        }
+        auto event_cb = qaccessiblebridgeplugin_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qaccessiblebridgeplugin_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAccessibleBridgePlugin::event(event);
         }
+        return QAccessibleBridgePlugin::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -209,15 +195,16 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_eventfilter_isbase) {
             qaccessiblebridgeplugin_eventfilter_isbase = false;
             return QAccessibleBridgePlugin::eventFilter(watched, event);
-        } else if (qaccessiblebridgeplugin_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qaccessiblebridgeplugin_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qaccessiblebridgeplugin_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAccessibleBridgePlugin::eventFilter(watched, event);
         }
+        return QAccessibleBridgePlugin::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -225,13 +212,16 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_timerevent_isbase) {
             qaccessiblebridgeplugin_timerevent_isbase = false;
             QAccessibleBridgePlugin::timerEvent(event);
-        } else if (qaccessiblebridgeplugin_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qaccessiblebridgeplugin_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qaccessiblebridgeplugin_timerevent_callback(this, cbval1);
-        } else {
-            QAccessibleBridgePlugin::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAccessibleBridgePlugin::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -239,13 +229,16 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_childevent_isbase) {
             qaccessiblebridgeplugin_childevent_isbase = false;
             QAccessibleBridgePlugin::childEvent(event);
-        } else if (qaccessiblebridgeplugin_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qaccessiblebridgeplugin_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qaccessiblebridgeplugin_childevent_callback(this, cbval1);
-        } else {
-            QAccessibleBridgePlugin::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAccessibleBridgePlugin::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -253,13 +246,16 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_customevent_isbase) {
             qaccessiblebridgeplugin_customevent_isbase = false;
             QAccessibleBridgePlugin::customEvent(event);
-        } else if (qaccessiblebridgeplugin_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qaccessiblebridgeplugin_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qaccessiblebridgeplugin_customevent_callback(this, cbval1);
-        } else {
-            QAccessibleBridgePlugin::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAccessibleBridgePlugin::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -267,15 +263,18 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_connectnotify_isbase) {
             qaccessiblebridgeplugin_connectnotify_isbase = false;
             QAccessibleBridgePlugin::connectNotify(signal);
-        } else if (qaccessiblebridgeplugin_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qaccessiblebridgeplugin_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qaccessiblebridgeplugin_connectnotify_callback(this, cbval1);
-        } else {
-            QAccessibleBridgePlugin::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAccessibleBridgePlugin::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -283,15 +282,18 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_disconnectnotify_isbase) {
             qaccessiblebridgeplugin_disconnectnotify_isbase = false;
             QAccessibleBridgePlugin::disconnectNotify(signal);
-        } else if (qaccessiblebridgeplugin_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qaccessiblebridgeplugin_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qaccessiblebridgeplugin_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAccessibleBridgePlugin::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAccessibleBridgePlugin::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,12 +301,13 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_sender_isbase) {
             qaccessiblebridgeplugin_sender_isbase = false;
             return QAccessibleBridgePlugin::sender();
-        } else if (qaccessiblebridgeplugin_sender_callback != nullptr) {
-            QObject* callback_ret = qaccessiblebridgeplugin_sender_callback();
-            return callback_ret;
-        } else {
-            return QAccessibleBridgePlugin::sender();
         }
+        auto sender_cb = qaccessiblebridgeplugin_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAccessibleBridgePlugin::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,12 +315,13 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_sendersignalindex_isbase) {
             qaccessiblebridgeplugin_sendersignalindex_isbase = false;
             return QAccessibleBridgePlugin::senderSignalIndex();
-        } else if (qaccessiblebridgeplugin_sendersignalindex_callback != nullptr) {
-            int callback_ret = qaccessiblebridgeplugin_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAccessibleBridgePlugin::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qaccessiblebridgeplugin_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAccessibleBridgePlugin::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -325,14 +329,15 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_receivers_isbase) {
             qaccessiblebridgeplugin_receivers_isbase = false;
             return QAccessibleBridgePlugin::receivers(signal);
-        } else if (qaccessiblebridgeplugin_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qaccessiblebridgeplugin_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qaccessiblebridgeplugin_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAccessibleBridgePlugin::receivers(signal);
         }
+        return QAccessibleBridgePlugin::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -340,16 +345,17 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (qaccessiblebridgeplugin_issignalconnected_isbase) {
             qaccessiblebridgeplugin_issignalconnected_isbase = false;
             return QAccessibleBridgePlugin::isSignalConnected(signal);
-        } else if (qaccessiblebridgeplugin_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qaccessiblebridgeplugin_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qaccessiblebridgeplugin_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAccessibleBridgePlugin::isSignalConnected(signal);
         }
+        return QAccessibleBridgePlugin::isSignalConnected(signal);
     }
 
     // Friend functions

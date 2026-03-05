@@ -210,70 +210,6 @@ class VirtualQFocusFrame final : public QFocusFrame {
     VirtualQFocusFrame(QWidget* parent) : QFocusFrame(parent) {};
     VirtualQFocusFrame() : QFocusFrame() {};
 
-    ~VirtualQFocusFrame() {
-        qfocusframe_metaobject_callback = nullptr;
-        qfocusframe_metacast_callback = nullptr;
-        qfocusframe_metacall_callback = nullptr;
-        qfocusframe_event_callback = nullptr;
-        qfocusframe_eventfilter_callback = nullptr;
-        qfocusframe_paintevent_callback = nullptr;
-        qfocusframe_initstyleoption_callback = nullptr;
-        qfocusframe_devtype_callback = nullptr;
-        qfocusframe_setvisible_callback = nullptr;
-        qfocusframe_sizehint_callback = nullptr;
-        qfocusframe_minimumsizehint_callback = nullptr;
-        qfocusframe_heightforwidth_callback = nullptr;
-        qfocusframe_hasheightforwidth_callback = nullptr;
-        qfocusframe_paintengine_callback = nullptr;
-        qfocusframe_mousepressevent_callback = nullptr;
-        qfocusframe_mousereleaseevent_callback = nullptr;
-        qfocusframe_mousedoubleclickevent_callback = nullptr;
-        qfocusframe_mousemoveevent_callback = nullptr;
-        qfocusframe_wheelevent_callback = nullptr;
-        qfocusframe_keypressevent_callback = nullptr;
-        qfocusframe_keyreleaseevent_callback = nullptr;
-        qfocusframe_focusinevent_callback = nullptr;
-        qfocusframe_focusoutevent_callback = nullptr;
-        qfocusframe_enterevent_callback = nullptr;
-        qfocusframe_leaveevent_callback = nullptr;
-        qfocusframe_moveevent_callback = nullptr;
-        qfocusframe_resizeevent_callback = nullptr;
-        qfocusframe_closeevent_callback = nullptr;
-        qfocusframe_contextmenuevent_callback = nullptr;
-        qfocusframe_tabletevent_callback = nullptr;
-        qfocusframe_actionevent_callback = nullptr;
-        qfocusframe_dragenterevent_callback = nullptr;
-        qfocusframe_dragmoveevent_callback = nullptr;
-        qfocusframe_dragleaveevent_callback = nullptr;
-        qfocusframe_dropevent_callback = nullptr;
-        qfocusframe_showevent_callback = nullptr;
-        qfocusframe_hideevent_callback = nullptr;
-        qfocusframe_nativeevent_callback = nullptr;
-        qfocusframe_changeevent_callback = nullptr;
-        qfocusframe_metric_callback = nullptr;
-        qfocusframe_initpainter_callback = nullptr;
-        qfocusframe_redirected_callback = nullptr;
-        qfocusframe_sharedpainter_callback = nullptr;
-        qfocusframe_inputmethodevent_callback = nullptr;
-        qfocusframe_inputmethodquery_callback = nullptr;
-        qfocusframe_focusnextprevchild_callback = nullptr;
-        qfocusframe_timerevent_callback = nullptr;
-        qfocusframe_childevent_callback = nullptr;
-        qfocusframe_customevent_callback = nullptr;
-        qfocusframe_connectnotify_callback = nullptr;
-        qfocusframe_disconnectnotify_callback = nullptr;
-        qfocusframe_updatemicrofocus_callback = nullptr;
-        qfocusframe_create_callback = nullptr;
-        qfocusframe_destroy_callback = nullptr;
-        qfocusframe_focusnextchild_callback = nullptr;
-        qfocusframe_focuspreviouschild_callback = nullptr;
-        qfocusframe_sender_callback = nullptr;
-        qfocusframe_sendersignalindex_callback = nullptr;
-        qfocusframe_receivers_callback = nullptr;
-        qfocusframe_issignalconnected_callback = nullptr;
-        qfocusframe_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQFocusFrame_MetaObject_Callback(QFocusFrame_MetaObject_Callback cb) { qfocusframe_metaobject_callback = cb; }
     inline void setQFocusFrame_Metacast_Callback(QFocusFrame_Metacast_Callback cb) { qfocusframe_metacast_callback = cb; }
@@ -405,12 +341,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_metaobject_isbase) {
             qfocusframe_metaobject_isbase = false;
             return QFocusFrame::metaObject();
-        } else if (qfocusframe_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qfocusframe_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QFocusFrame::metaObject();
         }
+        auto metaobject_cb = qfocusframe_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QFocusFrame::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -418,14 +355,15 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_metacast_isbase) {
             qfocusframe_metacast_isbase = false;
             return QFocusFrame::qt_metacast(param1);
-        } else if (qfocusframe_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qfocusframe_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qfocusframe_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFocusFrame::qt_metacast(param1);
         }
+        return QFocusFrame::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -433,16 +371,17 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_metacall_isbase) {
             qfocusframe_metacall_isbase = false;
             return QFocusFrame::qt_metacall(param1, param2, param3);
-        } else if (qfocusframe_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qfocusframe_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qfocusframe_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFocusFrame::qt_metacall(param1, param2, param3);
         }
+        return QFocusFrame::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +389,15 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_event_isbase) {
             qfocusframe_event_isbase = false;
             return QFocusFrame::event(e);
-        } else if (qfocusframe_event_callback != nullptr) {
+        }
+        auto event_cb = qfocusframe_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qfocusframe_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFocusFrame::event(e);
         }
+        return QFocusFrame::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,15 +405,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_eventfilter_isbase) {
             qfocusframe_eventfilter_isbase = false;
             return QFocusFrame::eventFilter(param1, param2);
-        } else if (qfocusframe_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qfocusframe_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qfocusframe_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QFocusFrame::eventFilter(param1, param2);
         }
+        return QFocusFrame::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,13 +422,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_paintevent_isbase) {
             qfocusframe_paintevent_isbase = false;
             QFocusFrame::paintEvent(param1);
-        } else if (qfocusframe_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qfocusframe_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qfocusframe_paintevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,13 +439,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_initstyleoption_isbase) {
             qfocusframe_initstyleoption_isbase = false;
             QFocusFrame::initStyleOption(option);
-        } else if (qfocusframe_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qfocusframe_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOption* cbval1 = option;
 
-            qfocusframe_initstyleoption_callback(this, cbval1);
-        } else {
-            QFocusFrame::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,12 +456,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_devtype_isbase) {
             qfocusframe_devtype_isbase = false;
             return QFocusFrame::devType();
-        } else if (qfocusframe_devtype_callback != nullptr) {
-            int callback_ret = qfocusframe_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFocusFrame::devType();
         }
+        auto devtype_cb = qfocusframe_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFocusFrame::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,13 +470,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_setvisible_isbase) {
             qfocusframe_setvisible_isbase = false;
             QFocusFrame::setVisible(visible);
-        } else if (qfocusframe_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qfocusframe_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qfocusframe_setvisible_callback(this, cbval1);
-        } else {
-            QFocusFrame::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -536,12 +487,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_sizehint_isbase) {
             qfocusframe_sizehint_isbase = false;
             return QFocusFrame::sizeHint();
-        } else if (qfocusframe_sizehint_callback != nullptr) {
-            QSize* callback_ret = qfocusframe_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QFocusFrame::sizeHint();
         }
+        auto sizehint_cb = qfocusframe_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QFocusFrame::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -549,12 +501,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_minimumsizehint_isbase) {
             qfocusframe_minimumsizehint_isbase = false;
             return QFocusFrame::minimumSizeHint();
-        } else if (qfocusframe_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qfocusframe_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QFocusFrame::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qfocusframe_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QFocusFrame::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -562,14 +515,15 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_heightforwidth_isbase) {
             qfocusframe_heightforwidth_isbase = false;
             return QFocusFrame::heightForWidth(param1);
-        } else if (qfocusframe_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qfocusframe_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qfocusframe_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFocusFrame::heightForWidth(param1);
         }
+        return QFocusFrame::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,12 +531,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_hasheightforwidth_isbase) {
             qfocusframe_hasheightforwidth_isbase = false;
             return QFocusFrame::hasHeightForWidth();
-        } else if (qfocusframe_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qfocusframe_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QFocusFrame::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qfocusframe_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QFocusFrame::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -590,12 +545,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_paintengine_isbase) {
             qfocusframe_paintengine_isbase = false;
             return QFocusFrame::paintEngine();
-        } else if (qfocusframe_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qfocusframe_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QFocusFrame::paintEngine();
         }
+        auto paintengine_cb = qfocusframe_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QFocusFrame::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -603,13 +559,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_mousepressevent_isbase) {
             qfocusframe_mousepressevent_isbase = false;
             QFocusFrame::mousePressEvent(event);
-        } else if (qfocusframe_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qfocusframe_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfocusframe_mousepressevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,13 +576,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_mousereleaseevent_isbase) {
             qfocusframe_mousereleaseevent_isbase = false;
             QFocusFrame::mouseReleaseEvent(event);
-        } else if (qfocusframe_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qfocusframe_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfocusframe_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,13 +593,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_mousedoubleclickevent_isbase) {
             qfocusframe_mousedoubleclickevent_isbase = false;
             QFocusFrame::mouseDoubleClickEvent(event);
-        } else if (qfocusframe_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qfocusframe_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfocusframe_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,13 +610,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_mousemoveevent_isbase) {
             qfocusframe_mousemoveevent_isbase = false;
             QFocusFrame::mouseMoveEvent(event);
-        } else if (qfocusframe_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qfocusframe_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qfocusframe_mousemoveevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -659,13 +627,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_wheelevent_isbase) {
             qfocusframe_wheelevent_isbase = false;
             QFocusFrame::wheelEvent(event);
-        } else if (qfocusframe_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qfocusframe_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qfocusframe_wheelevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -673,13 +644,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_keypressevent_isbase) {
             qfocusframe_keypressevent_isbase = false;
             QFocusFrame::keyPressEvent(event);
-        } else if (qfocusframe_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qfocusframe_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qfocusframe_keypressevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -687,13 +661,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_keyreleaseevent_isbase) {
             qfocusframe_keyreleaseevent_isbase = false;
             QFocusFrame::keyReleaseEvent(event);
-        } else if (qfocusframe_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qfocusframe_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qfocusframe_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -701,13 +678,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_focusinevent_isbase) {
             qfocusframe_focusinevent_isbase = false;
             QFocusFrame::focusInEvent(event);
-        } else if (qfocusframe_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qfocusframe_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qfocusframe_focusinevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -715,13 +695,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_focusoutevent_isbase) {
             qfocusframe_focusoutevent_isbase = false;
             QFocusFrame::focusOutEvent(event);
-        } else if (qfocusframe_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qfocusframe_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qfocusframe_focusoutevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -729,13 +712,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_enterevent_isbase) {
             qfocusframe_enterevent_isbase = false;
             QFocusFrame::enterEvent(event);
-        } else if (qfocusframe_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qfocusframe_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qfocusframe_enterevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -743,13 +729,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_leaveevent_isbase) {
             qfocusframe_leaveevent_isbase = false;
             QFocusFrame::leaveEvent(event);
-        } else if (qfocusframe_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qfocusframe_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qfocusframe_leaveevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -757,13 +746,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_moveevent_isbase) {
             qfocusframe_moveevent_isbase = false;
             QFocusFrame::moveEvent(event);
-        } else if (qfocusframe_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qfocusframe_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qfocusframe_moveevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -771,13 +763,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_resizeevent_isbase) {
             qfocusframe_resizeevent_isbase = false;
             QFocusFrame::resizeEvent(event);
-        } else if (qfocusframe_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qfocusframe_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qfocusframe_resizeevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -785,13 +780,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_closeevent_isbase) {
             qfocusframe_closeevent_isbase = false;
             QFocusFrame::closeEvent(event);
-        } else if (qfocusframe_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qfocusframe_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qfocusframe_closeevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,13 +797,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_contextmenuevent_isbase) {
             qfocusframe_contextmenuevent_isbase = false;
             QFocusFrame::contextMenuEvent(event);
-        } else if (qfocusframe_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qfocusframe_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qfocusframe_contextmenuevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -813,13 +814,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_tabletevent_isbase) {
             qfocusframe_tabletevent_isbase = false;
             QFocusFrame::tabletEvent(event);
-        } else if (qfocusframe_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qfocusframe_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qfocusframe_tabletevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -827,13 +831,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_actionevent_isbase) {
             qfocusframe_actionevent_isbase = false;
             QFocusFrame::actionEvent(event);
-        } else if (qfocusframe_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qfocusframe_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qfocusframe_actionevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -841,13 +848,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_dragenterevent_isbase) {
             qfocusframe_dragenterevent_isbase = false;
             QFocusFrame::dragEnterEvent(event);
-        } else if (qfocusframe_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qfocusframe_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qfocusframe_dragenterevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -855,13 +865,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_dragmoveevent_isbase) {
             qfocusframe_dragmoveevent_isbase = false;
             QFocusFrame::dragMoveEvent(event);
-        } else if (qfocusframe_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qfocusframe_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qfocusframe_dragmoveevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -869,13 +882,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_dragleaveevent_isbase) {
             qfocusframe_dragleaveevent_isbase = false;
             QFocusFrame::dragLeaveEvent(event);
-        } else if (qfocusframe_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qfocusframe_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qfocusframe_dragleaveevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -883,13 +899,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_dropevent_isbase) {
             qfocusframe_dropevent_isbase = false;
             QFocusFrame::dropEvent(event);
-        } else if (qfocusframe_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qfocusframe_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qfocusframe_dropevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -897,13 +916,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_showevent_isbase) {
             qfocusframe_showevent_isbase = false;
             QFocusFrame::showEvent(event);
-        } else if (qfocusframe_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qfocusframe_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qfocusframe_showevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -911,13 +933,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_hideevent_isbase) {
             qfocusframe_hideevent_isbase = false;
             QFocusFrame::hideEvent(event);
-        } else if (qfocusframe_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qfocusframe_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qfocusframe_hideevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -925,7 +950,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_nativeevent_isbase) {
             qfocusframe_nativeevent_isbase = false;
             return QFocusFrame::nativeEvent(eventType, message, result);
-        } else if (qfocusframe_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qfocusframe_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -936,12 +963,11 @@ class VirtualQFocusFrame final : public QFocusFrame {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qfocusframe_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QFocusFrame::nativeEvent(eventType, message, result);
         }
+        return QFocusFrame::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -949,13 +975,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_changeevent_isbase) {
             qfocusframe_changeevent_isbase = false;
             QFocusFrame::changeEvent(param1);
-        } else if (qfocusframe_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qfocusframe_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qfocusframe_changeevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -963,14 +992,15 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_metric_isbase) {
             qfocusframe_metric_isbase = false;
             return QFocusFrame::metric(param1);
-        } else if (qfocusframe_metric_callback != nullptr) {
+        }
+        auto metric_cb = qfocusframe_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qfocusframe_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFocusFrame::metric(param1);
         }
+        return QFocusFrame::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -978,13 +1008,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_initpainter_isbase) {
             qfocusframe_initpainter_isbase = false;
             QFocusFrame::initPainter(painter);
-        } else if (qfocusframe_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qfocusframe_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qfocusframe_initpainter_callback(this, cbval1);
-        } else {
-            QFocusFrame::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,14 +1025,15 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_redirected_isbase) {
             qfocusframe_redirected_isbase = false;
             return QFocusFrame::redirected(offset);
-        } else if (qfocusframe_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qfocusframe_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qfocusframe_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFocusFrame::redirected(offset);
         }
+        return QFocusFrame::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1007,12 +1041,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_sharedpainter_isbase) {
             qfocusframe_sharedpainter_isbase = false;
             return QFocusFrame::sharedPainter();
-        } else if (qfocusframe_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qfocusframe_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QFocusFrame::sharedPainter();
         }
+        auto sharedpainter_cb = qfocusframe_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QFocusFrame::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1020,13 +1055,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_inputmethodevent_isbase) {
             qfocusframe_inputmethodevent_isbase = false;
             QFocusFrame::inputMethodEvent(param1);
-        } else if (qfocusframe_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qfocusframe_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qfocusframe_inputmethodevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,14 +1072,15 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_inputmethodquery_isbase) {
             qfocusframe_inputmethodquery_isbase = false;
             return QFocusFrame::inputMethodQuery(param1);
-        } else if (qfocusframe_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qfocusframe_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qfocusframe_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QFocusFrame::inputMethodQuery(param1);
         }
+        return QFocusFrame::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1049,14 +1088,15 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_focusnextprevchild_isbase) {
             qfocusframe_focusnextprevchild_isbase = false;
             return QFocusFrame::focusNextPrevChild(next);
-        } else if (qfocusframe_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qfocusframe_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qfocusframe_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFocusFrame::focusNextPrevChild(next);
         }
+        return QFocusFrame::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,13 +1104,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_timerevent_isbase) {
             qfocusframe_timerevent_isbase = false;
             QFocusFrame::timerEvent(event);
-        } else if (qfocusframe_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qfocusframe_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qfocusframe_timerevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1078,13 +1121,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_childevent_isbase) {
             qfocusframe_childevent_isbase = false;
             QFocusFrame::childEvent(event);
-        } else if (qfocusframe_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qfocusframe_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qfocusframe_childevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,13 +1138,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_customevent_isbase) {
             qfocusframe_customevent_isbase = false;
             QFocusFrame::customEvent(event);
-        } else if (qfocusframe_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qfocusframe_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qfocusframe_customevent_callback(this, cbval1);
-        } else {
-            QFocusFrame::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,15 +1155,18 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_connectnotify_isbase) {
             qfocusframe_connectnotify_isbase = false;
             QFocusFrame::connectNotify(signal);
-        } else if (qfocusframe_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qfocusframe_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfocusframe_connectnotify_callback(this, cbval1);
-        } else {
-            QFocusFrame::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1122,15 +1174,18 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_disconnectnotify_isbase) {
             qfocusframe_disconnectnotify_isbase = false;
             QFocusFrame::disconnectNotify(signal);
-        } else if (qfocusframe_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qfocusframe_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfocusframe_disconnectnotify_callback(this, cbval1);
-        } else {
-            QFocusFrame::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QFocusFrame::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1138,11 +1193,14 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_updatemicrofocus_isbase) {
             qfocusframe_updatemicrofocus_isbase = false;
             QFocusFrame::updateMicroFocus();
-        } else if (qfocusframe_updatemicrofocus_callback != nullptr) {
-            qfocusframe_updatemicrofocus_callback();
-        } else {
-            QFocusFrame::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qfocusframe_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QFocusFrame::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,11 +1208,14 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_create_isbase) {
             qfocusframe_create_isbase = false;
             QFocusFrame::create();
-        } else if (qfocusframe_create_callback != nullptr) {
-            qfocusframe_create_callback();
-        } else {
-            QFocusFrame::create();
+            return;
         }
+        auto create_cb = qfocusframe_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QFocusFrame::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1162,11 +1223,14 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_destroy_isbase) {
             qfocusframe_destroy_isbase = false;
             QFocusFrame::destroy();
-        } else if (qfocusframe_destroy_callback != nullptr) {
-            qfocusframe_destroy_callback();
-        } else {
-            QFocusFrame::destroy();
+            return;
         }
+        auto destroy_cb = qfocusframe_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QFocusFrame::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1174,12 +1238,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_focusnextchild_isbase) {
             qfocusframe_focusnextchild_isbase = false;
             return QFocusFrame::focusNextChild();
-        } else if (qfocusframe_focusnextchild_callback != nullptr) {
-            bool callback_ret = qfocusframe_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QFocusFrame::focusNextChild();
         }
+        auto focusnextchild_cb = qfocusframe_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QFocusFrame::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,12 +1252,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_focuspreviouschild_isbase) {
             qfocusframe_focuspreviouschild_isbase = false;
             return QFocusFrame::focusPreviousChild();
-        } else if (qfocusframe_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qfocusframe_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QFocusFrame::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qfocusframe_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QFocusFrame::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1200,12 +1266,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_sender_isbase) {
             qfocusframe_sender_isbase = false;
             return QFocusFrame::sender();
-        } else if (qfocusframe_sender_callback != nullptr) {
-            QObject* callback_ret = qfocusframe_sender_callback();
-            return callback_ret;
-        } else {
-            return QFocusFrame::sender();
         }
+        auto sender_cb = qfocusframe_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QFocusFrame::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1213,12 +1280,13 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_sendersignalindex_isbase) {
             qfocusframe_sendersignalindex_isbase = false;
             return QFocusFrame::senderSignalIndex();
-        } else if (qfocusframe_sendersignalindex_callback != nullptr) {
-            int callback_ret = qfocusframe_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFocusFrame::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qfocusframe_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFocusFrame::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1226,14 +1294,15 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_receivers_isbase) {
             qfocusframe_receivers_isbase = false;
             return QFocusFrame::receivers(signal);
-        } else if (qfocusframe_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qfocusframe_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qfocusframe_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFocusFrame::receivers(signal);
         }
+        return QFocusFrame::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,16 +1310,17 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_issignalconnected_isbase) {
             qfocusframe_issignalconnected_isbase = false;
             return QFocusFrame::isSignalConnected(signal);
-        } else if (qfocusframe_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qfocusframe_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qfocusframe_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFocusFrame::isSignalConnected(signal);
         }
+        return QFocusFrame::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1258,15 +1328,16 @@ class VirtualQFocusFrame final : public QFocusFrame {
         if (qfocusframe_getdecodedmetricf_isbase) {
             qfocusframe_getdecodedmetricf_isbase = false;
             return QFocusFrame::getDecodedMetricF(metricA, metricB);
-        } else if (qfocusframe_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qfocusframe_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qfocusframe_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QFocusFrame::getDecodedMetricF(metricA, metricB);
         }
+        return QFocusFrame::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

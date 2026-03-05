@@ -69,23 +69,6 @@ class VirtualQWebChannel final : public QWebChannel {
     VirtualQWebChannel() : QWebChannel() {};
     VirtualQWebChannel(QObject* parent) : QWebChannel(parent) {};
 
-    ~VirtualQWebChannel() {
-        qwebchannel_metaobject_callback = nullptr;
-        qwebchannel_metacast_callback = nullptr;
-        qwebchannel_metacall_callback = nullptr;
-        qwebchannel_event_callback = nullptr;
-        qwebchannel_eventfilter_callback = nullptr;
-        qwebchannel_timerevent_callback = nullptr;
-        qwebchannel_childevent_callback = nullptr;
-        qwebchannel_customevent_callback = nullptr;
-        qwebchannel_connectnotify_callback = nullptr;
-        qwebchannel_disconnectnotify_callback = nullptr;
-        qwebchannel_sender_callback = nullptr;
-        qwebchannel_sendersignalindex_callback = nullptr;
-        qwebchannel_receivers_callback = nullptr;
-        qwebchannel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQWebChannel_MetaObject_Callback(QWebChannel_MetaObject_Callback cb) { qwebchannel_metaobject_callback = cb; }
     inline void setQWebChannel_Metacast_Callback(QWebChannel_Metacast_Callback cb) { qwebchannel_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_metaobject_isbase) {
             qwebchannel_metaobject_isbase = false;
             return QWebChannel::metaObject();
-        } else if (qwebchannel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qwebchannel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QWebChannel::metaObject();
         }
+        auto metaobject_cb = qwebchannel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QWebChannel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_metacast_isbase) {
             qwebchannel_metacast_isbase = false;
             return QWebChannel::qt_metacast(param1);
-        } else if (qwebchannel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qwebchannel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qwebchannel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebChannel::qt_metacast(param1);
         }
+        return QWebChannel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_metacall_isbase) {
             qwebchannel_metacall_isbase = false;
             return QWebChannel::qt_metacall(param1, param2, param3);
-        } else if (qwebchannel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qwebchannel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qwebchannel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebChannel::qt_metacall(param1, param2, param3);
         }
+        return QWebChannel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_event_isbase) {
             qwebchannel_event_isbase = false;
             return QWebChannel::event(event);
-        } else if (qwebchannel_event_callback != nullptr) {
+        }
+        auto event_cb = qwebchannel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qwebchannel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebChannel::event(event);
         }
+        return QWebChannel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_eventfilter_isbase) {
             qwebchannel_eventfilter_isbase = false;
             return QWebChannel::eventFilter(watched, event);
-        } else if (qwebchannel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qwebchannel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qwebchannel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QWebChannel::eventFilter(watched, event);
         }
+        return QWebChannel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_timerevent_isbase) {
             qwebchannel_timerevent_isbase = false;
             QWebChannel::timerEvent(event);
-        } else if (qwebchannel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qwebchannel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qwebchannel_timerevent_callback(this, cbval1);
-        } else {
-            QWebChannel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QWebChannel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_childevent_isbase) {
             qwebchannel_childevent_isbase = false;
             QWebChannel::childEvent(event);
-        } else if (qwebchannel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qwebchannel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qwebchannel_childevent_callback(this, cbval1);
-        } else {
-            QWebChannel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QWebChannel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_customevent_isbase) {
             qwebchannel_customevent_isbase = false;
             QWebChannel::customEvent(event);
-        } else if (qwebchannel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qwebchannel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qwebchannel_customevent_callback(this, cbval1);
-        } else {
-            QWebChannel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QWebChannel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_connectnotify_isbase) {
             qwebchannel_connectnotify_isbase = false;
             QWebChannel::connectNotify(signal);
-        } else if (qwebchannel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qwebchannel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebchannel_connectnotify_callback(this, cbval1);
-        } else {
-            QWebChannel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QWebChannel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_disconnectnotify_isbase) {
             qwebchannel_disconnectnotify_isbase = false;
             QWebChannel::disconnectNotify(signal);
-        } else if (qwebchannel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qwebchannel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebchannel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QWebChannel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QWebChannel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_sender_isbase) {
             qwebchannel_sender_isbase = false;
             return QWebChannel::sender();
-        } else if (qwebchannel_sender_callback != nullptr) {
-            QObject* callback_ret = qwebchannel_sender_callback();
-            return callback_ret;
-        } else {
-            return QWebChannel::sender();
         }
+        auto sender_cb = qwebchannel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QWebChannel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_sendersignalindex_isbase) {
             qwebchannel_sendersignalindex_isbase = false;
             return QWebChannel::senderSignalIndex();
-        } else if (qwebchannel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qwebchannel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QWebChannel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qwebchannel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QWebChannel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_receivers_isbase) {
             qwebchannel_receivers_isbase = false;
             return QWebChannel::receivers(signal);
-        } else if (qwebchannel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qwebchannel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qwebchannel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebChannel::receivers(signal);
         }
+        return QWebChannel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQWebChannel final : public QWebChannel {
         if (qwebchannel_issignalconnected_isbase) {
             qwebchannel_issignalconnected_isbase = false;
             return QWebChannel::isSignalConnected(signal);
-        } else if (qwebchannel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qwebchannel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qwebchannel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebChannel::isSignalConnected(signal);
         }
+        return QWebChannel::isSignalConnected(signal);
     }
 
     // Friend functions

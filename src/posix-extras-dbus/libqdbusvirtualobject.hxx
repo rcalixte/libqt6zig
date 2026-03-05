@@ -75,25 +75,6 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
     VirtualQDBusVirtualObject() : QDBusVirtualObject() {};
     VirtualQDBusVirtualObject(QObject* parent) : QDBusVirtualObject(parent) {};
 
-    ~VirtualQDBusVirtualObject() {
-        qdbusvirtualobject_metaobject_callback = nullptr;
-        qdbusvirtualobject_metacast_callback = nullptr;
-        qdbusvirtualobject_metacall_callback = nullptr;
-        qdbusvirtualobject_introspect_callback = nullptr;
-        qdbusvirtualobject_handlemessage_callback = nullptr;
-        qdbusvirtualobject_event_callback = nullptr;
-        qdbusvirtualobject_eventfilter_callback = nullptr;
-        qdbusvirtualobject_timerevent_callback = nullptr;
-        qdbusvirtualobject_childevent_callback = nullptr;
-        qdbusvirtualobject_customevent_callback = nullptr;
-        qdbusvirtualobject_connectnotify_callback = nullptr;
-        qdbusvirtualobject_disconnectnotify_callback = nullptr;
-        qdbusvirtualobject_sender_callback = nullptr;
-        qdbusvirtualobject_sendersignalindex_callback = nullptr;
-        qdbusvirtualobject_receivers_callback = nullptr;
-        qdbusvirtualobject_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDBusVirtualObject_MetaObject_Callback(QDBusVirtualObject_MetaObject_Callback cb) { qdbusvirtualobject_metaobject_callback = cb; }
     inline void setQDBusVirtualObject_Metacast_Callback(QDBusVirtualObject_Metacast_Callback cb) { qdbusvirtualobject_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_metaobject_isbase) {
             qdbusvirtualobject_metaobject_isbase = false;
             return QDBusVirtualObject::metaObject();
-        } else if (qdbusvirtualobject_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdbusvirtualobject_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDBusVirtualObject::metaObject();
         }
+        auto metaobject_cb = qdbusvirtualobject_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDBusVirtualObject::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_metacast_isbase) {
             qdbusvirtualobject_metacast_isbase = false;
             return QDBusVirtualObject::qt_metacast(param1);
-        } else if (qdbusvirtualobject_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdbusvirtualobject_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdbusvirtualobject_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusVirtualObject::qt_metacast(param1);
         }
+        return QDBusVirtualObject::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,21 +146,23 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_metacall_isbase) {
             qdbusvirtualobject_metacall_isbase = false;
             return QDBusVirtualObject::qt_metacall(param1, param2, param3);
-        } else if (qdbusvirtualobject_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdbusvirtualobject_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdbusvirtualobject_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDBusVirtualObject::qt_metacall(param1, param2, param3);
         }
+        return QDBusVirtualObject::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString introspect(const QString& path) const override {
-        if (qdbusvirtualobject_introspect_callback != nullptr) {
+        auto introspect_cb = qdbusvirtualobject_introspect_callback;
+        if (introspect_cb) {
             const QString path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
@@ -187,18 +172,18 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
             ((char*)path_str)[path_str_len] = '\0';
             const char* cbval1 = path_str;
 
-            const char* callback_ret = qdbusvirtualobject_introspect_callback(this, cbval1);
+            const char* callback_ret = introspect_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(path_str);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool handleMessage(const QDBusMessage& message, const QDBusConnection& connection) override {
-        if (qdbusvirtualobject_handlemessage_callback != nullptr) {
+        auto handlemessage_cb = qdbusvirtualobject_handlemessage_callback;
+        if (handlemessage_cb) {
             const QDBusMessage& message_ret = message;
             // Cast returned reference into pointer
             QDBusMessage* cbval1 = const_cast<QDBusMessage*>(&message_ret);
@@ -206,11 +191,10 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
             // Cast returned reference into pointer
             QDBusConnection* cbval2 = const_cast<QDBusConnection*>(&connection_ret);
 
-            bool callback_ret = qdbusvirtualobject_handlemessage_callback(this, cbval1, cbval2);
+            bool callback_ret = handlemessage_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,14 +202,15 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_event_isbase) {
             qdbusvirtualobject_event_isbase = false;
             return QDBusVirtualObject::event(event);
-        } else if (qdbusvirtualobject_event_callback != nullptr) {
+        }
+        auto event_cb = qdbusvirtualobject_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdbusvirtualobject_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusVirtualObject::event(event);
         }
+        return QDBusVirtualObject::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,15 +218,16 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_eventfilter_isbase) {
             qdbusvirtualobject_eventfilter_isbase = false;
             return QDBusVirtualObject::eventFilter(watched, event);
-        } else if (qdbusvirtualobject_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdbusvirtualobject_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdbusvirtualobject_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDBusVirtualObject::eventFilter(watched, event);
         }
+        return QDBusVirtualObject::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -249,13 +235,16 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_timerevent_isbase) {
             qdbusvirtualobject_timerevent_isbase = false;
             QDBusVirtualObject::timerEvent(event);
-        } else if (qdbusvirtualobject_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdbusvirtualobject_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdbusvirtualobject_timerevent_callback(this, cbval1);
-        } else {
-            QDBusVirtualObject::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDBusVirtualObject::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,13 +252,16 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_childevent_isbase) {
             qdbusvirtualobject_childevent_isbase = false;
             QDBusVirtualObject::childEvent(event);
-        } else if (qdbusvirtualobject_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdbusvirtualobject_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdbusvirtualobject_childevent_callback(this, cbval1);
-        } else {
-            QDBusVirtualObject::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDBusVirtualObject::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,13 +269,16 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_customevent_isbase) {
             qdbusvirtualobject_customevent_isbase = false;
             QDBusVirtualObject::customEvent(event);
-        } else if (qdbusvirtualobject_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdbusvirtualobject_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdbusvirtualobject_customevent_callback(this, cbval1);
-        } else {
-            QDBusVirtualObject::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDBusVirtualObject::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -291,15 +286,18 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_connectnotify_isbase) {
             qdbusvirtualobject_connectnotify_isbase = false;
             QDBusVirtualObject::connectNotify(signal);
-        } else if (qdbusvirtualobject_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdbusvirtualobject_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdbusvirtualobject_connectnotify_callback(this, cbval1);
-        } else {
-            QDBusVirtualObject::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDBusVirtualObject::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -307,15 +305,18 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_disconnectnotify_isbase) {
             qdbusvirtualobject_disconnectnotify_isbase = false;
             QDBusVirtualObject::disconnectNotify(signal);
-        } else if (qdbusvirtualobject_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdbusvirtualobject_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdbusvirtualobject_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDBusVirtualObject::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDBusVirtualObject::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -323,12 +324,13 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_sender_isbase) {
             qdbusvirtualobject_sender_isbase = false;
             return QDBusVirtualObject::sender();
-        } else if (qdbusvirtualobject_sender_callback != nullptr) {
-            QObject* callback_ret = qdbusvirtualobject_sender_callback();
-            return callback_ret;
-        } else {
-            return QDBusVirtualObject::sender();
         }
+        auto sender_cb = qdbusvirtualobject_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDBusVirtualObject::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -336,12 +338,13 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_sendersignalindex_isbase) {
             qdbusvirtualobject_sendersignalindex_isbase = false;
             return QDBusVirtualObject::senderSignalIndex();
-        } else if (qdbusvirtualobject_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdbusvirtualobject_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDBusVirtualObject::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdbusvirtualobject_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDBusVirtualObject::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -349,14 +352,15 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_receivers_isbase) {
             qdbusvirtualobject_receivers_isbase = false;
             return QDBusVirtualObject::receivers(signal);
-        } else if (qdbusvirtualobject_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdbusvirtualobject_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdbusvirtualobject_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDBusVirtualObject::receivers(signal);
         }
+        return QDBusVirtualObject::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -364,16 +368,17 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
         if (qdbusvirtualobject_issignalconnected_isbase) {
             qdbusvirtualobject_issignalconnected_isbase = false;
             return QDBusVirtualObject::isSignalConnected(signal);
-        } else if (qdbusvirtualobject_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdbusvirtualobject_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdbusvirtualobject_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusVirtualObject::isSignalConnected(signal);
         }
+        return QDBusVirtualObject::isSignalConnected(signal);
     }
 
     // Friend functions

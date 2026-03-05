@@ -264,88 +264,6 @@ class VirtualQTextBrowser final : public QTextBrowser {
     VirtualQTextBrowser(QWidget* parent) : QTextBrowser(parent) {};
     VirtualQTextBrowser() : QTextBrowser() {};
 
-    ~VirtualQTextBrowser() {
-        qtextbrowser_metaobject_callback = nullptr;
-        qtextbrowser_metacast_callback = nullptr;
-        qtextbrowser_metacall_callback = nullptr;
-        qtextbrowser_loadresource_callback = nullptr;
-        qtextbrowser_backward_callback = nullptr;
-        qtextbrowser_forward_callback = nullptr;
-        qtextbrowser_home_callback = nullptr;
-        qtextbrowser_reload_callback = nullptr;
-        qtextbrowser_event_callback = nullptr;
-        qtextbrowser_keypressevent_callback = nullptr;
-        qtextbrowser_mousemoveevent_callback = nullptr;
-        qtextbrowser_mousepressevent_callback = nullptr;
-        qtextbrowser_mousereleaseevent_callback = nullptr;
-        qtextbrowser_focusoutevent_callback = nullptr;
-        qtextbrowser_focusnextprevchild_callback = nullptr;
-        qtextbrowser_paintevent_callback = nullptr;
-        qtextbrowser_dosetsource_callback = nullptr;
-        qtextbrowser_inputmethodquery_callback = nullptr;
-        qtextbrowser_timerevent_callback = nullptr;
-        qtextbrowser_keyreleaseevent_callback = nullptr;
-        qtextbrowser_resizeevent_callback = nullptr;
-        qtextbrowser_mousedoubleclickevent_callback = nullptr;
-        qtextbrowser_contextmenuevent_callback = nullptr;
-        qtextbrowser_dragenterevent_callback = nullptr;
-        qtextbrowser_dragleaveevent_callback = nullptr;
-        qtextbrowser_dragmoveevent_callback = nullptr;
-        qtextbrowser_dropevent_callback = nullptr;
-        qtextbrowser_focusinevent_callback = nullptr;
-        qtextbrowser_showevent_callback = nullptr;
-        qtextbrowser_changeevent_callback = nullptr;
-        qtextbrowser_wheelevent_callback = nullptr;
-        qtextbrowser_createmimedatafromselection_callback = nullptr;
-        qtextbrowser_caninsertfrommimedata_callback = nullptr;
-        qtextbrowser_insertfrommimedata_callback = nullptr;
-        qtextbrowser_inputmethodevent_callback = nullptr;
-        qtextbrowser_scrollcontentsby_callback = nullptr;
-        qtextbrowser_dosettextcursor_callback = nullptr;
-        qtextbrowser_minimumsizehint_callback = nullptr;
-        qtextbrowser_sizehint_callback = nullptr;
-        qtextbrowser_setupviewport_callback = nullptr;
-        qtextbrowser_eventfilter_callback = nullptr;
-        qtextbrowser_viewportevent_callback = nullptr;
-        qtextbrowser_viewportsizehint_callback = nullptr;
-        qtextbrowser_initstyleoption_callback = nullptr;
-        qtextbrowser_devtype_callback = nullptr;
-        qtextbrowser_setvisible_callback = nullptr;
-        qtextbrowser_heightforwidth_callback = nullptr;
-        qtextbrowser_hasheightforwidth_callback = nullptr;
-        qtextbrowser_paintengine_callback = nullptr;
-        qtextbrowser_enterevent_callback = nullptr;
-        qtextbrowser_leaveevent_callback = nullptr;
-        qtextbrowser_moveevent_callback = nullptr;
-        qtextbrowser_closeevent_callback = nullptr;
-        qtextbrowser_tabletevent_callback = nullptr;
-        qtextbrowser_actionevent_callback = nullptr;
-        qtextbrowser_hideevent_callback = nullptr;
-        qtextbrowser_nativeevent_callback = nullptr;
-        qtextbrowser_metric_callback = nullptr;
-        qtextbrowser_initpainter_callback = nullptr;
-        qtextbrowser_redirected_callback = nullptr;
-        qtextbrowser_sharedpainter_callback = nullptr;
-        qtextbrowser_childevent_callback = nullptr;
-        qtextbrowser_customevent_callback = nullptr;
-        qtextbrowser_connectnotify_callback = nullptr;
-        qtextbrowser_disconnectnotify_callback = nullptr;
-        qtextbrowser_zoominf_callback = nullptr;
-        qtextbrowser_setviewportmargins_callback = nullptr;
-        qtextbrowser_viewportmargins_callback = nullptr;
-        qtextbrowser_drawframe_callback = nullptr;
-        qtextbrowser_updatemicrofocus_callback = nullptr;
-        qtextbrowser_create_callback = nullptr;
-        qtextbrowser_destroy_callback = nullptr;
-        qtextbrowser_focusnextchild_callback = nullptr;
-        qtextbrowser_focuspreviouschild_callback = nullptr;
-        qtextbrowser_sender_callback = nullptr;
-        qtextbrowser_sendersignalindex_callback = nullptr;
-        qtextbrowser_receivers_callback = nullptr;
-        qtextbrowser_issignalconnected_callback = nullptr;
-        qtextbrowser_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTextBrowser_MetaObject_Callback(QTextBrowser_MetaObject_Callback cb) { qtextbrowser_metaobject_callback = cb; }
     inline void setQTextBrowser_Metacast_Callback(QTextBrowser_Metacast_Callback cb) { qtextbrowser_metacast_callback = cb; }
@@ -513,12 +431,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_metaobject_isbase) {
             qtextbrowser_metaobject_isbase = false;
             return QTextBrowser::metaObject();
-        } else if (qtextbrowser_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtextbrowser_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTextBrowser::metaObject();
         }
+        auto metaobject_cb = qtextbrowser_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTextBrowser::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,14 +445,15 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_metacast_isbase) {
             qtextbrowser_metacast_isbase = false;
             return QTextBrowser::qt_metacast(param1);
-        } else if (qtextbrowser_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtextbrowser_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtextbrowser_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextBrowser::qt_metacast(param1);
         }
+        return QTextBrowser::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,16 +461,17 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_metacall_isbase) {
             qtextbrowser_metacall_isbase = false;
             return QTextBrowser::qt_metacall(param1, param2, param3);
-        } else if (qtextbrowser_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtextbrowser_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtextbrowser_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTextBrowser::qt_metacall(param1, param2, param3);
         }
+        return QTextBrowser::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -558,17 +479,18 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_loadresource_isbase) {
             qtextbrowser_loadresource_isbase = false;
             return QTextBrowser::loadResource(typeVal, name);
-        } else if (qtextbrowser_loadresource_callback != nullptr) {
+        }
+        auto loadresource_cb = qtextbrowser_loadresource_callback;
+        if (loadresource_cb) {
             int cbval1 = typeVal;
             const QUrl& name_ret = name;
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
 
-            QVariant* callback_ret = qtextbrowser_loadresource_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = loadresource_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QTextBrowser::loadResource(typeVal, name);
         }
+        return QTextBrowser::loadResource(typeVal, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -576,11 +498,14 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_backward_isbase) {
             qtextbrowser_backward_isbase = false;
             QTextBrowser::backward();
-        } else if (qtextbrowser_backward_callback != nullptr) {
-            qtextbrowser_backward_callback();
-        } else {
-            QTextBrowser::backward();
+            return;
         }
+        auto backward_cb = qtextbrowser_backward_callback;
+        if (backward_cb) {
+            backward_cb();
+            return;
+        }
+        QTextBrowser::backward();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -588,11 +513,14 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_forward_isbase) {
             qtextbrowser_forward_isbase = false;
             QTextBrowser::forward();
-        } else if (qtextbrowser_forward_callback != nullptr) {
-            qtextbrowser_forward_callback();
-        } else {
-            QTextBrowser::forward();
+            return;
         }
+        auto forward_cb = qtextbrowser_forward_callback;
+        if (forward_cb) {
+            forward_cb();
+            return;
+        }
+        QTextBrowser::forward();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -600,11 +528,14 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_home_isbase) {
             qtextbrowser_home_isbase = false;
             QTextBrowser::home();
-        } else if (qtextbrowser_home_callback != nullptr) {
-            qtextbrowser_home_callback();
-        } else {
-            QTextBrowser::home();
+            return;
         }
+        auto home_cb = qtextbrowser_home_callback;
+        if (home_cb) {
+            home_cb();
+            return;
+        }
+        QTextBrowser::home();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,11 +543,14 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_reload_isbase) {
             qtextbrowser_reload_isbase = false;
             QTextBrowser::reload();
-        } else if (qtextbrowser_reload_callback != nullptr) {
-            qtextbrowser_reload_callback();
-        } else {
-            QTextBrowser::reload();
+            return;
         }
+        auto reload_cb = qtextbrowser_reload_callback;
+        if (reload_cb) {
+            reload_cb();
+            return;
+        }
+        QTextBrowser::reload();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,14 +558,15 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_event_isbase) {
             qtextbrowser_event_isbase = false;
             return QTextBrowser::event(e);
-        } else if (qtextbrowser_event_callback != nullptr) {
+        }
+        auto event_cb = qtextbrowser_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qtextbrowser_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextBrowser::event(e);
         }
+        return QTextBrowser::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,13 +574,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_keypressevent_isbase) {
             qtextbrowser_keypressevent_isbase = false;
             QTextBrowser::keyPressEvent(ev);
-        } else if (qtextbrowser_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qtextbrowser_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
 
-            qtextbrowser_keypressevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::keyPressEvent(ev);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::keyPressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +591,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_mousemoveevent_isbase) {
             qtextbrowser_mousemoveevent_isbase = false;
             QTextBrowser::mouseMoveEvent(ev);
-        } else if (qtextbrowser_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qtextbrowser_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = ev;
 
-            qtextbrowser_mousemoveevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::mouseMoveEvent(ev);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::mouseMoveEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,13 +608,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_mousepressevent_isbase) {
             qtextbrowser_mousepressevent_isbase = false;
             QTextBrowser::mousePressEvent(ev);
-        } else if (qtextbrowser_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qtextbrowser_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = ev;
 
-            qtextbrowser_mousepressevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::mousePressEvent(ev);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::mousePressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,13 +625,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_mousereleaseevent_isbase) {
             qtextbrowser_mousereleaseevent_isbase = false;
             QTextBrowser::mouseReleaseEvent(ev);
-        } else if (qtextbrowser_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qtextbrowser_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = ev;
 
-            qtextbrowser_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::mouseReleaseEvent(ev);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::mouseReleaseEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,13 +642,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_focusoutevent_isbase) {
             qtextbrowser_focusoutevent_isbase = false;
             QTextBrowser::focusOutEvent(ev);
-        } else if (qtextbrowser_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qtextbrowser_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = ev;
 
-            qtextbrowser_focusoutevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::focusOutEvent(ev);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::focusOutEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,14 +659,15 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_focusnextprevchild_isbase) {
             qtextbrowser_focusnextprevchild_isbase = false;
             return QTextBrowser::focusNextPrevChild(next);
-        } else if (qtextbrowser_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qtextbrowser_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qtextbrowser_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextBrowser::focusNextPrevChild(next);
         }
+        return QTextBrowser::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,13 +675,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_paintevent_isbase) {
             qtextbrowser_paintevent_isbase = false;
             QTextBrowser::paintEvent(e);
-        } else if (qtextbrowser_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qtextbrowser_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
 
-            qtextbrowser_paintevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::paintEvent(e);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::paintEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -738,16 +692,19 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_dosetsource_isbase) {
             qtextbrowser_dosetsource_isbase = false;
             QTextBrowser::doSetSource(name, typeVal);
-        } else if (qtextbrowser_dosetsource_callback != nullptr) {
+            return;
+        }
+        auto dosetsource_cb = qtextbrowser_dosetsource_callback;
+        if (dosetsource_cb) {
             const QUrl& name_ret = name;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&name_ret);
             int cbval2 = static_cast<int>(typeVal);
 
-            qtextbrowser_dosetsource_callback(this, cbval1, cbval2);
-        } else {
-            QTextBrowser::doSetSource(name, typeVal);
+            dosetsource_cb(this, cbval1, cbval2);
+            return;
         }
+        QTextBrowser::doSetSource(name, typeVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -755,14 +712,15 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_inputmethodquery_isbase) {
             qtextbrowser_inputmethodquery_isbase = false;
             return QTextBrowser::inputMethodQuery(property);
-        } else if (qtextbrowser_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qtextbrowser_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(property);
 
-            QVariant* callback_ret = qtextbrowser_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTextBrowser::inputMethodQuery(property);
         }
+        return QTextBrowser::inputMethodQuery(property);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,13 +728,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_timerevent_isbase) {
             qtextbrowser_timerevent_isbase = false;
             QTextBrowser::timerEvent(e);
-        } else if (qtextbrowser_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtextbrowser_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
 
-            qtextbrowser_timerevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::timerEvent(e);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::timerEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,13 +745,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_keyreleaseevent_isbase) {
             qtextbrowser_keyreleaseevent_isbase = false;
             QTextBrowser::keyReleaseEvent(e);
-        } else if (qtextbrowser_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qtextbrowser_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            qtextbrowser_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -798,13 +762,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_resizeevent_isbase) {
             qtextbrowser_resizeevent_isbase = false;
             QTextBrowser::resizeEvent(e);
-        } else if (qtextbrowser_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qtextbrowser_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
 
-            qtextbrowser_resizeevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::resizeEvent(e);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::resizeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -812,13 +779,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_mousedoubleclickevent_isbase) {
             qtextbrowser_mousedoubleclickevent_isbase = false;
             QTextBrowser::mouseDoubleClickEvent(e);
-        } else if (qtextbrowser_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qtextbrowser_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            qtextbrowser_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::mouseDoubleClickEvent(e);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::mouseDoubleClickEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -826,13 +796,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_contextmenuevent_isbase) {
             qtextbrowser_contextmenuevent_isbase = false;
             QTextBrowser::contextMenuEvent(e);
-        } else if (qtextbrowser_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qtextbrowser_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
 
-            qtextbrowser_contextmenuevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::contextMenuEvent(e);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::contextMenuEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -840,13 +813,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_dragenterevent_isbase) {
             qtextbrowser_dragenterevent_isbase = false;
             QTextBrowser::dragEnterEvent(e);
-        } else if (qtextbrowser_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qtextbrowser_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = e;
 
-            qtextbrowser_dragenterevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::dragEnterEvent(e);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::dragEnterEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,13 +830,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_dragleaveevent_isbase) {
             qtextbrowser_dragleaveevent_isbase = false;
             QTextBrowser::dragLeaveEvent(e);
-        } else if (qtextbrowser_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qtextbrowser_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
 
-            qtextbrowser_dragleaveevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::dragLeaveEvent(e);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::dragLeaveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,13 +847,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_dragmoveevent_isbase) {
             qtextbrowser_dragmoveevent_isbase = false;
             QTextBrowser::dragMoveEvent(e);
-        } else if (qtextbrowser_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qtextbrowser_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
 
-            qtextbrowser_dragmoveevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::dragMoveEvent(e);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::dragMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,13 +864,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_dropevent_isbase) {
             qtextbrowser_dropevent_isbase = false;
             QTextBrowser::dropEvent(e);
-        } else if (qtextbrowser_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qtextbrowser_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = e;
 
-            qtextbrowser_dropevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::dropEvent(e);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::dropEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -896,13 +881,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_focusinevent_isbase) {
             qtextbrowser_focusinevent_isbase = false;
             QTextBrowser::focusInEvent(e);
-        } else if (qtextbrowser_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qtextbrowser_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            qtextbrowser_focusinevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::focusInEvent(e);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::focusInEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -910,13 +898,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_showevent_isbase) {
             qtextbrowser_showevent_isbase = false;
             QTextBrowser::showEvent(param1);
-        } else if (qtextbrowser_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qtextbrowser_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qtextbrowser_showevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,13 +915,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_changeevent_isbase) {
             qtextbrowser_changeevent_isbase = false;
             QTextBrowser::changeEvent(e);
-        } else if (qtextbrowser_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qtextbrowser_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            qtextbrowser_changeevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -938,13 +932,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_wheelevent_isbase) {
             qtextbrowser_wheelevent_isbase = false;
             QTextBrowser::wheelEvent(e);
-        } else if (qtextbrowser_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qtextbrowser_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            qtextbrowser_wheelevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -952,12 +949,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_createmimedatafromselection_isbase) {
             qtextbrowser_createmimedatafromselection_isbase = false;
             return QTextBrowser::createMimeDataFromSelection();
-        } else if (qtextbrowser_createmimedatafromselection_callback != nullptr) {
-            QMimeData* callback_ret = qtextbrowser_createmimedatafromselection_callback();
-            return callback_ret;
-        } else {
-            return QTextBrowser::createMimeDataFromSelection();
         }
+        auto createmimedatafromselection_cb = qtextbrowser_createmimedatafromselection_callback;
+        if (createmimedatafromselection_cb) {
+            QMimeData* callback_ret = createmimedatafromselection_cb();
+            return callback_ret;
+        }
+        return QTextBrowser::createMimeDataFromSelection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -965,14 +963,15 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_caninsertfrommimedata_isbase) {
             qtextbrowser_caninsertfrommimedata_isbase = false;
             return QTextBrowser::canInsertFromMimeData(source);
-        } else if (qtextbrowser_caninsertfrommimedata_callback != nullptr) {
+        }
+        auto caninsertfrommimedata_cb = qtextbrowser_caninsertfrommimedata_callback;
+        if (caninsertfrommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
 
-            bool callback_ret = qtextbrowser_caninsertfrommimedata_callback(this, cbval1);
+            bool callback_ret = caninsertfrommimedata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextBrowser::canInsertFromMimeData(source);
         }
+        return QTextBrowser::canInsertFromMimeData(source);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -980,13 +979,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_insertfrommimedata_isbase) {
             qtextbrowser_insertfrommimedata_isbase = false;
             QTextBrowser::insertFromMimeData(source);
-        } else if (qtextbrowser_insertfrommimedata_callback != nullptr) {
+            return;
+        }
+        auto insertfrommimedata_cb = qtextbrowser_insertfrommimedata_callback;
+        if (insertfrommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
 
-            qtextbrowser_insertfrommimedata_callback(this, cbval1);
-        } else {
-            QTextBrowser::insertFromMimeData(source);
+            insertfrommimedata_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::insertFromMimeData(source);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -994,13 +996,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_inputmethodevent_isbase) {
             qtextbrowser_inputmethodevent_isbase = false;
             QTextBrowser::inputMethodEvent(param1);
-        } else if (qtextbrowser_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qtextbrowser_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qtextbrowser_inputmethodevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,14 +1013,17 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_scrollcontentsby_isbase) {
             qtextbrowser_scrollcontentsby_isbase = false;
             QTextBrowser::scrollContentsBy(dx, dy);
-        } else if (qtextbrowser_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = qtextbrowser_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qtextbrowser_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            QTextBrowser::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        QTextBrowser::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1023,15 +1031,18 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_dosettextcursor_isbase) {
             qtextbrowser_dosettextcursor_isbase = false;
             QTextBrowser::doSetTextCursor(cursor);
-        } else if (qtextbrowser_dosettextcursor_callback != nullptr) {
+            return;
+        }
+        auto dosettextcursor_cb = qtextbrowser_dosettextcursor_callback;
+        if (dosettextcursor_cb) {
             const QTextCursor& cursor_ret = cursor;
             // Cast returned reference into pointer
             QTextCursor* cbval1 = const_cast<QTextCursor*>(&cursor_ret);
 
-            qtextbrowser_dosettextcursor_callback(this, cbval1);
-        } else {
-            QTextBrowser::doSetTextCursor(cursor);
+            dosettextcursor_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::doSetTextCursor(cursor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1039,12 +1050,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_minimumsizehint_isbase) {
             qtextbrowser_minimumsizehint_isbase = false;
             return QTextBrowser::minimumSizeHint();
-        } else if (qtextbrowser_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qtextbrowser_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTextBrowser::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qtextbrowser_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QTextBrowser::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1052,12 +1064,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_sizehint_isbase) {
             qtextbrowser_sizehint_isbase = false;
             return QTextBrowser::sizeHint();
-        } else if (qtextbrowser_sizehint_callback != nullptr) {
-            QSize* callback_ret = qtextbrowser_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTextBrowser::sizeHint();
         }
+        auto sizehint_cb = qtextbrowser_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QTextBrowser::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,13 +1078,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_setupviewport_isbase) {
             qtextbrowser_setupviewport_isbase = false;
             QTextBrowser::setupViewport(viewport);
-        } else if (qtextbrowser_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = qtextbrowser_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            qtextbrowser_setupviewport_callback(this, cbval1);
-        } else {
-            QTextBrowser::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1079,15 +1095,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_eventfilter_isbase) {
             qtextbrowser_eventfilter_isbase = false;
             return QTextBrowser::eventFilter(param1, param2);
-        } else if (qtextbrowser_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtextbrowser_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qtextbrowser_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTextBrowser::eventFilter(param1, param2);
         }
+        return QTextBrowser::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1095,14 +1112,15 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_viewportevent_isbase) {
             qtextbrowser_viewportevent_isbase = false;
             return QTextBrowser::viewportEvent(param1);
-        } else if (qtextbrowser_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = qtextbrowser_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qtextbrowser_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextBrowser::viewportEvent(param1);
         }
+        return QTextBrowser::viewportEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1110,12 +1128,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_viewportsizehint_isbase) {
             qtextbrowser_viewportsizehint_isbase = false;
             return QTextBrowser::viewportSizeHint();
-        } else if (qtextbrowser_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = qtextbrowser_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTextBrowser::viewportSizeHint();
         }
+        auto viewportsizehint_cb = qtextbrowser_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return QTextBrowser::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1123,13 +1142,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_initstyleoption_isbase) {
             qtextbrowser_initstyleoption_isbase = false;
             QTextBrowser::initStyleOption(option);
-        } else if (qtextbrowser_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qtextbrowser_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qtextbrowser_initstyleoption_callback(this, cbval1);
-        } else {
-            QTextBrowser::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,12 +1159,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_devtype_isbase) {
             qtextbrowser_devtype_isbase = false;
             return QTextBrowser::devType();
-        } else if (qtextbrowser_devtype_callback != nullptr) {
-            int callback_ret = qtextbrowser_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTextBrowser::devType();
         }
+        auto devtype_cb = qtextbrowser_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTextBrowser::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,13 +1173,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_setvisible_isbase) {
             qtextbrowser_setvisible_isbase = false;
             QTextBrowser::setVisible(visible);
-        } else if (qtextbrowser_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qtextbrowser_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qtextbrowser_setvisible_callback(this, cbval1);
-        } else {
-            QTextBrowser::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1164,14 +1190,15 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_heightforwidth_isbase) {
             qtextbrowser_heightforwidth_isbase = false;
             return QTextBrowser::heightForWidth(param1);
-        } else if (qtextbrowser_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qtextbrowser_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qtextbrowser_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTextBrowser::heightForWidth(param1);
         }
+        return QTextBrowser::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1179,12 +1206,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_hasheightforwidth_isbase) {
             qtextbrowser_hasheightforwidth_isbase = false;
             return QTextBrowser::hasHeightForWidth();
-        } else if (qtextbrowser_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qtextbrowser_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QTextBrowser::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qtextbrowser_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QTextBrowser::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1192,12 +1220,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_paintengine_isbase) {
             qtextbrowser_paintengine_isbase = false;
             return QTextBrowser::paintEngine();
-        } else if (qtextbrowser_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qtextbrowser_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QTextBrowser::paintEngine();
         }
+        auto paintengine_cb = qtextbrowser_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QTextBrowser::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,13 +1234,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_enterevent_isbase) {
             qtextbrowser_enterevent_isbase = false;
             QTextBrowser::enterEvent(event);
-        } else if (qtextbrowser_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qtextbrowser_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qtextbrowser_enterevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,13 +1251,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_leaveevent_isbase) {
             qtextbrowser_leaveevent_isbase = false;
             QTextBrowser::leaveEvent(event);
-        } else if (qtextbrowser_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qtextbrowser_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qtextbrowser_leaveevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,13 +1268,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_moveevent_isbase) {
             qtextbrowser_moveevent_isbase = false;
             QTextBrowser::moveEvent(event);
-        } else if (qtextbrowser_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qtextbrowser_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qtextbrowser_moveevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,13 +1285,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_closeevent_isbase) {
             qtextbrowser_closeevent_isbase = false;
             QTextBrowser::closeEvent(event);
-        } else if (qtextbrowser_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qtextbrowser_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qtextbrowser_closeevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,13 +1302,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_tabletevent_isbase) {
             qtextbrowser_tabletevent_isbase = false;
             QTextBrowser::tabletEvent(event);
-        } else if (qtextbrowser_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qtextbrowser_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qtextbrowser_tabletevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1275,13 +1319,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_actionevent_isbase) {
             qtextbrowser_actionevent_isbase = false;
             QTextBrowser::actionEvent(event);
-        } else if (qtextbrowser_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qtextbrowser_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qtextbrowser_actionevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1289,13 +1336,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_hideevent_isbase) {
             qtextbrowser_hideevent_isbase = false;
             QTextBrowser::hideEvent(event);
-        } else if (qtextbrowser_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qtextbrowser_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qtextbrowser_hideevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1303,7 +1353,9 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_nativeevent_isbase) {
             qtextbrowser_nativeevent_isbase = false;
             return QTextBrowser::nativeEvent(eventType, message, result);
-        } else if (qtextbrowser_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qtextbrowser_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1314,12 +1366,11 @@ class VirtualQTextBrowser final : public QTextBrowser {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qtextbrowser_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QTextBrowser::nativeEvent(eventType, message, result);
         }
+        return QTextBrowser::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1327,14 +1378,15 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_metric_isbase) {
             qtextbrowser_metric_isbase = false;
             return QTextBrowser::metric(param1);
-        } else if (qtextbrowser_metric_callback != nullptr) {
+        }
+        auto metric_cb = qtextbrowser_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qtextbrowser_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTextBrowser::metric(param1);
         }
+        return QTextBrowser::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1342,13 +1394,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_initpainter_isbase) {
             qtextbrowser_initpainter_isbase = false;
             QTextBrowser::initPainter(painter);
-        } else if (qtextbrowser_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qtextbrowser_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qtextbrowser_initpainter_callback(this, cbval1);
-        } else {
-            QTextBrowser::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1356,14 +1411,15 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_redirected_isbase) {
             qtextbrowser_redirected_isbase = false;
             return QTextBrowser::redirected(offset);
-        } else if (qtextbrowser_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qtextbrowser_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qtextbrowser_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextBrowser::redirected(offset);
         }
+        return QTextBrowser::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1371,12 +1427,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_sharedpainter_isbase) {
             qtextbrowser_sharedpainter_isbase = false;
             return QTextBrowser::sharedPainter();
-        } else if (qtextbrowser_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qtextbrowser_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QTextBrowser::sharedPainter();
         }
+        auto sharedpainter_cb = qtextbrowser_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QTextBrowser::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1384,13 +1441,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_childevent_isbase) {
             qtextbrowser_childevent_isbase = false;
             QTextBrowser::childEvent(event);
-        } else if (qtextbrowser_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtextbrowser_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtextbrowser_childevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1398,13 +1458,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_customevent_isbase) {
             qtextbrowser_customevent_isbase = false;
             QTextBrowser::customEvent(event);
-        } else if (qtextbrowser_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtextbrowser_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtextbrowser_customevent_callback(this, cbval1);
-        } else {
-            QTextBrowser::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1412,15 +1475,18 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_connectnotify_isbase) {
             qtextbrowser_connectnotify_isbase = false;
             QTextBrowser::connectNotify(signal);
-        } else if (qtextbrowser_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtextbrowser_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtextbrowser_connectnotify_callback(this, cbval1);
-        } else {
-            QTextBrowser::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1428,15 +1494,18 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_disconnectnotify_isbase) {
             qtextbrowser_disconnectnotify_isbase = false;
             QTextBrowser::disconnectNotify(signal);
-        } else if (qtextbrowser_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtextbrowser_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtextbrowser_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTextBrowser::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1444,13 +1513,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_zoominf_isbase) {
             qtextbrowser_zoominf_isbase = false;
             QTextBrowser::zoomInF(range);
-        } else if (qtextbrowser_zoominf_callback != nullptr) {
+            return;
+        }
+        auto zoominf_cb = qtextbrowser_zoominf_callback;
+        if (zoominf_cb) {
             float cbval1 = range;
 
-            qtextbrowser_zoominf_callback(this, cbval1);
-        } else {
-            QTextBrowser::zoomInF(range);
+            zoominf_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::zoomInF(range);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1458,16 +1530,19 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_setviewportmargins_isbase) {
             qtextbrowser_setviewportmargins_isbase = false;
             QTextBrowser::setViewportMargins(left, top, right, bottom);
-        } else if (qtextbrowser_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = qtextbrowser_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            qtextbrowser_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QTextBrowser::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QTextBrowser::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1475,12 +1550,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_viewportmargins_isbase) {
             qtextbrowser_viewportmargins_isbase = false;
             return QTextBrowser::viewportMargins();
-        } else if (qtextbrowser_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = qtextbrowser_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return QTextBrowser::viewportMargins();
         }
+        auto viewportmargins_cb = qtextbrowser_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return QTextBrowser::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1488,13 +1564,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_drawframe_isbase) {
             qtextbrowser_drawframe_isbase = false;
             QTextBrowser::drawFrame(param1);
-        } else if (qtextbrowser_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qtextbrowser_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qtextbrowser_drawframe_callback(this, cbval1);
-        } else {
-            QTextBrowser::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QTextBrowser::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1502,11 +1581,14 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_updatemicrofocus_isbase) {
             qtextbrowser_updatemicrofocus_isbase = false;
             QTextBrowser::updateMicroFocus();
-        } else if (qtextbrowser_updatemicrofocus_callback != nullptr) {
-            qtextbrowser_updatemicrofocus_callback();
-        } else {
-            QTextBrowser::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qtextbrowser_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QTextBrowser::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1514,11 +1596,14 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_create_isbase) {
             qtextbrowser_create_isbase = false;
             QTextBrowser::create();
-        } else if (qtextbrowser_create_callback != nullptr) {
-            qtextbrowser_create_callback();
-        } else {
-            QTextBrowser::create();
+            return;
         }
+        auto create_cb = qtextbrowser_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QTextBrowser::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1526,11 +1611,14 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_destroy_isbase) {
             qtextbrowser_destroy_isbase = false;
             QTextBrowser::destroy();
-        } else if (qtextbrowser_destroy_callback != nullptr) {
-            qtextbrowser_destroy_callback();
-        } else {
-            QTextBrowser::destroy();
+            return;
         }
+        auto destroy_cb = qtextbrowser_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QTextBrowser::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1538,12 +1626,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_focusnextchild_isbase) {
             qtextbrowser_focusnextchild_isbase = false;
             return QTextBrowser::focusNextChild();
-        } else if (qtextbrowser_focusnextchild_callback != nullptr) {
-            bool callback_ret = qtextbrowser_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QTextBrowser::focusNextChild();
         }
+        auto focusnextchild_cb = qtextbrowser_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QTextBrowser::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1551,12 +1640,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_focuspreviouschild_isbase) {
             qtextbrowser_focuspreviouschild_isbase = false;
             return QTextBrowser::focusPreviousChild();
-        } else if (qtextbrowser_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qtextbrowser_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QTextBrowser::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qtextbrowser_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QTextBrowser::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1564,12 +1654,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_sender_isbase) {
             qtextbrowser_sender_isbase = false;
             return QTextBrowser::sender();
-        } else if (qtextbrowser_sender_callback != nullptr) {
-            QObject* callback_ret = qtextbrowser_sender_callback();
-            return callback_ret;
-        } else {
-            return QTextBrowser::sender();
         }
+        auto sender_cb = qtextbrowser_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTextBrowser::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1577,12 +1668,13 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_sendersignalindex_isbase) {
             qtextbrowser_sendersignalindex_isbase = false;
             return QTextBrowser::senderSignalIndex();
-        } else if (qtextbrowser_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtextbrowser_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTextBrowser::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtextbrowser_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTextBrowser::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1590,14 +1682,15 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_receivers_isbase) {
             qtextbrowser_receivers_isbase = false;
             return QTextBrowser::receivers(signal);
-        } else if (qtextbrowser_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtextbrowser_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtextbrowser_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTextBrowser::receivers(signal);
         }
+        return QTextBrowser::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1605,16 +1698,17 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_issignalconnected_isbase) {
             qtextbrowser_issignalconnected_isbase = false;
             return QTextBrowser::isSignalConnected(signal);
-        } else if (qtextbrowser_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtextbrowser_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtextbrowser_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextBrowser::isSignalConnected(signal);
         }
+        return QTextBrowser::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1622,15 +1716,16 @@ class VirtualQTextBrowser final : public QTextBrowser {
         if (qtextbrowser_getdecodedmetricf_isbase) {
             qtextbrowser_getdecodedmetricf_isbase = false;
             return QTextBrowser::getDecodedMetricF(metricA, metricB);
-        } else if (qtextbrowser_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qtextbrowser_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qtextbrowser_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QTextBrowser::getDecodedMetricF(metricA, metricB);
         }
+        return QTextBrowser::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

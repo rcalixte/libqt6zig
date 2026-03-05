@@ -75,25 +75,6 @@ class VirtualQTranslator final : public QTranslator {
     VirtualQTranslator() : QTranslator() {};
     VirtualQTranslator(QObject* parent) : QTranslator(parent) {};
 
-    ~VirtualQTranslator() {
-        qtranslator_metaobject_callback = nullptr;
-        qtranslator_metacast_callback = nullptr;
-        qtranslator_metacall_callback = nullptr;
-        qtranslator_translate_callback = nullptr;
-        qtranslator_isempty_callback = nullptr;
-        qtranslator_event_callback = nullptr;
-        qtranslator_eventfilter_callback = nullptr;
-        qtranslator_timerevent_callback = nullptr;
-        qtranslator_childevent_callback = nullptr;
-        qtranslator_customevent_callback = nullptr;
-        qtranslator_connectnotify_callback = nullptr;
-        qtranslator_disconnectnotify_callback = nullptr;
-        qtranslator_sender_callback = nullptr;
-        qtranslator_sendersignalindex_callback = nullptr;
-        qtranslator_receivers_callback = nullptr;
-        qtranslator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTranslator_MetaObject_Callback(QTranslator_MetaObject_Callback cb) { qtranslator_metaobject_callback = cb; }
     inline void setQTranslator_Metacast_Callback(QTranslator_Metacast_Callback cb) { qtranslator_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_metaobject_isbase) {
             qtranslator_metaobject_isbase = false;
             return QTranslator::metaObject();
-        } else if (qtranslator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtranslator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTranslator::metaObject();
         }
+        auto metaobject_cb = qtranslator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTranslator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_metacast_isbase) {
             qtranslator_metacast_isbase = false;
             return QTranslator::qt_metacast(param1);
-        } else if (qtranslator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtranslator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtranslator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTranslator::qt_metacast(param1);
         }
+        return QTranslator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,16 +146,17 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_metacall_isbase) {
             qtranslator_metacall_isbase = false;
             return QTranslator::qt_metacall(param1, param2, param3);
-        } else if (qtranslator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtranslator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtranslator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTranslator::qt_metacall(param1, param2, param3);
         }
+        return QTranslator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,18 +164,19 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_translate_isbase) {
             qtranslator_translate_isbase = false;
             return QTranslator::translate(context, sourceText, disambiguation, n);
-        } else if (qtranslator_translate_callback != nullptr) {
+        }
+        auto translate_cb = qtranslator_translate_callback;
+        if (translate_cb) {
             const char* cbval1 = (const char*)context;
             const char* cbval2 = (const char*)sourceText;
             const char* cbval3 = (const char*)disambiguation;
             int cbval4 = n;
 
-            const char* callback_ret = qtranslator_translate_callback(this, cbval1, cbval2, cbval3, cbval4);
+            const char* callback_ret = translate_cb(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QTranslator::translate(context, sourceText, disambiguation, n);
         }
+        return QTranslator::translate(context, sourceText, disambiguation, n);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,12 +184,13 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_isempty_isbase) {
             qtranslator_isempty_isbase = false;
             return QTranslator::isEmpty();
-        } else if (qtranslator_isempty_callback != nullptr) {
-            bool callback_ret = qtranslator_isempty_callback();
-            return callback_ret;
-        } else {
-            return QTranslator::isEmpty();
         }
+        auto isempty_cb = qtranslator_isempty_callback;
+        if (isempty_cb) {
+            bool callback_ret = isempty_cb();
+            return callback_ret;
+        }
+        return QTranslator::isEmpty();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,14 +198,15 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_event_isbase) {
             qtranslator_event_isbase = false;
             return QTranslator::event(event);
-        } else if (qtranslator_event_callback != nullptr) {
+        }
+        auto event_cb = qtranslator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtranslator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTranslator::event(event);
         }
+        return QTranslator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,15 +214,16 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_eventfilter_isbase) {
             qtranslator_eventfilter_isbase = false;
             return QTranslator::eventFilter(watched, event);
-        } else if (qtranslator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtranslator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtranslator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTranslator::eventFilter(watched, event);
         }
+        return QTranslator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,13 +231,16 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_timerevent_isbase) {
             qtranslator_timerevent_isbase = false;
             QTranslator::timerEvent(event);
-        } else if (qtranslator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtranslator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtranslator_timerevent_callback(this, cbval1);
-        } else {
-            QTranslator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTranslator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,13 +248,16 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_childevent_isbase) {
             qtranslator_childevent_isbase = false;
             QTranslator::childEvent(event);
-        } else if (qtranslator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtranslator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtranslator_childevent_callback(this, cbval1);
-        } else {
-            QTranslator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTranslator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -271,13 +265,16 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_customevent_isbase) {
             qtranslator_customevent_isbase = false;
             QTranslator::customEvent(event);
-        } else if (qtranslator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtranslator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtranslator_customevent_callback(this, cbval1);
-        } else {
-            QTranslator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTranslator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,15 +282,18 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_connectnotify_isbase) {
             qtranslator_connectnotify_isbase = false;
             QTranslator::connectNotify(signal);
-        } else if (qtranslator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtranslator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtranslator_connectnotify_callback(this, cbval1);
-        } else {
-            QTranslator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTranslator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,15 +301,18 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_disconnectnotify_isbase) {
             qtranslator_disconnectnotify_isbase = false;
             QTranslator::disconnectNotify(signal);
-        } else if (qtranslator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtranslator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtranslator_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTranslator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTranslator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,12 +320,13 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_sender_isbase) {
             qtranslator_sender_isbase = false;
             return QTranslator::sender();
-        } else if (qtranslator_sender_callback != nullptr) {
-            QObject* callback_ret = qtranslator_sender_callback();
-            return callback_ret;
-        } else {
-            return QTranslator::sender();
         }
+        auto sender_cb = qtranslator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTranslator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -330,12 +334,13 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_sendersignalindex_isbase) {
             qtranslator_sendersignalindex_isbase = false;
             return QTranslator::senderSignalIndex();
-        } else if (qtranslator_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtranslator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTranslator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtranslator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTranslator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,14 +348,15 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_receivers_isbase) {
             qtranslator_receivers_isbase = false;
             return QTranslator::receivers(signal);
-        } else if (qtranslator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtranslator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtranslator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTranslator::receivers(signal);
         }
+        return QTranslator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,16 +364,17 @@ class VirtualQTranslator final : public QTranslator {
         if (qtranslator_issignalconnected_isbase) {
             qtranslator_issignalconnected_isbase = false;
             return QTranslator::isSignalConnected(signal);
-        } else if (qtranslator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtranslator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtranslator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTranslator::isSignalConnected(signal);
         }
+        return QTranslator::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -93,31 +93,6 @@ class VirtualQPaintEngine : public QPaintEngine {
     VirtualQPaintEngine() : QPaintEngine() {};
     VirtualQPaintEngine(QPaintEngine::PaintEngineFeatures features) : QPaintEngine(features) {};
 
-    ~VirtualQPaintEngine() {
-        qpaintengine_begin_callback = nullptr;
-        qpaintengine_end_callback = nullptr;
-        qpaintengine_updatestate_callback = nullptr;
-        qpaintengine_drawrects_callback = nullptr;
-        qpaintengine_drawrects2_callback = nullptr;
-        qpaintengine_drawlines_callback = nullptr;
-        qpaintengine_drawlines2_callback = nullptr;
-        qpaintengine_drawellipse_callback = nullptr;
-        qpaintengine_drawellipse2_callback = nullptr;
-        qpaintengine_drawpath_callback = nullptr;
-        qpaintengine_drawpoints_callback = nullptr;
-        qpaintengine_drawpoints2_callback = nullptr;
-        qpaintengine_drawpolygon_callback = nullptr;
-        qpaintengine_drawpolygon2_callback = nullptr;
-        qpaintengine_drawpixmap_callback = nullptr;
-        qpaintengine_drawtextitem_callback = nullptr;
-        qpaintengine_drawtiledpixmap_callback = nullptr;
-        qpaintengine_drawimage_callback = nullptr;
-        qpaintengine_coordinateoffset_callback = nullptr;
-        qpaintengine_type_callback = nullptr;
-        qpaintengine_createpixmap_callback = nullptr;
-        qpaintengine_createpixmapfromimage_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPaintEngine_Begin_Callback(QPaintEngine_Begin_Callback cb) { qpaintengine_begin_callback = cb; }
     inline void setQPaintEngine_End_Callback(QPaintEngine_End_Callback cb) { qpaintengine_end_callback = cb; }
@@ -168,34 +143,35 @@ class VirtualQPaintEngine : public QPaintEngine {
 
     // Virtual method for C ABI access and custom callback
     virtual bool begin(QPaintDevice* pdev) override {
-        if (qpaintengine_begin_callback != nullptr) {
+        auto begin_cb = qpaintengine_begin_callback;
+        if (begin_cb) {
             QPaintDevice* cbval1 = pdev;
 
-            bool callback_ret = qpaintengine_begin_callback(this, cbval1);
+            bool callback_ret = begin_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool end() override {
-        if (qpaintengine_end_callback != nullptr) {
-            bool callback_ret = qpaintengine_end_callback();
+        auto end_cb = qpaintengine_end_callback;
+        if (end_cb) {
+            bool callback_ret = end_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void updateState(const QPaintEngineState& state) override {
-        if (qpaintengine_updatestate_callback != nullptr) {
+        auto updatestate_cb = qpaintengine_updatestate_callback;
+        if (updatestate_cb) {
             const QPaintEngineState& state_ret = state;
             // Cast returned reference into pointer
             QPaintEngineState* cbval1 = const_cast<QPaintEngineState*>(&state_ret);
 
-            qpaintengine_updatestate_callback(this, cbval1);
+            updatestate_cb(this, cbval1);
         }
     }
 
@@ -204,14 +180,17 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawrects_isbase) {
             qpaintengine_drawrects_isbase = false;
             QPaintEngine::drawRects(rects, rectCount);
-        } else if (qpaintengine_drawrects_callback != nullptr) {
+            return;
+        }
+        auto drawrects_cb = qpaintengine_drawrects_callback;
+        if (drawrects_cb) {
             QRect* cbval1 = (QRect*)rects;
             int cbval2 = rectCount;
 
-            qpaintengine_drawrects_callback(this, cbval1, cbval2);
-        } else {
-            QPaintEngine::drawRects(rects, rectCount);
+            drawrects_cb(this, cbval1, cbval2);
+            return;
         }
+        QPaintEngine::drawRects(rects, rectCount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,14 +198,17 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawrects2_isbase) {
             qpaintengine_drawrects2_isbase = false;
             QPaintEngine::drawRects(rects, rectCount);
-        } else if (qpaintengine_drawrects2_callback != nullptr) {
+            return;
+        }
+        auto drawrects2_cb = qpaintengine_drawrects2_callback;
+        if (drawrects2_cb) {
             QRectF* cbval1 = (QRectF*)rects;
             int cbval2 = rectCount;
 
-            qpaintengine_drawrects2_callback(this, cbval1, cbval2);
-        } else {
-            QPaintEngine::drawRects(rects, rectCount);
+            drawrects2_cb(this, cbval1, cbval2);
+            return;
         }
+        QPaintEngine::drawRects(rects, rectCount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -234,14 +216,17 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawlines_isbase) {
             qpaintengine_drawlines_isbase = false;
             QPaintEngine::drawLines(lines, lineCount);
-        } else if (qpaintengine_drawlines_callback != nullptr) {
+            return;
+        }
+        auto drawlines_cb = qpaintengine_drawlines_callback;
+        if (drawlines_cb) {
             QLine* cbval1 = (QLine*)lines;
             int cbval2 = lineCount;
 
-            qpaintengine_drawlines_callback(this, cbval1, cbval2);
-        } else {
-            QPaintEngine::drawLines(lines, lineCount);
+            drawlines_cb(this, cbval1, cbval2);
+            return;
         }
+        QPaintEngine::drawLines(lines, lineCount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -249,14 +234,17 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawlines2_isbase) {
             qpaintengine_drawlines2_isbase = false;
             QPaintEngine::drawLines(lines, lineCount);
-        } else if (qpaintengine_drawlines2_callback != nullptr) {
+            return;
+        }
+        auto drawlines2_cb = qpaintengine_drawlines2_callback;
+        if (drawlines2_cb) {
             QLineF* cbval1 = (QLineF*)lines;
             int cbval2 = lineCount;
 
-            qpaintengine_drawlines2_callback(this, cbval1, cbval2);
-        } else {
-            QPaintEngine::drawLines(lines, lineCount);
+            drawlines2_cb(this, cbval1, cbval2);
+            return;
         }
+        QPaintEngine::drawLines(lines, lineCount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -264,15 +252,18 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawellipse_isbase) {
             qpaintengine_drawellipse_isbase = false;
             QPaintEngine::drawEllipse(r);
-        } else if (qpaintengine_drawellipse_callback != nullptr) {
+            return;
+        }
+        auto drawellipse_cb = qpaintengine_drawellipse_callback;
+        if (drawellipse_cb) {
             const QRectF& r_ret = r;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&r_ret);
 
-            qpaintengine_drawellipse_callback(this, cbval1);
-        } else {
-            QPaintEngine::drawEllipse(r);
+            drawellipse_cb(this, cbval1);
+            return;
         }
+        QPaintEngine::drawEllipse(r);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -280,15 +271,18 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawellipse2_isbase) {
             qpaintengine_drawellipse2_isbase = false;
             QPaintEngine::drawEllipse(r);
-        } else if (qpaintengine_drawellipse2_callback != nullptr) {
+            return;
+        }
+        auto drawellipse2_cb = qpaintengine_drawellipse2_callback;
+        if (drawellipse2_cb) {
             const QRect& r_ret = r;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&r_ret);
 
-            qpaintengine_drawellipse2_callback(this, cbval1);
-        } else {
-            QPaintEngine::drawEllipse(r);
+            drawellipse2_cb(this, cbval1);
+            return;
         }
+        QPaintEngine::drawEllipse(r);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -296,15 +290,18 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawpath_isbase) {
             qpaintengine_drawpath_isbase = false;
             QPaintEngine::drawPath(path);
-        } else if (qpaintengine_drawpath_callback != nullptr) {
+            return;
+        }
+        auto drawpath_cb = qpaintengine_drawpath_callback;
+        if (drawpath_cb) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
 
-            qpaintengine_drawpath_callback(this, cbval1);
-        } else {
-            QPaintEngine::drawPath(path);
+            drawpath_cb(this, cbval1);
+            return;
         }
+        QPaintEngine::drawPath(path);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,14 +309,17 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawpoints_isbase) {
             qpaintengine_drawpoints_isbase = false;
             QPaintEngine::drawPoints(points, pointCount);
-        } else if (qpaintengine_drawpoints_callback != nullptr) {
+            return;
+        }
+        auto drawpoints_cb = qpaintengine_drawpoints_callback;
+        if (drawpoints_cb) {
             QPointF* cbval1 = (QPointF*)points;
             int cbval2 = pointCount;
 
-            qpaintengine_drawpoints_callback(this, cbval1, cbval2);
-        } else {
-            QPaintEngine::drawPoints(points, pointCount);
+            drawpoints_cb(this, cbval1, cbval2);
+            return;
         }
+        QPaintEngine::drawPoints(points, pointCount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -327,14 +327,17 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawpoints2_isbase) {
             qpaintengine_drawpoints2_isbase = false;
             QPaintEngine::drawPoints(points, pointCount);
-        } else if (qpaintengine_drawpoints2_callback != nullptr) {
+            return;
+        }
+        auto drawpoints2_cb = qpaintengine_drawpoints2_callback;
+        if (drawpoints2_cb) {
             QPoint* cbval1 = (QPoint*)points;
             int cbval2 = pointCount;
 
-            qpaintengine_drawpoints2_callback(this, cbval1, cbval2);
-        } else {
-            QPaintEngine::drawPoints(points, pointCount);
+            drawpoints2_cb(this, cbval1, cbval2);
+            return;
         }
+        QPaintEngine::drawPoints(points, pointCount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -342,15 +345,18 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawpolygon_isbase) {
             qpaintengine_drawpolygon_isbase = false;
             QPaintEngine::drawPolygon(points, pointCount, mode);
-        } else if (qpaintengine_drawpolygon_callback != nullptr) {
+            return;
+        }
+        auto drawpolygon_cb = qpaintengine_drawpolygon_callback;
+        if (drawpolygon_cb) {
             QPointF* cbval1 = (QPointF*)points;
             int cbval2 = pointCount;
             int cbval3 = static_cast<int>(mode);
 
-            qpaintengine_drawpolygon_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QPaintEngine::drawPolygon(points, pointCount, mode);
+            drawpolygon_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QPaintEngine::drawPolygon(points, pointCount, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,20 +364,24 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawpolygon2_isbase) {
             qpaintengine_drawpolygon2_isbase = false;
             QPaintEngine::drawPolygon(points, pointCount, mode);
-        } else if (qpaintengine_drawpolygon2_callback != nullptr) {
+            return;
+        }
+        auto drawpolygon2_cb = qpaintengine_drawpolygon2_callback;
+        if (drawpolygon2_cb) {
             QPoint* cbval1 = (QPoint*)points;
             int cbval2 = pointCount;
             int cbval3 = static_cast<int>(mode);
 
-            qpaintengine_drawpolygon2_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QPaintEngine::drawPolygon(points, pointCount, mode);
+            drawpolygon2_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QPaintEngine::drawPolygon(points, pointCount, mode);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void drawPixmap(const QRectF& r, const QPixmap& pm, const QRectF& sr) override {
-        if (qpaintengine_drawpixmap_callback != nullptr) {
+        auto drawpixmap_cb = qpaintengine_drawpixmap_callback;
+        if (drawpixmap_cb) {
             const QRectF& r_ret = r;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&r_ret);
@@ -382,7 +392,7 @@ class VirtualQPaintEngine : public QPaintEngine {
             // Cast returned reference into pointer
             QRectF* cbval3 = const_cast<QRectF*>(&sr_ret);
 
-            qpaintengine_drawpixmap_callback(this, cbval1, cbval2, cbval3);
+            drawpixmap_cb(this, cbval1, cbval2, cbval3);
         }
     }
 
@@ -391,7 +401,10 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawtextitem_isbase) {
             qpaintengine_drawtextitem_isbase = false;
             QPaintEngine::drawTextItem(p, textItem);
-        } else if (qpaintengine_drawtextitem_callback != nullptr) {
+            return;
+        }
+        auto drawtextitem_cb = qpaintengine_drawtextitem_callback;
+        if (drawtextitem_cb) {
             const QPointF& p_ret = p;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&p_ret);
@@ -399,10 +412,10 @@ class VirtualQPaintEngine : public QPaintEngine {
             // Cast returned reference into pointer
             QTextItem* cbval2 = const_cast<QTextItem*>(&textItem_ret);
 
-            qpaintengine_drawtextitem_callback(this, cbval1, cbval2);
-        } else {
-            QPaintEngine::drawTextItem(p, textItem);
+            drawtextitem_cb(this, cbval1, cbval2);
+            return;
         }
+        QPaintEngine::drawTextItem(p, textItem);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -410,7 +423,10 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawtiledpixmap_isbase) {
             qpaintengine_drawtiledpixmap_isbase = false;
             QPaintEngine::drawTiledPixmap(r, pixmap, s);
-        } else if (qpaintengine_drawtiledpixmap_callback != nullptr) {
+            return;
+        }
+        auto drawtiledpixmap_cb = qpaintengine_drawtiledpixmap_callback;
+        if (drawtiledpixmap_cb) {
             const QRectF& r_ret = r;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&r_ret);
@@ -421,10 +437,10 @@ class VirtualQPaintEngine : public QPaintEngine {
             // Cast returned reference into pointer
             QPointF* cbval3 = const_cast<QPointF*>(&s_ret);
 
-            qpaintengine_drawtiledpixmap_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QPaintEngine::drawTiledPixmap(r, pixmap, s);
+            drawtiledpixmap_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QPaintEngine::drawTiledPixmap(r, pixmap, s);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -432,7 +448,10 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_drawimage_isbase) {
             qpaintengine_drawimage_isbase = false;
             QPaintEngine::drawImage(r, pm, sr, flags);
-        } else if (qpaintengine_drawimage_callback != nullptr) {
+            return;
+        }
+        auto drawimage_cb = qpaintengine_drawimage_callback;
+        if (drawimage_cb) {
             const QRectF& r_ret = r;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&r_ret);
@@ -444,10 +463,10 @@ class VirtualQPaintEngine : public QPaintEngine {
             QRectF* cbval3 = const_cast<QRectF*>(&sr_ret);
             int cbval4 = static_cast<int>(flags);
 
-            qpaintengine_drawimage_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QPaintEngine::drawImage(r, pm, sr, flags);
+            drawimage_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QPaintEngine::drawImage(r, pm, sr, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -455,22 +474,23 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_coordinateoffset_isbase) {
             qpaintengine_coordinateoffset_isbase = false;
             return QPaintEngine::coordinateOffset();
-        } else if (qpaintengine_coordinateoffset_callback != nullptr) {
-            QPoint* callback_ret = qpaintengine_coordinateoffset_callback();
-            return *callback_ret;
-        } else {
-            return QPaintEngine::coordinateOffset();
         }
+        auto coordinateoffset_cb = qpaintengine_coordinateoffset_callback;
+        if (coordinateoffset_cb) {
+            QPoint* callback_ret = coordinateoffset_cb();
+            return *callback_ret;
+        }
+        return QPaintEngine::coordinateOffset();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine::Type type() const override {
-        if (qpaintengine_type_callback != nullptr) {
-            int callback_ret = qpaintengine_type_callback();
+        auto type_cb = qpaintengine_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
             return static_cast<QPaintEngine::Type>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -478,14 +498,15 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_createpixmap_isbase) {
             qpaintengine_createpixmap_isbase = false;
             return QPaintEngine::createPixmap(size);
-        } else if (qpaintengine_createpixmap_callback != nullptr) {
+        }
+        auto createpixmap_cb = qpaintengine_createpixmap_callback;
+        if (createpixmap_cb) {
             QSize* cbval1 = new QSize(size);
 
-            QPixmap* callback_ret = qpaintengine_createpixmap_callback(this, cbval1);
+            QPixmap* callback_ret = createpixmap_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QPaintEngine::createPixmap(size);
         }
+        return QPaintEngine::createPixmap(size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,15 +514,16 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (qpaintengine_createpixmapfromimage_isbase) {
             qpaintengine_createpixmapfromimage_isbase = false;
             return QPaintEngine::createPixmapFromImage(image, flags);
-        } else if (qpaintengine_createpixmapfromimage_callback != nullptr) {
+        }
+        auto createpixmapfromimage_cb = qpaintengine_createpixmapfromimage_callback;
+        if (createpixmapfromimage_cb) {
             QImage* cbval1 = new QImage(image);
             int cbval2 = static_cast<int>(flags);
 
-            QPixmap* callback_ret = qpaintengine_createpixmapfromimage_callback(this, cbval1, cbval2);
+            QPixmap* callback_ret = createpixmapfromimage_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QPaintEngine::createPixmapFromImage(image, flags);
         }
+        return QPaintEngine::createPixmapFromImage(image, flags);
     }
 };
 

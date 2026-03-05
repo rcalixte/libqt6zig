@@ -231,77 +231,6 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
     VirtualKColumnHeadersModel() : KColumnHeadersModel() {};
     VirtualKColumnHeadersModel(QObject* parent) : KColumnHeadersModel(parent) {};
 
-    ~VirtualKColumnHeadersModel() {
-        kcolumnheadersmodel_metaobject_callback = nullptr;
-        kcolumnheadersmodel_metacast_callback = nullptr;
-        kcolumnheadersmodel_metacall_callback = nullptr;
-        kcolumnheadersmodel_rowcount_callback = nullptr;
-        kcolumnheadersmodel_data_callback = nullptr;
-        kcolumnheadersmodel_rolenames_callback = nullptr;
-        kcolumnheadersmodel_index_callback = nullptr;
-        kcolumnheadersmodel_sibling_callback = nullptr;
-        kcolumnheadersmodel_dropmimedata_callback = nullptr;
-        kcolumnheadersmodel_flags_callback = nullptr;
-        kcolumnheadersmodel_setdata_callback = nullptr;
-        kcolumnheadersmodel_headerdata_callback = nullptr;
-        kcolumnheadersmodel_setheaderdata_callback = nullptr;
-        kcolumnheadersmodel_itemdata_callback = nullptr;
-        kcolumnheadersmodel_setitemdata_callback = nullptr;
-        kcolumnheadersmodel_clearitemdata_callback = nullptr;
-        kcolumnheadersmodel_mimetypes_callback = nullptr;
-        kcolumnheadersmodel_mimedata_callback = nullptr;
-        kcolumnheadersmodel_candropmimedata_callback = nullptr;
-        kcolumnheadersmodel_supporteddropactions_callback = nullptr;
-        kcolumnheadersmodel_supporteddragactions_callback = nullptr;
-        kcolumnheadersmodel_insertrows_callback = nullptr;
-        kcolumnheadersmodel_insertcolumns_callback = nullptr;
-        kcolumnheadersmodel_removerows_callback = nullptr;
-        kcolumnheadersmodel_removecolumns_callback = nullptr;
-        kcolumnheadersmodel_moverows_callback = nullptr;
-        kcolumnheadersmodel_movecolumns_callback = nullptr;
-        kcolumnheadersmodel_fetchmore_callback = nullptr;
-        kcolumnheadersmodel_canfetchmore_callback = nullptr;
-        kcolumnheadersmodel_sort_callback = nullptr;
-        kcolumnheadersmodel_buddy_callback = nullptr;
-        kcolumnheadersmodel_match_callback = nullptr;
-        kcolumnheadersmodel_span_callback = nullptr;
-        kcolumnheadersmodel_multidata_callback = nullptr;
-        kcolumnheadersmodel_submit_callback = nullptr;
-        kcolumnheadersmodel_revert_callback = nullptr;
-        kcolumnheadersmodel_resetinternaldata_callback = nullptr;
-        kcolumnheadersmodel_event_callback = nullptr;
-        kcolumnheadersmodel_eventfilter_callback = nullptr;
-        kcolumnheadersmodel_timerevent_callback = nullptr;
-        kcolumnheadersmodel_childevent_callback = nullptr;
-        kcolumnheadersmodel_customevent_callback = nullptr;
-        kcolumnheadersmodel_connectnotify_callback = nullptr;
-        kcolumnheadersmodel_disconnectnotify_callback = nullptr;
-        kcolumnheadersmodel_createindex_callback = nullptr;
-        kcolumnheadersmodel_encodedata_callback = nullptr;
-        kcolumnheadersmodel_decodedata_callback = nullptr;
-        kcolumnheadersmodel_begininsertrows_callback = nullptr;
-        kcolumnheadersmodel_endinsertrows_callback = nullptr;
-        kcolumnheadersmodel_beginremoverows_callback = nullptr;
-        kcolumnheadersmodel_endremoverows_callback = nullptr;
-        kcolumnheadersmodel_beginmoverows_callback = nullptr;
-        kcolumnheadersmodel_endmoverows_callback = nullptr;
-        kcolumnheadersmodel_begininsertcolumns_callback = nullptr;
-        kcolumnheadersmodel_endinsertcolumns_callback = nullptr;
-        kcolumnheadersmodel_beginremovecolumns_callback = nullptr;
-        kcolumnheadersmodel_endremovecolumns_callback = nullptr;
-        kcolumnheadersmodel_beginmovecolumns_callback = nullptr;
-        kcolumnheadersmodel_endmovecolumns_callback = nullptr;
-        kcolumnheadersmodel_beginresetmodel_callback = nullptr;
-        kcolumnheadersmodel_endresetmodel_callback = nullptr;
-        kcolumnheadersmodel_changepersistentindex_callback = nullptr;
-        kcolumnheadersmodel_changepersistentindexlist_callback = nullptr;
-        kcolumnheadersmodel_persistentindexlist_callback = nullptr;
-        kcolumnheadersmodel_sender_callback = nullptr;
-        kcolumnheadersmodel_sendersignalindex_callback = nullptr;
-        kcolumnheadersmodel_receivers_callback = nullptr;
-        kcolumnheadersmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKColumnHeadersModel_MetaObject_Callback(KColumnHeadersModel_MetaObject_Callback cb) { kcolumnheadersmodel_metaobject_callback = cb; }
     inline void setKColumnHeadersModel_Metacast_Callback(KColumnHeadersModel_Metacast_Callback cb) { kcolumnheadersmodel_metacast_callback = cb; }
@@ -447,12 +376,13 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_metaobject_isbase) {
             kcolumnheadersmodel_metaobject_isbase = false;
             return KColumnHeadersModel::metaObject();
-        } else if (kcolumnheadersmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcolumnheadersmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KColumnHeadersModel::metaObject();
         }
+        auto metaobject_cb = kcolumnheadersmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KColumnHeadersModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -460,14 +390,15 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_metacast_isbase) {
             kcolumnheadersmodel_metacast_isbase = false;
             return KColumnHeadersModel::qt_metacast(param1);
-        } else if (kcolumnheadersmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcolumnheadersmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcolumnheadersmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::qt_metacast(param1);
         }
+        return KColumnHeadersModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -475,16 +406,17 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_metacall_isbase) {
             kcolumnheadersmodel_metacall_isbase = false;
             return KColumnHeadersModel::qt_metacall(param1, param2, param3);
-        } else if (kcolumnheadersmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcolumnheadersmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcolumnheadersmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColumnHeadersModel::qt_metacall(param1, param2, param3);
         }
+        return KColumnHeadersModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,16 +424,17 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_rowcount_isbase) {
             kcolumnheadersmodel_rowcount_isbase = false;
             return KColumnHeadersModel::rowCount(parent);
-        } else if (kcolumnheadersmodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = kcolumnheadersmodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kcolumnheadersmodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColumnHeadersModel::rowCount(parent);
         }
+        return KColumnHeadersModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,17 +442,18 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_data_isbase) {
             kcolumnheadersmodel_data_isbase = false;
             return KColumnHeadersModel::data(index, role);
-        } else if (kcolumnheadersmodel_data_callback != nullptr) {
+        }
+        auto data_cb = kcolumnheadersmodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = kcolumnheadersmodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KColumnHeadersModel::data(index, role);
         }
+        return KColumnHeadersModel::data(index, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,8 +461,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_rolenames_isbase) {
             kcolumnheadersmodel_rolenames_isbase = false;
             return KColumnHeadersModel::roleNames();
-        } else if (kcolumnheadersmodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = kcolumnheadersmodel_rolenames_callback();
+        }
+        auto rolenames_cb = kcolumnheadersmodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -538,9 +474,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return KColumnHeadersModel::roleNames();
         }
+        return KColumnHeadersModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,18 +483,19 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_index_isbase) {
             kcolumnheadersmodel_index_isbase = false;
             return KColumnHeadersModel::index(row, column, parent);
-        } else if (kcolumnheadersmodel_index_callback != nullptr) {
+        }
+        auto index_cb = kcolumnheadersmodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = kcolumnheadersmodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KColumnHeadersModel::index(row, column, parent);
         }
+        return KColumnHeadersModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,18 +503,19 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_sibling_isbase) {
             kcolumnheadersmodel_sibling_isbase = false;
             return KColumnHeadersModel::sibling(row, column, idx);
-        } else if (kcolumnheadersmodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = kcolumnheadersmodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = kcolumnheadersmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KColumnHeadersModel::sibling(row, column, idx);
         }
+        return KColumnHeadersModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,7 +523,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_dropmimedata_isbase) {
             kcolumnheadersmodel_dropmimedata_isbase = false;
             return KColumnHeadersModel::dropMimeData(data, action, row, column, parent);
-        } else if (kcolumnheadersmodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = kcolumnheadersmodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -595,11 +534,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcolumnheadersmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::dropMimeData(data, action, row, column, parent);
         }
+        return KColumnHeadersModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,16 +545,17 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_flags_isbase) {
             kcolumnheadersmodel_flags_isbase = false;
             return KColumnHeadersModel::flags(index);
-        } else if (kcolumnheadersmodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = kcolumnheadersmodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = kcolumnheadersmodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return KColumnHeadersModel::flags(index);
         }
+        return KColumnHeadersModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,7 +563,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_setdata_isbase) {
             kcolumnheadersmodel_setdata_isbase = false;
             return KColumnHeadersModel::setData(index, value, role);
-        } else if (kcolumnheadersmodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = kcolumnheadersmodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -633,11 +574,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = kcolumnheadersmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::setData(index, value, role);
         }
+        return KColumnHeadersModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,16 +585,17 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_headerdata_isbase) {
             kcolumnheadersmodel_headerdata_isbase = false;
             return KColumnHeadersModel::headerData(section, orientation, role);
-        } else if (kcolumnheadersmodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = kcolumnheadersmodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = kcolumnheadersmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KColumnHeadersModel::headerData(section, orientation, role);
         }
+        return KColumnHeadersModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,7 +603,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_setheaderdata_isbase) {
             kcolumnheadersmodel_setheaderdata_isbase = false;
             return KColumnHeadersModel::setHeaderData(section, orientation, value, role);
-        } else if (kcolumnheadersmodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = kcolumnheadersmodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -670,11 +613,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = kcolumnheadersmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::setHeaderData(section, orientation, value, role);
         }
+        return KColumnHeadersModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,12 +624,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_itemdata_isbase) {
             kcolumnheadersmodel_itemdata_isbase = false;
             return KColumnHeadersModel::itemData(index);
-        } else if (kcolumnheadersmodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = kcolumnheadersmodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = kcolumnheadersmodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -695,9 +639,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return KColumnHeadersModel::itemData(index);
         }
+        return KColumnHeadersModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,7 +648,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_setitemdata_isbase) {
             kcolumnheadersmodel_setitemdata_isbase = false;
             return KColumnHeadersModel::setItemData(index, roles);
-        } else if (kcolumnheadersmodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = kcolumnheadersmodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -725,11 +670,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = kcolumnheadersmodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::setItemData(index, roles);
         }
+        return KColumnHeadersModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,16 +681,17 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_clearitemdata_isbase) {
             kcolumnheadersmodel_clearitemdata_isbase = false;
             return KColumnHeadersModel::clearItemData(index);
-        } else if (kcolumnheadersmodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = kcolumnheadersmodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kcolumnheadersmodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::clearItemData(index);
         }
+        return KColumnHeadersModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,8 +699,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_mimetypes_isbase) {
             kcolumnheadersmodel_mimetypes_isbase = false;
             return KColumnHeadersModel::mimeTypes();
-        } else if (kcolumnheadersmodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = kcolumnheadersmodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = kcolumnheadersmodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -766,9 +713,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KColumnHeadersModel::mimeTypes();
         }
+        return KColumnHeadersModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,7 +722,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_mimedata_isbase) {
             kcolumnheadersmodel_mimedata_isbase = false;
             return KColumnHeadersModel::mimeData(indexes);
-        } else if (kcolumnheadersmodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = kcolumnheadersmodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -788,12 +736,11 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = kcolumnheadersmodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::mimeData(indexes);
         }
+        return KColumnHeadersModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,7 +748,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_candropmimedata_isbase) {
             kcolumnheadersmodel_candropmimedata_isbase = false;
             return KColumnHeadersModel::canDropMimeData(data, action, row, column, parent);
-        } else if (kcolumnheadersmodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = kcolumnheadersmodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -810,11 +759,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcolumnheadersmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::canDropMimeData(data, action, row, column, parent);
         }
+        return KColumnHeadersModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -822,12 +770,13 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_supporteddropactions_isbase) {
             kcolumnheadersmodel_supporteddropactions_isbase = false;
             return KColumnHeadersModel::supportedDropActions();
-        } else if (kcolumnheadersmodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = kcolumnheadersmodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KColumnHeadersModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = kcolumnheadersmodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KColumnHeadersModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,12 +784,13 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_supporteddragactions_isbase) {
             kcolumnheadersmodel_supporteddragactions_isbase = false;
             return KColumnHeadersModel::supportedDragActions();
-        } else if (kcolumnheadersmodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = kcolumnheadersmodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KColumnHeadersModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = kcolumnheadersmodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KColumnHeadersModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -848,18 +798,19 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_insertrows_isbase) {
             kcolumnheadersmodel_insertrows_isbase = false;
             return KColumnHeadersModel::insertRows(row, count, parent);
-        } else if (kcolumnheadersmodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = kcolumnheadersmodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcolumnheadersmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::insertRows(row, count, parent);
         }
+        return KColumnHeadersModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,18 +818,19 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_insertcolumns_isbase) {
             kcolumnheadersmodel_insertcolumns_isbase = false;
             return KColumnHeadersModel::insertColumns(column, count, parent);
-        } else if (kcolumnheadersmodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = kcolumnheadersmodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcolumnheadersmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::insertColumns(column, count, parent);
         }
+        return KColumnHeadersModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -886,18 +838,19 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_removerows_isbase) {
             kcolumnheadersmodel_removerows_isbase = false;
             return KColumnHeadersModel::removeRows(row, count, parent);
-        } else if (kcolumnheadersmodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = kcolumnheadersmodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcolumnheadersmodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::removeRows(row, count, parent);
         }
+        return KColumnHeadersModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,18 +858,19 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_removecolumns_isbase) {
             kcolumnheadersmodel_removecolumns_isbase = false;
             return KColumnHeadersModel::removeColumns(column, count, parent);
-        } else if (kcolumnheadersmodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = kcolumnheadersmodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcolumnheadersmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::removeColumns(column, count, parent);
         }
+        return KColumnHeadersModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,7 +878,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_moverows_isbase) {
             kcolumnheadersmodel_moverows_isbase = false;
             return KColumnHeadersModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (kcolumnheadersmodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = kcolumnheadersmodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -935,11 +891,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kcolumnheadersmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return KColumnHeadersModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,7 +902,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_movecolumns_isbase) {
             kcolumnheadersmodel_movecolumns_isbase = false;
             return KColumnHeadersModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (kcolumnheadersmodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = kcolumnheadersmodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -958,11 +915,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kcolumnheadersmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return KColumnHeadersModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -970,15 +926,18 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_fetchmore_isbase) {
             kcolumnheadersmodel_fetchmore_isbase = false;
             KColumnHeadersModel::fetchMore(parent);
-        } else if (kcolumnheadersmodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = kcolumnheadersmodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            kcolumnheadersmodel_fetchmore_callback(this, cbval1);
-        } else {
-            KColumnHeadersModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        KColumnHeadersModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,16 +945,17 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_canfetchmore_isbase) {
             kcolumnheadersmodel_canfetchmore_isbase = false;
             return KColumnHeadersModel::canFetchMore(parent);
-        } else if (kcolumnheadersmodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = kcolumnheadersmodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcolumnheadersmodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::canFetchMore(parent);
         }
+        return KColumnHeadersModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,14 +963,17 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_sort_isbase) {
             kcolumnheadersmodel_sort_isbase = false;
             KColumnHeadersModel::sort(column, order);
-        } else if (kcolumnheadersmodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = kcolumnheadersmodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            kcolumnheadersmodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            KColumnHeadersModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        KColumnHeadersModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1018,16 +981,17 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_buddy_isbase) {
             kcolumnheadersmodel_buddy_isbase = false;
             return KColumnHeadersModel::buddy(index);
-        } else if (kcolumnheadersmodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = kcolumnheadersmodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = kcolumnheadersmodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KColumnHeadersModel::buddy(index);
         }
+        return KColumnHeadersModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,7 +999,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_match_isbase) {
             kcolumnheadersmodel_match_isbase = false;
             return KColumnHeadersModel::match(start, role, value, hits, flags);
-        } else if (kcolumnheadersmodel_match_callback != nullptr) {
+        }
+        auto match_cb = kcolumnheadersmodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1046,7 +1012,7 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = kcolumnheadersmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1055,9 +1021,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KColumnHeadersModel::match(start, role, value, hits, flags);
         }
+        return KColumnHeadersModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,16 +1030,17 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_span_isbase) {
             kcolumnheadersmodel_span_isbase = false;
             return KColumnHeadersModel::span(index);
-        } else if (kcolumnheadersmodel_span_callback != nullptr) {
+        }
+        auto span_cb = kcolumnheadersmodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = kcolumnheadersmodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KColumnHeadersModel::span(index);
         }
+        return KColumnHeadersModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1082,16 +1048,19 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_multidata_isbase) {
             kcolumnheadersmodel_multidata_isbase = false;
             KColumnHeadersModel::multiData(index, roleDataSpan);
-        } else if (kcolumnheadersmodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = kcolumnheadersmodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            kcolumnheadersmodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            KColumnHeadersModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        KColumnHeadersModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1099,12 +1068,13 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_submit_isbase) {
             kcolumnheadersmodel_submit_isbase = false;
             return KColumnHeadersModel::submit();
-        } else if (kcolumnheadersmodel_submit_callback != nullptr) {
-            bool callback_ret = kcolumnheadersmodel_submit_callback();
-            return callback_ret;
-        } else {
-            return KColumnHeadersModel::submit();
         }
+        auto submit_cb = kcolumnheadersmodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return KColumnHeadersModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,11 +1082,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_revert_isbase) {
             kcolumnheadersmodel_revert_isbase = false;
             KColumnHeadersModel::revert();
-        } else if (kcolumnheadersmodel_revert_callback != nullptr) {
-            kcolumnheadersmodel_revert_callback();
-        } else {
-            KColumnHeadersModel::revert();
+            return;
         }
+        auto revert_cb = kcolumnheadersmodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        KColumnHeadersModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1124,11 +1097,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_resetinternaldata_isbase) {
             kcolumnheadersmodel_resetinternaldata_isbase = false;
             KColumnHeadersModel::resetInternalData();
-        } else if (kcolumnheadersmodel_resetinternaldata_callback != nullptr) {
-            kcolumnheadersmodel_resetinternaldata_callback();
-        } else {
-            KColumnHeadersModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = kcolumnheadersmodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        KColumnHeadersModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1136,14 +1112,15 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_event_isbase) {
             kcolumnheadersmodel_event_isbase = false;
             return KColumnHeadersModel::event(event);
-        } else if (kcolumnheadersmodel_event_callback != nullptr) {
+        }
+        auto event_cb = kcolumnheadersmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcolumnheadersmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::event(event);
         }
+        return KColumnHeadersModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1151,15 +1128,16 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_eventfilter_isbase) {
             kcolumnheadersmodel_eventfilter_isbase = false;
             return KColumnHeadersModel::eventFilter(watched, event);
-        } else if (kcolumnheadersmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcolumnheadersmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcolumnheadersmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::eventFilter(watched, event);
         }
+        return KColumnHeadersModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,13 +1145,16 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_timerevent_isbase) {
             kcolumnheadersmodel_timerevent_isbase = false;
             KColumnHeadersModel::timerEvent(event);
-        } else if (kcolumnheadersmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcolumnheadersmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcolumnheadersmodel_timerevent_callback(this, cbval1);
-        } else {
-            KColumnHeadersModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KColumnHeadersModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,13 +1162,16 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_childevent_isbase) {
             kcolumnheadersmodel_childevent_isbase = false;
             KColumnHeadersModel::childEvent(event);
-        } else if (kcolumnheadersmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcolumnheadersmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcolumnheadersmodel_childevent_callback(this, cbval1);
-        } else {
-            KColumnHeadersModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KColumnHeadersModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,13 +1179,16 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_customevent_isbase) {
             kcolumnheadersmodel_customevent_isbase = false;
             KColumnHeadersModel::customEvent(event);
-        } else if (kcolumnheadersmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcolumnheadersmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcolumnheadersmodel_customevent_callback(this, cbval1);
-        } else {
-            KColumnHeadersModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KColumnHeadersModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1209,15 +1196,18 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_connectnotify_isbase) {
             kcolumnheadersmodel_connectnotify_isbase = false;
             KColumnHeadersModel::connectNotify(signal);
-        } else if (kcolumnheadersmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcolumnheadersmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcolumnheadersmodel_connectnotify_callback(this, cbval1);
-        } else {
-            KColumnHeadersModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KColumnHeadersModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,15 +1215,18 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_disconnectnotify_isbase) {
             kcolumnheadersmodel_disconnectnotify_isbase = false;
             KColumnHeadersModel::disconnectNotify(signal);
-        } else if (kcolumnheadersmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcolumnheadersmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcolumnheadersmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KColumnHeadersModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KColumnHeadersModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,15 +1234,16 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_createindex_isbase) {
             kcolumnheadersmodel_createindex_isbase = false;
             return KColumnHeadersModel::createIndex(row, column);
-        } else if (kcolumnheadersmodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = kcolumnheadersmodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = kcolumnheadersmodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KColumnHeadersModel::createIndex(row, column);
         }
+        return KColumnHeadersModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,7 +1251,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_encodedata_isbase) {
             kcolumnheadersmodel_encodedata_isbase = false;
             KColumnHeadersModel::encodeData(indexes, stream);
-        } else if (kcolumnheadersmodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = kcolumnheadersmodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1272,11 +1269,11 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            kcolumnheadersmodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            KColumnHeadersModel::encodeData(indexes, stream);
+            return;
         }
+        KColumnHeadersModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,7 +1281,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_decodedata_isbase) {
             kcolumnheadersmodel_decodedata_isbase = false;
             return KColumnHeadersModel::decodeData(row, column, parent, stream);
-        } else if (kcolumnheadersmodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = kcolumnheadersmodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1294,11 +1293,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = kcolumnheadersmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::decodeData(row, column, parent, stream);
         }
+        return KColumnHeadersModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1306,17 +1304,20 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_begininsertrows_isbase) {
             kcolumnheadersmodel_begininsertrows_isbase = false;
             KColumnHeadersModel::beginInsertRows(parent, first, last);
-        } else if (kcolumnheadersmodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = kcolumnheadersmodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcolumnheadersmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KColumnHeadersModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KColumnHeadersModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1324,11 +1325,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_endinsertrows_isbase) {
             kcolumnheadersmodel_endinsertrows_isbase = false;
             KColumnHeadersModel::endInsertRows();
-        } else if (kcolumnheadersmodel_endinsertrows_callback != nullptr) {
-            kcolumnheadersmodel_endinsertrows_callback();
-        } else {
-            KColumnHeadersModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = kcolumnheadersmodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        KColumnHeadersModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,17 +1340,20 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_beginremoverows_isbase) {
             kcolumnheadersmodel_beginremoverows_isbase = false;
             KColumnHeadersModel::beginRemoveRows(parent, first, last);
-        } else if (kcolumnheadersmodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = kcolumnheadersmodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcolumnheadersmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KColumnHeadersModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KColumnHeadersModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1354,11 +1361,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_endremoverows_isbase) {
             kcolumnheadersmodel_endremoverows_isbase = false;
             KColumnHeadersModel::endRemoveRows();
-        } else if (kcolumnheadersmodel_endremoverows_callback != nullptr) {
-            kcolumnheadersmodel_endremoverows_callback();
-        } else {
-            KColumnHeadersModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = kcolumnheadersmodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        KColumnHeadersModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1366,7 +1376,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_beginmoverows_isbase) {
             kcolumnheadersmodel_beginmoverows_isbase = false;
             return KColumnHeadersModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (kcolumnheadersmodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = kcolumnheadersmodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1377,11 +1389,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = kcolumnheadersmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return KColumnHeadersModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1389,11 +1400,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_endmoverows_isbase) {
             kcolumnheadersmodel_endmoverows_isbase = false;
             KColumnHeadersModel::endMoveRows();
-        } else if (kcolumnheadersmodel_endmoverows_callback != nullptr) {
-            kcolumnheadersmodel_endmoverows_callback();
-        } else {
-            KColumnHeadersModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = kcolumnheadersmodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        KColumnHeadersModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1401,17 +1415,20 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_begininsertcolumns_isbase) {
             kcolumnheadersmodel_begininsertcolumns_isbase = false;
             KColumnHeadersModel::beginInsertColumns(parent, first, last);
-        } else if (kcolumnheadersmodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = kcolumnheadersmodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcolumnheadersmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KColumnHeadersModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KColumnHeadersModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1419,11 +1436,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_endinsertcolumns_isbase) {
             kcolumnheadersmodel_endinsertcolumns_isbase = false;
             KColumnHeadersModel::endInsertColumns();
-        } else if (kcolumnheadersmodel_endinsertcolumns_callback != nullptr) {
-            kcolumnheadersmodel_endinsertcolumns_callback();
-        } else {
-            KColumnHeadersModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = kcolumnheadersmodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        KColumnHeadersModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1431,17 +1451,20 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_beginremovecolumns_isbase) {
             kcolumnheadersmodel_beginremovecolumns_isbase = false;
             KColumnHeadersModel::beginRemoveColumns(parent, first, last);
-        } else if (kcolumnheadersmodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = kcolumnheadersmodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcolumnheadersmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KColumnHeadersModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KColumnHeadersModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1449,11 +1472,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_endremovecolumns_isbase) {
             kcolumnheadersmodel_endremovecolumns_isbase = false;
             KColumnHeadersModel::endRemoveColumns();
-        } else if (kcolumnheadersmodel_endremovecolumns_callback != nullptr) {
-            kcolumnheadersmodel_endremovecolumns_callback();
-        } else {
-            KColumnHeadersModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = kcolumnheadersmodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        KColumnHeadersModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1461,7 +1487,9 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_beginmovecolumns_isbase) {
             kcolumnheadersmodel_beginmovecolumns_isbase = false;
             return KColumnHeadersModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (kcolumnheadersmodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = kcolumnheadersmodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1472,11 +1500,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = kcolumnheadersmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return KColumnHeadersModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1484,11 +1511,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_endmovecolumns_isbase) {
             kcolumnheadersmodel_endmovecolumns_isbase = false;
             KColumnHeadersModel::endMoveColumns();
-        } else if (kcolumnheadersmodel_endmovecolumns_callback != nullptr) {
-            kcolumnheadersmodel_endmovecolumns_callback();
-        } else {
-            KColumnHeadersModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = kcolumnheadersmodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        KColumnHeadersModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1496,11 +1526,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_beginresetmodel_isbase) {
             kcolumnheadersmodel_beginresetmodel_isbase = false;
             KColumnHeadersModel::beginResetModel();
-        } else if (kcolumnheadersmodel_beginresetmodel_callback != nullptr) {
-            kcolumnheadersmodel_beginresetmodel_callback();
-        } else {
-            KColumnHeadersModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = kcolumnheadersmodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        KColumnHeadersModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1508,11 +1541,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_endresetmodel_isbase) {
             kcolumnheadersmodel_endresetmodel_isbase = false;
             KColumnHeadersModel::endResetModel();
-        } else if (kcolumnheadersmodel_endresetmodel_callback != nullptr) {
-            kcolumnheadersmodel_endresetmodel_callback();
-        } else {
-            KColumnHeadersModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = kcolumnheadersmodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        KColumnHeadersModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1520,7 +1556,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_changepersistentindex_isbase) {
             kcolumnheadersmodel_changepersistentindex_isbase = false;
             KColumnHeadersModel::changePersistentIndex(from, to);
-        } else if (kcolumnheadersmodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = kcolumnheadersmodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1528,10 +1567,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            kcolumnheadersmodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            KColumnHeadersModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KColumnHeadersModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1539,7 +1578,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_changepersistentindexlist_isbase) {
             kcolumnheadersmodel_changepersistentindexlist_isbase = false;
             KColumnHeadersModel::changePersistentIndexList(from, to);
-        } else if (kcolumnheadersmodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = kcolumnheadersmodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1561,12 +1603,12 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            kcolumnheadersmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            KColumnHeadersModel::changePersistentIndexList(from, to);
+            return;
         }
+        KColumnHeadersModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1574,8 +1616,10 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_persistentindexlist_isbase) {
             kcolumnheadersmodel_persistentindexlist_isbase = false;
             return KColumnHeadersModel::persistentIndexList();
-        } else if (kcolumnheadersmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = kcolumnheadersmodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = kcolumnheadersmodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1584,9 +1628,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KColumnHeadersModel::persistentIndexList();
         }
+        return KColumnHeadersModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1594,12 +1637,13 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_sender_isbase) {
             kcolumnheadersmodel_sender_isbase = false;
             return KColumnHeadersModel::sender();
-        } else if (kcolumnheadersmodel_sender_callback != nullptr) {
-            QObject* callback_ret = kcolumnheadersmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return KColumnHeadersModel::sender();
         }
+        auto sender_cb = kcolumnheadersmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KColumnHeadersModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1607,12 +1651,13 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_sendersignalindex_isbase) {
             kcolumnheadersmodel_sendersignalindex_isbase = false;
             return KColumnHeadersModel::senderSignalIndex();
-        } else if (kcolumnheadersmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcolumnheadersmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KColumnHeadersModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcolumnheadersmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KColumnHeadersModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1620,14 +1665,15 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_receivers_isbase) {
             kcolumnheadersmodel_receivers_isbase = false;
             return KColumnHeadersModel::receivers(signal);
-        } else if (kcolumnheadersmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcolumnheadersmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcolumnheadersmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColumnHeadersModel::receivers(signal);
         }
+        return KColumnHeadersModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1635,16 +1681,17 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
         if (kcolumnheadersmodel_issignalconnected_isbase) {
             kcolumnheadersmodel_issignalconnected_isbase = false;
             return KColumnHeadersModel::isSignalConnected(signal);
-        } else if (kcolumnheadersmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcolumnheadersmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcolumnheadersmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColumnHeadersModel::isSignalConnected(signal);
         }
+        return KColumnHeadersModel::isSignalConnected(signal);
     }
 
     // Friend functions

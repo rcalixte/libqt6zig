@@ -32,11 +32,6 @@ class VirtualKTextEditorSessionConfigInterface : public KTextEditor::SessionConf
   public:
     VirtualKTextEditorSessionConfigInterface() : KTextEditor::SessionConfigInterface() {};
 
-    ~VirtualKTextEditorSessionConfigInterface() {
-        ktexteditor__sessionconfiginterface_readsessionconfig_callback = nullptr;
-        ktexteditor__sessionconfiginterface_writesessionconfig_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKTextEditor__SessionConfigInterface_ReadSessionConfig_Callback(KTextEditor__SessionConfigInterface_ReadSessionConfig_Callback cb) { ktexteditor__sessionconfiginterface_readsessionconfig_callback = cb; }
     inline void setKTextEditor__SessionConfigInterface_WriteSessionConfig_Callback(KTextEditor__SessionConfigInterface_WriteSessionConfig_Callback cb) { ktexteditor__sessionconfiginterface_writesessionconfig_callback = cb; }
@@ -47,23 +42,25 @@ class VirtualKTextEditorSessionConfigInterface : public KTextEditor::SessionConf
 
     // Virtual method for C ABI access and custom callback
     virtual void readSessionConfig(const KConfigGroup& config) override {
-        if (ktexteditor__sessionconfiginterface_readsessionconfig_callback != nullptr) {
+        auto readsessionconfig_cb = ktexteditor__sessionconfiginterface_readsessionconfig_callback;
+        if (readsessionconfig_cb) {
             const KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&config_ret);
 
-            ktexteditor__sessionconfiginterface_readsessionconfig_callback(this, cbval1);
+            readsessionconfig_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void writeSessionConfig(KConfigGroup& config) override {
-        if (ktexteditor__sessionconfiginterface_writesessionconfig_callback != nullptr) {
+        auto writesessionconfig_cb = ktexteditor__sessionconfiginterface_writesessionconfig_callback;
+        if (writesessionconfig_cb) {
             KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &config_ret;
 
-            ktexteditor__sessionconfiginterface_writesessionconfig_callback(this, cbval1);
+            writesessionconfig_cb(this, cbval1);
         }
     }
 };

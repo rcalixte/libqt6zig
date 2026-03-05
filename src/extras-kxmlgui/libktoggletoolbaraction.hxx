@@ -68,23 +68,6 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
   public:
     VirtualKToggleToolBarAction(KToolBar* toolBar, const QString& text, QObject* parent) : KToggleToolBarAction(toolBar, text, parent) {};
 
-    ~VirtualKToggleToolBarAction() {
-        ktoggletoolbaraction_metaobject_callback = nullptr;
-        ktoggletoolbaraction_metacast_callback = nullptr;
-        ktoggletoolbaraction_metacall_callback = nullptr;
-        ktoggletoolbaraction_eventfilter_callback = nullptr;
-        ktoggletoolbaraction_event_callback = nullptr;
-        ktoggletoolbaraction_timerevent_callback = nullptr;
-        ktoggletoolbaraction_childevent_callback = nullptr;
-        ktoggletoolbaraction_customevent_callback = nullptr;
-        ktoggletoolbaraction_connectnotify_callback = nullptr;
-        ktoggletoolbaraction_disconnectnotify_callback = nullptr;
-        ktoggletoolbaraction_sender_callback = nullptr;
-        ktoggletoolbaraction_sendersignalindex_callback = nullptr;
-        ktoggletoolbaraction_receivers_callback = nullptr;
-        ktoggletoolbaraction_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKToggleToolBarAction_MetaObject_Callback(KToggleToolBarAction_MetaObject_Callback cb) { ktoggletoolbaraction_metaobject_callback = cb; }
     inline void setKToggleToolBarAction_Metacast_Callback(KToggleToolBarAction_Metacast_Callback cb) { ktoggletoolbaraction_metacast_callback = cb; }
@@ -122,12 +105,13 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_metaobject_isbase) {
             ktoggletoolbaraction_metaobject_isbase = false;
             return KToggleToolBarAction::metaObject();
-        } else if (ktoggletoolbaraction_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktoggletoolbaraction_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KToggleToolBarAction::metaObject();
         }
+        auto metaobject_cb = ktoggletoolbaraction_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KToggleToolBarAction::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -135,14 +119,15 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_metacast_isbase) {
             ktoggletoolbaraction_metacast_isbase = false;
             return KToggleToolBarAction::qt_metacast(param1);
-        } else if (ktoggletoolbaraction_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktoggletoolbaraction_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktoggletoolbaraction_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToggleToolBarAction::qt_metacast(param1);
         }
+        return KToggleToolBarAction::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -150,16 +135,17 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_metacall_isbase) {
             ktoggletoolbaraction_metacall_isbase = false;
             return KToggleToolBarAction::qt_metacall(param1, param2, param3);
-        } else if (ktoggletoolbaraction_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktoggletoolbaraction_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktoggletoolbaraction_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToggleToolBarAction::qt_metacall(param1, param2, param3);
         }
+        return KToggleToolBarAction::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -167,15 +153,16 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_eventfilter_isbase) {
             ktoggletoolbaraction_eventfilter_isbase = false;
             return KToggleToolBarAction::eventFilter(watched, event);
-        } else if (ktoggletoolbaraction_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktoggletoolbaraction_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ktoggletoolbaraction_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KToggleToolBarAction::eventFilter(watched, event);
         }
+        return KToggleToolBarAction::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,14 +170,15 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_event_isbase) {
             ktoggletoolbaraction_event_isbase = false;
             return KToggleToolBarAction::event(param1);
-        } else if (ktoggletoolbaraction_event_callback != nullptr) {
+        }
+        auto event_cb = ktoggletoolbaraction_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = ktoggletoolbaraction_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToggleToolBarAction::event(param1);
         }
+        return KToggleToolBarAction::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -198,13 +186,16 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_timerevent_isbase) {
             ktoggletoolbaraction_timerevent_isbase = false;
             KToggleToolBarAction::timerEvent(event);
-        } else if (ktoggletoolbaraction_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktoggletoolbaraction_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktoggletoolbaraction_timerevent_callback(this, cbval1);
-        } else {
-            KToggleToolBarAction::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KToggleToolBarAction::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,13 +203,16 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_childevent_isbase) {
             ktoggletoolbaraction_childevent_isbase = false;
             KToggleToolBarAction::childEvent(event);
-        } else if (ktoggletoolbaraction_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktoggletoolbaraction_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktoggletoolbaraction_childevent_callback(this, cbval1);
-        } else {
-            KToggleToolBarAction::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KToggleToolBarAction::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,13 +220,16 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_customevent_isbase) {
             ktoggletoolbaraction_customevent_isbase = false;
             KToggleToolBarAction::customEvent(event);
-        } else if (ktoggletoolbaraction_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktoggletoolbaraction_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktoggletoolbaraction_customevent_callback(this, cbval1);
-        } else {
-            KToggleToolBarAction::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KToggleToolBarAction::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,15 +237,18 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_connectnotify_isbase) {
             ktoggletoolbaraction_connectnotify_isbase = false;
             KToggleToolBarAction::connectNotify(signal);
-        } else if (ktoggletoolbaraction_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktoggletoolbaraction_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktoggletoolbaraction_connectnotify_callback(this, cbval1);
-        } else {
-            KToggleToolBarAction::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KToggleToolBarAction::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,15 +256,18 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_disconnectnotify_isbase) {
             ktoggletoolbaraction_disconnectnotify_isbase = false;
             KToggleToolBarAction::disconnectNotify(signal);
-        } else if (ktoggletoolbaraction_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktoggletoolbaraction_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktoggletoolbaraction_disconnectnotify_callback(this, cbval1);
-        } else {
-            KToggleToolBarAction::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KToggleToolBarAction::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,12 +275,13 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_sender_isbase) {
             ktoggletoolbaraction_sender_isbase = false;
             return KToggleToolBarAction::sender();
-        } else if (ktoggletoolbaraction_sender_callback != nullptr) {
-            QObject* callback_ret = ktoggletoolbaraction_sender_callback();
-            return callback_ret;
-        } else {
-            return KToggleToolBarAction::sender();
         }
+        auto sender_cb = ktoggletoolbaraction_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KToggleToolBarAction::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,12 +289,13 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_sendersignalindex_isbase) {
             ktoggletoolbaraction_sendersignalindex_isbase = false;
             return KToggleToolBarAction::senderSignalIndex();
-        } else if (ktoggletoolbaraction_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktoggletoolbaraction_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KToggleToolBarAction::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktoggletoolbaraction_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KToggleToolBarAction::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,14 +303,15 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_receivers_isbase) {
             ktoggletoolbaraction_receivers_isbase = false;
             return KToggleToolBarAction::receivers(signal);
-        } else if (ktoggletoolbaraction_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktoggletoolbaraction_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktoggletoolbaraction_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToggleToolBarAction::receivers(signal);
         }
+        return KToggleToolBarAction::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,16 +319,17 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
         if (ktoggletoolbaraction_issignalconnected_isbase) {
             ktoggletoolbaraction_issignalconnected_isbase = false;
             return KToggleToolBarAction::isSignalConnected(signal);
-        } else if (ktoggletoolbaraction_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktoggletoolbaraction_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktoggletoolbaraction_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToggleToolBarAction::isSignalConnected(signal);
         }
+        return KToggleToolBarAction::isSignalConnected(signal);
     }
 
     // Friend functions

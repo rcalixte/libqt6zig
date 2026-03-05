@@ -222,74 +222,6 @@ class VirtualKDateComboBox final : public KDateComboBox {
     VirtualKDateComboBox(QWidget* parent) : KDateComboBox(parent) {};
     VirtualKDateComboBox() : KDateComboBox() {};
 
-    ~VirtualKDateComboBox() {
-        kdatecombobox_metaobject_callback = nullptr;
-        kdatecombobox_metacast_callback = nullptr;
-        kdatecombobox_metacall_callback = nullptr;
-        kdatecombobox_eventfilter_callback = nullptr;
-        kdatecombobox_showpopup_callback = nullptr;
-        kdatecombobox_hidepopup_callback = nullptr;
-        kdatecombobox_mousepressevent_callback = nullptr;
-        kdatecombobox_wheelevent_callback = nullptr;
-        kdatecombobox_keypressevent_callback = nullptr;
-        kdatecombobox_focusinevent_callback = nullptr;
-        kdatecombobox_focusoutevent_callback = nullptr;
-        kdatecombobox_resizeevent_callback = nullptr;
-        kdatecombobox_assigndate_callback = nullptr;
-        kdatecombobox_setmodel_callback = nullptr;
-        kdatecombobox_sizehint_callback = nullptr;
-        kdatecombobox_minimumsizehint_callback = nullptr;
-        kdatecombobox_event_callback = nullptr;
-        kdatecombobox_inputmethodquery_callback = nullptr;
-        kdatecombobox_changeevent_callback = nullptr;
-        kdatecombobox_paintevent_callback = nullptr;
-        kdatecombobox_showevent_callback = nullptr;
-        kdatecombobox_hideevent_callback = nullptr;
-        kdatecombobox_mousereleaseevent_callback = nullptr;
-        kdatecombobox_keyreleaseevent_callback = nullptr;
-        kdatecombobox_contextmenuevent_callback = nullptr;
-        kdatecombobox_inputmethodevent_callback = nullptr;
-        kdatecombobox_initstyleoption_callback = nullptr;
-        kdatecombobox_devtype_callback = nullptr;
-        kdatecombobox_setvisible_callback = nullptr;
-        kdatecombobox_heightforwidth_callback = nullptr;
-        kdatecombobox_hasheightforwidth_callback = nullptr;
-        kdatecombobox_paintengine_callback = nullptr;
-        kdatecombobox_mousedoubleclickevent_callback = nullptr;
-        kdatecombobox_mousemoveevent_callback = nullptr;
-        kdatecombobox_enterevent_callback = nullptr;
-        kdatecombobox_leaveevent_callback = nullptr;
-        kdatecombobox_moveevent_callback = nullptr;
-        kdatecombobox_closeevent_callback = nullptr;
-        kdatecombobox_tabletevent_callback = nullptr;
-        kdatecombobox_actionevent_callback = nullptr;
-        kdatecombobox_dragenterevent_callback = nullptr;
-        kdatecombobox_dragmoveevent_callback = nullptr;
-        kdatecombobox_dragleaveevent_callback = nullptr;
-        kdatecombobox_dropevent_callback = nullptr;
-        kdatecombobox_nativeevent_callback = nullptr;
-        kdatecombobox_metric_callback = nullptr;
-        kdatecombobox_initpainter_callback = nullptr;
-        kdatecombobox_redirected_callback = nullptr;
-        kdatecombobox_sharedpainter_callback = nullptr;
-        kdatecombobox_focusnextprevchild_callback = nullptr;
-        kdatecombobox_timerevent_callback = nullptr;
-        kdatecombobox_childevent_callback = nullptr;
-        kdatecombobox_customevent_callback = nullptr;
-        kdatecombobox_connectnotify_callback = nullptr;
-        kdatecombobox_disconnectnotify_callback = nullptr;
-        kdatecombobox_updatemicrofocus_callback = nullptr;
-        kdatecombobox_create_callback = nullptr;
-        kdatecombobox_destroy_callback = nullptr;
-        kdatecombobox_focusnextchild_callback = nullptr;
-        kdatecombobox_focuspreviouschild_callback = nullptr;
-        kdatecombobox_sender_callback = nullptr;
-        kdatecombobox_sendersignalindex_callback = nullptr;
-        kdatecombobox_receivers_callback = nullptr;
-        kdatecombobox_issignalconnected_callback = nullptr;
-        kdatecombobox_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKDateComboBox_MetaObject_Callback(KDateComboBox_MetaObject_Callback cb) { kdatecombobox_metaobject_callback = cb; }
     inline void setKDateComboBox_Metacast_Callback(KDateComboBox_Metacast_Callback cb) { kdatecombobox_metacast_callback = cb; }
@@ -429,12 +361,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_metaobject_isbase) {
             kdatecombobox_metaobject_isbase = false;
             return KDateComboBox::metaObject();
-        } else if (kdatecombobox_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kdatecombobox_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KDateComboBox::metaObject();
         }
+        auto metaobject_cb = kdatecombobox_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KDateComboBox::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -442,14 +375,15 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_metacast_isbase) {
             kdatecombobox_metacast_isbase = false;
             return KDateComboBox::qt_metacast(param1);
-        } else if (kdatecombobox_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kdatecombobox_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kdatecombobox_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDateComboBox::qt_metacast(param1);
         }
+        return KDateComboBox::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,16 +391,17 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_metacall_isbase) {
             kdatecombobox_metacall_isbase = false;
             return KDateComboBox::qt_metacall(param1, param2, param3);
-        } else if (kdatecombobox_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kdatecombobox_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kdatecombobox_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDateComboBox::qt_metacall(param1, param2, param3);
         }
+        return KDateComboBox::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -474,15 +409,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_eventfilter_isbase) {
             kdatecombobox_eventfilter_isbase = false;
             return KDateComboBox::eventFilter(object, event);
-        } else if (kdatecombobox_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kdatecombobox_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kdatecombobox_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KDateComboBox::eventFilter(object, event);
         }
+        return KDateComboBox::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -490,11 +426,14 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_showpopup_isbase) {
             kdatecombobox_showpopup_isbase = false;
             KDateComboBox::showPopup();
-        } else if (kdatecombobox_showpopup_callback != nullptr) {
-            kdatecombobox_showpopup_callback();
-        } else {
-            KDateComboBox::showPopup();
+            return;
         }
+        auto showpopup_cb = kdatecombobox_showpopup_callback;
+        if (showpopup_cb) {
+            showpopup_cb();
+            return;
+        }
+        KDateComboBox::showPopup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,11 +441,14 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_hidepopup_isbase) {
             kdatecombobox_hidepopup_isbase = false;
             KDateComboBox::hidePopup();
-        } else if (kdatecombobox_hidepopup_callback != nullptr) {
-            kdatecombobox_hidepopup_callback();
-        } else {
-            KDateComboBox::hidePopup();
+            return;
         }
+        auto hidepopup_cb = kdatecombobox_hidepopup_callback;
+        if (hidepopup_cb) {
+            hidepopup_cb();
+            return;
+        }
+        KDateComboBox::hidePopup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,13 +456,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_mousepressevent_isbase) {
             kdatecombobox_mousepressevent_isbase = false;
             KDateComboBox::mousePressEvent(event);
-        } else if (kdatecombobox_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kdatecombobox_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdatecombobox_mousepressevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,13 +473,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_wheelevent_isbase) {
             kdatecombobox_wheelevent_isbase = false;
             KDateComboBox::wheelEvent(event);
-        } else if (kdatecombobox_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kdatecombobox_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kdatecombobox_wheelevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -542,13 +490,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_keypressevent_isbase) {
             kdatecombobox_keypressevent_isbase = false;
             KDateComboBox::keyPressEvent(event);
-        } else if (kdatecombobox_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kdatecombobox_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kdatecombobox_keypressevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,13 +507,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_focusinevent_isbase) {
             kdatecombobox_focusinevent_isbase = false;
             KDateComboBox::focusInEvent(event);
-        } else if (kdatecombobox_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kdatecombobox_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kdatecombobox_focusinevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -570,13 +524,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_focusoutevent_isbase) {
             kdatecombobox_focusoutevent_isbase = false;
             KDateComboBox::focusOutEvent(event);
-        } else if (kdatecombobox_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kdatecombobox_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kdatecombobox_focusoutevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,13 +541,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_resizeevent_isbase) {
             kdatecombobox_resizeevent_isbase = false;
             KDateComboBox::resizeEvent(event);
-        } else if (kdatecombobox_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kdatecombobox_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kdatecombobox_resizeevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,15 +558,18 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_assigndate_isbase) {
             kdatecombobox_assigndate_isbase = false;
             KDateComboBox::assignDate(date);
-        } else if (kdatecombobox_assigndate_callback != nullptr) {
+            return;
+        }
+        auto assigndate_cb = kdatecombobox_assigndate_callback;
+        if (assigndate_cb) {
             const QDate& date_ret = date;
             // Cast returned reference into pointer
             QDate* cbval1 = const_cast<QDate*>(&date_ret);
 
-            kdatecombobox_assigndate_callback(this, cbval1);
-        } else {
-            KDateComboBox::assignDate(date);
+            assigndate_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::assignDate(date);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -614,13 +577,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_setmodel_isbase) {
             kdatecombobox_setmodel_isbase = false;
             KDateComboBox::setModel(model);
-        } else if (kdatecombobox_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = kdatecombobox_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            kdatecombobox_setmodel_callback(this, cbval1);
-        } else {
-            KDateComboBox::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -628,12 +594,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_sizehint_isbase) {
             kdatecombobox_sizehint_isbase = false;
             return KDateComboBox::sizeHint();
-        } else if (kdatecombobox_sizehint_callback != nullptr) {
-            QSize* callback_ret = kdatecombobox_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KDateComboBox::sizeHint();
         }
+        auto sizehint_cb = kdatecombobox_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KDateComboBox::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,12 +608,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_minimumsizehint_isbase) {
             kdatecombobox_minimumsizehint_isbase = false;
             return KDateComboBox::minimumSizeHint();
-        } else if (kdatecombobox_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kdatecombobox_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KDateComboBox::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kdatecombobox_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KDateComboBox::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,14 +622,15 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_event_isbase) {
             kdatecombobox_event_isbase = false;
             return KDateComboBox::event(event);
-        } else if (kdatecombobox_event_callback != nullptr) {
+        }
+        auto event_cb = kdatecombobox_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kdatecombobox_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDateComboBox::event(event);
         }
+        return KDateComboBox::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,14 +638,15 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_inputmethodquery_isbase) {
             kdatecombobox_inputmethodquery_isbase = false;
             return KDateComboBox::inputMethodQuery(param1);
-        } else if (kdatecombobox_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kdatecombobox_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kdatecombobox_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KDateComboBox::inputMethodQuery(param1);
         }
+        return KDateComboBox::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,13 +654,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_changeevent_isbase) {
             kdatecombobox_changeevent_isbase = false;
             KDateComboBox::changeEvent(e);
-        } else if (kdatecombobox_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kdatecombobox_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            kdatecombobox_changeevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,13 +671,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_paintevent_isbase) {
             kdatecombobox_paintevent_isbase = false;
             KDateComboBox::paintEvent(e);
-        } else if (kdatecombobox_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kdatecombobox_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
 
-            kdatecombobox_paintevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::paintEvent(e);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::paintEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -712,13 +688,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_showevent_isbase) {
             kdatecombobox_showevent_isbase = false;
             KDateComboBox::showEvent(e);
-        } else if (kdatecombobox_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kdatecombobox_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = e;
 
-            kdatecombobox_showevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::showEvent(e);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::showEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -726,13 +705,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_hideevent_isbase) {
             kdatecombobox_hideevent_isbase = false;
             KDateComboBox::hideEvent(e);
-        } else if (kdatecombobox_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kdatecombobox_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = e;
 
-            kdatecombobox_hideevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::hideEvent(e);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::hideEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,13 +722,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_mousereleaseevent_isbase) {
             kdatecombobox_mousereleaseevent_isbase = false;
             KDateComboBox::mouseReleaseEvent(e);
-        } else if (kdatecombobox_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kdatecombobox_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kdatecombobox_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,13 +739,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_keyreleaseevent_isbase) {
             kdatecombobox_keyreleaseevent_isbase = false;
             KDateComboBox::keyReleaseEvent(e);
-        } else if (kdatecombobox_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kdatecombobox_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kdatecombobox_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,13 +756,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_contextmenuevent_isbase) {
             kdatecombobox_contextmenuevent_isbase = false;
             KDateComboBox::contextMenuEvent(e);
-        } else if (kdatecombobox_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kdatecombobox_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
 
-            kdatecombobox_contextmenuevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::contextMenuEvent(e);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::contextMenuEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,13 +773,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_inputmethodevent_isbase) {
             kdatecombobox_inputmethodevent_isbase = false;
             KDateComboBox::inputMethodEvent(param1);
-        } else if (kdatecombobox_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kdatecombobox_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kdatecombobox_inputmethodevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,13 +790,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_initstyleoption_isbase) {
             kdatecombobox_initstyleoption_isbase = false;
             KDateComboBox::initStyleOption(option);
-        } else if (kdatecombobox_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kdatecombobox_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionComboBox* cbval1 = option;
 
-            kdatecombobox_initstyleoption_callback(this, cbval1);
-        } else {
-            KDateComboBox::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -810,12 +807,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_devtype_isbase) {
             kdatecombobox_devtype_isbase = false;
             return KDateComboBox::devType();
-        } else if (kdatecombobox_devtype_callback != nullptr) {
-            int callback_ret = kdatecombobox_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDateComboBox::devType();
         }
+        auto devtype_cb = kdatecombobox_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDateComboBox::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,13 +821,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_setvisible_isbase) {
             kdatecombobox_setvisible_isbase = false;
             KDateComboBox::setVisible(visible);
-        } else if (kdatecombobox_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kdatecombobox_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kdatecombobox_setvisible_callback(this, cbval1);
-        } else {
-            KDateComboBox::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -837,14 +838,15 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_heightforwidth_isbase) {
             kdatecombobox_heightforwidth_isbase = false;
             return KDateComboBox::heightForWidth(param1);
-        } else if (kdatecombobox_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kdatecombobox_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kdatecombobox_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDateComboBox::heightForWidth(param1);
         }
+        return KDateComboBox::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,12 +854,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_hasheightforwidth_isbase) {
             kdatecombobox_hasheightforwidth_isbase = false;
             return KDateComboBox::hasHeightForWidth();
-        } else if (kdatecombobox_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kdatecombobox_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KDateComboBox::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kdatecombobox_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KDateComboBox::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -865,12 +868,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_paintengine_isbase) {
             kdatecombobox_paintengine_isbase = false;
             return KDateComboBox::paintEngine();
-        } else if (kdatecombobox_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kdatecombobox_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KDateComboBox::paintEngine();
         }
+        auto paintengine_cb = kdatecombobox_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KDateComboBox::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -878,13 +882,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_mousedoubleclickevent_isbase) {
             kdatecombobox_mousedoubleclickevent_isbase = false;
             KDateComboBox::mouseDoubleClickEvent(event);
-        } else if (kdatecombobox_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kdatecombobox_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdatecombobox_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -892,13 +899,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_mousemoveevent_isbase) {
             kdatecombobox_mousemoveevent_isbase = false;
             KDateComboBox::mouseMoveEvent(event);
-        } else if (kdatecombobox_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kdatecombobox_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdatecombobox_mousemoveevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -906,13 +916,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_enterevent_isbase) {
             kdatecombobox_enterevent_isbase = false;
             KDateComboBox::enterEvent(event);
-        } else if (kdatecombobox_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kdatecombobox_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kdatecombobox_enterevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -920,13 +933,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_leaveevent_isbase) {
             kdatecombobox_leaveevent_isbase = false;
             KDateComboBox::leaveEvent(event);
-        } else if (kdatecombobox_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kdatecombobox_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kdatecombobox_leaveevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -934,13 +950,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_moveevent_isbase) {
             kdatecombobox_moveevent_isbase = false;
             KDateComboBox::moveEvent(event);
-        } else if (kdatecombobox_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kdatecombobox_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kdatecombobox_moveevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -948,13 +967,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_closeevent_isbase) {
             kdatecombobox_closeevent_isbase = false;
             KDateComboBox::closeEvent(event);
-        } else if (kdatecombobox_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kdatecombobox_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kdatecombobox_closeevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -962,13 +984,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_tabletevent_isbase) {
             kdatecombobox_tabletevent_isbase = false;
             KDateComboBox::tabletEvent(event);
-        } else if (kdatecombobox_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kdatecombobox_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kdatecombobox_tabletevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -976,13 +1001,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_actionevent_isbase) {
             kdatecombobox_actionevent_isbase = false;
             KDateComboBox::actionEvent(event);
-        } else if (kdatecombobox_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kdatecombobox_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kdatecombobox_actionevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -990,13 +1018,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_dragenterevent_isbase) {
             kdatecombobox_dragenterevent_isbase = false;
             KDateComboBox::dragEnterEvent(event);
-        } else if (kdatecombobox_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kdatecombobox_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kdatecombobox_dragenterevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1004,13 +1035,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_dragmoveevent_isbase) {
             kdatecombobox_dragmoveevent_isbase = false;
             KDateComboBox::dragMoveEvent(event);
-        } else if (kdatecombobox_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kdatecombobox_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kdatecombobox_dragmoveevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1018,13 +1052,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_dragleaveevent_isbase) {
             kdatecombobox_dragleaveevent_isbase = false;
             KDateComboBox::dragLeaveEvent(event);
-        } else if (kdatecombobox_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kdatecombobox_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kdatecombobox_dragleaveevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1032,13 +1069,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_dropevent_isbase) {
             kdatecombobox_dropevent_isbase = false;
             KDateComboBox::dropEvent(event);
-        } else if (kdatecombobox_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kdatecombobox_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kdatecombobox_dropevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1046,7 +1086,9 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_nativeevent_isbase) {
             kdatecombobox_nativeevent_isbase = false;
             return KDateComboBox::nativeEvent(eventType, message, result);
-        } else if (kdatecombobox_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kdatecombobox_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1057,12 +1099,11 @@ class VirtualKDateComboBox final : public KDateComboBox {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kdatecombobox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KDateComboBox::nativeEvent(eventType, message, result);
         }
+        return KDateComboBox::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,14 +1111,15 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_metric_isbase) {
             kdatecombobox_metric_isbase = false;
             return KDateComboBox::metric(param1);
-        } else if (kdatecombobox_metric_callback != nullptr) {
+        }
+        auto metric_cb = kdatecombobox_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kdatecombobox_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDateComboBox::metric(param1);
         }
+        return KDateComboBox::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1085,13 +1127,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_initpainter_isbase) {
             kdatecombobox_initpainter_isbase = false;
             KDateComboBox::initPainter(painter);
-        } else if (kdatecombobox_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kdatecombobox_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kdatecombobox_initpainter_callback(this, cbval1);
-        } else {
-            KDateComboBox::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1099,14 +1144,15 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_redirected_isbase) {
             kdatecombobox_redirected_isbase = false;
             return KDateComboBox::redirected(offset);
-        } else if (kdatecombobox_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kdatecombobox_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kdatecombobox_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDateComboBox::redirected(offset);
         }
+        return KDateComboBox::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1114,12 +1160,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_sharedpainter_isbase) {
             kdatecombobox_sharedpainter_isbase = false;
             return KDateComboBox::sharedPainter();
-        } else if (kdatecombobox_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kdatecombobox_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KDateComboBox::sharedPainter();
         }
+        auto sharedpainter_cb = kdatecombobox_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KDateComboBox::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1127,14 +1174,15 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_focusnextprevchild_isbase) {
             kdatecombobox_focusnextprevchild_isbase = false;
             return KDateComboBox::focusNextPrevChild(next);
-        } else if (kdatecombobox_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kdatecombobox_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kdatecombobox_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDateComboBox::focusNextPrevChild(next);
         }
+        return KDateComboBox::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,13 +1190,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_timerevent_isbase) {
             kdatecombobox_timerevent_isbase = false;
             KDateComboBox::timerEvent(event);
-        } else if (kdatecombobox_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kdatecombobox_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kdatecombobox_timerevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1156,13 +1207,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_childevent_isbase) {
             kdatecombobox_childevent_isbase = false;
             KDateComboBox::childEvent(event);
-        } else if (kdatecombobox_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kdatecombobox_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kdatecombobox_childevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1170,13 +1224,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_customevent_isbase) {
             kdatecombobox_customevent_isbase = false;
             KDateComboBox::customEvent(event);
-        } else if (kdatecombobox_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kdatecombobox_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kdatecombobox_customevent_callback(this, cbval1);
-        } else {
-            KDateComboBox::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,15 +1241,18 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_connectnotify_isbase) {
             kdatecombobox_connectnotify_isbase = false;
             KDateComboBox::connectNotify(signal);
-        } else if (kdatecombobox_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kdatecombobox_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdatecombobox_connectnotify_callback(this, cbval1);
-        } else {
-            KDateComboBox::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1200,15 +1260,18 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_disconnectnotify_isbase) {
             kdatecombobox_disconnectnotify_isbase = false;
             KDateComboBox::disconnectNotify(signal);
-        } else if (kdatecombobox_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kdatecombobox_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdatecombobox_disconnectnotify_callback(this, cbval1);
-        } else {
-            KDateComboBox::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KDateComboBox::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1216,11 +1279,14 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_updatemicrofocus_isbase) {
             kdatecombobox_updatemicrofocus_isbase = false;
             KDateComboBox::updateMicroFocus();
-        } else if (kdatecombobox_updatemicrofocus_callback != nullptr) {
-            kdatecombobox_updatemicrofocus_callback();
-        } else {
-            KDateComboBox::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kdatecombobox_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KDateComboBox::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1228,11 +1294,14 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_create_isbase) {
             kdatecombobox_create_isbase = false;
             KDateComboBox::create();
-        } else if (kdatecombobox_create_callback != nullptr) {
-            kdatecombobox_create_callback();
-        } else {
-            KDateComboBox::create();
+            return;
         }
+        auto create_cb = kdatecombobox_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KDateComboBox::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1240,11 +1309,14 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_destroy_isbase) {
             kdatecombobox_destroy_isbase = false;
             KDateComboBox::destroy();
-        } else if (kdatecombobox_destroy_callback != nullptr) {
-            kdatecombobox_destroy_callback();
-        } else {
-            KDateComboBox::destroy();
+            return;
         }
+        auto destroy_cb = kdatecombobox_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KDateComboBox::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1252,12 +1324,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_focusnextchild_isbase) {
             kdatecombobox_focusnextchild_isbase = false;
             return KDateComboBox::focusNextChild();
-        } else if (kdatecombobox_focusnextchild_callback != nullptr) {
-            bool callback_ret = kdatecombobox_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KDateComboBox::focusNextChild();
         }
+        auto focusnextchild_cb = kdatecombobox_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KDateComboBox::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1265,12 +1338,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_focuspreviouschild_isbase) {
             kdatecombobox_focuspreviouschild_isbase = false;
             return KDateComboBox::focusPreviousChild();
-        } else if (kdatecombobox_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kdatecombobox_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KDateComboBox::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kdatecombobox_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KDateComboBox::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,12 +1352,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_sender_isbase) {
             kdatecombobox_sender_isbase = false;
             return KDateComboBox::sender();
-        } else if (kdatecombobox_sender_callback != nullptr) {
-            QObject* callback_ret = kdatecombobox_sender_callback();
-            return callback_ret;
-        } else {
-            return KDateComboBox::sender();
         }
+        auto sender_cb = kdatecombobox_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KDateComboBox::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1291,12 +1366,13 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_sendersignalindex_isbase) {
             kdatecombobox_sendersignalindex_isbase = false;
             return KDateComboBox::senderSignalIndex();
-        } else if (kdatecombobox_sendersignalindex_callback != nullptr) {
-            int callback_ret = kdatecombobox_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDateComboBox::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kdatecombobox_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDateComboBox::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1304,14 +1380,15 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_receivers_isbase) {
             kdatecombobox_receivers_isbase = false;
             return KDateComboBox::receivers(signal);
-        } else if (kdatecombobox_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kdatecombobox_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kdatecombobox_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDateComboBox::receivers(signal);
         }
+        return KDateComboBox::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1319,16 +1396,17 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_issignalconnected_isbase) {
             kdatecombobox_issignalconnected_isbase = false;
             return KDateComboBox::isSignalConnected(signal);
-        } else if (kdatecombobox_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kdatecombobox_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kdatecombobox_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDateComboBox::isSignalConnected(signal);
         }
+        return KDateComboBox::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,15 +1414,16 @@ class VirtualKDateComboBox final : public KDateComboBox {
         if (kdatecombobox_getdecodedmetricf_isbase) {
             kdatecombobox_getdecodedmetricf_isbase = false;
             return KDateComboBox::getDecodedMetricF(metricA, metricB);
-        } else if (kdatecombobox_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kdatecombobox_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kdatecombobox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KDateComboBox::getDecodedMetricF(metricA, metricB);
         }
+        return KDateComboBox::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

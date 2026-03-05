@@ -71,24 +71,6 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
   public:
     VirtualKIOThumbnailCreator(QObject* parent, const QList<QVariant>& args) : KIO::ThumbnailCreator(parent, args) {};
 
-    ~VirtualKIOThumbnailCreator() {
-        kio__thumbnailcreator_metaobject_callback = nullptr;
-        kio__thumbnailcreator_metacast_callback = nullptr;
-        kio__thumbnailcreator_metacall_callback = nullptr;
-        kio__thumbnailcreator_create_callback = nullptr;
-        kio__thumbnailcreator_event_callback = nullptr;
-        kio__thumbnailcreator_eventfilter_callback = nullptr;
-        kio__thumbnailcreator_timerevent_callback = nullptr;
-        kio__thumbnailcreator_childevent_callback = nullptr;
-        kio__thumbnailcreator_customevent_callback = nullptr;
-        kio__thumbnailcreator_connectnotify_callback = nullptr;
-        kio__thumbnailcreator_disconnectnotify_callback = nullptr;
-        kio__thumbnailcreator_sender_callback = nullptr;
-        kio__thumbnailcreator_sendersignalindex_callback = nullptr;
-        kio__thumbnailcreator_receivers_callback = nullptr;
-        kio__thumbnailcreator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKIO__ThumbnailCreator_MetaObject_Callback(KIO__ThumbnailCreator_MetaObject_Callback cb) { kio__thumbnailcreator_metaobject_callback = cb; }
     inline void setKIO__ThumbnailCreator_Metacast_Callback(KIO__ThumbnailCreator_Metacast_Callback cb) { kio__thumbnailcreator_metacast_callback = cb; }
@@ -128,12 +110,13 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_metaobject_isbase) {
             kio__thumbnailcreator_metaobject_isbase = false;
             return KIO__ThumbnailCreator::metaObject();
-        } else if (kio__thumbnailcreator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kio__thumbnailcreator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KIO__ThumbnailCreator::metaObject();
         }
+        auto metaobject_cb = kio__thumbnailcreator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KIO__ThumbnailCreator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -141,14 +124,15 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_metacast_isbase) {
             kio__thumbnailcreator_metacast_isbase = false;
             return KIO__ThumbnailCreator::qt_metacast(param1);
-        } else if (kio__thumbnailcreator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kio__thumbnailcreator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kio__thumbnailcreator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__ThumbnailCreator::qt_metacast(param1);
         }
+        return KIO__ThumbnailCreator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,30 +140,31 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_metacall_isbase) {
             kio__thumbnailcreator_metacall_isbase = false;
             return KIO__ThumbnailCreator::qt_metacall(param1, param2, param3);
-        } else if (kio__thumbnailcreator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kio__thumbnailcreator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kio__thumbnailcreator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__ThumbnailCreator::qt_metacall(param1, param2, param3);
         }
+        return KIO__ThumbnailCreator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::ThumbnailResult create(const KIO::ThumbnailRequest& request) override {
-        if (kio__thumbnailcreator_create_callback != nullptr) {
+        auto create_cb = kio__thumbnailcreator_create_callback;
+        if (create_cb) {
             const KIO::ThumbnailRequest& request_ret = request;
             // Cast returned reference into pointer
             KIO__ThumbnailRequest* cbval1 = const_cast<KIO::ThumbnailRequest*>(&request_ret);
 
-            KIO__ThumbnailResult* callback_ret = kio__thumbnailcreator_create_callback(this, cbval1);
+            KIO__ThumbnailResult* callback_ret = create_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIO::ThumbnailResult::fail();
         }
+        return KIO::ThumbnailResult::fail();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +172,15 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_event_isbase) {
             kio__thumbnailcreator_event_isbase = false;
             return KIO__ThumbnailCreator::event(event);
-        } else if (kio__thumbnailcreator_event_callback != nullptr) {
+        }
+        auto event_cb = kio__thumbnailcreator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kio__thumbnailcreator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__ThumbnailCreator::event(event);
         }
+        return KIO__ThumbnailCreator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,15 +188,16 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_eventfilter_isbase) {
             kio__thumbnailcreator_eventfilter_isbase = false;
             return KIO__ThumbnailCreator::eventFilter(watched, event);
-        } else if (kio__thumbnailcreator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kio__thumbnailcreator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kio__thumbnailcreator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KIO__ThumbnailCreator::eventFilter(watched, event);
         }
+        return KIO__ThumbnailCreator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,13 +205,16 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_timerevent_isbase) {
             kio__thumbnailcreator_timerevent_isbase = false;
             KIO__ThumbnailCreator::timerEvent(event);
-        } else if (kio__thumbnailcreator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kio__thumbnailcreator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kio__thumbnailcreator_timerevent_callback(this, cbval1);
-        } else {
-            KIO__ThumbnailCreator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KIO__ThumbnailCreator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +222,16 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_childevent_isbase) {
             kio__thumbnailcreator_childevent_isbase = false;
             KIO__ThumbnailCreator::childEvent(event);
-        } else if (kio__thumbnailcreator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kio__thumbnailcreator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kio__thumbnailcreator_childevent_callback(this, cbval1);
-        } else {
-            KIO__ThumbnailCreator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KIO__ThumbnailCreator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,13 +239,16 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_customevent_isbase) {
             kio__thumbnailcreator_customevent_isbase = false;
             KIO__ThumbnailCreator::customEvent(event);
-        } else if (kio__thumbnailcreator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kio__thumbnailcreator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kio__thumbnailcreator_customevent_callback(this, cbval1);
-        } else {
-            KIO__ThumbnailCreator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KIO__ThumbnailCreator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,15 +256,18 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_connectnotify_isbase) {
             kio__thumbnailcreator_connectnotify_isbase = false;
             KIO__ThumbnailCreator::connectNotify(signal);
-        } else if (kio__thumbnailcreator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kio__thumbnailcreator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__thumbnailcreator_connectnotify_callback(this, cbval1);
-        } else {
-            KIO__ThumbnailCreator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__ThumbnailCreator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,15 +275,18 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_disconnectnotify_isbase) {
             kio__thumbnailcreator_disconnectnotify_isbase = false;
             KIO__ThumbnailCreator::disconnectNotify(signal);
-        } else if (kio__thumbnailcreator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kio__thumbnailcreator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__thumbnailcreator_disconnectnotify_callback(this, cbval1);
-        } else {
-            KIO__ThumbnailCreator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__ThumbnailCreator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +294,13 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_sender_isbase) {
             kio__thumbnailcreator_sender_isbase = false;
             return KIO__ThumbnailCreator::sender();
-        } else if (kio__thumbnailcreator_sender_callback != nullptr) {
-            QObject* callback_ret = kio__thumbnailcreator_sender_callback();
-            return callback_ret;
-        } else {
-            return KIO__ThumbnailCreator::sender();
         }
+        auto sender_cb = kio__thumbnailcreator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KIO__ThumbnailCreator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,12 +308,13 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_sendersignalindex_isbase) {
             kio__thumbnailcreator_sendersignalindex_isbase = false;
             return KIO__ThumbnailCreator::senderSignalIndex();
-        } else if (kio__thumbnailcreator_sendersignalindex_callback != nullptr) {
-            int callback_ret = kio__thumbnailcreator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIO__ThumbnailCreator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kio__thumbnailcreator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIO__ThumbnailCreator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,14 +322,15 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_receivers_isbase) {
             kio__thumbnailcreator_receivers_isbase = false;
             return KIO__ThumbnailCreator::receivers(signal);
-        } else if (kio__thumbnailcreator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kio__thumbnailcreator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kio__thumbnailcreator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__ThumbnailCreator::receivers(signal);
         }
+        return KIO__ThumbnailCreator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,16 +338,17 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
         if (kio__thumbnailcreator_issignalconnected_isbase) {
             kio__thumbnailcreator_issignalconnected_isbase = false;
             return KIO__ThumbnailCreator::isSignalConnected(signal);
-        } else if (kio__thumbnailcreator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kio__thumbnailcreator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kio__thumbnailcreator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__ThumbnailCreator::isSignalConnected(signal);
         }
+        return KIO__ThumbnailCreator::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -70,23 +70,6 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
     VirtualQGeoServiceProvider(const QString& providerName, const QMap<QString, QVariant>& parameters) : QGeoServiceProvider(providerName, parameters) {};
     VirtualQGeoServiceProvider(const QString& providerName, const QMap<QString, QVariant>& parameters, bool allowExperimental) : QGeoServiceProvider(providerName, parameters, allowExperimental) {};
 
-    ~VirtualQGeoServiceProvider() {
-        qgeoserviceprovider_metaobject_callback = nullptr;
-        qgeoserviceprovider_metacast_callback = nullptr;
-        qgeoserviceprovider_metacall_callback = nullptr;
-        qgeoserviceprovider_event_callback = nullptr;
-        qgeoserviceprovider_eventfilter_callback = nullptr;
-        qgeoserviceprovider_timerevent_callback = nullptr;
-        qgeoserviceprovider_childevent_callback = nullptr;
-        qgeoserviceprovider_customevent_callback = nullptr;
-        qgeoserviceprovider_connectnotify_callback = nullptr;
-        qgeoserviceprovider_disconnectnotify_callback = nullptr;
-        qgeoserviceprovider_sender_callback = nullptr;
-        qgeoserviceprovider_sendersignalindex_callback = nullptr;
-        qgeoserviceprovider_receivers_callback = nullptr;
-        qgeoserviceprovider_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGeoServiceProvider_MetaObject_Callback(QGeoServiceProvider_MetaObject_Callback cb) { qgeoserviceprovider_metaobject_callback = cb; }
     inline void setQGeoServiceProvider_Metacast_Callback(QGeoServiceProvider_Metacast_Callback cb) { qgeoserviceprovider_metacast_callback = cb; }
@@ -124,12 +107,13 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_metaobject_isbase) {
             qgeoserviceprovider_metaobject_isbase = false;
             return QGeoServiceProvider::metaObject();
-        } else if (qgeoserviceprovider_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgeoserviceprovider_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGeoServiceProvider::metaObject();
         }
+        auto metaobject_cb = qgeoserviceprovider_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGeoServiceProvider::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -137,14 +121,15 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_metacast_isbase) {
             qgeoserviceprovider_metacast_isbase = false;
             return QGeoServiceProvider::qt_metacast(param1);
-        } else if (qgeoserviceprovider_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgeoserviceprovider_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgeoserviceprovider_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoServiceProvider::qt_metacast(param1);
         }
+        return QGeoServiceProvider::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -152,16 +137,17 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_metacall_isbase) {
             qgeoserviceprovider_metacall_isbase = false;
             return QGeoServiceProvider::qt_metacall(param1, param2, param3);
-        } else if (qgeoserviceprovider_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgeoserviceprovider_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgeoserviceprovider_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGeoServiceProvider::qt_metacall(param1, param2, param3);
         }
+        return QGeoServiceProvider::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -169,14 +155,15 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_event_isbase) {
             qgeoserviceprovider_event_isbase = false;
             return QGeoServiceProvider::event(event);
-        } else if (qgeoserviceprovider_event_callback != nullptr) {
+        }
+        auto event_cb = qgeoserviceprovider_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgeoserviceprovider_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoServiceProvider::event(event);
         }
+        return QGeoServiceProvider::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -184,15 +171,16 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_eventfilter_isbase) {
             qgeoserviceprovider_eventfilter_isbase = false;
             return QGeoServiceProvider::eventFilter(watched, event);
-        } else if (qgeoserviceprovider_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgeoserviceprovider_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgeoserviceprovider_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGeoServiceProvider::eventFilter(watched, event);
         }
+        return QGeoServiceProvider::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -200,13 +188,16 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_timerevent_isbase) {
             qgeoserviceprovider_timerevent_isbase = false;
             QGeoServiceProvider::timerEvent(event);
-        } else if (qgeoserviceprovider_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgeoserviceprovider_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgeoserviceprovider_timerevent_callback(this, cbval1);
-        } else {
-            QGeoServiceProvider::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGeoServiceProvider::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -214,13 +205,16 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_childevent_isbase) {
             qgeoserviceprovider_childevent_isbase = false;
             QGeoServiceProvider::childEvent(event);
-        } else if (qgeoserviceprovider_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgeoserviceprovider_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgeoserviceprovider_childevent_callback(this, cbval1);
-        } else {
-            QGeoServiceProvider::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGeoServiceProvider::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,13 +222,16 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_customevent_isbase) {
             qgeoserviceprovider_customevent_isbase = false;
             QGeoServiceProvider::customEvent(event);
-        } else if (qgeoserviceprovider_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgeoserviceprovider_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgeoserviceprovider_customevent_callback(this, cbval1);
-        } else {
-            QGeoServiceProvider::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGeoServiceProvider::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,15 +239,18 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_connectnotify_isbase) {
             qgeoserviceprovider_connectnotify_isbase = false;
             QGeoServiceProvider::connectNotify(signal);
-        } else if (qgeoserviceprovider_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgeoserviceprovider_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgeoserviceprovider_connectnotify_callback(this, cbval1);
-        } else {
-            QGeoServiceProvider::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGeoServiceProvider::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,15 +258,18 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_disconnectnotify_isbase) {
             qgeoserviceprovider_disconnectnotify_isbase = false;
             QGeoServiceProvider::disconnectNotify(signal);
-        } else if (qgeoserviceprovider_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgeoserviceprovider_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgeoserviceprovider_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGeoServiceProvider::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGeoServiceProvider::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -274,12 +277,13 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_sender_isbase) {
             qgeoserviceprovider_sender_isbase = false;
             return QGeoServiceProvider::sender();
-        } else if (qgeoserviceprovider_sender_callback != nullptr) {
-            QObject* callback_ret = qgeoserviceprovider_sender_callback();
-            return callback_ret;
-        } else {
-            return QGeoServiceProvider::sender();
         }
+        auto sender_cb = qgeoserviceprovider_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGeoServiceProvider::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,12 +291,13 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_sendersignalindex_isbase) {
             qgeoserviceprovider_sendersignalindex_isbase = false;
             return QGeoServiceProvider::senderSignalIndex();
-        } else if (qgeoserviceprovider_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgeoserviceprovider_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGeoServiceProvider::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgeoserviceprovider_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGeoServiceProvider::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -300,14 +305,15 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_receivers_isbase) {
             qgeoserviceprovider_receivers_isbase = false;
             return QGeoServiceProvider::receivers(signal);
-        } else if (qgeoserviceprovider_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgeoserviceprovider_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgeoserviceprovider_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGeoServiceProvider::receivers(signal);
         }
+        return QGeoServiceProvider::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,16 +321,17 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
         if (qgeoserviceprovider_issignalconnected_isbase) {
             qgeoserviceprovider_issignalconnected_isbase = false;
             return QGeoServiceProvider::isSignalConnected(signal);
-        } else if (qgeoserviceprovider_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgeoserviceprovider_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgeoserviceprovider_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoServiceProvider::isSignalConnected(signal);
         }
+        return QGeoServiceProvider::isSignalConnected(signal);
     }
 
     // Friend functions

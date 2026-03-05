@@ -75,25 +75,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
     VirtualQGraphicsTransform() : QGraphicsTransform() {};
     VirtualQGraphicsTransform(QObject* parent) : QGraphicsTransform(parent) {};
 
-    ~VirtualQGraphicsTransform() {
-        qgraphicstransform_metaobject_callback = nullptr;
-        qgraphicstransform_metacast_callback = nullptr;
-        qgraphicstransform_metacall_callback = nullptr;
-        qgraphicstransform_applyto_callback = nullptr;
-        qgraphicstransform_event_callback = nullptr;
-        qgraphicstransform_eventfilter_callback = nullptr;
-        qgraphicstransform_timerevent_callback = nullptr;
-        qgraphicstransform_childevent_callback = nullptr;
-        qgraphicstransform_customevent_callback = nullptr;
-        qgraphicstransform_connectnotify_callback = nullptr;
-        qgraphicstransform_disconnectnotify_callback = nullptr;
-        qgraphicstransform_update_callback = nullptr;
-        qgraphicstransform_sender_callback = nullptr;
-        qgraphicstransform_sendersignalindex_callback = nullptr;
-        qgraphicstransform_receivers_callback = nullptr;
-        qgraphicstransform_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsTransform_MetaObject_Callback(QGraphicsTransform_MetaObject_Callback cb) { qgraphicstransform_metaobject_callback = cb; }
     inline void setQGraphicsTransform_Metacast_Callback(QGraphicsTransform_Metacast_Callback cb) { qgraphicstransform_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_metaobject_isbase) {
             qgraphicstransform_metaobject_isbase = false;
             return QGraphicsTransform::metaObject();
-        } else if (qgraphicstransform_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicstransform_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsTransform::metaObject();
         }
+        auto metaobject_cb = qgraphicstransform_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsTransform::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_metacast_isbase) {
             qgraphicstransform_metacast_isbase = false;
             return QGraphicsTransform::qt_metacast(param1);
-        } else if (qgraphicstransform_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicstransform_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicstransform_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsTransform::qt_metacast(param1);
         }
+        return QGraphicsTransform::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,24 +146,26 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_metacall_isbase) {
             qgraphicstransform_metacall_isbase = false;
             return QGraphicsTransform::qt_metacall(param1, param2, param3);
-        } else if (qgraphicstransform_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicstransform_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicstransform_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsTransform::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsTransform::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void applyTo(QMatrix4x4* matrix) const override {
-        if (qgraphicstransform_applyto_callback != nullptr) {
+        auto applyto_cb = qgraphicstransform_applyto_callback;
+        if (applyto_cb) {
             QMatrix4x4* cbval1 = matrix;
 
-            qgraphicstransform_applyto_callback(this, cbval1);
+            applyto_cb(this, cbval1);
         }
     }
 
@@ -189,14 +174,15 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_event_isbase) {
             qgraphicstransform_event_isbase = false;
             return QGraphicsTransform::event(event);
-        } else if (qgraphicstransform_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicstransform_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicstransform_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsTransform::event(event);
         }
+        return QGraphicsTransform::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,15 +190,16 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_eventfilter_isbase) {
             qgraphicstransform_eventfilter_isbase = false;
             return QGraphicsTransform::eventFilter(watched, event);
-        } else if (qgraphicstransform_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicstransform_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicstransform_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsTransform::eventFilter(watched, event);
         }
+        return QGraphicsTransform::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -220,13 +207,16 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_timerevent_isbase) {
             qgraphicstransform_timerevent_isbase = false;
             QGraphicsTransform::timerEvent(event);
-        } else if (qgraphicstransform_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicstransform_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicstransform_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsTransform::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTransform::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -234,13 +224,16 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_childevent_isbase) {
             qgraphicstransform_childevent_isbase = false;
             QGraphicsTransform::childEvent(event);
-        } else if (qgraphicstransform_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicstransform_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicstransform_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsTransform::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTransform::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -248,13 +241,16 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_customevent_isbase) {
             qgraphicstransform_customevent_isbase = false;
             QGraphicsTransform::customEvent(event);
-        } else if (qgraphicstransform_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicstransform_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicstransform_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsTransform::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsTransform::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -262,15 +258,18 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_connectnotify_isbase) {
             qgraphicstransform_connectnotify_isbase = false;
             QGraphicsTransform::connectNotify(signal);
-        } else if (qgraphicstransform_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicstransform_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicstransform_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsTransform::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsTransform::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -278,15 +277,18 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_disconnectnotify_isbase) {
             qgraphicstransform_disconnectnotify_isbase = false;
             QGraphicsTransform::disconnectNotify(signal);
-        } else if (qgraphicstransform_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicstransform_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicstransform_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsTransform::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsTransform::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -294,11 +296,14 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_update_isbase) {
             qgraphicstransform_update_isbase = false;
             QGraphicsTransform::update();
-        } else if (qgraphicstransform_update_callback != nullptr) {
-            qgraphicstransform_update_callback();
-        } else {
-            QGraphicsTransform::update();
+            return;
         }
+        auto update_cb = qgraphicstransform_update_callback;
+        if (update_cb) {
+            update_cb();
+            return;
+        }
+        QGraphicsTransform::update();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -306,12 +311,13 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_sender_isbase) {
             qgraphicstransform_sender_isbase = false;
             return QGraphicsTransform::sender();
-        } else if (qgraphicstransform_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicstransform_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsTransform::sender();
         }
+        auto sender_cb = qgraphicstransform_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsTransform::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,12 +325,13 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_sendersignalindex_isbase) {
             qgraphicstransform_sendersignalindex_isbase = false;
             return QGraphicsTransform::senderSignalIndex();
-        } else if (qgraphicstransform_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicstransform_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsTransform::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicstransform_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsTransform::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,14 +339,15 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_receivers_isbase) {
             qgraphicstransform_receivers_isbase = false;
             return QGraphicsTransform::receivers(signal);
-        } else if (qgraphicstransform_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicstransform_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicstransform_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsTransform::receivers(signal);
         }
+        return QGraphicsTransform::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -347,16 +355,17 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (qgraphicstransform_issignalconnected_isbase) {
             qgraphicstransform_issignalconnected_isbase = false;
             return QGraphicsTransform::isSignalConnected(signal);
-        } else if (qgraphicstransform_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicstransform_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicstransform_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsTransform::isSignalConnected(signal);
         }
+        return QGraphicsTransform::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -448,25 +457,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
     VirtualQGraphicsScale() : QGraphicsScale() {};
     VirtualQGraphicsScale(QObject* parent) : QGraphicsScale(parent) {};
 
-    ~VirtualQGraphicsScale() {
-        qgraphicsscale_metaobject_callback = nullptr;
-        qgraphicsscale_metacast_callback = nullptr;
-        qgraphicsscale_metacall_callback = nullptr;
-        qgraphicsscale_applyto_callback = nullptr;
-        qgraphicsscale_event_callback = nullptr;
-        qgraphicsscale_eventfilter_callback = nullptr;
-        qgraphicsscale_timerevent_callback = nullptr;
-        qgraphicsscale_childevent_callback = nullptr;
-        qgraphicsscale_customevent_callback = nullptr;
-        qgraphicsscale_connectnotify_callback = nullptr;
-        qgraphicsscale_disconnectnotify_callback = nullptr;
-        qgraphicsscale_update_callback = nullptr;
-        qgraphicsscale_sender_callback = nullptr;
-        qgraphicsscale_sendersignalindex_callback = nullptr;
-        qgraphicsscale_receivers_callback = nullptr;
-        qgraphicsscale_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsScale_MetaObject_Callback(QGraphicsScale_MetaObject_Callback cb) { qgraphicsscale_metaobject_callback = cb; }
     inline void setQGraphicsScale_Metacast_Callback(QGraphicsScale_Metacast_Callback cb) { qgraphicsscale_metacast_callback = cb; }
@@ -508,12 +498,13 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_metaobject_isbase) {
             qgraphicsscale_metaobject_isbase = false;
             return QGraphicsScale::metaObject();
-        } else if (qgraphicsscale_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicsscale_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsScale::metaObject();
         }
+        auto metaobject_cb = qgraphicsscale_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsScale::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -521,14 +512,15 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_metacast_isbase) {
             qgraphicsscale_metacast_isbase = false;
             return QGraphicsScale::qt_metacast(param1);
-        } else if (qgraphicsscale_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicsscale_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicsscale_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsScale::qt_metacast(param1);
         }
+        return QGraphicsScale::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -536,16 +528,17 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_metacall_isbase) {
             qgraphicsscale_metacall_isbase = false;
             return QGraphicsScale::qt_metacall(param1, param2, param3);
-        } else if (qgraphicsscale_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicsscale_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicsscale_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsScale::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsScale::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,13 +546,16 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_applyto_isbase) {
             qgraphicsscale_applyto_isbase = false;
             QGraphicsScale::applyTo(matrix);
-        } else if (qgraphicsscale_applyto_callback != nullptr) {
+            return;
+        }
+        auto applyto_cb = qgraphicsscale_applyto_callback;
+        if (applyto_cb) {
             QMatrix4x4* cbval1 = matrix;
 
-            qgraphicsscale_applyto_callback(this, cbval1);
-        } else {
-            QGraphicsScale::applyTo(matrix);
+            applyto_cb(this, cbval1);
+            return;
         }
+        QGraphicsScale::applyTo(matrix);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,14 +563,15 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_event_isbase) {
             qgraphicsscale_event_isbase = false;
             return QGraphicsScale::event(event);
-        } else if (qgraphicsscale_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicsscale_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsscale_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsScale::event(event);
         }
+        return QGraphicsScale::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,15 +579,16 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_eventfilter_isbase) {
             qgraphicsscale_eventfilter_isbase = false;
             return QGraphicsScale::eventFilter(watched, event);
-        } else if (qgraphicsscale_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicsscale_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsscale_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsScale::eventFilter(watched, event);
         }
+        return QGraphicsScale::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,13 +596,16 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_timerevent_isbase) {
             qgraphicsscale_timerevent_isbase = false;
             QGraphicsScale::timerEvent(event);
-        } else if (qgraphicsscale_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicsscale_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicsscale_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsScale::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsScale::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,13 +613,16 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_childevent_isbase) {
             qgraphicsscale_childevent_isbase = false;
             QGraphicsScale::childEvent(event);
-        } else if (qgraphicsscale_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicsscale_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicsscale_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsScale::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsScale::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,13 +630,16 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_customevent_isbase) {
             qgraphicsscale_customevent_isbase = false;
             QGraphicsScale::customEvent(event);
-        } else if (qgraphicsscale_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicsscale_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicsscale_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsScale::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsScale::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,15 +647,18 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_connectnotify_isbase) {
             qgraphicsscale_connectnotify_isbase = false;
             QGraphicsScale::connectNotify(signal);
-        } else if (qgraphicsscale_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicsscale_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsscale_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsScale::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsScale::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -656,15 +666,18 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_disconnectnotify_isbase) {
             qgraphicsscale_disconnectnotify_isbase = false;
             QGraphicsScale::disconnectNotify(signal);
-        } else if (qgraphicsscale_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicsscale_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsscale_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsScale::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsScale::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -672,11 +685,14 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_update_isbase) {
             qgraphicsscale_update_isbase = false;
             QGraphicsScale::update();
-        } else if (qgraphicsscale_update_callback != nullptr) {
-            qgraphicsscale_update_callback();
-        } else {
-            QGraphicsScale::update();
+            return;
         }
+        auto update_cb = qgraphicsscale_update_callback;
+        if (update_cb) {
+            update_cb();
+            return;
+        }
+        QGraphicsScale::update();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,12 +700,13 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_sender_isbase) {
             qgraphicsscale_sender_isbase = false;
             return QGraphicsScale::sender();
-        } else if (qgraphicsscale_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicsscale_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsScale::sender();
         }
+        auto sender_cb = qgraphicsscale_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsScale::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -697,12 +714,13 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_sendersignalindex_isbase) {
             qgraphicsscale_sendersignalindex_isbase = false;
             return QGraphicsScale::senderSignalIndex();
-        } else if (qgraphicsscale_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicsscale_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsScale::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicsscale_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsScale::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -710,14 +728,15 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_receivers_isbase) {
             qgraphicsscale_receivers_isbase = false;
             return QGraphicsScale::receivers(signal);
-        } else if (qgraphicsscale_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicsscale_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicsscale_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsScale::receivers(signal);
         }
+        return QGraphicsScale::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -725,16 +744,17 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (qgraphicsscale_issignalconnected_isbase) {
             qgraphicsscale_issignalconnected_isbase = false;
             return QGraphicsScale::isSignalConnected(signal);
-        } else if (qgraphicsscale_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicsscale_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicsscale_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsScale::isSignalConnected(signal);
         }
+        return QGraphicsScale::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -826,25 +846,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
     VirtualQGraphicsRotation() : QGraphicsRotation() {};
     VirtualQGraphicsRotation(QObject* parent) : QGraphicsRotation(parent) {};
 
-    ~VirtualQGraphicsRotation() {
-        qgraphicsrotation_metaobject_callback = nullptr;
-        qgraphicsrotation_metacast_callback = nullptr;
-        qgraphicsrotation_metacall_callback = nullptr;
-        qgraphicsrotation_applyto_callback = nullptr;
-        qgraphicsrotation_event_callback = nullptr;
-        qgraphicsrotation_eventfilter_callback = nullptr;
-        qgraphicsrotation_timerevent_callback = nullptr;
-        qgraphicsrotation_childevent_callback = nullptr;
-        qgraphicsrotation_customevent_callback = nullptr;
-        qgraphicsrotation_connectnotify_callback = nullptr;
-        qgraphicsrotation_disconnectnotify_callback = nullptr;
-        qgraphicsrotation_update_callback = nullptr;
-        qgraphicsrotation_sender_callback = nullptr;
-        qgraphicsrotation_sendersignalindex_callback = nullptr;
-        qgraphicsrotation_receivers_callback = nullptr;
-        qgraphicsrotation_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsRotation_MetaObject_Callback(QGraphicsRotation_MetaObject_Callback cb) { qgraphicsrotation_metaobject_callback = cb; }
     inline void setQGraphicsRotation_Metacast_Callback(QGraphicsRotation_Metacast_Callback cb) { qgraphicsrotation_metacast_callback = cb; }
@@ -886,12 +887,13 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_metaobject_isbase) {
             qgraphicsrotation_metaobject_isbase = false;
             return QGraphicsRotation::metaObject();
-        } else if (qgraphicsrotation_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicsrotation_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsRotation::metaObject();
         }
+        auto metaobject_cb = qgraphicsrotation_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsRotation::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,14 +901,15 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_metacast_isbase) {
             qgraphicsrotation_metacast_isbase = false;
             return QGraphicsRotation::qt_metacast(param1);
-        } else if (qgraphicsrotation_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicsrotation_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicsrotation_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsRotation::qt_metacast(param1);
         }
+        return QGraphicsRotation::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -914,16 +917,17 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_metacall_isbase) {
             qgraphicsrotation_metacall_isbase = false;
             return QGraphicsRotation::qt_metacall(param1, param2, param3);
-        } else if (qgraphicsrotation_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicsrotation_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicsrotation_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsRotation::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsRotation::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -931,13 +935,16 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_applyto_isbase) {
             qgraphicsrotation_applyto_isbase = false;
             QGraphicsRotation::applyTo(matrix);
-        } else if (qgraphicsrotation_applyto_callback != nullptr) {
+            return;
+        }
+        auto applyto_cb = qgraphicsrotation_applyto_callback;
+        if (applyto_cb) {
             QMatrix4x4* cbval1 = matrix;
 
-            qgraphicsrotation_applyto_callback(this, cbval1);
-        } else {
-            QGraphicsRotation::applyTo(matrix);
+            applyto_cb(this, cbval1);
+            return;
         }
+        QGraphicsRotation::applyTo(matrix);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -945,14 +952,15 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_event_isbase) {
             qgraphicsrotation_event_isbase = false;
             return QGraphicsRotation::event(event);
-        } else if (qgraphicsrotation_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicsrotation_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsrotation_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsRotation::event(event);
         }
+        return QGraphicsRotation::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -960,15 +968,16 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_eventfilter_isbase) {
             qgraphicsrotation_eventfilter_isbase = false;
             return QGraphicsRotation::eventFilter(watched, event);
-        } else if (qgraphicsrotation_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicsrotation_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsrotation_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsRotation::eventFilter(watched, event);
         }
+        return QGraphicsRotation::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -976,13 +985,16 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_timerevent_isbase) {
             qgraphicsrotation_timerevent_isbase = false;
             QGraphicsRotation::timerEvent(event);
-        } else if (qgraphicsrotation_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicsrotation_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicsrotation_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsRotation::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRotation::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -990,13 +1002,16 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_childevent_isbase) {
             qgraphicsrotation_childevent_isbase = false;
             QGraphicsRotation::childEvent(event);
-        } else if (qgraphicsrotation_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicsrotation_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicsrotation_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsRotation::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRotation::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1004,13 +1019,16 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_customevent_isbase) {
             qgraphicsrotation_customevent_isbase = false;
             QGraphicsRotation::customEvent(event);
-        } else if (qgraphicsrotation_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicsrotation_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicsrotation_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsRotation::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsRotation::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1018,15 +1036,18 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_connectnotify_isbase) {
             qgraphicsrotation_connectnotify_isbase = false;
             QGraphicsRotation::connectNotify(signal);
-        } else if (qgraphicsrotation_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicsrotation_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsrotation_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsRotation::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsRotation::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,15 +1055,18 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_disconnectnotify_isbase) {
             qgraphicsrotation_disconnectnotify_isbase = false;
             QGraphicsRotation::disconnectNotify(signal);
-        } else if (qgraphicsrotation_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicsrotation_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsrotation_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsRotation::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsRotation::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,11 +1074,14 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_update_isbase) {
             qgraphicsrotation_update_isbase = false;
             QGraphicsRotation::update();
-        } else if (qgraphicsrotation_update_callback != nullptr) {
-            qgraphicsrotation_update_callback();
-        } else {
-            QGraphicsRotation::update();
+            return;
         }
+        auto update_cb = qgraphicsrotation_update_callback;
+        if (update_cb) {
+            update_cb();
+            return;
+        }
+        QGraphicsRotation::update();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1062,12 +1089,13 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_sender_isbase) {
             qgraphicsrotation_sender_isbase = false;
             return QGraphicsRotation::sender();
-        } else if (qgraphicsrotation_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicsrotation_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsRotation::sender();
         }
+        auto sender_cb = qgraphicsrotation_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsRotation::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1075,12 +1103,13 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_sendersignalindex_isbase) {
             qgraphicsrotation_sendersignalindex_isbase = false;
             return QGraphicsRotation::senderSignalIndex();
-        } else if (qgraphicsrotation_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicsrotation_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsRotation::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicsrotation_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsRotation::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,14 +1117,15 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_receivers_isbase) {
             qgraphicsrotation_receivers_isbase = false;
             return QGraphicsRotation::receivers(signal);
-        } else if (qgraphicsrotation_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicsrotation_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicsrotation_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsRotation::receivers(signal);
         }
+        return QGraphicsRotation::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,16 +1133,17 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (qgraphicsrotation_issignalconnected_isbase) {
             qgraphicsrotation_issignalconnected_isbase = false;
             return QGraphicsRotation::isSignalConnected(signal);
-        } else if (qgraphicsrotation_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicsrotation_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicsrotation_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsRotation::isSignalConnected(signal);
         }
+        return QGraphicsRotation::isSignalConnected(signal);
     }
 
     // Friend functions

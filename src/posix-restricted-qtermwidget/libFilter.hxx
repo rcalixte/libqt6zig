@@ -80,27 +80,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
   public:
     VirtualKonsoleFilter() : Konsole::Filter() {};
 
-    ~VirtualKonsoleFilter() {
-        konsole__filter_process_callback = nullptr;
-        konsole__filter_metaobject_callback = nullptr;
-        konsole__filter_metacast_callback = nullptr;
-        konsole__filter_metacall_callback = nullptr;
-        konsole__filter_event_callback = nullptr;
-        konsole__filter_eventfilter_callback = nullptr;
-        konsole__filter_timerevent_callback = nullptr;
-        konsole__filter_childevent_callback = nullptr;
-        konsole__filter_customevent_callback = nullptr;
-        konsole__filter_connectnotify_callback = nullptr;
-        konsole__filter_disconnectnotify_callback = nullptr;
-        konsole__filter_addhotspot_callback = nullptr;
-        konsole__filter_buffer_callback = nullptr;
-        konsole__filter_getlinecolumn_callback = nullptr;
-        konsole__filter_sender_callback = nullptr;
-        konsole__filter_sendersignalindex_callback = nullptr;
-        konsole__filter_receivers_callback = nullptr;
-        konsole__filter_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKonsole__Filter_Process_Callback(Konsole__Filter_Process_Callback cb) { konsole__filter_process_callback = cb; }
     inline void setKonsole__Filter_MetaObject_Callback(Konsole__Filter_MetaObject_Callback cb) { konsole__filter_metaobject_callback = cb; }
@@ -143,8 +122,9 @@ class VirtualKonsoleFilter : public Konsole::Filter {
 
     // Virtual method for C ABI access and custom callback
     virtual void process() override {
-        if (konsole__filter_process_callback != nullptr) {
-            konsole__filter_process_callback();
+        auto process_cb = konsole__filter_process_callback;
+        if (process_cb) {
+            process_cb();
         }
     }
 
@@ -153,12 +133,13 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_metaobject_isbase) {
             konsole__filter_metaobject_isbase = false;
             return Konsole__Filter::metaObject();
-        } else if (konsole__filter_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = konsole__filter_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Konsole__Filter::metaObject();
         }
+        auto metaobject_cb = konsole__filter_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Konsole__Filter::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -166,14 +147,15 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_metacast_isbase) {
             konsole__filter_metacast_isbase = false;
             return Konsole__Filter::qt_metacast(param1);
-        } else if (konsole__filter_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = konsole__filter_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = konsole__filter_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__Filter::qt_metacast(param1);
         }
+        return Konsole__Filter::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -181,16 +163,17 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_metacall_isbase) {
             konsole__filter_metacall_isbase = false;
             return Konsole__Filter::qt_metacall(param1, param2, param3);
-        } else if (konsole__filter_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = konsole__filter_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = konsole__filter_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__Filter::qt_metacall(param1, param2, param3);
         }
+        return Konsole__Filter::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -198,14 +181,15 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_event_isbase) {
             konsole__filter_event_isbase = false;
             return Konsole__Filter::event(event);
-        } else if (konsole__filter_event_callback != nullptr) {
+        }
+        auto event_cb = konsole__filter_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = konsole__filter_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__Filter::event(event);
         }
+        return Konsole__Filter::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,15 +197,16 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_eventfilter_isbase) {
             konsole__filter_eventfilter_isbase = false;
             return Konsole__Filter::eventFilter(watched, event);
-        } else if (konsole__filter_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = konsole__filter_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = konsole__filter_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Konsole__Filter::eventFilter(watched, event);
         }
+        return Konsole__Filter::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,13 +214,16 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_timerevent_isbase) {
             konsole__filter_timerevent_isbase = false;
             Konsole__Filter::timerEvent(event);
-        } else if (konsole__filter_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = konsole__filter_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            konsole__filter_timerevent_callback(this, cbval1);
-        } else {
-            Konsole__Filter::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Konsole__Filter::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,13 +231,16 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_childevent_isbase) {
             konsole__filter_childevent_isbase = false;
             Konsole__Filter::childEvent(event);
-        } else if (konsole__filter_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = konsole__filter_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            konsole__filter_childevent_callback(this, cbval1);
-        } else {
-            Konsole__Filter::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Konsole__Filter::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,13 +248,16 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_customevent_isbase) {
             konsole__filter_customevent_isbase = false;
             Konsole__Filter::customEvent(event);
-        } else if (konsole__filter_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = konsole__filter_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            konsole__filter_customevent_callback(this, cbval1);
-        } else {
-            Konsole__Filter::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Konsole__Filter::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -271,15 +265,18 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_connectnotify_isbase) {
             konsole__filter_connectnotify_isbase = false;
             Konsole__Filter::connectNotify(signal);
-        } else if (konsole__filter_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = konsole__filter_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            konsole__filter_connectnotify_callback(this, cbval1);
-        } else {
-            Konsole__Filter::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Konsole__Filter::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,15 +284,18 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_disconnectnotify_isbase) {
             konsole__filter_disconnectnotify_isbase = false;
             Konsole__Filter::disconnectNotify(signal);
-        } else if (konsole__filter_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = konsole__filter_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            konsole__filter_disconnectnotify_callback(this, cbval1);
-        } else {
-            Konsole__Filter::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Konsole__Filter::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,13 +303,16 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_addhotspot_isbase) {
             konsole__filter_addhotspot_isbase = false;
             Konsole__Filter::addHotSpot(param1);
-        } else if (konsole__filter_addhotspot_callback != nullptr) {
+            return;
+        }
+        auto addhotspot_cb = konsole__filter_addhotspot_callback;
+        if (addhotspot_cb) {
             Konsole__Filter__HotSpot* cbval1 = param1;
 
-            konsole__filter_addhotspot_callback(this, cbval1);
-        } else {
-            Konsole__Filter::addHotSpot(param1);
+            addhotspot_cb(this, cbval1);
+            return;
         }
+        Konsole__Filter::addHotSpot(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,13 +320,14 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_buffer_isbase) {
             konsole__filter_buffer_isbase = false;
             return Konsole__Filter::buffer();
-        } else if (konsole__filter_buffer_callback != nullptr) {
-            const char* callback_ret = konsole__filter_buffer_callback();
+        }
+        auto buffer_cb = konsole__filter_buffer_callback;
+        if (buffer_cb) {
+            const char* callback_ret = buffer_cb();
             QString* callback_ret_QString = new QString(QString::fromUtf8(callback_ret));
             return callback_ret_QString;
-        } else {
-            return Konsole__Filter::buffer();
         }
+        return Konsole__Filter::buffer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,15 +335,18 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_getlinecolumn_isbase) {
             konsole__filter_getlinecolumn_isbase = false;
             Konsole__Filter::getLineColumn(position, startLine, startColumn);
-        } else if (konsole__filter_getlinecolumn_callback != nullptr) {
+            return;
+        }
+        auto getlinecolumn_cb = konsole__filter_getlinecolumn_callback;
+        if (getlinecolumn_cb) {
             int cbval1 = position;
             int* cbval2 = &startLine;
             int* cbval3 = &startColumn;
 
-            konsole__filter_getlinecolumn_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            Konsole__Filter::getLineColumn(position, startLine, startColumn);
+            getlinecolumn_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        Konsole__Filter::getLineColumn(position, startLine, startColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -347,12 +354,13 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_sender_isbase) {
             konsole__filter_sender_isbase = false;
             return Konsole__Filter::sender();
-        } else if (konsole__filter_sender_callback != nullptr) {
-            QObject* callback_ret = konsole__filter_sender_callback();
-            return callback_ret;
-        } else {
-            return Konsole__Filter::sender();
         }
+        auto sender_cb = konsole__filter_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Konsole__Filter::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,12 +368,13 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_sendersignalindex_isbase) {
             konsole__filter_sendersignalindex_isbase = false;
             return Konsole__Filter::senderSignalIndex();
-        } else if (konsole__filter_sendersignalindex_callback != nullptr) {
-            int callback_ret = konsole__filter_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__Filter::senderSignalIndex();
         }
+        auto sendersignalindex_cb = konsole__filter_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Konsole__Filter::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,14 +382,15 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_receivers_isbase) {
             konsole__filter_receivers_isbase = false;
             return Konsole__Filter::receivers(signal);
-        } else if (konsole__filter_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = konsole__filter_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = konsole__filter_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__Filter::receivers(signal);
         }
+        return Konsole__Filter::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -388,16 +398,17 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (konsole__filter_issignalconnected_isbase) {
             konsole__filter_issignalconnected_isbase = false;
             return Konsole__Filter::isSignalConnected(signal);
-        } else if (konsole__filter_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = konsole__filter_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = konsole__filter_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__Filter::isSignalConnected(signal);
         }
+        return Konsole__Filter::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -501,28 +512,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
   public:
     VirtualKonsoleRegExpFilter() : Konsole::RegExpFilter() {};
 
-    ~VirtualKonsoleRegExpFilter() {
-        konsole__regexpfilter_process_callback = nullptr;
-        konsole__regexpfilter_newhotspot_callback = nullptr;
-        konsole__regexpfilter_metaobject_callback = nullptr;
-        konsole__regexpfilter_metacast_callback = nullptr;
-        konsole__regexpfilter_metacall_callback = nullptr;
-        konsole__regexpfilter_event_callback = nullptr;
-        konsole__regexpfilter_eventfilter_callback = nullptr;
-        konsole__regexpfilter_timerevent_callback = nullptr;
-        konsole__regexpfilter_childevent_callback = nullptr;
-        konsole__regexpfilter_customevent_callback = nullptr;
-        konsole__regexpfilter_connectnotify_callback = nullptr;
-        konsole__regexpfilter_disconnectnotify_callback = nullptr;
-        konsole__regexpfilter_addhotspot_callback = nullptr;
-        konsole__regexpfilter_buffer_callback = nullptr;
-        konsole__regexpfilter_getlinecolumn_callback = nullptr;
-        konsole__regexpfilter_sender_callback = nullptr;
-        konsole__regexpfilter_sendersignalindex_callback = nullptr;
-        konsole__regexpfilter_receivers_callback = nullptr;
-        konsole__regexpfilter_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKonsole__RegExpFilter_Process_Callback(Konsole__RegExpFilter_Process_Callback cb) { konsole__regexpfilter_process_callback = cb; }
     inline void setKonsole__RegExpFilter_NewHotSpot_Callback(Konsole__RegExpFilter_NewHotSpot_Callback cb) { konsole__regexpfilter_newhotspot_callback = cb; }
@@ -570,11 +559,14 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_process_isbase) {
             konsole__regexpfilter_process_isbase = false;
             Konsole__RegExpFilter::process();
-        } else if (konsole__regexpfilter_process_callback != nullptr) {
-            konsole__regexpfilter_process_callback();
-        } else {
-            Konsole__RegExpFilter::process();
+            return;
         }
+        auto process_cb = konsole__regexpfilter_process_callback;
+        if (process_cb) {
+            process_cb();
+            return;
+        }
+        Konsole__RegExpFilter::process();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,17 +574,18 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_newhotspot_isbase) {
             konsole__regexpfilter_newhotspot_isbase = false;
             return Konsole__RegExpFilter::newHotSpot(startLine, startColumn, endLine, endColumn);
-        } else if (konsole__regexpfilter_newhotspot_callback != nullptr) {
+        }
+        auto newhotspot_cb = konsole__regexpfilter_newhotspot_callback;
+        if (newhotspot_cb) {
             int cbval1 = startLine;
             int cbval2 = startColumn;
             int cbval3 = endLine;
             int cbval4 = endColumn;
 
-            Konsole__RegExpFilter__HotSpot* callback_ret = konsole__regexpfilter_newhotspot_callback(this, cbval1, cbval2, cbval3, cbval4);
+            Konsole__RegExpFilter__HotSpot* callback_ret = newhotspot_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return Konsole__RegExpFilter::newHotSpot(startLine, startColumn, endLine, endColumn);
         }
+        return Konsole__RegExpFilter::newHotSpot(startLine, startColumn, endLine, endColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -600,12 +593,13 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_metaobject_isbase) {
             konsole__regexpfilter_metaobject_isbase = false;
             return Konsole__RegExpFilter::metaObject();
-        } else if (konsole__regexpfilter_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = konsole__regexpfilter_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Konsole__RegExpFilter::metaObject();
         }
+        auto metaobject_cb = konsole__regexpfilter_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Konsole__RegExpFilter::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,14 +607,15 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_metacast_isbase) {
             konsole__regexpfilter_metacast_isbase = false;
             return Konsole__RegExpFilter::qt_metacast(param1);
-        } else if (konsole__regexpfilter_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = konsole__regexpfilter_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = konsole__regexpfilter_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__RegExpFilter::qt_metacast(param1);
         }
+        return Konsole__RegExpFilter::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -628,16 +623,17 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_metacall_isbase) {
             konsole__regexpfilter_metacall_isbase = false;
             return Konsole__RegExpFilter::qt_metacall(param1, param2, param3);
-        } else if (konsole__regexpfilter_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = konsole__regexpfilter_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = konsole__regexpfilter_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__RegExpFilter::qt_metacall(param1, param2, param3);
         }
+        return Konsole__RegExpFilter::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,14 +641,15 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_event_isbase) {
             konsole__regexpfilter_event_isbase = false;
             return Konsole__RegExpFilter::event(event);
-        } else if (konsole__regexpfilter_event_callback != nullptr) {
+        }
+        auto event_cb = konsole__regexpfilter_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = konsole__regexpfilter_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__RegExpFilter::event(event);
         }
+        return Konsole__RegExpFilter::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -660,15 +657,16 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_eventfilter_isbase) {
             konsole__regexpfilter_eventfilter_isbase = false;
             return Konsole__RegExpFilter::eventFilter(watched, event);
-        } else if (konsole__regexpfilter_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = konsole__regexpfilter_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = konsole__regexpfilter_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Konsole__RegExpFilter::eventFilter(watched, event);
         }
+        return Konsole__RegExpFilter::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,13 +674,16 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_timerevent_isbase) {
             konsole__regexpfilter_timerevent_isbase = false;
             Konsole__RegExpFilter::timerEvent(event);
-        } else if (konsole__regexpfilter_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = konsole__regexpfilter_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            konsole__regexpfilter_timerevent_callback(this, cbval1);
-        } else {
-            Konsole__RegExpFilter::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Konsole__RegExpFilter::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,13 +691,16 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_childevent_isbase) {
             konsole__regexpfilter_childevent_isbase = false;
             Konsole__RegExpFilter::childEvent(event);
-        } else if (konsole__regexpfilter_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = konsole__regexpfilter_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            konsole__regexpfilter_childevent_callback(this, cbval1);
-        } else {
-            Konsole__RegExpFilter::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Konsole__RegExpFilter::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -704,13 +708,16 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_customevent_isbase) {
             konsole__regexpfilter_customevent_isbase = false;
             Konsole__RegExpFilter::customEvent(event);
-        } else if (konsole__regexpfilter_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = konsole__regexpfilter_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            konsole__regexpfilter_customevent_callback(this, cbval1);
-        } else {
-            Konsole__RegExpFilter::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Konsole__RegExpFilter::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -718,15 +725,18 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_connectnotify_isbase) {
             konsole__regexpfilter_connectnotify_isbase = false;
             Konsole__RegExpFilter::connectNotify(signal);
-        } else if (konsole__regexpfilter_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = konsole__regexpfilter_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            konsole__regexpfilter_connectnotify_callback(this, cbval1);
-        } else {
-            Konsole__RegExpFilter::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Konsole__RegExpFilter::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -734,15 +744,18 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_disconnectnotify_isbase) {
             konsole__regexpfilter_disconnectnotify_isbase = false;
             Konsole__RegExpFilter::disconnectNotify(signal);
-        } else if (konsole__regexpfilter_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = konsole__regexpfilter_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            konsole__regexpfilter_disconnectnotify_callback(this, cbval1);
-        } else {
-            Konsole__RegExpFilter::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Konsole__RegExpFilter::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -750,13 +763,16 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_addhotspot_isbase) {
             konsole__regexpfilter_addhotspot_isbase = false;
             Konsole__RegExpFilter::addHotSpot(param1);
-        } else if (konsole__regexpfilter_addhotspot_callback != nullptr) {
+            return;
+        }
+        auto addhotspot_cb = konsole__regexpfilter_addhotspot_callback;
+        if (addhotspot_cb) {
             Konsole__Filter__HotSpot* cbval1 = param1;
 
-            konsole__regexpfilter_addhotspot_callback(this, cbval1);
-        } else {
-            Konsole__RegExpFilter::addHotSpot(param1);
+            addhotspot_cb(this, cbval1);
+            return;
         }
+        Konsole__RegExpFilter::addHotSpot(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -764,13 +780,14 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_buffer_isbase) {
             konsole__regexpfilter_buffer_isbase = false;
             return Konsole__RegExpFilter::buffer();
-        } else if (konsole__regexpfilter_buffer_callback != nullptr) {
-            const char* callback_ret = konsole__regexpfilter_buffer_callback();
+        }
+        auto buffer_cb = konsole__regexpfilter_buffer_callback;
+        if (buffer_cb) {
+            const char* callback_ret = buffer_cb();
             QString* callback_ret_QString = new QString(QString::fromUtf8(callback_ret));
             return callback_ret_QString;
-        } else {
-            return Konsole__RegExpFilter::buffer();
         }
+        return Konsole__RegExpFilter::buffer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -778,15 +795,18 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_getlinecolumn_isbase) {
             konsole__regexpfilter_getlinecolumn_isbase = false;
             Konsole__RegExpFilter::getLineColumn(position, startLine, startColumn);
-        } else if (konsole__regexpfilter_getlinecolumn_callback != nullptr) {
+            return;
+        }
+        auto getlinecolumn_cb = konsole__regexpfilter_getlinecolumn_callback;
+        if (getlinecolumn_cb) {
             int cbval1 = position;
             int* cbval2 = &startLine;
             int* cbval3 = &startColumn;
 
-            konsole__regexpfilter_getlinecolumn_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            Konsole__RegExpFilter::getLineColumn(position, startLine, startColumn);
+            getlinecolumn_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        Konsole__RegExpFilter::getLineColumn(position, startLine, startColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -794,12 +814,13 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_sender_isbase) {
             konsole__regexpfilter_sender_isbase = false;
             return Konsole__RegExpFilter::sender();
-        } else if (konsole__regexpfilter_sender_callback != nullptr) {
-            QObject* callback_ret = konsole__regexpfilter_sender_callback();
-            return callback_ret;
-        } else {
-            return Konsole__RegExpFilter::sender();
         }
+        auto sender_cb = konsole__regexpfilter_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Konsole__RegExpFilter::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,12 +828,13 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_sendersignalindex_isbase) {
             konsole__regexpfilter_sendersignalindex_isbase = false;
             return Konsole__RegExpFilter::senderSignalIndex();
-        } else if (konsole__regexpfilter_sendersignalindex_callback != nullptr) {
-            int callback_ret = konsole__regexpfilter_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__RegExpFilter::senderSignalIndex();
         }
+        auto sendersignalindex_cb = konsole__regexpfilter_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Konsole__RegExpFilter::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -820,14 +842,15 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_receivers_isbase) {
             konsole__regexpfilter_receivers_isbase = false;
             return Konsole__RegExpFilter::receivers(signal);
-        } else if (konsole__regexpfilter_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = konsole__regexpfilter_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = konsole__regexpfilter_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__RegExpFilter::receivers(signal);
         }
+        return Konsole__RegExpFilter::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,16 +858,17 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (konsole__regexpfilter_issignalconnected_isbase) {
             konsole__regexpfilter_issignalconnected_isbase = false;
             return Konsole__RegExpFilter::isSignalConnected(signal);
-        } else if (konsole__regexpfilter_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = konsole__regexpfilter_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = konsole__regexpfilter_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__RegExpFilter::isSignalConnected(signal);
         }
+        return Konsole__RegExpFilter::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -950,28 +974,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
   public:
     VirtualKonsoleUrlFilter() : Konsole::UrlFilter() {};
 
-    ~VirtualKonsoleUrlFilter() {
-        konsole__urlfilter_metaobject_callback = nullptr;
-        konsole__urlfilter_metacast_callback = nullptr;
-        konsole__urlfilter_metacall_callback = nullptr;
-        konsole__urlfilter_newhotspot_callback = nullptr;
-        konsole__urlfilter_process_callback = nullptr;
-        konsole__urlfilter_event_callback = nullptr;
-        konsole__urlfilter_eventfilter_callback = nullptr;
-        konsole__urlfilter_timerevent_callback = nullptr;
-        konsole__urlfilter_childevent_callback = nullptr;
-        konsole__urlfilter_customevent_callback = nullptr;
-        konsole__urlfilter_connectnotify_callback = nullptr;
-        konsole__urlfilter_disconnectnotify_callback = nullptr;
-        konsole__urlfilter_addhotspot_callback = nullptr;
-        konsole__urlfilter_buffer_callback = nullptr;
-        konsole__urlfilter_getlinecolumn_callback = nullptr;
-        konsole__urlfilter_sender_callback = nullptr;
-        konsole__urlfilter_sendersignalindex_callback = nullptr;
-        konsole__urlfilter_receivers_callback = nullptr;
-        konsole__urlfilter_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKonsole__UrlFilter_MetaObject_Callback(Konsole__UrlFilter_MetaObject_Callback cb) { konsole__urlfilter_metaobject_callback = cb; }
     inline void setKonsole__UrlFilter_Metacast_Callback(Konsole__UrlFilter_Metacast_Callback cb) { konsole__urlfilter_metacast_callback = cb; }
@@ -1019,12 +1021,13 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_metaobject_isbase) {
             konsole__urlfilter_metaobject_isbase = false;
             return Konsole__UrlFilter::metaObject();
-        } else if (konsole__urlfilter_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = konsole__urlfilter_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Konsole__UrlFilter::metaObject();
         }
+        auto metaobject_cb = konsole__urlfilter_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Konsole__UrlFilter::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1032,14 +1035,15 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_metacast_isbase) {
             konsole__urlfilter_metacast_isbase = false;
             return Konsole__UrlFilter::qt_metacast(param1);
-        } else if (konsole__urlfilter_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = konsole__urlfilter_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = konsole__urlfilter_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__UrlFilter::qt_metacast(param1);
         }
+        return Konsole__UrlFilter::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1047,16 +1051,17 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_metacall_isbase) {
             konsole__urlfilter_metacall_isbase = false;
             return Konsole__UrlFilter::qt_metacall(param1, param2, param3);
-        } else if (konsole__urlfilter_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = konsole__urlfilter_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = konsole__urlfilter_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__UrlFilter::qt_metacall(param1, param2, param3);
         }
+        return Konsole__UrlFilter::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,17 +1069,18 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_newhotspot_isbase) {
             konsole__urlfilter_newhotspot_isbase = false;
             return Konsole__UrlFilter::newHotSpot(param1, param2, param3, param4);
-        } else if (konsole__urlfilter_newhotspot_callback != nullptr) {
+        }
+        auto newhotspot_cb = konsole__urlfilter_newhotspot_callback;
+        if (newhotspot_cb) {
             int cbval1 = param1;
             int cbval2 = param2;
             int cbval3 = param3;
             int cbval4 = param4;
 
-            Konsole__RegExpFilter__HotSpot* callback_ret = konsole__urlfilter_newhotspot_callback(this, cbval1, cbval2, cbval3, cbval4);
+            Konsole__RegExpFilter__HotSpot* callback_ret = newhotspot_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return Konsole__UrlFilter::newHotSpot(param1, param2, param3, param4);
         }
+        return Konsole__UrlFilter::newHotSpot(param1, param2, param3, param4);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1082,11 +1088,14 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_process_isbase) {
             konsole__urlfilter_process_isbase = false;
             Konsole__UrlFilter::process();
-        } else if (konsole__urlfilter_process_callback != nullptr) {
-            konsole__urlfilter_process_callback();
-        } else {
-            Konsole__UrlFilter::process();
+            return;
         }
+        auto process_cb = konsole__urlfilter_process_callback;
+        if (process_cb) {
+            process_cb();
+            return;
+        }
+        Konsole__UrlFilter::process();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1094,14 +1103,15 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_event_isbase) {
             konsole__urlfilter_event_isbase = false;
             return Konsole__UrlFilter::event(event);
-        } else if (konsole__urlfilter_event_callback != nullptr) {
+        }
+        auto event_cb = konsole__urlfilter_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = konsole__urlfilter_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__UrlFilter::event(event);
         }
+        return Konsole__UrlFilter::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1109,15 +1119,16 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_eventfilter_isbase) {
             konsole__urlfilter_eventfilter_isbase = false;
             return Konsole__UrlFilter::eventFilter(watched, event);
-        } else if (konsole__urlfilter_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = konsole__urlfilter_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = konsole__urlfilter_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Konsole__UrlFilter::eventFilter(watched, event);
         }
+        return Konsole__UrlFilter::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1125,13 +1136,16 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_timerevent_isbase) {
             konsole__urlfilter_timerevent_isbase = false;
             Konsole__UrlFilter::timerEvent(event);
-        } else if (konsole__urlfilter_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = konsole__urlfilter_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            konsole__urlfilter_timerevent_callback(this, cbval1);
-        } else {
-            Konsole__UrlFilter::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Konsole__UrlFilter::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1139,13 +1153,16 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_childevent_isbase) {
             konsole__urlfilter_childevent_isbase = false;
             Konsole__UrlFilter::childEvent(event);
-        } else if (konsole__urlfilter_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = konsole__urlfilter_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            konsole__urlfilter_childevent_callback(this, cbval1);
-        } else {
-            Konsole__UrlFilter::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Konsole__UrlFilter::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,13 +1170,16 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_customevent_isbase) {
             konsole__urlfilter_customevent_isbase = false;
             Konsole__UrlFilter::customEvent(event);
-        } else if (konsole__urlfilter_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = konsole__urlfilter_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            konsole__urlfilter_customevent_callback(this, cbval1);
-        } else {
-            Konsole__UrlFilter::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Konsole__UrlFilter::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,15 +1187,18 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_connectnotify_isbase) {
             konsole__urlfilter_connectnotify_isbase = false;
             Konsole__UrlFilter::connectNotify(signal);
-        } else if (konsole__urlfilter_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = konsole__urlfilter_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            konsole__urlfilter_connectnotify_callback(this, cbval1);
-        } else {
-            Konsole__UrlFilter::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Konsole__UrlFilter::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,15 +1206,18 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_disconnectnotify_isbase) {
             konsole__urlfilter_disconnectnotify_isbase = false;
             Konsole__UrlFilter::disconnectNotify(signal);
-        } else if (konsole__urlfilter_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = konsole__urlfilter_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            konsole__urlfilter_disconnectnotify_callback(this, cbval1);
-        } else {
-            Konsole__UrlFilter::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Konsole__UrlFilter::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1199,13 +1225,16 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_addhotspot_isbase) {
             konsole__urlfilter_addhotspot_isbase = false;
             Konsole__UrlFilter::addHotSpot(param1);
-        } else if (konsole__urlfilter_addhotspot_callback != nullptr) {
+            return;
+        }
+        auto addhotspot_cb = konsole__urlfilter_addhotspot_callback;
+        if (addhotspot_cb) {
             Konsole__Filter__HotSpot* cbval1 = param1;
 
-            konsole__urlfilter_addhotspot_callback(this, cbval1);
-        } else {
-            Konsole__UrlFilter::addHotSpot(param1);
+            addhotspot_cb(this, cbval1);
+            return;
         }
+        Konsole__UrlFilter::addHotSpot(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1213,13 +1242,14 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_buffer_isbase) {
             konsole__urlfilter_buffer_isbase = false;
             return Konsole__UrlFilter::buffer();
-        } else if (konsole__urlfilter_buffer_callback != nullptr) {
-            const char* callback_ret = konsole__urlfilter_buffer_callback();
+        }
+        auto buffer_cb = konsole__urlfilter_buffer_callback;
+        if (buffer_cb) {
+            const char* callback_ret = buffer_cb();
             QString* callback_ret_QString = new QString(QString::fromUtf8(callback_ret));
             return callback_ret_QString;
-        } else {
-            return Konsole__UrlFilter::buffer();
         }
+        return Konsole__UrlFilter::buffer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1227,15 +1257,18 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_getlinecolumn_isbase) {
             konsole__urlfilter_getlinecolumn_isbase = false;
             Konsole__UrlFilter::getLineColumn(position, startLine, startColumn);
-        } else if (konsole__urlfilter_getlinecolumn_callback != nullptr) {
+            return;
+        }
+        auto getlinecolumn_cb = konsole__urlfilter_getlinecolumn_callback;
+        if (getlinecolumn_cb) {
             int cbval1 = position;
             int* cbval2 = &startLine;
             int* cbval3 = &startColumn;
 
-            konsole__urlfilter_getlinecolumn_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            Konsole__UrlFilter::getLineColumn(position, startLine, startColumn);
+            getlinecolumn_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        Konsole__UrlFilter::getLineColumn(position, startLine, startColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,12 +1276,13 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_sender_isbase) {
             konsole__urlfilter_sender_isbase = false;
             return Konsole__UrlFilter::sender();
-        } else if (konsole__urlfilter_sender_callback != nullptr) {
-            QObject* callback_ret = konsole__urlfilter_sender_callback();
-            return callback_ret;
-        } else {
-            return Konsole__UrlFilter::sender();
         }
+        auto sender_cb = konsole__urlfilter_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Konsole__UrlFilter::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,12 +1290,13 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_sendersignalindex_isbase) {
             konsole__urlfilter_sendersignalindex_isbase = false;
             return Konsole__UrlFilter::senderSignalIndex();
-        } else if (konsole__urlfilter_sendersignalindex_callback != nullptr) {
-            int callback_ret = konsole__urlfilter_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__UrlFilter::senderSignalIndex();
         }
+        auto sendersignalindex_cb = konsole__urlfilter_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Konsole__UrlFilter::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,14 +1304,15 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_receivers_isbase) {
             konsole__urlfilter_receivers_isbase = false;
             return Konsole__UrlFilter::receivers(signal);
-        } else if (konsole__urlfilter_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = konsole__urlfilter_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = konsole__urlfilter_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__UrlFilter::receivers(signal);
         }
+        return Konsole__UrlFilter::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,16 +1320,17 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (konsole__urlfilter_issignalconnected_isbase) {
             konsole__urlfilter_issignalconnected_isbase = false;
             return Konsole__UrlFilter::isSignalConnected(signal);
-        } else if (konsole__urlfilter_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = konsole__urlfilter_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = konsole__urlfilter_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__UrlFilter::isSignalConnected(signal);
         }
+        return Konsole__UrlFilter::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -1384,23 +1421,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
   public:
     VirtualKonsoleFilterObject(Konsole::Filter::HotSpot* filter) : Konsole::FilterObject(filter) {};
 
-    ~VirtualKonsoleFilterObject() {
-        konsole__filterobject_metaobject_callback = nullptr;
-        konsole__filterobject_metacast_callback = nullptr;
-        konsole__filterobject_metacall_callback = nullptr;
-        konsole__filterobject_event_callback = nullptr;
-        konsole__filterobject_eventfilter_callback = nullptr;
-        konsole__filterobject_timerevent_callback = nullptr;
-        konsole__filterobject_childevent_callback = nullptr;
-        konsole__filterobject_customevent_callback = nullptr;
-        konsole__filterobject_connectnotify_callback = nullptr;
-        konsole__filterobject_disconnectnotify_callback = nullptr;
-        konsole__filterobject_sender_callback = nullptr;
-        konsole__filterobject_sendersignalindex_callback = nullptr;
-        konsole__filterobject_receivers_callback = nullptr;
-        konsole__filterobject_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKonsole__FilterObject_MetaObject_Callback(Konsole__FilterObject_MetaObject_Callback cb) { konsole__filterobject_metaobject_callback = cb; }
     inline void setKonsole__FilterObject_Metacast_Callback(Konsole__FilterObject_Metacast_Callback cb) { konsole__filterobject_metacast_callback = cb; }
@@ -1438,12 +1458,13 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_metaobject_isbase) {
             konsole__filterobject_metaobject_isbase = false;
             return Konsole__FilterObject::metaObject();
-        } else if (konsole__filterobject_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = konsole__filterobject_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Konsole__FilterObject::metaObject();
         }
+        auto metaobject_cb = konsole__filterobject_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Konsole__FilterObject::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1451,14 +1472,15 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_metacast_isbase) {
             konsole__filterobject_metacast_isbase = false;
             return Konsole__FilterObject::qt_metacast(param1);
-        } else if (konsole__filterobject_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = konsole__filterobject_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = konsole__filterobject_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__FilterObject::qt_metacast(param1);
         }
+        return Konsole__FilterObject::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1466,16 +1488,17 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_metacall_isbase) {
             konsole__filterobject_metacall_isbase = false;
             return Konsole__FilterObject::qt_metacall(param1, param2, param3);
-        } else if (konsole__filterobject_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = konsole__filterobject_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = konsole__filterobject_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__FilterObject::qt_metacall(param1, param2, param3);
         }
+        return Konsole__FilterObject::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1483,14 +1506,15 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_event_isbase) {
             konsole__filterobject_event_isbase = false;
             return Konsole__FilterObject::event(event);
-        } else if (konsole__filterobject_event_callback != nullptr) {
+        }
+        auto event_cb = konsole__filterobject_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = konsole__filterobject_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__FilterObject::event(event);
         }
+        return Konsole__FilterObject::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1498,15 +1522,16 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_eventfilter_isbase) {
             konsole__filterobject_eventfilter_isbase = false;
             return Konsole__FilterObject::eventFilter(watched, event);
-        } else if (konsole__filterobject_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = konsole__filterobject_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = konsole__filterobject_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Konsole__FilterObject::eventFilter(watched, event);
         }
+        return Konsole__FilterObject::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1514,13 +1539,16 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_timerevent_isbase) {
             konsole__filterobject_timerevent_isbase = false;
             Konsole__FilterObject::timerEvent(event);
-        } else if (konsole__filterobject_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = konsole__filterobject_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            konsole__filterobject_timerevent_callback(this, cbval1);
-        } else {
-            Konsole__FilterObject::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Konsole__FilterObject::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1528,13 +1556,16 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_childevent_isbase) {
             konsole__filterobject_childevent_isbase = false;
             Konsole__FilterObject::childEvent(event);
-        } else if (konsole__filterobject_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = konsole__filterobject_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            konsole__filterobject_childevent_callback(this, cbval1);
-        } else {
-            Konsole__FilterObject::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Konsole__FilterObject::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1542,13 +1573,16 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_customevent_isbase) {
             konsole__filterobject_customevent_isbase = false;
             Konsole__FilterObject::customEvent(event);
-        } else if (konsole__filterobject_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = konsole__filterobject_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            konsole__filterobject_customevent_callback(this, cbval1);
-        } else {
-            Konsole__FilterObject::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Konsole__FilterObject::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1556,15 +1590,18 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_connectnotify_isbase) {
             konsole__filterobject_connectnotify_isbase = false;
             Konsole__FilterObject::connectNotify(signal);
-        } else if (konsole__filterobject_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = konsole__filterobject_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            konsole__filterobject_connectnotify_callback(this, cbval1);
-        } else {
-            Konsole__FilterObject::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Konsole__FilterObject::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1572,15 +1609,18 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_disconnectnotify_isbase) {
             konsole__filterobject_disconnectnotify_isbase = false;
             Konsole__FilterObject::disconnectNotify(signal);
-        } else if (konsole__filterobject_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = konsole__filterobject_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            konsole__filterobject_disconnectnotify_callback(this, cbval1);
-        } else {
-            Konsole__FilterObject::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Konsole__FilterObject::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1588,12 +1628,13 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_sender_isbase) {
             konsole__filterobject_sender_isbase = false;
             return Konsole__FilterObject::sender();
-        } else if (konsole__filterobject_sender_callback != nullptr) {
-            QObject* callback_ret = konsole__filterobject_sender_callback();
-            return callback_ret;
-        } else {
-            return Konsole__FilterObject::sender();
         }
+        auto sender_cb = konsole__filterobject_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Konsole__FilterObject::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1601,12 +1642,13 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_sendersignalindex_isbase) {
             konsole__filterobject_sendersignalindex_isbase = false;
             return Konsole__FilterObject::senderSignalIndex();
-        } else if (konsole__filterobject_sendersignalindex_callback != nullptr) {
-            int callback_ret = konsole__filterobject_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__FilterObject::senderSignalIndex();
         }
+        auto sendersignalindex_cb = konsole__filterobject_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Konsole__FilterObject::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1614,14 +1656,15 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_receivers_isbase) {
             konsole__filterobject_receivers_isbase = false;
             return Konsole__FilterObject::receivers(signal);
-        } else if (konsole__filterobject_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = konsole__filterobject_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = konsole__filterobject_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Konsole__FilterObject::receivers(signal);
         }
+        return Konsole__FilterObject::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1629,16 +1672,17 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (konsole__filterobject_issignalconnected_isbase) {
             konsole__filterobject_issignalconnected_isbase = false;
             return Konsole__FilterObject::isSignalConnected(signal);
-        } else if (konsole__filterobject_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = konsole__filterobject_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = konsole__filterobject_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Konsole__FilterObject::isSignalConnected(signal);
         }
+        return Konsole__FilterObject::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -1689,12 +1733,6 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
     VirtualKonsoleFilterHotSpot(int startLine, int startColumn, int endLine, int endColumn) : Konsole::Filter::HotSpot(startLine, startColumn, endLine, endColumn) {};
     VirtualKonsoleFilterHotSpot(const Konsole::Filter::HotSpot& param1) : Konsole::Filter::HotSpot(param1) {};
 
-    ~VirtualKonsoleFilterHotSpot() {
-        konsole__filter__hotspot_activate_callback = nullptr;
-        konsole__filter__hotspot_actions_callback = nullptr;
-        konsole__filter__hotspot_settype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKonsole__Filter__HotSpot_Activate_Callback(Konsole__Filter__HotSpot_Activate_Callback cb) { konsole__filter__hotspot_activate_callback = cb; }
     inline void setKonsole__Filter__HotSpot_Actions_Callback(Konsole__Filter__HotSpot_Actions_Callback cb) { konsole__filter__hotspot_actions_callback = cb; }
@@ -1707,7 +1745,8 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
 
     // Virtual method for C ABI access and custom callback
     virtual void activate(const QString& action) override {
-        if (konsole__filter__hotspot_activate_callback != nullptr) {
+        auto activate_cb = konsole__filter__hotspot_activate_callback;
+        if (activate_cb) {
             const QString action_ret = action;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray action_b = action_ret.toUtf8();
@@ -1717,7 +1756,7 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
             ((char*)action_str)[action_str_len] = '\0';
             const char* cbval1 = action_str;
 
-            konsole__filter__hotspot_activate_callback(this, cbval1);
+            activate_cb(this, cbval1);
             libqt_free(action_str);
         }
     }
@@ -1727,8 +1766,10 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
         if (konsole__filter__hotspot_actions_isbase) {
             konsole__filter__hotspot_actions_isbase = false;
             return Konsole__Filter__HotSpot::actions();
-        } else if (konsole__filter__hotspot_actions_callback != nullptr) {
-            libqt_list /* of QAction* */ callback_ret = konsole__filter__hotspot_actions_callback();
+        }
+        auto actions_cb = konsole__filter__hotspot_actions_callback;
+        if (actions_cb) {
+            libqt_list /* of QAction* */ callback_ret = actions_cb();
             QList<QAction*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
@@ -1737,9 +1778,8 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return Konsole__Filter__HotSpot::actions();
         }
+        return Konsole__Filter__HotSpot::actions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1747,13 +1787,16 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
         if (konsole__filter__hotspot_settype_isbase) {
             konsole__filter__hotspot_settype_isbase = false;
             Konsole__Filter__HotSpot::setType(typeVal);
-        } else if (konsole__filter__hotspot_settype_callback != nullptr) {
+            return;
+        }
+        auto settype_cb = konsole__filter__hotspot_settype_callback;
+        if (settype_cb) {
             int cbval1 = static_cast<int>(typeVal);
 
-            konsole__filter__hotspot_settype_callback(this, cbval1);
-        } else {
-            Konsole__Filter__HotSpot::setType(typeVal);
+            settype_cb(this, cbval1);
+            return;
         }
+        Konsole__Filter__HotSpot::setType(typeVal);
     }
 
     // Friend functions
@@ -1788,12 +1831,6 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
     VirtualKonsoleRegExpFilterHotSpot(int startLine, int startColumn, int endLine, int endColumn) : Konsole::RegExpFilter::HotSpot(startLine, startColumn, endLine, endColumn) {};
     VirtualKonsoleRegExpFilterHotSpot(const Konsole::RegExpFilter::HotSpot& param1) : Konsole::RegExpFilter::HotSpot(param1) {};
 
-    ~VirtualKonsoleRegExpFilterHotSpot() {
-        konsole__regexpfilter__hotspot_activate_callback = nullptr;
-        konsole__regexpfilter__hotspot_actions_callback = nullptr;
-        konsole__regexpfilter__hotspot_settype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKonsole__RegExpFilter__HotSpot_Activate_Callback(Konsole__RegExpFilter__HotSpot_Activate_Callback cb) { konsole__regexpfilter__hotspot_activate_callback = cb; }
     inline void setKonsole__RegExpFilter__HotSpot_Actions_Callback(Konsole__RegExpFilter__HotSpot_Actions_Callback cb) { konsole__regexpfilter__hotspot_actions_callback = cb; }
@@ -1809,7 +1846,10 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
         if (konsole__regexpfilter__hotspot_activate_isbase) {
             konsole__regexpfilter__hotspot_activate_isbase = false;
             Konsole__RegExpFilter__HotSpot::activate(action);
-        } else if (konsole__regexpfilter__hotspot_activate_callback != nullptr) {
+            return;
+        }
+        auto activate_cb = konsole__regexpfilter__hotspot_activate_callback;
+        if (activate_cb) {
             const QString action_ret = action;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray action_b = action_ret.toUtf8();
@@ -1819,11 +1859,11 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
             ((char*)action_str)[action_str_len] = '\0';
             const char* cbval1 = action_str;
 
-            konsole__regexpfilter__hotspot_activate_callback(this, cbval1);
+            activate_cb(this, cbval1);
             libqt_free(action_str);
-        } else {
-            Konsole__RegExpFilter__HotSpot::activate(action);
+            return;
         }
+        Konsole__RegExpFilter__HotSpot::activate(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1831,8 +1871,10 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
         if (konsole__regexpfilter__hotspot_actions_isbase) {
             konsole__regexpfilter__hotspot_actions_isbase = false;
             return Konsole__RegExpFilter__HotSpot::actions();
-        } else if (konsole__regexpfilter__hotspot_actions_callback != nullptr) {
-            libqt_list /* of QAction* */ callback_ret = konsole__regexpfilter__hotspot_actions_callback();
+        }
+        auto actions_cb = konsole__regexpfilter__hotspot_actions_callback;
+        if (actions_cb) {
+            libqt_list /* of QAction* */ callback_ret = actions_cb();
             QList<QAction*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
@@ -1841,9 +1883,8 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return Konsole__RegExpFilter__HotSpot::actions();
         }
+        return Konsole__RegExpFilter__HotSpot::actions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1851,13 +1892,16 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
         if (konsole__regexpfilter__hotspot_settype_isbase) {
             konsole__regexpfilter__hotspot_settype_isbase = false;
             Konsole__RegExpFilter__HotSpot::setType(typeVal);
-        } else if (konsole__regexpfilter__hotspot_settype_callback != nullptr) {
+            return;
+        }
+        auto settype_cb = konsole__regexpfilter__hotspot_settype_callback;
+        if (settype_cb) {
             int cbval1 = static_cast<int>(typeVal);
 
-            konsole__regexpfilter__hotspot_settype_callback(this, cbval1);
-        } else {
-            Konsole__RegExpFilter__HotSpot::setType(typeVal);
+            settype_cb(this, cbval1);
+            return;
         }
+        Konsole__RegExpFilter__HotSpot::setType(typeVal);
     }
 
     // Friend functions
@@ -1891,12 +1935,6 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
   public:
     VirtualKonsoleUrlFilterHotSpot(int startLine, int startColumn, int endLine, int endColumn) : Konsole::UrlFilter::HotSpot(startLine, startColumn, endLine, endColumn) {};
 
-    ~VirtualKonsoleUrlFilterHotSpot() {
-        konsole__urlfilter__hotspot_actions_callback = nullptr;
-        konsole__urlfilter__hotspot_activate_callback = nullptr;
-        konsole__urlfilter__hotspot_settype_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKonsole__UrlFilter__HotSpot_Actions_Callback(Konsole__UrlFilter__HotSpot_Actions_Callback cb) { konsole__urlfilter__hotspot_actions_callback = cb; }
     inline void setKonsole__UrlFilter__HotSpot_Activate_Callback(Konsole__UrlFilter__HotSpot_Activate_Callback cb) { konsole__urlfilter__hotspot_activate_callback = cb; }
@@ -1912,8 +1950,10 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
         if (konsole__urlfilter__hotspot_actions_isbase) {
             konsole__urlfilter__hotspot_actions_isbase = false;
             return Konsole__UrlFilter__HotSpot::actions();
-        } else if (konsole__urlfilter__hotspot_actions_callback != nullptr) {
-            libqt_list /* of QAction* */ callback_ret = konsole__urlfilter__hotspot_actions_callback();
+        }
+        auto actions_cb = konsole__urlfilter__hotspot_actions_callback;
+        if (actions_cb) {
+            libqt_list /* of QAction* */ callback_ret = actions_cb();
             QList<QAction*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
@@ -1922,9 +1962,8 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return Konsole__UrlFilter__HotSpot::actions();
         }
+        return Konsole__UrlFilter__HotSpot::actions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1932,7 +1971,10 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
         if (konsole__urlfilter__hotspot_activate_isbase) {
             konsole__urlfilter__hotspot_activate_isbase = false;
             Konsole__UrlFilter__HotSpot::activate(action);
-        } else if (konsole__urlfilter__hotspot_activate_callback != nullptr) {
+            return;
+        }
+        auto activate_cb = konsole__urlfilter__hotspot_activate_callback;
+        if (activate_cb) {
             const QString action_ret = action;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray action_b = action_ret.toUtf8();
@@ -1942,11 +1984,11 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
             ((char*)action_str)[action_str_len] = '\0';
             const char* cbval1 = action_str;
 
-            konsole__urlfilter__hotspot_activate_callback(this, cbval1);
+            activate_cb(this, cbval1);
             libqt_free(action_str);
-        } else {
-            Konsole__UrlFilter__HotSpot::activate(action);
+            return;
         }
+        Konsole__UrlFilter__HotSpot::activate(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1954,13 +1996,16 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
         if (konsole__urlfilter__hotspot_settype_isbase) {
             konsole__urlfilter__hotspot_settype_isbase = false;
             Konsole__UrlFilter__HotSpot::setType(typeVal);
-        } else if (konsole__urlfilter__hotspot_settype_callback != nullptr) {
+            return;
+        }
+        auto settype_cb = konsole__urlfilter__hotspot_settype_callback;
+        if (settype_cb) {
             int cbval1 = static_cast<int>(typeVal);
 
-            konsole__urlfilter__hotspot_settype_callback(this, cbval1);
-        } else {
-            Konsole__UrlFilter__HotSpot::setType(typeVal);
+            settype_cb(this, cbval1);
+            return;
         }
+        Konsole__UrlFilter__HotSpot::setType(typeVal);
     }
 
     // Friend functions

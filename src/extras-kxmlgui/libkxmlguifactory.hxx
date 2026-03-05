@@ -69,23 +69,6 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
     VirtualKXMLGUIFactory(KXMLGUIBuilder* builder) : KXMLGUIFactory(builder) {};
     VirtualKXMLGUIFactory(KXMLGUIBuilder* builder, QObject* parent) : KXMLGUIFactory(builder, parent) {};
 
-    ~VirtualKXMLGUIFactory() {
-        kxmlguifactory_metaobject_callback = nullptr;
-        kxmlguifactory_metacast_callback = nullptr;
-        kxmlguifactory_metacall_callback = nullptr;
-        kxmlguifactory_event_callback = nullptr;
-        kxmlguifactory_eventfilter_callback = nullptr;
-        kxmlguifactory_timerevent_callback = nullptr;
-        kxmlguifactory_childevent_callback = nullptr;
-        kxmlguifactory_customevent_callback = nullptr;
-        kxmlguifactory_connectnotify_callback = nullptr;
-        kxmlguifactory_disconnectnotify_callback = nullptr;
-        kxmlguifactory_sender_callback = nullptr;
-        kxmlguifactory_sendersignalindex_callback = nullptr;
-        kxmlguifactory_receivers_callback = nullptr;
-        kxmlguifactory_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKXMLGUIFactory_MetaObject_Callback(KXMLGUIFactory_MetaObject_Callback cb) { kxmlguifactory_metaobject_callback = cb; }
     inline void setKXMLGUIFactory_Metacast_Callback(KXMLGUIFactory_Metacast_Callback cb) { kxmlguifactory_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_metaobject_isbase) {
             kxmlguifactory_metaobject_isbase = false;
             return KXMLGUIFactory::metaObject();
-        } else if (kxmlguifactory_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kxmlguifactory_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KXMLGUIFactory::metaObject();
         }
+        auto metaobject_cb = kxmlguifactory_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KXMLGUIFactory::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_metacast_isbase) {
             kxmlguifactory_metacast_isbase = false;
             return KXMLGUIFactory::qt_metacast(param1);
-        } else if (kxmlguifactory_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kxmlguifactory_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kxmlguifactory_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXMLGUIFactory::qt_metacast(param1);
         }
+        return KXMLGUIFactory::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_metacall_isbase) {
             kxmlguifactory_metacall_isbase = false;
             return KXMLGUIFactory::qt_metacall(param1, param2, param3);
-        } else if (kxmlguifactory_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kxmlguifactory_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kxmlguifactory_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KXMLGUIFactory::qt_metacall(param1, param2, param3);
         }
+        return KXMLGUIFactory::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_event_isbase) {
             kxmlguifactory_event_isbase = false;
             return KXMLGUIFactory::event(event);
-        } else if (kxmlguifactory_event_callback != nullptr) {
+        }
+        auto event_cb = kxmlguifactory_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kxmlguifactory_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXMLGUIFactory::event(event);
         }
+        return KXMLGUIFactory::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_eventfilter_isbase) {
             kxmlguifactory_eventfilter_isbase = false;
             return KXMLGUIFactory::eventFilter(watched, event);
-        } else if (kxmlguifactory_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kxmlguifactory_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kxmlguifactory_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KXMLGUIFactory::eventFilter(watched, event);
         }
+        return KXMLGUIFactory::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_timerevent_isbase) {
             kxmlguifactory_timerevent_isbase = false;
             KXMLGUIFactory::timerEvent(event);
-        } else if (kxmlguifactory_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kxmlguifactory_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kxmlguifactory_timerevent_callback(this, cbval1);
-        } else {
-            KXMLGUIFactory::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KXMLGUIFactory::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_childevent_isbase) {
             kxmlguifactory_childevent_isbase = false;
             KXMLGUIFactory::childEvent(event);
-        } else if (kxmlguifactory_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kxmlguifactory_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kxmlguifactory_childevent_callback(this, cbval1);
-        } else {
-            KXMLGUIFactory::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KXMLGUIFactory::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_customevent_isbase) {
             kxmlguifactory_customevent_isbase = false;
             KXMLGUIFactory::customEvent(event);
-        } else if (kxmlguifactory_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kxmlguifactory_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kxmlguifactory_customevent_callback(this, cbval1);
-        } else {
-            KXMLGUIFactory::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KXMLGUIFactory::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_connectnotify_isbase) {
             kxmlguifactory_connectnotify_isbase = false;
             KXMLGUIFactory::connectNotify(signal);
-        } else if (kxmlguifactory_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kxmlguifactory_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kxmlguifactory_connectnotify_callback(this, cbval1);
-        } else {
-            KXMLGUIFactory::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KXMLGUIFactory::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_disconnectnotify_isbase) {
             kxmlguifactory_disconnectnotify_isbase = false;
             KXMLGUIFactory::disconnectNotify(signal);
-        } else if (kxmlguifactory_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kxmlguifactory_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kxmlguifactory_disconnectnotify_callback(this, cbval1);
-        } else {
-            KXMLGUIFactory::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KXMLGUIFactory::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_sender_isbase) {
             kxmlguifactory_sender_isbase = false;
             return KXMLGUIFactory::sender();
-        } else if (kxmlguifactory_sender_callback != nullptr) {
-            QObject* callback_ret = kxmlguifactory_sender_callback();
-            return callback_ret;
-        } else {
-            return KXMLGUIFactory::sender();
         }
+        auto sender_cb = kxmlguifactory_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KXMLGUIFactory::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_sendersignalindex_isbase) {
             kxmlguifactory_sendersignalindex_isbase = false;
             return KXMLGUIFactory::senderSignalIndex();
-        } else if (kxmlguifactory_sendersignalindex_callback != nullptr) {
-            int callback_ret = kxmlguifactory_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KXMLGUIFactory::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kxmlguifactory_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KXMLGUIFactory::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_receivers_isbase) {
             kxmlguifactory_receivers_isbase = false;
             return KXMLGUIFactory::receivers(signal);
-        } else if (kxmlguifactory_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kxmlguifactory_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kxmlguifactory_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KXMLGUIFactory::receivers(signal);
         }
+        return KXMLGUIFactory::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
         if (kxmlguifactory_issignalconnected_isbase) {
             kxmlguifactory_issignalconnected_isbase = false;
             return KXMLGUIFactory::isSignalConnected(signal);
-        } else if (kxmlguifactory_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kxmlguifactory_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kxmlguifactory_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXMLGUIFactory::isSignalConnected(signal);
         }
+        return KXMLGUIFactory::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -140,46 +140,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     VirtualQTemporaryFile(QObject* parent) : QTemporaryFile(parent) {};
     VirtualQTemporaryFile(const QString& templateName, QObject* parent) : QTemporaryFile(templateName, parent) {};
 
-    ~VirtualQTemporaryFile() {
-        qtemporaryfile_metaobject_callback = nullptr;
-        qtemporaryfile_metacast_callback = nullptr;
-        qtemporaryfile_metacall_callback = nullptr;
-        qtemporaryfile_filename_callback = nullptr;
-        qtemporaryfile_open2_callback = nullptr;
-        qtemporaryfile_size_callback = nullptr;
-        qtemporaryfile_resize_callback = nullptr;
-        qtemporaryfile_permissions_callback = nullptr;
-        qtemporaryfile_setpermissions_callback = nullptr;
-        qtemporaryfile_close_callback = nullptr;
-        qtemporaryfile_issequential_callback = nullptr;
-        qtemporaryfile_pos_callback = nullptr;
-        qtemporaryfile_seek_callback = nullptr;
-        qtemporaryfile_atend_callback = nullptr;
-        qtemporaryfile_readdata_callback = nullptr;
-        qtemporaryfile_writedata_callback = nullptr;
-        qtemporaryfile_readlinedata_callback = nullptr;
-        qtemporaryfile_reset_callback = nullptr;
-        qtemporaryfile_bytesavailable_callback = nullptr;
-        qtemporaryfile_bytestowrite_callback = nullptr;
-        qtemporaryfile_canreadline_callback = nullptr;
-        qtemporaryfile_waitforreadyread_callback = nullptr;
-        qtemporaryfile_waitforbyteswritten_callback = nullptr;
-        qtemporaryfile_skipdata_callback = nullptr;
-        qtemporaryfile_event_callback = nullptr;
-        qtemporaryfile_eventfilter_callback = nullptr;
-        qtemporaryfile_timerevent_callback = nullptr;
-        qtemporaryfile_childevent_callback = nullptr;
-        qtemporaryfile_customevent_callback = nullptr;
-        qtemporaryfile_connectnotify_callback = nullptr;
-        qtemporaryfile_disconnectnotify_callback = nullptr;
-        qtemporaryfile_setopenmode_callback = nullptr;
-        qtemporaryfile_seterrorstring_callback = nullptr;
-        qtemporaryfile_sender_callback = nullptr;
-        qtemporaryfile_sendersignalindex_callback = nullptr;
-        qtemporaryfile_receivers_callback = nullptr;
-        qtemporaryfile_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTemporaryFile_MetaObject_Callback(QTemporaryFile_MetaObject_Callback cb) { qtemporaryfile_metaobject_callback = cb; }
     inline void setQTemporaryFile_Metacast_Callback(QTemporaryFile_Metacast_Callback cb) { qtemporaryfile_metacast_callback = cb; }
@@ -263,12 +223,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_metaobject_isbase) {
             qtemporaryfile_metaobject_isbase = false;
             return QTemporaryFile::metaObject();
-        } else if (qtemporaryfile_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtemporaryfile_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTemporaryFile::metaObject();
         }
+        auto metaobject_cb = qtemporaryfile_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTemporaryFile::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,14 +237,15 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_metacast_isbase) {
             qtemporaryfile_metacast_isbase = false;
             return QTemporaryFile::qt_metacast(param1);
-        } else if (qtemporaryfile_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtemporaryfile_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtemporaryfile_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTemporaryFile::qt_metacast(param1);
         }
+        return QTemporaryFile::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -291,16 +253,17 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_metacall_isbase) {
             qtemporaryfile_metacall_isbase = false;
             return QTemporaryFile::qt_metacall(param1, param2, param3);
-        } else if (qtemporaryfile_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtemporaryfile_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtemporaryfile_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTemporaryFile::qt_metacall(param1, param2, param3);
         }
+        return QTemporaryFile::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,13 +271,14 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_filename_isbase) {
             qtemporaryfile_filename_isbase = false;
             return QTemporaryFile::fileName();
-        } else if (qtemporaryfile_filename_callback != nullptr) {
-            const char* callback_ret = qtemporaryfile_filename_callback();
+        }
+        auto filename_cb = qtemporaryfile_filename_callback;
+        if (filename_cb) {
+            const char* callback_ret = filename_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QTemporaryFile::fileName();
         }
+        return QTemporaryFile::fileName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -322,14 +286,15 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_open2_isbase) {
             qtemporaryfile_open2_isbase = false;
             return QTemporaryFile::open(flags);
-        } else if (qtemporaryfile_open2_callback != nullptr) {
+        }
+        auto open2_cb = qtemporaryfile_open2_callback;
+        if (open2_cb) {
             int cbval1 = static_cast<int>(flags);
 
-            bool callback_ret = qtemporaryfile_open2_callback(this, cbval1);
+            bool callback_ret = open2_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTemporaryFile::open(flags);
         }
+        return QTemporaryFile::open(flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,12 +302,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_size_isbase) {
             qtemporaryfile_size_isbase = false;
             return QTemporaryFile::size();
-        } else if (qtemporaryfile_size_callback != nullptr) {
-            long long callback_ret = qtemporaryfile_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QTemporaryFile::size();
         }
+        auto size_cb = qtemporaryfile_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QTemporaryFile::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -350,14 +316,15 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_resize_isbase) {
             qtemporaryfile_resize_isbase = false;
             return QTemporaryFile::resize(sz);
-        } else if (qtemporaryfile_resize_callback != nullptr) {
+        }
+        auto resize_cb = qtemporaryfile_resize_callback;
+        if (resize_cb) {
             long long cbval1 = static_cast<long long>(sz);
 
-            bool callback_ret = qtemporaryfile_resize_callback(this, cbval1);
+            bool callback_ret = resize_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTemporaryFile::resize(sz);
         }
+        return QTemporaryFile::resize(sz);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -365,12 +332,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_permissions_isbase) {
             qtemporaryfile_permissions_isbase = false;
             return QTemporaryFile::permissions();
-        } else if (qtemporaryfile_permissions_callback != nullptr) {
-            int callback_ret = qtemporaryfile_permissions_callback();
-            return static_cast<QFileDevice::Permissions>(callback_ret);
-        } else {
-            return QTemporaryFile::permissions();
         }
+        auto permissions_cb = qtemporaryfile_permissions_callback;
+        if (permissions_cb) {
+            int callback_ret = permissions_cb();
+            return static_cast<QFileDevice::Permissions>(callback_ret);
+        }
+        return QTemporaryFile::permissions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -378,14 +346,15 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_setpermissions_isbase) {
             qtemporaryfile_setpermissions_isbase = false;
             return QTemporaryFile::setPermissions(permissionSpec);
-        } else if (qtemporaryfile_setpermissions_callback != nullptr) {
+        }
+        auto setpermissions_cb = qtemporaryfile_setpermissions_callback;
+        if (setpermissions_cb) {
             int cbval1 = static_cast<int>(permissionSpec);
 
-            bool callback_ret = qtemporaryfile_setpermissions_callback(this, cbval1);
+            bool callback_ret = setpermissions_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTemporaryFile::setPermissions(permissionSpec);
         }
+        return QTemporaryFile::setPermissions(permissionSpec);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -393,11 +362,14 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_close_isbase) {
             qtemporaryfile_close_isbase = false;
             QTemporaryFile::close();
-        } else if (qtemporaryfile_close_callback != nullptr) {
-            qtemporaryfile_close_callback();
-        } else {
-            QTemporaryFile::close();
+            return;
         }
+        auto close_cb = qtemporaryfile_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        QTemporaryFile::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -405,12 +377,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_issequential_isbase) {
             qtemporaryfile_issequential_isbase = false;
             return QTemporaryFile::isSequential();
-        } else if (qtemporaryfile_issequential_callback != nullptr) {
-            bool callback_ret = qtemporaryfile_issequential_callback();
-            return callback_ret;
-        } else {
-            return QTemporaryFile::isSequential();
         }
+        auto issequential_cb = qtemporaryfile_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return QTemporaryFile::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -418,12 +391,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_pos_isbase) {
             qtemporaryfile_pos_isbase = false;
             return QTemporaryFile::pos();
-        } else if (qtemporaryfile_pos_callback != nullptr) {
-            long long callback_ret = qtemporaryfile_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QTemporaryFile::pos();
         }
+        auto pos_cb = qtemporaryfile_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QTemporaryFile::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -431,14 +405,15 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_seek_isbase) {
             qtemporaryfile_seek_isbase = false;
             return QTemporaryFile::seek(offset);
-        } else if (qtemporaryfile_seek_callback != nullptr) {
+        }
+        auto seek_cb = qtemporaryfile_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(offset);
 
-            bool callback_ret = qtemporaryfile_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTemporaryFile::seek(offset);
         }
+        return QTemporaryFile::seek(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -446,12 +421,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_atend_isbase) {
             qtemporaryfile_atend_isbase = false;
             return QTemporaryFile::atEnd();
-        } else if (qtemporaryfile_atend_callback != nullptr) {
-            bool callback_ret = qtemporaryfile_atend_callback();
-            return callback_ret;
-        } else {
-            return QTemporaryFile::atEnd();
         }
+        auto atend_cb = qtemporaryfile_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return QTemporaryFile::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -459,15 +435,16 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_readdata_isbase) {
             qtemporaryfile_readdata_isbase = false;
             return QTemporaryFile::readData(data, maxlen);
-        } else if (qtemporaryfile_readdata_callback != nullptr) {
+        }
+        auto readdata_cb = qtemporaryfile_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qtemporaryfile_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QTemporaryFile::readData(data, maxlen);
         }
+        return QTemporaryFile::readData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -475,15 +452,16 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_writedata_isbase) {
             qtemporaryfile_writedata_isbase = false;
             return QTemporaryFile::writeData(data, lenVal);
-        } else if (qtemporaryfile_writedata_callback != nullptr) {
+        }
+        auto writedata_cb = qtemporaryfile_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = qtemporaryfile_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QTemporaryFile::writeData(data, lenVal);
         }
+        return QTemporaryFile::writeData(data, lenVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -491,15 +469,16 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_readlinedata_isbase) {
             qtemporaryfile_readlinedata_isbase = false;
             return QTemporaryFile::readLineData(data, maxlen);
-        } else if (qtemporaryfile_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = qtemporaryfile_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qtemporaryfile_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QTemporaryFile::readLineData(data, maxlen);
         }
+        return QTemporaryFile::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -507,12 +486,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_reset_isbase) {
             qtemporaryfile_reset_isbase = false;
             return QTemporaryFile::reset();
-        } else if (qtemporaryfile_reset_callback != nullptr) {
-            bool callback_ret = qtemporaryfile_reset_callback();
-            return callback_ret;
-        } else {
-            return QTemporaryFile::reset();
         }
+        auto reset_cb = qtemporaryfile_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return QTemporaryFile::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -520,12 +500,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_bytesavailable_isbase) {
             qtemporaryfile_bytesavailable_isbase = false;
             return QTemporaryFile::bytesAvailable();
-        } else if (qtemporaryfile_bytesavailable_callback != nullptr) {
-            long long callback_ret = qtemporaryfile_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QTemporaryFile::bytesAvailable();
         }
+        auto bytesavailable_cb = qtemporaryfile_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QTemporaryFile::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -533,12 +514,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_bytestowrite_isbase) {
             qtemporaryfile_bytestowrite_isbase = false;
             return QTemporaryFile::bytesToWrite();
-        } else if (qtemporaryfile_bytestowrite_callback != nullptr) {
-            long long callback_ret = qtemporaryfile_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QTemporaryFile::bytesToWrite();
         }
+        auto bytestowrite_cb = qtemporaryfile_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QTemporaryFile::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,12 +528,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_canreadline_isbase) {
             qtemporaryfile_canreadline_isbase = false;
             return QTemporaryFile::canReadLine();
-        } else if (qtemporaryfile_canreadline_callback != nullptr) {
-            bool callback_ret = qtemporaryfile_canreadline_callback();
-            return callback_ret;
-        } else {
-            return QTemporaryFile::canReadLine();
         }
+        auto canreadline_cb = qtemporaryfile_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return QTemporaryFile::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -559,14 +542,15 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_waitforreadyread_isbase) {
             qtemporaryfile_waitforreadyread_isbase = false;
             return QTemporaryFile::waitForReadyRead(msecs);
-        } else if (qtemporaryfile_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = qtemporaryfile_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qtemporaryfile_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTemporaryFile::waitForReadyRead(msecs);
         }
+        return QTemporaryFile::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -574,14 +558,15 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_waitforbyteswritten_isbase) {
             qtemporaryfile_waitforbyteswritten_isbase = false;
             return QTemporaryFile::waitForBytesWritten(msecs);
-        } else if (qtemporaryfile_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = qtemporaryfile_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qtemporaryfile_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTemporaryFile::waitForBytesWritten(msecs);
         }
+        return QTemporaryFile::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -589,14 +574,15 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_skipdata_isbase) {
             qtemporaryfile_skipdata_isbase = false;
             return QTemporaryFile::skipData(maxSize);
-        } else if (qtemporaryfile_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = qtemporaryfile_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = qtemporaryfile_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QTemporaryFile::skipData(maxSize);
         }
+        return QTemporaryFile::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -604,14 +590,15 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_event_isbase) {
             qtemporaryfile_event_isbase = false;
             return QTemporaryFile::event(event);
-        } else if (qtemporaryfile_event_callback != nullptr) {
+        }
+        auto event_cb = qtemporaryfile_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtemporaryfile_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTemporaryFile::event(event);
         }
+        return QTemporaryFile::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,15 +606,16 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_eventfilter_isbase) {
             qtemporaryfile_eventfilter_isbase = false;
             return QTemporaryFile::eventFilter(watched, event);
-        } else if (qtemporaryfile_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtemporaryfile_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtemporaryfile_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTemporaryFile::eventFilter(watched, event);
         }
+        return QTemporaryFile::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,13 +623,16 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_timerevent_isbase) {
             qtemporaryfile_timerevent_isbase = false;
             QTemporaryFile::timerEvent(event);
-        } else if (qtemporaryfile_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtemporaryfile_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtemporaryfile_timerevent_callback(this, cbval1);
-        } else {
-            QTemporaryFile::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTemporaryFile::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +640,16 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_childevent_isbase) {
             qtemporaryfile_childevent_isbase = false;
             QTemporaryFile::childEvent(event);
-        } else if (qtemporaryfile_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtemporaryfile_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtemporaryfile_childevent_callback(this, cbval1);
-        } else {
-            QTemporaryFile::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTemporaryFile::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +657,16 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_customevent_isbase) {
             qtemporaryfile_customevent_isbase = false;
             QTemporaryFile::customEvent(event);
-        } else if (qtemporaryfile_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtemporaryfile_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtemporaryfile_customevent_callback(this, cbval1);
-        } else {
-            QTemporaryFile::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTemporaryFile::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,15 +674,18 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_connectnotify_isbase) {
             qtemporaryfile_connectnotify_isbase = false;
             QTemporaryFile::connectNotify(signal);
-        } else if (qtemporaryfile_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtemporaryfile_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtemporaryfile_connectnotify_callback(this, cbval1);
-        } else {
-            QTemporaryFile::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTemporaryFile::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,15 +693,18 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_disconnectnotify_isbase) {
             qtemporaryfile_disconnectnotify_isbase = false;
             QTemporaryFile::disconnectNotify(signal);
-        } else if (qtemporaryfile_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtemporaryfile_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtemporaryfile_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTemporaryFile::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTemporaryFile::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +712,16 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_setopenmode_isbase) {
             qtemporaryfile_setopenmode_isbase = false;
             QTemporaryFile::setOpenMode(openMode);
-        } else if (qtemporaryfile_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = qtemporaryfile_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            qtemporaryfile_setopenmode_callback(this, cbval1);
-        } else {
-            QTemporaryFile::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        QTemporaryFile::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,7 +729,10 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_seterrorstring_isbase) {
             qtemporaryfile_seterrorstring_isbase = false;
             QTemporaryFile::setErrorString(errorString);
-        } else if (qtemporaryfile_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = qtemporaryfile_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -733,11 +742,11 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            qtemporaryfile_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            QTemporaryFile::setErrorString(errorString);
+            return;
         }
+        QTemporaryFile::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,12 +754,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_sender_isbase) {
             qtemporaryfile_sender_isbase = false;
             return QTemporaryFile::sender();
-        } else if (qtemporaryfile_sender_callback != nullptr) {
-            QObject* callback_ret = qtemporaryfile_sender_callback();
-            return callback_ret;
-        } else {
-            return QTemporaryFile::sender();
         }
+        auto sender_cb = qtemporaryfile_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTemporaryFile::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,12 +768,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_sendersignalindex_isbase) {
             qtemporaryfile_sendersignalindex_isbase = false;
             return QTemporaryFile::senderSignalIndex();
-        } else if (qtemporaryfile_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtemporaryfile_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTemporaryFile::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtemporaryfile_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTemporaryFile::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -771,14 +782,15 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_receivers_isbase) {
             qtemporaryfile_receivers_isbase = false;
             return QTemporaryFile::receivers(signal);
-        } else if (qtemporaryfile_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtemporaryfile_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtemporaryfile_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTemporaryFile::receivers(signal);
         }
+        return QTemporaryFile::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,16 +798,17 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (qtemporaryfile_issignalconnected_isbase) {
             qtemporaryfile_issignalconnected_isbase = false;
             return QTemporaryFile::isSignalConnected(signal);
-        } else if (qtemporaryfile_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtemporaryfile_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtemporaryfile_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTemporaryFile::isSignalConnected(signal);
         }
+        return QTemporaryFile::isSignalConnected(signal);
     }
 
     // Friend functions

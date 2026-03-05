@@ -69,23 +69,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
     VirtualQOpenGLTimerQuery() : QOpenGLTimerQuery() {};
     VirtualQOpenGLTimerQuery(QObject* parent) : QOpenGLTimerQuery(parent) {};
 
-    ~VirtualQOpenGLTimerQuery() {
-        qopengltimerquery_metaobject_callback = nullptr;
-        qopengltimerquery_metacast_callback = nullptr;
-        qopengltimerquery_metacall_callback = nullptr;
-        qopengltimerquery_event_callback = nullptr;
-        qopengltimerquery_eventfilter_callback = nullptr;
-        qopengltimerquery_timerevent_callback = nullptr;
-        qopengltimerquery_childevent_callback = nullptr;
-        qopengltimerquery_customevent_callback = nullptr;
-        qopengltimerquery_connectnotify_callback = nullptr;
-        qopengltimerquery_disconnectnotify_callback = nullptr;
-        qopengltimerquery_sender_callback = nullptr;
-        qopengltimerquery_sendersignalindex_callback = nullptr;
-        qopengltimerquery_receivers_callback = nullptr;
-        qopengltimerquery_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQOpenGLTimerQuery_MetaObject_Callback(QOpenGLTimerQuery_MetaObject_Callback cb) { qopengltimerquery_metaobject_callback = cb; }
     inline void setQOpenGLTimerQuery_Metacast_Callback(QOpenGLTimerQuery_Metacast_Callback cb) { qopengltimerquery_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_metaobject_isbase) {
             qopengltimerquery_metaobject_isbase = false;
             return QOpenGLTimerQuery::metaObject();
-        } else if (qopengltimerquery_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qopengltimerquery_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLTimerQuery::metaObject();
         }
+        auto metaobject_cb = qopengltimerquery_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QOpenGLTimerQuery::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_metacast_isbase) {
             qopengltimerquery_metacast_isbase = false;
             return QOpenGLTimerQuery::qt_metacast(param1);
-        } else if (qopengltimerquery_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qopengltimerquery_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qopengltimerquery_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLTimerQuery::qt_metacast(param1);
         }
+        return QOpenGLTimerQuery::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_metacall_isbase) {
             qopengltimerquery_metacall_isbase = false;
             return QOpenGLTimerQuery::qt_metacall(param1, param2, param3);
-        } else if (qopengltimerquery_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qopengltimerquery_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qopengltimerquery_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLTimerQuery::qt_metacall(param1, param2, param3);
         }
+        return QOpenGLTimerQuery::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_event_isbase) {
             qopengltimerquery_event_isbase = false;
             return QOpenGLTimerQuery::event(event);
-        } else if (qopengltimerquery_event_callback != nullptr) {
+        }
+        auto event_cb = qopengltimerquery_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qopengltimerquery_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLTimerQuery::event(event);
         }
+        return QOpenGLTimerQuery::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_eventfilter_isbase) {
             qopengltimerquery_eventfilter_isbase = false;
             return QOpenGLTimerQuery::eventFilter(watched, event);
-        } else if (qopengltimerquery_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qopengltimerquery_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qopengltimerquery_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QOpenGLTimerQuery::eventFilter(watched, event);
         }
+        return QOpenGLTimerQuery::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_timerevent_isbase) {
             qopengltimerquery_timerevent_isbase = false;
             QOpenGLTimerQuery::timerEvent(event);
-        } else if (qopengltimerquery_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qopengltimerquery_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qopengltimerquery_timerevent_callback(this, cbval1);
-        } else {
-            QOpenGLTimerQuery::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLTimerQuery::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_childevent_isbase) {
             qopengltimerquery_childevent_isbase = false;
             QOpenGLTimerQuery::childEvent(event);
-        } else if (qopengltimerquery_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qopengltimerquery_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qopengltimerquery_childevent_callback(this, cbval1);
-        } else {
-            QOpenGLTimerQuery::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLTimerQuery::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_customevent_isbase) {
             qopengltimerquery_customevent_isbase = false;
             QOpenGLTimerQuery::customEvent(event);
-        } else if (qopengltimerquery_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qopengltimerquery_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qopengltimerquery_customevent_callback(this, cbval1);
-        } else {
-            QOpenGLTimerQuery::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLTimerQuery::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_connectnotify_isbase) {
             qopengltimerquery_connectnotify_isbase = false;
             QOpenGLTimerQuery::connectNotify(signal);
-        } else if (qopengltimerquery_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qopengltimerquery_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qopengltimerquery_connectnotify_callback(this, cbval1);
-        } else {
-            QOpenGLTimerQuery::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QOpenGLTimerQuery::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_disconnectnotify_isbase) {
             qopengltimerquery_disconnectnotify_isbase = false;
             QOpenGLTimerQuery::disconnectNotify(signal);
-        } else if (qopengltimerquery_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qopengltimerquery_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qopengltimerquery_disconnectnotify_callback(this, cbval1);
-        } else {
-            QOpenGLTimerQuery::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QOpenGLTimerQuery::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_sender_isbase) {
             qopengltimerquery_sender_isbase = false;
             return QOpenGLTimerQuery::sender();
-        } else if (qopengltimerquery_sender_callback != nullptr) {
-            QObject* callback_ret = qopengltimerquery_sender_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLTimerQuery::sender();
         }
+        auto sender_cb = qopengltimerquery_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QOpenGLTimerQuery::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_sendersignalindex_isbase) {
             qopengltimerquery_sendersignalindex_isbase = false;
             return QOpenGLTimerQuery::senderSignalIndex();
-        } else if (qopengltimerquery_sendersignalindex_callback != nullptr) {
-            int callback_ret = qopengltimerquery_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLTimerQuery::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qopengltimerquery_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QOpenGLTimerQuery::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_receivers_isbase) {
             qopengltimerquery_receivers_isbase = false;
             return QOpenGLTimerQuery::receivers(signal);
-        } else if (qopengltimerquery_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qopengltimerquery_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qopengltimerquery_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLTimerQuery::receivers(signal);
         }
+        return QOpenGLTimerQuery::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (qopengltimerquery_issignalconnected_isbase) {
             qopengltimerquery_issignalconnected_isbase = false;
             return QOpenGLTimerQuery::isSignalConnected(signal);
-        } else if (qopengltimerquery_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qopengltimerquery_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qopengltimerquery_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLTimerQuery::isSignalConnected(signal);
         }
+        return QOpenGLTimerQuery::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -407,23 +414,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
     VirtualQOpenGLTimeMonitor() : QOpenGLTimeMonitor() {};
     VirtualQOpenGLTimeMonitor(QObject* parent) : QOpenGLTimeMonitor(parent) {};
 
-    ~VirtualQOpenGLTimeMonitor() {
-        qopengltimemonitor_metaobject_callback = nullptr;
-        qopengltimemonitor_metacast_callback = nullptr;
-        qopengltimemonitor_metacall_callback = nullptr;
-        qopengltimemonitor_event_callback = nullptr;
-        qopengltimemonitor_eventfilter_callback = nullptr;
-        qopengltimemonitor_timerevent_callback = nullptr;
-        qopengltimemonitor_childevent_callback = nullptr;
-        qopengltimemonitor_customevent_callback = nullptr;
-        qopengltimemonitor_connectnotify_callback = nullptr;
-        qopengltimemonitor_disconnectnotify_callback = nullptr;
-        qopengltimemonitor_sender_callback = nullptr;
-        qopengltimemonitor_sendersignalindex_callback = nullptr;
-        qopengltimemonitor_receivers_callback = nullptr;
-        qopengltimemonitor_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQOpenGLTimeMonitor_MetaObject_Callback(QOpenGLTimeMonitor_MetaObject_Callback cb) { qopengltimemonitor_metaobject_callback = cb; }
     inline void setQOpenGLTimeMonitor_Metacast_Callback(QOpenGLTimeMonitor_Metacast_Callback cb) { qopengltimemonitor_metacast_callback = cb; }
@@ -461,12 +451,13 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_metaobject_isbase) {
             qopengltimemonitor_metaobject_isbase = false;
             return QOpenGLTimeMonitor::metaObject();
-        } else if (qopengltimemonitor_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qopengltimemonitor_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLTimeMonitor::metaObject();
         }
+        auto metaobject_cb = qopengltimemonitor_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QOpenGLTimeMonitor::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -474,14 +465,15 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_metacast_isbase) {
             qopengltimemonitor_metacast_isbase = false;
             return QOpenGLTimeMonitor::qt_metacast(param1);
-        } else if (qopengltimemonitor_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qopengltimemonitor_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qopengltimemonitor_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLTimeMonitor::qt_metacast(param1);
         }
+        return QOpenGLTimeMonitor::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -489,16 +481,17 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_metacall_isbase) {
             qopengltimemonitor_metacall_isbase = false;
             return QOpenGLTimeMonitor::qt_metacall(param1, param2, param3);
-        } else if (qopengltimemonitor_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qopengltimemonitor_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qopengltimemonitor_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLTimeMonitor::qt_metacall(param1, param2, param3);
         }
+        return QOpenGLTimeMonitor::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -506,14 +499,15 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_event_isbase) {
             qopengltimemonitor_event_isbase = false;
             return QOpenGLTimeMonitor::event(event);
-        } else if (qopengltimemonitor_event_callback != nullptr) {
+        }
+        auto event_cb = qopengltimemonitor_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qopengltimemonitor_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLTimeMonitor::event(event);
         }
+        return QOpenGLTimeMonitor::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -521,15 +515,16 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_eventfilter_isbase) {
             qopengltimemonitor_eventfilter_isbase = false;
             return QOpenGLTimeMonitor::eventFilter(watched, event);
-        } else if (qopengltimemonitor_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qopengltimemonitor_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qopengltimemonitor_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QOpenGLTimeMonitor::eventFilter(watched, event);
         }
+        return QOpenGLTimeMonitor::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,13 +532,16 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_timerevent_isbase) {
             qopengltimemonitor_timerevent_isbase = false;
             QOpenGLTimeMonitor::timerEvent(event);
-        } else if (qopengltimemonitor_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qopengltimemonitor_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qopengltimemonitor_timerevent_callback(this, cbval1);
-        } else {
-            QOpenGLTimeMonitor::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLTimeMonitor::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,13 +549,16 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_childevent_isbase) {
             qopengltimemonitor_childevent_isbase = false;
             QOpenGLTimeMonitor::childEvent(event);
-        } else if (qopengltimemonitor_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qopengltimemonitor_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qopengltimemonitor_childevent_callback(this, cbval1);
-        } else {
-            QOpenGLTimeMonitor::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLTimeMonitor::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,13 +566,16 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_customevent_isbase) {
             qopengltimemonitor_customevent_isbase = false;
             QOpenGLTimeMonitor::customEvent(event);
-        } else if (qopengltimemonitor_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qopengltimemonitor_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qopengltimemonitor_customevent_callback(this, cbval1);
-        } else {
-            QOpenGLTimeMonitor::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QOpenGLTimeMonitor::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -579,15 +583,18 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_connectnotify_isbase) {
             qopengltimemonitor_connectnotify_isbase = false;
             QOpenGLTimeMonitor::connectNotify(signal);
-        } else if (qopengltimemonitor_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qopengltimemonitor_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qopengltimemonitor_connectnotify_callback(this, cbval1);
-        } else {
-            QOpenGLTimeMonitor::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QOpenGLTimeMonitor::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -595,15 +602,18 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_disconnectnotify_isbase) {
             qopengltimemonitor_disconnectnotify_isbase = false;
             QOpenGLTimeMonitor::disconnectNotify(signal);
-        } else if (qopengltimemonitor_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qopengltimemonitor_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qopengltimemonitor_disconnectnotify_callback(this, cbval1);
-        } else {
-            QOpenGLTimeMonitor::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QOpenGLTimeMonitor::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,12 +621,13 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_sender_isbase) {
             qopengltimemonitor_sender_isbase = false;
             return QOpenGLTimeMonitor::sender();
-        } else if (qopengltimemonitor_sender_callback != nullptr) {
-            QObject* callback_ret = qopengltimemonitor_sender_callback();
-            return callback_ret;
-        } else {
-            return QOpenGLTimeMonitor::sender();
         }
+        auto sender_cb = qopengltimemonitor_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QOpenGLTimeMonitor::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,12 +635,13 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_sendersignalindex_isbase) {
             qopengltimemonitor_sendersignalindex_isbase = false;
             return QOpenGLTimeMonitor::senderSignalIndex();
-        } else if (qopengltimemonitor_sendersignalindex_callback != nullptr) {
-            int callback_ret = qopengltimemonitor_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLTimeMonitor::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qopengltimemonitor_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QOpenGLTimeMonitor::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,14 +649,15 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_receivers_isbase) {
             qopengltimemonitor_receivers_isbase = false;
             return QOpenGLTimeMonitor::receivers(signal);
-        } else if (qopengltimemonitor_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qopengltimemonitor_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qopengltimemonitor_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QOpenGLTimeMonitor::receivers(signal);
         }
+        return QOpenGLTimeMonitor::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -652,16 +665,17 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (qopengltimemonitor_issignalconnected_isbase) {
             qopengltimemonitor_issignalconnected_isbase = false;
             return QOpenGLTimeMonitor::isSignalConnected(signal);
-        } else if (qopengltimemonitor_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qopengltimemonitor_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qopengltimemonitor_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QOpenGLTimeMonitor::isSignalConnected(signal);
         }
+        return QOpenGLTimeMonitor::isSignalConnected(signal);
     }
 
     // Friend functions

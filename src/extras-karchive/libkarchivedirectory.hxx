@@ -39,13 +39,6 @@ class VirtualKArchiveDirectory final : public KArchiveDirectory {
     VirtualKArchiveDirectory(KArchive* archive, const QString& name, int access, const QDateTime& date, const QString& user, const QString& group, const QString& symlink) : KArchiveDirectory(archive, name, access, date, user, group, symlink) {};
     VirtualKArchiveDirectory(const KArchiveDirectory& param1) : KArchiveDirectory(param1) {};
 
-    ~VirtualKArchiveDirectory() {
-        karchivedirectory_isdirectory_callback = nullptr;
-        karchivedirectory_virtualhook_callback = nullptr;
-        karchivedirectory_isfile_callback = nullptr;
-        karchivedirectory_archive_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKArchiveDirectory_IsDirectory_Callback(KArchiveDirectory_IsDirectory_Callback cb) { karchivedirectory_isdirectory_callback = cb; }
     inline void setKArchiveDirectory_VirtualHook_Callback(KArchiveDirectory_VirtualHook_Callback cb) { karchivedirectory_virtualhook_callback = cb; }
@@ -63,12 +56,13 @@ class VirtualKArchiveDirectory final : public KArchiveDirectory {
         if (karchivedirectory_isdirectory_isbase) {
             karchivedirectory_isdirectory_isbase = false;
             return KArchiveDirectory::isDirectory();
-        } else if (karchivedirectory_isdirectory_callback != nullptr) {
-            bool callback_ret = karchivedirectory_isdirectory_callback();
-            return callback_ret;
-        } else {
-            return KArchiveDirectory::isDirectory();
         }
+        auto isdirectory_cb = karchivedirectory_isdirectory_callback;
+        if (isdirectory_cb) {
+            bool callback_ret = isdirectory_cb();
+            return callback_ret;
+        }
+        return KArchiveDirectory::isDirectory();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -76,14 +70,17 @@ class VirtualKArchiveDirectory final : public KArchiveDirectory {
         if (karchivedirectory_virtualhook_isbase) {
             karchivedirectory_virtualhook_isbase = false;
             KArchiveDirectory::virtual_hook(id, data);
-        } else if (karchivedirectory_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = karchivedirectory_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            karchivedirectory_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KArchiveDirectory::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KArchiveDirectory::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -91,12 +88,13 @@ class VirtualKArchiveDirectory final : public KArchiveDirectory {
         if (karchivedirectory_isfile_isbase) {
             karchivedirectory_isfile_isbase = false;
             return KArchiveDirectory::isFile();
-        } else if (karchivedirectory_isfile_callback != nullptr) {
-            bool callback_ret = karchivedirectory_isfile_callback();
-            return callback_ret;
-        } else {
-            return KArchiveDirectory::isFile();
         }
+        auto isfile_cb = karchivedirectory_isfile_callback;
+        if (isfile_cb) {
+            bool callback_ret = isfile_cb();
+            return callback_ret;
+        }
+        return KArchiveDirectory::isFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -104,12 +102,13 @@ class VirtualKArchiveDirectory final : public KArchiveDirectory {
         if (karchivedirectory_archive_isbase) {
             karchivedirectory_archive_isbase = false;
             return KArchiveDirectory::archive();
-        } else if (karchivedirectory_archive_callback != nullptr) {
-            KArchive* callback_ret = karchivedirectory_archive_callback();
-            return callback_ret;
-        } else {
-            return KArchiveDirectory::archive();
         }
+        auto archive_cb = karchivedirectory_archive_callback;
+        if (archive_cb) {
+            KArchive* callback_ret = archive_cb();
+            return callback_ret;
+        }
+        return KArchiveDirectory::archive();
     }
 
     // Friend functions

@@ -60,19 +60,6 @@ class VirtualQStandardItem final : public QStandardItem {
     VirtualQStandardItem(int rows) : QStandardItem(rows) {};
     VirtualQStandardItem(int rows, int columns) : QStandardItem(rows, columns) {};
 
-    ~VirtualQStandardItem() {
-        qstandarditem_data_callback = nullptr;
-        qstandarditem_multidata_callback = nullptr;
-        qstandarditem_setdata_callback = nullptr;
-        qstandarditem_clone_callback = nullptr;
-        qstandarditem_type_callback = nullptr;
-        qstandarditem_read_callback = nullptr;
-        qstandarditem_write_callback = nullptr;
-        qstandarditem_operatorlesser_callback = nullptr;
-        qstandarditem_operatorassign_callback = nullptr;
-        qstandarditem_emitdatachanged_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQStandardItem_Data_Callback(QStandardItem_Data_Callback cb) { qstandarditem_data_callback = cb; }
     inline void setQStandardItem_MultiData_Callback(QStandardItem_MultiData_Callback cb) { qstandarditem_multidata_callback = cb; }
@@ -102,14 +89,15 @@ class VirtualQStandardItem final : public QStandardItem {
         if (qstandarditem_data_isbase) {
             qstandarditem_data_isbase = false;
             return QStandardItem::data(role);
-        } else if (qstandarditem_data_callback != nullptr) {
+        }
+        auto data_cb = qstandarditem_data_callback;
+        if (data_cb) {
             int cbval1 = role;
 
-            QVariant* callback_ret = qstandarditem_data_callback(this, cbval1);
+            QVariant* callback_ret = data_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QStandardItem::data(role);
         }
+        return QStandardItem::data(role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -117,13 +105,16 @@ class VirtualQStandardItem final : public QStandardItem {
         if (qstandarditem_multidata_isbase) {
             qstandarditem_multidata_isbase = false;
             QStandardItem::multiData(roleDataSpan);
-        } else if (qstandarditem_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = qstandarditem_multidata_callback;
+        if (multidata_cb) {
             QModelRoleDataSpan* cbval1 = new QModelRoleDataSpan(roleDataSpan);
 
-            qstandarditem_multidata_callback(this, cbval1);
-        } else {
-            QStandardItem::multiData(roleDataSpan);
+            multidata_cb(this, cbval1);
+            return;
         }
+        QStandardItem::multiData(roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -131,16 +122,19 @@ class VirtualQStandardItem final : public QStandardItem {
         if (qstandarditem_setdata_isbase) {
             qstandarditem_setdata_isbase = false;
             QStandardItem::setData(value, role);
-        } else if (qstandarditem_setdata_callback != nullptr) {
+            return;
+        }
+        auto setdata_cb = qstandarditem_setdata_callback;
+        if (setdata_cb) {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&value_ret);
             int cbval2 = role;
 
-            qstandarditem_setdata_callback(this, cbval1, cbval2);
-        } else {
-            QStandardItem::setData(value, role);
+            setdata_cb(this, cbval1, cbval2);
+            return;
         }
+        QStandardItem::setData(value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,12 +142,13 @@ class VirtualQStandardItem final : public QStandardItem {
         if (qstandarditem_clone_isbase) {
             qstandarditem_clone_isbase = false;
             return QStandardItem::clone();
-        } else if (qstandarditem_clone_callback != nullptr) {
-            QStandardItem* callback_ret = qstandarditem_clone_callback();
-            return callback_ret;
-        } else {
-            return QStandardItem::clone();
         }
+        auto clone_cb = qstandarditem_clone_callback;
+        if (clone_cb) {
+            QStandardItem* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QStandardItem::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -161,12 +156,13 @@ class VirtualQStandardItem final : public QStandardItem {
         if (qstandarditem_type_isbase) {
             qstandarditem_type_isbase = false;
             return QStandardItem::type();
-        } else if (qstandarditem_type_callback != nullptr) {
-            int callback_ret = qstandarditem_type_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QStandardItem::type();
         }
+        auto type_cb = qstandarditem_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QStandardItem::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,15 +170,18 @@ class VirtualQStandardItem final : public QStandardItem {
         if (qstandarditem_read_isbase) {
             qstandarditem_read_isbase = false;
             QStandardItem::read(in);
-        } else if (qstandarditem_read_callback != nullptr) {
+            return;
+        }
+        auto read_cb = qstandarditem_read_callback;
+        if (read_cb) {
             QDataStream& in_ret = in;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &in_ret;
 
-            qstandarditem_read_callback(this, cbval1);
-        } else {
-            QStandardItem::read(in);
+            read_cb(this, cbval1);
+            return;
         }
+        QStandardItem::read(in);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -190,15 +189,18 @@ class VirtualQStandardItem final : public QStandardItem {
         if (qstandarditem_write_isbase) {
             qstandarditem_write_isbase = false;
             QStandardItem::write(out);
-        } else if (qstandarditem_write_callback != nullptr) {
+            return;
+        }
+        auto write_cb = qstandarditem_write_callback;
+        if (write_cb) {
             QDataStream& out_ret = out;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &out_ret;
 
-            qstandarditem_write_callback(this, cbval1);
-        } else {
-            QStandardItem::write(out);
+            write_cb(this, cbval1);
+            return;
         }
+        QStandardItem::write(out);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -206,16 +208,17 @@ class VirtualQStandardItem final : public QStandardItem {
         if (qstandarditem_operatorlesser_isbase) {
             qstandarditem_operatorlesser_isbase = false;
             return QStandardItem::operator<(other);
-        } else if (qstandarditem_operatorlesser_callback != nullptr) {
+        }
+        auto operatorlesser_cb = qstandarditem_operatorlesser_callback;
+        if (operatorlesser_cb) {
             const QStandardItem& other_ret = other;
             // Cast returned reference into pointer
             QStandardItem* cbval1 = const_cast<QStandardItem*>(&other_ret);
 
-            bool callback_ret = qstandarditem_operatorlesser_callback(this, cbval1);
+            bool callback_ret = operatorlesser_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStandardItem::operator<(other);
         }
+        return QStandardItem::operator<(other);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -223,15 +226,18 @@ class VirtualQStandardItem final : public QStandardItem {
         if (qstandarditem_operatorassign_isbase) {
             qstandarditem_operatorassign_isbase = false;
             QStandardItem::operator=(other);
-        } else if (qstandarditem_operatorassign_callback != nullptr) {
+            return;
+        }
+        auto operatorassign_cb = qstandarditem_operatorassign_callback;
+        if (operatorassign_cb) {
             const QStandardItem& other_ret = other;
             // Cast returned reference into pointer
             QStandardItem* cbval1 = const_cast<QStandardItem*>(&other_ret);
 
-            qstandarditem_operatorassign_callback(this, cbval1);
-        } else {
-            QStandardItem::operator=(other);
+            operatorassign_cb(this, cbval1);
+            return;
         }
+        QStandardItem::operator=(other);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -239,11 +245,14 @@ class VirtualQStandardItem final : public QStandardItem {
         if (qstandarditem_emitdatachanged_isbase) {
             qstandarditem_emitdatachanged_isbase = false;
             QStandardItem::emitDataChanged();
-        } else if (qstandarditem_emitdatachanged_callback != nullptr) {
-            qstandarditem_emitdatachanged_callback();
-        } else {
-            QStandardItem::emitDataChanged();
+            return;
         }
+        auto emitdatachanged_cb = qstandarditem_emitdatachanged_callback;
+        if (emitdatachanged_cb) {
+            emitdatachanged_cb();
+            return;
+        }
+        QStandardItem::emitDataChanged();
     }
 
     // Friend functions
@@ -486,80 +495,6 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
     VirtualQStandardItemModel(QObject* parent) : QStandardItemModel(parent) {};
     VirtualQStandardItemModel(int rows, int columns, QObject* parent) : QStandardItemModel(rows, columns, parent) {};
 
-    ~VirtualQStandardItemModel() {
-        qstandarditemmodel_metaobject_callback = nullptr;
-        qstandarditemmodel_metacast_callback = nullptr;
-        qstandarditemmodel_metacall_callback = nullptr;
-        qstandarditemmodel_rolenames_callback = nullptr;
-        qstandarditemmodel_index_callback = nullptr;
-        qstandarditemmodel_parent_callback = nullptr;
-        qstandarditemmodel_rowcount_callback = nullptr;
-        qstandarditemmodel_columncount_callback = nullptr;
-        qstandarditemmodel_haschildren_callback = nullptr;
-        qstandarditemmodel_data_callback = nullptr;
-        qstandarditemmodel_multidata_callback = nullptr;
-        qstandarditemmodel_setdata_callback = nullptr;
-        qstandarditemmodel_clearitemdata_callback = nullptr;
-        qstandarditemmodel_headerdata_callback = nullptr;
-        qstandarditemmodel_setheaderdata_callback = nullptr;
-        qstandarditemmodel_insertrows_callback = nullptr;
-        qstandarditemmodel_insertcolumns_callback = nullptr;
-        qstandarditemmodel_removerows_callback = nullptr;
-        qstandarditemmodel_removecolumns_callback = nullptr;
-        qstandarditemmodel_flags_callback = nullptr;
-        qstandarditemmodel_supporteddropactions_callback = nullptr;
-        qstandarditemmodel_itemdata_callback = nullptr;
-        qstandarditemmodel_setitemdata_callback = nullptr;
-        qstandarditemmodel_sort_callback = nullptr;
-        qstandarditemmodel_mimetypes_callback = nullptr;
-        qstandarditemmodel_mimedata_callback = nullptr;
-        qstandarditemmodel_dropmimedata_callback = nullptr;
-        qstandarditemmodel_sibling_callback = nullptr;
-        qstandarditemmodel_candropmimedata_callback = nullptr;
-        qstandarditemmodel_supporteddragactions_callback = nullptr;
-        qstandarditemmodel_moverows_callback = nullptr;
-        qstandarditemmodel_movecolumns_callback = nullptr;
-        qstandarditemmodel_fetchmore_callback = nullptr;
-        qstandarditemmodel_canfetchmore_callback = nullptr;
-        qstandarditemmodel_buddy_callback = nullptr;
-        qstandarditemmodel_match_callback = nullptr;
-        qstandarditemmodel_span_callback = nullptr;
-        qstandarditemmodel_submit_callback = nullptr;
-        qstandarditemmodel_revert_callback = nullptr;
-        qstandarditemmodel_resetinternaldata_callback = nullptr;
-        qstandarditemmodel_event_callback = nullptr;
-        qstandarditemmodel_eventfilter_callback = nullptr;
-        qstandarditemmodel_timerevent_callback = nullptr;
-        qstandarditemmodel_childevent_callback = nullptr;
-        qstandarditemmodel_customevent_callback = nullptr;
-        qstandarditemmodel_connectnotify_callback = nullptr;
-        qstandarditemmodel_disconnectnotify_callback = nullptr;
-        qstandarditemmodel_createindex_callback = nullptr;
-        qstandarditemmodel_encodedata_callback = nullptr;
-        qstandarditemmodel_decodedata_callback = nullptr;
-        qstandarditemmodel_begininsertrows_callback = nullptr;
-        qstandarditemmodel_endinsertrows_callback = nullptr;
-        qstandarditemmodel_beginremoverows_callback = nullptr;
-        qstandarditemmodel_endremoverows_callback = nullptr;
-        qstandarditemmodel_beginmoverows_callback = nullptr;
-        qstandarditemmodel_endmoverows_callback = nullptr;
-        qstandarditemmodel_begininsertcolumns_callback = nullptr;
-        qstandarditemmodel_endinsertcolumns_callback = nullptr;
-        qstandarditemmodel_beginremovecolumns_callback = nullptr;
-        qstandarditemmodel_endremovecolumns_callback = nullptr;
-        qstandarditemmodel_beginmovecolumns_callback = nullptr;
-        qstandarditemmodel_endmovecolumns_callback = nullptr;
-        qstandarditemmodel_beginresetmodel_callback = nullptr;
-        qstandarditemmodel_endresetmodel_callback = nullptr;
-        qstandarditemmodel_changepersistentindex_callback = nullptr;
-        qstandarditemmodel_changepersistentindexlist_callback = nullptr;
-        qstandarditemmodel_persistentindexlist_callback = nullptr;
-        qstandarditemmodel_sender_callback = nullptr;
-        qstandarditemmodel_sendersignalindex_callback = nullptr;
-        qstandarditemmodel_receivers_callback = nullptr;
-        qstandarditemmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQStandardItemModel_MetaObject_Callback(QStandardItemModel_MetaObject_Callback cb) { qstandarditemmodel_metaobject_callback = cb; }
     inline void setQStandardItemModel_Metacast_Callback(QStandardItemModel_Metacast_Callback cb) { qstandarditemmodel_metacast_callback = cb; }
@@ -711,12 +646,13 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_metaobject_isbase) {
             qstandarditemmodel_metaobject_isbase = false;
             return QStandardItemModel::metaObject();
-        } else if (qstandarditemmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qstandarditemmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QStandardItemModel::metaObject();
         }
+        auto metaobject_cb = qstandarditemmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QStandardItemModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,14 +660,15 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_metacast_isbase) {
             qstandarditemmodel_metacast_isbase = false;
             return QStandardItemModel::qt_metacast(param1);
-        } else if (qstandarditemmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qstandarditemmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qstandarditemmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStandardItemModel::qt_metacast(param1);
         }
+        return QStandardItemModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,16 +676,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_metacall_isbase) {
             qstandarditemmodel_metacall_isbase = false;
             return QStandardItemModel::qt_metacall(param1, param2, param3);
-        } else if (qstandarditemmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qstandarditemmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qstandarditemmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QStandardItemModel::qt_metacall(param1, param2, param3);
         }
+        return QStandardItemModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,8 +694,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_rolenames_isbase) {
             qstandarditemmodel_rolenames_isbase = false;
             return QStandardItemModel::roleNames();
-        } else if (qstandarditemmodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = qstandarditemmodel_rolenames_callback();
+        }
+        auto rolenames_cb = qstandarditemmodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -767,9 +707,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return QStandardItemModel::roleNames();
         }
+        return QStandardItemModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -777,18 +716,19 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_index_isbase) {
             qstandarditemmodel_index_isbase = false;
             return QStandardItemModel::index(row, column, parent);
-        } else if (qstandarditemmodel_index_callback != nullptr) {
+        }
+        auto index_cb = qstandarditemmodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = qstandarditemmodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QStandardItemModel::index(row, column, parent);
         }
+        return QStandardItemModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,16 +736,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_parent_isbase) {
             qstandarditemmodel_parent_isbase = false;
             return QStandardItemModel::parent(child);
-        } else if (qstandarditemmodel_parent_callback != nullptr) {
+        }
+        auto parent_cb = qstandarditemmodel_parent_callback;
+        if (parent_cb) {
             const QModelIndex& child_ret = child;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
 
-            QModelIndex* callback_ret = qstandarditemmodel_parent_callback(this, cbval1);
+            QModelIndex* callback_ret = parent_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QStandardItemModel::parent(child);
         }
+        return QStandardItemModel::parent(child);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -813,16 +754,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_rowcount_isbase) {
             qstandarditemmodel_rowcount_isbase = false;
             return QStandardItemModel::rowCount(parent);
-        } else if (qstandarditemmodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = qstandarditemmodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qstandarditemmodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QStandardItemModel::rowCount(parent);
         }
+        return QStandardItemModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,16 +772,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_columncount_isbase) {
             qstandarditemmodel_columncount_isbase = false;
             return QStandardItemModel::columnCount(parent);
-        } else if (qstandarditemmodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = qstandarditemmodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qstandarditemmodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QStandardItemModel::columnCount(parent);
         }
+        return QStandardItemModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -847,16 +790,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_haschildren_isbase) {
             qstandarditemmodel_haschildren_isbase = false;
             return QStandardItemModel::hasChildren(parent);
-        } else if (qstandarditemmodel_haschildren_callback != nullptr) {
+        }
+        auto haschildren_cb = qstandarditemmodel_haschildren_callback;
+        if (haschildren_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qstandarditemmodel_haschildren_callback(this, cbval1);
+            bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStandardItemModel::hasChildren(parent);
         }
+        return QStandardItemModel::hasChildren(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -864,17 +808,18 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_data_isbase) {
             qstandarditemmodel_data_isbase = false;
             return QStandardItemModel::data(index, role);
-        } else if (qstandarditemmodel_data_callback != nullptr) {
+        }
+        auto data_cb = qstandarditemmodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = qstandarditemmodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QStandardItemModel::data(index, role);
         }
+        return QStandardItemModel::data(index, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,16 +827,19 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_multidata_isbase) {
             qstandarditemmodel_multidata_isbase = false;
             QStandardItemModel::multiData(index, roleDataSpan);
-        } else if (qstandarditemmodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = qstandarditemmodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            qstandarditemmodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            QStandardItemModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        QStandardItemModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,7 +847,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_setdata_isbase) {
             qstandarditemmodel_setdata_isbase = false;
             return QStandardItemModel::setData(index, value, role);
-        } else if (qstandarditemmodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = qstandarditemmodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -908,11 +858,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = qstandarditemmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QStandardItemModel::setData(index, value, role);
         }
+        return QStandardItemModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -920,16 +869,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_clearitemdata_isbase) {
             qstandarditemmodel_clearitemdata_isbase = false;
             return QStandardItemModel::clearItemData(index);
-        } else if (qstandarditemmodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = qstandarditemmodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qstandarditemmodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStandardItemModel::clearItemData(index);
         }
+        return QStandardItemModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -937,16 +887,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_headerdata_isbase) {
             qstandarditemmodel_headerdata_isbase = false;
             return QStandardItemModel::headerData(section, orientation, role);
-        } else if (qstandarditemmodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = qstandarditemmodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = qstandarditemmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QStandardItemModel::headerData(section, orientation, role);
         }
+        return QStandardItemModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,7 +905,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_setheaderdata_isbase) {
             qstandarditemmodel_setheaderdata_isbase = false;
             return QStandardItemModel::setHeaderData(section, orientation, value, role);
-        } else if (qstandarditemmodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = qstandarditemmodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -962,11 +915,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = qstandarditemmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QStandardItemModel::setHeaderData(section, orientation, value, role);
         }
+        return QStandardItemModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -974,18 +926,19 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_insertrows_isbase) {
             qstandarditemmodel_insertrows_isbase = false;
             return QStandardItemModel::insertRows(row, count, parent);
-        } else if (qstandarditemmodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = qstandarditemmodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qstandarditemmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QStandardItemModel::insertRows(row, count, parent);
         }
+        return QStandardItemModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -993,18 +946,19 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_insertcolumns_isbase) {
             qstandarditemmodel_insertcolumns_isbase = false;
             return QStandardItemModel::insertColumns(column, count, parent);
-        } else if (qstandarditemmodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = qstandarditemmodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qstandarditemmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QStandardItemModel::insertColumns(column, count, parent);
         }
+        return QStandardItemModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1012,18 +966,19 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_removerows_isbase) {
             qstandarditemmodel_removerows_isbase = false;
             return QStandardItemModel::removeRows(row, count, parent);
-        } else if (qstandarditemmodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = qstandarditemmodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qstandarditemmodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QStandardItemModel::removeRows(row, count, parent);
         }
+        return QStandardItemModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1031,18 +986,19 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_removecolumns_isbase) {
             qstandarditemmodel_removecolumns_isbase = false;
             return QStandardItemModel::removeColumns(column, count, parent);
-        } else if (qstandarditemmodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = qstandarditemmodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qstandarditemmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QStandardItemModel::removeColumns(column, count, parent);
         }
+        return QStandardItemModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,16 +1006,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_flags_isbase) {
             qstandarditemmodel_flags_isbase = false;
             return QStandardItemModel::flags(index);
-        } else if (qstandarditemmodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = qstandarditemmodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qstandarditemmodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return QStandardItemModel::flags(index);
         }
+        return QStandardItemModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1067,12 +1024,13 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_supporteddropactions_isbase) {
             qstandarditemmodel_supporteddropactions_isbase = false;
             return QStandardItemModel::supportedDropActions();
-        } else if (qstandarditemmodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = qstandarditemmodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QStandardItemModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = qstandarditemmodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QStandardItemModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1080,12 +1038,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_itemdata_isbase) {
             qstandarditemmodel_itemdata_isbase = false;
             return QStandardItemModel::itemData(index);
-        } else if (qstandarditemmodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = qstandarditemmodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = qstandarditemmodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -1093,9 +1053,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return QStandardItemModel::itemData(index);
         }
+        return QStandardItemModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,7 +1062,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_setitemdata_isbase) {
             qstandarditemmodel_setitemdata_isbase = false;
             return QStandardItemModel::setItemData(index, roles);
-        } else if (qstandarditemmodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = qstandarditemmodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -1123,11 +1084,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = qstandarditemmodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QStandardItemModel::setItemData(index, roles);
         }
+        return QStandardItemModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1135,14 +1095,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_sort_isbase) {
             qstandarditemmodel_sort_isbase = false;
             QStandardItemModel::sort(column, order);
-        } else if (qstandarditemmodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = qstandarditemmodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            qstandarditemmodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            QStandardItemModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        QStandardItemModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,8 +1113,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_mimetypes_isbase) {
             qstandarditemmodel_mimetypes_isbase = false;
             return QStandardItemModel::mimeTypes();
-        } else if (qstandarditemmodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = qstandarditemmodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = qstandarditemmodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1162,9 +1127,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QStandardItemModel::mimeTypes();
         }
+        return QStandardItemModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,7 +1136,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_mimedata_isbase) {
             qstandarditemmodel_mimedata_isbase = false;
             return QStandardItemModel::mimeData(indexes);
-        } else if (qstandarditemmodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = qstandarditemmodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1184,12 +1150,11 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = qstandarditemmodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return QStandardItemModel::mimeData(indexes);
         }
+        return QStandardItemModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1197,7 +1162,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_dropmimedata_isbase) {
             qstandarditemmodel_dropmimedata_isbase = false;
             return QStandardItemModel::dropMimeData(data, action, row, column, parent);
-        } else if (qstandarditemmodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = qstandarditemmodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1206,11 +1173,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qstandarditemmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QStandardItemModel::dropMimeData(data, action, row, column, parent);
         }
+        return QStandardItemModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1218,18 +1184,19 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_sibling_isbase) {
             qstandarditemmodel_sibling_isbase = false;
             return QStandardItemModel::sibling(row, column, idx);
-        } else if (qstandarditemmodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = qstandarditemmodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = qstandarditemmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QStandardItemModel::sibling(row, column, idx);
         }
+        return QStandardItemModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1237,7 +1204,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_candropmimedata_isbase) {
             qstandarditemmodel_candropmimedata_isbase = false;
             return QStandardItemModel::canDropMimeData(data, action, row, column, parent);
-        } else if (qstandarditemmodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = qstandarditemmodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1246,11 +1215,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qstandarditemmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QStandardItemModel::canDropMimeData(data, action, row, column, parent);
         }
+        return QStandardItemModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1258,12 +1226,13 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_supporteddragactions_isbase) {
             qstandarditemmodel_supporteddragactions_isbase = false;
             return QStandardItemModel::supportedDragActions();
-        } else if (qstandarditemmodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = qstandarditemmodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QStandardItemModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = qstandarditemmodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QStandardItemModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1271,7 +1240,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_moverows_isbase) {
             qstandarditemmodel_moverows_isbase = false;
             return QStandardItemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (qstandarditemmodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = qstandarditemmodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1282,11 +1253,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qstandarditemmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QStandardItemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return QStandardItemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,7 +1264,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_movecolumns_isbase) {
             qstandarditemmodel_movecolumns_isbase = false;
             return QStandardItemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (qstandarditemmodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = qstandarditemmodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1305,11 +1277,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qstandarditemmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QStandardItemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return QStandardItemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1317,15 +1288,18 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_fetchmore_isbase) {
             qstandarditemmodel_fetchmore_isbase = false;
             QStandardItemModel::fetchMore(parent);
-        } else if (qstandarditemmodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = qstandarditemmodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            qstandarditemmodel_fetchmore_callback(this, cbval1);
-        } else {
-            QStandardItemModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        QStandardItemModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1333,16 +1307,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_canfetchmore_isbase) {
             qstandarditemmodel_canfetchmore_isbase = false;
             return QStandardItemModel::canFetchMore(parent);
-        } else if (qstandarditemmodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = qstandarditemmodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qstandarditemmodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStandardItemModel::canFetchMore(parent);
         }
+        return QStandardItemModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1350,16 +1325,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_buddy_isbase) {
             qstandarditemmodel_buddy_isbase = false;
             return QStandardItemModel::buddy(index);
-        } else if (qstandarditemmodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = qstandarditemmodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = qstandarditemmodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QStandardItemModel::buddy(index);
         }
+        return QStandardItemModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1367,7 +1343,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_match_isbase) {
             qstandarditemmodel_match_isbase = false;
             return QStandardItemModel::match(start, role, value, hits, flags);
-        } else if (qstandarditemmodel_match_callback != nullptr) {
+        }
+        auto match_cb = qstandarditemmodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1378,7 +1356,7 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qstandarditemmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1387,9 +1365,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QStandardItemModel::match(start, role, value, hits, flags);
         }
+        return QStandardItemModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1397,16 +1374,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_span_isbase) {
             qstandarditemmodel_span_isbase = false;
             return QStandardItemModel::span(index);
-        } else if (qstandarditemmodel_span_callback != nullptr) {
+        }
+        auto span_cb = qstandarditemmodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = qstandarditemmodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QStandardItemModel::span(index);
         }
+        return QStandardItemModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1414,12 +1392,13 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_submit_isbase) {
             qstandarditemmodel_submit_isbase = false;
             return QStandardItemModel::submit();
-        } else if (qstandarditemmodel_submit_callback != nullptr) {
-            bool callback_ret = qstandarditemmodel_submit_callback();
-            return callback_ret;
-        } else {
-            return QStandardItemModel::submit();
         }
+        auto submit_cb = qstandarditemmodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return QStandardItemModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1427,11 +1406,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_revert_isbase) {
             qstandarditemmodel_revert_isbase = false;
             QStandardItemModel::revert();
-        } else if (qstandarditemmodel_revert_callback != nullptr) {
-            qstandarditemmodel_revert_callback();
-        } else {
-            QStandardItemModel::revert();
+            return;
         }
+        auto revert_cb = qstandarditemmodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        QStandardItemModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1439,11 +1421,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_resetinternaldata_isbase) {
             qstandarditemmodel_resetinternaldata_isbase = false;
             QStandardItemModel::resetInternalData();
-        } else if (qstandarditemmodel_resetinternaldata_callback != nullptr) {
-            qstandarditemmodel_resetinternaldata_callback();
-        } else {
-            QStandardItemModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = qstandarditemmodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        QStandardItemModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1451,14 +1436,15 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_event_isbase) {
             qstandarditemmodel_event_isbase = false;
             return QStandardItemModel::event(event);
-        } else if (qstandarditemmodel_event_callback != nullptr) {
+        }
+        auto event_cb = qstandarditemmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qstandarditemmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStandardItemModel::event(event);
         }
+        return QStandardItemModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1466,15 +1452,16 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_eventfilter_isbase) {
             qstandarditemmodel_eventfilter_isbase = false;
             return QStandardItemModel::eventFilter(watched, event);
-        } else if (qstandarditemmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qstandarditemmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qstandarditemmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QStandardItemModel::eventFilter(watched, event);
         }
+        return QStandardItemModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1482,13 +1469,16 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_timerevent_isbase) {
             qstandarditemmodel_timerevent_isbase = false;
             QStandardItemModel::timerEvent(event);
-        } else if (qstandarditemmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qstandarditemmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qstandarditemmodel_timerevent_callback(this, cbval1);
-        } else {
-            QStandardItemModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QStandardItemModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1496,13 +1486,16 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_childevent_isbase) {
             qstandarditemmodel_childevent_isbase = false;
             QStandardItemModel::childEvent(event);
-        } else if (qstandarditemmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qstandarditemmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qstandarditemmodel_childevent_callback(this, cbval1);
-        } else {
-            QStandardItemModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QStandardItemModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1510,13 +1503,16 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_customevent_isbase) {
             qstandarditemmodel_customevent_isbase = false;
             QStandardItemModel::customEvent(event);
-        } else if (qstandarditemmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qstandarditemmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qstandarditemmodel_customevent_callback(this, cbval1);
-        } else {
-            QStandardItemModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QStandardItemModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1524,15 +1520,18 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_connectnotify_isbase) {
             qstandarditemmodel_connectnotify_isbase = false;
             QStandardItemModel::connectNotify(signal);
-        } else if (qstandarditemmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qstandarditemmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qstandarditemmodel_connectnotify_callback(this, cbval1);
-        } else {
-            QStandardItemModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QStandardItemModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1540,15 +1539,18 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_disconnectnotify_isbase) {
             qstandarditemmodel_disconnectnotify_isbase = false;
             QStandardItemModel::disconnectNotify(signal);
-        } else if (qstandarditemmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qstandarditemmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qstandarditemmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QStandardItemModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QStandardItemModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1556,15 +1558,16 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_createindex_isbase) {
             qstandarditemmodel_createindex_isbase = false;
             return QStandardItemModel::createIndex(row, column);
-        } else if (qstandarditemmodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = qstandarditemmodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = qstandarditemmodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QStandardItemModel::createIndex(row, column);
         }
+        return QStandardItemModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1572,7 +1575,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_encodedata_isbase) {
             qstandarditemmodel_encodedata_isbase = false;
             QStandardItemModel::encodeData(indexes, stream);
-        } else if (qstandarditemmodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = qstandarditemmodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1587,11 +1593,11 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            qstandarditemmodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            QStandardItemModel::encodeData(indexes, stream);
+            return;
         }
+        QStandardItemModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1599,7 +1605,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_decodedata_isbase) {
             qstandarditemmodel_decodedata_isbase = false;
             return QStandardItemModel::decodeData(row, column, parent, stream);
-        } else if (qstandarditemmodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = qstandarditemmodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1609,11 +1617,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = qstandarditemmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QStandardItemModel::decodeData(row, column, parent, stream);
         }
+        return QStandardItemModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1621,17 +1628,20 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_begininsertrows_isbase) {
             qstandarditemmodel_begininsertrows_isbase = false;
             QStandardItemModel::beginInsertRows(parent, first, last);
-        } else if (qstandarditemmodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = qstandarditemmodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qstandarditemmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QStandardItemModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QStandardItemModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1639,11 +1649,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_endinsertrows_isbase) {
             qstandarditemmodel_endinsertrows_isbase = false;
             QStandardItemModel::endInsertRows();
-        } else if (qstandarditemmodel_endinsertrows_callback != nullptr) {
-            qstandarditemmodel_endinsertrows_callback();
-        } else {
-            QStandardItemModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = qstandarditemmodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        QStandardItemModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1651,17 +1664,20 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_beginremoverows_isbase) {
             qstandarditemmodel_beginremoverows_isbase = false;
             QStandardItemModel::beginRemoveRows(parent, first, last);
-        } else if (qstandarditemmodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = qstandarditemmodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qstandarditemmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QStandardItemModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QStandardItemModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1669,11 +1685,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_endremoverows_isbase) {
             qstandarditemmodel_endremoverows_isbase = false;
             QStandardItemModel::endRemoveRows();
-        } else if (qstandarditemmodel_endremoverows_callback != nullptr) {
-            qstandarditemmodel_endremoverows_callback();
-        } else {
-            QStandardItemModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = qstandarditemmodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        QStandardItemModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1681,7 +1700,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_beginmoverows_isbase) {
             qstandarditemmodel_beginmoverows_isbase = false;
             return QStandardItemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (qstandarditemmodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = qstandarditemmodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1692,11 +1713,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = qstandarditemmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QStandardItemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return QStandardItemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1704,11 +1724,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_endmoverows_isbase) {
             qstandarditemmodel_endmoverows_isbase = false;
             QStandardItemModel::endMoveRows();
-        } else if (qstandarditemmodel_endmoverows_callback != nullptr) {
-            qstandarditemmodel_endmoverows_callback();
-        } else {
-            QStandardItemModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = qstandarditemmodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        QStandardItemModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1716,17 +1739,20 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_begininsertcolumns_isbase) {
             qstandarditemmodel_begininsertcolumns_isbase = false;
             QStandardItemModel::beginInsertColumns(parent, first, last);
-        } else if (qstandarditemmodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = qstandarditemmodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qstandarditemmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QStandardItemModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QStandardItemModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1734,11 +1760,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_endinsertcolumns_isbase) {
             qstandarditemmodel_endinsertcolumns_isbase = false;
             QStandardItemModel::endInsertColumns();
-        } else if (qstandarditemmodel_endinsertcolumns_callback != nullptr) {
-            qstandarditemmodel_endinsertcolumns_callback();
-        } else {
-            QStandardItemModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = qstandarditemmodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        QStandardItemModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1746,17 +1775,20 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_beginremovecolumns_isbase) {
             qstandarditemmodel_beginremovecolumns_isbase = false;
             QStandardItemModel::beginRemoveColumns(parent, first, last);
-        } else if (qstandarditemmodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = qstandarditemmodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qstandarditemmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QStandardItemModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QStandardItemModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1764,11 +1796,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_endremovecolumns_isbase) {
             qstandarditemmodel_endremovecolumns_isbase = false;
             QStandardItemModel::endRemoveColumns();
-        } else if (qstandarditemmodel_endremovecolumns_callback != nullptr) {
-            qstandarditemmodel_endremovecolumns_callback();
-        } else {
-            QStandardItemModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = qstandarditemmodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        QStandardItemModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1776,7 +1811,9 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_beginmovecolumns_isbase) {
             qstandarditemmodel_beginmovecolumns_isbase = false;
             return QStandardItemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (qstandarditemmodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = qstandarditemmodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1787,11 +1824,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = qstandarditemmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QStandardItemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return QStandardItemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1799,11 +1835,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_endmovecolumns_isbase) {
             qstandarditemmodel_endmovecolumns_isbase = false;
             QStandardItemModel::endMoveColumns();
-        } else if (qstandarditemmodel_endmovecolumns_callback != nullptr) {
-            qstandarditemmodel_endmovecolumns_callback();
-        } else {
-            QStandardItemModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = qstandarditemmodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        QStandardItemModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1811,11 +1850,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_beginresetmodel_isbase) {
             qstandarditemmodel_beginresetmodel_isbase = false;
             QStandardItemModel::beginResetModel();
-        } else if (qstandarditemmodel_beginresetmodel_callback != nullptr) {
-            qstandarditemmodel_beginresetmodel_callback();
-        } else {
-            QStandardItemModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = qstandarditemmodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        QStandardItemModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1823,11 +1865,14 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_endresetmodel_isbase) {
             qstandarditemmodel_endresetmodel_isbase = false;
             QStandardItemModel::endResetModel();
-        } else if (qstandarditemmodel_endresetmodel_callback != nullptr) {
-            qstandarditemmodel_endresetmodel_callback();
-        } else {
-            QStandardItemModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = qstandarditemmodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        QStandardItemModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1835,7 +1880,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_changepersistentindex_isbase) {
             qstandarditemmodel_changepersistentindex_isbase = false;
             QStandardItemModel::changePersistentIndex(from, to);
-        } else if (qstandarditemmodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = qstandarditemmodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1843,10 +1891,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            qstandarditemmodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            QStandardItemModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QStandardItemModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1854,7 +1902,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_changepersistentindexlist_isbase) {
             qstandarditemmodel_changepersistentindexlist_isbase = false;
             QStandardItemModel::changePersistentIndexList(from, to);
-        } else if (qstandarditemmodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = qstandarditemmodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1876,12 +1927,12 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            qstandarditemmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            QStandardItemModel::changePersistentIndexList(from, to);
+            return;
         }
+        QStandardItemModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1889,8 +1940,10 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_persistentindexlist_isbase) {
             qstandarditemmodel_persistentindexlist_isbase = false;
             return QStandardItemModel::persistentIndexList();
-        } else if (qstandarditemmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qstandarditemmodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = qstandarditemmodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1899,9 +1952,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QStandardItemModel::persistentIndexList();
         }
+        return QStandardItemModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1909,12 +1961,13 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_sender_isbase) {
             qstandarditemmodel_sender_isbase = false;
             return QStandardItemModel::sender();
-        } else if (qstandarditemmodel_sender_callback != nullptr) {
-            QObject* callback_ret = qstandarditemmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return QStandardItemModel::sender();
         }
+        auto sender_cb = qstandarditemmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QStandardItemModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1922,12 +1975,13 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_sendersignalindex_isbase) {
             qstandarditemmodel_sendersignalindex_isbase = false;
             return QStandardItemModel::senderSignalIndex();
-        } else if (qstandarditemmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qstandarditemmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QStandardItemModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qstandarditemmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QStandardItemModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1935,14 +1989,15 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_receivers_isbase) {
             qstandarditemmodel_receivers_isbase = false;
             return QStandardItemModel::receivers(signal);
-        } else if (qstandarditemmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qstandarditemmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qstandarditemmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QStandardItemModel::receivers(signal);
         }
+        return QStandardItemModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1950,16 +2005,17 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         if (qstandarditemmodel_issignalconnected_isbase) {
             qstandarditemmodel_issignalconnected_isbase = false;
             return QStandardItemModel::isSignalConnected(signal);
-        } else if (qstandarditemmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qstandarditemmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qstandarditemmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QStandardItemModel::isSignalConnected(signal);
         }
+        return QStandardItemModel::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -94,31 +94,6 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
     VirtualKRecentFilesAction(const QString& text, QObject* parent) : KRecentFilesAction(text, parent) {};
     VirtualKRecentFilesAction(const QIcon& icon, const QString& text, QObject* parent) : KRecentFilesAction(icon, text, parent) {};
 
-    ~VirtualKRecentFilesAction() {
-        krecentfilesaction_metaobject_callback = nullptr;
-        krecentfilesaction_metacast_callback = nullptr;
-        krecentfilesaction_metacall_callback = nullptr;
-        krecentfilesaction_removeaction_callback = nullptr;
-        krecentfilesaction_clear_callback = nullptr;
-        krecentfilesaction_insertaction_callback = nullptr;
-        krecentfilesaction_slotactiontriggered_callback = nullptr;
-        krecentfilesaction_createwidget_callback = nullptr;
-        krecentfilesaction_deletewidget_callback = nullptr;
-        krecentfilesaction_event_callback = nullptr;
-        krecentfilesaction_eventfilter_callback = nullptr;
-        krecentfilesaction_timerevent_callback = nullptr;
-        krecentfilesaction_childevent_callback = nullptr;
-        krecentfilesaction_customevent_callback = nullptr;
-        krecentfilesaction_connectnotify_callback = nullptr;
-        krecentfilesaction_disconnectnotify_callback = nullptr;
-        krecentfilesaction_slottoggled_callback = nullptr;
-        krecentfilesaction_createdwidgets_callback = nullptr;
-        krecentfilesaction_sender_callback = nullptr;
-        krecentfilesaction_sendersignalindex_callback = nullptr;
-        krecentfilesaction_receivers_callback = nullptr;
-        krecentfilesaction_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKRecentFilesAction_MetaObject_Callback(KRecentFilesAction_MetaObject_Callback cb) { krecentfilesaction_metaobject_callback = cb; }
     inline void setKRecentFilesAction_Metacast_Callback(KRecentFilesAction_Metacast_Callback cb) { krecentfilesaction_metacast_callback = cb; }
@@ -172,12 +147,13 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_metaobject_isbase) {
             krecentfilesaction_metaobject_isbase = false;
             return KRecentFilesAction::metaObject();
-        } else if (krecentfilesaction_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = krecentfilesaction_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KRecentFilesAction::metaObject();
         }
+        auto metaobject_cb = krecentfilesaction_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KRecentFilesAction::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,14 +161,15 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_metacast_isbase) {
             krecentfilesaction_metacast_isbase = false;
             return KRecentFilesAction::qt_metacast(param1);
-        } else if (krecentfilesaction_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = krecentfilesaction_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = krecentfilesaction_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRecentFilesAction::qt_metacast(param1);
         }
+        return KRecentFilesAction::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -200,16 +177,17 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_metacall_isbase) {
             krecentfilesaction_metacall_isbase = false;
             return KRecentFilesAction::qt_metacall(param1, param2, param3);
-        } else if (krecentfilesaction_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = krecentfilesaction_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = krecentfilesaction_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRecentFilesAction::qt_metacall(param1, param2, param3);
         }
+        return KRecentFilesAction::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,14 +195,15 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_removeaction_isbase) {
             krecentfilesaction_removeaction_isbase = false;
             return KRecentFilesAction::removeAction(action);
-        } else if (krecentfilesaction_removeaction_callback != nullptr) {
+        }
+        auto removeaction_cb = krecentfilesaction_removeaction_callback;
+        if (removeaction_cb) {
             QAction* cbval1 = action;
 
-            QAction* callback_ret = krecentfilesaction_removeaction_callback(this, cbval1);
+            QAction* callback_ret = removeaction_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRecentFilesAction::removeAction(action);
         }
+        return KRecentFilesAction::removeAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,11 +211,14 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_clear_isbase) {
             krecentfilesaction_clear_isbase = false;
             KRecentFilesAction::clear();
-        } else if (krecentfilesaction_clear_callback != nullptr) {
-            krecentfilesaction_clear_callback();
-        } else {
-            KRecentFilesAction::clear();
+            return;
         }
+        auto clear_cb = krecentfilesaction_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        KRecentFilesAction::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -244,14 +226,17 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_insertaction_isbase) {
             krecentfilesaction_insertaction_isbase = false;
             KRecentFilesAction::insertAction(before, action);
-        } else if (krecentfilesaction_insertaction_callback != nullptr) {
+            return;
+        }
+        auto insertaction_cb = krecentfilesaction_insertaction_callback;
+        if (insertaction_cb) {
             QAction* cbval1 = before;
             QAction* cbval2 = action;
 
-            krecentfilesaction_insertaction_callback(this, cbval1, cbval2);
-        } else {
-            KRecentFilesAction::insertAction(before, action);
+            insertaction_cb(this, cbval1, cbval2);
+            return;
         }
+        KRecentFilesAction::insertAction(before, action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,13 +244,16 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_slotactiontriggered_isbase) {
             krecentfilesaction_slotactiontriggered_isbase = false;
             KRecentFilesAction::slotActionTriggered(action);
-        } else if (krecentfilesaction_slotactiontriggered_callback != nullptr) {
+            return;
+        }
+        auto slotactiontriggered_cb = krecentfilesaction_slotactiontriggered_callback;
+        if (slotactiontriggered_cb) {
             QAction* cbval1 = action;
 
-            krecentfilesaction_slotactiontriggered_callback(this, cbval1);
-        } else {
-            KRecentFilesAction::slotActionTriggered(action);
+            slotactiontriggered_cb(this, cbval1);
+            return;
         }
+        KRecentFilesAction::slotActionTriggered(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,14 +261,15 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_createwidget_isbase) {
             krecentfilesaction_createwidget_isbase = false;
             return KRecentFilesAction::createWidget(parent);
-        } else if (krecentfilesaction_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = krecentfilesaction_createwidget_callback;
+        if (createwidget_cb) {
             QWidget* cbval1 = parent;
 
-            QWidget* callback_ret = krecentfilesaction_createwidget_callback(this, cbval1);
+            QWidget* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRecentFilesAction::createWidget(parent);
         }
+        return KRecentFilesAction::createWidget(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,13 +277,16 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_deletewidget_isbase) {
             krecentfilesaction_deletewidget_isbase = false;
             KRecentFilesAction::deleteWidget(widget);
-        } else if (krecentfilesaction_deletewidget_callback != nullptr) {
+            return;
+        }
+        auto deletewidget_cb = krecentfilesaction_deletewidget_callback;
+        if (deletewidget_cb) {
             QWidget* cbval1 = widget;
 
-            krecentfilesaction_deletewidget_callback(this, cbval1);
-        } else {
-            KRecentFilesAction::deleteWidget(widget);
+            deletewidget_cb(this, cbval1);
+            return;
         }
+        KRecentFilesAction::deleteWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,14 +294,15 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_event_isbase) {
             krecentfilesaction_event_isbase = false;
             return KRecentFilesAction::event(event);
-        } else if (krecentfilesaction_event_callback != nullptr) {
+        }
+        auto event_cb = krecentfilesaction_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = krecentfilesaction_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRecentFilesAction::event(event);
         }
+        return KRecentFilesAction::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,15 +310,16 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_eventfilter_isbase) {
             krecentfilesaction_eventfilter_isbase = false;
             return KRecentFilesAction::eventFilter(watched, event);
-        } else if (krecentfilesaction_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = krecentfilesaction_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = krecentfilesaction_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KRecentFilesAction::eventFilter(watched, event);
         }
+        return KRecentFilesAction::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,13 +327,16 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_timerevent_isbase) {
             krecentfilesaction_timerevent_isbase = false;
             KRecentFilesAction::timerEvent(event);
-        } else if (krecentfilesaction_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = krecentfilesaction_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            krecentfilesaction_timerevent_callback(this, cbval1);
-        } else {
-            KRecentFilesAction::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KRecentFilesAction::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -347,13 +344,16 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_childevent_isbase) {
             krecentfilesaction_childevent_isbase = false;
             KRecentFilesAction::childEvent(event);
-        } else if (krecentfilesaction_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = krecentfilesaction_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            krecentfilesaction_childevent_callback(this, cbval1);
-        } else {
-            KRecentFilesAction::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KRecentFilesAction::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -361,13 +361,16 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_customevent_isbase) {
             krecentfilesaction_customevent_isbase = false;
             KRecentFilesAction::customEvent(event);
-        } else if (krecentfilesaction_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = krecentfilesaction_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            krecentfilesaction_customevent_callback(this, cbval1);
-        } else {
-            KRecentFilesAction::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KRecentFilesAction::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -375,15 +378,18 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_connectnotify_isbase) {
             krecentfilesaction_connectnotify_isbase = false;
             KRecentFilesAction::connectNotify(signal);
-        } else if (krecentfilesaction_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = krecentfilesaction_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            krecentfilesaction_connectnotify_callback(this, cbval1);
-        } else {
-            KRecentFilesAction::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KRecentFilesAction::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -391,15 +397,18 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_disconnectnotify_isbase) {
             krecentfilesaction_disconnectnotify_isbase = false;
             KRecentFilesAction::disconnectNotify(signal);
-        } else if (krecentfilesaction_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = krecentfilesaction_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            krecentfilesaction_disconnectnotify_callback(this, cbval1);
-        } else {
-            KRecentFilesAction::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KRecentFilesAction::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -407,13 +416,16 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_slottoggled_isbase) {
             krecentfilesaction_slottoggled_isbase = false;
             KRecentFilesAction::slotToggled(param1);
-        } else if (krecentfilesaction_slottoggled_callback != nullptr) {
+            return;
+        }
+        auto slottoggled_cb = krecentfilesaction_slottoggled_callback;
+        if (slottoggled_cb) {
             bool cbval1 = param1;
 
-            krecentfilesaction_slottoggled_callback(this, cbval1);
-        } else {
-            KRecentFilesAction::slotToggled(param1);
+            slottoggled_cb(this, cbval1);
+            return;
         }
+        KRecentFilesAction::slotToggled(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -421,8 +433,10 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_createdwidgets_isbase) {
             krecentfilesaction_createdwidgets_isbase = false;
             return KRecentFilesAction::createdWidgets();
-        } else if (krecentfilesaction_createdwidgets_callback != nullptr) {
-            libqt_list /* of QWidget* */ callback_ret = krecentfilesaction_createdwidgets_callback();
+        }
+        auto createdwidgets_cb = krecentfilesaction_createdwidgets_callback;
+        if (createdwidgets_cb) {
+            libqt_list /* of QWidget* */ callback_ret = createdwidgets_cb();
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
@@ -431,9 +445,8 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KRecentFilesAction::createdWidgets();
         }
+        return KRecentFilesAction::createdWidgets();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,12 +454,13 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_sender_isbase) {
             krecentfilesaction_sender_isbase = false;
             return KRecentFilesAction::sender();
-        } else if (krecentfilesaction_sender_callback != nullptr) {
-            QObject* callback_ret = krecentfilesaction_sender_callback();
-            return callback_ret;
-        } else {
-            return KRecentFilesAction::sender();
         }
+        auto sender_cb = krecentfilesaction_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KRecentFilesAction::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,12 +468,13 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_sendersignalindex_isbase) {
             krecentfilesaction_sendersignalindex_isbase = false;
             return KRecentFilesAction::senderSignalIndex();
-        } else if (krecentfilesaction_sendersignalindex_callback != nullptr) {
-            int callback_ret = krecentfilesaction_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KRecentFilesAction::senderSignalIndex();
         }
+        auto sendersignalindex_cb = krecentfilesaction_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KRecentFilesAction::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,14 +482,15 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_receivers_isbase) {
             krecentfilesaction_receivers_isbase = false;
             return KRecentFilesAction::receivers(signal);
-        } else if (krecentfilesaction_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = krecentfilesaction_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = krecentfilesaction_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRecentFilesAction::receivers(signal);
         }
+        return KRecentFilesAction::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,16 +498,17 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
         if (krecentfilesaction_issignalconnected_isbase) {
             krecentfilesaction_issignalconnected_isbase = false;
             return KRecentFilesAction::isSignalConnected(signal);
-        } else if (krecentfilesaction_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = krecentfilesaction_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = krecentfilesaction_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRecentFilesAction::isSignalConnected(signal);
         }
+        return KRecentFilesAction::isSignalConnected(signal);
     }
 
     // Friend functions

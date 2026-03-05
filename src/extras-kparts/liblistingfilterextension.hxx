@@ -80,27 +80,6 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
   public:
     VirtualKPartsListingFilterExtension(KParts::ReadOnlyPart* parent) : KParts::ListingFilterExtension(parent) {};
 
-    ~VirtualKPartsListingFilterExtension() {
-        kparts__listingfilterextension_metaobject_callback = nullptr;
-        kparts__listingfilterextension_metacast_callback = nullptr;
-        kparts__listingfilterextension_metacall_callback = nullptr;
-        kparts__listingfilterextension_supportedfiltermodes_callback = nullptr;
-        kparts__listingfilterextension_supportsmultiplefilters_callback = nullptr;
-        kparts__listingfilterextension_filter_callback = nullptr;
-        kparts__listingfilterextension_setfilter_callback = nullptr;
-        kparts__listingfilterextension_event_callback = nullptr;
-        kparts__listingfilterextension_eventfilter_callback = nullptr;
-        kparts__listingfilterextension_timerevent_callback = nullptr;
-        kparts__listingfilterextension_childevent_callback = nullptr;
-        kparts__listingfilterextension_customevent_callback = nullptr;
-        kparts__listingfilterextension_connectnotify_callback = nullptr;
-        kparts__listingfilterextension_disconnectnotify_callback = nullptr;
-        kparts__listingfilterextension_sender_callback = nullptr;
-        kparts__listingfilterextension_sendersignalindex_callback = nullptr;
-        kparts__listingfilterextension_receivers_callback = nullptr;
-        kparts__listingfilterextension_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKParts__ListingFilterExtension_MetaObject_Callback(KParts__ListingFilterExtension_MetaObject_Callback cb) { kparts__listingfilterextension_metaobject_callback = cb; }
     inline void setKParts__ListingFilterExtension_Metacast_Callback(KParts__ListingFilterExtension_Metacast_Callback cb) { kparts__listingfilterextension_metacast_callback = cb; }
@@ -146,12 +125,13 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_metaobject_isbase) {
             kparts__listingfilterextension_metaobject_isbase = false;
             return KParts__ListingFilterExtension::metaObject();
-        } else if (kparts__listingfilterextension_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kparts__listingfilterextension_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KParts__ListingFilterExtension::metaObject();
         }
+        auto metaobject_cb = kparts__listingfilterextension_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KParts__ListingFilterExtension::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -159,14 +139,15 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_metacast_isbase) {
             kparts__listingfilterextension_metacast_isbase = false;
             return KParts__ListingFilterExtension::qt_metacast(param1);
-        } else if (kparts__listingfilterextension_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kparts__listingfilterextension_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kparts__listingfilterextension_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ListingFilterExtension::qt_metacast(param1);
         }
+        return KParts__ListingFilterExtension::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,16 +155,17 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_metacall_isbase) {
             kparts__listingfilterextension_metacall_isbase = false;
             return KParts__ListingFilterExtension::qt_metacall(param1, param2, param3);
-        } else if (kparts__listingfilterextension_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kparts__listingfilterextension_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kparts__listingfilterextension_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__ListingFilterExtension::qt_metacall(param1, param2, param3);
         }
+        return KParts__ListingFilterExtension::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -191,12 +173,13 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_supportedfiltermodes_isbase) {
             kparts__listingfilterextension_supportedfiltermodes_isbase = false;
             return KParts__ListingFilterExtension::supportedFilterModes();
-        } else if (kparts__listingfilterextension_supportedfiltermodes_callback != nullptr) {
-            int callback_ret = kparts__listingfilterextension_supportedfiltermodes_callback();
-            return static_cast<KParts::ListingFilterExtension::FilterModes>(callback_ret);
-        } else {
-            return KParts__ListingFilterExtension::supportedFilterModes();
         }
+        auto supportedfiltermodes_cb = kparts__listingfilterextension_supportedfiltermodes_callback;
+        if (supportedfiltermodes_cb) {
+            int callback_ret = supportedfiltermodes_cb();
+            return static_cast<KParts::ListingFilterExtension::FilterModes>(callback_ret);
+        }
+        return KParts__ListingFilterExtension::supportedFilterModes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,37 +187,39 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_supportsmultiplefilters_isbase) {
             kparts__listingfilterextension_supportsmultiplefilters_isbase = false;
             return KParts__ListingFilterExtension::supportsMultipleFilters(mode);
-        } else if (kparts__listingfilterextension_supportsmultiplefilters_callback != nullptr) {
+        }
+        auto supportsmultiplefilters_cb = kparts__listingfilterextension_supportsmultiplefilters_callback;
+        if (supportsmultiplefilters_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = kparts__listingfilterextension_supportsmultiplefilters_callback(this, cbval1);
+            bool callback_ret = supportsmultiplefilters_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ListingFilterExtension::supportsMultipleFilters(mode);
         }
+        return KParts__ListingFilterExtension::supportsMultipleFilters(mode);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant filter(KParts::ListingFilterExtension::FilterMode mode) const override {
-        if (kparts__listingfilterextension_filter_callback != nullptr) {
+        auto filter_cb = kparts__listingfilterextension_filter_callback;
+        if (filter_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            QVariant* callback_ret = kparts__listingfilterextension_filter_callback(this, cbval1);
+            QVariant* callback_ret = filter_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setFilter(KParts::ListingFilterExtension::FilterMode mode, const QVariant& filter) override {
-        if (kparts__listingfilterextension_setfilter_callback != nullptr) {
+        auto setfilter_cb = kparts__listingfilterextension_setfilter_callback;
+        if (setfilter_cb) {
             int cbval1 = static_cast<int>(mode);
             const QVariant& filter_ret = filter;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&filter_ret);
 
-            kparts__listingfilterextension_setfilter_callback(this, cbval1, cbval2);
+            setfilter_cb(this, cbval1, cbval2);
         }
     }
 
@@ -243,14 +228,15 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_event_isbase) {
             kparts__listingfilterextension_event_isbase = false;
             return KParts__ListingFilterExtension::event(event);
-        } else if (kparts__listingfilterextension_event_callback != nullptr) {
+        }
+        auto event_cb = kparts__listingfilterextension_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kparts__listingfilterextension_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ListingFilterExtension::event(event);
         }
+        return KParts__ListingFilterExtension::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,15 +244,16 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_eventfilter_isbase) {
             kparts__listingfilterextension_eventfilter_isbase = false;
             return KParts__ListingFilterExtension::eventFilter(watched, event);
-        } else if (kparts__listingfilterextension_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kparts__listingfilterextension_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kparts__listingfilterextension_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KParts__ListingFilterExtension::eventFilter(watched, event);
         }
+        return KParts__ListingFilterExtension::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -274,13 +261,16 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_timerevent_isbase) {
             kparts__listingfilterextension_timerevent_isbase = false;
             KParts__ListingFilterExtension::timerEvent(event);
-        } else if (kparts__listingfilterextension_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kparts__listingfilterextension_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kparts__listingfilterextension_timerevent_callback(this, cbval1);
-        } else {
-            KParts__ListingFilterExtension::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KParts__ListingFilterExtension::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,13 +278,16 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_childevent_isbase) {
             kparts__listingfilterextension_childevent_isbase = false;
             KParts__ListingFilterExtension::childEvent(event);
-        } else if (kparts__listingfilterextension_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kparts__listingfilterextension_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kparts__listingfilterextension_childevent_callback(this, cbval1);
-        } else {
-            KParts__ListingFilterExtension::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KParts__ListingFilterExtension::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,13 +295,16 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_customevent_isbase) {
             kparts__listingfilterextension_customevent_isbase = false;
             KParts__ListingFilterExtension::customEvent(event);
-        } else if (kparts__listingfilterextension_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kparts__listingfilterextension_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kparts__listingfilterextension_customevent_callback(this, cbval1);
-        } else {
-            KParts__ListingFilterExtension::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KParts__ListingFilterExtension::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,15 +312,18 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_connectnotify_isbase) {
             kparts__listingfilterextension_connectnotify_isbase = false;
             KParts__ListingFilterExtension::connectNotify(signal);
-        } else if (kparts__listingfilterextension_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kparts__listingfilterextension_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__listingfilterextension_connectnotify_callback(this, cbval1);
-        } else {
-            KParts__ListingFilterExtension::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__ListingFilterExtension::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,15 +331,18 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_disconnectnotify_isbase) {
             kparts__listingfilterextension_disconnectnotify_isbase = false;
             KParts__ListingFilterExtension::disconnectNotify(signal);
-        } else if (kparts__listingfilterextension_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kparts__listingfilterextension_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__listingfilterextension_disconnectnotify_callback(this, cbval1);
-        } else {
-            KParts__ListingFilterExtension::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__ListingFilterExtension::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -348,12 +350,13 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_sender_isbase) {
             kparts__listingfilterextension_sender_isbase = false;
             return KParts__ListingFilterExtension::sender();
-        } else if (kparts__listingfilterextension_sender_callback != nullptr) {
-            QObject* callback_ret = kparts__listingfilterextension_sender_callback();
-            return callback_ret;
-        } else {
-            return KParts__ListingFilterExtension::sender();
         }
+        auto sender_cb = kparts__listingfilterextension_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KParts__ListingFilterExtension::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -361,12 +364,13 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_sendersignalindex_isbase) {
             kparts__listingfilterextension_sendersignalindex_isbase = false;
             return KParts__ListingFilterExtension::senderSignalIndex();
-        } else if (kparts__listingfilterextension_sendersignalindex_callback != nullptr) {
-            int callback_ret = kparts__listingfilterextension_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KParts__ListingFilterExtension::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kparts__listingfilterextension_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KParts__ListingFilterExtension::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -374,14 +378,15 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_receivers_isbase) {
             kparts__listingfilterextension_receivers_isbase = false;
             return KParts__ListingFilterExtension::receivers(signal);
-        } else if (kparts__listingfilterextension_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kparts__listingfilterextension_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kparts__listingfilterextension_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__ListingFilterExtension::receivers(signal);
         }
+        return KParts__ListingFilterExtension::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -389,16 +394,17 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
         if (kparts__listingfilterextension_issignalconnected_isbase) {
             kparts__listingfilterextension_issignalconnected_isbase = false;
             return KParts__ListingFilterExtension::isSignalConnected(signal);
-        } else if (kparts__listingfilterextension_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kparts__listingfilterextension_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kparts__listingfilterextension_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__ListingFilterExtension::isSignalConnected(signal);
         }
+        return KParts__ListingFilterExtension::isSignalConnected(signal);
     }
 
     // Friend functions

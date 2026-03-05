@@ -69,23 +69,6 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
     VirtualKSyntaxHighlightingDefinitionDownloader(KSyntaxHighlighting::Repository* repo) : KSyntaxHighlighting::DefinitionDownloader(repo) {};
     VirtualKSyntaxHighlightingDefinitionDownloader(KSyntaxHighlighting::Repository* repo, QObject* parent) : KSyntaxHighlighting::DefinitionDownloader(repo, parent) {};
 
-    ~VirtualKSyntaxHighlightingDefinitionDownloader() {
-        ksyntaxhighlighting__definitiondownloader_metaobject_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_metacast_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_metacall_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_event_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_eventfilter_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_timerevent_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_childevent_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_customevent_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_connectnotify_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_disconnectnotify_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_sender_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_sendersignalindex_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_receivers_callback = nullptr;
-        ksyntaxhighlighting__definitiondownloader_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSyntaxHighlighting__DefinitionDownloader_MetaObject_Callback(KSyntaxHighlighting__DefinitionDownloader_MetaObject_Callback cb) { ksyntaxhighlighting__definitiondownloader_metaobject_callback = cb; }
     inline void setKSyntaxHighlighting__DefinitionDownloader_Metacast_Callback(KSyntaxHighlighting__DefinitionDownloader_Metacast_Callback cb) { ksyntaxhighlighting__definitiondownloader_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_metaobject_isbase) {
             ksyntaxhighlighting__definitiondownloader_metaobject_isbase = false;
             return KSyntaxHighlighting__DefinitionDownloader::metaObject();
-        } else if (ksyntaxhighlighting__definitiondownloader_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ksyntaxhighlighting__definitiondownloader_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSyntaxHighlighting__DefinitionDownloader::metaObject();
         }
+        auto metaobject_cb = ksyntaxhighlighting__definitiondownloader_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSyntaxHighlighting__DefinitionDownloader::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_metacast_isbase) {
             ksyntaxhighlighting__definitiondownloader_metacast_isbase = false;
             return KSyntaxHighlighting__DefinitionDownloader::qt_metacast(param1);
-        } else if (ksyntaxhighlighting__definitiondownloader_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ksyntaxhighlighting__definitiondownloader_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ksyntaxhighlighting__definitiondownloader_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSyntaxHighlighting__DefinitionDownloader::qt_metacast(param1);
         }
+        return KSyntaxHighlighting__DefinitionDownloader::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_metacall_isbase) {
             ksyntaxhighlighting__definitiondownloader_metacall_isbase = false;
             return KSyntaxHighlighting__DefinitionDownloader::qt_metacall(param1, param2, param3);
-        } else if (ksyntaxhighlighting__definitiondownloader_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ksyntaxhighlighting__definitiondownloader_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ksyntaxhighlighting__definitiondownloader_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSyntaxHighlighting__DefinitionDownloader::qt_metacall(param1, param2, param3);
         }
+        return KSyntaxHighlighting__DefinitionDownloader::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_event_isbase) {
             ksyntaxhighlighting__definitiondownloader_event_isbase = false;
             return KSyntaxHighlighting__DefinitionDownloader::event(event);
-        } else if (ksyntaxhighlighting__definitiondownloader_event_callback != nullptr) {
+        }
+        auto event_cb = ksyntaxhighlighting__definitiondownloader_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ksyntaxhighlighting__definitiondownloader_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSyntaxHighlighting__DefinitionDownloader::event(event);
         }
+        return KSyntaxHighlighting__DefinitionDownloader::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_eventfilter_isbase) {
             ksyntaxhighlighting__definitiondownloader_eventfilter_isbase = false;
             return KSyntaxHighlighting__DefinitionDownloader::eventFilter(watched, event);
-        } else if (ksyntaxhighlighting__definitiondownloader_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ksyntaxhighlighting__definitiondownloader_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ksyntaxhighlighting__definitiondownloader_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KSyntaxHighlighting__DefinitionDownloader::eventFilter(watched, event);
         }
+        return KSyntaxHighlighting__DefinitionDownloader::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_timerevent_isbase) {
             ksyntaxhighlighting__definitiondownloader_timerevent_isbase = false;
             KSyntaxHighlighting__DefinitionDownloader::timerEvent(event);
-        } else if (ksyntaxhighlighting__definitiondownloader_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ksyntaxhighlighting__definitiondownloader_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ksyntaxhighlighting__definitiondownloader_timerevent_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__DefinitionDownloader::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__DefinitionDownloader::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_childevent_isbase) {
             ksyntaxhighlighting__definitiondownloader_childevent_isbase = false;
             KSyntaxHighlighting__DefinitionDownloader::childEvent(event);
-        } else if (ksyntaxhighlighting__definitiondownloader_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ksyntaxhighlighting__definitiondownloader_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ksyntaxhighlighting__definitiondownloader_childevent_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__DefinitionDownloader::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__DefinitionDownloader::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_customevent_isbase) {
             ksyntaxhighlighting__definitiondownloader_customevent_isbase = false;
             KSyntaxHighlighting__DefinitionDownloader::customEvent(event);
-        } else if (ksyntaxhighlighting__definitiondownloader_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ksyntaxhighlighting__definitiondownloader_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ksyntaxhighlighting__definitiondownloader_customevent_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__DefinitionDownloader::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__DefinitionDownloader::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_connectnotify_isbase) {
             ksyntaxhighlighting__definitiondownloader_connectnotify_isbase = false;
             KSyntaxHighlighting__DefinitionDownloader::connectNotify(signal);
-        } else if (ksyntaxhighlighting__definitiondownloader_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ksyntaxhighlighting__definitiondownloader_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksyntaxhighlighting__definitiondownloader_connectnotify_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__DefinitionDownloader::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__DefinitionDownloader::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_disconnectnotify_isbase) {
             ksyntaxhighlighting__definitiondownloader_disconnectnotify_isbase = false;
             KSyntaxHighlighting__DefinitionDownloader::disconnectNotify(signal);
-        } else if (ksyntaxhighlighting__definitiondownloader_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ksyntaxhighlighting__definitiondownloader_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksyntaxhighlighting__definitiondownloader_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__DefinitionDownloader::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__DefinitionDownloader::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_sender_isbase) {
             ksyntaxhighlighting__definitiondownloader_sender_isbase = false;
             return KSyntaxHighlighting__DefinitionDownloader::sender();
-        } else if (ksyntaxhighlighting__definitiondownloader_sender_callback != nullptr) {
-            QObject* callback_ret = ksyntaxhighlighting__definitiondownloader_sender_callback();
-            return callback_ret;
-        } else {
-            return KSyntaxHighlighting__DefinitionDownloader::sender();
         }
+        auto sender_cb = ksyntaxhighlighting__definitiondownloader_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSyntaxHighlighting__DefinitionDownloader::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_sendersignalindex_isbase) {
             ksyntaxhighlighting__definitiondownloader_sendersignalindex_isbase = false;
             return KSyntaxHighlighting__DefinitionDownloader::senderSignalIndex();
-        } else if (ksyntaxhighlighting__definitiondownloader_sendersignalindex_callback != nullptr) {
-            int callback_ret = ksyntaxhighlighting__definitiondownloader_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSyntaxHighlighting__DefinitionDownloader::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ksyntaxhighlighting__definitiondownloader_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSyntaxHighlighting__DefinitionDownloader::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_receivers_isbase) {
             ksyntaxhighlighting__definitiondownloader_receivers_isbase = false;
             return KSyntaxHighlighting__DefinitionDownloader::receivers(signal);
-        } else if (ksyntaxhighlighting__definitiondownloader_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ksyntaxhighlighting__definitiondownloader_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ksyntaxhighlighting__definitiondownloader_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSyntaxHighlighting__DefinitionDownloader::receivers(signal);
         }
+        return KSyntaxHighlighting__DefinitionDownloader::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
         if (ksyntaxhighlighting__definitiondownloader_issignalconnected_isbase) {
             ksyntaxhighlighting__definitiondownloader_issignalconnected_isbase = false;
             return KSyntaxHighlighting__DefinitionDownloader::isSignalConnected(signal);
-        } else if (ksyntaxhighlighting__definitiondownloader_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ksyntaxhighlighting__definitiondownloader_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ksyntaxhighlighting__definitiondownloader_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSyntaxHighlighting__DefinitionDownloader::isSignalConnected(signal);
         }
+        return KSyntaxHighlighting__DefinitionDownloader::isSignalConnected(signal);
     }
 
     // Friend functions

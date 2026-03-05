@@ -244,81 +244,6 @@ class VirtualKPageDialog final : public KPageDialog {
     VirtualKPageDialog() : KPageDialog() {};
     VirtualKPageDialog(QWidget* parent, Qt::WindowFlags flags) : KPageDialog(parent, flags) {};
 
-    ~VirtualKPageDialog() {
-        kpagedialog_metaobject_callback = nullptr;
-        kpagedialog_metacast_callback = nullptr;
-        kpagedialog_metacall_callback = nullptr;
-        kpagedialog_setvisible_callback = nullptr;
-        kpagedialog_sizehint_callback = nullptr;
-        kpagedialog_minimumsizehint_callback = nullptr;
-        kpagedialog_open_callback = nullptr;
-        kpagedialog_exec_callback = nullptr;
-        kpagedialog_done_callback = nullptr;
-        kpagedialog_accept_callback = nullptr;
-        kpagedialog_reject_callback = nullptr;
-        kpagedialog_keypressevent_callback = nullptr;
-        kpagedialog_closeevent_callback = nullptr;
-        kpagedialog_showevent_callback = nullptr;
-        kpagedialog_resizeevent_callback = nullptr;
-        kpagedialog_contextmenuevent_callback = nullptr;
-        kpagedialog_eventfilter_callback = nullptr;
-        kpagedialog_devtype_callback = nullptr;
-        kpagedialog_heightforwidth_callback = nullptr;
-        kpagedialog_hasheightforwidth_callback = nullptr;
-        kpagedialog_paintengine_callback = nullptr;
-        kpagedialog_event_callback = nullptr;
-        kpagedialog_mousepressevent_callback = nullptr;
-        kpagedialog_mousereleaseevent_callback = nullptr;
-        kpagedialog_mousedoubleclickevent_callback = nullptr;
-        kpagedialog_mousemoveevent_callback = nullptr;
-        kpagedialog_wheelevent_callback = nullptr;
-        kpagedialog_keyreleaseevent_callback = nullptr;
-        kpagedialog_focusinevent_callback = nullptr;
-        kpagedialog_focusoutevent_callback = nullptr;
-        kpagedialog_enterevent_callback = nullptr;
-        kpagedialog_leaveevent_callback = nullptr;
-        kpagedialog_paintevent_callback = nullptr;
-        kpagedialog_moveevent_callback = nullptr;
-        kpagedialog_tabletevent_callback = nullptr;
-        kpagedialog_actionevent_callback = nullptr;
-        kpagedialog_dragenterevent_callback = nullptr;
-        kpagedialog_dragmoveevent_callback = nullptr;
-        kpagedialog_dragleaveevent_callback = nullptr;
-        kpagedialog_dropevent_callback = nullptr;
-        kpagedialog_hideevent_callback = nullptr;
-        kpagedialog_nativeevent_callback = nullptr;
-        kpagedialog_changeevent_callback = nullptr;
-        kpagedialog_metric_callback = nullptr;
-        kpagedialog_initpainter_callback = nullptr;
-        kpagedialog_redirected_callback = nullptr;
-        kpagedialog_sharedpainter_callback = nullptr;
-        kpagedialog_inputmethodevent_callback = nullptr;
-        kpagedialog_inputmethodquery_callback = nullptr;
-        kpagedialog_focusnextprevchild_callback = nullptr;
-        kpagedialog_timerevent_callback = nullptr;
-        kpagedialog_childevent_callback = nullptr;
-        kpagedialog_customevent_callback = nullptr;
-        kpagedialog_connectnotify_callback = nullptr;
-        kpagedialog_disconnectnotify_callback = nullptr;
-        kpagedialog_pagewidget_callback = nullptr;
-        kpagedialog_pagewidget2_callback = nullptr;
-        kpagedialog_setpagewidget_callback = nullptr;
-        kpagedialog_buttonbox_callback = nullptr;
-        kpagedialog_buttonbox2_callback = nullptr;
-        kpagedialog_setbuttonbox_callback = nullptr;
-        kpagedialog_adjustposition_callback = nullptr;
-        kpagedialog_updatemicrofocus_callback = nullptr;
-        kpagedialog_create_callback = nullptr;
-        kpagedialog_destroy_callback = nullptr;
-        kpagedialog_focusnextchild_callback = nullptr;
-        kpagedialog_focuspreviouschild_callback = nullptr;
-        kpagedialog_sender_callback = nullptr;
-        kpagedialog_sendersignalindex_callback = nullptr;
-        kpagedialog_receivers_callback = nullptr;
-        kpagedialog_issignalconnected_callback = nullptr;
-        kpagedialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPageDialog_MetaObject_Callback(KPageDialog_MetaObject_Callback cb) { kpagedialog_metaobject_callback = cb; }
     inline void setKPageDialog_Metacast_Callback(KPageDialog_Metacast_Callback cb) { kpagedialog_metacast_callback = cb; }
@@ -472,12 +397,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_metaobject_isbase) {
             kpagedialog_metaobject_isbase = false;
             return KPageDialog::metaObject();
-        } else if (kpagedialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpagedialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::metaObject();
         }
+        auto metaobject_cb = kpagedialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPageDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -485,14 +411,15 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_metacast_isbase) {
             kpagedialog_metacast_isbase = false;
             return KPageDialog::qt_metacast(param1);
-        } else if (kpagedialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpagedialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpagedialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageDialog::qt_metacast(param1);
         }
+        return KPageDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -500,16 +427,17 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_metacall_isbase) {
             kpagedialog_metacall_isbase = false;
             return KPageDialog::qt_metacall(param1, param2, param3);
-        } else if (kpagedialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpagedialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpagedialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPageDialog::qt_metacall(param1, param2, param3);
         }
+        return KPageDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -517,13 +445,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_setvisible_isbase) {
             kpagedialog_setvisible_isbase = false;
             KPageDialog::setVisible(visible);
-        } else if (kpagedialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kpagedialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kpagedialog_setvisible_callback(this, cbval1);
-        } else {
-            KPageDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KPageDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,12 +462,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_sizehint_isbase) {
             kpagedialog_sizehint_isbase = false;
             return KPageDialog::sizeHint();
-        } else if (kpagedialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kpagedialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPageDialog::sizeHint();
         }
+        auto sizehint_cb = kpagedialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KPageDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -544,12 +476,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_minimumsizehint_isbase) {
             kpagedialog_minimumsizehint_isbase = false;
             return KPageDialog::minimumSizeHint();
-        } else if (kpagedialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kpagedialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPageDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kpagedialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KPageDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -557,11 +490,14 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_open_isbase) {
             kpagedialog_open_isbase = false;
             KPageDialog::open();
-        } else if (kpagedialog_open_callback != nullptr) {
-            kpagedialog_open_callback();
-        } else {
-            KPageDialog::open();
+            return;
         }
+        auto open_cb = kpagedialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KPageDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,12 +505,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_exec_isbase) {
             kpagedialog_exec_isbase = false;
             return KPageDialog::exec();
-        } else if (kpagedialog_exec_callback != nullptr) {
-            int callback_ret = kpagedialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPageDialog::exec();
         }
+        auto exec_cb = kpagedialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPageDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,13 +519,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_done_isbase) {
             kpagedialog_done_isbase = false;
             KPageDialog::done(param1);
-        } else if (kpagedialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kpagedialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kpagedialog_done_callback(this, cbval1);
-        } else {
-            KPageDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KPageDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -596,11 +536,14 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_accept_isbase) {
             kpagedialog_accept_isbase = false;
             KPageDialog::accept();
-        } else if (kpagedialog_accept_callback != nullptr) {
-            kpagedialog_accept_callback();
-        } else {
-            KPageDialog::accept();
+            return;
         }
+        auto accept_cb = kpagedialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KPageDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -608,11 +551,14 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_reject_isbase) {
             kpagedialog_reject_isbase = false;
             KPageDialog::reject();
-        } else if (kpagedialog_reject_callback != nullptr) {
-            kpagedialog_reject_callback();
-        } else {
-            KPageDialog::reject();
+            return;
         }
+        auto reject_cb = kpagedialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KPageDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -620,13 +566,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_keypressevent_isbase) {
             kpagedialog_keypressevent_isbase = false;
             KPageDialog::keyPressEvent(param1);
-        } else if (kpagedialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kpagedialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kpagedialog_keypressevent_callback(this, cbval1);
-        } else {
-            KPageDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,13 +583,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_closeevent_isbase) {
             kpagedialog_closeevent_isbase = false;
             KPageDialog::closeEvent(param1);
-        } else if (kpagedialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kpagedialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kpagedialog_closeevent_callback(this, cbval1);
-        } else {
-            KPageDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -648,13 +600,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_showevent_isbase) {
             kpagedialog_showevent_isbase = false;
             KPageDialog::showEvent(param1);
-        } else if (kpagedialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kpagedialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            kpagedialog_showevent_callback(this, cbval1);
-        } else {
-            KPageDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,13 +617,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_resizeevent_isbase) {
             kpagedialog_resizeevent_isbase = false;
             KPageDialog::resizeEvent(param1);
-        } else if (kpagedialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kpagedialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kpagedialog_resizeevent_callback(this, cbval1);
-        } else {
-            KPageDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,13 +634,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_contextmenuevent_isbase) {
             kpagedialog_contextmenuevent_isbase = false;
             KPageDialog::contextMenuEvent(param1);
-        } else if (kpagedialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kpagedialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kpagedialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KPageDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,15 +651,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_eventfilter_isbase) {
             kpagedialog_eventfilter_isbase = false;
             return KPageDialog::eventFilter(param1, param2);
-        } else if (kpagedialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpagedialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kpagedialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPageDialog::eventFilter(param1, param2);
         }
+        return KPageDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -706,12 +668,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_devtype_isbase) {
             kpagedialog_devtype_isbase = false;
             return KPageDialog::devType();
-        } else if (kpagedialog_devtype_callback != nullptr) {
-            int callback_ret = kpagedialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPageDialog::devType();
         }
+        auto devtype_cb = kpagedialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPageDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,14 +682,15 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_heightforwidth_isbase) {
             kpagedialog_heightforwidth_isbase = false;
             return KPageDialog::heightForWidth(param1);
-        } else if (kpagedialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kpagedialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kpagedialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPageDialog::heightForWidth(param1);
         }
+        return KPageDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -734,12 +698,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_hasheightforwidth_isbase) {
             kpagedialog_hasheightforwidth_isbase = false;
             return KPageDialog::hasHeightForWidth();
-        } else if (kpagedialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kpagedialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kpagedialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KPageDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,12 +712,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_paintengine_isbase) {
             kpagedialog_paintengine_isbase = false;
             return KPageDialog::paintEngine();
-        } else if (kpagedialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kpagedialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::paintEngine();
         }
+        auto paintengine_cb = kpagedialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KPageDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -760,14 +726,15 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_event_isbase) {
             kpagedialog_event_isbase = false;
             return KPageDialog::event(event);
-        } else if (kpagedialog_event_callback != nullptr) {
+        }
+        auto event_cb = kpagedialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kpagedialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageDialog::event(event);
         }
+        return KPageDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,13 +742,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_mousepressevent_isbase) {
             kpagedialog_mousepressevent_isbase = false;
             KPageDialog::mousePressEvent(event);
-        } else if (kpagedialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kpagedialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpagedialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KPageDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,13 +759,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_mousereleaseevent_isbase) {
             kpagedialog_mousereleaseevent_isbase = false;
             KPageDialog::mouseReleaseEvent(event);
-        } else if (kpagedialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kpagedialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpagedialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KPageDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,13 +776,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_mousedoubleclickevent_isbase) {
             kpagedialog_mousedoubleclickevent_isbase = false;
             KPageDialog::mouseDoubleClickEvent(event);
-        } else if (kpagedialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kpagedialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpagedialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KPageDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -817,13 +793,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_mousemoveevent_isbase) {
             kpagedialog_mousemoveevent_isbase = false;
             KPageDialog::mouseMoveEvent(event);
-        } else if (kpagedialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kpagedialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpagedialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KPageDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -831,13 +810,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_wheelevent_isbase) {
             kpagedialog_wheelevent_isbase = false;
             KPageDialog::wheelEvent(event);
-        } else if (kpagedialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kpagedialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kpagedialog_wheelevent_callback(this, cbval1);
-        } else {
-            KPageDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,13 +827,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_keyreleaseevent_isbase) {
             kpagedialog_keyreleaseevent_isbase = false;
             KPageDialog::keyReleaseEvent(event);
-        } else if (kpagedialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kpagedialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kpagedialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KPageDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -859,13 +844,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_focusinevent_isbase) {
             kpagedialog_focusinevent_isbase = false;
             KPageDialog::focusInEvent(event);
-        } else if (kpagedialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kpagedialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpagedialog_focusinevent_callback(this, cbval1);
-        } else {
-            KPageDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,13 +861,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_focusoutevent_isbase) {
             kpagedialog_focusoutevent_isbase = false;
             KPageDialog::focusOutEvent(event);
-        } else if (kpagedialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kpagedialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpagedialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KPageDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -887,13 +878,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_enterevent_isbase) {
             kpagedialog_enterevent_isbase = false;
             KPageDialog::enterEvent(event);
-        } else if (kpagedialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kpagedialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kpagedialog_enterevent_callback(this, cbval1);
-        } else {
-            KPageDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -901,13 +895,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_leaveevent_isbase) {
             kpagedialog_leaveevent_isbase = false;
             KPageDialog::leaveEvent(event);
-        } else if (kpagedialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kpagedialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kpagedialog_leaveevent_callback(this, cbval1);
-        } else {
-            KPageDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -915,13 +912,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_paintevent_isbase) {
             kpagedialog_paintevent_isbase = false;
             KPageDialog::paintEvent(event);
-        } else if (kpagedialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kpagedialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kpagedialog_paintevent_callback(this, cbval1);
-        } else {
-            KPageDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -929,13 +929,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_moveevent_isbase) {
             kpagedialog_moveevent_isbase = false;
             KPageDialog::moveEvent(event);
-        } else if (kpagedialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kpagedialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kpagedialog_moveevent_callback(this, cbval1);
-        } else {
-            KPageDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -943,13 +946,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_tabletevent_isbase) {
             kpagedialog_tabletevent_isbase = false;
             KPageDialog::tabletEvent(event);
-        } else if (kpagedialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kpagedialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kpagedialog_tabletevent_callback(this, cbval1);
-        } else {
-            KPageDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -957,13 +963,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_actionevent_isbase) {
             kpagedialog_actionevent_isbase = false;
             KPageDialog::actionEvent(event);
-        } else if (kpagedialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kpagedialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kpagedialog_actionevent_callback(this, cbval1);
-        } else {
-            KPageDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -971,13 +980,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_dragenterevent_isbase) {
             kpagedialog_dragenterevent_isbase = false;
             KPageDialog::dragEnterEvent(event);
-        } else if (kpagedialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kpagedialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kpagedialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KPageDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -985,13 +997,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_dragmoveevent_isbase) {
             kpagedialog_dragmoveevent_isbase = false;
             KPageDialog::dragMoveEvent(event);
-        } else if (kpagedialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kpagedialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kpagedialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KPageDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -999,13 +1014,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_dragleaveevent_isbase) {
             kpagedialog_dragleaveevent_isbase = false;
             KPageDialog::dragLeaveEvent(event);
-        } else if (kpagedialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kpagedialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kpagedialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KPageDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1013,13 +1031,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_dropevent_isbase) {
             kpagedialog_dropevent_isbase = false;
             KPageDialog::dropEvent(event);
-        } else if (kpagedialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kpagedialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kpagedialog_dropevent_callback(this, cbval1);
-        } else {
-            KPageDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1027,13 +1048,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_hideevent_isbase) {
             kpagedialog_hideevent_isbase = false;
             KPageDialog::hideEvent(event);
-        } else if (kpagedialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kpagedialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kpagedialog_hideevent_callback(this, cbval1);
-        } else {
-            KPageDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1041,7 +1065,9 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_nativeevent_isbase) {
             kpagedialog_nativeevent_isbase = false;
             return KPageDialog::nativeEvent(eventType, message, result);
-        } else if (kpagedialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kpagedialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1052,12 +1078,11 @@ class VirtualKPageDialog final : public KPageDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kpagedialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KPageDialog::nativeEvent(eventType, message, result);
         }
+        return KPageDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,13 +1090,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_changeevent_isbase) {
             kpagedialog_changeevent_isbase = false;
             KPageDialog::changeEvent(param1);
-        } else if (kpagedialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kpagedialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kpagedialog_changeevent_callback(this, cbval1);
-        } else {
-            KPageDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1079,14 +1107,15 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_metric_isbase) {
             kpagedialog_metric_isbase = false;
             return KPageDialog::metric(param1);
-        } else if (kpagedialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kpagedialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kpagedialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPageDialog::metric(param1);
         }
+        return KPageDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1094,13 +1123,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_initpainter_isbase) {
             kpagedialog_initpainter_isbase = false;
             KPageDialog::initPainter(painter);
-        } else if (kpagedialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kpagedialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kpagedialog_initpainter_callback(this, cbval1);
-        } else {
-            KPageDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KPageDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1108,14 +1140,15 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_redirected_isbase) {
             kpagedialog_redirected_isbase = false;
             return KPageDialog::redirected(offset);
-        } else if (kpagedialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kpagedialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kpagedialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageDialog::redirected(offset);
         }
+        return KPageDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1123,12 +1156,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_sharedpainter_isbase) {
             kpagedialog_sharedpainter_isbase = false;
             return KPageDialog::sharedPainter();
-        } else if (kpagedialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kpagedialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kpagedialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KPageDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1136,13 +1170,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_inputmethodevent_isbase) {
             kpagedialog_inputmethodevent_isbase = false;
             KPageDialog::inputMethodEvent(param1);
-        } else if (kpagedialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kpagedialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kpagedialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KPageDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,14 +1187,15 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_inputmethodquery_isbase) {
             kpagedialog_inputmethodquery_isbase = false;
             return KPageDialog::inputMethodQuery(param1);
-        } else if (kpagedialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kpagedialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kpagedialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KPageDialog::inputMethodQuery(param1);
         }
+        return KPageDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1165,14 +1203,15 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_focusnextprevchild_isbase) {
             kpagedialog_focusnextprevchild_isbase = false;
             return KPageDialog::focusNextPrevChild(next);
-        } else if (kpagedialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kpagedialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kpagedialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageDialog::focusNextPrevChild(next);
         }
+        return KPageDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,13 +1219,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_timerevent_isbase) {
             kpagedialog_timerevent_isbase = false;
             KPageDialog::timerEvent(event);
-        } else if (kpagedialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpagedialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpagedialog_timerevent_callback(this, cbval1);
-        } else {
-            KPageDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,13 +1236,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_childevent_isbase) {
             kpagedialog_childevent_isbase = false;
             KPageDialog::childEvent(event);
-        } else if (kpagedialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpagedialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpagedialog_childevent_callback(this, cbval1);
-        } else {
-            KPageDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1208,13 +1253,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_customevent_isbase) {
             kpagedialog_customevent_isbase = false;
             KPageDialog::customEvent(event);
-        } else if (kpagedialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpagedialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpagedialog_customevent_callback(this, cbval1);
-        } else {
-            KPageDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPageDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,15 +1270,18 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_connectnotify_isbase) {
             kpagedialog_connectnotify_isbase = false;
             KPageDialog::connectNotify(signal);
-        } else if (kpagedialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpagedialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpagedialog_connectnotify_callback(this, cbval1);
-        } else {
-            KPageDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPageDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,15 +1289,18 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_disconnectnotify_isbase) {
             kpagedialog_disconnectnotify_isbase = false;
             KPageDialog::disconnectNotify(signal);
-        } else if (kpagedialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpagedialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpagedialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPageDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPageDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1254,12 +1308,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_pagewidget_isbase) {
             kpagedialog_pagewidget_isbase = false;
             return KPageDialog::pageWidget();
-        } else if (kpagedialog_pagewidget_callback != nullptr) {
-            KPageWidget* callback_ret = kpagedialog_pagewidget_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::pageWidget();
         }
+        auto pagewidget_cb = kpagedialog_pagewidget_callback;
+        if (pagewidget_cb) {
+            KPageWidget* callback_ret = pagewidget_cb();
+            return callback_ret;
+        }
+        return KPageDialog::pageWidget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1267,12 +1322,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_pagewidget2_isbase) {
             kpagedialog_pagewidget2_isbase = false;
             return KPageDialog::pageWidget();
-        } else if (kpagedialog_pagewidget2_callback != nullptr) {
-            KPageWidget* callback_ret = kpagedialog_pagewidget2_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::pageWidget();
         }
+        auto pagewidget2_cb = kpagedialog_pagewidget2_callback;
+        if (pagewidget2_cb) {
+            KPageWidget* callback_ret = pagewidget2_cb();
+            return callback_ret;
+        }
+        return KPageDialog::pageWidget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1280,13 +1336,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_setpagewidget_isbase) {
             kpagedialog_setpagewidget_isbase = false;
             KPageDialog::setPageWidget(widget);
-        } else if (kpagedialog_setpagewidget_callback != nullptr) {
+            return;
+        }
+        auto setpagewidget_cb = kpagedialog_setpagewidget_callback;
+        if (setpagewidget_cb) {
             KPageWidget* cbval1 = widget;
 
-            kpagedialog_setpagewidget_callback(this, cbval1);
-        } else {
-            KPageDialog::setPageWidget(widget);
+            setpagewidget_cb(this, cbval1);
+            return;
         }
+        KPageDialog::setPageWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,12 +1353,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_buttonbox_isbase) {
             kpagedialog_buttonbox_isbase = false;
             return KPageDialog::buttonBox();
-        } else if (kpagedialog_buttonbox_callback != nullptr) {
-            QDialogButtonBox* callback_ret = kpagedialog_buttonbox_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::buttonBox();
         }
+        auto buttonbox_cb = kpagedialog_buttonbox_callback;
+        if (buttonbox_cb) {
+            QDialogButtonBox* callback_ret = buttonbox_cb();
+            return callback_ret;
+        }
+        return KPageDialog::buttonBox();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1307,12 +1367,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_buttonbox2_isbase) {
             kpagedialog_buttonbox2_isbase = false;
             return KPageDialog::buttonBox();
-        } else if (kpagedialog_buttonbox2_callback != nullptr) {
-            QDialogButtonBox* callback_ret = kpagedialog_buttonbox2_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::buttonBox();
         }
+        auto buttonbox2_cb = kpagedialog_buttonbox2_callback;
+        if (buttonbox2_cb) {
+            QDialogButtonBox* callback_ret = buttonbox2_cb();
+            return callback_ret;
+        }
+        return KPageDialog::buttonBox();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1320,13 +1381,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_setbuttonbox_isbase) {
             kpagedialog_setbuttonbox_isbase = false;
             KPageDialog::setButtonBox(box);
-        } else if (kpagedialog_setbuttonbox_callback != nullptr) {
+            return;
+        }
+        auto setbuttonbox_cb = kpagedialog_setbuttonbox_callback;
+        if (setbuttonbox_cb) {
             QDialogButtonBox* cbval1 = box;
 
-            kpagedialog_setbuttonbox_callback(this, cbval1);
-        } else {
-            KPageDialog::setButtonBox(box);
+            setbuttonbox_cb(this, cbval1);
+            return;
         }
+        KPageDialog::setButtonBox(box);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1334,13 +1398,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_adjustposition_isbase) {
             kpagedialog_adjustposition_isbase = false;
             KPageDialog::adjustPosition(param1);
-        } else if (kpagedialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kpagedialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kpagedialog_adjustposition_callback(this, cbval1);
-        } else {
-            KPageDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KPageDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1348,11 +1415,14 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_updatemicrofocus_isbase) {
             kpagedialog_updatemicrofocus_isbase = false;
             KPageDialog::updateMicroFocus();
-        } else if (kpagedialog_updatemicrofocus_callback != nullptr) {
-            kpagedialog_updatemicrofocus_callback();
-        } else {
-            KPageDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kpagedialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KPageDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1360,11 +1430,14 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_create_isbase) {
             kpagedialog_create_isbase = false;
             KPageDialog::create();
-        } else if (kpagedialog_create_callback != nullptr) {
-            kpagedialog_create_callback();
-        } else {
-            KPageDialog::create();
+            return;
         }
+        auto create_cb = kpagedialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KPageDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1372,11 +1445,14 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_destroy_isbase) {
             kpagedialog_destroy_isbase = false;
             KPageDialog::destroy();
-        } else if (kpagedialog_destroy_callback != nullptr) {
-            kpagedialog_destroy_callback();
-        } else {
-            KPageDialog::destroy();
+            return;
         }
+        auto destroy_cb = kpagedialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KPageDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1384,12 +1460,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_focusnextchild_isbase) {
             kpagedialog_focusnextchild_isbase = false;
             return KPageDialog::focusNextChild();
-        } else if (kpagedialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kpagedialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kpagedialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KPageDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1397,12 +1474,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_focuspreviouschild_isbase) {
             kpagedialog_focuspreviouschild_isbase = false;
             return KPageDialog::focusPreviousChild();
-        } else if (kpagedialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kpagedialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kpagedialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KPageDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1410,12 +1488,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_sender_isbase) {
             kpagedialog_sender_isbase = false;
             return KPageDialog::sender();
-        } else if (kpagedialog_sender_callback != nullptr) {
-            QObject* callback_ret = kpagedialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KPageDialog::sender();
         }
+        auto sender_cb = kpagedialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPageDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1423,12 +1502,13 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_sendersignalindex_isbase) {
             kpagedialog_sendersignalindex_isbase = false;
             return KPageDialog::senderSignalIndex();
-        } else if (kpagedialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpagedialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPageDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpagedialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPageDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1436,14 +1516,15 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_receivers_isbase) {
             kpagedialog_receivers_isbase = false;
             return KPageDialog::receivers(signal);
-        } else if (kpagedialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpagedialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpagedialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPageDialog::receivers(signal);
         }
+        return KPageDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1451,16 +1532,17 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_issignalconnected_isbase) {
             kpagedialog_issignalconnected_isbase = false;
             return KPageDialog::isSignalConnected(signal);
-        } else if (kpagedialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpagedialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpagedialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPageDialog::isSignalConnected(signal);
         }
+        return KPageDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1468,15 +1550,16 @@ class VirtualKPageDialog final : public KPageDialog {
         if (kpagedialog_getdecodedmetricf_isbase) {
             kpagedialog_getdecodedmetricf_isbase = false;
             return KPageDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kpagedialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kpagedialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kpagedialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KPageDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KPageDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

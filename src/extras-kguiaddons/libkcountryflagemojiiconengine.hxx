@@ -68,23 +68,6 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
   public:
     VirtualKCountryFlagEmojiIconEngine(const QString& regionOrCountry) : KCountryFlagEmojiIconEngine(regionOrCountry) {};
 
-    ~VirtualKCountryFlagEmojiIconEngine() {
-        kcountryflagemojiiconengine_clone_callback = nullptr;
-        kcountryflagemojiiconengine_key_callback = nullptr;
-        kcountryflagemojiiconengine_paint_callback = nullptr;
-        kcountryflagemojiiconengine_pixmap_callback = nullptr;
-        kcountryflagemojiiconengine_scaledpixmap_callback = nullptr;
-        kcountryflagemojiiconengine_isnull_callback = nullptr;
-        kcountryflagemojiiconengine_actualsize_callback = nullptr;
-        kcountryflagemojiiconengine_addpixmap_callback = nullptr;
-        kcountryflagemojiiconengine_addfile_callback = nullptr;
-        kcountryflagemojiiconengine_read_callback = nullptr;
-        kcountryflagemojiiconengine_write_callback = nullptr;
-        kcountryflagemojiiconengine_availablesizes_callback = nullptr;
-        kcountryflagemojiiconengine_iconname_callback = nullptr;
-        kcountryflagemojiiconengine_virtualhook_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCountryFlagEmojiIconEngine_Clone_Callback(KCountryFlagEmojiIconEngine_Clone_Callback cb) { kcountryflagemojiiconengine_clone_callback = cb; }
     inline void setKCountryFlagEmojiIconEngine_Key_Callback(KCountryFlagEmojiIconEngine_Key_Callback cb) { kcountryflagemojiiconengine_key_callback = cb; }
@@ -122,12 +105,13 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_clone_isbase) {
             kcountryflagemojiiconengine_clone_isbase = false;
             return KCountryFlagEmojiIconEngine::clone();
-        } else if (kcountryflagemojiiconengine_clone_callback != nullptr) {
-            QIconEngine* callback_ret = kcountryflagemojiiconengine_clone_callback();
-            return callback_ret;
-        } else {
-            return KCountryFlagEmojiIconEngine::clone();
         }
+        auto clone_cb = kcountryflagemojiiconengine_clone_callback;
+        if (clone_cb) {
+            QIconEngine* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return KCountryFlagEmojiIconEngine::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -135,13 +119,14 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_key_isbase) {
             kcountryflagemojiiconengine_key_isbase = false;
             return KCountryFlagEmojiIconEngine::key();
-        } else if (kcountryflagemojiiconengine_key_callback != nullptr) {
-            const char* callback_ret = kcountryflagemojiiconengine_key_callback();
+        }
+        auto key_cb = kcountryflagemojiiconengine_key_callback;
+        if (key_cb) {
+            const char* callback_ret = key_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KCountryFlagEmojiIconEngine::key();
         }
+        return KCountryFlagEmojiIconEngine::key();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -149,7 +134,10 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_paint_isbase) {
             kcountryflagemojiiconengine_paint_isbase = false;
             KCountryFlagEmojiIconEngine::paint(painter, rect, mode, state);
-        } else if (kcountryflagemojiiconengine_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = kcountryflagemojiiconengine_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
@@ -157,10 +145,10 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             int cbval3 = static_cast<int>(mode);
             int cbval4 = static_cast<int>(state);
 
-            kcountryflagemojiiconengine_paint_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KCountryFlagEmojiIconEngine::paint(painter, rect, mode, state);
+            paint_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KCountryFlagEmojiIconEngine::paint(painter, rect, mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,18 +156,19 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_pixmap_isbase) {
             kcountryflagemojiiconengine_pixmap_isbase = false;
             return KCountryFlagEmojiIconEngine::pixmap(size, mode, state);
-        } else if (kcountryflagemojiiconengine_pixmap_callback != nullptr) {
+        }
+        auto pixmap_cb = kcountryflagemojiiconengine_pixmap_callback;
+        if (pixmap_cb) {
             const QSize& size_ret = size;
             // Cast returned reference into pointer
             QSize* cbval1 = const_cast<QSize*>(&size_ret);
             int cbval2 = static_cast<int>(mode);
             int cbval3 = static_cast<int>(state);
 
-            QPixmap* callback_ret = kcountryflagemojiiconengine_pixmap_callback(this, cbval1, cbval2, cbval3);
+            QPixmap* callback_ret = pixmap_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KCountryFlagEmojiIconEngine::pixmap(size, mode, state);
         }
+        return KCountryFlagEmojiIconEngine::pixmap(size, mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,7 +176,9 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_scaledpixmap_isbase) {
             kcountryflagemojiiconengine_scaledpixmap_isbase = false;
             return KCountryFlagEmojiIconEngine::scaledPixmap(size, mode, state, scale);
-        } else if (kcountryflagemojiiconengine_scaledpixmap_callback != nullptr) {
+        }
+        auto scaledpixmap_cb = kcountryflagemojiiconengine_scaledpixmap_callback;
+        if (scaledpixmap_cb) {
             const QSize& size_ret = size;
             // Cast returned reference into pointer
             QSize* cbval1 = const_cast<QSize*>(&size_ret);
@@ -195,11 +186,10 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             int cbval3 = static_cast<int>(state);
             double cbval4 = static_cast<double>(scale);
 
-            QPixmap* callback_ret = kcountryflagemojiiconengine_scaledpixmap_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QPixmap* callback_ret = scaledpixmap_cb(this, cbval1, cbval2, cbval3, cbval4);
             return *callback_ret;
-        } else {
-            return KCountryFlagEmojiIconEngine::scaledPixmap(size, mode, state, scale);
         }
+        return KCountryFlagEmojiIconEngine::scaledPixmap(size, mode, state, scale);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -207,12 +197,13 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_isnull_isbase) {
             kcountryflagemojiiconengine_isnull_isbase = false;
             return KCountryFlagEmojiIconEngine::isNull();
-        } else if (kcountryflagemojiiconengine_isnull_callback != nullptr) {
-            bool callback_ret = kcountryflagemojiiconengine_isnull_callback();
-            return callback_ret;
-        } else {
-            return KCountryFlagEmojiIconEngine::isNull();
         }
+        auto isnull_cb = kcountryflagemojiiconengine_isnull_callback;
+        if (isnull_cb) {
+            bool callback_ret = isnull_cb();
+            return callback_ret;
+        }
+        return KCountryFlagEmojiIconEngine::isNull();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -220,18 +211,19 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_actualsize_isbase) {
             kcountryflagemojiiconengine_actualsize_isbase = false;
             return KCountryFlagEmojiIconEngine::actualSize(size, mode, state);
-        } else if (kcountryflagemojiiconengine_actualsize_callback != nullptr) {
+        }
+        auto actualsize_cb = kcountryflagemojiiconengine_actualsize_callback;
+        if (actualsize_cb) {
             const QSize& size_ret = size;
             // Cast returned reference into pointer
             QSize* cbval1 = const_cast<QSize*>(&size_ret);
             int cbval2 = static_cast<int>(mode);
             int cbval3 = static_cast<int>(state);
 
-            QSize* callback_ret = kcountryflagemojiiconengine_actualsize_callback(this, cbval1, cbval2, cbval3);
+            QSize* callback_ret = actualsize_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KCountryFlagEmojiIconEngine::actualSize(size, mode, state);
         }
+        return KCountryFlagEmojiIconEngine::actualSize(size, mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -239,17 +231,20 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_addpixmap_isbase) {
             kcountryflagemojiiconengine_addpixmap_isbase = false;
             KCountryFlagEmojiIconEngine::addPixmap(pixmap, mode, state);
-        } else if (kcountryflagemojiiconengine_addpixmap_callback != nullptr) {
+            return;
+        }
+        auto addpixmap_cb = kcountryflagemojiiconengine_addpixmap_callback;
+        if (addpixmap_cb) {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval1 = const_cast<QPixmap*>(&pixmap_ret);
             int cbval2 = static_cast<int>(mode);
             int cbval3 = static_cast<int>(state);
 
-            kcountryflagemojiiconengine_addpixmap_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCountryFlagEmojiIconEngine::addPixmap(pixmap, mode, state);
+            addpixmap_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCountryFlagEmojiIconEngine::addPixmap(pixmap, mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,7 +252,10 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_addfile_isbase) {
             kcountryflagemojiiconengine_addfile_isbase = false;
             KCountryFlagEmojiIconEngine::addFile(fileName, size, mode, state);
-        } else if (kcountryflagemojiiconengine_addfile_callback != nullptr) {
+            return;
+        }
+        auto addfile_cb = kcountryflagemojiiconengine_addfile_callback;
+        if (addfile_cb) {
             const QString fileName_ret = fileName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray fileName_b = fileName_ret.toUtf8();
@@ -272,11 +270,11 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             int cbval3 = static_cast<int>(mode);
             int cbval4 = static_cast<int>(state);
 
-            kcountryflagemojiiconengine_addfile_callback(this, cbval1, cbval2, cbval3, cbval4);
+            addfile_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(fileName_str);
-        } else {
-            KCountryFlagEmojiIconEngine::addFile(fileName, size, mode, state);
+            return;
         }
+        KCountryFlagEmojiIconEngine::addFile(fileName, size, mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -284,16 +282,17 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_read_isbase) {
             kcountryflagemojiiconengine_read_isbase = false;
             return KCountryFlagEmojiIconEngine::read(in);
-        } else if (kcountryflagemojiiconengine_read_callback != nullptr) {
+        }
+        auto read_cb = kcountryflagemojiiconengine_read_callback;
+        if (read_cb) {
             QDataStream& in_ret = in;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &in_ret;
 
-            bool callback_ret = kcountryflagemojiiconengine_read_callback(this, cbval1);
+            bool callback_ret = read_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCountryFlagEmojiIconEngine::read(in);
         }
+        return KCountryFlagEmojiIconEngine::read(in);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,16 +300,17 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_write_isbase) {
             kcountryflagemojiiconengine_write_isbase = false;
             return KCountryFlagEmojiIconEngine::write(out);
-        } else if (kcountryflagemojiiconengine_write_callback != nullptr) {
+        }
+        auto write_cb = kcountryflagemojiiconengine_write_callback;
+        if (write_cb) {
             QDataStream& out_ret = out;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &out_ret;
 
-            bool callback_ret = kcountryflagemojiiconengine_write_callback(this, cbval1);
+            bool callback_ret = write_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCountryFlagEmojiIconEngine::write(out);
         }
+        return KCountryFlagEmojiIconEngine::write(out);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,11 +318,13 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_availablesizes_isbase) {
             kcountryflagemojiiconengine_availablesizes_isbase = false;
             return KCountryFlagEmojiIconEngine::availableSizes(mode, state);
-        } else if (kcountryflagemojiiconengine_availablesizes_callback != nullptr) {
+        }
+        auto availablesizes_cb = kcountryflagemojiiconengine_availablesizes_callback;
+        if (availablesizes_cb) {
             int cbval1 = static_cast<int>(mode);
             int cbval2 = static_cast<int>(state);
 
-            libqt_list /* of QSize* */ callback_ret = kcountryflagemojiiconengine_availablesizes_callback(this, cbval1, cbval2);
+            libqt_list /* of QSize* */ callback_ret = availablesizes_cb(this, cbval1, cbval2);
             QList<QSize> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QSize** callback_ret_arr = static_cast<QSize**>(callback_ret.data);
@@ -331,9 +333,8 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KCountryFlagEmojiIconEngine::availableSizes(mode, state);
         }
+        return KCountryFlagEmojiIconEngine::availableSizes(mode, state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -341,13 +342,14 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_iconname_isbase) {
             kcountryflagemojiiconengine_iconname_isbase = false;
             return KCountryFlagEmojiIconEngine::iconName();
-        } else if (kcountryflagemojiiconengine_iconname_callback != nullptr) {
-            const char* callback_ret = kcountryflagemojiiconengine_iconname_callback();
+        }
+        auto iconname_cb = kcountryflagemojiiconengine_iconname_callback;
+        if (iconname_cb) {
+            const char* callback_ret = iconname_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KCountryFlagEmojiIconEngine::iconName();
         }
+        return KCountryFlagEmojiIconEngine::iconName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -355,14 +357,17 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (kcountryflagemojiiconengine_virtualhook_isbase) {
             kcountryflagemojiiconengine_virtualhook_isbase = false;
             KCountryFlagEmojiIconEngine::virtual_hook(id, data);
-        } else if (kcountryflagemojiiconengine_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kcountryflagemojiiconengine_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kcountryflagemojiiconengine_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KCountryFlagEmojiIconEngine::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KCountryFlagEmojiIconEngine::virtual_hook(id, data);
     }
 };
 

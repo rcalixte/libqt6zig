@@ -101,34 +101,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
   public:
     VirtualQGeoAreaMonitorSource(QObject* parent) : QGeoAreaMonitorSource(parent) {};
 
-    ~VirtualQGeoAreaMonitorSource() {
-        qgeoareamonitorsource_metaobject_callback = nullptr;
-        qgeoareamonitorsource_metacast_callback = nullptr;
-        qgeoareamonitorsource_metacall_callback = nullptr;
-        qgeoareamonitorsource_setpositioninfosource_callback = nullptr;
-        qgeoareamonitorsource_positioninfosource_callback = nullptr;
-        qgeoareamonitorsource_error_callback = nullptr;
-        qgeoareamonitorsource_supportedareamonitorfeatures_callback = nullptr;
-        qgeoareamonitorsource_startmonitoring_callback = nullptr;
-        qgeoareamonitorsource_stopmonitoring_callback = nullptr;
-        qgeoareamonitorsource_requestupdate_callback = nullptr;
-        qgeoareamonitorsource_activemonitors_callback = nullptr;
-        qgeoareamonitorsource_activemonitors2_callback = nullptr;
-        qgeoareamonitorsource_setbackendproperty_callback = nullptr;
-        qgeoareamonitorsource_backendproperty_callback = nullptr;
-        qgeoareamonitorsource_event_callback = nullptr;
-        qgeoareamonitorsource_eventfilter_callback = nullptr;
-        qgeoareamonitorsource_timerevent_callback = nullptr;
-        qgeoareamonitorsource_childevent_callback = nullptr;
-        qgeoareamonitorsource_customevent_callback = nullptr;
-        qgeoareamonitorsource_connectnotify_callback = nullptr;
-        qgeoareamonitorsource_disconnectnotify_callback = nullptr;
-        qgeoareamonitorsource_sender_callback = nullptr;
-        qgeoareamonitorsource_sendersignalindex_callback = nullptr;
-        qgeoareamonitorsource_receivers_callback = nullptr;
-        qgeoareamonitorsource_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGeoAreaMonitorSource_MetaObject_Callback(QGeoAreaMonitorSource_MetaObject_Callback cb) { qgeoareamonitorsource_metaobject_callback = cb; }
     inline void setQGeoAreaMonitorSource_Metacast_Callback(QGeoAreaMonitorSource_Metacast_Callback cb) { qgeoareamonitorsource_metacast_callback = cb; }
@@ -188,12 +160,13 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_metaobject_isbase) {
             qgeoareamonitorsource_metaobject_isbase = false;
             return QGeoAreaMonitorSource::metaObject();
-        } else if (qgeoareamonitorsource_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgeoareamonitorsource_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGeoAreaMonitorSource::metaObject();
         }
+        auto metaobject_cb = qgeoareamonitorsource_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGeoAreaMonitorSource::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,14 +174,15 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_metacast_isbase) {
             qgeoareamonitorsource_metacast_isbase = false;
             return QGeoAreaMonitorSource::qt_metacast(param1);
-        } else if (qgeoareamonitorsource_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgeoareamonitorsource_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgeoareamonitorsource_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoAreaMonitorSource::qt_metacast(param1);
         }
+        return QGeoAreaMonitorSource::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -216,16 +190,17 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_metacall_isbase) {
             qgeoareamonitorsource_metacall_isbase = false;
             return QGeoAreaMonitorSource::qt_metacall(param1, param2, param3);
-        } else if (qgeoareamonitorsource_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgeoareamonitorsource_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgeoareamonitorsource_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGeoAreaMonitorSource::qt_metacall(param1, param2, param3);
         }
+        return QGeoAreaMonitorSource::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +208,16 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_setpositioninfosource_isbase) {
             qgeoareamonitorsource_setpositioninfosource_isbase = false;
             QGeoAreaMonitorSource::setPositionInfoSource(source);
-        } else if (qgeoareamonitorsource_setpositioninfosource_callback != nullptr) {
+            return;
+        }
+        auto setpositioninfosource_cb = qgeoareamonitorsource_setpositioninfosource_callback;
+        if (setpositioninfosource_cb) {
             QGeoPositionInfoSource* cbval1 = source;
 
-            qgeoareamonitorsource_setpositioninfosource_callback(this, cbval1);
-        } else {
-            QGeoAreaMonitorSource::setPositionInfoSource(source);
+            setpositioninfosource_cb(this, cbval1);
+            return;
         }
+        QGeoAreaMonitorSource::setPositionInfoSource(source);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,81 +225,83 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_positioninfosource_isbase) {
             qgeoareamonitorsource_positioninfosource_isbase = false;
             return QGeoAreaMonitorSource::positionInfoSource();
-        } else if (qgeoareamonitorsource_positioninfosource_callback != nullptr) {
-            QGeoPositionInfoSource* callback_ret = qgeoareamonitorsource_positioninfosource_callback();
-            return callback_ret;
-        } else {
-            return QGeoAreaMonitorSource::positionInfoSource();
         }
+        auto positioninfosource_cb = qgeoareamonitorsource_positioninfosource_callback;
+        if (positioninfosource_cb) {
+            QGeoPositionInfoSource* callback_ret = positioninfosource_cb();
+            return callback_ret;
+        }
+        return QGeoAreaMonitorSource::positionInfoSource();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QGeoAreaMonitorSource::Error error() const override {
-        if (qgeoareamonitorsource_error_callback != nullptr) {
-            int callback_ret = qgeoareamonitorsource_error_callback();
+        auto error_cb = qgeoareamonitorsource_error_callback;
+        if (error_cb) {
+            int callback_ret = error_cb();
             return static_cast<QGeoAreaMonitorSource::Error>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QGeoAreaMonitorSource::AreaMonitorFeatures supportedAreaMonitorFeatures() const override {
-        if (qgeoareamonitorsource_supportedareamonitorfeatures_callback != nullptr) {
-            int callback_ret = qgeoareamonitorsource_supportedareamonitorfeatures_callback();
+        auto supportedareamonitorfeatures_cb = qgeoareamonitorsource_supportedareamonitorfeatures_callback;
+        if (supportedareamonitorfeatures_cb) {
+            int callback_ret = supportedareamonitorfeatures_cb();
             return static_cast<QGeoAreaMonitorSource::AreaMonitorFeatures>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool startMonitoring(const QGeoAreaMonitorInfo& monitor) override {
-        if (qgeoareamonitorsource_startmonitoring_callback != nullptr) {
+        auto startmonitoring_cb = qgeoareamonitorsource_startmonitoring_callback;
+        if (startmonitoring_cb) {
             const QGeoAreaMonitorInfo& monitor_ret = monitor;
             // Cast returned reference into pointer
             QGeoAreaMonitorInfo* cbval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
 
-            bool callback_ret = qgeoareamonitorsource_startmonitoring_callback(this, cbval1);
+            bool callback_ret = startmonitoring_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool stopMonitoring(const QGeoAreaMonitorInfo& monitor) override {
-        if (qgeoareamonitorsource_stopmonitoring_callback != nullptr) {
+        auto stopmonitoring_cb = qgeoareamonitorsource_stopmonitoring_callback;
+        if (stopmonitoring_cb) {
             const QGeoAreaMonitorInfo& monitor_ret = monitor;
             // Cast returned reference into pointer
             QGeoAreaMonitorInfo* cbval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
 
-            bool callback_ret = qgeoareamonitorsource_stopmonitoring_callback(this, cbval1);
+            bool callback_ret = stopmonitoring_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool requestUpdate(const QGeoAreaMonitorInfo& monitor, const char* signal) override {
-        if (qgeoareamonitorsource_requestupdate_callback != nullptr) {
+        auto requestupdate_cb = qgeoareamonitorsource_requestupdate_callback;
+        if (requestupdate_cb) {
             const QGeoAreaMonitorInfo& monitor_ret = monitor;
             // Cast returned reference into pointer
             QGeoAreaMonitorInfo* cbval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
             const char* cbval2 = (const char*)signal;
 
-            bool callback_ret = qgeoareamonitorsource_requestupdate_callback(this, cbval1, cbval2);
+            bool callback_ret = requestupdate_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QGeoAreaMonitorInfo> activeMonitors() const override {
-        if (qgeoareamonitorsource_activemonitors_callback != nullptr) {
-            libqt_list /* of QGeoAreaMonitorInfo* */ callback_ret = qgeoareamonitorsource_activemonitors_callback();
+        auto activemonitors_cb = qgeoareamonitorsource_activemonitors_callback;
+        if (activemonitors_cb) {
+            libqt_list /* of QGeoAreaMonitorInfo* */ callback_ret = activemonitors_cb();
             QList<QGeoAreaMonitorInfo> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QGeoAreaMonitorInfo** callback_ret_arr = static_cast<QGeoAreaMonitorInfo**>(callback_ret.data);
@@ -330,19 +310,19 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QGeoAreaMonitorInfo> activeMonitors(const QGeoShape& lookupArea) const override {
-        if (qgeoareamonitorsource_activemonitors2_callback != nullptr) {
+        auto activemonitors2_cb = qgeoareamonitorsource_activemonitors2_callback;
+        if (activemonitors2_cb) {
             const QGeoShape& lookupArea_ret = lookupArea;
             // Cast returned reference into pointer
             QGeoShape* cbval1 = const_cast<QGeoShape*>(&lookupArea_ret);
 
-            libqt_list /* of QGeoAreaMonitorInfo* */ callback_ret = qgeoareamonitorsource_activemonitors2_callback(this, cbval1);
+            libqt_list /* of QGeoAreaMonitorInfo* */ callback_ret = activemonitors2_cb(this, cbval1);
             QList<QGeoAreaMonitorInfo> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QGeoAreaMonitorInfo** callback_ret_arr = static_cast<QGeoAreaMonitorInfo**>(callback_ret.data);
@@ -351,9 +331,8 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -361,7 +340,9 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_setbackendproperty_isbase) {
             qgeoareamonitorsource_setbackendproperty_isbase = false;
             return QGeoAreaMonitorSource::setBackendProperty(name, value);
-        } else if (qgeoareamonitorsource_setbackendproperty_callback != nullptr) {
+        }
+        auto setbackendproperty_cb = qgeoareamonitorsource_setbackendproperty_callback;
+        if (setbackendproperty_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -374,12 +355,11 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            bool callback_ret = qgeoareamonitorsource_setbackendproperty_callback(this, cbval1, cbval2);
+            bool callback_ret = setbackendproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QGeoAreaMonitorSource::setBackendProperty(name, value);
         }
+        return QGeoAreaMonitorSource::setBackendProperty(name, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,7 +367,9 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_backendproperty_isbase) {
             qgeoareamonitorsource_backendproperty_isbase = false;
             return QGeoAreaMonitorSource::backendProperty(name);
-        } else if (qgeoareamonitorsource_backendproperty_callback != nullptr) {
+        }
+        auto backendproperty_cb = qgeoareamonitorsource_backendproperty_callback;
+        if (backendproperty_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -397,12 +379,11 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            QVariant* callback_ret = qgeoareamonitorsource_backendproperty_callback(this, cbval1);
+            QVariant* callback_ret = backendproperty_cb(this, cbval1);
             libqt_free(name_str);
             return *callback_ret;
-        } else {
-            return QGeoAreaMonitorSource::backendProperty(name);
         }
+        return QGeoAreaMonitorSource::backendProperty(name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -410,14 +391,15 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_event_isbase) {
             qgeoareamonitorsource_event_isbase = false;
             return QGeoAreaMonitorSource::event(event);
-        } else if (qgeoareamonitorsource_event_callback != nullptr) {
+        }
+        auto event_cb = qgeoareamonitorsource_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgeoareamonitorsource_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoAreaMonitorSource::event(event);
         }
+        return QGeoAreaMonitorSource::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -425,15 +407,16 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_eventfilter_isbase) {
             qgeoareamonitorsource_eventfilter_isbase = false;
             return QGeoAreaMonitorSource::eventFilter(watched, event);
-        } else if (qgeoareamonitorsource_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgeoareamonitorsource_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgeoareamonitorsource_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGeoAreaMonitorSource::eventFilter(watched, event);
         }
+        return QGeoAreaMonitorSource::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,13 +424,16 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_timerevent_isbase) {
             qgeoareamonitorsource_timerevent_isbase = false;
             QGeoAreaMonitorSource::timerEvent(event);
-        } else if (qgeoareamonitorsource_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgeoareamonitorsource_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgeoareamonitorsource_timerevent_callback(this, cbval1);
-        } else {
-            QGeoAreaMonitorSource::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGeoAreaMonitorSource::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -455,13 +441,16 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_childevent_isbase) {
             qgeoareamonitorsource_childevent_isbase = false;
             QGeoAreaMonitorSource::childEvent(event);
-        } else if (qgeoareamonitorsource_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgeoareamonitorsource_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgeoareamonitorsource_childevent_callback(this, cbval1);
-        } else {
-            QGeoAreaMonitorSource::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGeoAreaMonitorSource::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,13 +458,16 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_customevent_isbase) {
             qgeoareamonitorsource_customevent_isbase = false;
             QGeoAreaMonitorSource::customEvent(event);
-        } else if (qgeoareamonitorsource_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgeoareamonitorsource_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgeoareamonitorsource_customevent_callback(this, cbval1);
-        } else {
-            QGeoAreaMonitorSource::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGeoAreaMonitorSource::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,15 +475,18 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_connectnotify_isbase) {
             qgeoareamonitorsource_connectnotify_isbase = false;
             QGeoAreaMonitorSource::connectNotify(signal);
-        } else if (qgeoareamonitorsource_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgeoareamonitorsource_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgeoareamonitorsource_connectnotify_callback(this, cbval1);
-        } else {
-            QGeoAreaMonitorSource::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGeoAreaMonitorSource::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,15 +494,18 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_disconnectnotify_isbase) {
             qgeoareamonitorsource_disconnectnotify_isbase = false;
             QGeoAreaMonitorSource::disconnectNotify(signal);
-        } else if (qgeoareamonitorsource_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgeoareamonitorsource_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgeoareamonitorsource_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGeoAreaMonitorSource::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGeoAreaMonitorSource::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,12 +513,13 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_sender_isbase) {
             qgeoareamonitorsource_sender_isbase = false;
             return QGeoAreaMonitorSource::sender();
-        } else if (qgeoareamonitorsource_sender_callback != nullptr) {
-            QObject* callback_ret = qgeoareamonitorsource_sender_callback();
-            return callback_ret;
-        } else {
-            return QGeoAreaMonitorSource::sender();
         }
+        auto sender_cb = qgeoareamonitorsource_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGeoAreaMonitorSource::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,12 +527,13 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_sendersignalindex_isbase) {
             qgeoareamonitorsource_sendersignalindex_isbase = false;
             return QGeoAreaMonitorSource::senderSignalIndex();
-        } else if (qgeoareamonitorsource_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgeoareamonitorsource_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGeoAreaMonitorSource::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgeoareamonitorsource_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGeoAreaMonitorSource::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,14 +541,15 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_receivers_isbase) {
             qgeoareamonitorsource_receivers_isbase = false;
             return QGeoAreaMonitorSource::receivers(signal);
-        } else if (qgeoareamonitorsource_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgeoareamonitorsource_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgeoareamonitorsource_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGeoAreaMonitorSource::receivers(signal);
         }
+        return QGeoAreaMonitorSource::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,16 +557,17 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (qgeoareamonitorsource_issignalconnected_isbase) {
             qgeoareamonitorsource_issignalconnected_isbase = false;
             return QGeoAreaMonitorSource::isSignalConnected(signal);
-        } else if (qgeoareamonitorsource_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgeoareamonitorsource_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgeoareamonitorsource_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoAreaMonitorSource::isSignalConnected(signal);
         }
+        return QGeoAreaMonitorSource::isSignalConnected(signal);
     }
 
     // Friend functions

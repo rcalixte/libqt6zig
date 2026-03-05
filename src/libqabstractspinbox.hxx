@@ -231,77 +231,6 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
     VirtualQAbstractSpinBox(QWidget* parent) : QAbstractSpinBox(parent) {};
     VirtualQAbstractSpinBox() : QAbstractSpinBox() {};
 
-    ~VirtualQAbstractSpinBox() {
-        qabstractspinbox_metaobject_callback = nullptr;
-        qabstractspinbox_metacast_callback = nullptr;
-        qabstractspinbox_metacall_callback = nullptr;
-        qabstractspinbox_sizehint_callback = nullptr;
-        qabstractspinbox_minimumsizehint_callback = nullptr;
-        qabstractspinbox_event_callback = nullptr;
-        qabstractspinbox_inputmethodquery_callback = nullptr;
-        qabstractspinbox_validate_callback = nullptr;
-        qabstractspinbox_fixup_callback = nullptr;
-        qabstractspinbox_stepby_callback = nullptr;
-        qabstractspinbox_clear_callback = nullptr;
-        qabstractspinbox_resizeevent_callback = nullptr;
-        qabstractspinbox_keypressevent_callback = nullptr;
-        qabstractspinbox_keyreleaseevent_callback = nullptr;
-        qabstractspinbox_wheelevent_callback = nullptr;
-        qabstractspinbox_focusinevent_callback = nullptr;
-        qabstractspinbox_focusoutevent_callback = nullptr;
-        qabstractspinbox_contextmenuevent_callback = nullptr;
-        qabstractspinbox_changeevent_callback = nullptr;
-        qabstractspinbox_closeevent_callback = nullptr;
-        qabstractspinbox_hideevent_callback = nullptr;
-        qabstractspinbox_mousepressevent_callback = nullptr;
-        qabstractspinbox_mousereleaseevent_callback = nullptr;
-        qabstractspinbox_mousemoveevent_callback = nullptr;
-        qabstractspinbox_timerevent_callback = nullptr;
-        qabstractspinbox_paintevent_callback = nullptr;
-        qabstractspinbox_showevent_callback = nullptr;
-        qabstractspinbox_initstyleoption_callback = nullptr;
-        qabstractspinbox_stepenabled_callback = nullptr;
-        qabstractspinbox_devtype_callback = nullptr;
-        qabstractspinbox_setvisible_callback = nullptr;
-        qabstractspinbox_heightforwidth_callback = nullptr;
-        qabstractspinbox_hasheightforwidth_callback = nullptr;
-        qabstractspinbox_paintengine_callback = nullptr;
-        qabstractspinbox_mousedoubleclickevent_callback = nullptr;
-        qabstractspinbox_enterevent_callback = nullptr;
-        qabstractspinbox_leaveevent_callback = nullptr;
-        qabstractspinbox_moveevent_callback = nullptr;
-        qabstractspinbox_tabletevent_callback = nullptr;
-        qabstractspinbox_actionevent_callback = nullptr;
-        qabstractspinbox_dragenterevent_callback = nullptr;
-        qabstractspinbox_dragmoveevent_callback = nullptr;
-        qabstractspinbox_dragleaveevent_callback = nullptr;
-        qabstractspinbox_dropevent_callback = nullptr;
-        qabstractspinbox_nativeevent_callback = nullptr;
-        qabstractspinbox_metric_callback = nullptr;
-        qabstractspinbox_initpainter_callback = nullptr;
-        qabstractspinbox_redirected_callback = nullptr;
-        qabstractspinbox_sharedpainter_callback = nullptr;
-        qabstractspinbox_inputmethodevent_callback = nullptr;
-        qabstractspinbox_focusnextprevchild_callback = nullptr;
-        qabstractspinbox_eventfilter_callback = nullptr;
-        qabstractspinbox_childevent_callback = nullptr;
-        qabstractspinbox_customevent_callback = nullptr;
-        qabstractspinbox_connectnotify_callback = nullptr;
-        qabstractspinbox_disconnectnotify_callback = nullptr;
-        qabstractspinbox_lineedit_callback = nullptr;
-        qabstractspinbox_setlineedit_callback = nullptr;
-        qabstractspinbox_updatemicrofocus_callback = nullptr;
-        qabstractspinbox_create_callback = nullptr;
-        qabstractspinbox_destroy_callback = nullptr;
-        qabstractspinbox_focusnextchild_callback = nullptr;
-        qabstractspinbox_focuspreviouschild_callback = nullptr;
-        qabstractspinbox_sender_callback = nullptr;
-        qabstractspinbox_sendersignalindex_callback = nullptr;
-        qabstractspinbox_receivers_callback = nullptr;
-        qabstractspinbox_issignalconnected_callback = nullptr;
-        qabstractspinbox_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractSpinBox_MetaObject_Callback(QAbstractSpinBox_MetaObject_Callback cb) { qabstractspinbox_metaobject_callback = cb; }
     inline void setQAbstractSpinBox_Metacast_Callback(QAbstractSpinBox_Metacast_Callback cb) { qabstractspinbox_metacast_callback = cb; }
@@ -447,12 +376,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_metaobject_isbase) {
             qabstractspinbox_metaobject_isbase = false;
             return QAbstractSpinBox::metaObject();
-        } else if (qabstractspinbox_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qabstractspinbox_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSpinBox::metaObject();
         }
+        auto metaobject_cb = qabstractspinbox_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAbstractSpinBox::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -460,14 +390,15 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_metacast_isbase) {
             qabstractspinbox_metacast_isbase = false;
             return QAbstractSpinBox::qt_metacast(param1);
-        } else if (qabstractspinbox_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qabstractspinbox_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qabstractspinbox_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractSpinBox::qt_metacast(param1);
         }
+        return QAbstractSpinBox::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -475,16 +406,17 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_metacall_isbase) {
             qabstractspinbox_metacall_isbase = false;
             return QAbstractSpinBox::qt_metacall(param1, param2, param3);
-        } else if (qabstractspinbox_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qabstractspinbox_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qabstractspinbox_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSpinBox::qt_metacall(param1, param2, param3);
         }
+        return QAbstractSpinBox::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,12 +424,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_sizehint_isbase) {
             qabstractspinbox_sizehint_isbase = false;
             return QAbstractSpinBox::sizeHint();
-        } else if (qabstractspinbox_sizehint_callback != nullptr) {
-            QSize* callback_ret = qabstractspinbox_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractSpinBox::sizeHint();
         }
+        auto sizehint_cb = qabstractspinbox_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QAbstractSpinBox::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -505,12 +438,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_minimumsizehint_isbase) {
             qabstractspinbox_minimumsizehint_isbase = false;
             return QAbstractSpinBox::minimumSizeHint();
-        } else if (qabstractspinbox_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qabstractspinbox_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QAbstractSpinBox::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qabstractspinbox_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QAbstractSpinBox::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,14 +452,15 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_event_isbase) {
             qabstractspinbox_event_isbase = false;
             return QAbstractSpinBox::event(event);
-        } else if (qabstractspinbox_event_callback != nullptr) {
+        }
+        auto event_cb = qabstractspinbox_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qabstractspinbox_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractSpinBox::event(event);
         }
+        return QAbstractSpinBox::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -533,14 +468,15 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_inputmethodquery_isbase) {
             qabstractspinbox_inputmethodquery_isbase = false;
             return QAbstractSpinBox::inputMethodQuery(param1);
-        } else if (qabstractspinbox_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qabstractspinbox_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qabstractspinbox_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractSpinBox::inputMethodQuery(param1);
         }
+        return QAbstractSpinBox::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,7 +484,9 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_validate_isbase) {
             qabstractspinbox_validate_isbase = false;
             return QAbstractSpinBox::validate(input, pos);
-        } else if (qabstractspinbox_validate_callback != nullptr) {
+        }
+        auto validate_cb = qabstractspinbox_validate_callback;
+        if (validate_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -559,12 +497,11 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
-            int callback_ret = qabstractspinbox_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return QAbstractSpinBox::validate(input, pos);
         }
+        return QAbstractSpinBox::validate(input, pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -572,7 +509,10 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_fixup_isbase) {
             qabstractspinbox_fixup_isbase = false;
             QAbstractSpinBox::fixup(input);
-        } else if (qabstractspinbox_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = qabstractspinbox_fixup_callback;
+        if (fixup_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -582,11 +522,11 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
 
-            qabstractspinbox_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(input_str);
-        } else {
-            QAbstractSpinBox::fixup(input);
+            return;
         }
+        QAbstractSpinBox::fixup(input);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,13 +534,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_stepby_isbase) {
             qabstractspinbox_stepby_isbase = false;
             QAbstractSpinBox::stepBy(steps);
-        } else if (qabstractspinbox_stepby_callback != nullptr) {
+            return;
+        }
+        auto stepby_cb = qabstractspinbox_stepby_callback;
+        if (stepby_cb) {
             int cbval1 = steps;
 
-            qabstractspinbox_stepby_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::stepBy(steps);
+            stepby_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::stepBy(steps);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -608,11 +551,14 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_clear_isbase) {
             qabstractspinbox_clear_isbase = false;
             QAbstractSpinBox::clear();
-        } else if (qabstractspinbox_clear_callback != nullptr) {
-            qabstractspinbox_clear_callback();
-        } else {
-            QAbstractSpinBox::clear();
+            return;
         }
+        auto clear_cb = qabstractspinbox_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        QAbstractSpinBox::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -620,13 +566,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_resizeevent_isbase) {
             qabstractspinbox_resizeevent_isbase = false;
             QAbstractSpinBox::resizeEvent(event);
-        } else if (qabstractspinbox_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qabstractspinbox_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qabstractspinbox_resizeevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,13 +583,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_keypressevent_isbase) {
             qabstractspinbox_keypressevent_isbase = false;
             QAbstractSpinBox::keyPressEvent(event);
-        } else if (qabstractspinbox_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qabstractspinbox_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qabstractspinbox_keypressevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -648,13 +600,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_keyreleaseevent_isbase) {
             qabstractspinbox_keyreleaseevent_isbase = false;
             QAbstractSpinBox::keyReleaseEvent(event);
-        } else if (qabstractspinbox_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qabstractspinbox_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qabstractspinbox_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,13 +617,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_wheelevent_isbase) {
             qabstractspinbox_wheelevent_isbase = false;
             QAbstractSpinBox::wheelEvent(event);
-        } else if (qabstractspinbox_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qabstractspinbox_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qabstractspinbox_wheelevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,13 +634,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_focusinevent_isbase) {
             qabstractspinbox_focusinevent_isbase = false;
             QAbstractSpinBox::focusInEvent(event);
-        } else if (qabstractspinbox_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qabstractspinbox_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qabstractspinbox_focusinevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,13 +651,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_focusoutevent_isbase) {
             qabstractspinbox_focusoutevent_isbase = false;
             QAbstractSpinBox::focusOutEvent(event);
-        } else if (qabstractspinbox_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qabstractspinbox_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qabstractspinbox_focusoutevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -704,13 +668,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_contextmenuevent_isbase) {
             qabstractspinbox_contextmenuevent_isbase = false;
             QAbstractSpinBox::contextMenuEvent(event);
-        } else if (qabstractspinbox_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qabstractspinbox_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qabstractspinbox_contextmenuevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -718,13 +685,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_changeevent_isbase) {
             qabstractspinbox_changeevent_isbase = false;
             QAbstractSpinBox::changeEvent(event);
-        } else if (qabstractspinbox_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qabstractspinbox_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractspinbox_changeevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -732,13 +702,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_closeevent_isbase) {
             qabstractspinbox_closeevent_isbase = false;
             QAbstractSpinBox::closeEvent(event);
-        } else if (qabstractspinbox_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qabstractspinbox_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qabstractspinbox_closeevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -746,13 +719,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_hideevent_isbase) {
             qabstractspinbox_hideevent_isbase = false;
             QAbstractSpinBox::hideEvent(event);
-        } else if (qabstractspinbox_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qabstractspinbox_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qabstractspinbox_hideevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -760,13 +736,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_mousepressevent_isbase) {
             qabstractspinbox_mousepressevent_isbase = false;
             QAbstractSpinBox::mousePressEvent(event);
-        } else if (qabstractspinbox_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qabstractspinbox_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractspinbox_mousepressevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -774,13 +753,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_mousereleaseevent_isbase) {
             qabstractspinbox_mousereleaseevent_isbase = false;
             QAbstractSpinBox::mouseReleaseEvent(event);
-        } else if (qabstractspinbox_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qabstractspinbox_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractspinbox_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,13 +770,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_mousemoveevent_isbase) {
             qabstractspinbox_mousemoveevent_isbase = false;
             QAbstractSpinBox::mouseMoveEvent(event);
-        } else if (qabstractspinbox_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qabstractspinbox_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractspinbox_mousemoveevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,13 +787,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_timerevent_isbase) {
             qabstractspinbox_timerevent_isbase = false;
             QAbstractSpinBox::timerEvent(event);
-        } else if (qabstractspinbox_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qabstractspinbox_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qabstractspinbox_timerevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -816,13 +804,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_paintevent_isbase) {
             qabstractspinbox_paintevent_isbase = false;
             QAbstractSpinBox::paintEvent(event);
-        } else if (qabstractspinbox_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qabstractspinbox_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qabstractspinbox_paintevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,13 +821,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_showevent_isbase) {
             qabstractspinbox_showevent_isbase = false;
             QAbstractSpinBox::showEvent(event);
-        } else if (qabstractspinbox_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qabstractspinbox_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qabstractspinbox_showevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -844,13 +838,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_initstyleoption_isbase) {
             qabstractspinbox_initstyleoption_isbase = false;
             QAbstractSpinBox::initStyleOption(option);
-        } else if (qabstractspinbox_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qabstractspinbox_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionSpinBox* cbval1 = option;
 
-            qabstractspinbox_initstyleoption_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -858,12 +855,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_stepenabled_isbase) {
             qabstractspinbox_stepenabled_isbase = false;
             return QAbstractSpinBox::stepEnabled();
-        } else if (qabstractspinbox_stepenabled_callback != nullptr) {
-            int callback_ret = qabstractspinbox_stepenabled_callback();
-            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
-        } else {
-            return QAbstractSpinBox::stepEnabled();
         }
+        auto stepenabled_cb = qabstractspinbox_stepenabled_callback;
+        if (stepenabled_cb) {
+            int callback_ret = stepenabled_cb();
+            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
+        }
+        return QAbstractSpinBox::stepEnabled();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,12 +869,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_devtype_isbase) {
             qabstractspinbox_devtype_isbase = false;
             return QAbstractSpinBox::devType();
-        } else if (qabstractspinbox_devtype_callback != nullptr) {
-            int callback_ret = qabstractspinbox_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSpinBox::devType();
         }
+        auto devtype_cb = qabstractspinbox_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractSpinBox::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -884,13 +883,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_setvisible_isbase) {
             qabstractspinbox_setvisible_isbase = false;
             QAbstractSpinBox::setVisible(visible);
-        } else if (qabstractspinbox_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qabstractspinbox_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qabstractspinbox_setvisible_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,14 +900,15 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_heightforwidth_isbase) {
             qabstractspinbox_heightforwidth_isbase = false;
             return QAbstractSpinBox::heightForWidth(param1);
-        } else if (qabstractspinbox_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qabstractspinbox_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qabstractspinbox_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSpinBox::heightForWidth(param1);
         }
+        return QAbstractSpinBox::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,12 +916,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_hasheightforwidth_isbase) {
             qabstractspinbox_hasheightforwidth_isbase = false;
             return QAbstractSpinBox::hasHeightForWidth();
-        } else if (qabstractspinbox_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qabstractspinbox_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSpinBox::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qabstractspinbox_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QAbstractSpinBox::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,12 +930,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_paintengine_isbase) {
             qabstractspinbox_paintengine_isbase = false;
             return QAbstractSpinBox::paintEngine();
-        } else if (qabstractspinbox_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qabstractspinbox_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSpinBox::paintEngine();
         }
+        auto paintengine_cb = qabstractspinbox_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QAbstractSpinBox::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -939,13 +944,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_mousedoubleclickevent_isbase) {
             qabstractspinbox_mousedoubleclickevent_isbase = false;
             QAbstractSpinBox::mouseDoubleClickEvent(event);
-        } else if (qabstractspinbox_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qabstractspinbox_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qabstractspinbox_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,13 +961,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_enterevent_isbase) {
             qabstractspinbox_enterevent_isbase = false;
             QAbstractSpinBox::enterEvent(event);
-        } else if (qabstractspinbox_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qabstractspinbox_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qabstractspinbox_enterevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,13 +978,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_leaveevent_isbase) {
             qabstractspinbox_leaveevent_isbase = false;
             QAbstractSpinBox::leaveEvent(event);
-        } else if (qabstractspinbox_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qabstractspinbox_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractspinbox_leaveevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -981,13 +995,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_moveevent_isbase) {
             qabstractspinbox_moveevent_isbase = false;
             QAbstractSpinBox::moveEvent(event);
-        } else if (qabstractspinbox_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qabstractspinbox_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qabstractspinbox_moveevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -995,13 +1012,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_tabletevent_isbase) {
             qabstractspinbox_tabletevent_isbase = false;
             QAbstractSpinBox::tabletEvent(event);
-        } else if (qabstractspinbox_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qabstractspinbox_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qabstractspinbox_tabletevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,13 +1029,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_actionevent_isbase) {
             qabstractspinbox_actionevent_isbase = false;
             QAbstractSpinBox::actionEvent(event);
-        } else if (qabstractspinbox_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qabstractspinbox_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qabstractspinbox_actionevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1023,13 +1046,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_dragenterevent_isbase) {
             qabstractspinbox_dragenterevent_isbase = false;
             QAbstractSpinBox::dragEnterEvent(event);
-        } else if (qabstractspinbox_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qabstractspinbox_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qabstractspinbox_dragenterevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,13 +1063,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_dragmoveevent_isbase) {
             qabstractspinbox_dragmoveevent_isbase = false;
             QAbstractSpinBox::dragMoveEvent(event);
-        } else if (qabstractspinbox_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qabstractspinbox_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qabstractspinbox_dragmoveevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1051,13 +1080,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_dragleaveevent_isbase) {
             qabstractspinbox_dragleaveevent_isbase = false;
             QAbstractSpinBox::dragLeaveEvent(event);
-        } else if (qabstractspinbox_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qabstractspinbox_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qabstractspinbox_dragleaveevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,13 +1097,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_dropevent_isbase) {
             qabstractspinbox_dropevent_isbase = false;
             QAbstractSpinBox::dropEvent(event);
-        } else if (qabstractspinbox_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qabstractspinbox_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qabstractspinbox_dropevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1079,7 +1114,9 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_nativeevent_isbase) {
             qabstractspinbox_nativeevent_isbase = false;
             return QAbstractSpinBox::nativeEvent(eventType, message, result);
-        } else if (qabstractspinbox_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qabstractspinbox_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1090,12 +1127,11 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qabstractspinbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QAbstractSpinBox::nativeEvent(eventType, message, result);
         }
+        return QAbstractSpinBox::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,14 +1139,15 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_metric_isbase) {
             qabstractspinbox_metric_isbase = false;
             return QAbstractSpinBox::metric(param1);
-        } else if (qabstractspinbox_metric_callback != nullptr) {
+        }
+        auto metric_cb = qabstractspinbox_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qabstractspinbox_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSpinBox::metric(param1);
         }
+        return QAbstractSpinBox::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,13 +1155,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_initpainter_isbase) {
             qabstractspinbox_initpainter_isbase = false;
             QAbstractSpinBox::initPainter(painter);
-        } else if (qabstractspinbox_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qabstractspinbox_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qabstractspinbox_initpainter_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1132,14 +1172,15 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_redirected_isbase) {
             qabstractspinbox_redirected_isbase = false;
             return QAbstractSpinBox::redirected(offset);
-        } else if (qabstractspinbox_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qabstractspinbox_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qabstractspinbox_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractSpinBox::redirected(offset);
         }
+        return QAbstractSpinBox::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1147,12 +1188,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_sharedpainter_isbase) {
             qabstractspinbox_sharedpainter_isbase = false;
             return QAbstractSpinBox::sharedPainter();
-        } else if (qabstractspinbox_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qabstractspinbox_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSpinBox::sharedPainter();
         }
+        auto sharedpainter_cb = qabstractspinbox_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QAbstractSpinBox::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1160,13 +1202,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_inputmethodevent_isbase) {
             qabstractspinbox_inputmethodevent_isbase = false;
             QAbstractSpinBox::inputMethodEvent(param1);
-        } else if (qabstractspinbox_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qabstractspinbox_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qabstractspinbox_inputmethodevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1174,14 +1219,15 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_focusnextprevchild_isbase) {
             qabstractspinbox_focusnextprevchild_isbase = false;
             return QAbstractSpinBox::focusNextPrevChild(next);
-        } else if (qabstractspinbox_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qabstractspinbox_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qabstractspinbox_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractSpinBox::focusNextPrevChild(next);
         }
+        return QAbstractSpinBox::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1189,15 +1235,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_eventfilter_isbase) {
             qabstractspinbox_eventfilter_isbase = false;
             return QAbstractSpinBox::eventFilter(watched, event);
-        } else if (qabstractspinbox_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qabstractspinbox_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qabstractspinbox_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractSpinBox::eventFilter(watched, event);
         }
+        return QAbstractSpinBox::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,13 +1252,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_childevent_isbase) {
             qabstractspinbox_childevent_isbase = false;
             QAbstractSpinBox::childEvent(event);
-        } else if (qabstractspinbox_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qabstractspinbox_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qabstractspinbox_childevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,13 +1269,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_customevent_isbase) {
             qabstractspinbox_customevent_isbase = false;
             QAbstractSpinBox::customEvent(event);
-        } else if (qabstractspinbox_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qabstractspinbox_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractspinbox_customevent_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,15 +1286,18 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_connectnotify_isbase) {
             qabstractspinbox_connectnotify_isbase = false;
             QAbstractSpinBox::connectNotify(signal);
-        } else if (qabstractspinbox_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qabstractspinbox_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractspinbox_connectnotify_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1249,15 +1305,18 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_disconnectnotify_isbase) {
             qabstractspinbox_disconnectnotify_isbase = false;
             QAbstractSpinBox::disconnectNotify(signal);
-        } else if (qabstractspinbox_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qabstractspinbox_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractspinbox_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1265,12 +1324,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_lineedit_isbase) {
             qabstractspinbox_lineedit_isbase = false;
             return QAbstractSpinBox::lineEdit();
-        } else if (qabstractspinbox_lineedit_callback != nullptr) {
-            QLineEdit* callback_ret = qabstractspinbox_lineedit_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSpinBox::lineEdit();
         }
+        auto lineedit_cb = qabstractspinbox_lineedit_callback;
+        if (lineedit_cb) {
+            QLineEdit* callback_ret = lineedit_cb();
+            return callback_ret;
+        }
+        return QAbstractSpinBox::lineEdit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,13 +1338,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_setlineedit_isbase) {
             qabstractspinbox_setlineedit_isbase = false;
             QAbstractSpinBox::setLineEdit(edit);
-        } else if (qabstractspinbox_setlineedit_callback != nullptr) {
+            return;
+        }
+        auto setlineedit_cb = qabstractspinbox_setlineedit_callback;
+        if (setlineedit_cb) {
             QLineEdit* cbval1 = edit;
 
-            qabstractspinbox_setlineedit_callback(this, cbval1);
-        } else {
-            QAbstractSpinBox::setLineEdit(edit);
+            setlineedit_cb(this, cbval1);
+            return;
         }
+        QAbstractSpinBox::setLineEdit(edit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1292,11 +1355,14 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_updatemicrofocus_isbase) {
             qabstractspinbox_updatemicrofocus_isbase = false;
             QAbstractSpinBox::updateMicroFocus();
-        } else if (qabstractspinbox_updatemicrofocus_callback != nullptr) {
-            qabstractspinbox_updatemicrofocus_callback();
-        } else {
-            QAbstractSpinBox::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qabstractspinbox_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QAbstractSpinBox::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1304,11 +1370,14 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_create_isbase) {
             qabstractspinbox_create_isbase = false;
             QAbstractSpinBox::create();
-        } else if (qabstractspinbox_create_callback != nullptr) {
-            qabstractspinbox_create_callback();
-        } else {
-            QAbstractSpinBox::create();
+            return;
         }
+        auto create_cb = qabstractspinbox_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QAbstractSpinBox::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1316,11 +1385,14 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_destroy_isbase) {
             qabstractspinbox_destroy_isbase = false;
             QAbstractSpinBox::destroy();
-        } else if (qabstractspinbox_destroy_callback != nullptr) {
-            qabstractspinbox_destroy_callback();
-        } else {
-            QAbstractSpinBox::destroy();
+            return;
         }
+        auto destroy_cb = qabstractspinbox_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QAbstractSpinBox::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1328,12 +1400,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_focusnextchild_isbase) {
             qabstractspinbox_focusnextchild_isbase = false;
             return QAbstractSpinBox::focusNextChild();
-        } else if (qabstractspinbox_focusnextchild_callback != nullptr) {
-            bool callback_ret = qabstractspinbox_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSpinBox::focusNextChild();
         }
+        auto focusnextchild_cb = qabstractspinbox_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QAbstractSpinBox::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1341,12 +1414,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_focuspreviouschild_isbase) {
             qabstractspinbox_focuspreviouschild_isbase = false;
             return QAbstractSpinBox::focusPreviousChild();
-        } else if (qabstractspinbox_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qabstractspinbox_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSpinBox::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qabstractspinbox_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QAbstractSpinBox::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1354,12 +1428,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_sender_isbase) {
             qabstractspinbox_sender_isbase = false;
             return QAbstractSpinBox::sender();
-        } else if (qabstractspinbox_sender_callback != nullptr) {
-            QObject* callback_ret = qabstractspinbox_sender_callback();
-            return callback_ret;
-        } else {
-            return QAbstractSpinBox::sender();
         }
+        auto sender_cb = qabstractspinbox_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAbstractSpinBox::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1367,12 +1442,13 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_sendersignalindex_isbase) {
             qabstractspinbox_sendersignalindex_isbase = false;
             return QAbstractSpinBox::senderSignalIndex();
-        } else if (qabstractspinbox_sendersignalindex_callback != nullptr) {
-            int callback_ret = qabstractspinbox_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSpinBox::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qabstractspinbox_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractSpinBox::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1380,14 +1456,15 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_receivers_isbase) {
             qabstractspinbox_receivers_isbase = false;
             return QAbstractSpinBox::receivers(signal);
-        } else if (qabstractspinbox_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qabstractspinbox_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qabstractspinbox_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractSpinBox::receivers(signal);
         }
+        return QAbstractSpinBox::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1395,16 +1472,17 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_issignalconnected_isbase) {
             qabstractspinbox_issignalconnected_isbase = false;
             return QAbstractSpinBox::isSignalConnected(signal);
-        } else if (qabstractspinbox_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qabstractspinbox_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qabstractspinbox_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractSpinBox::isSignalConnected(signal);
         }
+        return QAbstractSpinBox::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1412,15 +1490,16 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         if (qabstractspinbox_getdecodedmetricf_isbase) {
             qabstractspinbox_getdecodedmetricf_isbase = false;
             return QAbstractSpinBox::getDecodedMetricF(metricA, metricB);
-        } else if (qabstractspinbox_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qabstractspinbox_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qabstractspinbox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QAbstractSpinBox::getDecodedMetricF(metricA, metricB);
         }
+        return QAbstractSpinBox::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

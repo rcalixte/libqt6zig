@@ -77,26 +77,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
   public:
     VirtualQsciAPIs(QsciLexer* lexer) : QsciAPIs(lexer) {};
 
-    ~VirtualQsciAPIs() {
-        qsciapis_metaobject_callback = nullptr;
-        qsciapis_metacast_callback = nullptr;
-        qsciapis_metacall_callback = nullptr;
-        qsciapis_updateautocompletionlist_callback = nullptr;
-        qsciapis_autocompletionselected_callback = nullptr;
-        qsciapis_calltips_callback = nullptr;
-        qsciapis_event_callback = nullptr;
-        qsciapis_eventfilter_callback = nullptr;
-        qsciapis_timerevent_callback = nullptr;
-        qsciapis_childevent_callback = nullptr;
-        qsciapis_customevent_callback = nullptr;
-        qsciapis_connectnotify_callback = nullptr;
-        qsciapis_disconnectnotify_callback = nullptr;
-        qsciapis_sender_callback = nullptr;
-        qsciapis_sendersignalindex_callback = nullptr;
-        qsciapis_receivers_callback = nullptr;
-        qsciapis_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQsciAPIs_MetaObject_Callback(QsciAPIs_MetaObject_Callback cb) { qsciapis_metaobject_callback = cb; }
     inline void setQsciAPIs_Metacast_Callback(QsciAPIs_Metacast_Callback cb) { qsciapis_metacast_callback = cb; }
@@ -140,12 +120,13 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_metaobject_isbase) {
             qsciapis_metaobject_isbase = false;
             return QsciAPIs::metaObject();
-        } else if (qsciapis_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsciapis_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QsciAPIs::metaObject();
         }
+        auto metaobject_cb = qsciapis_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QsciAPIs::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,14 +134,15 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_metacast_isbase) {
             qsciapis_metacast_isbase = false;
             return QsciAPIs::qt_metacast(param1);
-        } else if (qsciapis_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsciapis_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsciapis_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciAPIs::qt_metacast(param1);
         }
+        return QsciAPIs::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,16 +150,17 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_metacall_isbase) {
             qsciapis_metacall_isbase = false;
             return QsciAPIs::qt_metacall(param1, param2, param3);
-        } else if (qsciapis_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsciapis_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsciapis_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QsciAPIs::qt_metacall(param1, param2, param3);
         }
+        return QsciAPIs::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,7 +168,10 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_updateautocompletionlist_isbase) {
             qsciapis_updateautocompletionlist_isbase = false;
             QsciAPIs::updateAutoCompletionList(context, list);
-        } else if (qsciapis_updateautocompletionlist_callback != nullptr) {
+            return;
+        }
+        auto updateautocompletionlist_cb = qsciapis_updateautocompletionlist_callback;
+        if (updateautocompletionlist_cb) {
             const QList<QString>& context_ret = context;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** context_arr = static_cast<const char**>(malloc(sizeof(const char*) * (context_ret.size() + 1)));
@@ -215,12 +201,12 @@ class VirtualQsciAPIs final : public QsciAPIs {
             list_arr[list_ret.size()] = nullptr;
             const char** cbval2 = list_arr;
 
-            qsciapis_updateautocompletionlist_callback(this, cbval1, cbval2);
+            updateautocompletionlist_cb(this, cbval1, cbval2);
             libqt_free(context_arr);
             libqt_free(list_arr);
-        } else {
-            QsciAPIs::updateAutoCompletionList(context, list);
+            return;
         }
+        QsciAPIs::updateAutoCompletionList(context, list);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,7 +214,10 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_autocompletionselected_isbase) {
             qsciapis_autocompletionselected_isbase = false;
             QsciAPIs::autoCompletionSelected(sel);
-        } else if (qsciapis_autocompletionselected_callback != nullptr) {
+            return;
+        }
+        auto autocompletionselected_cb = qsciapis_autocompletionselected_callback;
+        if (autocompletionselected_cb) {
             const QString sel_ret = sel;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray sel_b = sel_ret.toUtf8();
@@ -238,11 +227,11 @@ class VirtualQsciAPIs final : public QsciAPIs {
             ((char*)sel_str)[sel_str_len] = '\0';
             const char* cbval1 = sel_str;
 
-            qsciapis_autocompletionselected_callback(this, cbval1);
+            autocompletionselected_cb(this, cbval1);
             libqt_free(sel_str);
-        } else {
-            QsciAPIs::autoCompletionSelected(sel);
+            return;
         }
+        QsciAPIs::autoCompletionSelected(sel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,7 +239,9 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_calltips_isbase) {
             qsciapis_calltips_isbase = false;
             return QsciAPIs::callTips(context, commas, style, shifts);
-        } else if (qsciapis_calltips_callback != nullptr) {
+        }
+        auto calltips_cb = qsciapis_calltips_callback;
+        if (calltips_cb) {
             const QList<QString>& context_ret = context;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** context_arr = static_cast<const char**>(malloc(sizeof(const char*) * (context_ret.size() + 1)));
@@ -278,7 +269,7 @@ class VirtualQsciAPIs final : public QsciAPIs {
             shifts_out.data = static_cast<void*>(shifts_arr);
             libqt_list /* of int */ cbval4 = shifts_out;
 
-            const char** callback_ret = qsciapis_calltips_callback(this, cbval1, cbval2, cbval3, cbval4);
+            const char** callback_ret = calltips_cb(this, cbval1, cbval2, cbval3, cbval4);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -291,9 +282,8 @@ class VirtualQsciAPIs final : public QsciAPIs {
             libqt_free(context_arr);
             free(shifts_arr);
             return callback_ret_QList;
-        } else {
-            return QsciAPIs::callTips(context, commas, style, shifts);
         }
+        return QsciAPIs::callTips(context, commas, style, shifts);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,14 +291,15 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_event_isbase) {
             qsciapis_event_isbase = false;
             return QsciAPIs::event(e);
-        } else if (qsciapis_event_callback != nullptr) {
+        }
+        auto event_cb = qsciapis_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qsciapis_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciAPIs::event(e);
         }
+        return QsciAPIs::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,15 +307,16 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_eventfilter_isbase) {
             qsciapis_eventfilter_isbase = false;
             return QsciAPIs::eventFilter(watched, event);
-        } else if (qsciapis_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsciapis_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsciapis_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QsciAPIs::eventFilter(watched, event);
         }
+        return QsciAPIs::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,13 +324,16 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_timerevent_isbase) {
             qsciapis_timerevent_isbase = false;
             QsciAPIs::timerEvent(event);
-        } else if (qsciapis_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsciapis_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsciapis_timerevent_callback(this, cbval1);
-        } else {
-            QsciAPIs::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QsciAPIs::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,13 +341,16 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_childevent_isbase) {
             qsciapis_childevent_isbase = false;
             QsciAPIs::childEvent(event);
-        } else if (qsciapis_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsciapis_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsciapis_childevent_callback(this, cbval1);
-        } else {
-            QsciAPIs::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QsciAPIs::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,13 +358,16 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_customevent_isbase) {
             qsciapis_customevent_isbase = false;
             QsciAPIs::customEvent(event);
-        } else if (qsciapis_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsciapis_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsciapis_customevent_callback(this, cbval1);
-        } else {
-            QsciAPIs::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QsciAPIs::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -374,15 +375,18 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_connectnotify_isbase) {
             qsciapis_connectnotify_isbase = false;
             QsciAPIs::connectNotify(signal);
-        } else if (qsciapis_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsciapis_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsciapis_connectnotify_callback(this, cbval1);
-        } else {
-            QsciAPIs::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QsciAPIs::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,15 +394,18 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_disconnectnotify_isbase) {
             qsciapis_disconnectnotify_isbase = false;
             QsciAPIs::disconnectNotify(signal);
-        } else if (qsciapis_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsciapis_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsciapis_disconnectnotify_callback(this, cbval1);
-        } else {
-            QsciAPIs::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QsciAPIs::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -406,12 +413,13 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_sender_isbase) {
             qsciapis_sender_isbase = false;
             return QsciAPIs::sender();
-        } else if (qsciapis_sender_callback != nullptr) {
-            QObject* callback_ret = qsciapis_sender_callback();
-            return callback_ret;
-        } else {
-            return QsciAPIs::sender();
         }
+        auto sender_cb = qsciapis_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QsciAPIs::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -419,12 +427,13 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_sendersignalindex_isbase) {
             qsciapis_sendersignalindex_isbase = false;
             return QsciAPIs::senderSignalIndex();
-        } else if (qsciapis_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsciapis_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciAPIs::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsciapis_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciAPIs::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -432,14 +441,15 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_receivers_isbase) {
             qsciapis_receivers_isbase = false;
             return QsciAPIs::receivers(signal);
-        } else if (qsciapis_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsciapis_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsciapis_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QsciAPIs::receivers(signal);
         }
+        return QsciAPIs::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -447,16 +457,17 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (qsciapis_issignalconnected_isbase) {
             qsciapis_issignalconnected_isbase = false;
             return QsciAPIs::isSignalConnected(signal);
-        } else if (qsciapis_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsciapis_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsciapis_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciAPIs::isSignalConnected(signal);
         }
+        return QsciAPIs::isSignalConnected(signal);
     }
 
     // Friend functions

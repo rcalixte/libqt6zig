@@ -75,25 +75,6 @@ class VirtualKRcc final : public KRcc {
     VirtualKRcc(const QString& filename) : KRcc(filename) {};
     VirtualKRcc(const KRcc& param1) : KRcc(param1) {};
 
-    ~VirtualKRcc() {
-        krcc_dopreparewriting_callback = nullptr;
-        krcc_dofinishwriting_callback = nullptr;
-        krcc_dowritedir_callback = nullptr;
-        krcc_dowritesymlink_callback = nullptr;
-        krcc_openarchive_callback = nullptr;
-        krcc_closearchive_callback = nullptr;
-        krcc_virtualhook_callback = nullptr;
-        krcc_open_callback = nullptr;
-        krcc_close_callback = nullptr;
-        krcc_rootdir_callback = nullptr;
-        krcc_dowritedata_callback = nullptr;
-        krcc_createdevice_callback = nullptr;
-        krcc_seterrorstring_callback = nullptr;
-        krcc_findorcreate_callback = nullptr;
-        krcc_setdevice_callback = nullptr;
-        krcc_setrootdir_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKRcc_DoPrepareWriting_Callback(KRcc_DoPrepareWriting_Callback cb) { krcc_dopreparewriting_callback = cb; }
     inline void setKRcc_DoFinishWriting_Callback(KRcc_DoFinishWriting_Callback cb) { krcc_dofinishwriting_callback = cb; }
@@ -135,7 +116,9 @@ class VirtualKRcc final : public KRcc {
         if (krcc_dopreparewriting_isbase) {
             krcc_dopreparewriting_isbase = false;
             return KRcc::doPrepareWriting(name, user, group, size, perm, atime, mtime, ctime);
-        } else if (krcc_dopreparewriting_callback != nullptr) {
+        }
+        auto dopreparewriting_cb = krcc_dopreparewriting_callback;
+        if (dopreparewriting_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -172,14 +155,13 @@ class VirtualKRcc final : public KRcc {
             // Cast returned reference into pointer
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
 
-            bool callback_ret = krcc_dopreparewriting_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            bool callback_ret = dopreparewriting_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
             libqt_free(name_str);
             libqt_free(user_str);
             libqt_free(group_str);
             return callback_ret;
-        } else {
-            return KRcc::doPrepareWriting(name, user, group, size, perm, atime, mtime, ctime);
         }
+        return KRcc::doPrepareWriting(name, user, group, size, perm, atime, mtime, ctime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +169,15 @@ class VirtualKRcc final : public KRcc {
         if (krcc_dofinishwriting_isbase) {
             krcc_dofinishwriting_isbase = false;
             return KRcc::doFinishWriting(size);
-        } else if (krcc_dofinishwriting_callback != nullptr) {
+        }
+        auto dofinishwriting_cb = krcc_dofinishwriting_callback;
+        if (dofinishwriting_cb) {
             long long cbval1 = static_cast<long long>(size);
 
-            bool callback_ret = krcc_dofinishwriting_callback(this, cbval1);
+            bool callback_ret = dofinishwriting_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRcc::doFinishWriting(size);
         }
+        return KRcc::doFinishWriting(size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,7 +185,9 @@ class VirtualKRcc final : public KRcc {
         if (krcc_dowritedir_isbase) {
             krcc_dowritedir_isbase = false;
             return KRcc::doWriteDir(name, user, group, perm, atime, mtime, ctime);
-        } else if (krcc_dowritedir_callback != nullptr) {
+        }
+        auto dowritedir_cb = krcc_dowritedir_callback;
+        if (dowritedir_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -238,14 +223,13 @@ class VirtualKRcc final : public KRcc {
             // Cast returned reference into pointer
             QDateTime* cbval7 = const_cast<QDateTime*>(&ctime_ret);
 
-            bool callback_ret = krcc_dowritedir_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            bool callback_ret = dowritedir_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             libqt_free(name_str);
             libqt_free(user_str);
             libqt_free(group_str);
             return callback_ret;
-        } else {
-            return KRcc::doWriteDir(name, user, group, perm, atime, mtime, ctime);
         }
+        return KRcc::doWriteDir(name, user, group, perm, atime, mtime, ctime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -253,7 +237,9 @@ class VirtualKRcc final : public KRcc {
         if (krcc_dowritesymlink_isbase) {
             krcc_dowritesymlink_isbase = false;
             return KRcc::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
-        } else if (krcc_dowritesymlink_callback != nullptr) {
+        }
+        auto dowritesymlink_cb = krcc_dowritesymlink_callback;
+        if (dowritesymlink_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -297,15 +283,14 @@ class VirtualKRcc final : public KRcc {
             // Cast returned reference into pointer
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
 
-            bool callback_ret = krcc_dowritesymlink_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            bool callback_ret = dowritesymlink_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
             libqt_free(name_str);
             libqt_free(target_str);
             libqt_free(user_str);
             libqt_free(group_str);
             return callback_ret;
-        } else {
-            return KRcc::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
         }
+        return KRcc::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,14 +298,15 @@ class VirtualKRcc final : public KRcc {
         if (krcc_openarchive_isbase) {
             krcc_openarchive_isbase = false;
             return KRcc::openArchive(mode);
-        } else if (krcc_openarchive_callback != nullptr) {
+        }
+        auto openarchive_cb = krcc_openarchive_callback;
+        if (openarchive_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = krcc_openarchive_callback(this, cbval1);
+            bool callback_ret = openarchive_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRcc::openArchive(mode);
         }
+        return KRcc::openArchive(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -328,12 +314,13 @@ class VirtualKRcc final : public KRcc {
         if (krcc_closearchive_isbase) {
             krcc_closearchive_isbase = false;
             return KRcc::closeArchive();
-        } else if (krcc_closearchive_callback != nullptr) {
-            bool callback_ret = krcc_closearchive_callback();
-            return callback_ret;
-        } else {
-            return KRcc::closeArchive();
         }
+        auto closearchive_cb = krcc_closearchive_callback;
+        if (closearchive_cb) {
+            bool callback_ret = closearchive_cb();
+            return callback_ret;
+        }
+        return KRcc::closeArchive();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -341,14 +328,17 @@ class VirtualKRcc final : public KRcc {
         if (krcc_virtualhook_isbase) {
             krcc_virtualhook_isbase = false;
             KRcc::virtual_hook(id, data);
-        } else if (krcc_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = krcc_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            krcc_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KRcc::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KRcc::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -356,14 +346,15 @@ class VirtualKRcc final : public KRcc {
         if (krcc_open_isbase) {
             krcc_open_isbase = false;
             return KRcc::open(mode);
-        } else if (krcc_open_callback != nullptr) {
+        }
+        auto open_cb = krcc_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = krcc_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRcc::open(mode);
         }
+        return KRcc::open(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -371,12 +362,13 @@ class VirtualKRcc final : public KRcc {
         if (krcc_close_isbase) {
             krcc_close_isbase = false;
             return KRcc::close();
-        } else if (krcc_close_callback != nullptr) {
-            bool callback_ret = krcc_close_callback();
-            return callback_ret;
-        } else {
-            return KRcc::close();
         }
+        auto close_cb = krcc_close_callback;
+        if (close_cb) {
+            bool callback_ret = close_cb();
+            return callback_ret;
+        }
+        return KRcc::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -384,12 +376,13 @@ class VirtualKRcc final : public KRcc {
         if (krcc_rootdir_isbase) {
             krcc_rootdir_isbase = false;
             return KRcc::rootDir();
-        } else if (krcc_rootdir_callback != nullptr) {
-            KArchiveDirectory* callback_ret = krcc_rootdir_callback();
-            return callback_ret;
-        } else {
-            return KRcc::rootDir();
         }
+        auto rootdir_cb = krcc_rootdir_callback;
+        if (rootdir_cb) {
+            KArchiveDirectory* callback_ret = rootdir_cb();
+            return callback_ret;
+        }
+        return KRcc::rootDir();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -397,15 +390,16 @@ class VirtualKRcc final : public KRcc {
         if (krcc_dowritedata_isbase) {
             krcc_dowritedata_isbase = false;
             return KRcc::doWriteData(data, size);
-        } else if (krcc_dowritedata_callback != nullptr) {
+        }
+        auto dowritedata_cb = krcc_dowritedata_callback;
+        if (dowritedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(size);
 
-            bool callback_ret = krcc_dowritedata_callback(this, cbval1, cbval2);
+            bool callback_ret = dowritedata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KRcc::doWriteData(data, size);
         }
+        return KRcc::doWriteData(data, size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -413,14 +407,15 @@ class VirtualKRcc final : public KRcc {
         if (krcc_createdevice_isbase) {
             krcc_createdevice_isbase = false;
             return KRcc::createDevice(mode);
-        } else if (krcc_createdevice_callback != nullptr) {
+        }
+        auto createdevice_cb = krcc_createdevice_callback;
+        if (createdevice_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = krcc_createdevice_callback(this, cbval1);
+            bool callback_ret = createdevice_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRcc::createDevice(mode);
         }
+        return KRcc::createDevice(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -428,7 +423,10 @@ class VirtualKRcc final : public KRcc {
         if (krcc_seterrorstring_isbase) {
             krcc_seterrorstring_isbase = false;
             KRcc::setErrorString(errorStr);
-        } else if (krcc_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = krcc_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorStr_ret = errorStr;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorStr_b = errorStr_ret.toUtf8();
@@ -438,11 +436,11 @@ class VirtualKRcc final : public KRcc {
             ((char*)errorStr_str)[errorStr_str_len] = '\0';
             const char* cbval1 = errorStr_str;
 
-            krcc_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorStr_str);
-        } else {
-            KRcc::setErrorString(errorStr);
+            return;
         }
+        KRcc::setErrorString(errorStr);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,7 +448,9 @@ class VirtualKRcc final : public KRcc {
         if (krcc_findorcreate_isbase) {
             krcc_findorcreate_isbase = false;
             return KRcc::findOrCreate(path);
-        } else if (krcc_findorcreate_callback != nullptr) {
+        }
+        auto findorcreate_cb = krcc_findorcreate_callback;
+        if (findorcreate_cb) {
             const QString path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
@@ -460,12 +460,11 @@ class VirtualKRcc final : public KRcc {
             ((char*)path_str)[path_str_len] = '\0';
             const char* cbval1 = path_str;
 
-            KArchiveDirectory* callback_ret = krcc_findorcreate_callback(this, cbval1);
+            KArchiveDirectory* callback_ret = findorcreate_cb(this, cbval1);
             libqt_free(path_str);
             return callback_ret;
-        } else {
-            return KRcc::findOrCreate(path);
         }
+        return KRcc::findOrCreate(path);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -473,13 +472,16 @@ class VirtualKRcc final : public KRcc {
         if (krcc_setdevice_isbase) {
             krcc_setdevice_isbase = false;
             KRcc::setDevice(dev);
-        } else if (krcc_setdevice_callback != nullptr) {
+            return;
+        }
+        auto setdevice_cb = krcc_setdevice_callback;
+        if (setdevice_cb) {
             QIODevice* cbval1 = dev;
 
-            krcc_setdevice_callback(this, cbval1);
-        } else {
-            KRcc::setDevice(dev);
+            setdevice_cb(this, cbval1);
+            return;
         }
+        KRcc::setDevice(dev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -487,13 +489,16 @@ class VirtualKRcc final : public KRcc {
         if (krcc_setrootdir_isbase) {
             krcc_setrootdir_isbase = false;
             KRcc::setRootDir(rootDir);
-        } else if (krcc_setrootdir_callback != nullptr) {
+            return;
+        }
+        auto setrootdir_cb = krcc_setrootdir_callback;
+        if (setrootdir_cb) {
             KArchiveDirectory* cbval1 = rootDir;
 
-            krcc_setrootdir_callback(this, cbval1);
-        } else {
-            KRcc::setRootDir(rootDir);
+            setrootdir_cb(this, cbval1);
+            return;
         }
+        KRcc::setRootDir(rootDir);
     }
 
     // Friend functions

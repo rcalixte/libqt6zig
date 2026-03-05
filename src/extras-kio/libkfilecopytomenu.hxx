@@ -68,23 +68,6 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
   public:
     VirtualKFileCopyToMenu(QWidget* parentWidget) : KFileCopyToMenu(parentWidget) {};
 
-    ~VirtualKFileCopyToMenu() {
-        kfilecopytomenu_metaobject_callback = nullptr;
-        kfilecopytomenu_metacast_callback = nullptr;
-        kfilecopytomenu_metacall_callback = nullptr;
-        kfilecopytomenu_event_callback = nullptr;
-        kfilecopytomenu_eventfilter_callback = nullptr;
-        kfilecopytomenu_timerevent_callback = nullptr;
-        kfilecopytomenu_childevent_callback = nullptr;
-        kfilecopytomenu_customevent_callback = nullptr;
-        kfilecopytomenu_connectnotify_callback = nullptr;
-        kfilecopytomenu_disconnectnotify_callback = nullptr;
-        kfilecopytomenu_sender_callback = nullptr;
-        kfilecopytomenu_sendersignalindex_callback = nullptr;
-        kfilecopytomenu_receivers_callback = nullptr;
-        kfilecopytomenu_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFileCopyToMenu_MetaObject_Callback(KFileCopyToMenu_MetaObject_Callback cb) { kfilecopytomenu_metaobject_callback = cb; }
     inline void setKFileCopyToMenu_Metacast_Callback(KFileCopyToMenu_Metacast_Callback cb) { kfilecopytomenu_metacast_callback = cb; }
@@ -122,12 +105,13 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_metaobject_isbase) {
             kfilecopytomenu_metaobject_isbase = false;
             return KFileCopyToMenu::metaObject();
-        } else if (kfilecopytomenu_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfilecopytomenu_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFileCopyToMenu::metaObject();
         }
+        auto metaobject_cb = kfilecopytomenu_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFileCopyToMenu::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -135,14 +119,15 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_metacast_isbase) {
             kfilecopytomenu_metacast_isbase = false;
             return KFileCopyToMenu::qt_metacast(param1);
-        } else if (kfilecopytomenu_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfilecopytomenu_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfilecopytomenu_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileCopyToMenu::qt_metacast(param1);
         }
+        return KFileCopyToMenu::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -150,16 +135,17 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_metacall_isbase) {
             kfilecopytomenu_metacall_isbase = false;
             return KFileCopyToMenu::qt_metacall(param1, param2, param3);
-        } else if (kfilecopytomenu_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfilecopytomenu_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfilecopytomenu_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileCopyToMenu::qt_metacall(param1, param2, param3);
         }
+        return KFileCopyToMenu::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -167,14 +153,15 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_event_isbase) {
             kfilecopytomenu_event_isbase = false;
             return KFileCopyToMenu::event(event);
-        } else if (kfilecopytomenu_event_callback != nullptr) {
+        }
+        auto event_cb = kfilecopytomenu_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfilecopytomenu_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileCopyToMenu::event(event);
         }
+        return KFileCopyToMenu::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -182,15 +169,16 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_eventfilter_isbase) {
             kfilecopytomenu_eventfilter_isbase = false;
             return KFileCopyToMenu::eventFilter(watched, event);
-        } else if (kfilecopytomenu_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfilecopytomenu_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kfilecopytomenu_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFileCopyToMenu::eventFilter(watched, event);
         }
+        return KFileCopyToMenu::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -198,13 +186,16 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_timerevent_isbase) {
             kfilecopytomenu_timerevent_isbase = false;
             KFileCopyToMenu::timerEvent(event);
-        } else if (kfilecopytomenu_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfilecopytomenu_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfilecopytomenu_timerevent_callback(this, cbval1);
-        } else {
-            KFileCopyToMenu::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFileCopyToMenu::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,13 +203,16 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_childevent_isbase) {
             kfilecopytomenu_childevent_isbase = false;
             KFileCopyToMenu::childEvent(event);
-        } else if (kfilecopytomenu_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfilecopytomenu_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfilecopytomenu_childevent_callback(this, cbval1);
-        } else {
-            KFileCopyToMenu::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFileCopyToMenu::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,13 +220,16 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_customevent_isbase) {
             kfilecopytomenu_customevent_isbase = false;
             KFileCopyToMenu::customEvent(event);
-        } else if (kfilecopytomenu_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfilecopytomenu_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfilecopytomenu_customevent_callback(this, cbval1);
-        } else {
-            KFileCopyToMenu::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFileCopyToMenu::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,15 +237,18 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_connectnotify_isbase) {
             kfilecopytomenu_connectnotify_isbase = false;
             KFileCopyToMenu::connectNotify(signal);
-        } else if (kfilecopytomenu_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfilecopytomenu_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfilecopytomenu_connectnotify_callback(this, cbval1);
-        } else {
-            KFileCopyToMenu::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFileCopyToMenu::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,15 +256,18 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_disconnectnotify_isbase) {
             kfilecopytomenu_disconnectnotify_isbase = false;
             KFileCopyToMenu::disconnectNotify(signal);
-        } else if (kfilecopytomenu_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfilecopytomenu_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfilecopytomenu_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFileCopyToMenu::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFileCopyToMenu::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,12 +275,13 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_sender_isbase) {
             kfilecopytomenu_sender_isbase = false;
             return KFileCopyToMenu::sender();
-        } else if (kfilecopytomenu_sender_callback != nullptr) {
-            QObject* callback_ret = kfilecopytomenu_sender_callback();
-            return callback_ret;
-        } else {
-            return KFileCopyToMenu::sender();
         }
+        auto sender_cb = kfilecopytomenu_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFileCopyToMenu::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,12 +289,13 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_sendersignalindex_isbase) {
             kfilecopytomenu_sendersignalindex_isbase = false;
             return KFileCopyToMenu::senderSignalIndex();
-        } else if (kfilecopytomenu_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfilecopytomenu_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFileCopyToMenu::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfilecopytomenu_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFileCopyToMenu::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,14 +303,15 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_receivers_isbase) {
             kfilecopytomenu_receivers_isbase = false;
             return KFileCopyToMenu::receivers(signal);
-        } else if (kfilecopytomenu_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfilecopytomenu_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfilecopytomenu_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFileCopyToMenu::receivers(signal);
         }
+        return KFileCopyToMenu::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,16 +319,17 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
         if (kfilecopytomenu_issignalconnected_isbase) {
             kfilecopytomenu_issignalconnected_isbase = false;
             return KFileCopyToMenu::isSignalConnected(signal);
-        } else if (kfilecopytomenu_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfilecopytomenu_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfilecopytomenu_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFileCopyToMenu::isSignalConnected(signal);
         }
+        return KFileCopyToMenu::isSignalConnected(signal);
     }
 
     // Friend functions

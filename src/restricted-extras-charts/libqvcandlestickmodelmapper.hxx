@@ -114,38 +114,6 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
     VirtualQVCandlestickModelMapper() : QVCandlestickModelMapper() {};
     VirtualQVCandlestickModelMapper(QObject* parent) : QVCandlestickModelMapper(parent) {};
 
-    ~VirtualQVCandlestickModelMapper() {
-        qvcandlestickmodelmapper_metaobject_callback = nullptr;
-        qvcandlestickmodelmapper_metacast_callback = nullptr;
-        qvcandlestickmodelmapper_metacall_callback = nullptr;
-        qvcandlestickmodelmapper_orientation_callback = nullptr;
-        qvcandlestickmodelmapper_event_callback = nullptr;
-        qvcandlestickmodelmapper_eventfilter_callback = nullptr;
-        qvcandlestickmodelmapper_timerevent_callback = nullptr;
-        qvcandlestickmodelmapper_childevent_callback = nullptr;
-        qvcandlestickmodelmapper_customevent_callback = nullptr;
-        qvcandlestickmodelmapper_connectnotify_callback = nullptr;
-        qvcandlestickmodelmapper_disconnectnotify_callback = nullptr;
-        qvcandlestickmodelmapper_settimestamp_callback = nullptr;
-        qvcandlestickmodelmapper_timestamp_callback = nullptr;
-        qvcandlestickmodelmapper_setopen_callback = nullptr;
-        qvcandlestickmodelmapper_open_callback = nullptr;
-        qvcandlestickmodelmapper_sethigh_callback = nullptr;
-        qvcandlestickmodelmapper_high_callback = nullptr;
-        qvcandlestickmodelmapper_setlow_callback = nullptr;
-        qvcandlestickmodelmapper_low_callback = nullptr;
-        qvcandlestickmodelmapper_setclose_callback = nullptr;
-        qvcandlestickmodelmapper_close_callback = nullptr;
-        qvcandlestickmodelmapper_setfirstsetsection_callback = nullptr;
-        qvcandlestickmodelmapper_firstsetsection_callback = nullptr;
-        qvcandlestickmodelmapper_setlastsetsection_callback = nullptr;
-        qvcandlestickmodelmapper_lastsetsection_callback = nullptr;
-        qvcandlestickmodelmapper_sender_callback = nullptr;
-        qvcandlestickmodelmapper_sendersignalindex_callback = nullptr;
-        qvcandlestickmodelmapper_receivers_callback = nullptr;
-        qvcandlestickmodelmapper_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQVCandlestickModelMapper_MetaObject_Callback(QVCandlestickModelMapper_MetaObject_Callback cb) { qvcandlestickmodelmapper_metaobject_callback = cb; }
     inline void setQVCandlestickModelMapper_Metacast_Callback(QVCandlestickModelMapper_Metacast_Callback cb) { qvcandlestickmodelmapper_metacast_callback = cb; }
@@ -213,12 +181,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_metaobject_isbase) {
             qvcandlestickmodelmapper_metaobject_isbase = false;
             return QVCandlestickModelMapper::metaObject();
-        } else if (qvcandlestickmodelmapper_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qvcandlestickmodelmapper_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QVCandlestickModelMapper::metaObject();
         }
+        auto metaobject_cb = qvcandlestickmodelmapper_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QVCandlestickModelMapper::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,14 +195,15 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_metacast_isbase) {
             qvcandlestickmodelmapper_metacast_isbase = false;
             return QVCandlestickModelMapper::qt_metacast(param1);
-        } else if (qvcandlestickmodelmapper_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qvcandlestickmodelmapper_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qvcandlestickmodelmapper_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVCandlestickModelMapper::qt_metacast(param1);
         }
+        return QVCandlestickModelMapper::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,16 +211,17 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_metacall_isbase) {
             qvcandlestickmodelmapper_metacall_isbase = false;
             return QVCandlestickModelMapper::qt_metacall(param1, param2, param3);
-        } else if (qvcandlestickmodelmapper_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qvcandlestickmodelmapper_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qvcandlestickmodelmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::qt_metacall(param1, param2, param3);
         }
+        return QVCandlestickModelMapper::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,12 +229,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_orientation_isbase) {
             qvcandlestickmodelmapper_orientation_isbase = false;
             return QVCandlestickModelMapper::orientation();
-        } else if (qvcandlestickmodelmapper_orientation_callback != nullptr) {
-            int callback_ret = qvcandlestickmodelmapper_orientation_callback();
-            return static_cast<Qt::Orientation>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::orientation();
         }
+        auto orientation_cb = qvcandlestickmodelmapper_orientation_callback;
+        if (orientation_cb) {
+            int callback_ret = orientation_cb();
+            return static_cast<Qt::Orientation>(callback_ret);
+        }
+        return QVCandlestickModelMapper::orientation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -271,14 +243,15 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_event_isbase) {
             qvcandlestickmodelmapper_event_isbase = false;
             return QVCandlestickModelMapper::event(event);
-        } else if (qvcandlestickmodelmapper_event_callback != nullptr) {
+        }
+        auto event_cb = qvcandlestickmodelmapper_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qvcandlestickmodelmapper_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVCandlestickModelMapper::event(event);
         }
+        return QVCandlestickModelMapper::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,15 +259,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_eventfilter_isbase) {
             qvcandlestickmodelmapper_eventfilter_isbase = false;
             return QVCandlestickModelMapper::eventFilter(watched, event);
-        } else if (qvcandlestickmodelmapper_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qvcandlestickmodelmapper_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qvcandlestickmodelmapper_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QVCandlestickModelMapper::eventFilter(watched, event);
         }
+        return QVCandlestickModelMapper::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,13 +276,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_timerevent_isbase) {
             qvcandlestickmodelmapper_timerevent_isbase = false;
             QVCandlestickModelMapper::timerEvent(event);
-        } else if (qvcandlestickmodelmapper_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qvcandlestickmodelmapper_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qvcandlestickmodelmapper_timerevent_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,13 +293,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_childevent_isbase) {
             qvcandlestickmodelmapper_childevent_isbase = false;
             QVCandlestickModelMapper::childEvent(event);
-        } else if (qvcandlestickmodelmapper_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qvcandlestickmodelmapper_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qvcandlestickmodelmapper_childevent_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -330,13 +310,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_customevent_isbase) {
             qvcandlestickmodelmapper_customevent_isbase = false;
             QVCandlestickModelMapper::customEvent(event);
-        } else if (qvcandlestickmodelmapper_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qvcandlestickmodelmapper_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qvcandlestickmodelmapper_customevent_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -344,15 +327,18 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_connectnotify_isbase) {
             qvcandlestickmodelmapper_connectnotify_isbase = false;
             QVCandlestickModelMapper::connectNotify(signal);
-        } else if (qvcandlestickmodelmapper_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qvcandlestickmodelmapper_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvcandlestickmodelmapper_connectnotify_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,15 +346,18 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_disconnectnotify_isbase) {
             qvcandlestickmodelmapper_disconnectnotify_isbase = false;
             QVCandlestickModelMapper::disconnectNotify(signal);
-        } else if (qvcandlestickmodelmapper_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qvcandlestickmodelmapper_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvcandlestickmodelmapper_disconnectnotify_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -376,13 +365,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_settimestamp_isbase) {
             qvcandlestickmodelmapper_settimestamp_isbase = false;
             QVCandlestickModelMapper::setTimestamp(timestamp);
-        } else if (qvcandlestickmodelmapper_settimestamp_callback != nullptr) {
+            return;
+        }
+        auto settimestamp_cb = qvcandlestickmodelmapper_settimestamp_callback;
+        if (settimestamp_cb) {
             int cbval1 = timestamp;
 
-            qvcandlestickmodelmapper_settimestamp_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::setTimestamp(timestamp);
+            settimestamp_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::setTimestamp(timestamp);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,12 +382,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_timestamp_isbase) {
             qvcandlestickmodelmapper_timestamp_isbase = false;
             return QVCandlestickModelMapper::timestamp();
-        } else if (qvcandlestickmodelmapper_timestamp_callback != nullptr) {
-            int callback_ret = qvcandlestickmodelmapper_timestamp_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::timestamp();
         }
+        auto timestamp_cb = qvcandlestickmodelmapper_timestamp_callback;
+        if (timestamp_cb) {
+            int callback_ret = timestamp_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVCandlestickModelMapper::timestamp();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -403,13 +396,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_setopen_isbase) {
             qvcandlestickmodelmapper_setopen_isbase = false;
             QVCandlestickModelMapper::setOpen(open);
-        } else if (qvcandlestickmodelmapper_setopen_callback != nullptr) {
+            return;
+        }
+        auto setopen_cb = qvcandlestickmodelmapper_setopen_callback;
+        if (setopen_cb) {
             int cbval1 = open;
 
-            qvcandlestickmodelmapper_setopen_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::setOpen(open);
+            setopen_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::setOpen(open);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -417,12 +413,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_open_isbase) {
             qvcandlestickmodelmapper_open_isbase = false;
             return QVCandlestickModelMapper::open();
-        } else if (qvcandlestickmodelmapper_open_callback != nullptr) {
-            int callback_ret = qvcandlestickmodelmapper_open_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::open();
         }
+        auto open_cb = qvcandlestickmodelmapper_open_callback;
+        if (open_cb) {
+            int callback_ret = open_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVCandlestickModelMapper::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -430,13 +427,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_sethigh_isbase) {
             qvcandlestickmodelmapper_sethigh_isbase = false;
             QVCandlestickModelMapper::setHigh(high);
-        } else if (qvcandlestickmodelmapper_sethigh_callback != nullptr) {
+            return;
+        }
+        auto sethigh_cb = qvcandlestickmodelmapper_sethigh_callback;
+        if (sethigh_cb) {
             int cbval1 = high;
 
-            qvcandlestickmodelmapper_sethigh_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::setHigh(high);
+            sethigh_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::setHigh(high);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,12 +444,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_high_isbase) {
             qvcandlestickmodelmapper_high_isbase = false;
             return QVCandlestickModelMapper::high();
-        } else if (qvcandlestickmodelmapper_high_callback != nullptr) {
-            int callback_ret = qvcandlestickmodelmapper_high_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::high();
         }
+        auto high_cb = qvcandlestickmodelmapper_high_callback;
+        if (high_cb) {
+            int callback_ret = high_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVCandlestickModelMapper::high();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,13 +458,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_setlow_isbase) {
             qvcandlestickmodelmapper_setlow_isbase = false;
             QVCandlestickModelMapper::setLow(low);
-        } else if (qvcandlestickmodelmapper_setlow_callback != nullptr) {
+            return;
+        }
+        auto setlow_cb = qvcandlestickmodelmapper_setlow_callback;
+        if (setlow_cb) {
             int cbval1 = low;
 
-            qvcandlestickmodelmapper_setlow_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::setLow(low);
+            setlow_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::setLow(low);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,12 +475,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_low_isbase) {
             qvcandlestickmodelmapper_low_isbase = false;
             return QVCandlestickModelMapper::low();
-        } else if (qvcandlestickmodelmapper_low_callback != nullptr) {
-            int callback_ret = qvcandlestickmodelmapper_low_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::low();
         }
+        auto low_cb = qvcandlestickmodelmapper_low_callback;
+        if (low_cb) {
+            int callback_ret = low_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVCandlestickModelMapper::low();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,13 +489,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_setclose_isbase) {
             qvcandlestickmodelmapper_setclose_isbase = false;
             QVCandlestickModelMapper::setClose(close);
-        } else if (qvcandlestickmodelmapper_setclose_callback != nullptr) {
+            return;
+        }
+        auto setclose_cb = qvcandlestickmodelmapper_setclose_callback;
+        if (setclose_cb) {
             int cbval1 = close;
 
-            qvcandlestickmodelmapper_setclose_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::setClose(close);
+            setclose_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::setClose(close);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,12 +506,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_close_isbase) {
             qvcandlestickmodelmapper_close_isbase = false;
             return QVCandlestickModelMapper::close();
-        } else if (qvcandlestickmodelmapper_close_callback != nullptr) {
-            int callback_ret = qvcandlestickmodelmapper_close_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::close();
         }
+        auto close_cb = qvcandlestickmodelmapper_close_callback;
+        if (close_cb) {
+            int callback_ret = close_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVCandlestickModelMapper::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,13 +520,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_setfirstsetsection_isbase) {
             qvcandlestickmodelmapper_setfirstsetsection_isbase = false;
             QVCandlestickModelMapper::setFirstSetSection(firstSetSection);
-        } else if (qvcandlestickmodelmapper_setfirstsetsection_callback != nullptr) {
+            return;
+        }
+        auto setfirstsetsection_cb = qvcandlestickmodelmapper_setfirstsetsection_callback;
+        if (setfirstsetsection_cb) {
             int cbval1 = firstSetSection;
 
-            qvcandlestickmodelmapper_setfirstsetsection_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::setFirstSetSection(firstSetSection);
+            setfirstsetsection_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::setFirstSetSection(firstSetSection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,12 +537,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_firstsetsection_isbase) {
             qvcandlestickmodelmapper_firstsetsection_isbase = false;
             return QVCandlestickModelMapper::firstSetSection();
-        } else if (qvcandlestickmodelmapper_firstsetsection_callback != nullptr) {
-            int callback_ret = qvcandlestickmodelmapper_firstsetsection_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::firstSetSection();
         }
+        auto firstsetsection_cb = qvcandlestickmodelmapper_firstsetsection_callback;
+        if (firstsetsection_cb) {
+            int callback_ret = firstsetsection_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVCandlestickModelMapper::firstSetSection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,13 +551,16 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_setlastsetsection_isbase) {
             qvcandlestickmodelmapper_setlastsetsection_isbase = false;
             QVCandlestickModelMapper::setLastSetSection(lastSetSection);
-        } else if (qvcandlestickmodelmapper_setlastsetsection_callback != nullptr) {
+            return;
+        }
+        auto setlastsetsection_cb = qvcandlestickmodelmapper_setlastsetsection_callback;
+        if (setlastsetsection_cb) {
             int cbval1 = lastSetSection;
 
-            qvcandlestickmodelmapper_setlastsetsection_callback(this, cbval1);
-        } else {
-            QVCandlestickModelMapper::setLastSetSection(lastSetSection);
+            setlastsetsection_cb(this, cbval1);
+            return;
         }
+        QVCandlestickModelMapper::setLastSetSection(lastSetSection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,12 +568,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_lastsetsection_isbase) {
             qvcandlestickmodelmapper_lastsetsection_isbase = false;
             return QVCandlestickModelMapper::lastSetSection();
-        } else if (qvcandlestickmodelmapper_lastsetsection_callback != nullptr) {
-            int callback_ret = qvcandlestickmodelmapper_lastsetsection_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::lastSetSection();
         }
+        auto lastsetsection_cb = qvcandlestickmodelmapper_lastsetsection_callback;
+        if (lastsetsection_cb) {
+            int callback_ret = lastsetsection_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVCandlestickModelMapper::lastSetSection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,12 +582,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_sender_isbase) {
             qvcandlestickmodelmapper_sender_isbase = false;
             return QVCandlestickModelMapper::sender();
-        } else if (qvcandlestickmodelmapper_sender_callback != nullptr) {
-            QObject* callback_ret = qvcandlestickmodelmapper_sender_callback();
-            return callback_ret;
-        } else {
-            return QVCandlestickModelMapper::sender();
         }
+        auto sender_cb = qvcandlestickmodelmapper_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QVCandlestickModelMapper::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,12 +596,13 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_sendersignalindex_isbase) {
             qvcandlestickmodelmapper_sendersignalindex_isbase = false;
             return QVCandlestickModelMapper::senderSignalIndex();
-        } else if (qvcandlestickmodelmapper_sendersignalindex_callback != nullptr) {
-            int callback_ret = qvcandlestickmodelmapper_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qvcandlestickmodelmapper_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QVCandlestickModelMapper::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -591,14 +610,15 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_receivers_isbase) {
             qvcandlestickmodelmapper_receivers_isbase = false;
             return QVCandlestickModelMapper::receivers(signal);
-        } else if (qvcandlestickmodelmapper_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qvcandlestickmodelmapper_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qvcandlestickmodelmapper_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QVCandlestickModelMapper::receivers(signal);
         }
+        return QVCandlestickModelMapper::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -606,16 +626,17 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
         if (qvcandlestickmodelmapper_issignalconnected_isbase) {
             qvcandlestickmodelmapper_issignalconnected_isbase = false;
             return QVCandlestickModelMapper::isSignalConnected(signal);
-        } else if (qvcandlestickmodelmapper_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qvcandlestickmodelmapper_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qvcandlestickmodelmapper_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QVCandlestickModelMapper::isSignalConnected(signal);
         }
+        return QVCandlestickModelMapper::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -122,41 +122,6 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
   public:
     VirtualKExtendableItemDelegate(QAbstractItemView* parent) : KExtendableItemDelegate(parent) {};
 
-    ~VirtualKExtendableItemDelegate() {
-        kextendableitemdelegate_metaobject_callback = nullptr;
-        kextendableitemdelegate_metacast_callback = nullptr;
-        kextendableitemdelegate_metacall_callback = nullptr;
-        kextendableitemdelegate_sizehint_callback = nullptr;
-        kextendableitemdelegate_paint_callback = nullptr;
-        kextendableitemdelegate_updateextendergeometry_callback = nullptr;
-        kextendableitemdelegate_createeditor_callback = nullptr;
-        kextendableitemdelegate_seteditordata_callback = nullptr;
-        kextendableitemdelegate_setmodeldata_callback = nullptr;
-        kextendableitemdelegate_updateeditorgeometry_callback = nullptr;
-        kextendableitemdelegate_displaytext_callback = nullptr;
-        kextendableitemdelegate_initstyleoption_callback = nullptr;
-        kextendableitemdelegate_eventfilter_callback = nullptr;
-        kextendableitemdelegate_editorevent_callback = nullptr;
-        kextendableitemdelegate_destroyeditor_callback = nullptr;
-        kextendableitemdelegate_helpevent_callback = nullptr;
-        kextendableitemdelegate_paintingroles_callback = nullptr;
-        kextendableitemdelegate_event_callback = nullptr;
-        kextendableitemdelegate_timerevent_callback = nullptr;
-        kextendableitemdelegate_childevent_callback = nullptr;
-        kextendableitemdelegate_customevent_callback = nullptr;
-        kextendableitemdelegate_connectnotify_callback = nullptr;
-        kextendableitemdelegate_disconnectnotify_callback = nullptr;
-        kextendableitemdelegate_extenderrect_callback = nullptr;
-        kextendableitemdelegate_setextendpixmap_callback = nullptr;
-        kextendableitemdelegate_setcontractpixmap_callback = nullptr;
-        kextendableitemdelegate_extendpixmap_callback = nullptr;
-        kextendableitemdelegate_contractpixmap_callback = nullptr;
-        kextendableitemdelegate_sender_callback = nullptr;
-        kextendableitemdelegate_sendersignalindex_callback = nullptr;
-        kextendableitemdelegate_receivers_callback = nullptr;
-        kextendableitemdelegate_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKExtendableItemDelegate_MetaObject_Callback(KExtendableItemDelegate_MetaObject_Callback cb) { kextendableitemdelegate_metaobject_callback = cb; }
     inline void setKExtendableItemDelegate_Metacast_Callback(KExtendableItemDelegate_Metacast_Callback cb) { kextendableitemdelegate_metacast_callback = cb; }
@@ -230,12 +195,13 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_metaobject_isbase) {
             kextendableitemdelegate_metaobject_isbase = false;
             return KExtendableItemDelegate::metaObject();
-        } else if (kextendableitemdelegate_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kextendableitemdelegate_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KExtendableItemDelegate::metaObject();
         }
+        auto metaobject_cb = kextendableitemdelegate_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KExtendableItemDelegate::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,14 +209,15 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_metacast_isbase) {
             kextendableitemdelegate_metacast_isbase = false;
             return KExtendableItemDelegate::qt_metacast(param1);
-        } else if (kextendableitemdelegate_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kextendableitemdelegate_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kextendableitemdelegate_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KExtendableItemDelegate::qt_metacast(param1);
         }
+        return KExtendableItemDelegate::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,16 +225,17 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_metacall_isbase) {
             kextendableitemdelegate_metacall_isbase = false;
             return KExtendableItemDelegate::qt_metacall(param1, param2, param3);
-        } else if (kextendableitemdelegate_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kextendableitemdelegate_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kextendableitemdelegate_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KExtendableItemDelegate::qt_metacall(param1, param2, param3);
         }
+        return KExtendableItemDelegate::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,7 +243,9 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_sizehint_isbase) {
             kextendableitemdelegate_sizehint_isbase = false;
             return KExtendableItemDelegate::sizeHint(option, index);
-        } else if (kextendableitemdelegate_sizehint_callback != nullptr) {
+        }
+        auto sizehint_cb = kextendableitemdelegate_sizehint_callback;
+        if (sizehint_cb) {
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
             QStyleOptionViewItem* cbval1 = const_cast<QStyleOptionViewItem*>(&option_ret);
@@ -283,11 +253,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = kextendableitemdelegate_sizehint_callback(this, cbval1, cbval2);
+            QSize* callback_ret = sizehint_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KExtendableItemDelegate::sizeHint(option, index);
         }
+        return KExtendableItemDelegate::sizeHint(option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,7 +264,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_paint_isbase) {
             kextendableitemdelegate_paint_isbase = false;
             KExtendableItemDelegate::paint(painter, option, index);
-        } else if (kextendableitemdelegate_paint_callback != nullptr) {
+            return;
+        }
+        auto paint_cb = kextendableitemdelegate_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -304,10 +276,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            kextendableitemdelegate_paint_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KExtendableItemDelegate::paint(painter, option, index);
+            paint_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KExtendableItemDelegate::paint(painter, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,7 +287,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_updateextendergeometry_isbase) {
             kextendableitemdelegate_updateextendergeometry_isbase = false;
             KExtendableItemDelegate::updateExtenderGeometry(extender, option, index);
-        } else if (kextendableitemdelegate_updateextendergeometry_callback != nullptr) {
+            return;
+        }
+        auto updateextendergeometry_cb = kextendableitemdelegate_updateextendergeometry_callback;
+        if (updateextendergeometry_cb) {
             QWidget* cbval1 = extender;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -324,10 +299,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            kextendableitemdelegate_updateextendergeometry_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KExtendableItemDelegate::updateExtenderGeometry(extender, option, index);
+            updateextendergeometry_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KExtendableItemDelegate::updateExtenderGeometry(extender, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,7 +310,9 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_createeditor_isbase) {
             kextendableitemdelegate_createeditor_isbase = false;
             return KExtendableItemDelegate::createEditor(parent, option, index);
-        } else if (kextendableitemdelegate_createeditor_callback != nullptr) {
+        }
+        auto createeditor_cb = kextendableitemdelegate_createeditor_callback;
+        if (createeditor_cb) {
             QWidget* cbval1 = parent;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -344,11 +321,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            QWidget* callback_ret = kextendableitemdelegate_createeditor_callback(this, cbval1, cbval2, cbval3);
+            QWidget* callback_ret = createeditor_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KExtendableItemDelegate::createEditor(parent, option, index);
         }
+        return KExtendableItemDelegate::createEditor(parent, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -356,16 +332,19 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_seteditordata_isbase) {
             kextendableitemdelegate_seteditordata_isbase = false;
             KExtendableItemDelegate::setEditorData(editor, index);
-        } else if (kextendableitemdelegate_seteditordata_callback != nullptr) {
+            return;
+        }
+        auto seteditordata_cb = kextendableitemdelegate_seteditordata_callback;
+        if (seteditordata_cb) {
             QWidget* cbval1 = editor;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            kextendableitemdelegate_seteditordata_callback(this, cbval1, cbval2);
-        } else {
-            KExtendableItemDelegate::setEditorData(editor, index);
+            seteditordata_cb(this, cbval1, cbval2);
+            return;
         }
+        KExtendableItemDelegate::setEditorData(editor, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,17 +352,20 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_setmodeldata_isbase) {
             kextendableitemdelegate_setmodeldata_isbase = false;
             KExtendableItemDelegate::setModelData(editor, model, index);
-        } else if (kextendableitemdelegate_setmodeldata_callback != nullptr) {
+            return;
+        }
+        auto setmodeldata_cb = kextendableitemdelegate_setmodeldata_callback;
+        if (setmodeldata_cb) {
             QWidget* cbval1 = editor;
             QAbstractItemModel* cbval2 = model;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            kextendableitemdelegate_setmodeldata_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KExtendableItemDelegate::setModelData(editor, model, index);
+            setmodeldata_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KExtendableItemDelegate::setModelData(editor, model, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -391,7 +373,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_updateeditorgeometry_isbase) {
             kextendableitemdelegate_updateeditorgeometry_isbase = false;
             KExtendableItemDelegate::updateEditorGeometry(editor, option, index);
-        } else if (kextendableitemdelegate_updateeditorgeometry_callback != nullptr) {
+            return;
+        }
+        auto updateeditorgeometry_cb = kextendableitemdelegate_updateeditorgeometry_callback;
+        if (updateeditorgeometry_cb) {
             QWidget* cbval1 = editor;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -400,10 +385,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            kextendableitemdelegate_updateeditorgeometry_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KExtendableItemDelegate::updateEditorGeometry(editor, option, index);
+            updateeditorgeometry_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KExtendableItemDelegate::updateEditorGeometry(editor, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -411,7 +396,9 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_displaytext_isbase) {
             kextendableitemdelegate_displaytext_isbase = false;
             return KExtendableItemDelegate::displayText(value, locale);
-        } else if (kextendableitemdelegate_displaytext_callback != nullptr) {
+        }
+        auto displaytext_cb = kextendableitemdelegate_displaytext_callback;
+        if (displaytext_cb) {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&value_ret);
@@ -419,12 +406,11 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             // Cast returned reference into pointer
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
 
-            const char* callback_ret = kextendableitemdelegate_displaytext_callback(this, cbval1, cbval2);
+            const char* callback_ret = displaytext_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KExtendableItemDelegate::displayText(value, locale);
         }
+        return KExtendableItemDelegate::displayText(value, locale);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -432,16 +418,19 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_initstyleoption_isbase) {
             kextendableitemdelegate_initstyleoption_isbase = false;
             KExtendableItemDelegate::initStyleOption(option, index);
-        } else if (kextendableitemdelegate_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kextendableitemdelegate_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            kextendableitemdelegate_initstyleoption_callback(this, cbval1, cbval2);
-        } else {
-            KExtendableItemDelegate::initStyleOption(option, index);
+            initstyleoption_cb(this, cbval1, cbval2);
+            return;
         }
+        KExtendableItemDelegate::initStyleOption(option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -449,15 +438,16 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_eventfilter_isbase) {
             kextendableitemdelegate_eventfilter_isbase = false;
             return KExtendableItemDelegate::eventFilter(object, event);
-        } else if (kextendableitemdelegate_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kextendableitemdelegate_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kextendableitemdelegate_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KExtendableItemDelegate::eventFilter(object, event);
         }
+        return KExtendableItemDelegate::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,7 +455,9 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_editorevent_isbase) {
             kextendableitemdelegate_editorevent_isbase = false;
             return KExtendableItemDelegate::editorEvent(event, model, option, index);
-        } else if (kextendableitemdelegate_editorevent_callback != nullptr) {
+        }
+        auto editorevent_cb = kextendableitemdelegate_editorevent_callback;
+        if (editorevent_cb) {
             QEvent* cbval1 = event;
             QAbstractItemModel* cbval2 = model;
             const QStyleOptionViewItem& option_ret = option;
@@ -475,11 +467,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kextendableitemdelegate_editorevent_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = editorevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KExtendableItemDelegate::editorEvent(event, model, option, index);
         }
+        return KExtendableItemDelegate::editorEvent(event, model, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -487,16 +478,19 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_destroyeditor_isbase) {
             kextendableitemdelegate_destroyeditor_isbase = false;
             KExtendableItemDelegate::destroyEditor(editor, index);
-        } else if (kextendableitemdelegate_destroyeditor_callback != nullptr) {
+            return;
+        }
+        auto destroyeditor_cb = kextendableitemdelegate_destroyeditor_callback;
+        if (destroyeditor_cb) {
             QWidget* cbval1 = editor;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            kextendableitemdelegate_destroyeditor_callback(this, cbval1, cbval2);
-        } else {
-            KExtendableItemDelegate::destroyEditor(editor, index);
+            destroyeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        KExtendableItemDelegate::destroyEditor(editor, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -504,7 +498,9 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_helpevent_isbase) {
             kextendableitemdelegate_helpevent_isbase = false;
             return KExtendableItemDelegate::helpEvent(event, view, option, index);
-        } else if (kextendableitemdelegate_helpevent_callback != nullptr) {
+        }
+        auto helpevent_cb = kextendableitemdelegate_helpevent_callback;
+        if (helpevent_cb) {
             QHelpEvent* cbval1 = event;
             QAbstractItemView* cbval2 = view;
             const QStyleOptionViewItem& option_ret = option;
@@ -514,11 +510,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kextendableitemdelegate_helpevent_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = helpevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KExtendableItemDelegate::helpEvent(event, view, option, index);
         }
+        return KExtendableItemDelegate::helpEvent(event, view, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,8 +521,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_paintingroles_isbase) {
             kextendableitemdelegate_paintingroles_isbase = false;
             return KExtendableItemDelegate::paintingRoles();
-        } else if (kextendableitemdelegate_paintingroles_callback != nullptr) {
-            libqt_list /* of int */ callback_ret = kextendableitemdelegate_paintingroles_callback();
+        }
+        auto paintingroles_cb = kextendableitemdelegate_paintingroles_callback;
+        if (paintingroles_cb) {
+            libqt_list /* of int */ callback_ret = paintingroles_cb();
             QList<int> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             int* callback_ret_arr = static_cast<int*>(callback_ret.data);
@@ -536,9 +533,8 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KExtendableItemDelegate::paintingRoles();
         }
+        return KExtendableItemDelegate::paintingRoles();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,14 +542,15 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_event_isbase) {
             kextendableitemdelegate_event_isbase = false;
             return KExtendableItemDelegate::event(event);
-        } else if (kextendableitemdelegate_event_callback != nullptr) {
+        }
+        auto event_cb = kextendableitemdelegate_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kextendableitemdelegate_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KExtendableItemDelegate::event(event);
         }
+        return KExtendableItemDelegate::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,13 +558,16 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_timerevent_isbase) {
             kextendableitemdelegate_timerevent_isbase = false;
             KExtendableItemDelegate::timerEvent(event);
-        } else if (kextendableitemdelegate_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kextendableitemdelegate_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kextendableitemdelegate_timerevent_callback(this, cbval1);
-        } else {
-            KExtendableItemDelegate::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KExtendableItemDelegate::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -575,13 +575,16 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_childevent_isbase) {
             kextendableitemdelegate_childevent_isbase = false;
             KExtendableItemDelegate::childEvent(event);
-        } else if (kextendableitemdelegate_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kextendableitemdelegate_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kextendableitemdelegate_childevent_callback(this, cbval1);
-        } else {
-            KExtendableItemDelegate::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KExtendableItemDelegate::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -589,13 +592,16 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_customevent_isbase) {
             kextendableitemdelegate_customevent_isbase = false;
             KExtendableItemDelegate::customEvent(event);
-        } else if (kextendableitemdelegate_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kextendableitemdelegate_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kextendableitemdelegate_customevent_callback(this, cbval1);
-        } else {
-            KExtendableItemDelegate::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KExtendableItemDelegate::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -603,15 +609,18 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_connectnotify_isbase) {
             kextendableitemdelegate_connectnotify_isbase = false;
             KExtendableItemDelegate::connectNotify(signal);
-        } else if (kextendableitemdelegate_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kextendableitemdelegate_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kextendableitemdelegate_connectnotify_callback(this, cbval1);
-        } else {
-            KExtendableItemDelegate::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KExtendableItemDelegate::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,15 +628,18 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_disconnectnotify_isbase) {
             kextendableitemdelegate_disconnectnotify_isbase = false;
             KExtendableItemDelegate::disconnectNotify(signal);
-        } else if (kextendableitemdelegate_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kextendableitemdelegate_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kextendableitemdelegate_disconnectnotify_callback(this, cbval1);
-        } else {
-            KExtendableItemDelegate::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KExtendableItemDelegate::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,7 +647,9 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_extenderrect_isbase) {
             kextendableitemdelegate_extenderrect_isbase = false;
             return KExtendableItemDelegate::extenderRect(extender, option, index);
-        } else if (kextendableitemdelegate_extenderrect_callback != nullptr) {
+        }
+        auto extenderrect_cb = kextendableitemdelegate_extenderrect_callback;
+        if (extenderrect_cb) {
             QWidget* cbval1 = extender;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -644,11 +658,10 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = kextendableitemdelegate_extenderrect_callback(this, cbval1, cbval2, cbval3);
+            QRect* callback_ret = extenderrect_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KExtendableItemDelegate::extenderRect(extender, option, index);
         }
+        return KExtendableItemDelegate::extenderRect(extender, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -656,15 +669,18 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_setextendpixmap_isbase) {
             kextendableitemdelegate_setextendpixmap_isbase = false;
             KExtendableItemDelegate::setExtendPixmap(pixmap);
-        } else if (kextendableitemdelegate_setextendpixmap_callback != nullptr) {
+            return;
+        }
+        auto setextendpixmap_cb = kextendableitemdelegate_setextendpixmap_callback;
+        if (setextendpixmap_cb) {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval1 = const_cast<QPixmap*>(&pixmap_ret);
 
-            kextendableitemdelegate_setextendpixmap_callback(this, cbval1);
-        } else {
-            KExtendableItemDelegate::setExtendPixmap(pixmap);
+            setextendpixmap_cb(this, cbval1);
+            return;
         }
+        KExtendableItemDelegate::setExtendPixmap(pixmap);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -672,15 +688,18 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_setcontractpixmap_isbase) {
             kextendableitemdelegate_setcontractpixmap_isbase = false;
             KExtendableItemDelegate::setContractPixmap(pixmap);
-        } else if (kextendableitemdelegate_setcontractpixmap_callback != nullptr) {
+            return;
+        }
+        auto setcontractpixmap_cb = kextendableitemdelegate_setcontractpixmap_callback;
+        if (setcontractpixmap_cb) {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval1 = const_cast<QPixmap*>(&pixmap_ret);
 
-            kextendableitemdelegate_setcontractpixmap_callback(this, cbval1);
-        } else {
-            KExtendableItemDelegate::setContractPixmap(pixmap);
+            setcontractpixmap_cb(this, cbval1);
+            return;
         }
+        KExtendableItemDelegate::setContractPixmap(pixmap);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,12 +707,13 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_extendpixmap_isbase) {
             kextendableitemdelegate_extendpixmap_isbase = false;
             return KExtendableItemDelegate::extendPixmap();
-        } else if (kextendableitemdelegate_extendpixmap_callback != nullptr) {
-            QPixmap* callback_ret = kextendableitemdelegate_extendpixmap_callback();
-            return *callback_ret;
-        } else {
-            return KExtendableItemDelegate::extendPixmap();
         }
+        auto extendpixmap_cb = kextendableitemdelegate_extendpixmap_callback;
+        if (extendpixmap_cb) {
+            QPixmap* callback_ret = extendpixmap_cb();
+            return *callback_ret;
+        }
+        return KExtendableItemDelegate::extendPixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -701,12 +721,13 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_contractpixmap_isbase) {
             kextendableitemdelegate_contractpixmap_isbase = false;
             return KExtendableItemDelegate::contractPixmap();
-        } else if (kextendableitemdelegate_contractpixmap_callback != nullptr) {
-            QPixmap* callback_ret = kextendableitemdelegate_contractpixmap_callback();
-            return *callback_ret;
-        } else {
-            return KExtendableItemDelegate::contractPixmap();
         }
+        auto contractpixmap_cb = kextendableitemdelegate_contractpixmap_callback;
+        if (contractpixmap_cb) {
+            QPixmap* callback_ret = contractpixmap_cb();
+            return *callback_ret;
+        }
+        return KExtendableItemDelegate::contractPixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,12 +735,13 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_sender_isbase) {
             kextendableitemdelegate_sender_isbase = false;
             return KExtendableItemDelegate::sender();
-        } else if (kextendableitemdelegate_sender_callback != nullptr) {
-            QObject* callback_ret = kextendableitemdelegate_sender_callback();
-            return callback_ret;
-        } else {
-            return KExtendableItemDelegate::sender();
         }
+        auto sender_cb = kextendableitemdelegate_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KExtendableItemDelegate::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,12 +749,13 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_sendersignalindex_isbase) {
             kextendableitemdelegate_sendersignalindex_isbase = false;
             return KExtendableItemDelegate::senderSignalIndex();
-        } else if (kextendableitemdelegate_sendersignalindex_callback != nullptr) {
-            int callback_ret = kextendableitemdelegate_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KExtendableItemDelegate::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kextendableitemdelegate_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KExtendableItemDelegate::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,14 +763,15 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_receivers_isbase) {
             kextendableitemdelegate_receivers_isbase = false;
             return KExtendableItemDelegate::receivers(signal);
-        } else if (kextendableitemdelegate_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kextendableitemdelegate_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kextendableitemdelegate_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KExtendableItemDelegate::receivers(signal);
         }
+        return KExtendableItemDelegate::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -755,16 +779,17 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
         if (kextendableitemdelegate_issignalconnected_isbase) {
             kextendableitemdelegate_issignalconnected_isbase = false;
             return KExtendableItemDelegate::isSignalConnected(signal);
-        } else if (kextendableitemdelegate_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kextendableitemdelegate_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kextendableitemdelegate_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KExtendableItemDelegate::isSignalConnected(signal);
         }
+        return KExtendableItemDelegate::isSignalConnected(signal);
     }
 
     // Friend functions

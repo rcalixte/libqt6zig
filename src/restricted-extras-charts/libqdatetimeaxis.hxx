@@ -72,24 +72,6 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
     VirtualQDateTimeAxis() : QDateTimeAxis() {};
     VirtualQDateTimeAxis(QObject* parent) : QDateTimeAxis(parent) {};
 
-    ~VirtualQDateTimeAxis() {
-        qdatetimeaxis_metaobject_callback = nullptr;
-        qdatetimeaxis_metacast_callback = nullptr;
-        qdatetimeaxis_metacall_callback = nullptr;
-        qdatetimeaxis_type_callback = nullptr;
-        qdatetimeaxis_event_callback = nullptr;
-        qdatetimeaxis_eventfilter_callback = nullptr;
-        qdatetimeaxis_timerevent_callback = nullptr;
-        qdatetimeaxis_childevent_callback = nullptr;
-        qdatetimeaxis_customevent_callback = nullptr;
-        qdatetimeaxis_connectnotify_callback = nullptr;
-        qdatetimeaxis_disconnectnotify_callback = nullptr;
-        qdatetimeaxis_sender_callback = nullptr;
-        qdatetimeaxis_sendersignalindex_callback = nullptr;
-        qdatetimeaxis_receivers_callback = nullptr;
-        qdatetimeaxis_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDateTimeAxis_MetaObject_Callback(QDateTimeAxis_MetaObject_Callback cb) { qdatetimeaxis_metaobject_callback = cb; }
     inline void setQDateTimeAxis_Metacast_Callback(QDateTimeAxis_Metacast_Callback cb) { qdatetimeaxis_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_metaobject_isbase) {
             qdatetimeaxis_metaobject_isbase = false;
             return QDateTimeAxis::metaObject();
-        } else if (qdatetimeaxis_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdatetimeaxis_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDateTimeAxis::metaObject();
         }
+        auto metaobject_cb = qdatetimeaxis_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDateTimeAxis::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_metacast_isbase) {
             qdatetimeaxis_metacast_isbase = false;
             return QDateTimeAxis::qt_metacast(param1);
-        } else if (qdatetimeaxis_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdatetimeaxis_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdatetimeaxis_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateTimeAxis::qt_metacast(param1);
         }
+        return QDateTimeAxis::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_metacall_isbase) {
             qdatetimeaxis_metacall_isbase = false;
             return QDateTimeAxis::qt_metacall(param1, param2, param3);
-        } else if (qdatetimeaxis_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdatetimeaxis_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdatetimeaxis_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDateTimeAxis::qt_metacall(param1, param2, param3);
         }
+        return QDateTimeAxis::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,12 +159,13 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_type_isbase) {
             qdatetimeaxis_type_isbase = false;
             return QDateTimeAxis::type();
-        } else if (qdatetimeaxis_type_callback != nullptr) {
-            int callback_ret = qdatetimeaxis_type_callback();
-            return static_cast<QAbstractAxis::AxisType>(callback_ret);
-        } else {
-            return QDateTimeAxis::type();
         }
+        auto type_cb = qdatetimeaxis_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QAbstractAxis::AxisType>(callback_ret);
+        }
+        return QDateTimeAxis::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +173,15 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_event_isbase) {
             qdatetimeaxis_event_isbase = false;
             return QDateTimeAxis::event(event);
-        } else if (qdatetimeaxis_event_callback != nullptr) {
+        }
+        auto event_cb = qdatetimeaxis_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdatetimeaxis_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateTimeAxis::event(event);
         }
+        return QDateTimeAxis::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,15 +189,16 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_eventfilter_isbase) {
             qdatetimeaxis_eventfilter_isbase = false;
             return QDateTimeAxis::eventFilter(watched, event);
-        } else if (qdatetimeaxis_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdatetimeaxis_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdatetimeaxis_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDateTimeAxis::eventFilter(watched, event);
         }
+        return QDateTimeAxis::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,13 +206,16 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_timerevent_isbase) {
             qdatetimeaxis_timerevent_isbase = false;
             QDateTimeAxis::timerEvent(event);
-        } else if (qdatetimeaxis_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdatetimeaxis_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdatetimeaxis_timerevent_callback(this, cbval1);
-        } else {
-            QDateTimeAxis::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeAxis::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +223,16 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_childevent_isbase) {
             qdatetimeaxis_childevent_isbase = false;
             QDateTimeAxis::childEvent(event);
-        } else if (qdatetimeaxis_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdatetimeaxis_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdatetimeaxis_childevent_callback(this, cbval1);
-        } else {
-            QDateTimeAxis::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeAxis::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,13 +240,16 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_customevent_isbase) {
             qdatetimeaxis_customevent_isbase = false;
             QDateTimeAxis::customEvent(event);
-        } else if (qdatetimeaxis_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdatetimeaxis_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdatetimeaxis_customevent_callback(this, cbval1);
-        } else {
-            QDateTimeAxis::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeAxis::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,15 +257,18 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_connectnotify_isbase) {
             qdatetimeaxis_connectnotify_isbase = false;
             QDateTimeAxis::connectNotify(signal);
-        } else if (qdatetimeaxis_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdatetimeaxis_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdatetimeaxis_connectnotify_callback(this, cbval1);
-        } else {
-            QDateTimeAxis::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDateTimeAxis::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,15 +276,18 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_disconnectnotify_isbase) {
             qdatetimeaxis_disconnectnotify_isbase = false;
             QDateTimeAxis::disconnectNotify(signal);
-        } else if (qdatetimeaxis_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdatetimeaxis_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdatetimeaxis_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDateTimeAxis::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDateTimeAxis::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +295,13 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_sender_isbase) {
             qdatetimeaxis_sender_isbase = false;
             return QDateTimeAxis::sender();
-        } else if (qdatetimeaxis_sender_callback != nullptr) {
-            QObject* callback_ret = qdatetimeaxis_sender_callback();
-            return callback_ret;
-        } else {
-            return QDateTimeAxis::sender();
         }
+        auto sender_cb = qdatetimeaxis_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDateTimeAxis::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,12 +309,13 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_sendersignalindex_isbase) {
             qdatetimeaxis_sendersignalindex_isbase = false;
             return QDateTimeAxis::senderSignalIndex();
-        } else if (qdatetimeaxis_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdatetimeaxis_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDateTimeAxis::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdatetimeaxis_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDateTimeAxis::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,14 +323,15 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_receivers_isbase) {
             qdatetimeaxis_receivers_isbase = false;
             return QDateTimeAxis::receivers(signal);
-        } else if (qdatetimeaxis_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdatetimeaxis_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdatetimeaxis_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDateTimeAxis::receivers(signal);
         }
+        return QDateTimeAxis::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,16 +339,17 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
         if (qdatetimeaxis_issignalconnected_isbase) {
             qdatetimeaxis_issignalconnected_isbase = false;
             return QDateTimeAxis::isSignalConnected(signal);
-        } else if (qdatetimeaxis_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdatetimeaxis_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdatetimeaxis_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateTimeAxis::isSignalConnected(signal);
         }
+        return QDateTimeAxis::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -69,23 +69,6 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
     VirtualKTextEditorMessage(const QString& richtext) : KTextEditor::Message(richtext) {};
     VirtualKTextEditorMessage(const QString& richtext, KTextEditor::Message::MessageType typeVal) : KTextEditor::Message(richtext, typeVal) {};
 
-    ~VirtualKTextEditorMessage() {
-        ktexteditor__message_metaobject_callback = nullptr;
-        ktexteditor__message_metacast_callback = nullptr;
-        ktexteditor__message_metacall_callback = nullptr;
-        ktexteditor__message_event_callback = nullptr;
-        ktexteditor__message_eventfilter_callback = nullptr;
-        ktexteditor__message_timerevent_callback = nullptr;
-        ktexteditor__message_childevent_callback = nullptr;
-        ktexteditor__message_customevent_callback = nullptr;
-        ktexteditor__message_connectnotify_callback = nullptr;
-        ktexteditor__message_disconnectnotify_callback = nullptr;
-        ktexteditor__message_sender_callback = nullptr;
-        ktexteditor__message_sendersignalindex_callback = nullptr;
-        ktexteditor__message_receivers_callback = nullptr;
-        ktexteditor__message_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKTextEditor__Message_MetaObject_Callback(KTextEditor__Message_MetaObject_Callback cb) { ktexteditor__message_metaobject_callback = cb; }
     inline void setKTextEditor__Message_Metacast_Callback(KTextEditor__Message_Metacast_Callback cb) { ktexteditor__message_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_metaobject_isbase) {
             ktexteditor__message_metaobject_isbase = false;
             return KTextEditor__Message::metaObject();
-        } else if (ktexteditor__message_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktexteditor__message_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__Message::metaObject();
         }
+        auto metaobject_cb = ktexteditor__message_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KTextEditor__Message::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_metacast_isbase) {
             ktexteditor__message_metacast_isbase = false;
             return KTextEditor__Message::qt_metacast(param1);
-        } else if (ktexteditor__message_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktexteditor__message_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktexteditor__message_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__Message::qt_metacast(param1);
         }
+        return KTextEditor__Message::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_metacall_isbase) {
             ktexteditor__message_metacall_isbase = false;
             return KTextEditor__Message::qt_metacall(param1, param2, param3);
-        } else if (ktexteditor__message_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktexteditor__message_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktexteditor__message_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__Message::qt_metacall(param1, param2, param3);
         }
+        return KTextEditor__Message::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_event_isbase) {
             ktexteditor__message_event_isbase = false;
             return KTextEditor__Message::event(event);
-        } else if (ktexteditor__message_event_callback != nullptr) {
+        }
+        auto event_cb = ktexteditor__message_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ktexteditor__message_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__Message::event(event);
         }
+        return KTextEditor__Message::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_eventfilter_isbase) {
             ktexteditor__message_eventfilter_isbase = false;
             return KTextEditor__Message::eventFilter(watched, event);
-        } else if (ktexteditor__message_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktexteditor__message_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ktexteditor__message_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KTextEditor__Message::eventFilter(watched, event);
         }
+        return KTextEditor__Message::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_timerevent_isbase) {
             ktexteditor__message_timerevent_isbase = false;
             KTextEditor__Message::timerEvent(event);
-        } else if (ktexteditor__message_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktexteditor__message_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktexteditor__message_timerevent_callback(this, cbval1);
-        } else {
-            KTextEditor__Message::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__Message::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_childevent_isbase) {
             ktexteditor__message_childevent_isbase = false;
             KTextEditor__Message::childEvent(event);
-        } else if (ktexteditor__message_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktexteditor__message_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktexteditor__message_childevent_callback(this, cbval1);
-        } else {
-            KTextEditor__Message::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__Message::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_customevent_isbase) {
             ktexteditor__message_customevent_isbase = false;
             KTextEditor__Message::customEvent(event);
-        } else if (ktexteditor__message_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktexteditor__message_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktexteditor__message_customevent_callback(this, cbval1);
-        } else {
-            KTextEditor__Message::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__Message::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_connectnotify_isbase) {
             ktexteditor__message_connectnotify_isbase = false;
             KTextEditor__Message::connectNotify(signal);
-        } else if (ktexteditor__message_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktexteditor__message_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktexteditor__message_connectnotify_callback(this, cbval1);
-        } else {
-            KTextEditor__Message::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KTextEditor__Message::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_disconnectnotify_isbase) {
             ktexteditor__message_disconnectnotify_isbase = false;
             KTextEditor__Message::disconnectNotify(signal);
-        } else if (ktexteditor__message_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktexteditor__message_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktexteditor__message_disconnectnotify_callback(this, cbval1);
-        } else {
-            KTextEditor__Message::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KTextEditor__Message::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_sender_isbase) {
             ktexteditor__message_sender_isbase = false;
             return KTextEditor__Message::sender();
-        } else if (ktexteditor__message_sender_callback != nullptr) {
-            QObject* callback_ret = ktexteditor__message_sender_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__Message::sender();
         }
+        auto sender_cb = ktexteditor__message_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KTextEditor__Message::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_sendersignalindex_isbase) {
             ktexteditor__message_sendersignalindex_isbase = false;
             return KTextEditor__Message::senderSignalIndex();
-        } else if (ktexteditor__message_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktexteditor__message_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__Message::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktexteditor__message_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KTextEditor__Message::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_receivers_isbase) {
             ktexteditor__message_receivers_isbase = false;
             return KTextEditor__Message::receivers(signal);
-        } else if (ktexteditor__message_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktexteditor__message_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktexteditor__message_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__Message::receivers(signal);
         }
+        return KTextEditor__Message::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
         if (ktexteditor__message_issignalconnected_isbase) {
             ktexteditor__message_issignalconnected_isbase = false;
             return KTextEditor__Message::isSignalConnected(signal);
-        } else if (ktexteditor__message_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktexteditor__message_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktexteditor__message_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__Message::isSignalConnected(signal);
         }
+        return KTextEditor__Message::isSignalConnected(signal);
     }
 
     // Friend functions
